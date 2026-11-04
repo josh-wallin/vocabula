@@ -13,8 +13,8 @@
 import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { spawn } from 'node:child_process';
 import { chromium, type BrowserContext } from 'playwright-core';
+import { assertPortFree, PREVIEW_PORT, startPreview, stopServers, waitForHttp } from './serve.ts';
 import { assert } from './play.ts';
 import { parsePack } from '../src/data/pack.ts';
 import { parseLemmaList } from '../src/data/loader.ts';
@@ -25,24 +25,18 @@ import { parseLectioFile } from '../src/engine/lectio.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PACK = resolve(ROOT, 'content/private/vocabula-pack.json');
-const PORT = Number(process.env.E2E_PORT ?? 4179);
+const PORT = PREVIEW_PORT;
 const URL = `http://localhost:${PORT}/`;
 const log = (s: string) => console.log(`[e2e auditio] ${s}`);
 /** E2E_SHOTS=<dir>: save screenshots of the Audītiō screens there. */
 const SHOTS = process.env.E2E_SHOTS;
 
-async function waitForServer(): Promise<void> {
-  for (let i = 0; i < 100; i++) {
-    try { if ((await fetch(URL)).ok) return; } catch { /* not up yet */ }
-    await new Promise((r) => setTimeout(r, 100));
-  }
-  throw new Error('preview server did not start');
-}
+const waitForServer = () => waitForHttp(URL);
 
 async function main() {
   if (!existsSync(PACK)) { log('SKIP: private pack not found'); return; }
   if (!existsSync(resolve(ROOT, 'dist/index.html'))) throw new Error('dist/ missing: run npm run build first');
-  if (await fetch(URL).then(() => true, () => false)) throw new Error(`port ${PORT} is already serving something: stop it or set E2E_PORT`);
+  await assertPortFree(PORT, 'E2E_PORT');
 
   // The path as the app builds it, to find the first Audītiō node and everything before it.
   const pack = parsePack(JSON.parse(readFileSync(PACK, 'utf8')));
@@ -66,7 +60,7 @@ async function main() {
   const backupFile = join(mkdtempSync(join(tmpdir(), 'vocabula-e2e-')), 'backup.json');
   writeFileSync(backupFile, JSON.stringify(backup));
 
-  const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { cwd: ROOT, stdio: 'ignore', detached: true });
+  startPreview(ROOT, PORT);
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH ?? '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox', '--autoplay-policy=no-user-gesture-required'] });
   try {
     await waitForServer();
@@ -183,7 +177,7 @@ async function main() {
     log('PASS');
   } finally {
     await browser.close();
-    try { process.kill(-server.pid!, 'SIGTERM'); } catch { server.kill(); }
+    await stopServers();
   }
 }
 

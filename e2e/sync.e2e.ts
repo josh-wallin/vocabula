@@ -12,12 +12,14 @@
  * Device B uses "Sign in & download", syncs and shows A's progress. Then B's
  * session expires: the chip turns into "Sign in", and signing in again goes
  * through the (mocked) Access login and back into the app, which syncs again.
+ * Port: $E2E_SYNC_PORT, else $E2E_PORT + 1, else 4181 (e2e/serve.ts).
  * Skips (exit 0) when content/private/vocabula-pack.json is absent.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { extname, join, resolve } from 'node:path';
 import { chromium, type BrowserContext, type Page } from 'playwright-core';
+import { assertPortFree, SYNC_PORT, listen, stopServers } from './serve.ts';
 import { handleApi, type ApiEnv } from '../worker/api.ts';
 import { FakeD1 } from '../tests/d1fake.ts';
 import { assert, playLesson } from './play.ts';
@@ -25,7 +27,7 @@ import { assert, playLesson } from './play.ts';
 const ROOT = resolve(import.meta.dirname, '..');
 const DIST = resolve(ROOT, 'dist');
 const PACK = resolve(ROOT, 'content/private/vocabula-pack.json');
-const PORT = 4181;
+const PORT = SYNC_PORT;
 const ORIGIN = `http://localhost:${PORT}`;
 const LOGIN = 'https://long-credit-c585.cloudflareaccess.com/cdn-cgi/access/login/vocabula';
 const EMAIL = 'joshua.a.wallin@gmail.com';
@@ -83,7 +85,8 @@ async function main() {
   if (!existsSync(PACK)) { log('SKIP: private pack not found (run scripts/build-pack.ts)'); return; }
   if (!existsSync(join(DIST, 'index.html'))) throw new Error('dist/ missing: run npm run build first');
   const server = createServer((req, res) => { serve(req, res).catch((e) => { console.error(e); res.writeHead(500); res.end(); }); });
-  await new Promise<void>((r) => server.listen(PORT, r));
+  await assertPortFree(PORT, 'E2E_SYNC_PORT');
+  await listen(server, PORT);
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH ?? '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox'] });
   try {
     /* ---- device A: file import, upload, one lesson ---- */
@@ -172,7 +175,7 @@ async function main() {
     log('PASS');
   } finally {
     await browser.close();
-    server.close();
+    await stopServers();
   }
 }
 

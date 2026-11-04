@@ -12,13 +12,13 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { spawn } from 'node:child_process';
 import { chromium } from 'playwright-core';
+import { assertPortFree, PREVIEW_PORT, startPreview, stopServers, waitForHttp } from './serve.ts';
 import { playLesson } from './play.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PACK = resolve(ROOT, 'content/private/vocabula-pack.json');
-const PORT = Number(process.env.E2E_PORT ?? 4179);
+const PORT = PREVIEW_PORT;
 const URL = `http://localhost:${PORT}/`;
 
 /** 0.2 s of 8 kHz 8-bit mono silence. */
@@ -33,21 +33,13 @@ function silentWav(): Buffer {
 function log(s: string) { console.log(`[e2e] ${s}`); }
 function assert(c: unknown, msg: string): asserts c { if (!c) throw new Error(`assertion failed: ${msg}`); }
 
-async function waitForServer(): Promise<void> {
-  for (let i = 0; i < 100; i++) {
-    try { if ((await fetch(URL)).ok) return; } catch { /* not up yet */ }
-    await new Promise((r) => setTimeout(r, 100));
-  }
-  throw new Error('preview server did not start');
-}
+const waitForServer = () => waitForHttp(URL);
 
 async function main() {
   if (!existsSync(PACK)) { log('SKIP: private pack not found (run scripts/build-pack.ts)'); return; }
   if (!existsSync(resolve(ROOT, 'dist/index.html'))) throw new Error('dist/ missing: run npm run build first');
-  // Refuse to test someone else's server (e.g. a preview left running from another checkout).
-  if (await fetch(URL).then(() => true, () => false)) throw new Error(`port ${PORT} is already serving something: stop it or set E2E_PORT`);
-  // Own process group, so the vite child dies with it (killing npx alone leaves vite running).
-  const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { cwd: ROOT, stdio: 'ignore', detached: true });
+  await assertPortFree(PORT, 'E2E_PORT');
+  startPreview(ROOT, PORT);
   const chromePath = process.env.CHROME_PATH ?? '/usr/bin/google-chrome';
   const browser = await chromium.launch({ executablePath: chromePath, headless: true, args: ['--no-sandbox'] });
   try {
@@ -151,7 +143,7 @@ async function main() {
     log('PASS');
   } finally {
     await browser.close();
-    try { process.kill(-server.pid!, 'SIGTERM'); } catch { server.kill(); }
+    await stopServers();
   }
 }
 

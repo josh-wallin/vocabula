@@ -249,6 +249,8 @@ npm run typecheck    # client (tsconfig.json) and Worker (worker/tsconfig.json)
 npm run dev:worker   # wrangler dev: dist/ + /api with local D1 and simulated Access
 ```
 
+Ports (`e2e/serve.ts`): `E2E_PORT` (default 4179) for `vite preview`, `E2E_SYNC_PORT` (else `E2E_PORT`+1, default 4181) for the sync test, `E2E_COMPARE_PORT` (else `E2E_PORT`+2, default 4183) for the voice test. Every script refuses to start when its port is already bound or answering, and stops the servers it started on any exit (including Ctrl-C), waiting until the port is released.
+
 `e2e/sync.e2e.ts` serves `dist/` together with the real Worker handlers (over the node:sqlite D1 fake used by the unit tests) and drives two browser contexts through upload, download, cross-device progress, an expired session and re-login, and an offline lesson synced on reconnect.
 
 The e2e test (`e2e/smoke.e2e.ts`, playwright-core + system Chrome, `CHROME_PATH` to override) serves `dist/`, imports the private pack, plays the first Verba lesson through the DOM (missing one answer on purpose), checks the node stays done after reload, then goes offline, reloads, and plays the next lesson; then Verba II (flagging its first screen) and the first Repetītiō, answering its sentence exercises, and checks the flag is listed in Profile. It refuses to run if its port (4179, or `E2E_PORT`) is already serving something, and runs `vite preview` in its own process group so it is stopped afterwards.

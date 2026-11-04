@@ -8,19 +8,20 @@
  * Checks: Profile isn't needed (the hash opens the page directly), all items render,
  * a missing key shows where to add it, Generate makes one upstream call and a reload
  * plays from the cache, ratings reach the server and the summary updates.
- * Port: $E2E_COMPARE_PORT, else 4183. Needs no private pack.
+ * Port: $E2E_COMPARE_PORT, else $E2E_PORT + 2, else 4183 (e2e/serve.ts). Needs no private pack.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { extname, join, resolve } from 'node:path';
 import { chromium } from 'playwright-core';
+import { assertPortFree, COMPARE_PORT, listen, stopServers } from './serve.ts';
 import { handleTts, type TtsEnv } from '../worker/tts.ts';
 import { COMPARE_ITEMS } from '../src/compare/items.ts';
 import { FakeD1 } from '../tests/d1fake.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const DIST = resolve(ROOT, 'dist');
-const PORT = Number(process.env.E2E_COMPARE_PORT ?? 4183);
+const PORT = COMPARE_PORT;
 const ORIGIN = `http://localhost:${PORT}`;
 const EMAIL = 'joshua.a.wallin@gmail.com';
 
@@ -64,9 +65,9 @@ async function serve(req: IncomingMessage, res: ServerResponse) {
 
 async function main() {
   if (!existsSync(join(DIST, 'index.html'))) throw new Error('dist/ missing: run npm run build first');
-  if (await fetch(ORIGIN).then(() => true, () => false)) throw new Error(`port ${PORT} is already serving something: set E2E_COMPARE_PORT`);
   const server = createServer((req, res) => { serve(req, res).catch((e) => { console.error(e); res.writeHead(500); res.end(); }); });
-  await new Promise<void>((r) => server.listen(PORT, r));
+  await assertPortFree(PORT, 'E2E_COMPARE_PORT');
+  await listen(server, PORT);
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH ?? '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox'] });
   try {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
@@ -118,7 +119,7 @@ async function main() {
     log('PASS');
   } finally {
     await browser.close();
-    server.close();
+    await stopServers();
   }
 }
 
