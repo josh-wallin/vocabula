@@ -3,18 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Vocābula: phone-first offline PWA for drilling Latin vocabulary and paradigms along Wheelock's Latin",
+  "description": "Voc\u0101bula: phone-first offline PWA for drilling Latin vocabulary and paradigms along Wheelock's Latin",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit -p . && vite build",
+    "build": "tsc --noEmit -p . && tsc --noEmit -p worker && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit -p .",
+    "typecheck": "tsc --noEmit -p . && tsc --noEmit -p worker",
     "import:wheelock": "tsx scripts/import-wheelock.ts",
     "deploy": "npm run build && wrangler deploy",
     "test:e2e": "tsx e2e/smoke.e2e.ts",
-    "build:pack": "tsx scripts/build-pack.ts"
+    "build:pack": "tsx scripts/build-pack.ts",
+    "types:worker": "wrangler types worker/types/worker-configuration.d.ts",
+    "dev:worker": "wrangler dev"
   },
   "dependencies": {
     "idb": "^8.0.4",

@@ -74,7 +74,7 @@ export const dayStr = (n: number): string => new Date(n * 86400000).toISOString(
 /* ---------------- ids & hashing ---------------- */
 
 export function uuid(): string {
-  const c = globalThis.crypto;
+  const c = typeof crypto === 'undefined' ? undefined : crypto;
   if (c && typeof c.randomUUID === 'function') return c.randomUUID();
   const b = new Uint8Array(16);
   if (c && typeof c.getRandomValues === 'function') c.getRandomValues(b);

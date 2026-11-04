@@ -3,9 +3,31 @@
   "name": "vocabula",
   "compatibility_date": "2026-11-03",
   "observability": { "enabled": true },
-  // Static app served from the Vite build output. The sync API (Worker + D1) comes later.
+  // Sync API (worker/index.ts). Only /api/* reaches the Worker; everything else is
+  // served straight from the Vite build output with SPA fallback.
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "single-page-application"
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "vocabula", "database_id": "e6fb6276-53c2-4d40-b113-07ae9f295957" }
+  ],
+  "vars": {
+    // Comma-separated emails allowed to use the API (checked against the Cloudflare Access identity).
+    "ALLOWED_EMAILS": "joshua.a.wallin@gmail.com",
+    // Audience tag of the Access application on this Worker (team long-credit-c585.cloudflareaccess.com).
+    // The Worker rejects requests whose ctx.access.aud differs.
+    "ACCESS_AUD": "857e455b94548a9ee78a4f8949cd731bc6f015be252febfa69c4824aebdc7cf3"
+  },
+  // Access itself is enabled in the dashboard (Workers & Pages → vocabula → Access).
+  // This block only simulates it for `wrangler dev` (same aud so the AUD check passes locally).
+  "access": {
+    "dev": {
+      "aud": "857e455b94548a9ee78a4f8949cd731bc6f015be252febfa69c4824aebdc7cf3",
+      "identity": { "email": "joshua.a.wallin@gmail.com" }
+    }
   }
 }

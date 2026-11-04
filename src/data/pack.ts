@@ -51,3 +51,13 @@ export function parsePack(raw: unknown): ContentPack {
   for (const c of p.chapters) if (!byChapter[String(c)]) throw new Error(`Pack has no words for chapter ${c}.`);
   return p as ContentPack;
 }
+
+/** The canonical text of a pack: what the server stores and what its hash covers. */
+export const packText = (pack: ContentPack): string => JSON.stringify(pack);
+
+/** SHA-256 (hex) of the canonical pack text; the server's ETag and the client's If-None-Match. */
+export async function packHash(pack: ContentPack): Promise<string> {
+  const bytes = new TextEncoder().encode(packText(pack));
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
