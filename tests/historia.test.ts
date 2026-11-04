@@ -1,5 +1,5 @@
 /**
- * Historia entries (content/historia/*.json: Suetonius, public-domain Latin; original glosses,
+ * Historia entries (content/historia/*.json: public-domain Latin from many authors; original glosses,
  * translations, essays and questions). Schema and tracing, grading, events, the Worker and the
  * audio manifest always run; the lexicon check (app ids are real words of the app, spelled the
  * same; no app word left unmarked) needs the private pack and is skipped without it.
@@ -37,36 +37,78 @@ const byId = new Map(entries.map((e) => [e.id, e]));
 const clone = (e: HistoriaEntry): HistoriaEntry => JSON.parse(JSON.stringify(e)) as HistoriaEntry;
 
 describe('historia: definitions', () => {
-  it('sixteen entries, one file each, named by id, in order', () => {
+  it('one file per entry, named by id; orders unique, list sorted by order', () => {
     const files = readdirSync(DIR).filter((f) => f.endsWith('.json')).sort();
-    expect(files.length).toBe(16);
+    expect(files.length).toBeGreaterThan(0);
+    expect(entries.length).toBe(files.length);
     for (const f of files) expect(parseHistoriaEntry(JSON.parse(readFileSync(resolve(DIR, f), 'utf8'))).id).toBe(f.replace('.json', ''));
-    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25', 'veg-3', 'agr-30', 'liv-2251', 'liv-548', 'bg-425', 'hadr-11']);
-    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-    // Exactly one verse entry: Hadrian's lines to his soul.
-    expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25']);
+    expect([...entries.map((e) => e.id)].sort()).toEqual(files.map((f) => f.replace('.json', '')));
+    const orders = entries.map((e) => e.order);
+    expect(new Set(orders).size).toBe(orders.length);
+    expect(orders).toEqual([...orders].sort((a, b) => a - b));
+    // Verse entries keep their lines: Hadrian's lines to his soul, the Pompeii wall texts, Catullus, Vergil.
+    const VERSE = new Set(['hadr-25', 'pomp-4', 'cat-85', 'cat-5', 'aen-249', 'aen-6851']);
+    for (const e of entries) expect(!!e.verse, `${e.id} verse`).toBe(VERSE.has(e.id));
   });
+
+  /** Per author: the standard citation form(s), and the named edition and its URL where a batch fixed them. */
+  const AUTHORS: Record<string, { cite: RegExp[]; edition?: RegExp; url?: RegExp }> = {
+    Suetonius: {
+      cite: [/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/],
+      edition: /Loeb Classical Library.*MCMXIII/,
+      url: /^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/,
+    },
+    'Historia Augusta': {
+      cite: [/^HA Hadr\. \d+\.\d+(–\d+)?$/],
+      edition: /Loeb Classical Library.*MCMXXI/,
+      url: /^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Historia_Augusta\/Hadrian\/[12]\*\.html$/,
+    },
+    Vegetius: { cite: [/^Veg\. Mil\. \d+ praef\.$/], edition: /ed\. |does not name/ },
+    Tacitus: { cite: [/^Tac\. Agr\. \d+\.\d+(–\d+)?$/, /^Tac\. Ann\. \d+\.\d+\.\d+(–\d+)?$/], edition: /ed\. .*Damon|Fisher.*1906/ },
+    Livy: {
+      cite: [/^Liv\. \d+\.\d+\.\d+(–\d+)?$/],
+      edition: /Weissenborn.*Müller.*Teubner/,
+      url: /^https:\/\/(raw\.githubusercontent\.com\/PerseusDL\/canonical-latinLit\/master|github\.com\/PerseusDL\/canonical-latinLit\/blob\/master)\/data\/phi0914\/phi001\/phi0914\.phi001\.perseus-lat2\.xml$/,
+    },
+    Caesar: { cite: [/^Caes\. BGall\. \d+\.\d+\.\d+(–\d+)?$/], edition: /ed\. |does not name/ },
+    Cicero: { cite: [/^Cic\. Cat\. \d+\.\d+(–\d+)?$/], edition: /Clark.*1908/ },
+    Augustus: { cite: [/^RG \d+(\.\d+)?$/], edition: /Loeb Classical Library.*Shipley.*1924/ },
+    'Pliny the Younger': {
+      cite: [/^Plin\. Ep\. 10\.\d+\.\d+(; 10\.\d+\.\d+)?$/, /^Plin\. Ep\. \d+\.\d+\.\d+(–\d+)?$/],
+      url: /^https:\/\/(dcc\.dickinson\.edu\/pliny-letters\/|raw\.githubusercontent\.com\/PerseusDL\/canonical-latinLit\/)/,
+    },
+    Seneca: { cite: [/^Sen\. Ep\. \d+\.\d+$/], edition: /Loeb Classical Library.*Gummere/ },
+    'Valerius Maximus': { cite: [/^Val\. Max\. /], edition: /Kempf.*1888/ },
+    'Pompeian inscriptions': { cite: [/^CIL IV \d+(; CIL IV \d+)*$/] },
+    Catullus: {
+      cite: [/^Catull\. \d+(\.\d+–\d+)?$/],
+      edition: /Merrill.*1893/,
+      url: /^https:\/\/raw\.githubusercontent\.com\/PerseusDL\/canonical-latinLit\/master\/data\/phi0472\/phi001\/phi0472\.phi001\.perseus-lat2\.xml$/,
+    },
+    Vergil: {
+      cite: [/^Verg\. Aen\. \d+\.\d+–\d+$/],
+      edition: /Greenough.*1881/,
+      url: /^https:\/\/raw\.githubusercontent\.com\/PerseusDL\/canonical-latinLit\/master\/data\/phi0690\/phi003\/phi0690\.phi003\.perseus-lat2\.xml$/,
+    },
+    Augustine: {
+      cite: [/^Aug\. Conf\. \d+\.\d+\.\d+$/],
+      edition: /Knöll.*1896/,
+      url: /^https:\/\/raw\.githubusercontent\.com\/OpenGreekAndLatin\/csel-dev\//,
+    },
+    'Ammianus Marcellinus': {
+      cite: [/^Amm\. Marc\. \d+\.\d+\.\d+$/],
+      edition: /Loeb Classical Library.*Rolfe/,
+      url: /^https:\/\/raw\.githubusercontent\.com\/PerseusDL\/canonical-latinLit\/master\/data\/stoa0023\//,
+    },
+  };
 
   it('citations: author, work, standard citation, a named edition with its URL among the sources', () => {
     for (const e of entries) {
-      if (e.author === 'Suetonius') {
-        expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
-        expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXIII/);
-        expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
-      } else if (e.author === 'Historia Augusta') {
-        expect(e.citation).toMatch(/^HA Hadr\. \d+\.\d+(–\d+)?$/);
-        expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXXI/);
-        expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Historia_Augusta\/Hadrian\/[12]\*\.html$/);
-      } else {
-        // Other authors: a standard citation and a named edition (or an honest note that the page names none).
-        const cite: Record<string, RegExp> = {
-          Vegetius: /^Veg\. Mil\. \d+ praef\.$/, Tacitus: /^Tac\. Agr\. \d+\.\d+(–\d+)?$/,
-          Livy: /^Liv\. \d+\.\d+\.\d+(–\d+)?$/, Caesar: /^Caes\. BGall\. \d+\.\d+\.\d+(–\d+)?$/,
-        };
-        expect(cite[e.author], `${e.id}: author ${e.author}`).toBeDefined();
-        expect(e.citation).toMatch(cite[e.author]!);
-        expect(e.edition.name).toMatch(/ed\. |does not name/);
-      }
+      const a = AUTHORS[e.author];
+      expect(a, `${e.id}: author ${e.author}`).toBeDefined();
+      expect(a!.cite.some((r) => r.test(e.citation)), `${e.id}: citation ${e.citation}`).toBe(true);
+      if (a!.edition) expect(e.edition.name, e.id).toMatch(a!.edition);
+      if (a!.url) expect(e.edition.url, e.id).toMatch(a!.url);
       expect(e.sources.some((s) => s.url === e.edition.url && s.kind === 'ancient')).toBe(true);
       expect(e.verified).toBe('2026-11-04');
     }
@@ -286,7 +328,11 @@ describe.skipIf(!present)('historia: app ids are the app\'s words (private data)
   const lex = pack ? buildLexicon(pack.lemmas, dccLemmas(), pack.fr ?? []) : null;
   const head = (lemma: string) => lemma.split(/,| \(| \+ /)[0]!.trim();
   /** Same spelling, different word: these tokens are deliberately not linked. */
-  const HOMOGRAPHS = new Set(['cum', 'adeō', 'Gallus']); // Gallus "a Gaul" vs FR gallus "rooster"
+  const HOMOGRAPHS = new Set([
+    'cum', 'adeō',
+    'Gallus', // Gallus "a Gaul" vs FR gallus "rooster"
+    'occidō', // occidō "fall, set" vs occīdō "kill"
+  ]);
 
   it('every app id is a lexicon word whose first citation form is the token\'s headword, macrons included', () => {
     for (const e of entries) for (const t of e.tokens) for (const id of t.app ?? []) {

@@ -1,0 +1,492 @@
+{
+ "id": "liv-107",
+ "order": 11,
+ "title": "Whoever else leaps my walls",
+ "saying": "sīc deinde, quīcumque alius trānsiliet moenia mea",
+ "author": "Livy",
+ "work": "Ab urbe condita",
+ "citation": "Liv. 1.7.2",
+ "setting": "The founding of Rome (traditionally 753 BC)",
+ "edition": {
+  "name": "Titi Livi ab urbe condita, edited by W. Weissenborn and H. J. Müller (Leipzig: Teubner, 1884–1911), public domain, as digitized by the Perseus Digital Library (TEI file phi0914.phi001.perseus-lat2). The file's source description reads, in its own wording: \"Titi Livi ab urbe condita\", \"W. Weissenborn\", \"H. J. Müller\", \"Leipzig\", \"Teubner\", \"1884-1911\" (its title statement names the editors \"Wilhelm Weissenborn\" and \"Moritz Müller\")",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+  "section": "Book 1, chapter 7, section 2 (complete)"
+ },
+ "source_text": "inde cum altercatione congressi certamine irarum ad caedem vertuntur; ibi in turba ictus Remus cecidit. vulgatior fama est ludibrio fratris Remum novos transiluisse muros; inde ab irato Romulo, cum verbis quoque increpitans adiecisset \"sic deinde, quicumque alius transiliet moenia mea,\" interfectum.",
+ "excerpt_note": "Section 1.7.2 complete: Livy's two versions of Remus's death. The edition does not capitalize the first word of a sentence, and neither does this text; its curly quotation marks are given here as straight ones. The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). Both agree word for word; the Oxford text spells volgatior and puts a comma before the quotation, and the Loeb text begins section 2 a sentence earlier.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "altercātiōne: long ā and ō, the usual dictionary quantities (altercor); not machine-checked.",
+   "vulgātior: long ā (participle of vulgō); not machine-checked.",
+   "lūdibriō: long ū (lūdus); not machine-checked.",
+   "trānsiluisse, trānsiliet: long ā in trāns-; the i of -siluī is short; not machine-checked.",
+   "ictus: short i (from īciō, with long ī in the present stem); not machine-checked.",
+   "adiēcisset: long ē in the perfect stem adiēc-; not machine-checked.",
+   "increpitāns: long ā in the participle ending; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "inde",
+   "lemma": "inde",
+   "parse": "adverb",
+   "gloss": "then, next"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum (+ abl.)",
+   "parse": "preposition",
+   "gloss": "with",
+   "app": [
+    "cum-indecl"
+   ]
+  },
+  {
+   "w": "altercātiōne",
+   "lemma": "altercātiō, altercātiōnis, f.",
+   "parse": "abl. sg.",
+   "gloss": "a quarrel, wrangling"
+  },
+  {
+   "w": "congressī",
+   "lemma": "congredior, congredī, congressus sum",
+   "parse": "perf. participle (deponent), nom. pl. m.",
+   "gloss": "having come to grips"
+  },
+  {
+   "w": "certāmine",
+   "lemma": "certāmen, certāminis, n.",
+   "parse": "abl. sg. (with īrārum: \"in the heat of their angry rivalry\")",
+   "gloss": "in the heat of rivalry"
+  },
+  {
+   "w": "īrārum",
+   "lemma": "īra, īrae, f.",
+   "parse": "gen. pl.",
+   "gloss": "of anger, of their rage",
+   "app": [
+    "ira-n1"
+   ]
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "caedem",
+   "lemma": "caedēs, caedis, f.",
+   "parse": "acc. sg.",
+   "gloss": "bloodshed, killing",
+   "app": [
+    "caedes-n3i"
+   ]
+  },
+  {
+   "w": "vertuntur",
+   "p": ";",
+   "lemma": "vertō, vertere, vertī, versum",
+   "parse": "3rd pl. pres. ind. pass. (middle sense: \"they turn\"); vivid present",
+   "gloss": "they turn",
+   "app": [
+    "verto-v3"
+   ]
+  },
+  {
+   "w": "ibi",
+   "lemma": "ibi",
+   "parse": "adverb",
+   "gloss": "there",
+   "app": [
+    "ibi-indecl"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "turbā",
+   "lemma": "turba, turbae, f.",
+   "parse": "abl. sg.",
+   "gloss": "the crowd, the crush",
+   "app": [
+    "turba-n1"
+   ]
+  },
+  {
+   "w": "ictus",
+   "lemma": "īciō, īcere, īcī, ictum",
+   "parse": "perf. pass. participle, nom. sg. m.",
+   "gloss": "struck"
+  },
+  {
+   "w": "Remus",
+   "lemma": "Remus, Remī, m.",
+   "parse": "nom. sg.",
+   "gloss": "Remus"
+  },
+  {
+   "w": "cecidit",
+   "p": ".",
+   "lemma": "cadō, cadere, cecidī, cāsum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "fell",
+   "app": [
+    "cado-v3"
+   ]
+  },
+  {
+   "w": "vulgātior",
+   "lemma": "vulgātus, vulgāta, vulgātum (comparative vulgātior)",
+   "parse": "comparative adjective, nom. sg. f.",
+   "gloss": "more widespread, more commonly told"
+  },
+  {
+   "w": "fāma",
+   "lemma": "fāma, fāmae, f.",
+   "parse": "nom. sg.",
+   "gloss": "story, report",
+   "app": [
+    "fama-n1"
+   ]
+  },
+  {
+   "w": "est",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "is",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "lūdibriō",
+   "lemma": "lūdibrium, lūdibriī, n.",
+   "parse": "dat. sg. (purpose: \"as a mockery of\")",
+   "gloss": "to mock, as a jeer at"
+  },
+  {
+   "w": "frātris",
+   "lemma": "frāter, frātris, m.",
+   "parse": "gen. sg.",
+   "gloss": "of his brother",
+   "app": [
+    "frater-n3"
+   ]
+  },
+  {
+   "w": "Remum",
+   "lemma": "Remus, Remī, m.",
+   "parse": "acc. sg. (subject of the infinitive: indirect statement after fāma est)",
+   "gloss": "Remus"
+  },
+  {
+   "w": "novōs",
+   "lemma": "novus, nova, novum",
+   "parse": "acc. pl. m.",
+   "gloss": "new",
+   "app": [
+    "novus-adj12"
+   ]
+  },
+  {
+   "w": "trānsiluisse",
+   "lemma": "trānsiliō, trānsilīre, trānsiluī",
+   "parse": "perf. inf. act.",
+   "gloss": "had jumped over"
+  },
+  {
+   "w": "mūrōs",
+   "p": ";",
+   "lemma": "mūrus, mūrī, m.",
+   "parse": "acc. pl.",
+   "gloss": "walls",
+   "app": [
+    "murus-n2m"
+   ]
+  },
+  {
+   "w": "inde",
+   "lemma": "inde",
+   "parse": "adverb",
+   "gloss": "then, as a result"
+  },
+  {
+   "w": "ab",
+   "lemma": "ā, ab (+ abl.)",
+   "parse": "preposition (agent)",
+   "gloss": "by"
+  },
+  {
+   "w": "īrātō",
+   "lemma": "īrātus, īrāta, īrātum",
+   "parse": "abl. sg. m.",
+   "gloss": "angry"
+  },
+  {
+   "w": "Rōmulō",
+   "p": ",",
+   "lemma": "Rōmulus, Rōmulī, m.",
+   "parse": "abl. sg. (agent)",
+   "gloss": "Romulus"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum (conjunction)",
+   "parse": "conjunction (+ subj.)",
+   "gloss": "when",
+   "nolink": true
+  },
+  {
+   "w": "verbīs",
+   "lemma": "verbum, verbī, n.",
+   "parse": "abl. pl.",
+   "gloss": "with words",
+   "app": [
+    "verbum-n2n"
+   ]
+  },
+  {
+   "w": "quoque",
+   "lemma": "quoque",
+   "parse": "adverb",
+   "gloss": "also, too"
+  },
+  {
+   "w": "increpitāns",
+   "lemma": "increpitō, increpitāre",
+   "parse": "pres. participle, nom. sg. m.",
+   "gloss": "taunting"
+  },
+  {
+   "w": "adiēcisset",
+   "lemma": "adiciō, adicere, adiēcī, adiectum",
+   "parse": "3rd sg. pluperf. subj. act. (cum clause)",
+   "gloss": "he had added"
+  },
+  {
+   "w": "sīc",
+   "pre": "\"",
+   "lemma": "sīc",
+   "parse": "adverb",
+   "gloss": "so, thus (a verb such as \"may he perish\" is understood)"
+  },
+  {
+   "w": "deinde",
+   "p": ",",
+   "lemma": "deinde",
+   "parse": "adverb",
+   "gloss": "from now on, hereafter"
+  },
+  {
+   "w": "quīcumque",
+   "lemma": "quīcumque, quaecumque, quodcumque",
+   "parse": "nom. sg. m. (indefinite relative)",
+   "gloss": "whoever"
+  },
+  {
+   "w": "alius",
+   "lemma": "alius, alia, aliud",
+   "parse": "nom. sg. m.",
+   "gloss": "else, other",
+   "app": [
+    "alius-adj-ius"
+   ]
+  },
+  {
+   "w": "trānsiliet",
+   "lemma": "trānsiliō, trānsilīre, trānsiluī",
+   "parse": "3rd sg. fut. ind. act.",
+   "gloss": "will jump over"
+  },
+  {
+   "w": "moenia",
+   "lemma": "moenia, moenium, n.",
+   "parse": "acc. pl.",
+   "gloss": "walls, city walls",
+   "app": [
+    "moenia-n3in"
+   ]
+  },
+  {
+   "w": "mea",
+   "p": ",\"",
+   "lemma": "meus, mea, meum",
+   "parse": "acc. pl. n.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "interfectum",
+   "p": ".",
+   "lemma": "interficiō, interficere, interfēcī, interfectum",
+   "parse": "perf. pass. participle, acc. sg. m. (interfectum [esse]: perf. pass. infinitive, still indirect statement after fāma est)",
+   "gloss": "(was) killed",
+   "app": [
+    "interficio-v3io"
+   ]
+  }
+ ],
+ "translation": "Then, having come to blows in a quarrel, in the heat of their angry rivalry they turned to bloodshed; there, in the crush, Remus was struck and fell. The more widespread story is that Remus, to mock his brother, jumped over the new walls, and that he was then killed by the angry Romulus, who added these taunting words as well: \"So perish, from now on, anyone else who jumps over my walls!\"",
+ "translation_note": "The threat is elliptical: sīc deinde, quīcumque alius trānsiliet moenia mea has no main verb, and something like pereat, \"may he perish\", is understood. The whole second sentence depends on fāma est, \"the story is\", so it is indirect statement (Remum ... trānsiluisse; interfectum [esse]): Livy reports a tale, he does not vouch for it. vertuntur is a vivid present in the middle of past tenses; it is translated as a past.",
+ "essay": [
+  [
+   {
+    "t": "Livy's preface admits that the traditions about the time before Rome was founded are adorned more by poets' tales than by trustworthy records, and says he means neither to affirm nor to refute them.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "In his story the usurper Amulius orders the newborn twins put into running water, but his men, unable to reach the flooded river's channel, leave them in the shallow floodwater; tradition, Livy says, holds that a thirsty she-wolf then suckled them.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Livy at once offers a rationalizing alternative: some think that Faustulus's wife Larentia was called lupa, \"she-wolf\", among the shepherds because she sold her body, and that this gave the fable its start.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Later the twins quarrelled over the auspices for their new city, Remus seeing six vultures first, Romulus twelve.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Livy then gives two versions of Remus's death: struck down in the brawl, or, in the \"more widespread\" story, killed by Romulus for jumping the new walls.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The famous threat belongs only to the second version, which the grammar reports as hearsay; that reading is my own.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Britannica treats Romulus as an invention of later historians, adapted from a widespread Mediterranean folktale, and notes that ancient dates for the founding ranged from 814 to 728 BC.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Archaeology, it says, confirms an early village of thatched huts on the Palatine but dates its beginning to the 10th or 9th century BC.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "In 2005 Andrea Carandini presented an 8th-century building near the shrine of Vesta as \"a palace fit for a king\"; Elizabeth Fentress of the British School at Rome found the palace \"completely convincing\" but said it \"does not have a direct link to the Romulus myth\".",
+    "src": [
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Carandini goes further, arguing that Romulus really founded Rome in the mid-8th century BC; his reviewer Jeremy Lefkowitz warns that non-specialists will struggle to tell accepted views from his controversial proposals.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The bronze she-wolf in Rome's Capitoline Museums may be no ancient witness either: radiocarbon tests reported in 2012 placed it in the 11th–12th century AD, though the date is still debated and the museum admits both possibilities; the twins are Renaissance additions.",
+    "src": [
+     4,
+     6
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "How does Livy say Remus died?",
+   "options": [
+    "Livy gives two versions: killed in a brawl, or by Romulus for leaping the walls",
+    "Livy says he drowned in the Tiber when the twins were exposed as babies",
+    "Livy says Amulius had him killed before the city was ever founded",
+    "Livy says he ruled beside Romulus and died of old age as king"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What rationalizing explanation of the she-wolf does Livy report?",
+   "options": [
+    "Some thought Larentia was called lupa by the shepherds because she sold her body",
+    "The wolf was really a dog",
+    "The story was invented by Augustus",
+    "The wolf was a statue on the Palatine"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What did the 2012 radiocarbon tests suggest about the Capitoline she-wolf?",
+   "options": [
+    "It was cast in the Middle Ages, in the 11th–12th century AD",
+    "It was cast in Rome's founding century, the 8th century BC",
+    "It was cast in Augustus's reign, the 1st century BC",
+    "Its twins were cast together with the wolf in antiquity"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Livy, Ab urbe condita (Latin; Weissenborn–Müller, Teubner 1884–1911), Perseus Digital Library TEI file on GitHub",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Ancient Rome: Rome's foundation myth\"",
+   "url": "https://www.britannica.com/place/ancient-Rome/Romes-foundation-myth",
+   "kind": "modern"
+  },
+  {
+   "label": "Reuters wire story, \"Archaeologist revives fable of Rome\", on Al Jazeera (19 February 2005) (used only for Carandini's claim and Fentress's reply)",
+   "url": "https://www.aljazeera.com/news/2005/2/19/archaeologist-revives-fable-of-rome",
+   "kind": "modern"
+  },
+  {
+   "label": "Live Science, R. Lorenzi, \"Roman Icon Actually Younger Than the City\" (25 June 2012) (news report of the radiocarbon dating)",
+   "url": "https://livescience.com/21165-she-wolf-rome-icon.html",
+   "kind": "modern"
+  },
+  {
+   "label": "J. B. Lefkowitz, review of A. Carandini, Rome: Day One (Princeton University Press, 2011), Bryn Mawr Classical Review 2012.03.39",
+   "url": "https://bmcr.brynmawr.edu/?p=38841",
+   "kind": "modern"
+  },
+  {
+   "label": "J. Neel, \"Capitoline She-wolf\", Smarthistory (LibreTexts edition), on the disputed date",
+   "url": "https://human.libretexts.org/Bookshelves/Art/SmartHistory_of_Art_2e/02:_SmartHistory_of_Art_II-_Ancient_Mediterranean/04:_Ancient_Rome_II/4.01:_Roman_Republic/4.1.04:_Capitoline_She-wolf",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

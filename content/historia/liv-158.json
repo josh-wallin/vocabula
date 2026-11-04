@@ -1,0 +1,439 @@
+{
+ "id": "liv-158",
+ "order": 12,
+ "title": "Lucretia",
+ "saying": "nec ūlla deinde inpudīca Lucrētiae exemplō vīvet",
+ "author": "Livy",
+ "work": "Ab urbe condita",
+ "citation": "Liv. 1.58.10–11",
+ "setting": "Collatia, near Rome, at the end of the monarchy (traditionally 509 BC)",
+ "edition": {
+  "name": "Titi Livi ab urbe condita, edited by W. Weissenborn and H. J. Müller (Leipzig: Teubner, 1884–1911), public domain, as digitized by the Perseus Digital Library (TEI file phi0914.phi001.perseus-lat2). The file's source description reads, in its own wording: \"Titi Livi ab urbe condita\", \"W. Weissenborn\", \"H. J. Müller\", \"Leipzig\", \"Teubner\", \"1884-1911\" (its title statement names the editors \"Wilhelm Weissenborn\" and \"Moritz Müller\")",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+  "section": "Book 1, chapter 58, sections 10–11 (complete)"
+ },
+ "source_text": "\"vos\" inquit \"videritis, quid illi debeatur; ego me etsi peccato absolvo, supplicio non libero; nec ulla deinde inpudica Lucretiae exemplo vivet.\" cultrum, quem sub veste abditum habebat, eum in corde defigit prolapsaque in vulnus moribunda cecidit.",
+ "excerpt_note": "Content note: sexual assault and suicide. Sections 1.58.10–11 complete: Lucretia's last words and her death. The edition spells inpudica (the popular form is impudica, as in the Oxford text) and does not capitalize the first word of a sentence; its curly quotation marks are given here as straight ones. The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). They agree word for word: the Oxford text reads impudica and uolnus, the Loeb inpudica and volnus; both put a colon after debeatur, and the Oxford text has a comma after defigit and none before quid.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "vīderitis: the i before -tis may be long or short (vīderītis / vīderitis) in the perfect subjunctive and future perfect; short is marked.",
+   "inpudīca: long ī, as in pudīcus; not machine-checked.",
+   "Lucrētiae: long ē, the usual dictionary quantity for Lucrētius; not machine-checked.",
+   "prōlāpsa: long ā in the participle lāpsus; not machine-checked.",
+   "dēfīgit: long ē and ī (fīgō); not machine-checked.",
+   "absolvō: short o in the stem; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "vōs",
+   "pre": "\"",
+   "p": "\"",
+   "lemma": "vōs, vestrum (plural of tū)",
+   "parse": "nom. pl.",
+   "gloss": "you (all)"
+  },
+  {
+   "w": "inquit",
+   "lemma": "inquit",
+   "parse": "3rd sg. (defective verb)",
+   "gloss": "she said"
+  },
+  {
+   "w": "vīderitis",
+   "pre": "\"",
+   "p": ",",
+   "lemma": "videō, vidēre, vīdī, vīsum",
+   "parse": "2nd pl. perf. subj. (or fut. perf. ind.) act.: \"you will see to it\"",
+   "gloss": "it is for you to see",
+   "app": [
+    "video-v2"
+   ]
+  },
+  {
+   "w": "quid",
+   "lemma": "quis, quid",
+   "parse": "nom. sg. n. (interrogative; indirect question)",
+   "gloss": "what"
+  },
+  {
+   "w": "illī",
+   "lemma": "ille, illa, illud",
+   "parse": "dat. sg. m.",
+   "gloss": "to him (Sextus Tarquinius)",
+   "app": [
+    "ille-pron-ille"
+   ]
+  },
+  {
+   "w": "dēbeātur",
+   "p": ";",
+   "lemma": "dēbeō, dēbēre, dēbuī, dēbitum",
+   "parse": "3rd sg. pres. subj. pass. (indirect question)",
+   "gloss": "is due",
+   "app": [
+    "debeo-v2"
+   ]
+  },
+  {
+   "w": "ego",
+   "lemma": "ego, meī",
+   "parse": "nom. sg.",
+   "gloss": "I"
+  },
+  {
+   "w": "mē",
+   "lemma": "ego, meī",
+   "parse": "acc. sg.",
+   "gloss": "myself"
+  },
+  {
+   "w": "etsī",
+   "lemma": "etsī",
+   "parse": "conjunction",
+   "gloss": "although, even if"
+  },
+  {
+   "w": "peccātō",
+   "lemma": "peccātum, peccātī, n.",
+   "parse": "abl. sg. (separation)",
+   "gloss": "from wrongdoing, of fault"
+  },
+  {
+   "w": "absolvō",
+   "p": ",",
+   "lemma": "absolvō, absolvere, absolvī, absolūtum",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I acquit, I clear"
+  },
+  {
+   "w": "suppliciō",
+   "lemma": "supplicium, suppliciī, n.",
+   "parse": "abl. sg. (separation)",
+   "gloss": "from punishment",
+   "app": [
+    "supplicium-n2n"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "līberō",
+   "p": ";",
+   "lemma": "līberō, līberāre",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I free"
+  },
+  {
+   "w": "nec",
+   "lemma": "neque (or nec)",
+   "parse": "conjunction",
+   "gloss": "and not, nor"
+  },
+  {
+   "w": "ūlla",
+   "lemma": "ūllus, ūlla, ūllum",
+   "parse": "nom. sg. f.",
+   "gloss": "any (woman)",
+   "app": [
+    "ullus-adj-ius"
+   ]
+  },
+  {
+   "w": "deinde",
+   "lemma": "deinde",
+   "parse": "adverb",
+   "gloss": "hereafter, ever after"
+  },
+  {
+   "w": "inpudīca",
+   "lemma": "inpudīcus (impudīcus), inpudīca, inpudīcum",
+   "parse": "nom. sg. f.",
+   "gloss": "unchaste"
+  },
+  {
+   "w": "Lucrētiae",
+   "lemma": "Lucrētia, Lucrētiae, f.",
+   "parse": "gen. sg.",
+   "gloss": "of Lucretia"
+  },
+  {
+   "w": "exemplō",
+   "lemma": "exemplum, exemplī, n.",
+   "parse": "abl. sg. (means: \"by, with the precedent of\")",
+   "gloss": "example, precedent",
+   "app": [
+    "exemplum-n2n"
+   ]
+  },
+  {
+   "w": "vīvet",
+   "p": ".\"",
+   "lemma": "vīvō, vīvere, vīxī, vīctum",
+   "parse": "3rd sg. fut. ind. act.",
+   "gloss": "will live",
+   "app": [
+    "vivo-v3"
+   ]
+  },
+  {
+   "w": "cultrum",
+   "p": ",",
+   "lemma": "culter, cultrī, m.",
+   "parse": "acc. sg. (object, picked up again by eum)",
+   "gloss": "the knife"
+  },
+  {
+   "w": "quem",
+   "lemma": "quī, quae, quod",
+   "parse": "acc. sg. m. (relative)",
+   "gloss": "which"
+  },
+  {
+   "w": "sub",
+   "lemma": "sub (+ abl.)",
+   "parse": "preposition",
+   "gloss": "under",
+   "app": [
+    "sub-indecl"
+   ]
+  },
+  {
+   "w": "veste",
+   "lemma": "vestis, vestis, f.",
+   "parse": "abl. sg.",
+   "gloss": "her clothing",
+   "app": [
+    "vestis-n3i"
+   ]
+  },
+  {
+   "w": "abditum",
+   "lemma": "abdō, abdere, abdidī, abditum",
+   "parse": "perf. pass. participle, acc. sg. m.",
+   "gloss": "hidden"
+  },
+  {
+   "w": "habēbat",
+   "p": ",",
+   "lemma": "habeō, habēre, habuī, habitum",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "she was keeping",
+   "app": [
+    "habeo-v2"
+   ]
+  },
+  {
+   "w": "eum",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. m. (resumes cultrum)",
+   "gloss": "it"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in, into",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "corde",
+   "lemma": "cor, cordis, n.",
+   "parse": "abl. sg.",
+   "gloss": "heart",
+   "app": [
+    "cor-n3n"
+   ]
+  },
+  {
+   "w": "dēfīgit",
+   "lemma": "dēfīgō, dēfīgere, dēfīxī, dēfīxum",
+   "parse": "3rd sg. pres. ind. act. (vivid present)",
+   "gloss": "she drives (it) deep"
+  },
+  {
+   "w": "prōlāpsaque",
+   "lemma": "prōlābor, prōlābī, prōlāpsus sum + -que",
+   "parse": "perf. participle (deponent), nom. sg. f. + enclitic -que",
+   "gloss": "and slumping forward",
+   "enclitic": "que"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "onto, over",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "vulnus",
+   "lemma": "vulnus, vulneris, n.",
+   "parse": "acc. sg.",
+   "gloss": "the wound",
+   "app": [
+    "vulnus-n3n"
+   ]
+  },
+  {
+   "w": "moribunda",
+   "lemma": "moribundus, moribunda, moribundum",
+   "parse": "nom. sg. f.",
+   "gloss": "dying"
+  },
+  {
+   "w": "cecidit",
+   "p": ".",
+   "lemma": "cadō, cadere, cecidī, cāsum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "she fell",
+   "app": [
+    "cado-v3"
+   ]
+  }
+ ],
+ "translation": "\"It is for you,\" she said, \"to see what he deserves. As for me, though I clear myself of wrongdoing, I do not free myself from punishment; and no unchaste woman shall ever live on by Lucretia's precedent.\" The knife she had been keeping hidden under her clothing she drove into her heart, and slumping forward over the wound she fell, dying.",
+ "translation_note": "vōs ... vīderitis is a firm, almost legal formula, \"you will see to (it)\": the judging of Sextus is handed to the men. peccātō and suppliciō are ablatives of separation with absolvō and līberō. exemplō is \"by (appeal to) the precedent\": she refuses to let her case become an excuse for others. cultrum ... eum: the object is stated, then picked up again by eum.",
+ "essay": [
+  [
+   {
+    "t": "Livy sets the story during the Roman siege of Ardea under the last king, Tarquinius Superbus.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Over wine, the young princes and Collatinus argued about whose wife was the best; riding home unannounced, they found the princes' wives at banquets and Lucretia, late at night, spinning wool among her maids.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Some days later the king's son Sextus Tarquinius returned as a guest and, at sword-point, threatening to kill her and leave a murdered slave beside her to fake an adultery, he raped her.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Lucretia summoned her father and her husband, who came with Publius Valerius and Lucius Junius Brutus; she told them what had happened and made them pledge that the man would not go unpunished.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "They answered that it is the mind that sins, not the body; the passage above is her reply, and her death.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Her distinction is exact: innocent of the wrong, she still refuses exemption from punishment, so that no guilty woman could shelter behind her example. How far this voices Roman ideals of female honour rather than any real woman's choice is a matter of interpretation.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Brutus drew the knife from the wound and swore to drive out Tarquinius Superbus, his wife and all his children, and never to allow another king at Rome.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Her body was carried into the forum of Collatia, and from there the rising spread to Rome; the king was shut out, and two consuls, Brutus and Collatinus, were elected. Livy reckons the monarchy at 244 years.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Britannica gives the traditional date as 509 BC and calls the event the foundation of the Roman Republic.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "It also calls Lucretia a legendary heroine and notes that the story is first found in Fabius Pictor, the earliest Roman historian, writing in the late 3rd century BC, some three centuries after the events.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Read as political myth, the story makes the end of monarchy a response to a king's son violating a citizen household, so that liberty and chastity are defended together; this framing is my own interpretation.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Its afterlife has been long: Shakespeare retold it in his narrative poem The Rape of Lucrece.",
+    "src": [
+     2
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What do the men around Lucretia tell her just before the passage?",
+   "options": [
+    "That it is the mind that sins, not the body, so she is not to blame",
+    "That she must leave Rome",
+    "That the king will judge the case",
+    "That Sextus has already been punished"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What traditional date does Britannica give for the founding of the Republic?",
+   "options": [
+    "509 BC",
+    "753 BC",
+    "458 BC",
+    "44 BC"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Who swore, holding the knife, to drive out the Tarquins?",
+   "options": [
+    "Lucius Junius Brutus",
+    "Sextus Tarquinius",
+    "Horatius Cocles",
+    "Fabius Pictor"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Livy, Ab urbe condita (Latin; Weissenborn–Müller, Teubner 1884–1911), Perseus Digital Library TEI file on GitHub",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Lucretia\" (revised by Virginia Gorlinski)",
+   "url": "https://britannica.com/topic/Lucretia-ancient-Roman-heroine",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}
