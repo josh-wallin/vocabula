@@ -221,18 +221,30 @@ const CONTRACTIONS: [RegExp, string][] = [
   [/\b(he|she|it)'ll\b/g, '$1 will'], [/\b(i|you|we|they)'ve\b/g, '$1 have'],
 ];
 export const ARTICLES = new Set(['a', 'an', 'the']);
+/** Words graded as the same word: shall = will, O = Oh. */
+const SAME_WORD: Record<string, string> = { shall: 'will', oh: 'o' };
+/** British -our spellings graded as the American -or (labour = labor, favourable = favorable). */
+const BRITISH_OUR = /^(lab|fav|val|hon|col|vig|hum|rum|neighb|harb|behavi|endeav|savi|ard|glam|splend|rig|od|tum|clam)our(s|ed|ing|able|ably|ite|ites|er|ers|ful|less)?$/;
+const gradeWord = (w: string): string => {
+  if (ARTICLES.has(w)) return 'the';
+  if (SAME_WORD[w]) return SAME_WORD[w]!;
+  const m = BRITISH_OUR.exec(w);
+  return m ? `${m[1]}or${m[2] ?? ''}` : w;
+};
 
 /**
  * Normalize English for comparison: case, curly quotes, punctuation and spacing ignored;
  * common contractions expanded (don't = do not); and the articles a / an / the made
  * interchangeable (Latin has none, so "a rose" and "the rose" translate rosam equally).
  * Whether an article is there at all still counts: "the girl loves roses" ≠ "girl loves roses".
+ * Also graded as the same: will / shall, O / Oh, and British -our spellings (labour = labor,
+ * favourable = favorable, honour, valour, colour), both ways.
  */
 export function normalizeEnglish(s: string): string {
   let t = s.normalize('NFC').toLowerCase().replace(/[’‘`]/g, "'").replace(/[“”"]/g, ' ');
   for (const [re, rep] of CONTRACTIONS) t = t.replace(re, rep);
   t = t.replace(/[.,!?;:()…–—]/g, ' ').replace(/(^|\s)'+|'+(\s|$)/g, ' ');
-  return t.split(/\s+/).filter(Boolean).map((w) => (ARTICLES.has(w) ? 'the' : w)).join(' ');
+  return t.split(/\s+/).filter(Boolean).map(gradeWord).join(' ');
 }
 
 /** Every accepted English answer, normalized. */

@@ -158,6 +158,26 @@ describe('English answers', () => {
     expect(normalizeEnglish("I'm here")).toBe('i am here');
     expect(normalizeEnglish("the poet's fame")).toBe("the poet's fame");
   });
+  it('will = shall, O = Oh, British -our = American -or, both ways', () => {
+    expect(normalizeEnglish('We shall dine')).toBe(normalizeEnglish('We will dine'));
+    expect(normalizeEnglish("We shan't dine")).toBe(normalizeEnglish('We will not dine'));
+    expect(normalizeEnglish('Oh my country')).toBe(normalizeEnglish('O my country'));
+    for (const [gb, us] of [['labour', 'labor'], ['favourable', 'favorable'], ['valour', 'valor'], ['honours', 'honors'], ['colour', 'color']] as const) {
+      expect(normalizeEnglish(gb)).toBe(normalizeEnglish(us));
+    }
+    expect(normalizeEnglish('four hours')).toBe('four hours'); // not -our words
+    const s = S({ id: 't-11', section: 2, en: ['After labor we will love the rose.'],
+      tokens: [tok('rosam', 'rosa-n1', 'acc.sg', { role: 'obj' }), tok('amābimus', 'amo-v1', 'fut.act.ind.1pl', { role: 'verb' })] });
+    expect(checkEnglish(s, 'After labour we shall love the rose')).toBe(true);
+  });
+  it('a distractor tile is never an equivalent of an accepted word (shall for will)', () => {
+    const s = S({ id: 't-12', section: 1, en: ['We will not laugh.'], tokens: [tok('nōn', 'non-indecl', 'citation'), tok('rīdēbimus', 'rideo-v2', 'fut.act.ind.1pl', { role: 'verb' })] });
+    const pool = [S({ ...girlLoves, id: 't-13', en: ['Shall the girl love roses?'] })];
+    for (let seed = 1; seed < 10; seed++) {
+      const ex = buildSentenceExercise(s, 'en', { ...deps(4, seed), pool })!;
+      expect(ex.options.map((o) => o.text.toLowerCase())).not.toContain('shall');
+    }
+  });
   it('a / an / the are interchangeable, but an article present or absent still counts', () => {
     expect(normalizeEnglish('A girl loves an apple')).toBe(normalizeEnglish('the girl loves the apple'));
     expect(checkEnglish(girlLoves, 'A girl likes the roses')).toBe(true);
