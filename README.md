@@ -143,7 +143,7 @@ Original Latin sentences (written for this app, never copied from Wheelock), pub
 ```
 
 - `form` is exactly what the morph engine generates for `lemma` + `cell` (macrons; capitals only for names and *Ō*). Lemma ids are the lexicon's (`lemmaId`). Indeclinables use cell `citation`.
-- `role`: `subj`, `obj`, `iobj`, `verb`, `pred` (predicate nominative), `voc`. Every finite verb (and imperative) is `verb`; implied subjects simply have no `subj` token. A demonstrative standing alone (*Ille numquam errat*, "That man / He never makes mistakes") takes the role itself; one modifying a noun (*hic morbus*) has no role, like any adjective, and the noun is the subject or object. Its English lists the pronoun readings too ("{That man|He}", "these things").
+- `role`: `subj`, `obj`, `iobj`, `verb`, `pred` (predicate nominative), `voc`. Every finite verb (and imperative) is `verb`; implied subjects simply have no `subj` token. A demonstrative standing alone (*Ille numquam errat*, "That man / He never makes mistakes") takes the role itself; one modifying a noun (*hic morbus*) has no role, like any adjective, and the noun is the subject or object (tapping the demonstrative also counts, see below). Its English lists the pronoun readings too ("{That man|He}", "these things").
 - `attach: "que" | "ne"`: the enclitic is written onto this word (*puellae* + `que` → *puellaeque*).
 - `phrase: n`: this word heads a unit with the next n tokens (a preposition and its object phrase; *Ō* + a vocative).
 - `comma: true`: a comma follows the word in the printed sentence.
@@ -167,7 +167,7 @@ A sentence appears only when its section is reached, every lemma (and enclitic) 
 |---|---|
 | `sent:<id>:cloze` | One word blanked; pick from 4 distinct forms of its lemma, from unlocked cells only, nearest cells first (same number / tense). The other "you" (2nd sg. ↔ 2nd pl.) is never a distractor, since the English can't tell them apart. English shown as a hint. |
 | `sent:<id>:en` | Build the English from tiles: the shown translation's words + 2–3 distractors. Any accepted translation passes. |
-| `sent:<id>:subj` / `:obj` | Tap the subject (or direct object) word(s); "No written subject" when the verb's ending carries it. Only single-verb sentences; `obj` only when there is a written object. Several subjects → select all. |
+| `sent:<id>:subj` / `:obj` | Tap the subject (or direct object) word(s); "No written subject" when the verb's ending carries it. Only single-verb sentences; `obj` only when there is a written object. Several subjects → select all. A word agreeing with the subject (object) noun in its own phrase (role-less adjective or demonstrative, same case, number and gender: *hic* in *hic morbus*, *nostrae* in *cōpiae nostrae*; `agreeingWords`) counts as tapping it: each subject must be hit by itself or such a word, and nothing else picked. |
 | `sent:<id>:la` | Build the Latin from tiles: the sentence's forms + 1–2 wrong forms of the same lemmas (unlocked cells, never one of the sentence's forms). Any allowed word order passes; feedback shows the written order. |
 
 ### Lessons and scheduling

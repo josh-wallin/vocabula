@@ -16,9 +16,9 @@ import { Session } from '../src/engine/session.ts';
 import { parseCardId } from '../src/engine/srs.ts';
 import { rng } from '../src/engine/util.ts';
 import {
-  acceptedEnglish, buildSentenceExercise, canBuild, checkEnglish, checkLatinOrder, checkSentence, chooseSentences, displayEnglish,
+  acceptedEnglish, agreeingWords, buildSentenceExercise, canBuild, checkEnglish, checkLatinOrder, checkSentence, chooseSentences, displayEnglish,
   englishWords, expandEnglish, latinOrders, latinText, normalizeEnglish, orderError, parseSentenceCard, parseSentences,
-  sentenceCard, sentenceEligible, type Sentence, type SentCtx, type SentenceExercise, type SentType, type Token,
+  sentenceCard, sentenceEligible, tapCounts, type Sentence, type SentCtx, type SentenceExercise, type SentType, type Token,
 } from '../src/engine/sentences.ts';
 
 function W(chapter: number, order: number, headword: string, pos: PartOfSpeech, gloss: string): Lemma {
@@ -331,8 +331,33 @@ describe('tap the subject / object', () => {
     const adj = S({ id: 't-d2', section: 9, en: ['This boy sees that girl.'], tokens: [
       tok('hic', 'hic-pron-hic', 'nom.sg.m'), tok('puer', 'puer-n2m', 'nom.sg', { role: 'subj' }),
       tok('illam', 'ille-pron-ille', 'acc.sg.f'), tok('puellam', 'puella-n1', 'acc.sg', { role: 'obj' }), tok('videt', 'video-v2', 'pres.act.ind.3sg', { role: 'verb' })] });
-    expect(buildSentenceExercise(adj, 'subj', d)!.answer).toEqual(['w1']);
-    expect(buildSentenceExercise(adj, 'obj', d)!.answer).toEqual(['w3']);
+    const as = buildSentenceExercise(adj, 'subj', d)!;
+    expect(as.answer).toEqual(['w1']);
+    expect(as.groups).toEqual([['w1', 'w0']]);
+    expect(as.multi).toBe(false);
+    // The agreeing demonstrative counts as tapping the subject: hic, puer, or both; never another word.
+    expect(checkSentence(as, ['w1']).ok).toBe(true);
+    expect(checkSentence(as, ['w0']).ok).toBe(true);
+    expect(checkSentence(as, ['w0', 'w1']).ok).toBe(true);
+    expect(checkSentence(as, ['w2']).ok).toBe(false);
+    expect(checkSentence(as, ['w1', 'w3']).ok).toBe(false);
+    expect(checkSentence(as, ['none']).ok).toBe(false);
+    expect(tapCounts(as, 'w0', ['w0'])).toEqual({ right: true, missed: false });
+    expect(tapCounts(as, 'w1', ['w0'])).toEqual({ right: false, missed: false });
+    expect(tapCounts(as, 'w1', ['w2'])).toEqual({ right: true, missed: true });
+    const ao = buildSentenceExercise(adj, 'obj', d)!;
+    expect(ao.answer).toEqual(['w3']);
+    expect(checkSentence(ao, ['w2']).ok).toBe(true);
+    expect(checkSentence(ao, ['w0']).ok).toBe(false);
+    // Generally: adjectives agreeing in case, number and gender; not one inside a preposition's unit, nor a different gender.
+    const gen = S({ id: 't-d3', section: 9, en: ['The big boy sees a girl in the big field.'], tokens: [
+      tok('puer', 'puer-n2m', 'nom.sg', { role: 'subj' }), tok('magnus', 'magnus-adj12', 'nom.sg.m'),
+      tok('in', 'in-indecl', 'citation', { phrase: 2 }), tok('agrō', 'ager-n2m', 'abl.sg'), tok('magnō', 'magnus-adj12', 'abl.sg.m'),
+      tok('puellam', 'puella-n1', 'acc.sg', { role: 'obj' }), tok('videt', 'video-v2', 'pres.act.ind.3sg', { role: 'verb' })] });
+    expect(agreeingWords(gen, 0, dlex)).toEqual([1]);
+    expect(agreeingWords(gen, 5, dlex)).toEqual([]);
+    expect(buildSentenceExercise(gen, 'obj', d)!.groups).toBeUndefined();
+    expect(agreeingWords(pron, 0, dlex)).toEqual([]);
     // Latin tiles: the demonstrative may stand on either side of its noun; distractors are other forms of hic / ille.
     expect(checkLatinOrder(adj, ['puer', 'hic', 'puellam', 'illam', 'videt'])).toBe(true);
     const la = buildSentenceExercise(adj, 'la', d)!;

@@ -1,5 +1,5 @@
 /** Sentence exercises: cloze, tap the subject / object, and tile building (Latin → English, English → Latin). */
-import type { SentenceExercise } from '../engine/sentences.ts';
+import { tapCounts, type SentenceExercise } from '../engine/sentences.ts';
 import type { Outcome } from '../engine/session.ts';
 import type { AudioRef } from '../audio/items.ts';
 import { ListenCue, Speaker } from './Speaker.tsx';
@@ -80,8 +80,10 @@ function TapRole({ ex, picked, setPicked, outcome }: Props) {
         {words.map((o) => {
           const isAns = ex.answer.includes(o.id);
           const sel = picked.includes(o.id);
+          // A word agreeing with the subject (hic in hic morbus) counts like the subject itself.
+          const counts = tapCounts(ex, o.id, picked).right;
           return (
-            <button key={o.id} type="button" class={optClass(isAns, sel, outcome, 'wordchip')} lang="la"
+            <button key={o.id} type="button" class={optClass(counts, sel, outcome, 'wordchip')} lang="la"
               aria-pressed={!outcome && sel ? 'true' : 'false'} data-option={o.id} data-answer={isAns ? '1' : '0'}
               disabled={!!outcome} onClick={() => toggle(o.id)}>{o.text}</button>
           );

@@ -324,6 +324,9 @@ export interface SentenceExercise {
   options: SentOption[];
   /** cloze/subj/obj: the correct option ids; en/la: one correct tile order (the reference). */
   answer: string[];
+  /** subj/obj: one group per subject (object) word: its id first, then the ids of the words agreeing with it
+   *  (hic morbus, cōpiae nostrae). Tapping any word of a group counts for that word. */
+  groups?: string[][];
   multi: boolean;
   /** Correct answer as text, for feedback. */
   expected: string;
@@ -400,6 +403,29 @@ function latinDistractorCandidates(s: Sentence, c: SentCtx): { tok: number; form
 
 const roleLabel: Record<'subj' | 'obj', string> = { subj: 'subject', obj: 'direct object' };
 
+const MODIFIER_POS = new Set(['adj', 'pron', 'num']);
+/**
+ * Token indices agreeing with the noun at `head` in its own phrase: role-less adjectives / demonstratives
+ * in the same case, number and gender (hic morbus, tōtam cīvitātem, nūllus homō). Words inside a
+ * preposition's unit belong to that unit, not to the head.
+ */
+export function agreeingWords(s: Sentence, head: number, lex: Pick<Lexicon, 'byId'>): number[] {
+  const h = s.tokens[head]!;
+  if (h.cell === 'citation') return [];
+  const [c, num, g] = h.cell.split('.');
+  const gender = g ?? lex.byId.get(h.lemma)?.lemma.gender;
+  const inPhrase = new Set<number>();
+  s.tokens.forEach((t, i) => { for (let k = 1; k <= (t.phrase ?? 0); k++) inPhrase.add(i + k); });
+  if (inPhrase.has(head)) return [];
+  return s.tokens.flatMap((t, j) => {
+    if (j === head || t.role || inPhrase.has(j)) return [];
+    const w = lex.byId.get(t.lemma);
+    if (!w || !MODIFIER_POS.has(w.lemma.pos)) return [];
+    const [c2, n2, g2] = t.cell.split('.');
+    return c2 === c && n2 === num && (!gender || g2 === gender) ? [j] : [];
+  });
+}
+
 /** A one-word English gloss for a distractor tile ("to love, like" → "love"), or null. */
 function glossWord(g: string): string | null {
   const w = g.split(/[,;(]/)[0]!.trim().replace(/^to\s+/, '');
@@ -470,13 +496,14 @@ export function buildSentenceExercise(s: Sentence, type: SentType, d: BuildDeps)
       const opts: SentOption[] = shown.map((w, i) => ({ id: `w${i}`, text: w.text.replace(/,$/, ''), la: true }));
       if (type === 'subj') opts.push({ id: 'none', text: 'No written subject' });
       const answer = idx.length ? idx.map((i) => `w${i}`) : ['none'];
+      const groups = idx.length ? idx.map((i) => [`w${i}`, ...agreeingWords(s, i, d.lex).map((j) => `w${j}`)]) : undefined;
       const verb = s.tokens.find(isFinite)!;
       const note = idx.length
         ? `${idx.map((i) => { const t = s.tokens[i]!; return t.cell === 'citation' ? tokenText(t) : `${tokenText(t)} (${cellLabel(t.cell)})`; }).join(' and ')}: the ${roleLabel[type]}. ${en}`
         : `No subject is written: the ending of ${verb.form} supplies it. ${en}`;
       return {
         ...base, prompt: type === 'subj' ? (idx.length > 1 ? 'Tap the subjects' : 'Tap the subject') : (idx.length > 1 ? 'Tap the direct objects' : 'Tap the direct object'),
-        words: shown, options: opts, answer, multi: idx.length > 1,
+        words: shown, options: opts, answer, ...(groups && groups.some((g) => g.length > 1) ? { groups } : {}), multi: idx.length > 1,
         expected: idx.length ? idx.map((i) => tokenText(s.tokens[i]!)).join(', ') : 'No written subject', note,
       };
     }
@@ -508,7 +535,7 @@ export function checkSentence(ex: SentenceExercise, picked: readonly string[]): 
   let ok: boolean;
   switch (ex.kind) {
     case 'cloze': case 'subj': case 'obj':
-      ok = [...new Set(picked)].sort().join('|') === [...ex.answer].sort().join('|');
+      ok = ex.groups ? groupsHit(ex.groups, picked) : [...new Set(picked)].sort().join('|') === [...ex.answer].sort().join('|');
       break;
     case 'en': case 'listen': ok = picked.length > 0 && checkEnglish(ex.s, picked.map(text).join(' ')); break;
     case 'la': ok = picked.length > 0 && checkLatinOrder(ex.s, picked.map(text)); break;
@@ -516,6 +543,21 @@ export function checkSentence(ex: SentenceExercise, picked: readonly string[]): 
     case 'dictate': ok = picked.map((id) => nfc(text(id))).join(' ') === ex.s.tokens.map(tokenText).join(' '); break;
   }
   return { ok, macronMiss: false, expected: ex.expected };
+}
+
+/** Subject / object taps with agreeing words: every pick in some group, and every group picked. */
+function groupsHit(groups: readonly string[][], picked: readonly string[]): boolean {
+  const set = new Set(picked);
+  return set.size > 0 && [...set].every((id) => groups.some((g) => g.includes(id))) && groups.every((g) => g.some((id) => set.has(id)));
+}
+
+/** For feedback: is option `id` a right tap here (a subject/object word, or a word agreeing with one that was tapped)? */
+export function tapCounts(ex: SentenceExercise, id: string, picked: readonly string[]): { right: boolean; missed: boolean } {
+  if (!ex.groups) return { right: ex.answer.includes(id), missed: ex.answer.includes(id) && !picked.includes(id) };
+  const g = ex.groups.find((x) => x.includes(id));
+  if (!g) return { right: false, missed: false };
+  const hit = g.some((x) => picked.includes(x));
+  return { right: picked.includes(id) || (!hit && g[0] === id), missed: !hit && g[0] === id };
 }
 
 /**
