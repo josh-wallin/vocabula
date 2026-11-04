@@ -55,7 +55,7 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
     section: 4,
     title: 'Second declension: [[neuter|neuter]]; *sum*',
     blocks: [
-      { p: 'Neuter nouns of the 2nd declension end in -um. The nominative, accusative and vocative are always alike, and in the plural all three end in -a.' },
+      { p: 'Neuter nouns of the 2nd declension end in -um in the nominative singular. The nominative, accusative and vocative are always alike, and in the plural all three end in -a.' },
       { table: { kind: 'noun', headword: 'bellum, bellī, n.', gloss: 'war' } },
       { table: { kind: 'sum' } },
       { p: 'After *sum*, a [[predicate-nominative|predicate nominative]] renames or describes the subject: *Bellum est malum.*' },
@@ -67,12 +67,12 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
     section: 5,
     title: 'The [[future|future]] and [[imperfect|imperfect]]: 1st & 2nd conjugation',
     blocks: [
-      { p: 'Two new [[tense|tenses]] build on the same [[stem|stem]] as the present. The future adds -bō, -bis, -bit, -bimus, -bitis, -bunt: *laudābō*, I shall praise.' },
+      { p: 'Two new [[tense|tenses]] build on the same [[stem|stem]] as the present. The future adds -bō, -bis, -bit, -bimus, -bitis, -bunt: *laudābō*, I will praise.' },
       { table: { kind: 'verbs', headwords: ['laudō, laudāre', 'moneō, monēre'], glosses: ['praise', 'warn'], tense: 'fut' } },
       { p: 'The imperfect adds -bam, -bās, -bat, -bāmus, -bātis, -bant. It pictures action going on or repeated in the past: *monēbam*, I was warning, I used to warn.' },
       { table: { kind: 'verbs', headwords: ['laudō, laudāre', 'moneō, monēre'], glosses: ['praise', 'warn'], tense: 'impf' } },
       { p: 'Watch the vowel after the b: -bi- (and -bunt) in the future, -bā- in the imperfect. *Vidēbit* is future; *vidēbat* is imperfect.' },
-      { p: 'Adjectives in -er, like *līber, lībera, līberum* and *pulcher, pulchra, pulchrum*, decline like *bonus* once past the masculine nominative. The feminine shows whether the e stays: *lībera* keeps it, *pulchra* drops it.' },
+      { p: 'Adjectives in -er, like *līber, lībera, līberum* and *pulcher, pulchra, pulchrum*, decline like *bonus* once past the masculine nominative and vocative singular. The feminine shows whether the e stays: *lībera* keeps it, *pulchra* drops it.' },
     ],
   },
   {
@@ -84,7 +84,7 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
       { table: { kind: 'sum', tense: 'impf' } },
       { p: '*Possum*, I am able, I can, is pot- + *sum*. Before s, pot- becomes pos-: *possum*, *possunt*, but *potest*, *poterat*, *poterit*. The infinitive is *posse*.' },
       { table: { kind: 'sum', headword: 'possum, posse, potuī', gloss: 'be able, can', tense: 'pres' } },
-      { p: '*Possum* is completed by a [[complementary-infinitive|complementary infinitive]], as *dēbeō* is: *Vidēre possum*, I can see; *Errāre nōn dēbēs*, you ought not to err.' },
+      { p: '*Possum* is completed by a [[complementary-infinitive|complementary infinitive]], as *dēbeō* is: *Vidēre possum*, I can see; *Errāre nōn dēbēs*, you shouldn’t make mistakes.' },
     ],
   },
   {
@@ -106,7 +106,7 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
       { p: 'Verbs with a short -ere infinitive belong to the 3rd conjugation: *agō, agere*. Drop -ere to find the base (ag-) and add the endings with a short i: *agis*, *agit*, *agimus*, *agitis*, but *agunt*.' },
       { table: { kind: 'verbs', headwords: ['agō, agere', 'dūcō, dūcere'], glosses: ['drive', 'lead'] } },
       { p: 'The singular command is the base + -e: *age!* A few verbs drop the -e, such as *dūc!*; the others come with their verbs later.' },
-      { p: 'The 3rd-conjugation future has no -b-: -am, -ēs, -et, -ēmus, -ētis, -ent. *Agam*, I shall drive; *aget*, she will drive; but *agit*, she drives.' },
+      { p: 'The 3rd-conjugation future has no -b-: -am, -ēs, -et, -ēmus, -ētis, -ent. *Agam*, I will drive; *aget*, she will drive; but *agit*, she drives.' },
       { table: { kind: 'verbs', headwords: ['agō, agere', 'scrībō, scrībere'], glosses: ['drive', 'write'], tense: 'fut' } },
       { p: 'The imperfect uses -ēbam: *agēbam*, *dūcēbant*. Mind the trap: *agēs* and *aget* look like the 2nd-conjugation present (*monēs*, *monet*), but here they are future.' },
       { table: { kind: 'verbs', headwords: ['agō, agere', 'dūcō, dūcere'], glosses: ['drive', 'lead'], tense: 'impf' } },
