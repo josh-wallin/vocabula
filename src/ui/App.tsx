@@ -21,16 +21,19 @@ import { AboutScreen, ImportScreen, ProfileScreen, WordsScreen } from './Pages.t
 import { COMPARE_HASH, ComparePage } from './Compare.tsx';
 import { LectioReader } from './Lectio.tsx';
 import { lectioPassages } from '../content/lectio.ts';
+import { HistoriaEntryView, HistoriaList, IconScroll } from './Historia.tsx';
+import { historiaNode } from '../engine/historia.ts';
 import { IconBack, IconCloud, IconCloudOff, IconFlame, IconPath, IconPractice, IconProfile, IconStar, IconWords } from './icons.tsx';
 
-type Tab = 'path' | 'practice' | 'words' | 'profile';
+type Tab = 'path' | 'practice' | 'words' | 'historia' | 'profile';
 type View =
   | { v: 'tab' }
   | { v: 'lesson'; node: PathNode; exercises: Exercise[]; run: string }
   | { v: 'complete'; title: string; run: string; stats: LessonStats }
   | { v: 'chapter'; section: number }
   | { v: 'about' }
-  | { v: 'lectio'; id: string };
+  | { v: 'lectio'; id: string }
+  | { v: 'historia'; id: string; run: string };
 
 /** One sync loop per page. */
 let syncer: Syncer | null = null;
@@ -112,6 +115,22 @@ export function App() {
     const p = lectioPassages().find((x) => x.id === view.id);
     if (p) return <LectioReader app={app} p={p} onBack={() => setView({ v: 'tab' })} />;
   }
+  if (view.v === 'historia') {
+    return (
+      <div class="screen" data-screen="historia-entry">
+        <header class="lesson-head">
+          <button type="button" class="iconbtn" aria-label="Back" onClick={() => { setView({ v: 'tab' }); afterLesson(); }}><IconBack /></button>
+          <span class="lesson-tag" lang="la">Historia</span>
+        </header>
+        <div class="scroll">
+          <HistoriaEntryView app={app} id={view.id}
+            onReview={(card, grade) => {
+              void recordReview(app, card, grade, historiaNode(view.id), view.run).then((e) => setApp((a) => (a ? withEvents(a, [e]) : a)));
+            }} />
+        </div>
+      </div>
+    );
+  }
   if (view.v === 'chapter' || view.v === 'about') {
     const src = view.v === 'chapter' ? chapterText(view.section) : null;
     return (
@@ -151,13 +170,14 @@ export function App() {
           </main>
         )}
         {tab === 'words' && <WordsScreen app={app} onLectio={(id) => setView({ v: 'lectio', id })} />}
+        {tab === 'historia' && <HistoriaList app={app} onOpen={(id) => setView({ v: 'historia', id, run: uuid() })} />}
         {tab === 'profile' && (
           <ProfileScreen app={app} setApp={setApp} sync={sync} onSyncNow={() => void getSyncer().request()}
             onAbout={() => setView({ v: 'about' })} />
         )}
       </div>
       <nav class="tabbar" aria-label="Main">
-        {([['path', 'Path', IconPath], ['practice', 'Practice', IconPractice], ['words', 'Words', IconWords], ['profile', 'Profile', IconProfile]] as const).map(([id, label, Icon]) => (
+        {([['path', 'Path', IconPath], ['practice', 'Practice', IconPractice], ['words', 'Words', IconWords], ['historia', 'Historia', IconScroll], ['profile', 'Profile', IconProfile]] as const).map(([id, label, Icon]) => (
           <button key={id} type="button" aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}><Icon />{label}</button>
         ))}
       </nav>

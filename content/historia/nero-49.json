@@ -1,0 +1,505 @@
+{
+ "id": "nero-49",
+ "order": 6,
+ "title": "What an artist dies with me",
+ "saying": "Quālis artifex pereō!",
+ "author": "Suetonius",
+ "work": "Nerō",
+ "citation": "Suet. Nero 49.1",
+ "setting": "Phaon's villa outside Rome, AD 68",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, vol. II (Claudius to Titus), Latin text of the Loeb Classical Library edition (J. C. Rolfe, vol. II, 1914), as presented on LacusCurtius (Bill Thayer), whose Latin pages say MCMXIII; public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Nero*.html",
+  "section": "Nero 49.1 (the whole section)"
+ },
+ "source_text": "Tunc uno quoque hinc inde instante ut quam primum se impendentibus contumeliis eriperet, scrobem coram fieri imperavit dimensus ad corporis sui modulum, componique simul, si qua invenirentur, frusta marmoris et aquam simul ac ligna conferri curando mox cadaveri, flens ad singula atque identidem dictitans: \"Qualis artifex pereo!\"",
+ "excerpt_note": "The whole of section 49.1, one long sentence.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "ligna: written without a macron before gn (the app lexicon has no entry for lignum to follow).",
+   "scrobem, modulum, frusta: short vowels throughout, the usual dictionary quantities; not machine-checked.",
+   "cūrandō, īnstante: a long vowel before nd / nt is written short only in the ending (cūrandō keeps the long ū of the stem)."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Tunc",
+   "lemma": "tunc",
+   "parse": "adverb",
+   "gloss": "then"
+  },
+  {
+   "w": "ūnō",
+   "lemma": "ūnus, ūna, ūnum",
+   "parse": "abl. sg. m. (ablative absolute)",
+   "gloss": "one",
+   "app": [
+    "unus-adj-ius"
+   ]
+  },
+  {
+   "w": "quōque",
+   "lemma": "quisque, quaeque, quidque",
+   "parse": "abl. sg. m. (ūnō quōque: each one)",
+   "gloss": "each"
+  },
+  {
+   "w": "hinc",
+   "lemma": "hinc",
+   "parse": "adverb",
+   "gloss": "from this side"
+  },
+  {
+   "w": "inde",
+   "lemma": "inde",
+   "parse": "adverb",
+   "gloss": "from that side (hinc inde: on every side)"
+  },
+  {
+   "w": "īnstante",
+   "lemma": "īnstō, īnstāre, īnstitī",
+   "parse": "pres. act. participle, abl. sg. m. (ablative absolute)",
+   "gloss": "urging, pressing"
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (indirect command)",
+   "gloss": "that, to"
+  },
+  {
+   "w": "quam",
+   "lemma": "quam",
+   "parse": "adverb (quam prīmum: as soon as possible)",
+   "gloss": "as ... as possible"
+  },
+  {
+   "w": "prīmum",
+   "lemma": "prīmum",
+   "parse": "adverb",
+   "gloss": "first, soon"
+  },
+  {
+   "w": "sē",
+   "lemma": "sē (reflexive pronoun)",
+   "parse": "acc. sg.",
+   "gloss": "himself"
+  },
+  {
+   "w": "impendentibus",
+   "lemma": "impendeō, impendēre",
+   "parse": "pres. act. participle, dat. pl. f. (agrees with contumēliīs)",
+   "gloss": "hanging over, threatening"
+  },
+  {
+   "w": "contumēliīs",
+   "lemma": "contumēlia, contumēliae, f.",
+   "parse": "dat. pl. (with ēriperet: from)",
+   "gloss": "(from) outrages, insults"
+  },
+  {
+   "w": "ēriperet",
+   "p": ",",
+   "lemma": "ēripiō, ēripere, ēripuī, ēreptum",
+   "parse": "3rd sg. impf. subj. act. (indirect command)",
+   "gloss": "he should snatch away, rescue",
+   "app": [
+    "eripio-v3io"
+   ]
+  },
+  {
+   "w": "scrobem",
+   "lemma": "scrobis, scrobis, m. or f.",
+   "parse": "acc. sg.",
+   "gloss": "pit, trench (here: a grave)"
+  },
+  {
+   "w": "cōram",
+   "lemma": "cōram",
+   "parse": "adverb",
+   "gloss": "in his presence"
+  },
+  {
+   "w": "fierī",
+   "lemma": "fīō, fierī, factus sum",
+   "parse": "pres. inf.",
+   "gloss": "to be made, dug"
+  },
+  {
+   "w": "imperāvit",
+   "lemma": "imperō, imperāre, imperāvī, imperātum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he ordered",
+   "app": [
+    "impero-v1"
+   ]
+  },
+  {
+   "w": "dīmēnsus",
+   "lemma": "dīmētior, dīmētīrī, dīmēnsus sum",
+   "parse": "perf. participle, nom. sg. m.",
+   "gloss": "having measured (it) out"
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to, according to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "corporis",
+   "lemma": "corpus, corporis, n.",
+   "parse": "gen. sg.",
+   "gloss": "of (his) body",
+   "app": [
+    "corpus-n3n"
+   ]
+  },
+  {
+   "w": "suī",
+   "lemma": "suus, sua, suum",
+   "parse": "gen. sg. n.",
+   "gloss": "his own",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "modulum",
+   "p": ",",
+   "lemma": "modulus, modulī, m.",
+   "parse": "acc. sg.",
+   "gloss": "measure, size"
+  },
+  {
+   "w": "compōnīque",
+   "lemma": "compōnō, compōnere, composuī, compositum + -que",
+   "parse": "pres. pass. inf. + enclitic -que",
+   "gloss": "and to be put together",
+   "app": [
+    "compono-v3"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "simul",
+   "p": ",",
+   "lemma": "simul",
+   "parse": "adverb",
+   "gloss": "at the same time"
+  },
+  {
+   "w": "sī",
+   "lemma": "sī",
+   "parse": "conjunction",
+   "gloss": "if",
+   "app": [
+    "si-indecl"
+   ]
+  },
+  {
+   "w": "qua",
+   "lemma": "quis, qua, quid (indefinite, after sī)",
+   "parse": "nom. pl. n.",
+   "gloss": "any"
+  },
+  {
+   "w": "invenīrentur",
+   "p": ",",
+   "lemma": "inveniō, invenīre, invēnī, inventum",
+   "parse": "3rd pl. impf. subj. pass.",
+   "gloss": "could be found",
+   "app": [
+    "invenio-v4"
+   ]
+  },
+  {
+   "w": "frusta",
+   "lemma": "frustum, frustī, n.",
+   "parse": "acc. pl. (subject of compōnī)",
+   "gloss": "pieces"
+  },
+  {
+   "w": "marmoris",
+   "lemma": "marmor, marmoris, n.",
+   "parse": "gen. sg.",
+   "gloss": "of marble"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "aquam",
+   "lemma": "aqua, aquae, f.",
+   "parse": "acc. sg. (subject of cōnferrī)",
+   "gloss": "water",
+   "app": [
+    "aqua-n1"
+   ]
+  },
+  {
+   "w": "simul",
+   "lemma": "simul",
+   "parse": "adverb",
+   "gloss": "together"
+  },
+  {
+   "w": "ac",
+   "lemma": "ac (= atque)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "ligna",
+   "lemma": "lignum, lignī, n.",
+   "parse": "acc. pl. (subject of cōnferrī)",
+   "gloss": "firewood"
+  },
+  {
+   "w": "cōnferrī",
+   "lemma": "cōnferō, cōnferre, contulī, collātum",
+   "parse": "pres. pass. inf.",
+   "gloss": "to be brought together"
+  },
+  {
+   "w": "cūrandō",
+   "lemma": "cūrō, cūrāre, cūrāvī, cūrātum",
+   "parse": "gerundive, dat. sg. n. (agrees with cadāverī: purpose)",
+   "gloss": "for attending to",
+   "app": [
+    "curo-v1"
+   ]
+  },
+  {
+   "w": "mox",
+   "lemma": "mox",
+   "parse": "adverb",
+   "gloss": "soon"
+  },
+  {
+   "w": "cadāverī",
+   "p": ",",
+   "lemma": "cadāver, cadāveris, n.",
+   "parse": "dat. sg.",
+   "gloss": "(his) corpse"
+  },
+  {
+   "w": "flēns",
+   "lemma": "fleō, flēre, flēvī, flētum",
+   "parse": "pres. act. participle, nom. sg. m.",
+   "gloss": "weeping",
+   "app": [
+    "fleo-v2"
+   ]
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "at",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "singula",
+   "lemma": "singulī, singulae, singula",
+   "parse": "acc. pl. n., used as a noun",
+   "gloss": "each thing",
+   "app": [
+    "singuli-adj12"
+   ]
+  },
+  {
+   "w": "atque",
+   "lemma": "atque",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "identidem",
+   "lemma": "identidem",
+   "parse": "adverb",
+   "gloss": "again and again"
+  },
+  {
+   "w": "dictitāns",
+   "p": ":",
+   "lemma": "dictitō, dictitāre",
+   "parse": "pres. act. participle, nom. sg. m.",
+   "gloss": "saying over and over"
+  },
+  {
+   "w": "Quālis",
+   "pre": "\"",
+   "lemma": "quālis, quāle",
+   "parse": "nom. sg. m.",
+   "gloss": "what kind of, what a"
+  },
+  {
+   "w": "artifex",
+   "lemma": "artifex, artificis, m.",
+   "parse": "nom. sg.",
+   "gloss": "artist, craftsman"
+  },
+  {
+   "w": "pereō",
+   "p": "!\"",
+   "lemma": "pereō, perīre, periī, peritum",
+   "parse": "1st sg. pres. ind.",
+   "gloss": "I perish, I die"
+  }
+ ],
+ "translation": "Then, as everyone around him kept urging him to escape as soon as possible from the outrages hanging over him, he ordered a pit to be dug in front of him, measured to the size of his own body, and at the same time any pieces of marble that could be found to be put together, and water and firewood to be brought for dealing with his corpse soon after; he wept at each of these things and said again and again, \"What an artist dies with me!\"",
+ "translation_note": "Literally \"(as) what an artist I perish!\": quālis artifex stands in apposition to the subject of pereō. \"What an artist dies with me\" is a free rendering; see the essay on how else it can be read.",
+ "essay": [
+  [
+   {
+    "t": "Nero died on 9 June AD 68, aged thirty.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "In Suetonius's account he fled to the suburban estate of his freedman Phaon, between the Via Salaria and the Via Nomentana, near the fourth milestone from the city.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Our passage is the scene there: his companions press him to save himself from the outrages awaiting him, and he orders his own grave dug and the materials for his funeral gathered.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Soon after, Suetonius says, Nero read a note reporting that the Senate had declared him a public enemy, and at last drove a sword into his throat with the help of his secretary Epaphroditus.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Cassius Dio's account, which survives only in an abridgement, gives the saying in a fuller form, \"Jupiter, what an artist perishes in me!\", and also names Epaphroditus.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The settings differ in detail: Dio has him hide in a reed-bed and then shelter in a cave, while in Suetonius he creeps through reeds to Phaon's villa, after refusing to hide in a sandpit because he would not go under the earth alive.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Why \"artist\"? Suetonius describes at length how Nero trained as a singer and lyre-player, performed in public, first at Naples, toured the contests of Greece and returned to Rome wearing victors' crowns.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Read against that, the remark sounds like self-pity: the world is losing a great performer.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The Latin also allows a bleaker irony, since artifex can mean a craftsman and Nero is busy with the practical work of his own burial; this second reading is my interpretation, not one taken from a cited source.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "We cannot know whether Nero said exactly this: Suetonius, our main source, was born the year after Nero died, and he used anecdotes without always testing them.",
+    "src": [
+     3,
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "What the saying preserves is the image that survived him: an emperor who saw himself, to the end, as an artist.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What is Nero doing in the passage when he says the words?",
+   "options": [
+    "Ordering his grave dug and the materials for his funeral gathered",
+    "Singing on stage in Naples",
+    "Addressing the Senate",
+    "Leading troops into battle"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Which detail differs between Suetonius and Cassius Dio?",
+   "options": [
+    "Where Nero spent his last hours (a villa or a cave)",
+    "The name of Epaphroditus",
+    "That Nero called himself an artist",
+    "That Nero died"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Which reading of the saying is the essay's own interpretation rather than a sourced claim?",
+   "options": [
+    "That artifex can point ironically to Nero as a craftsman of his own burial",
+    "That Nero performed as a singer",
+    "That Dio gives a fuller version",
+    "That Nero died in AD 68"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Nero 20–25 and 47–49 (Latin; Loeb text, Rolfe vol. II), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Nero*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cassius Dio, Roman History 63.27–29 (epitome; Loeb 1925 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/63*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Nero\"",
+   "url": "https://www.britannica.com/biography/Nero-Roman-emperor",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Suetonius\"",
+   "url": "https://www.britannica.com/biography/Suetonius",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

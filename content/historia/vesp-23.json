@@ -1,0 +1,561 @@
+{
+ "id": "vesp-23",
+ "order": 7,
+ "title": "I think I am becoming a god",
+ "saying": "Vae, putō deus fīō.",
+ "author": "Suetonius",
+ "work": "Dīvus Vespasiānus",
+ "citation": "Suet. Vesp. 23.4",
+ "setting": "Vespasian's last illness",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, vol. II (Claudius to Titus), Latin text of the Loeb Classical Library edition (J. C. Rolfe, vol. II, 1914), as presented on LacusCurtius (Bill Thayer), whose Latin pages say MCMXIII; public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Vespasian*.html",
+  "section": "Divus Vespasianus 23.4 (the whole section)"
+ },
+ "source_text": "Ac ne in metu quidem ac periculo mortis extremo abstinuit iocis. Nam cum inter cetera prodigia Mausoleum derepente patuisset et stella crinita in caelo apparuisset, alterum ad Iuniam Calvinam e gente Augusti pertinere dicebat, alterum ad Parthorum regem qui capillatus esset; prima quoque morbi accessione: \"Vae,\" inquit, \"puto deus fio.\"",
+ "excerpt_note": "The whole of section 23.4.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "stella: no macron, as the app lexicon spells it (some dictionaries print stēlla).",
+   "Mausōlēum: long ō and ē, from the Greek Mausōleion; not machine-checked.",
+   "putō: the final ō is long in classical prose; in verse it is often shortened.",
+   "prīmā: ablative (with accessiōne), so the final ā is long; the edition's unmarked prima does not show this."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Ac",
+   "lemma": "ac (= atque)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "nē",
+   "lemma": "nē ... quidem",
+   "parse": "adverb",
+   "gloss": "not even (with quidem)"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "metū",
+   "lemma": "metus, metūs, m.",
+   "parse": "abl. sg.",
+   "gloss": "fear"
+  },
+  {
+   "w": "quidem",
+   "lemma": "quidem",
+   "parse": "adverb (nē ... quidem: not even)",
+   "gloss": "even"
+  },
+  {
+   "w": "ac",
+   "lemma": "ac (= atque)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "perīculō",
+   "lemma": "perīculum, perīculī, n.",
+   "parse": "abl. sg.",
+   "gloss": "danger",
+   "app": [
+    "periculum-n2n"
+   ]
+  },
+  {
+   "w": "mortis",
+   "lemma": "mors, mortis, f.",
+   "parse": "gen. sg.",
+   "gloss": "of death",
+   "app": [
+    "mors-n3i"
+   ]
+  },
+  {
+   "w": "extrēmō",
+   "lemma": "extrēmus, extrēma, extrēmum",
+   "parse": "abl. sg. n.",
+   "gloss": "final, utmost",
+   "app": [
+    "extremus-adj12"
+   ]
+  },
+  {
+   "w": "abstinuit",
+   "lemma": "abstineō, abstinēre, abstinuī, abstentum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he kept away (from + abl.)"
+  },
+  {
+   "w": "iocīs",
+   "p": ".",
+   "lemma": "iocus, iocī, m.",
+   "parse": "abl. pl. (separation)",
+   "gloss": "(from) jokes"
+  },
+  {
+   "w": "Nam",
+   "lemma": "nam",
+   "parse": "conjunction",
+   "gloss": "for"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum",
+   "parse": "conjunction (with subjunctive)",
+   "gloss": "when",
+   "nolink": true
+  },
+  {
+   "w": "inter",
+   "lemma": "inter (+ acc.)",
+   "parse": "preposition",
+   "gloss": "among"
+  },
+  {
+   "w": "cētera",
+   "lemma": "cēterus, cētera, cēterum",
+   "parse": "acc. pl. n.",
+   "gloss": "the other",
+   "app": [
+    "ceterus-adj12"
+   ]
+  },
+  {
+   "w": "prōdigia",
+   "lemma": "prōdigium, prōdigiī, n.",
+   "parse": "acc. pl.",
+   "gloss": "portents, omens"
+  },
+  {
+   "w": "Mausōlēum",
+   "lemma": "Mausōlēum, Mausōlēī, n.",
+   "parse": "nom. sg.",
+   "gloss": "the Mausoleum (of Augustus, in Rome)"
+  },
+  {
+   "w": "dērepente",
+   "lemma": "dērepente",
+   "parse": "adverb",
+   "gloss": "suddenly"
+  },
+  {
+   "w": "patuisset",
+   "lemma": "pateō, patēre, patuī",
+   "parse": "3rd sg. pluperf. subj. act. (cum clause)",
+   "gloss": "had opened, stood open",
+   "app": [
+    "pateo-v2"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "stella",
+   "lemma": "stella, stellae, f.",
+   "parse": "nom. sg.",
+   "gloss": "star",
+   "app": [
+    "stella-n1"
+   ]
+  },
+  {
+   "w": "crīnīta",
+   "lemma": "crīnītus, crīnīta, crīnītum",
+   "parse": "nom. sg. f.",
+   "gloss": "long-haired (stella crīnīta: a comet)"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "caelō",
+   "lemma": "caelum, caelī, n.",
+   "parse": "abl. sg.",
+   "gloss": "sky",
+   "app": [
+    "caelum-n2n"
+   ]
+  },
+  {
+   "w": "appāruisset",
+   "p": ",",
+   "lemma": "appāreō, appārēre, appāruī",
+   "parse": "3rd sg. pluperf. subj. act. (cum clause)",
+   "gloss": "had appeared",
+   "app": [
+    "appareo-v2"
+   ]
+  },
+  {
+   "w": "alterum",
+   "lemma": "alter, altera, alterum",
+   "parse": "acc. sg. n. (subject of the infinitive)",
+   "gloss": "the one (of the two)",
+   "app": [
+    "alter-adj-ius"
+   ]
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "Iūniam",
+   "lemma": "Iūnia, Iūniae, f.",
+   "parse": "acc. sg.",
+   "gloss": "Junia"
+  },
+  {
+   "w": "Calvīnam",
+   "lemma": "Calvīna, Calvīnae, f.",
+   "parse": "acc. sg.",
+   "gloss": "Calvina"
+  },
+  {
+   "w": "ē",
+   "lemma": "ē, ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from, of",
+   "app": [
+    "e-indecl"
+   ]
+  },
+  {
+   "w": "gente",
+   "lemma": "gēns, gentis, f.",
+   "parse": "abl. sg.",
+   "gloss": "family, clan",
+   "app": [
+    "gens-n3i"
+   ]
+  },
+  {
+   "w": "Augustī",
+   "lemma": "Augustus, Augustī, m.",
+   "parse": "gen. sg.",
+   "gloss": "of Augustus"
+  },
+  {
+   "w": "pertinēre",
+   "lemma": "pertineō, pertinēre",
+   "parse": "pres. inf. act.",
+   "gloss": "to concern, refer (to)",
+   "app": [
+    "pertineo-v2"
+   ]
+  },
+  {
+   "w": "dīcēbat",
+   "p": ",",
+   "lemma": "dīcō, dīcere, dīxī, dictum",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "he said, kept saying",
+   "app": [
+    "dico-v3"
+   ]
+  },
+  {
+   "w": "alterum",
+   "lemma": "alter, altera, alterum",
+   "parse": "acc. sg. n.",
+   "gloss": "the other",
+   "app": [
+    "alter-adj-ius"
+   ]
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "Parthōrum",
+   "lemma": "Parthī, Parthōrum, m. pl.",
+   "parse": "gen. pl.",
+   "gloss": "of the Parthians"
+  },
+  {
+   "w": "rēgem",
+   "lemma": "rēx, rēgis, m.",
+   "parse": "acc. sg.",
+   "gloss": "king",
+   "app": [
+    "rex-n3"
+   ]
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. sg. m.",
+   "gloss": "who"
+  },
+  {
+   "w": "capillātus",
+   "lemma": "capillātus, capillāta, capillātum",
+   "parse": "nom. sg. m.",
+   "gloss": "long-haired"
+  },
+  {
+   "w": "esset",
+   "p": ";",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. impf. subj. (subordinate clause in indirect statement)",
+   "gloss": "was",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "prīmā",
+   "lemma": "prīmus, prīma, prīmum",
+   "parse": "abl. sg. f.",
+   "gloss": "first",
+   "app": [
+    "primus-adj12"
+   ]
+  },
+  {
+   "w": "quoque",
+   "lemma": "quoque",
+   "parse": "adverb",
+   "gloss": "also"
+  },
+  {
+   "w": "morbī",
+   "lemma": "morbus, morbī, m.",
+   "parse": "gen. sg.",
+   "gloss": "of (his) illness",
+   "app": [
+    "morbus-n2m"
+   ]
+  },
+  {
+   "w": "accessiōne",
+   "p": ":",
+   "lemma": "accessiō, accessiōnis, f.",
+   "parse": "abl. sg. (time when)",
+   "gloss": "attack, onset"
+  },
+  {
+   "w": "Vae",
+   "pre": "\"",
+   "p": ",\"",
+   "lemma": "vae",
+   "parse": "interjection",
+   "gloss": "alas, oh dear"
+  },
+  {
+   "w": "inquit",
+   "p": ",",
+   "lemma": "inquam (defective verb)",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "he said"
+  },
+  {
+   "w": "putō",
+   "pre": "\"",
+   "lemma": "putō, putāre",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I think",
+   "app": [
+    "puto-v1"
+   ]
+  },
+  {
+   "w": "deus",
+   "lemma": "deus, deī, m.",
+   "parse": "nom. sg. (predicate)",
+   "gloss": "a god",
+   "app": [
+    "deus-n2m"
+   ]
+  },
+  {
+   "w": "fīō",
+   "p": ".\"",
+   "lemma": "fīō, fierī, factus sum",
+   "parse": "1st sg. pres. ind.",
+   "gloss": "I am becoming"
+  }
+ ],
+ "translation": "Not even in fear and in the final danger of death did he stop joking. Among other portents, the Mausoleum suddenly opened and a comet appeared in the sky; he kept saying that the first concerned Junia Calvina, of the family of Augustus, and the second the king of the Parthians, who had long hair. And at the first attack of his illness he said, \"Oh dear, I think I am becoming a god.\"",
+ "translation_note": "alterum ... alterum: \"the one ... the other\", referring to the two portents in order. stella crīnīta, \"long-haired star\", is Latin for a comet, which is the point of the joke about the long-haired Parthian king.",
+ "essay": [
+  [
+   {
+    "t": "Suetonius presents Vespasian as a man of very ready wit, who joked a great deal, at dinner and at other times.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "In our passage he says that not even the fear of death stopped him.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "When, among other portents, the Mausoleum suddenly opened and a comet appeared, Vespasian assigned them to other people: one to Junia Calvina, of the family of Augustus, the other to the long-haired Parthian king.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Cassius Dio has the same comet joke and makes the point explicit: the omen was for the Parthian king, who had long hair, and not for Vespasian, who was bald.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The famous line is often called his last words, but Suetonius places it at the first attack of his illness.",
+    "src": [
+     1,
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "His last recorded words, in Suetonius, are that an emperor ought to die standing; he died as he was being helped to rise.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Suetonius's Latin gives his age at death as sixty-nine years, seven months and seven days (the Loeb translation's \"one month\" is a slip, as Bill Thayer notes), while Dio says sixty-nine years and eight months: the sources differ slightly.",
+    "src": [
+     1,
+     4,
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The joke depends on a Roman practice: a dead emperor could be declared a god, a divus, and Suetonius's own title for this Life is Divus Vespasianus.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Dio reports a similar remark, made \"when at last he was convinced that he was going to die\": \"I am already becoming a god.\"",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Scholars have generally read it as a sarcastic sneer at deification, and Duncan Fishwick, who discusses what Vespasian meant, notes that Suetonius thought he was joking.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Whether it was a sneer at the custom, a joke about his own death, or both, is a matter of interpretation.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "What the anecdote shows is how Suetonius wanted his readers to see Vespasian: an emperor who did not take the trappings of power too seriously, even at the end.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "When, according to Suetonius, did Vespasian say \"Vae, puto deus fio\"?",
+   "options": [
+    "At the first attack of his illness",
+    "At the moment of his death",
+    "At his accession",
+    "At a triumph"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does the joke rely on?",
+   "options": [
+    "The practice of declaring dead emperors gods",
+    "A Greek proverb",
+    "An oracle from Delphi",
+    "A line from a comedy"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "How did Vespasian explain the comet, in Dio's version?",
+   "options": [
+    "It was for the long-haired Parthian king, not for him, since he was bald",
+    "It meant victory over the Jews",
+    "It was a sign from Jupiter that he would recover",
+    "It meant his son would die"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Divus Vespasianus 22–24 (Latin; Loeb text, Rolfe vol. II), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Vespasian*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Suetonius, Divus Vespasianus 24 in English on LacusCurtius, with Bill Thayer's note [e] correcting the Loeb's \"one month\" to \"seven months\"",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Vespasian*.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Cassius Dio, Roman History 66.17 (Loeb translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/66*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "D. Fishwick, \"Vae Puto Deus Fio\", Classical Quarterly 15.1 (1965) 155–157, doi:10.1017/S000983880000879X",
+   "url": "https://www.cambridge.org/core/journals/classical-quarterly/article/vae-pvto-devs-fio/91E4C1F307AD036E93D99F52BDE58CBF",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

@@ -1,0 +1,542 @@
+{
+ "id": "hadr-14",
+ "order": 9,
+ "title": "Antinous and the Nile",
+ "saying": "dē quō varia fāma est",
+ "author": "Historia Augusta",
+ "work": "Vīta Hadriānī",
+ "citation": "HA Hadr. 14.5–7",
+ "setting": "Egypt, AD 130",
+ "edition": {
+  "name": "Historia Augusta, Latin text of the Loeb Classical Library edition (D. Magie), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit \"a Loeb Classical Library\" edition of MCMXXI (1921); public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Hadrian/1*.html",
+  "section": "Vita Hadriani 14.5–7 (sections 5 to 7 complete)"
+ },
+ "source_text": "Antinoum suum, dum per Nilum navigat, perdidit, quem muliebriter flevit. de quo varia fama est, aliis eum devotum pro Hadriano adserentibus, aliis quod et forma eius ostentat et nimia voluptas Hadriani. et Graeci quidem volente Hadriano eum consecraverunt, oracula per eum dari adserentes, quae Hadrianus ipse composuisse iactatur.",
+ "excerpt_note": "Sections 14.5–7 complete. The edition begins sections 6 and 7 in lower case after a full stop, and so does this text.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "Antinoum: short i and o, from the Greek Antinoos; not machine-checked.",
+   "Nīlum: long ī, the usual dictionary quantity; not machine-checked.",
+   "dēvōtum: long ō in the participle of dēvoveō (as in vōtum); not machine-checked.",
+   "Hadriānus: long ā, the usual dictionary quantity; not machine-checked.",
+   "iactātur: short a in the stem iact-, as in iaciō / iactum in the app lexicon."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Antinoum",
+   "lemma": "Antinous, Antinoī, m.",
+   "parse": "acc. sg.",
+   "gloss": "Antinous"
+  },
+  {
+   "w": "suum",
+   "p": ",",
+   "lemma": "suus, sua, suum",
+   "parse": "acc. sg. m.",
+   "gloss": "his (own)",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "dum",
+   "lemma": "dum",
+   "parse": "conjunction (+ present: while)",
+   "gloss": "while",
+   "app": [
+    "dum-indecl"
+   ]
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "along, through"
+  },
+  {
+   "w": "Nīlum",
+   "lemma": "Nīlus, Nīlī, m.",
+   "parse": "acc. sg.",
+   "gloss": "the Nile"
+  },
+  {
+   "w": "nāvigat",
+   "p": ",",
+   "lemma": "nāvigō, nāvigāre",
+   "parse": "3rd sg. pres. ind. act. (present after dum: \"while he was sailing\")",
+   "gloss": "he sails"
+  },
+  {
+   "w": "perdidit",
+   "p": ",",
+   "lemma": "perdō, perdere, perdidī, perditum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he lost",
+   "app": [
+    "perdo-v3"
+   ]
+  },
+  {
+   "w": "quem",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. sg. m.",
+   "gloss": "whom"
+  },
+  {
+   "w": "muliebriter",
+   "lemma": "muliebriter",
+   "parse": "adverb",
+   "gloss": "like a woman"
+  },
+  {
+   "w": "flēvit",
+   "p": ".",
+   "lemma": "fleō, flēre, flēvī, flētum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he wept for, mourned",
+   "app": [
+    "fleo-v2"
+   ]
+  },
+  {
+   "w": "dē",
+   "lemma": "dē (+ abl.)",
+   "parse": "preposition",
+   "gloss": "about, concerning",
+   "app": [
+    "de-indecl"
+   ]
+  },
+  {
+   "w": "quō",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, abl. sg. m. (connecting: \"about him\")",
+   "gloss": "whom, him"
+  },
+  {
+   "w": "varia",
+   "lemma": "varius, varia, varium",
+   "parse": "nom. sg. f.",
+   "gloss": "varied, conflicting",
+   "app": [
+    "varius-adj12"
+   ]
+  },
+  {
+   "w": "fāma",
+   "lemma": "fāma, fāmae, f.",
+   "parse": "nom. sg.",
+   "gloss": "report, rumour",
+   "app": [
+    "fama-n1"
+   ]
+  },
+  {
+   "w": "est",
+   "p": ",",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "is",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "aliīs",
+   "lemma": "alius, alia, aliud",
+   "parse": "abl. pl. m. (ablative absolute with adserentibus)",
+   "gloss": "some (people)",
+   "app": [
+    "alius-adj-ius"
+   ]
+  },
+  {
+   "w": "eum",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. m. (subject of the infinitive [esse])",
+   "gloss": "him"
+  },
+  {
+   "w": "dēvōtum",
+   "lemma": "dēvoveō, dēvovēre, dēvōvī, dēvōtum",
+   "parse": "perf. pass. participle, acc. sg. m. ([esse] understood)",
+   "gloss": "(had been) offered up, devoted (as a sacrifice)"
+  },
+  {
+   "w": "prō",
+   "lemma": "prō (+ abl.)",
+   "parse": "preposition",
+   "gloss": "for, on behalf of"
+  },
+  {
+   "w": "Hadriānō",
+   "lemma": "Hadriānus, Hadriānī, m.",
+   "parse": "abl. sg.",
+   "gloss": "Hadrian"
+  },
+  {
+   "w": "adserentibus",
+   "p": ",",
+   "lemma": "adserō, adserere, adseruī, adsertum",
+   "parse": "pres. act. participle, abl. pl. m. (ablative absolute)",
+   "gloss": "asserting, claiming"
+  },
+  {
+   "w": "aliīs",
+   "lemma": "alius, alia, aliud",
+   "parse": "abl. pl. m. (ablative absolute; adserentibus understood)",
+   "gloss": "others",
+   "app": [
+    "alius-adj-ius"
+   ]
+  },
+  {
+   "w": "quod",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. sg. n. (\"that which\")",
+   "gloss": "what"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction (et ... et: both ... and)",
+   "gloss": "both",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "fōrma",
+   "lemma": "fōrma, fōrmae, f.",
+   "parse": "nom. sg.",
+   "gloss": "beauty, good looks",
+   "app": [
+    "forma-n1"
+   ]
+  },
+  {
+   "w": "eius",
+   "lemma": "is, ea, id",
+   "parse": "gen. sg. m.",
+   "gloss": "his"
+  },
+  {
+   "w": "ostentat",
+   "lemma": "ostentō, ostentāre",
+   "parse": "3rd sg. pres. ind. act. (agrees with the nearer subject)",
+   "gloss": "shows, suggests"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction (et ... et: both ... and)",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "nimia",
+   "lemma": "nimius, nimia, nimium",
+   "parse": "nom. sg. f.",
+   "gloss": "excessive",
+   "app": [
+    "nimius-adj12"
+   ]
+  },
+  {
+   "w": "voluptās",
+   "lemma": "voluptās, voluptātis, f.",
+   "parse": "nom. sg.",
+   "gloss": "pleasure, sensual desire",
+   "app": [
+    "voluptas-n3"
+   ]
+  },
+  {
+   "w": "Hadriānī",
+   "p": ".",
+   "lemma": "Hadriānus, Hadriānī, m.",
+   "parse": "gen. sg.",
+   "gloss": "of Hadrian"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "Graecī",
+   "lemma": "Graecus, Graeca, Graecum",
+   "parse": "nom. pl. m., used as a noun",
+   "gloss": "the Greeks",
+   "app": [
+    "graecus-adj12"
+   ]
+  },
+  {
+   "w": "quidem",
+   "lemma": "quidem",
+   "parse": "adverb",
+   "gloss": "indeed"
+  },
+  {
+   "w": "volente",
+   "lemma": "volō, velle, voluī",
+   "parse": "pres. participle, abl. sg. m. (ablative absolute)",
+   "gloss": "wishing, willing"
+  },
+  {
+   "w": "Hadriānō",
+   "lemma": "Hadriānus, Hadriānī, m.",
+   "parse": "abl. sg. (ablative absolute)",
+   "gloss": "Hadrian"
+  },
+  {
+   "w": "eum",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. m.",
+   "gloss": "him"
+  },
+  {
+   "w": "cōnsecrāvērunt",
+   "p": ",",
+   "lemma": "cōnsecrō, cōnsecrāre, cōnsecrāvī, cōnsecrātum",
+   "parse": "3rd pl. perf. ind. act.",
+   "gloss": "they consecrated, deified"
+  },
+  {
+   "w": "ōrācula",
+   "lemma": "ōrāculum, ōrāculī, n.",
+   "parse": "acc. pl. (subject of dari)",
+   "gloss": "oracles"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "through"
+  },
+  {
+   "w": "eum",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. m.",
+   "gloss": "him"
+  },
+  {
+   "w": "darī",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "pres. pass. inf.",
+   "gloss": "to be given",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "adserentēs",
+   "p": ",",
+   "lemma": "adserō, adserere, adseruī, adsertum",
+   "parse": "pres. act. participle, nom. pl. m.",
+   "gloss": "asserting, claiming"
+  },
+  {
+   "w": "quae",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. pl. n.",
+   "gloss": "which"
+  },
+  {
+   "w": "Hadriānus",
+   "lemma": "Hadriānus, Hadriānī, m.",
+   "parse": "nom. sg.",
+   "gloss": "Hadrian"
+  },
+  {
+   "w": "ipse",
+   "lemma": "ipse, ipsa, ipsum",
+   "parse": "nom. sg. m.",
+   "gloss": "himself"
+  },
+  {
+   "w": "composuisse",
+   "lemma": "compōnō, compōnere, composuī, compositum",
+   "parse": "perf. inf. act.",
+   "gloss": "to have composed",
+   "app": [
+    "compono-v3"
+   ]
+  },
+  {
+   "w": "iactātur",
+   "p": ".",
+   "lemma": "iactō, iactāre",
+   "parse": "3rd sg. pres. ind. pass. (personal construction)",
+   "gloss": "is said, is rumoured"
+  }
+ ],
+ "translation": "He lost his Antinous while sailing along the Nile, and wept for him like a woman. About him the reports vary, some claiming that he had been offered up as a sacrifice for Hadrian, others claiming what both his beauty and Hadrian's excessive sensuality suggest. The Greeks, at Hadrian's wish, did indeed make him a god, claiming that oracles were given through him, oracles that Hadrian himself is rumoured to have composed.",
+ "translation_note": "The second sentence is compressed: aliīs (adserentibus) quod ... ostentat, \"others (claiming) what ... suggests\"; the writer leaves the sexual implication unspoken. Hadriānus ... composuisse iactātur is a personal passive: \"Hadrian is said to have composed\".",
+ "essay": [
+  [
+   {
+    "t": "Antinous came from Bithynium, also called Claudiopolis, in Bithynia, and Cassius Dio calls him a favourite of the emperor Hadrian and speaks of Hadrian's love for him.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "He died in the waters of the Nile in AD 130.",
+    "src": [
+     4
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Our passage gives the bare event and then the gossip.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Hadrian, it says, wept for him \"like a woman\", a phrase that judges the emperor's open grief by Roman ideas of how a man should behave.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "It then reports two explanations: some said Antinous had been offered up as a sacrifice for Hadrian, others pointed to what his beauty and Hadrian's excessive sensuality suggested.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The second explanation hints at a sexual relationship without stating it; the text is insinuating rather than informative.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Cassius Dio gives related, blunter alternatives.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Hadrian himself wrote that Antinous died by falling into the Nile, but Dio says \"the truth\" is that he was offered in sacrifice, perhaps having volunteered to die so that a life could be given for Hadrian's purposes.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Neither account can be checked: Dio's book survives only in an abridgement, and the Historia Augusta was written by a single author, probably near the end of the fourth century, under six false names, and its checkable claims have often proved unfounded.",
+    "src": [
+     2,
+     3
+    ]
+   },
+   {
+    "t": "Hadrian's own version, an accident, cannot be ruled out.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "What followed is better documented.",
+    "src": [
+     2,
+     4
+    ]
+   },
+   {
+    "t": "According to our passage, the Greeks made Antinous a god at Hadrian's wish and claimed he gave oracles, which Hadrian himself was rumoured to have written.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Dio adds that Hadrian founded a city where Antinous died and named it after him, set up statues of him almost everywhere, and claimed to have seen his star, which people mocked.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The city was Antinoopolis, and a statue of Antinous as the Egyptian god Osiris, found in 1740 at Hadrian's Villa near Tivoli, is now in the Vatican Museums; the museum says his cult spread rapidly, especially between 133 and 138.",
+    "src": [
+     4
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "How does Hadrian himself, according to Cassius Dio, say Antinous died?",
+   "options": [
+    "He fell into the Nile",
+    "He was killed in battle",
+    "He died of fever",
+    "He was poisoned"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why should the Historia Augusta be read with caution?",
+   "options": [
+    "It was written by one author late in the fourth century under false names, and its checkable claims often prove unfounded",
+    "It was written by Hadrian himself",
+    "It survives only in Greek",
+    "It was written by Antinous's family"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does the Vatican statue show?",
+   "options": [
+    "Antinous as the Egyptian god Osiris",
+    "Hadrian on horseback",
+    "The Nile as a river god",
+    "Antinous as a soldier"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Historia Augusta, Vita Hadriani 14 (Latin; Loeb text, Magie), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Hadrian/1*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cassius Dio, Roman History 69.11 (epitome; Loeb 1925 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/69*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "The Last Historians of Rome (AHRC project, Universities of Edinburgh and Nottingham), \"Historia Augusta\"",
+   "url": "https://lasthistorians.shca.ed.ac.uk/historia-augusta",
+   "kind": "modern"
+  },
+  {
+   "label": "Vatican Museums, \"Statue of Osiris-Antinous\" (Museo Gregoriano Egizio)",
+   "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/museo-gregoriano-egizio/sala-iii--ricostruzione-del-serapeo-del-canopo-di-villa-adriana/statua-di-osiri-antinoo.html",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

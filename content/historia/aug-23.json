@@ -1,0 +1,366 @@
+{
+ "id": "aug-23",
+ "order": 3,
+ "title": "Give me back my legions",
+ "saying": "Quīntilī Vāre, legiōnēs redde!",
+ "author": "Suetonius",
+ "work": "Dīvus Augustus",
+ "citation": "Suet. Aug. 23.2",
+ "setting": "Rome, after the disaster in Germany, AD 9",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, vol. I (Julius, Augustus), Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit it, in their own wording, to \"a Loeb Classical Library editi[on] MCMXIII\" (1913), public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
+  "section": "Divus Augustus 23.2 (second sentence)"
+ },
+ "source_text": "Adeo denique consternatum ferunt, ut per continuos menses barba capilloque summisso caput interdum foribus illideret vociferans: \"Quintili Vare, legiones redde!\" diemque cladis quotannis maestum habuerit ac lugubrem.",
+ "excerpt_note": "The second (and last) sentence of section 23.2.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "Quīntilī: long ī in the first syllable, as in Quīntus; this follows the usual dictionary quantity and was not machine-checked.",
+   "Vāre: long ā (vārus, \"bent-legged\"), the usual dictionary quantity; not machine-checked.",
+   "lūgubrem: long ū (from lūgeō); not machine-checked.",
+   "illīderet: long ī (in- + laedō); not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Adeō",
+   "lemma": "adeō",
+   "parse": "adverb",
+   "gloss": "so much, to such a degree",
+   "nolink": true
+  },
+  {
+   "w": "dēnique",
+   "lemma": "dēnique",
+   "parse": "adverb",
+   "gloss": "in fact, indeed"
+  },
+  {
+   "w": "cōnsternātum",
+   "lemma": "cōnsternō, cōnsternāre",
+   "parse": "perf. pass. participle, acc. sg. m. (eum [esse] is understood: indirect statement)",
+   "gloss": "(he was) shaken, thrown into dismay"
+  },
+  {
+   "w": "ferunt",
+   "p": ",",
+   "lemma": "ferō, ferre, tulī, lātum",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "they say, it is reported"
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (result clause)",
+   "gloss": "that, so that"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "through, for (of time)"
+  },
+  {
+   "w": "continuōs",
+   "lemma": "continuus, continua, continuum",
+   "parse": "acc. pl. m.",
+   "gloss": "successive, on end"
+  },
+  {
+   "w": "mēnsēs",
+   "lemma": "mēnsis, mēnsis, m.",
+   "parse": "acc. pl.",
+   "gloss": "months"
+  },
+  {
+   "w": "barbā",
+   "lemma": "barba, barbae, f.",
+   "parse": "abl. sg. (ablative absolute with summissō)",
+   "gloss": "beard"
+  },
+  {
+   "w": "capillōque",
+   "lemma": "capillus, capillī, m. + -que",
+   "parse": "abl. sg. + enclitic -que",
+   "gloss": "and hair",
+   "enclitic": "que"
+  },
+  {
+   "w": "summissō",
+   "lemma": "summittō, summittere, summīsī, summissum",
+   "parse": "perf. pass. participle, abl. sg. m. (ablative absolute; agrees with the nearer noun)",
+   "gloss": "let grow (lit. let down)"
+  },
+  {
+   "w": "caput",
+   "lemma": "caput, capitis, n.",
+   "parse": "acc. sg.",
+   "gloss": "head",
+   "app": [
+    "caput-n3n"
+   ]
+  },
+  {
+   "w": "interdum",
+   "lemma": "interdum",
+   "parse": "adverb",
+   "gloss": "now and then"
+  },
+  {
+   "w": "foribus",
+   "lemma": "foris, foris, f. (usually pl. forēs)",
+   "parse": "abl. (or dat.) pl.",
+   "gloss": "against the doors"
+  },
+  {
+   "w": "illīderet",
+   "lemma": "illīdō, illīdere, illīsī, illīsum",
+   "parse": "3rd sg. impf. subj. act. (result clause)",
+   "gloss": "he would strike, dash"
+  },
+  {
+   "w": "vōciferāns",
+   "p": ":",
+   "lemma": "vōciferor, vōciferārī",
+   "parse": "pres. participle, nom. sg. m.",
+   "gloss": "shouting"
+  },
+  {
+   "w": "Quīntilī",
+   "pre": "\"",
+   "lemma": "Quīntilius, Quīntiliī, m.",
+   "parse": "voc. sg.",
+   "gloss": "Quintilius"
+  },
+  {
+   "w": "Vāre",
+   "p": ",",
+   "lemma": "Vārus, Vārī, m.",
+   "parse": "voc. sg.",
+   "gloss": "Varus"
+  },
+  {
+   "w": "legiōnēs",
+   "lemma": "legiō, legiōnis, f.",
+   "parse": "acc. pl.",
+   "gloss": "legions",
+   "app": [
+    "legio-n3"
+   ]
+  },
+  {
+   "w": "redde",
+   "p": "!\"",
+   "lemma": "reddō, reddere, reddidī, redditum",
+   "parse": "2nd sg. pres. imperative act.",
+   "gloss": "give back!",
+   "app": [
+    "reddo-v3"
+   ]
+  },
+  {
+   "w": "diemque",
+   "lemma": "diēs, diēī, m. + -que",
+   "parse": "acc. sg. + enclitic -que",
+   "gloss": "and the day",
+   "enclitic": "que"
+  },
+  {
+   "w": "clādis",
+   "lemma": "clādēs, clādis, f.",
+   "parse": "gen. sg.",
+   "gloss": "of the disaster"
+  },
+  {
+   "w": "quotannīs",
+   "lemma": "quotannīs",
+   "parse": "adverb",
+   "gloss": "every year"
+  },
+  {
+   "w": "maestum",
+   "lemma": "maestus, maesta, maestum",
+   "parse": "acc. sg. m. (predicate with habuerit)",
+   "gloss": "(as a day) of sorrow",
+   "app": [
+    "maestus-adj12"
+   ]
+  },
+  {
+   "w": "habuerit",
+   "lemma": "habeō, habēre, habuī, habitum",
+   "parse": "3rd sg. perf. subj. act. (result clause)",
+   "gloss": "he kept, regarded",
+   "app": [
+    "habeo-v2"
+   ]
+  },
+  {
+   "w": "ac",
+   "lemma": "ac (= atque)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "lūgubrem",
+   "p": ".",
+   "lemma": "lūgubris, lūgubre",
+   "parse": "acc. sg. m.",
+   "gloss": "(as a day) of mourning"
+  }
+ ],
+ "translation": "In fact, people say he was so shaken that for months on end he let his beard and hair grow, and now and then beat his head against the doors, shouting, \"Quintilius Varus, give back the legions!\", and that every year he treated the anniversary of the defeat as a sad and gloomy day.",
+ "translation_note": "The whole sentence depends on ferunt (\"they say\"): it is indirect statement, so Suetonius reports a story rather than vouching for it. Quīntilī is the vocative of Quīntilius (-ius nouns have vocative -ī). The name is also spelled Quinctilius (as in Britannica); this edition prints Quintili.",
+ "essay": [
+  [
+   {
+    "t": "In the autumn of AD 9 three Roman legions, the Seventeenth, Eighteenth and Nineteenth, were destroyed in Germany under the command of Publius Quinctilius Varus.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "The ambushes were organized by Arminius of the Cherusci.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "The Roman historian Velleius Paterculus says Arminius was the son of a German prince, had been associated with the Romans on campaigns and had even reached equestrian rank; Britannica adds that he grew up in Rome as a noble hostage, a detail I could not trace to an ancient source.",
+    "src": [
+     4,
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Cassius Dio says the Germans drew Varus deep into the territory of the Cherusci and attacked his strung-out column in the forests during a storm, and that Varus and his senior officers killed themselves.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Suetonius calls the defeat almost fatal: three legions were cut down together with their general, his legates and all the auxiliaries.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "When the news arrived, Augustus posted watches throughout Rome to prevent unrest and extended the commands of provincial governors, and he vowed great games to Jupiter, as had been done in earlier crises.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The famous cry comes next, but Suetonius introduces it with ferunt, \"they say\": he presents it as a story that was told, not as something he could document.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Cassius Dio, describing Augustus's reaction, mentions torn clothes and great grief, and he too adds \"as some report\"; he does not record the cry.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Britannica's article credits the cry to Suetonius but drops his \"they say\", and has Augustus wailing it \"often\" where Suetonius says interdum, \"now and then\": a small example of how an anecdote hardens into fact.",
+    "src": [
+     3,
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Archaeology has added evidence of its own: according to a review of Peter Wells's study of the battle, the site was not located until 1987, and more than 4,000 Roman objects had been recovered there by the end of 1999.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The consequences are clearer: Tiberius chose not to occupy the land east of the Rhine and guarded the frontier with at least eight legions instead.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Whatever Augustus really shouted, the disaster marked a limit of Roman expansion in Germany.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "How does Suetonius introduce the story of the cry?",
+   "options": [
+    "With ferunt, \"they say\", so it is reported as hearsay",
+    "As something he saw himself",
+    "As a quotation from Augustus's own memoirs",
+    "As an inscription on a monument"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Which detail does Cassius Dio give that Suetonius's passage does not?",
+   "options": [
+    "That Varus and his senior officers killed themselves",
+    "That Augustus shouted at Varus",
+    "That Augustus let his beard grow",
+    "That the day was mourned every year"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "According to Britannica, what did Tiberius do afterwards?",
+   "options": [
+    "He chose not to occupy the land east of the Rhine",
+    "He conquered all of Germany",
+    "He moved the capital to the Rhine",
+    "He disbanded the army in Germany"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Divus Augustus 23 (Latin; Loeb text, Rolfe vol. I), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cassius Dio, Roman History 56.18–23 (Loeb 1924 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/56*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Battle of the Teutoburg Forest\" (Myles Hudson)",
+   "url": "https://www.britannica.com/event/Battle-of-the-Teutoburg-Forest",
+   "kind": "modern"
+  },
+  {
+   "label": "Velleius Paterculus, Roman History 2.118 (Loeb 1924 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Velleius_Paterculus/2D*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Kirkus Reviews, review of P. S. Wells, The Battle That Stopped Rome (Norton, 2003) (used only for the date the site was found and the number of finds)",
+   "url": "https://www.kirkusreviews.com/book-reviews/peter-s-wells/the-battle-that-stopped-rome/print",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

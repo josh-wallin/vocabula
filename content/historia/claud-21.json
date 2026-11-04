@@ -1,0 +1,597 @@
+{
+ "id": "claud-21",
+ "order": 5,
+ "title": "Those about to die",
+ "saying": "Havē imperātor, moritūrī tē salūtant!",
+ "author": "Suetonius",
+ "work": "Dīvus Claudius",
+ "citation": "Suet. Claud. 21.6",
+ "setting": "The Fucine Lake, AD 52",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, vol. II (Claudius to Titus), Latin text of the Loeb Classical Library edition (J. C. Rolfe, vol. II, 1914), as presented on LacusCurtius (Bill Thayer), whose Latin pages say MCMXIII; public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Claudius*.html",
+  "section": "Divus Claudius 21.6 (second and third sentences)"
+ },
+ "source_text": "Quin et emissurus Fucinum lacum naumachiam ante commisit. Sed cum proclamantibus naumachiariis: \"Have imperator, morituri te salutant!\" respondisset: \"Aut non,\" neque post hanc vocem quasi venia data quisquam dimicare vellet, diu cunctatus an omnes igni ferroque absumeret, tandem e sede sua prosiluit ac per ambitum lacus non sine foeda vacillatione discurrens partim minando partim adhortando ad pugnam compulit.",
+ "excerpt_note": "The second and third sentences of section 21.6. The edition's apparatus records a variant for \"Aut non\": \"avete vos\" (\"hail to you\").",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "Fūcinum: long ū, the usual dictionary quantity; not machine-checked.",
+   "pūgnam: spelled as the app lexicon spells it (DCC marks the \"hidden\" long vowel before gn); many textbooks print pugnam.",
+   "cunctātus: written with a short u; some dictionaries mark cūnctor. Uncertain.",
+   "Havē: the edition spells it with h; the vowel quantities (ē) are those of avē."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Quīn",
+   "lemma": "quīn",
+   "parse": "adverb (quīn et: what is more)",
+   "gloss": "what is more"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "adverb",
+   "gloss": "also, even",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "ēmissūrus",
+   "lemma": "ēmittō, ēmittere, ēmīsī, ēmissum",
+   "parse": "fut. act. participle, nom. sg. m.",
+   "gloss": "about to drain (lit. let out)"
+  },
+  {
+   "w": "Fūcinum",
+   "lemma": "Fūcinus, Fūcina, Fūcinum",
+   "parse": "acc. sg. m.",
+   "gloss": "Fucine (the Fucine Lake, in central Italy)"
+  },
+  {
+   "w": "lacum",
+   "lemma": "lacus, lacūs, m.",
+   "parse": "acc. sg.",
+   "gloss": "lake"
+  },
+  {
+   "w": "naumachiam",
+   "lemma": "naumachia, naumachiae, f.",
+   "parse": "acc. sg.",
+   "gloss": "a staged naval battle"
+  },
+  {
+   "w": "ante",
+   "lemma": "ante",
+   "parse": "adverb",
+   "gloss": "first, beforehand"
+  },
+  {
+   "w": "commīsit",
+   "p": ".",
+   "lemma": "committō, committere, commīsī, commissum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he staged (lit. joined battle)",
+   "app": [
+    "committo-v3"
+   ]
+  },
+  {
+   "w": "Sed",
+   "lemma": "sed",
+   "parse": "conjunction",
+   "gloss": "but",
+   "app": [
+    "sed-indecl"
+   ]
+  },
+  {
+   "w": "cum",
+   "lemma": "cum",
+   "parse": "conjunction (with subjunctive)",
+   "gloss": "when",
+   "nolink": true
+  },
+  {
+   "w": "prōclāmantibus",
+   "lemma": "prōclāmō, prōclāmāre",
+   "parse": "pres. act. participle, abl. pl. m. (ablative absolute)",
+   "gloss": "calling out"
+  },
+  {
+   "w": "naumachiāriīs",
+   "p": ":",
+   "lemma": "naumachiārius, naumachiāriī, m.",
+   "parse": "abl. pl. (ablative absolute)",
+   "gloss": "the fighters of the naval battle"
+  },
+  {
+   "w": "Havē",
+   "pre": "\"",
+   "lemma": "haveō (aveō), havēre",
+   "parse": "2nd sg. pres. imperative",
+   "gloss": "hail! greetings!"
+  },
+  {
+   "w": "imperātor",
+   "p": ",",
+   "lemma": "imperātor, imperātōris, m.",
+   "parse": "voc. sg.",
+   "gloss": "emperor, commander",
+   "app": [
+    "imperator-n3"
+   ]
+  },
+  {
+   "w": "moritūrī",
+   "lemma": "morior, morī, mortuus sum",
+   "parse": "fut. act. participle, nom. pl. m., used as a noun",
+   "gloss": "those about to die"
+  },
+  {
+   "w": "tē",
+   "lemma": "tū, tuī",
+   "parse": "acc. sg.",
+   "gloss": "you"
+  },
+  {
+   "w": "salūtant",
+   "p": "!\"",
+   "lemma": "salūtō, salūtāre",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "salute, greet"
+  },
+  {
+   "w": "respondisset",
+   "p": ":",
+   "lemma": "respondeō, respondēre, respondī, respōnsum",
+   "parse": "3rd sg. pluperf. subj. act. (cum clause)",
+   "gloss": "he had replied",
+   "app": [
+    "respondeo-v2"
+   ]
+  },
+  {
+   "w": "Aut",
+   "pre": "\"",
+   "lemma": "aut",
+   "parse": "conjunction",
+   "gloss": "or"
+  },
+  {
+   "w": "nōn",
+   "p": ",\"",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "neque",
+   "lemma": "neque",
+   "parse": "conjunction",
+   "gloss": "and not; and no (one)"
+  },
+  {
+   "w": "post",
+   "lemma": "post (+ acc.)",
+   "parse": "preposition",
+   "gloss": "after",
+   "app": [
+    "post-indecl"
+   ]
+  },
+  {
+   "w": "hanc",
+   "lemma": "hic, haec, hoc",
+   "parse": "acc. sg. f.",
+   "gloss": "this",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "vōcem",
+   "lemma": "vōx, vōcis, f.",
+   "parse": "acc. sg.",
+   "gloss": "utterance, remark",
+   "app": [
+    "vox-n3"
+   ]
+  },
+  {
+   "w": "quasi",
+   "lemma": "quasi",
+   "parse": "conjunction",
+   "gloss": "as if"
+  },
+  {
+   "w": "veniā",
+   "lemma": "venia, veniae, f.",
+   "parse": "abl. sg. (ablative absolute)",
+   "gloss": "pardon"
+  },
+  {
+   "w": "datā",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "perf. pass. participle, abl. sg. f. (ablative absolute)",
+   "gloss": "(had been) given",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "quisquam",
+   "lemma": "quisquam, quicquam",
+   "parse": "nom. sg. m.",
+   "gloss": "anyone"
+  },
+  {
+   "w": "dīmicāre",
+   "lemma": "dīmicō, dīmicāre",
+   "parse": "pres. inf. act.",
+   "gloss": "to fight"
+  },
+  {
+   "w": "vellet",
+   "p": ",",
+   "lemma": "volō, velle, voluī",
+   "parse": "3rd sg. impf. subj. (cum clause)",
+   "gloss": "was willing"
+  },
+  {
+   "w": "diū",
+   "lemma": "diū",
+   "parse": "adverb",
+   "gloss": "for a long time"
+  },
+  {
+   "w": "cunctātus",
+   "lemma": "cunctor, cunctārī, cunctātus sum",
+   "parse": "perf. participle, nom. sg. m.",
+   "gloss": "having hesitated"
+  },
+  {
+   "w": "an",
+   "lemma": "an",
+   "parse": "conjunction (indirect question)",
+   "gloss": "whether"
+  },
+  {
+   "w": "omnēs",
+   "lemma": "omnis, omne",
+   "parse": "acc. pl. m.",
+   "gloss": "all (of them)"
+  },
+  {
+   "w": "ignī",
+   "lemma": "ignis, ignis, m.",
+   "parse": "abl. sg.",
+   "gloss": "with fire",
+   "app": [
+    "ignis-n3i"
+   ]
+  },
+  {
+   "w": "ferrōque",
+   "lemma": "ferrum, ferrī, n. + -que",
+   "parse": "abl. sg. + enclitic -que",
+   "gloss": "and with the sword (lit. iron)",
+   "app": [
+    "ferrum-n2n"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "absūmeret",
+   "p": ",",
+   "lemma": "absūmō, absūmere, absūmpsī, absūmptum",
+   "parse": "3rd sg. impf. subj. act. (indirect question)",
+   "gloss": "he should destroy"
+  },
+  {
+   "w": "tandem",
+   "lemma": "tandem",
+   "parse": "adverb",
+   "gloss": "at last"
+  },
+  {
+   "w": "ē",
+   "lemma": "ē, ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from, out of",
+   "app": [
+    "e-indecl"
+   ]
+  },
+  {
+   "w": "sēde",
+   "lemma": "sēdēs, sēdis, f.",
+   "parse": "abl. sg.",
+   "gloss": "seat",
+   "app": [
+    "sedes-n3"
+   ]
+  },
+  {
+   "w": "suā",
+   "lemma": "suus, sua, suum",
+   "parse": "abl. sg. f.",
+   "gloss": "his (own)",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "prōsiluit",
+   "lemma": "prōsiliō, prōsilīre, prōsiluī",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he leapt up"
+  },
+  {
+   "w": "ac",
+   "lemma": "ac (= atque)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "along, around"
+  },
+  {
+   "w": "ambitum",
+   "lemma": "ambitus, ambitūs, m.",
+   "parse": "acc. sg.",
+   "gloss": "circuit, the way around"
+  },
+  {
+   "w": "lacūs",
+   "lemma": "lacus, lacūs, m.",
+   "parse": "gen. sg.",
+   "gloss": "of the lake"
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "sine",
+   "lemma": "sine (+ abl.)",
+   "parse": "preposition",
+   "gloss": "without",
+   "app": [
+    "sine-indecl"
+   ]
+  },
+  {
+   "w": "foedā",
+   "lemma": "foedus, foeda, foedum",
+   "parse": "abl. sg. f.",
+   "gloss": "ugly, unsightly",
+   "app": [
+    "foedus-adj12"
+   ]
+  },
+  {
+   "w": "vacillātiōne",
+   "lemma": "vacillātiō, vacillātiōnis, f.",
+   "parse": "abl. sg.",
+   "gloss": "lurching, unsteadiness"
+  },
+  {
+   "w": "discurrēns",
+   "lemma": "discurrō, discurrere, discurrī, discursum",
+   "parse": "pres. act. participle, nom. sg. m.",
+   "gloss": "running about"
+  },
+  {
+   "w": "partim",
+   "lemma": "partim",
+   "parse": "adverb",
+   "gloss": "partly"
+  },
+  {
+   "w": "minandō",
+   "lemma": "minor, minārī, minātus sum",
+   "parse": "gerund, abl.",
+   "gloss": "by threatening"
+  },
+  {
+   "w": "partim",
+   "lemma": "partim",
+   "parse": "adverb",
+   "gloss": "partly"
+  },
+  {
+   "w": "adhortandō",
+   "lemma": "adhortor, adhortārī, adhortātus sum",
+   "parse": "gerund, abl.",
+   "gloss": "by encouraging"
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "pūgnam",
+   "lemma": "pūgna, pūgnae, f.",
+   "parse": "acc. sg.",
+   "gloss": "fight, battle",
+   "app": [
+    "pugna-n1"
+   ]
+  },
+  {
+   "w": "compulit",
+   "p": ".",
+   "lemma": "compellō, compellere, compulī, compulsum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he drove, forced (them)"
+  }
+ ],
+ "translation": "What is more, before draining the Fucine Lake he first staged a naval battle on it. But when the fighters called out, \"Hail, emperor, those who are about to die salute you!\", he answered, \"Or not.\" After that remark nobody was willing to fight, as if they had been pardoned. He hesitated for a long time over whether to destroy them all with fire and sword; at last he leapt from his seat, ran along the shore of the lake, lurching in an ugly way, and forced them into battle, now threatening, now coaxing.",
+ "translation_note": "moritūrī is a future participle used as a noun (\"men who are going to die\"); the verb salūtant is third person: \"those about to die salute you\". \"Aut nōn\" is the reading of this edition; see the essay for the variant.",
+ "essay": [
+  [
+   {
+    "t": "In AD 52 the emperor Claudius staged a naval battle on the Fucine Lake in central Italy before opening a tunnel to drain it.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Tacitus says he equipped triremes and quadriremes with nineteen thousand combatants, that they were criminals, and that they fought bravely; after much bloodshed the survivors were spared.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The famous greeting comes from Suetonius, and Cassius Dio gives a Greek version of it; Tacitus does not mention it at all.",
+    "src": [
+     1,
+     2,
+     4
+    ]
+   },
+   {
+    "t": "Dio's version is in the first person, \"We who are about to die salute thee\" in the Loeb translation, and says the condemned men then sailed through each other's lines doing as little harm as possible.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "The popular Latin form morituri te salutamus, \"we ... salute you\", matches Dio's first person rather than Suetonius's third.",
+    "src": [
+     3,
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "It is usually treated as the regular salute of gladiators, but H. J. Leon showed that there is no evidence for that: both ancient reports describe this one event.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "The men were not gladiators but naumachiarii, fighters in a staged sea battle, and in this case condemned criminals.",
+    "src": [
+     2,
+     3
+    ]
+   },
+   {
+    "t": "So the line was probably an improvised appeal for mercy from men who expected to die, not a ritual formula.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "This edition prints \"Aut non\", \"Or not\", but its apparatus records a different reading, \"avete vos\", \"hail to you\", marked with the siglum ς, which in editions of Suetonius usually stands for the later manuscripts (the page itself does not explain it).",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "On Leon's reading of \"Aut non\", the fighters took it to mean \"or not about to die\", that is, a pardon, which is why Suetonius says they acted as if pardoned and refused to fight.",
+    "src": [
+     1,
+     3
+    ]
+   },
+   {
+    "t": "Claudius then had to force them into battle, lurching along the shore, now threatening, now coaxing.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The engineering went no better: Tacitus says that when the channel was first opened it proved not to have been dug deep enough; after it was deepened, a second show was put on, with a banquet near the outlet, and this time the rushing water carried away part of the works and caused a panic.",
+    "src": [
+     2
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "Who were the men who shouted the greeting?",
+   "options": [
+    "Condemned criminals fighting a staged naval battle",
+    "Professional gladiators in the Colosseum",
+    "Praetorian guardsmen",
+    "Senators"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What did H. J. Leon conclude about the greeting?",
+   "options": [
+    "There is no evidence it was a regular gladiators' salute",
+    "It was said before every gladiatorial show",
+    "It was invented by Tacitus",
+    "It was carved on the Colosseum"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why, according to Suetonius, did the men refuse to fight?",
+   "options": [
+    "They took Claudius's reply as a pardon",
+    "The lake had drained away",
+    "They had no ships",
+    "Claudius left the show"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Divus Claudius 21.6 with the edition's apparatus note (Latin; Loeb text, Rolfe vol. II), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Claudius*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Annals 12.56–57 (Loeb translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Tacitus/Annals/12B*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "H. J. Leon, \"Morituri Te Salutamus\", Transactions of the American Philological Association 70 (1939) 46–50, LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Journals/TAPA/70/Morituri_Te_Salutamus*.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Cassius Dio, Roman History 60.33.3–4 (Loeb 1925, tr. E. Cary), LacusCurtius (printed on the page headed \"Epitome of Book LXI\")",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/61*.html",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

@@ -1,0 +1,358 @@
+{
+ "id": "iul-37",
+ "order": 2,
+ "title": "I came, I saw, I conquered",
+ "saying": "Vēnī, vīdī, vīcī",
+ "author": "Suetonius",
+ "work": "Dīvus Iūlius",
+ "citation": "Suet. Iul. 37.2",
+ "setting": "Rome, the Pontic triumph",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, vol. I (Julius, Augustus), Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit it, in their own wording, to \"a Loeb Classical Library editi[on] MCMXIII\" (1913), public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
+  "section": "Divus Iulius 37.2 (last sentence)"
+ },
+ "source_text": "Pontico triumpho inter pompae fercula trium verborum praetulit titulum VENI·VIDI·VICI non acta belli significantem sicut ceteris, sed celeriter confecti notam.",
+ "excerpt_note": "The last sentence of section 37.2. The edition prints the three words in capitals with raised dots, as on an inscription.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "ācta: long ā (āctum), matching the app lexicon (agō, agere, ēgī, āctum).",
+   "cōnfectī: long ō before nf, matching the app lexicon (cōnficiō).",
+   "The capitals VĒNĪ·VĪDĪ·VĪCĪ keep the edition's inscription style; the macrons on them are editorial too."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Ponticō",
+   "lemma": "Ponticus, Pontica, Ponticum",
+   "parse": "abl. sg. m.",
+   "gloss": "Pontic (for the war in Pontus)"
+  },
+  {
+   "w": "triumphō",
+   "lemma": "triumphus, triumphī, m.",
+   "parse": "abl. sg. (time when)",
+   "gloss": "at the triumph"
+  },
+  {
+   "w": "inter",
+   "lemma": "inter (+ acc.)",
+   "parse": "preposition",
+   "gloss": "among"
+  },
+  {
+   "w": "pompae",
+   "lemma": "pompa, pompae, f.",
+   "parse": "gen. sg.",
+   "gloss": "of the procession"
+  },
+  {
+   "w": "fercula",
+   "lemma": "ferculum, ferculī, n.",
+   "parse": "acc. pl.",
+   "gloss": "display-stands, floats carried in a procession"
+  },
+  {
+   "w": "trium",
+   "lemma": "trēs, tria",
+   "parse": "gen. pl.",
+   "gloss": "of three"
+  },
+  {
+   "w": "verbōrum",
+   "lemma": "verbum, verbī, n.",
+   "parse": "gen. pl.",
+   "gloss": "words",
+   "app": [
+    "verbum-n2n"
+   ]
+  },
+  {
+   "w": "praetulit",
+   "lemma": "praeferō, praeferre, praetulī, praelātum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he had carried in front, displayed"
+  },
+  {
+   "w": "titulum",
+   "lemma": "titulus, titulī, m.",
+   "parse": "acc. sg.",
+   "gloss": "placard, notice"
+  },
+  {
+   "w": "VĒNĪ",
+   "p": "·",
+   "lemma": "veniō, venīre, vēnī, ventum",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I came",
+   "app": [
+    "venio-v4"
+   ]
+  },
+  {
+   "w": "VĪDĪ",
+   "p": "·",
+   "lemma": "videō, vidēre, vīdī, vīsum",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I saw",
+   "app": [
+    "video-v2"
+   ]
+  },
+  {
+   "w": "VĪCĪ",
+   "lemma": "vincō, vincere, vīcī, victum",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I conquered",
+   "app": [
+    "vinco-v3"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "ācta",
+   "lemma": "agō, agere, ēgī, āctum",
+   "parse": "perf. pass. participle, acc. pl. n., used as a noun",
+   "gloss": "things done, events",
+   "app": [
+    "ago-v3"
+   ]
+  },
+  {
+   "w": "bellī",
+   "lemma": "bellum, bellī, n.",
+   "parse": "gen. sg.",
+   "gloss": "of the war",
+   "app": [
+    "bellum-n2n"
+   ]
+  },
+  {
+   "w": "significantem",
+   "lemma": "significō, significāre",
+   "parse": "pres. act. participle, acc. sg. m. (agrees with titulum)",
+   "gloss": "indicating"
+  },
+  {
+   "w": "sīcut",
+   "lemma": "sīcut",
+   "parse": "conjunction",
+   "gloss": "as, just as"
+  },
+  {
+   "w": "cēterīs",
+   "p": ",",
+   "lemma": "cēterus, cētera, cēterum",
+   "parse": "dat. or abl. pl. m., used as a noun (the other placards or triumphs are understood)",
+   "gloss": "the others",
+   "app": [
+    "ceterus-adj12"
+   ]
+  },
+  {
+   "w": "sed",
+   "lemma": "sed",
+   "parse": "conjunction",
+   "gloss": "but",
+   "app": [
+    "sed-indecl"
+   ]
+  },
+  {
+   "w": "celeriter",
+   "lemma": "celeriter",
+   "parse": "adverb",
+   "gloss": "quickly"
+  },
+  {
+   "w": "cōnfectī",
+   "lemma": "cōnficiō, cōnficere, cōnfēcī, cōnfectum",
+   "parse": "perf. pass. participle, gen. sg. n. (bellī is understood)",
+   "gloss": "finished, completed",
+   "app": [
+    "conficio-v3io"
+   ]
+  },
+  {
+   "w": "notam",
+   "p": ".",
+   "lemma": "nota, notae, f.",
+   "parse": "acc. sg. (in apposition to titulum)",
+   "gloss": "mark, token"
+  }
+ ],
+ "translation": "In the Pontic triumph, among the floats of the procession, he had a placard of three words carried ahead: I CAME · I SAW · I CONQUERED. Unlike the others, it did not describe the events of the war; it was a token of how quickly the war had been finished.",
+ "translation_note": "cēterīs is compressed: \"as (the placards did) for the others\". The participle cōnfectī agrees with an understood bellī.",
+ "essay": [
+  [
+   {
+    "t": "In 47 BC Caesar fought King Pharnaces near Zela, a town in Pontus; the battle is narrated in the Alexandrian War, chapters 72–77, and the year is given in the LacusCurtius editor's note.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Suetonius says he won within five days of arriving and within four hours of coming into the enemy's sight.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The Alexandrian War, transmitted with Caesar's works, also stresses how speedily the war was ended, but it does not use the three words.",
+    "src": [
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "After the civil war Caesar celebrated four triumphs in a single month, with days between them, and a fifth later; one of them was for Pontus.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "In that Pontic triumph, according to our passage, a placard with three words was carried among the floats.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Suetonius points out what made it unusual: other placards listed the events of a war, but this one advertised only its speed.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Plutarch tells a different story: Caesar wrote the three words in a letter to a friend at Rome named Amantius.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Plutarch also notes that in Latin the words share the same ending, which gives them an impressive brevity.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "A footnote in Clough's edition of Plutarch says Amantius \"does not seem to be a true Roman name\" and reports that it has been corrected to Gaius Matius, a friend of Caesar's; that correction is a conjecture.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The two versions do not exclude each other: Caesar could have written the words in a letter and then reused them in Rome.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Neither author was a witness, though: Suetonius was born about AD 69, more than a century after Zela, and he relied freely on anecdote.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Still, the phrase is very likely Caesar's own wording in some form, since both writers attribute it to him and it fits the speed that Suetonius describes.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "For a learner, the three verbs are a neat lesson: vēnī, vīdī and vīcī are perfect tenses of veniō, videō and vincō, each \"I did it, and it is done\".",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The placard was propaganda in a literal sense: it told the crowd how to read the victory.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "According to Suetonius, what was unusual about the placard?",
+   "options": [
+    "It described the speed of the victory rather than the events of the war",
+    "It was written in Greek",
+    "It named Pompey",
+    "It was carried by Caesar himself"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Where does Plutarch say the three words appeared?",
+   "options": [
+    "In a letter to a friend at Rome",
+    "On a coin",
+    "In a speech to the Senate",
+    "On Caesar's tomb"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "How long after coming into the enemy's sight did Suetonius say Caesar won?",
+   "options": [
+    "Four hours",
+    "Four days",
+    "Five weeks",
+    "One year"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Divus Iulius 35.2 and 37 (Latin; Loeb text, Rolfe vol. I), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Plutarch, Life of Caesar 50 (tr. B. Perrin, Loeb 1919), Perseids",
+   "url": "https://cts.perseids.org/read/greekLit/tlg0007/tlg048/perseus-eng2/50.1-52.1",
+   "kind": "ancient"
+  },
+  {
+   "label": "Bellum Alexandrinum (The Alexandrian War) 65–78, with the LacusCurtius editor's notes (Loeb 1955 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Caesar/Alexandrian_War/E*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Suetonius\"",
+   "url": "https://www.britannica.com/biography/Suetonius",
+   "kind": "modern"
+  },
+  {
+   "label": "Plutarch's Lives, Clough edition, vol. 4 (1865 printing), p. 308, Caesar 50 with footnote on Amantius (Wikisource scan, mirror)",
+   "url": "https://kwx.liehendr.com/content/wikisource_en_all_maxi_2022-09/A/Page%3APlutarch's_Lives_(Clough%2C_v.4%2C_1865).djvu/316",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

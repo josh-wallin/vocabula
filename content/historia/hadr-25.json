@@ -1,0 +1,405 @@
+{
+ "id": "hadr-25",
+ "order": 10,
+ "title": "Little soul, wandering",
+ "saying": "Animula vagula blandula",
+ "author": "Historia Augusta",
+ "work": "Vīta Hadriānī",
+ "citation": "HA Hadr. 25.9",
+ "setting": "Hadrian's deathbed",
+ "edition": {
+  "name": "Historia Augusta, Latin text of the Loeb Classical Library edition (D. Magie), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit \"a Loeb Classical Library\" edition of MCMXXI (1921); public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Hadrian/2*.html",
+  "section": "Vita Hadriani 25.9 (the whole section: a line of prose and five lines of verse)"
+ },
+ "source_text": "et moriens quidem hos versus fecisse dicitur:\nAnimula vagula blandula\nhospes comesque corporis,\nquae nunc abibis in loca\npallidula rigida nudula?\nnec ut soles dabis iocos!",
+ "excerpt_note": "Section 25.9 complete: the introducing sentence and the five verses, one per line as printed. This is the one verse entry in Historia.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "versūs: accusative plural of a 4th-declension noun, so the ū is long; the edition's versus does not show this.",
+   "nūdula: long ū, as in nūdus; not machine-checked.",
+   "abībis: long ī (ab + īre); not machine-checked.",
+   "The quantities of the diminutives (animula, vagula, blandula, pallidula) are short throughout, as in anima, vagus, blandus, pallidus."
+  ]
+ },
+ "verse": true,
+ "tokens": [
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "moriēns",
+   "lemma": "morior, morī, mortuus sum",
+   "parse": "pres. participle, nom. sg. m.",
+   "gloss": "(while) dying"
+  },
+  {
+   "w": "quidem",
+   "lemma": "quidem",
+   "parse": "adverb",
+   "gloss": "indeed"
+  },
+  {
+   "w": "hōs",
+   "lemma": "hic, haec, hoc",
+   "parse": "acc. pl. m.",
+   "gloss": "these",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "versūs",
+   "lemma": "versus, versūs, m.",
+   "parse": "acc. pl.",
+   "gloss": "verses, lines"
+  },
+  {
+   "w": "fēcisse",
+   "lemma": "faciō, facere, fēcī, factum",
+   "parse": "perf. inf. act.",
+   "gloss": "to have made, composed",
+   "app": [
+    "facio-v3io"
+   ]
+  },
+  {
+   "w": "dīcitur",
+   "p": ":",
+   "br": true,
+   "lemma": "dīcō, dīcere, dīxī, dictum",
+   "parse": "3rd sg. pres. ind. pass. (personal construction)",
+   "gloss": "he is said",
+   "app": [
+    "dico-v3"
+   ]
+  },
+  {
+   "w": "Animula",
+   "lemma": "animula, animulae, f.",
+   "parse": "voc. sg.",
+   "gloss": "little soul (diminutive of anima)"
+  },
+  {
+   "w": "vagula",
+   "lemma": "vagulus, vagula, vagulum",
+   "parse": "voc. sg. f.",
+   "gloss": "little wanderer, wandering (diminutive of vagus)"
+  },
+  {
+   "w": "blandula",
+   "br": true,
+   "lemma": "blandulus, blandula, blandulum",
+   "parse": "voc. sg. f.",
+   "gloss": "little charmer, coaxing (diminutive of blandus)"
+  },
+  {
+   "w": "hospes",
+   "lemma": "hospes, hospitis, m. or f.",
+   "parse": "voc. (or nom.) sg., in apposition to animula (hospes is used of either gender, here of the feminine animula)",
+   "gloss": "guest",
+   "app": [
+    "hospes-n3"
+   ]
+  },
+  {
+   "w": "comesque",
+   "lemma": "comes, comitis, m. + -que",
+   "parse": "voc. (or nom.) sg. + enclitic -que",
+   "gloss": "and companion",
+   "app": [
+    "comes-n3"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "corporis",
+   "p": ",",
+   "br": true,
+   "lemma": "corpus, corporis, n.",
+   "parse": "gen. sg.",
+   "gloss": "of the body",
+   "app": [
+    "corpus-n3n"
+   ]
+  },
+  {
+   "w": "quae",
+   "lemma": "quī, quae, quod (interrogative adjective)",
+   "parse": "acc. pl. n., with loca (quae ... in loca = in quae loca)",
+   "gloss": "what, which (places)"
+  },
+  {
+   "w": "nunc",
+   "lemma": "nunc",
+   "parse": "adverb",
+   "gloss": "now",
+   "app": [
+    "nunc-indecl"
+   ]
+  },
+  {
+   "w": "abībis",
+   "lemma": "abeō, abīre, abiī, abitum",
+   "parse": "2nd sg. fut. ind.",
+   "gloss": "you will go away"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "into, to",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "loca",
+   "br": true,
+   "lemma": "locus, locī, m. (pl. loca, n.)",
+   "parse": "acc. pl. n.",
+   "gloss": "places",
+   "app": [
+    "locus-n2m"
+   ]
+  },
+  {
+   "w": "pallidula",
+   "lemma": "pallidulus, pallidula, pallidulum",
+   "parse": "nom. sg. f. (with the soul) or acc. pl. n. (with loca)",
+   "gloss": "pale little (diminutive of pallidus)"
+  },
+  {
+   "w": "rigida",
+   "lemma": "rigidus, rigida, rigidum",
+   "parse": "nom. sg. f. or acc. pl. n.",
+   "gloss": "stiff, cold"
+  },
+  {
+   "w": "nūdula",
+   "p": "?",
+   "br": true,
+   "lemma": "nūdulus, nūdula, nūdulum",
+   "parse": "nom. sg. f. or acc. pl. n.",
+   "gloss": "bare little, naked (diminutive of nūdus)"
+  },
+  {
+   "w": "nec",
+   "lemma": "nec (= neque)",
+   "parse": "conjunction",
+   "gloss": "and not"
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (+ indicative: as)",
+   "gloss": "as"
+  },
+  {
+   "w": "solēs",
+   "lemma": "soleō, solēre, solitus sum",
+   "parse": "2nd sg. pres. ind.",
+   "gloss": "you are accustomed",
+   "app": [
+    "soleo-v2"
+   ]
+  },
+  {
+   "w": "dabis",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "2nd sg. fut. ind. act.",
+   "gloss": "you will give, make",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "iocōs",
+   "p": "!",
+   "lemma": "iocus, iocī, m.",
+   "parse": "acc. pl.",
+   "gloss": "jokes"
+  }
+ ],
+ "translation": "And as he was dying he is said to have composed these verses: \"Little soul, little wanderer, little charmer, guest and companion of the body, into what places will you go off now, pale little thing, stiff, bare little thing? And you will not make jokes as you used to!\"",
+ "translation_note": "The diminutives (-ula) are affectionate and hard to render; \"little\" is a stand-in. pallidula rigida nūdula can describe the soul (nominative feminine) or the places (accusative neuter plural, with loca); I take them with the soul, but both readings are grammatical; this is my reading of the grammar, not a sourced claim. quae ... in loca is taken as an interrogative (\"into what places\"); a minority reading takes quae as a relative (\"you who will now go\").",
+ "essay": [
+  [
+   {
+    "t": "Hadrian reigned from 117 to 138.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "The Life of Hadrian says that as he was dying he is said to have composed these five lines, addressed to his own soul.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Note the verb: dicitur, \"he is said\", so even the biographer reports the poem as a tradition rather than as something he can vouch for.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The next sentence adds, rather coolly, that Hadrian wrote verses of this kind and not many better, and Greek ones as well.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The poem is built from diminutives: animula, vagula, blandula, and later pallidula and nudula.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The soul is a \"guest and companion of the body\", and the question is where it will go now.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Three adjectives, pale, stiff and bare, can be taken with the soul or with the places it goes to (see the translation note).",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The last line turns from the afterlife back to daily life: the soul will no longer make jokes as it used to.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Whether Hadrian really wrote it cannot be settled.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The Historia Augusta claims six authors writing under Diocletian and Constantine, but Hermann Dessau showed in 1889 that one author wrote the whole work near the end of the fourth century, and where its claims can be checked they have often proved unfounded.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "So our only source for the poem was written some two and a half centuries after Hadrian's death, by an author known for invention.",
+    "src": [
+     2,
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "On the other hand, a short, playful, personal poem is not obviously the kind of thing a forger needs, and the work does record Hadrian's interest in writing verse.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The lines have had a long afterlife.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Marguerite Yourcenar's novel Mémoires d'Hadrien, published by Plon in 1951, takes the first line, Animula vagula blandula, as the title of its first part.",
+    "src": [
+     4,
+     5
+    ]
+   },
+   {
+    "t": "Whoever wrote them, the verses are now inseparable from the picture of Hadrian as a cultivated, ironic emperor facing death.",
+    "src": [
+     1,
+     4
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What does the verb dicitur tell us about the poem?",
+   "options": [
+    "The biographer reports it as something said, not as a fact he can vouch for",
+    "Hadrian dictated it to a secretary",
+    "It was carved on his tomb",
+    "It was sung at his funeral"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why is the attribution to Hadrian uncertain?",
+   "options": [
+    "Our only source is the Historia Augusta, written by one author late in the fourth century and often unreliable",
+    "The poem is in Greek",
+    "Several emperors claimed it",
+    "It was first printed in 1951"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "How does Yourcenar's novel use the first line?",
+   "options": [
+    "As the title of its first part",
+    "As its final sentence",
+    "As the name of a character",
+    "It does not use it"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Historia Augusta, Vita Hadriani 25 (Latin; Loeb text, Magie), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Hadrian/2*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "The Last Historians of Rome (AHRC project, Universities of Edinburgh and Nottingham), \"Historia Augusta\"",
+   "url": "https://lasthistorians.shca.ed.ac.uk/historia-augusta",
+   "kind": "modern"
+  },
+  {
+   "label": "Vatican Museums, \"Statue of Osiris-Antinous\" (Museo Gregoriano Egizio)",
+   "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/museo-gregoriano-egizio/sala-iii--ricostruzione-del-serapeo-del-canopo-di-villa-adriana/statua-di-osiri-antinoo.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Schoolmouv (French educational site), \"Mémoires d'Hadrien, Marguerite Yourcenar\" (secondary; used for the 1951 date and the title of the first part)",
+   "url": "https://www.schoolmouv.fr/cours/memoires-d-hadrien-marguerite-yourcenar/",
+   "kind": "modern"
+  },
+  {
+   "label": "Wikipedia, \"Memoirs of Hadrian\" (tertiary; Librairie Plon, 1951; first chapter \"Animula Vagula Blandula\")",
+   "url": "https://en.wikipedia.org/wiki/Memoirs_of_Hadrian",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}
