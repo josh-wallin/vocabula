@@ -32,7 +32,7 @@
    "w": "Igitur",
    "lemma": "igitur",
    "parse": "conjunction / adverb",
-   "gloss": "therefore, so",
+   "gloss": "so, therefore",
    "app": [
     "igitur-indecl"
    ]
@@ -66,7 +66,7 @@
    "w": "praeparet",
    "lemma": "praeparō, praeparāre",
    "parse": "3rd sg. pres. subj. act. (jussive)",
-   "gloss": "let him prepare, should get ready"
+   "gloss": "let him prepare"
   },
   {
    "w": "bellum",
@@ -267,13 +267,13 @@
    "p": ".",
    "lemma": "pugnō, pugnāre",
    "parse": "3rd sg. pres. subj. act. (condition inside indirect statement)",
-   "gloss": "he should fight",
+   "gloss": "(if) he were to fight",
    "app": [
     "pugno-v1"
    ]
   }
  ],
- "translation": "So whoever wants peace should get ready for war; whoever longs for victory should train his soldiers thoroughly; whoever hopes for good results should fight by skill, not by luck. No one dares to challenge, no one dares to attack, a man he knows would come out on top in a fight.",
+ "translation": "So whoever wants peace should prepare for war; whoever longs for victory should train his soldiers thoroughly; whoever hopes for good results should fight by skill, not by luck. No one dares to challenge, no one dares to attack, a man he knows would come out on top in a fight.",
  "translation_note": "Three parallel commands, each \"quī ... (he) who ...\" with a jussive subjunctive (praeparet, inbuat, dīmicet), then the reason. In the last sentence the antecedent of quem is left out (\"[him] whom\"), and sī pugnet is a condition reported inside the indirect statement: \"would be the stronger, if he were to fight\".",
  "essay": [
   [

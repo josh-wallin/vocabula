@@ -202,7 +202,7 @@
    "p": ":",
    "lemma": "satiō, satiāre, satiāvī, satiātum",
    "parse": "3rd sg. perf. subj. act. (relative clause of characteristic)",
-   "gloss": "has glutted, satisfied",
+   "gloss": "has satisfied",
    "app": [
     "satio-v1"
    ]
@@ -266,7 +266,7 @@
    "w": "Auferre",
    "lemma": "auferō, auferre, abstulī, ablātum",
    "parse": "pres. inf. act., used as a noun",
-   "gloss": "taking away"
+   "gloss": "robbing (lit. carrying off)"
   },
   {
    "w": "trucīdāre",
@@ -330,7 +330,7 @@
    "w": "sōlitūdinem",
    "lemma": "sōlitūdō, sōlitūdinis, f.",
    "parse": "acc. sg.",
-   "gloss": "a wilderness, desert"
+   "gloss": "a desert, wasteland"
   },
   {
    "w": "faciunt",
@@ -362,7 +362,7 @@
    ]
   }
  ],
- "translation": "Plunderers of the world, now that the lands have run out under their ravaging, they search the sea. If an enemy is rich, they are greedy; if poor, they are hungry for glory. Neither East nor West has glutted them; alone of all men they crave wealth and want with the same passion. Taking, killing and seizing they call, under false names, \"empire\"; and where they make a wilderness, they call it \"peace\".",
+ "translation": "Plunderers of the world, now that they have laid everything waste and run out of land, they scour the sea. If an enemy is rich, they are greedy; if poor, they are hungry for glory. Neither East nor West has satisfied them; alone of all men they crave wealth and poverty with the same passion. Robbery, slaughter and plunder they call by the false name of \"empire\"; and where they make a desert, they call it \"peace\".",
  "translation_note": "Calgacus is speaking of the Romans. The three infinitives in the last sentence act as nouns, and appellant does double duty: they call those things \"empire\" and the wilderness \"peace\". vastantibus is a participle in the dative with dēfuēre (\"the lands failed them as they laid everything waste\").",
  "essay": [
   [
@@ -498,7 +498,7 @@
   {
    "q": "What happened to the fortress at Inchtuthil?",
    "options": [
-    "It was abandoned in AD 87, soon after building",
+    "It was abandoned in AD 87",
     "It became the capital of Roman Britain",
     "It was the site of the battle of Mons Graupius",
     "It was stormed and burnt by Calgacus' army"

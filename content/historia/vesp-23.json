@@ -412,7 +412,7 @@
    "gloss": "I am becoming"
   }
  ],
- "translation": "Not even in fear and in the final danger of death did he stop joking. Among other portents, the Mausoleum suddenly opened and a comet appeared in the sky; he kept saying that the first concerned Junia Calvina, of the family of Augustus, and the second the king of the Parthians, who had long hair. And at the first attack of his illness he said, \"Oh dear, I think I am becoming a god.\"",
+ "translation": "Even in the fear and danger of his final hours he did not stop joking. Among other portents, the Mausoleum suddenly opened and a comet appeared in the sky; he kept saying that the first concerned Junia Calvina, of the family of Augustus, and the second the king of the Parthians, who had long hair. And at the first attack of his illness he said, \"Oh dear, I think I am becoming a god.\"",
  "translation_note": "alterum ... alterum: \"the one ... the other\", referring to the two portents in order. stella crīnīta, \"long-haired star\", is Latin for a comet, which is the point of the joke about the long-haired Parthian king.",
  "essay": [
   [
@@ -437,7 +437,7 @@
    {
     "t": "Cassius Dio has the same comet joke and makes the point explicit: the omen was for the Parthian king, who had long hair, and not for Vespasian, who was bald.",
     "src": [
-     2
+     3
     ]
    }
   ],
@@ -446,7 +446,7 @@
     "t": "The famous line is often called his last words, but Suetonius places it at the first attack of his illness.",
     "src": [
      1,
-     3
+     4
     ],
     "doubt": true
    },
@@ -460,8 +460,8 @@
     "t": "Suetonius's Latin gives his age at death as sixty-nine years, seven months and seven days (the Loeb translation's \"one month\" is a slip, as Bill Thayer notes), while Dio says sixty-nine years and eight months: the sources differ slightly.",
     "src": [
      1,
-     4,
-     2
+     2,
+     3
     ],
     "doubt": true
    }
@@ -476,19 +476,19 @@
    {
     "t": "Dio reports a similar remark, made \"when at last he was convinced that he was going to die\": \"I am already becoming a god.\"",
     "src": [
-     2
+     3
     ]
    },
    {
     "t": "Scholars have generally read it as a sarcastic sneer at deification, and Duncan Fishwick, who discusses what Vespasian meant, notes that Suetonius thought he was joking.",
     "src": [
-     3
+     4
     ]
    },
    {
     "t": "Whether it was a sneer at the custom, a joke about his own death, or both, is a matter of interpretation.",
     "src": [
-     3
+     4
     ],
     "doubt": true
    }
@@ -508,29 +508,29 @@
    "q": "When, according to Suetonius, did Vespasian say \"Vae, puto deus fio\"?",
    "options": [
     "At the first attack of his illness",
-    "At the moment of his death",
-    "At his accession",
-    "At a triumph"
+    "As he died, trying to stand up",
+    "On the day he became emperor",
+    "At his triumph over the Jews"
    ],
    "answer": 0
   },
   {
    "q": "What does the joke rely on?",
    "options": [
-    "The practice of declaring dead emperors gods",
-    "A Greek proverb",
-    "An oracle from Delphi",
-    "A line from a comedy"
+    "Declaring dead emperors gods",
+    "A Greek proverb about old age",
+    "An oracle he received at Delphi",
+    "A famous line from a comedy"
    ],
    "answer": 0
   },
   {
    "q": "How did Vespasian explain the comet, in Dio's version?",
    "options": [
-    "It was for the long-haired Parthian king, not for him, since he was bald",
-    "It meant victory over the Jews",
-    "It was a sign from Jupiter that he would recover",
-    "It meant his son would die"
+    "It was meant for the long-haired Parthian king",
+    "It foretold a new victory over the Jews",
+    "It meant Jupiter would let him recover",
+    "It warned that his son Titus would die"
    ],
    "answer": 0
   }

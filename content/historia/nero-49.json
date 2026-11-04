@@ -361,7 +361,7 @@
    "gloss": "I perish, I die"
   }
  ],
- "translation": "Then, as everyone around him kept urging him to escape as soon as possible from the outrages hanging over him, he ordered a pit to be dug in front of him, measured to the size of his own body, and at the same time any pieces of marble that could be found to be put together, and water and firewood to be brought for dealing with his corpse soon after; he wept at each of these things and said again and again, \"What an artist dies with me!\"",
+ "translation": "Then, as everyone around him kept urging him to escape as soon as possible from the outrages hanging over him, he ordered a pit to be dug in front of him, measured to the size of his own body, and at the same time any pieces of marble that could be found to be put together, and water and firewood to be brought to tend his body soon afterwards; he wept at each of these things and said again and again, \"What an artist dies with me!\"",
  "translation_note": "Literally \"(as) what an artist I perish!\": quālis artifex stands in apposition to the subject of pereō. \"What an artist dies with me\" is a free rendering; see the essay on how else it can be read.",
  "essay": [
   [
@@ -451,30 +451,30 @@
   {
    "q": "What is Nero doing in the passage when he says the words?",
    "options": [
-    "Ordering his grave dug and the materials for his funeral gathered",
-    "Singing on stage in Naples",
-    "Addressing the Senate",
-    "Leading troops into battle"
+    "Ordering his grave dug and his funeral prepared",
+    "Singing on stage before a crowd at Naples",
+    "Pleading with the Senate to spare his life",
+    "Leading his guards out to meet the rebels"
    ],
    "answer": 0
   },
   {
    "q": "Which detail differs between Suetonius and Cassius Dio?",
    "options": [
-    "Where Nero spent his last hours (a villa or a cave)",
-    "The name of Epaphroditus",
-    "That Nero called himself an artist",
-    "That Nero died"
+    "Where Nero hid at the end: a villa or a cave",
+    "The name of the secretary who helped him",
+    "Whether Nero called himself an artist",
+    "The year in which Nero finally died"
    ],
    "answer": 0
   },
   {
    "q": "Which reading of the saying is the essay's own interpretation rather than a sourced claim?",
    "options": [
-    "That artifex can point ironically to Nero as a craftsman of his own burial",
-    "That Nero performed as a singer",
-    "That Dio gives a fuller version",
-    "That Nero died in AD 68"
+    "That artifex hints at Nero as a craftsman of his own burial",
+    "That Nero trained in public as a singer and lyre-player",
+    "That Cassius Dio gives a fuller form of the same saying",
+    "That Suetonius was born the year after Nero died"
    ],
    "answer": 0
   }

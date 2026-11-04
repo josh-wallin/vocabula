@@ -339,7 +339,7 @@
    "w": "suppliciō",
    "lemma": "supplicium, suppliciī, n.",
    "parse": "abl. sg. (suppliciō afficere: to execute)",
-   "gloss": "with execution",
+   "gloss": "(to) the death penalty",
    "app": [
     "supplicium-n2n"
    ]
@@ -348,7 +348,7 @@
    "w": "adfectus",
    "lemma": "afficiō, afficere (here spelled adf-)",
    "parse": "perf. pass. participle, nom. sg. m. (with erat: pluperfect passive)",
-   "gloss": "(had been) visited (with)",
+   "gloss": "(had been) subjected (to)",
    "app": [
     "afficio-v3io"
    ]
@@ -547,7 +547,7 @@
    "enclitic": "que"
   }
  ],
- "translation": "Yet neither human efforts nor the emperor's gifts nor offerings to placate the gods could rid him of the scandal: people went on believing that the fire had been set on orders. So, to kill the rumour, Nero put forward culprits and inflicted the most elaborate punishments on people hated for their outrages, whom the common people called Christians. The founder of the name, Christus, had been executed in the reign of Tiberius by the procurator Pontius Pilate; the deadly superstition, suppressed for a while, was breaking out again, not only in Judaea, where the evil began, but even in the City, where everything horrible or shameful flows in from every side and finds a following.",
+ "translation": "Yet neither human efforts nor the emperor's gifts nor offerings to placate the gods could rid him of the scandal: people went on believing that the fire had been set on orders. So, to kill the rumour, Nero put forward culprits and inflicted the most elaborate punishments on people hated for their outrages, whom the common people called Christians. The founder of the name, Christus, had been executed in the reign of Tiberius by the procurator Pontius Pilate; the deadly superstition, suppressed for a while, was breaking out again, not only in Judaea, where the evil began, but also in the City, where everything horrible or shameful flows in from every side and finds a following.",
  "translation_note": "Quīn after a negative (\"nothing removed the scandal\") introduces what the scandal was: \"that the fire was believed to have been ordered\". Deum is the short genitive plural of deus (= deōrum). The sentence about Christus is in the pluperfect (adfectus erat): it explains the name, as background. Celebrantur here means \"are thronged, made popular\", not \"celebrated\" in a religious sense.",
  "essay": [
   [
@@ -593,7 +593,7 @@
     "doubt": true
    },
    {
-    "t": "In my reading, it is evidence for an upper-class Roman view of Christians, and for what Rome knew of Christus's execution.",
+    "t": "In my reading, the passage is evidence for an upper-class Roman view of Christians, and for what Rome knew of Christus's execution.",
     "src": [
      1
     ],

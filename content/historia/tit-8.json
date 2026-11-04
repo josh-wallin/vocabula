@@ -33,7 +33,7 @@
    "w": "etiam",
    "lemma": "etiam",
    "parse": "adverb",
-   "gloss": "also, even"
+   "gloss": "too, also"
   },
   {
    "w": "recordātus",
@@ -277,9 +277,9 @@
    "q": "What made Titus say he had lost a day?",
    "options": [
     "He had done nothing for anyone that day",
-    "He had missed a battle",
-    "He had been ill all day",
-    "He had forgotten a festival"
+    "He had been ill in bed the whole day",
+    "He had forgotten to honour a festival",
+    "He had slept through a meeting of the Senate"
    ],
    "answer": 0
   },
@@ -297,9 +297,9 @@
    "q": "What caution does Cassius Dio offer about Titus's reputation?",
    "options": [
     "It may owe something to his very short reign",
-    "It was invented by Eutropius",
-    "He was actually crueller than Nero",
-    "It was based on forged letters"
+    "It was largely invented later by Eutropius",
+    "He was secretly even crueller than Nero",
+    "It rested on letters forged after his death"
    ],
    "answer": 0
   }

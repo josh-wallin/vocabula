@@ -1,7 +1,7 @@
 {
  "id": "amm-25",
  "order": 33,
- "title": "Among the heroic natures",
+ "title": "Counted among the heroes",
  "saying": "Vir profectō hērōicīs connumerandus ingeniīs",
  "author": "Ammianus Marcellinus",
  "work": "Rēs Gestae",
@@ -103,12 +103,12 @@
    "gloss": "conspicuous, outstanding"
   }
  ],
- "translation": "Truly a man to be ranked among heroic characters, he stood out for the renown of his deeds and for a majesty that had grown into his nature.",
+ "translation": "He was truly a man to be counted among the heroic natures, outstanding for the renown of his deeds and for a majesty that had grown to be part of him.",
  "translation_note": "The sentence has no main verb: supply est, \"he is (to be counted)\", with connumerandus, a gerundive. coalita maiestas is a dignity that has grown together with him, so ingrained rather than put on.",
  "essay": [
   [
    {
-    "t": "Ammianus was born around 330, probably at Antioch (the traditional view, which Britannica follows), into a noble Greek family and served in the army under the general Ursicinus, and later on Julian's Persian campaign.",
+    "t": "Ammianus was born around 330 into a noble Greek family, probably at Antioch (the traditional view, which Britannica follows). He served in the army under the general Ursicinus, and later on Julian's Persian campaign.",
     "src": [
      2
     ],

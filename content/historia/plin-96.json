@@ -633,7 +633,7 @@
    "gloss": "(that he) may obtain"
   }
  ],
- "translation": "They declared, however, that the sum of their guilt, or their error, had been this: they used to meet on a fixed day before daybreak and chant a hymn among themselves, taking turns, to Christ as to a god, and to bind themselves by an oath, not to commit some crime, but not to commit theft, banditry or adultery, not to break their word, and, when asked to hand back money left in their care, not to claim they had never received it. … [Trajan:] They are not to be hunted down. If they are reported and proved guilty, they must be punished, but on this condition: anyone who denies he is a Christian and proves it by his actions, that is, by praying to our gods, shall obtain pardon through repentance, even if he was under suspicion before.",
+ "translation": "They declared, however, that the whole of their guilt, or their error, amounted to this: they used to meet on a fixed day before daybreak, chant a hymn to Christ as to a god, taking turns among themselves, and bind themselves by an oath, not to some crime, but to commit no theft, robbery or adultery, not to break their word, and not to deny a deposit when asked to return it. … [Trajan:] They are not to be hunted down. If they are reported and proved guilty, they must be punished, but on this condition: anyone who denies he is a Christian and proves it by his actions, that is, by praying to our gods, shall obtain pardon through his repentance, however suspect he may have been in the past.",
  "translation_note": "Pliny's sentence is reported speech after Adfirmābant: infinitives (fuisse, convenīre, dīcere, obstringere) and subjunctives (essent, committerent). Sēcum invicem probably means the chant was sung responsively, but \"among themselves in turn\" is the literal sense. Trajan's gerundives (conquīrendī, pūniendī) express obligation. Negāverit and fēcerit can be read as future perfect indicatives or perfect subjunctives; English uses the present.",
  "essay": [
   [
@@ -716,7 +716,7 @@
     "doubt": true
    },
    {
-    "t": "Tertullian later summed up the ruling: not to be sought out, but punished if brought forward.",
+    "t": "Classic discussions include an article by Sherwin-White from the early 1950s and de Ste. Croix's paper of 1963; I checked only their bibliographic records.",
     "src": [
      6
     ]
@@ -724,7 +724,7 @@
   ],
   [
    {
-    "t": "This is rare outside testimony to early Christian worship, but it comes from people under interrogation, some former members, and may reflect what they hoped would save them.",
+    "t": "This is a rare outsider's account of early Christian worship, but it comes from people under interrogation, some of them former members, and may reflect what they hoped would save them.",
     "src": [
      1
     ],
@@ -763,9 +763,9 @@
    "q": "How could the accused show they were not Christians?",
    "options": [
     "By praying to the gods and cursing Christ",
-    "By paying a fine to the governor",
+    "By paying a fine to the provincial governor",
     "By swearing an oath on their own lives",
-    "By leaving the province for good"
+    "By leaving the province and never returning"
    ],
    "answer": 0
   }

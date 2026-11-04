@@ -35,7 +35,7 @@
    "w": "et",
    "lemma": "et",
    "parse": "adverb",
-   "gloss": "also, even",
+   "gloss": "also",
    "app": [
     "et-indecl"
    ]
@@ -447,7 +447,7 @@
    "gloss": "he drove, forced (them)"
   }
  ],
- "translation": "What is more, before draining the Fucine Lake he first staged a naval battle on it. But when the fighters called out, \"Hail, emperor, those who are about to die salute you!\", he answered, \"Or not.\" After that remark nobody was willing to fight, as if they had been pardoned. He hesitated for a long time over whether to destroy them all with fire and sword; at last he leapt from his seat, ran along the shore of the lake, lurching in an ugly way, and forced them into battle, now threatening, now coaxing.",
+ "translation": "What is more, before draining the Fucine Lake he first staged a naval battle on it. But when the fighters called out, \"Hail, emperor, those who are about to die salute you!\", he answered, \"Or not.\" After that remark nobody was willing to fight, as if they had been pardoned. He hesitated for a long time over whether to destroy them all with fire and sword; at last he leapt from his seat, ran around the shore of the lake with an ugly, lurching gait, and drove them into battle, partly by threats and partly by encouragement.",
  "translation_note": "moritūrī is a future participle used as a noun (\"men who are going to die\"); the verb salūtant is third person: \"those about to die salute you\". \"Aut nōn\" is the reading of this edition; see the essay for the variant.",
  "essay": [
   [
@@ -524,7 +524,7 @@
     ]
    },
    {
-    "t": "Claudius then had to force them into battle, lurching along the shore, now threatening, now coaxing.",
+    "t": "Claudius then had to force them into battle, lurching along the shore, partly by threats and partly by encouragement.",
     "src": [
      1
     ]
@@ -544,9 +544,9 @@
    "q": "Who were the men who shouted the greeting?",
    "options": [
     "Condemned criminals fighting a staged naval battle",
-    "Professional gladiators in the Colosseum",
-    "Praetorian guardsmen",
-    "Senators"
+    "Professional gladiators at the Colosseum games",
+    "Sailors of the imperial fleet at Misenum",
+    "Free volunteers hoping to win a prize"
    ],
    "answer": 0
   },
@@ -554,9 +554,9 @@
    "q": "What did H. J. Leon conclude about the greeting?",
    "options": [
     "There is no evidence it was a regular gladiators' salute",
-    "It was said before every gladiatorial show",
-    "It was invented by Tacitus",
-    "It was carved on the Colosseum"
+    "It was the standard salute before every gladiatorial show",
+    "Tacitus invented it to make Claudius look ridiculous",
+    "It was carved over the entrance to the Colosseum"
    ],
    "answer": 0
   },
@@ -564,9 +564,9 @@
    "q": "Why, according to Suetonius, did the men refuse to fight?",
    "options": [
     "They took Claudius's reply as a pardon",
-    "The lake had drained away",
-    "They had no ships",
-    "Claudius left the show"
+    "The lake had already drained away",
+    "Their ships were not fit to sail",
+    "Claudius had already left the show"
    ],
    "answer": 0
   }
