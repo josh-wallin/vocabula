@@ -73,7 +73,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     ex: 'porta, portae · vīta, vītae', exEn: 'genitive singular in -ae: 1st declension',
   },
   {
-    id: 'base', name: 'Base', latin: 'thema', section: 2,
+    id: 'base', name: 'Base', latin: 'rādīx', section: 2,
     def: 'The part of a noun that stays the same. Find it by dropping the ending from the genitive singular, then add the case endings to it.',
     ex: 'pecūnia, pecūniae → pecūni-', exEn: 'pecūni- + -ārum = pecūniārum, of money',
   },
@@ -137,7 +137,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     ex: 'Fēmina est magistra.', exEn: 'The woman is a teacher.',
   },
   {
-    id: 'substantive', name: 'Substantive', latin: 'adiectīvum prō substantīvō', section: 4,
+    id: 'substantive', name: 'Substantive', latin: 'adiectīvum substantīvē positum', section: 4,
     def: 'An adjective used on its own as a noun. Its gender and number tell you what to supply: masculine for men or people, feminine for women, neuter for things.',
     ex: 'Stultī saepe errant.', exEn: 'Fools often make mistakes.',
   },
