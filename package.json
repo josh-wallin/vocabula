@@ -12,7 +12,9 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit -p .",
     "import:wheelock": "tsx scripts/import-wheelock.ts",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "test:e2e": "tsx e2e/smoke.e2e.ts",
+    "build:pack": "tsx scripts/build-pack.ts"
   },
   "dependencies": {
     "idb": "^8.0.4",
