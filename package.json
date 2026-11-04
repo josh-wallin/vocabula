@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Voc\u0101bula: phone-first offline PWA for drilling Latin vocabulary and paradigms along Wheelock's Latin",
+  "description": "Vocābula: phone-first offline PWA for drilling Latin vocabulary and paradigms along Wheelock's Latin",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit -p . && tsc --noEmit -p worker && vite build",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "idb": "^8.0.4",
+    "jose": "5.9.6",
     "marked": "18.1.2",
     "preact": "^11.1.1",
     "ts-fsrs": "5.4.2"

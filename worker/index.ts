@@ -10,7 +10,7 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === '/api' || url.pathname.startsWith('/api/')) {
       // Compile-time check that the real bindings satisfy the handlers' minimal types.
-      const apiEnv: ApiEnv = { DB: env.DB, ALLOWED_EMAILS: env.ALLOWED_EMAILS, ACCESS_AUD: env.ACCESS_AUD };
+      const apiEnv: ApiEnv = { DB: env.DB, ALLOWED_EMAILS: env.ALLOWED_EMAILS, ACCESS_AUD: env.ACCESS_AUD, ACCESS_TEAM_DOMAIN: env.ACCESS_TEAM_DOMAIN };
       const apiCtx: ApiCtx = { access: ctx.access };
       return handleApi(request, apiEnv, apiCtx);
     }

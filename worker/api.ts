@@ -11,11 +11,16 @@ import {
 } from '../src/sync/protocol.ts';
 import type { D1Like } from './d1.ts';
 import { ensureSchema } from './schema.ts';
+import { createRemoteJWKSet, jwtVerify, type JWTVerifyGetKey } from 'jose';
 
 export interface ApiEnv {
   DB: D1Like;
   ALLOWED_EMAILS?: string;
   ACCESS_AUD?: string;
+  /** e.g. long-credit-c585.cloudflareaccess.com; used to verify the Access JWT. */
+  ACCESS_TEAM_DOMAIN?: string;
+  /** Test hook: key set used instead of the team's remote JWKS. */
+  ACCESS_JWKS?: JWTVerifyGetKey;
 }
 
 /**
@@ -47,23 +52,63 @@ export function allowedEmails(env: ApiEnv): Set<string> {
 export type IdentifyResult = { email: string } | { reason: string };
 
 /** Why a request was or wasn't accepted. Never throws. */
-export async function identifyDetailed(env: ApiEnv, ctx: ApiCtx | undefined): Promise<IdentifyResult> {
-  const access = ctx?.access;
-  if (!access || typeof access.getIdentity !== 'function') return { reason: 'no_access_context' };
-  // Access having matched this request is the real gate; the AUD check only guards against
-  // a different Access app. Reject a mismatching AUD, but don't reject one that isn't exposed.
-  if (!env.ACCESS_AUD) return { reason: 'aud_not_configured' };
-  if (access.aud !== undefined && access.aud !== env.ACCESS_AUD) return { reason: 'aud_mismatch' };
-  let email: unknown;
-  try { email = (await access.getIdentity())?.email; } catch { return { reason: 'identity_error' }; }
+const remoteJwks = new Map<string, JWTVerifyGetKey>();
+function jwksFor(env: ApiEnv): JWTVerifyGetKey | null {
+  if (env.ACCESS_JWKS) return env.ACCESS_JWKS;
+  const team = env.ACCESS_TEAM_DOMAIN;
+  if (!team) return null;
+  let k = remoteJwks.get(team);
+  if (!k) { k = createRemoteJWKSet(new URL(`https://${team}/cdn-cgi/access/certs`)); remoteJwks.set(team, k); }
+  return k;
+}
+
+/** The Access JWT Cloudflare attaches to the request (header first, then the cookie). */
+export function accessToken(req: Request | undefined): string | null {
+  if (!req) return null;
+  const h = req.headers.get('cf-access-jwt-assertion');
+  if (h) return h;
+  const m = /(?:^|;\s*)CF_Authorization=([^;]+)/.exec(req.headers.get('cookie') ?? '');
+  return m ? decodeURIComponent(m[1]!) : null;
+}
+
+function checkEmail(env: ApiEnv, email: unknown): IdentifyResult {
   if (typeof email !== 'string' || !email) return { reason: 'no_email' };
   const e = email.trim().toLowerCase();
   return allowedEmails(env).has(e) ? { email: e } : { reason: 'email_not_allowed' };
 }
 
+/**
+ * Why a request was or wasn't accepted. Never throws. Prefers `ctx.access` (Cloudflare's
+ * per-Worker Access binding); when the runtime doesn't provide it, verifies the signed
+ * Access JWT against the team's public keys and the application AUD.
+ */
+export async function identifyDetailed(env: ApiEnv, ctx: ApiCtx | undefined, req?: Request): Promise<IdentifyResult> {
+  if (!env.ACCESS_AUD) return { reason: 'aud_not_configured' };
+  const access = ctx?.access;
+  if (access && typeof access.getIdentity === 'function') {
+    if (access.aud !== undefined && access.aud !== env.ACCESS_AUD) return { reason: 'aud_mismatch' };
+    let email: unknown;
+    try { email = (await access.getIdentity())?.email; } catch { return { reason: 'identity_error' }; }
+    return checkEmail(env, email);
+  }
+  const token = accessToken(req);
+  if (!token) return { reason: 'no_access_context' };
+  const keys = jwksFor(env);
+  if (!keys) return { reason: 'team_not_configured' };
+  try {
+    const { payload } = await jwtVerify(token, keys, {
+      audience: env.ACCESS_AUD,
+      ...(env.ACCESS_TEAM_DOMAIN ? { issuer: `https://${env.ACCESS_TEAM_DOMAIN}` } : {}),
+    });
+    return checkEmail(env, payload['email']);
+  } catch {
+    return { reason: 'jwt_invalid' };
+  }
+}
+
 /** The signed-in, allowed email, or null. Never throws. */
-export async function identify(env: ApiEnv, ctx: ApiCtx | undefined): Promise<string | null> {
-  const r = await identifyDetailed(env, ctx);
+export async function identify(env: ApiEnv, ctx: ApiCtx | undefined, req?: Request): Promise<string | null> {
+  const r = await identifyDetailed(env, ctx, req);
   return 'email' in r ? r.email : null;
 }
 
@@ -187,9 +232,9 @@ export function safeNext(v: string | null): string {
 
 export async function handleApi(req: Request, env: ApiEnv, ctx?: ApiCtx): Promise<Response> {
   try {
-    const who = await identifyDetailed(env, ctx);
+    const who = await identifyDetailed(env, ctx, req);
     if (!('email' in who)) {
-      console.log(JSON.stringify({ msg: 'api_forbidden', reason: who.reason, hasAccess: !!ctx?.access, audType: typeof ctx?.access?.aud }));
+      console.log(JSON.stringify({ msg: 'api_forbidden', reason: who.reason, hasAccess: !!ctx?.access, hasJwtHeader: req.headers.has('cf-access-jwt-assertion'), hasCookie: /CF_Authorization=/.test(req.headers.get('cookie') ?? ''), audType: typeof ctx?.access?.aud }));
       return json({ error: 'forbidden', reason: who.reason }, 403);
     }
     const email = who.email;

@@ -193,3 +193,36 @@ describe('schema', () => {
     expect(stmts).toEqual(SCHEMA.map((s) => s.trim()));
   });
 });
+
+describe('worker: Access JWT fallback (no ctx.access)', () => {
+  it('accepts a valid Access JWT from the header or cookie and rejects bad ones', async () => {
+    const { generateKeyPair, exportJWK, SignJWT, createLocalJWKSet } = await import('jose');
+    const { publicKey, privateKey } = await generateKeyPair('RS256');
+    const jwk = { ...(await exportJWK(publicKey)), kid: 'k1', alg: 'RS256' };
+    env.ACCESS_JWKS = createLocalJWKSet({ keys: [jwk] });
+    env.ACCESS_TEAM_DOMAIN = 'team.cloudflareaccess.com';
+    const sign = (claims: Record<string, unknown>, aud = AUD, iss = 'https://team.cloudflareaccess.com') =>
+      new SignJWT(claims).setProtectedHeader({ alg: 'RS256', kid: 'k1' }).setAudience(aud).setIssuer(iss)
+        .setIssuedAt().setExpirationTime('1h').sign(privateKey);
+
+    const good = await sign({ email: EMAIL });
+    let r = await call('GET', '/api/me', { ctx: {}, headers: { 'cf-access-jwt-assertion': good } });
+    expect(r.status).toBe(200);
+    r = await call('GET', '/api/me', { ctx: {}, headers: { cookie: `x=1; CF_Authorization=${good}` } });
+    expect(r.status).toBe(200);
+
+    const cases: [string, string][] = [
+      [await sign({ email: EMAIL }, 'other-aud'), 'jwt_invalid'],
+      [await sign({ email: EMAIL }, AUD, 'https://evil.example'), 'jwt_invalid'],
+      [await sign({ email: 'stranger@example.com' }), 'email_not_allowed'],
+      [good.slice(0, -4) + 'AAAA', 'jwt_invalid'],
+    ];
+    for (const [tok, reason] of cases) {
+      r = await call('GET', '/api/me', { ctx: {}, headers: { 'cf-access-jwt-assertion': tok } });
+      expect(r.status).toBe(403);
+      expect(await r.json()).toMatchObject({ reason });
+    }
+    r = await call('GET', '/api/me', { ctx: {} });
+    expect(await r.json()).toMatchObject({ reason: 'no_access_context' });
+  });
+});

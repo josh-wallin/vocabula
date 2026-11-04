@@ -20,7 +20,9 @@
     "ALLOWED_EMAILS": "joshua.a.wallin@gmail.com",
     // Audience tag of the Access application on this Worker (team long-credit-c585.cloudflareaccess.com).
     // The Worker rejects requests whose ctx.access.aud differs.
-    "ACCESS_AUD": "857e455b94548a9ee78a4f8949cd731bc6f015be252febfa69c4824aebdc7cf3"
+    "ACCESS_AUD": "857e455b94548a9ee78a4f8949cd731bc6f015be252febfa69c4824aebdc7cf3",
+    // Used to verify the Access JWT when ctx.access isn't provided by the runtime.
+    "ACCESS_TEAM_DOMAIN": "long-credit-c585.cloudflareaccess.com"
   },
   // Access itself is enabled in the dashboard (Workers & Pages → vocabula → Access).
   // This block only simulates it for `wrangler dev` (same aud so the AUD check passes locally).
