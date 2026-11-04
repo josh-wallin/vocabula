@@ -37,12 +37,12 @@ const byId = new Map(entries.map((e) => [e.id, e]));
 const clone = (e: HistoriaEntry): HistoriaEntry => JSON.parse(JSON.stringify(e)) as HistoriaEntry;
 
 describe('historia: definitions', () => {
-  it('ten entries, one file each, named by id, in order', () => {
+  it('fourteen entries, one file each, named by id, in order', () => {
     const files = readdirSync(DIR).filter((f) => f.endsWith('.json')).sort();
-    expect(files.length).toBe(10);
+    expect(files.length).toBe(14);
     for (const f of files) expect(parseHistoriaEntry(JSON.parse(readFileSync(resolve(DIR, f), 'utf8'))).id).toBe(f.replace('.json', ''));
-    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25']);
-    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25', 'liv-107', 'liv-158', 'liv-210', 'liv-326']);
+    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
     // Exactly one verse entry: Hadrian's lines to his soul.
     expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25']);
   });
@@ -53,6 +53,10 @@ describe('historia: definitions', () => {
         expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
         expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXIII/);
         expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
+      } else if (e.author === 'Livy') {
+        expect(e.citation).toMatch(/^Liv\. \d+\.\d+\.\d+(–\d+)?$/);
+        expect(e.edition.name).toMatch(/Weissenborn.*Müller.*Teubner/);
+        expect(e.edition.url).toBe('https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml');
       } else {
         expect(e.author).toBe('Historia Augusta');
         expect(e.citation).toMatch(/^HA Hadr\. \d+\.\d+(–\d+)?$/);

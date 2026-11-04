@@ -1,0 +1,466 @@
+{
+ "id": "liv-210",
+ "order": 13,
+ "title": "Father Tiber, receive this soldier",
+ "saying": "Tiberīne pater, tē sānctē precor",
+ "author": "Livy",
+ "work": "Ab urbe condita",
+ "citation": "Liv. 2.10.11",
+ "setting": "The Sublician bridge, Rome, in the war with Porsenna (traditionally late 6th century BC)",
+ "edition": {
+  "name": "Titi Livi ab urbe condita, edited by W. Weissenborn and H. J. Müller (Leipzig: Teubner, 1884–1911), public domain, as digitized by the Perseus Digital Library (TEI file phi0914.phi001.perseus-lat2). The file's source description reads, in its own wording: \"Titi Livi ab urbe condita\", \"W. Weissenborn\", \"H. J. Müller\", \"Leipzig\", \"Teubner\", \"1884-1911\" (its title statement names the editors \"Wilhelm Weissenborn\" and \"Moritz Müller\")",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+  "section": "Book 2, chapter 10, section 11 (first two sentences)"
+ },
+ "source_text": "tum Cocles \"Tiberine pater\" inquit, \"te sancte precor, haec arma et hunc militem propitio flumine accipias.\" ita sicut erat armatus in Tiberim desiluit multisque superincidentibus telis incolumis ad suos tranavit rem ausus plus famae habituram ad posteros quam fidei.",
+ "excerpt_note": "The first two sentences of section 2.10.11 (the section ends with the start of the next sentence, grata erga tantam virtutem civitas fuit). In the digital file two words of this section carry OCR corrections, Codes → Cocles and tur → tum; the corrected readings are given. The file prints erat in italics, which this app cannot show and whose meaning there is unclear (perhaps an editorial word). The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). Both read ita sic armatus where this edition has ita sicut erat armatus (\"armed just as he was\" either way), and both put a comma after tranavit.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "Cocles: both vowels short (like mīles, mīlitis); not machine-checked.",
+   "Tiberīne: long ī, as in Tiberīnus; not machine-checked.",
+   "sānctē: long ā, as in the app's sānctus, and long final ē of the adverb; not machine-checked.",
+   "trānāvit: long ā in trāns-/trā- and in the perfect ending; not machine-checked.",
+   "dēsiluit: long ē in dē-; the i is short; not machine-checked.",
+   "fideī: short e in fideī (fidēs, 5th declension, after a consonant); not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "tum",
+   "lemma": "tum",
+   "parse": "adverb",
+   "gloss": "then",
+   "app": [
+    "tum-indecl"
+   ]
+  },
+  {
+   "w": "Cocles",
+   "lemma": "Cocles, Coclitis, m.",
+   "parse": "nom. sg.",
+   "gloss": "Cocles (Horatius's surname)"
+  },
+  {
+   "w": "Tiberīne",
+   "pre": "\"",
+   "lemma": "Tiberīnus, Tiberīnī, m.",
+   "parse": "voc. sg.",
+   "gloss": "Tiber (the river god)"
+  },
+  {
+   "w": "pater",
+   "p": "\"",
+   "lemma": "pater, patris, m.",
+   "parse": "voc. sg.",
+   "gloss": "father",
+   "app": [
+    "pater-n3"
+   ]
+  },
+  {
+   "w": "inquit",
+   "p": ",",
+   "lemma": "inquit",
+   "parse": "3rd sg. (defective verb)",
+   "gloss": "he said"
+  },
+  {
+   "w": "tē",
+   "pre": "\"",
+   "lemma": "tū, tuī",
+   "parse": "acc. sg.",
+   "gloss": "you"
+  },
+  {
+   "w": "sānctē",
+   "lemma": "sānctē (adverb, from sānctus)",
+   "parse": "adverb",
+   "gloss": "solemnly, reverently"
+  },
+  {
+   "w": "precor",
+   "p": ",",
+   "lemma": "precor, precārī, precātus sum",
+   "parse": "1st sg. pres. ind. (deponent)",
+   "gloss": "I pray, I beseech"
+  },
+  {
+   "w": "haec",
+   "lemma": "hic, haec, hoc",
+   "parse": "acc. pl. n.",
+   "gloss": "these",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "arma",
+   "lemma": "arma, armōrum, n.",
+   "parse": "acc. pl.",
+   "gloss": "arms, armour",
+   "app": [
+    "arma-n2n"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "hunc",
+   "lemma": "hic, haec, hoc",
+   "parse": "acc. sg. m.",
+   "gloss": "this",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "mīlitem",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "acc. sg.",
+   "gloss": "soldier",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "propitiō",
+   "lemma": "propitius, propitia, propitium",
+   "parse": "abl. sg. n.",
+   "gloss": "kindly, favouring"
+  },
+  {
+   "w": "flūmine",
+   "lemma": "flūmen, flūminis, n.",
+   "parse": "abl. sg.",
+   "gloss": "with (your) stream",
+   "app": [
+    "flumen-n3n"
+   ]
+  },
+  {
+   "w": "accipiās",
+   "p": ".\"",
+   "lemma": "accipiō, accipere, accēpī, acceptum",
+   "parse": "2nd sg. pres. subj. act. (request depending on precor, without ut)",
+   "gloss": "receive",
+   "app": [
+    "accipio-v3io"
+   ]
+  },
+  {
+   "w": "ita",
+   "lemma": "ita",
+   "parse": "adverb",
+   "gloss": "so, thus"
+  },
+  {
+   "w": "sīcut",
+   "lemma": "sīcut",
+   "parse": "conjunction",
+   "gloss": "just as"
+  },
+  {
+   "w": "erat",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. impf. ind.",
+   "gloss": "he was",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "armātus",
+   "lemma": "armātus, armāta, armātum",
+   "parse": "nom. sg. m.",
+   "gloss": "armed"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "into",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "Tiberim",
+   "lemma": "Tiberis, Tiberis, m.",
+   "parse": "acc. sg. (-im)",
+   "gloss": "the Tiber"
+  },
+  {
+   "w": "dēsiluit",
+   "lemma": "dēsiliō, dēsilīre, dēsiluī, dēsultum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "leapt down"
+  },
+  {
+   "w": "multīsque",
+   "lemma": "multus, multa, multum + -que",
+   "parse": "abl. pl. n. + enclitic -que (ablative absolute with superincidentibus tēlīs)",
+   "gloss": "and (with) many",
+   "app": [
+    "multus-adj12"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "superincidentibus",
+   "lemma": "superincidō, superincidere",
+   "parse": "pres. participle, abl. pl. n. (ablative absolute)",
+   "gloss": "falling on (him) from above"
+  },
+  {
+   "w": "tēlīs",
+   "lemma": "tēlum, tēlī, n.",
+   "parse": "abl. pl.",
+   "gloss": "missiles, spears",
+   "app": [
+    "telum-n2n"
+   ]
+  },
+  {
+   "w": "incolumis",
+   "lemma": "incolumis, incolume",
+   "parse": "nom. sg. m.",
+   "gloss": "unharmed"
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "suōs",
+   "lemma": "suus, sua, suum",
+   "parse": "acc. pl. m. (as a noun: \"his own people\")",
+   "gloss": "his own side",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "trānāvit",
+   "lemma": "trānō, trānāre, trānāvī",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "swam across"
+  },
+  {
+   "w": "rem",
+   "lemma": "rēs, reī, f.",
+   "parse": "acc. sg.",
+   "gloss": "a deed"
+  },
+  {
+   "w": "ausus",
+   "lemma": "audeō, audēre, ausus sum",
+   "parse": "perf. participle (semi-deponent), nom. sg. m.",
+   "gloss": "having dared",
+   "app": [
+    "audeo-v2"
+   ]
+  },
+  {
+   "w": "plūs",
+   "lemma": "plūs, plūris, n.",
+   "parse": "acc. sg. (object of habitūram)",
+   "gloss": "more"
+  },
+  {
+   "w": "fāmae",
+   "lemma": "fāma, fāmae, f.",
+   "parse": "gen. sg. (partitive, with plūs)",
+   "gloss": "of fame",
+   "app": [
+    "fama-n1"
+   ]
+  },
+  {
+   "w": "habitūram",
+   "lemma": "habeō, habēre, habuī, habitum",
+   "parse": "fut. act. participle, acc. sg. f. (agrees with rem)",
+   "gloss": "that would have, that would win",
+   "app": [
+    "habeo-v2"
+   ]
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "among, in the eyes of",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "posterōs",
+   "lemma": "posterus, postera, posterum",
+   "parse": "acc. pl. m. (as a noun: \"later generations\")",
+   "gloss": "posterity",
+   "app": [
+    "posterus-adj12"
+   ]
+  },
+  {
+   "w": "quam",
+   "lemma": "quam",
+   "parse": "conjunction (after the comparative plūs)",
+   "gloss": "than"
+  },
+  {
+   "w": "fideī",
+   "p": ".",
+   "lemma": "fidēs, fideī, f.",
+   "parse": "gen. sg. (partitive, with plūs understood)",
+   "gloss": "of belief, credibility"
+  }
+ ],
+ "translation": "Then Cocles said, \"Father Tiber, I solemnly beseech you: receive these arms and this soldier in a kindly stream.\" So, armed just as he was, he leapt down into the Tiber and, with many missiles falling on him, swam across unharmed to his own side, having dared a deed that would win more fame than belief among later generations.",
+ "translation_note": "accipiās depends on precor without ut (\"I pray [that] you receive\"). multīs ... superincidentibus tēlīs is an ablative absolute. In rem ausus plus fāmae habitūram ad posterōs quam fideī, Livy steps outside the story: habitūram (future participle) agrees with rem, and fāmae and fideī are both partitive genitives with plūs.",
+ "essay": [
+  [
+   {
+    "t": "After the Tarquins were expelled, Livy says, they took refuge with Lars Porsenna, king of Clusium, and urged him to restore them; an Etruscan army then marched on Rome.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "When the Janiculum hill fell to a sudden attack, only the Sublician bridge stood between the enemy and the city.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Horatius Cocles, on guard there, told his fleeing comrades to break the bridge down behind him, held its head first with Spurius Larcius and Titus Herminius, then sent them back and faced the Etruscans alone until the bridge crashed down.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Then came the prayer to Father Tiber and the swim to safety; the grateful state set up his statue in the comitium and gave him as much land as he could plough round in a day.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Livy himself warns, in the passage, that the deed would have more fame than belief among later generations.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Polybius, a Greek historian writing in the 2nd century BC and the earliest known teller of the story, gives it a different ending.",
+    "src": [
+     2,
+     3
+    ]
+   },
+   {
+    "t": "In his version Horatius, badly wounded, holds the enemy while the bridge is cut, then plunges into the river in full armour and deliberately gives up his life.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Polybius tells it as one example among many, to show the eager rivalry for noble deeds that Roman customs, such as funeral speeches praising the dead, bred in the young.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Britannica calls Horatius perhaps legendary, says the versions differ on whether he reached safety or drowned, and reports a theory that the story grew up to explain an old statue of a lame, one-eyed man in the precinct of Vulcan.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Livy's preface explains what such stories are for: the reader should study examples of every kind, set out as on a conspicuous monument, and take from them what to imitate and what to avoid.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Seen that way, the two endings teach different lessons, survival through divine favour in Livy and self-sacrifice in Polybius; the contrast is my own reading.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "How does the story end in Polybius?",
+   "options": [
+    "Horatius leaps into the river in armour and gives up his life",
+    "Horatius swims to safety and is given land",
+    "Horatius is captured by Porsenna",
+    "Horatius is elected consul"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does Livy say about the deed's credibility?",
+   "options": [
+    "It would have more fame than belief among later generations",
+    "He had seen an inscription recording it",
+    "Polybius confirmed every detail",
+    "It was witnessed by the whole Etruscan army and is certain"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "According to Livy, how did the state reward Horatius?",
+   "options": [
+    "A statue in the comitium and as much land as he could plough round in a day",
+    "A triumph and the consulship",
+    "A gold crown and a house on the Palatine",
+    "It gave him nothing"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Livy, Ab urbe condita (Latin; Weissenborn–Müller, Teubner 1884–1911), Perseus Digital Library TEI file on GitHub",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Polybius, Histories 6.53–55 (Loeb 1923 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/6*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Horatius Cocles\" (Britannica Editors)",
+   "url": "https://www.britannica.com/topic/Horatius-Cocles",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

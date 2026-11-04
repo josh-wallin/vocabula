@@ -1,0 +1,825 @@
+{
+ "id": "liv-326",
+ "order": 14,
+ "title": "Called from the farm",
+ "saying": "satin salvē?",
+ "author": "Livy",
+ "work": "Ab urbe condita",
+ "citation": "Liv. 3.26.8–10",
+ "setting": "Across the Tiber from Rome, 458 BC (traditional date)",
+ "edition": {
+  "name": "Titi Livi ab urbe condita, edited by W. Weissenborn and H. J. Müller (Leipzig: Teubner, 1884–1911), public domain, as digitized by the Perseus Digital Library (TEI file phi0914.phi001.perseus-lat2). The file's source description reads, in its own wording: \"Titi Livi ab urbe condita\", \"W. Weissenborn\", \"H. J. Müller\", \"Leipzig\", \"Teubner\", \"1884-1911\" (its title statement names the editors \"Wilhelm Weissenborn\" and \"Moritz Müller\")",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+  "section": "Book 3, chapter 26, sections 8–10 (complete)"
+ },
+ "source_text": "L. Quinctius trans Tiberim, contra eum ipsum locum, ubi nunc navalia sunt, quattuor iugerum colebat agrum, quae prata Quinctia vocantur. ibi ab legatis, seu fossam fodiens palae innixus seu cum araret, operi certe, id quod constat, agresti intentus, salute data in vicem redditaque rogatus, ut, quod bene verteret ipsi reique publicae, togatus mandata senatus audiret, admiratus rogitansque \"satin salve?\" togam propere e tugurio proferre uxorem Raciliam iubet. qua simul absterso pulvere ac sudore velatus processit, dictatorem eum legati gratulantes consalutant, in urbem vocant, qui terror sit in exercitu, exponunt.",
+ "excerpt_note": "Sections 3.26.8–10 complete. In this edition section 8 begins in the middle of a sentence that starts at the end of section 7 (spes unica imperii populi Romani, \"the one hope of Rome's empire, L. Quinctius ...\"); the excerpt starts at the name. The edition does not capitalize the first word of a sentence; its curly quotation marks are given here as straight ones. The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). They agree word for word; they mark the aside seu ... intentus off with dashes and omit the commas after locum, rogatus and exercitu.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "Quīnctius, Quīnctia: long ī, as in quīnque and Quīntus; not machine-checked.",
+   "iūgerum: long ū; not machine-checked.",
+   "nāvālia: long ā twice; not machine-checked.",
+   "pālae: long ā, following Lewis and Short's pāla; not machine-checked.",
+   "innīxus: long ī (nītor, nīxus); not machine-checked.",
+   "Raciliam: the quantities of the name are not known to me; left unmarked.",
+   "salvē: long final ē of the adverb; not machine-checked.",
+   "sūdōre: long ū and ō; not machine-checked.",
+   "L: the praenomen Lūcius, abbreviated; written without a macron, as in the edition."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "L",
+   "p": ".",
+   "lemma": "Lūcius, Lūciī, m. (praenomen, abbreviated L.)",
+   "parse": "nom. sg. (abbreviation)",
+   "gloss": "Lucius"
+  },
+  {
+   "w": "Quīnctius",
+   "lemma": "Quīnctius, Quīnctiī, m.",
+   "parse": "nom. sg.",
+   "gloss": "Quinctius (Cincinnatus)"
+  },
+  {
+   "w": "trāns",
+   "lemma": "trāns (+ acc.)",
+   "parse": "preposition",
+   "gloss": "across"
+  },
+  {
+   "w": "Tiberim",
+   "p": ",",
+   "lemma": "Tiberis, Tiberis, m.",
+   "parse": "acc. sg. (-im)",
+   "gloss": "the Tiber"
+  },
+  {
+   "w": "contrā",
+   "lemma": "contrā (+ acc.)",
+   "parse": "preposition",
+   "gloss": "opposite"
+  },
+  {
+   "w": "eum",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. m.",
+   "gloss": "that"
+  },
+  {
+   "w": "ipsum",
+   "lemma": "ipse, ipsa, ipsum",
+   "parse": "acc. sg. m.",
+   "gloss": "very"
+  },
+  {
+   "w": "locum",
+   "p": ",",
+   "lemma": "locus, locī, m.",
+   "parse": "acc. sg.",
+   "gloss": "place, spot",
+   "app": [
+    "locus-n2m"
+   ]
+  },
+  {
+   "w": "ubi",
+   "lemma": "ubi",
+   "parse": "adverb (relative)",
+   "gloss": "where",
+   "app": [
+    "ubi-indecl"
+   ]
+  },
+  {
+   "w": "nunc",
+   "lemma": "nunc",
+   "parse": "adverb",
+   "gloss": "now",
+   "app": [
+    "nunc-indecl"
+   ]
+  },
+  {
+   "w": "nāvālia",
+   "lemma": "nāvālia, nāvālium, n. pl.",
+   "parse": "nom. pl.",
+   "gloss": "the dockyards"
+  },
+  {
+   "w": "sunt",
+   "p": ",",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. pres. ind.",
+   "gloss": "are",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "quattuor",
+   "lemma": "quattuor",
+   "parse": "indeclinable numeral",
+   "gloss": "four"
+  },
+  {
+   "w": "iūgerum",
+   "lemma": "iūgerum, iūgerī, n.",
+   "parse": "gen. pl. (genitive of measure: \"of four iugera\")",
+   "gloss": "iugera (a land measure, about two-thirds of an acre each)"
+  },
+  {
+   "w": "colēbat",
+   "lemma": "colō, colere, coluī, cultum",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "was farming",
+   "app": [
+    "colo-v3"
+   ]
+  },
+  {
+   "w": "agrum",
+   "p": ",",
+   "lemma": "ager, agrī, m.",
+   "parse": "acc. sg.",
+   "gloss": "a field, a farm",
+   "app": [
+    "ager-n2m"
+   ]
+  },
+  {
+   "w": "quae",
+   "lemma": "quī, quae, quod",
+   "parse": "nom. pl. n. (relative, attracted to prāta)",
+   "gloss": "which"
+  },
+  {
+   "w": "prāta",
+   "lemma": "prātum, prātī, n.",
+   "parse": "nom. pl.",
+   "gloss": "meadows"
+  },
+  {
+   "w": "Quīnctia",
+   "lemma": "Quīnctius, Quīnctia, Quīnctium (adjective)",
+   "parse": "nom. pl. n.",
+   "gloss": "Quinctian"
+  },
+  {
+   "w": "vocantur",
+   "p": ".",
+   "lemma": "vocō, vocāre, vocāvī, vocātum",
+   "parse": "3rd pl. pres. ind. pass.",
+   "gloss": "are called",
+   "app": [
+    "voco-v1"
+   ]
+  },
+  {
+   "w": "ibi",
+   "lemma": "ibi",
+   "parse": "adverb",
+   "gloss": "there",
+   "app": [
+    "ibi-indecl"
+   ]
+  },
+  {
+   "w": "ab",
+   "lemma": "ā, ab (+ abl.)",
+   "parse": "preposition (agent, with rogātus)",
+   "gloss": "by"
+  },
+  {
+   "w": "lēgātīs",
+   "p": ",",
+   "lemma": "lēgātus, lēgātī, m.",
+   "parse": "abl. pl.",
+   "gloss": "the envoys",
+   "app": [
+    "legatus-n2m"
+   ]
+  },
+  {
+   "w": "seu",
+   "lemma": "seu (= sīve)",
+   "parse": "conjunction",
+   "gloss": "whether, either"
+  },
+  {
+   "w": "fossam",
+   "lemma": "fossa, fossae, f.",
+   "parse": "acc. sg.",
+   "gloss": "a ditch"
+  },
+  {
+   "w": "fodiēns",
+   "lemma": "fodiō, fodere, fōdī, fossum",
+   "parse": "pres. participle, nom. sg. m.",
+   "gloss": "digging"
+  },
+  {
+   "w": "pālae",
+   "lemma": "pāla, pālae, f.",
+   "parse": "dat. sg. (with innīxus)",
+   "gloss": "on his spade"
+  },
+  {
+   "w": "innīxus",
+   "lemma": "innītor, innītī, innīxus sum",
+   "parse": "perf. participle (deponent), nom. sg. m.",
+   "gloss": "leaning"
+  },
+  {
+   "w": "seu",
+   "lemma": "seu (= sīve)",
+   "parse": "conjunction",
+   "gloss": "or"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum (conjunction)",
+   "parse": "conjunction (+ subj.)",
+   "gloss": "when, while",
+   "nolink": true
+  },
+  {
+   "w": "arāret",
+   "p": ",",
+   "lemma": "arō, arāre, arāvī, arātum",
+   "parse": "3rd sg. impf. subj. act. (cum clause)",
+   "gloss": "he was ploughing"
+  },
+  {
+   "w": "operī",
+   "lemma": "opus, operis, n.",
+   "parse": "dat. sg. (with intentus)",
+   "gloss": "on work",
+   "app": [
+    "opus-n3n"
+   ]
+  },
+  {
+   "w": "certē",
+   "p": ",",
+   "lemma": "certē",
+   "parse": "adverb",
+   "gloss": "at any rate, certainly"
+  },
+  {
+   "w": "id",
+   "lemma": "is, ea, id",
+   "parse": "nom. sg. n.",
+   "gloss": "that"
+  },
+  {
+   "w": "quod",
+   "lemma": "quī, quae, quod",
+   "parse": "nom. sg. n. (relative)",
+   "gloss": "which"
+  },
+  {
+   "w": "cōnstat",
+   "p": ",",
+   "lemma": "cōnstō, cōnstāre",
+   "parse": "3rd sg. pres. ind. act. (impersonal: \"it is agreed\")",
+   "gloss": "is agreed",
+   "app": [
+    "consto-v1"
+   ]
+  },
+  {
+   "w": "agrestī",
+   "lemma": "agrestis, agreste",
+   "parse": "dat. sg. n.",
+   "gloss": "of the fields, farm (work)"
+  },
+  {
+   "w": "intentus",
+   "p": ",",
+   "lemma": "intentus, intenta, intentum",
+   "parse": "adjective (participle of intendō), nom. sg. m.",
+   "gloss": "intent, busy"
+  },
+  {
+   "w": "salūte",
+   "lemma": "salūs, salūtis, f.",
+   "parse": "abl. sg. (ablative absolute with datā)",
+   "gloss": "a greeting",
+   "app": [
+    "salus-n3"
+   ]
+  },
+  {
+   "w": "datā",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "perf. pass. participle, abl. sg. f. (ablative absolute)",
+   "gloss": "given",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition (in vicem, \"in turn\")",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "vicem",
+   "lemma": "vicis (gen.), vicem, vice, f.",
+   "parse": "acc. sg.",
+   "gloss": "turn (in vicem: in turn)"
+  },
+  {
+   "w": "redditāque",
+   "lemma": "reddō, reddere, reddidī, redditum + -que",
+   "parse": "perf. pass. participle, abl. sg. f. + enclitic -que",
+   "gloss": "and returned",
+   "app": [
+    "reddo-v3"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "rogātus",
+   "p": ",",
+   "lemma": "rogō, rogāre, rogāvī, rogātum",
+   "parse": "perf. pass. participle, nom. sg. m.",
+   "gloss": "he was asked",
+   "app": [
+    "rogo-v1"
+   ]
+  },
+  {
+   "w": "ut",
+   "p": ",",
+   "lemma": "ut",
+   "parse": "conjunction (+ subj.: indirect command)",
+   "gloss": "to, that"
+  },
+  {
+   "w": "quod",
+   "lemma": "quī, quae, quod",
+   "parse": "nom. sg. n. (relative: \"a thing which\", a formula of good omen)",
+   "gloss": "which, what"
+  },
+  {
+   "w": "bene",
+   "lemma": "bene",
+   "parse": "adverb",
+   "gloss": "well"
+  },
+  {
+   "w": "verteret",
+   "lemma": "vertō, vertere, vertī, versum",
+   "parse": "3rd sg. impf. subj. act. (wish within the indirect command)",
+   "gloss": "might turn out",
+   "app": [
+    "verto-v3"
+   ]
+  },
+  {
+   "w": "ipsī",
+   "lemma": "ipse, ipsa, ipsum",
+   "parse": "dat. sg. m.",
+   "gloss": "for himself"
+  },
+  {
+   "w": "reīque",
+   "lemma": "rēs, reī, f. + -que",
+   "parse": "dat. sg. + enclitic -que (rēs pūblica)",
+   "gloss": "and for the state",
+   "enclitic": "que"
+  },
+  {
+   "w": "pūblicae",
+   "p": ",",
+   "lemma": "pūblicus, pūblica, pūblicum",
+   "parse": "dat. sg. f.",
+   "gloss": "public (with reī: the state)",
+   "app": [
+    "publicus-adj12"
+   ]
+  },
+  {
+   "w": "togātus",
+   "lemma": "togātus, togāta, togātum",
+   "parse": "nom. sg. m.",
+   "gloss": "wearing his toga"
+  },
+  {
+   "w": "mandāta",
+   "lemma": "mandātum, mandātī, n.",
+   "parse": "acc. pl.",
+   "gloss": "instructions"
+  },
+  {
+   "w": "senātūs",
+   "lemma": "senātus, senātūs, m.",
+   "parse": "gen. sg.",
+   "gloss": "of the senate"
+  },
+  {
+   "w": "audīret",
+   "p": ",",
+   "lemma": "audiō, audīre, audīvī, audītum",
+   "parse": "3rd sg. impf. subj. act. (indirect command)",
+   "gloss": "he should hear",
+   "app": [
+    "audio-v4"
+   ]
+  },
+  {
+   "w": "admīrātus",
+   "lemma": "admīror, admīrārī, admīrātus sum",
+   "parse": "perf. participle (deponent), nom. sg. m.",
+   "gloss": "surprised"
+  },
+  {
+   "w": "rogitānsque",
+   "lemma": "rogitō, rogitāre + -que",
+   "parse": "pres. participle, nom. sg. m. + enclitic -que",
+   "gloss": "and asking again and again",
+   "enclitic": "que"
+  },
+  {
+   "w": "satin",
+   "pre": "\"",
+   "lemma": "satis + -ne (satin = satisne)",
+   "parse": "adverb + interrogative enclitic -ne",
+   "gloss": "is it quite ...?",
+   "app": [
+    "satis-indecl"
+   ]
+  },
+  {
+   "w": "salvē",
+   "p": "?\"",
+   "lemma": "salvē (adverb, from salvus)",
+   "parse": "adverb",
+   "gloss": "all right, safely (satin salvē: \"is all well?\")"
+  },
+  {
+   "w": "togam",
+   "lemma": "toga, togae, f.",
+   "parse": "acc. sg.",
+   "gloss": "his toga"
+  },
+  {
+   "w": "properē",
+   "lemma": "properē",
+   "parse": "adverb",
+   "gloss": "quickly"
+  },
+  {
+   "w": "ē",
+   "lemma": "ē, ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "out of",
+   "app": [
+    "e-indecl"
+   ]
+  },
+  {
+   "w": "tuguriō",
+   "lemma": "tugurium, tuguriī, n.",
+   "parse": "abl. sg.",
+   "gloss": "the hut, the cottage"
+  },
+  {
+   "w": "prōferre",
+   "lemma": "prōferō, prōferre, prōtulī, prōlātum",
+   "parse": "pres. inf. act. (with iubet)",
+   "gloss": "to bring out"
+  },
+  {
+   "w": "uxōrem",
+   "lemma": "uxor, uxōris, f.",
+   "parse": "acc. sg.",
+   "gloss": "his wife",
+   "app": [
+    "uxor-n3"
+   ]
+  },
+  {
+   "w": "Raciliam",
+   "lemma": "Racilia, Raciliae, f.",
+   "parse": "acc. sg.",
+   "gloss": "Racilia"
+  },
+  {
+   "w": "iubet",
+   "p": ".",
+   "lemma": "iubeō, iubēre, iussī, iussum",
+   "parse": "3rd sg. pres. ind. act. (vivid present)",
+   "gloss": "tells, orders",
+   "app": [
+    "iubeo-v2"
+   ]
+  },
+  {
+   "w": "quā",
+   "lemma": "quī, quae, quod",
+   "parse": "abl. sg. f. (relative, = the toga; with vēlātus)",
+   "gloss": "in which"
+  },
+  {
+   "w": "simul",
+   "lemma": "simul",
+   "parse": "conjunction (= simul ac)",
+   "gloss": "as soon as"
+  },
+  {
+   "w": "abstersō",
+   "lemma": "abstergeō, abstergēre, abstersī, abstersum",
+   "parse": "perf. pass. participle, abl. sg. m. (ablative absolute)",
+   "gloss": "wiped off"
+  },
+  {
+   "w": "pulvere",
+   "lemma": "pulvis, pulveris, m.",
+   "parse": "abl. sg.",
+   "gloss": "the dust"
+  },
+  {
+   "w": "ac",
+   "lemma": "atque (or ac)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "sūdōre",
+   "lemma": "sūdor, sūdōris, m.",
+   "parse": "abl. sg.",
+   "gloss": "sweat"
+  },
+  {
+   "w": "vēlātus",
+   "lemma": "vēlō, vēlāre, vēlāvī, vēlātum",
+   "parse": "perf. pass. participle, nom. sg. m.",
+   "gloss": "covered, clothed"
+  },
+  {
+   "w": "prōcessit",
+   "p": ",",
+   "lemma": "prōcēdō, prōcēdere, prōcessī, prōcessum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "came forward",
+   "app": [
+    "procedo-v3"
+   ]
+  },
+  {
+   "w": "dictātōrem",
+   "lemma": "dictātor, dictātōris, m.",
+   "parse": "acc. sg. (predicate)",
+   "gloss": "as dictator"
+  },
+  {
+   "w": "eum",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. m.",
+   "gloss": "him"
+  },
+  {
+   "w": "lēgātī",
+   "lemma": "lēgātus, lēgātī, m.",
+   "parse": "nom. pl.",
+   "gloss": "the envoys",
+   "app": [
+    "legatus-n2m"
+   ]
+  },
+  {
+   "w": "grātulantēs",
+   "lemma": "grātulor, grātulārī, grātulātus sum",
+   "parse": "pres. participle, nom. pl. m.",
+   "gloss": "congratulating (him)"
+  },
+  {
+   "w": "cōnsalūtant",
+   "p": ",",
+   "lemma": "cōnsalūtō, cōnsalūtāre",
+   "parse": "3rd pl. pres. ind. act. (vivid present)",
+   "gloss": "they hail"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "into, to",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "urbem",
+   "lemma": "urbs, urbis, f.",
+   "parse": "acc. sg.",
+   "gloss": "the city",
+   "app": [
+    "urbs-n3i"
+   ]
+  },
+  {
+   "w": "vocant",
+   "p": ",",
+   "lemma": "vocō, vocāre, vocāvī, vocātum",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "they summon",
+   "app": [
+    "voco-v1"
+   ]
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "nom. sg. m. (interrogative adjective; indirect question)",
+   "gloss": "what"
+  },
+  {
+   "w": "terror",
+   "lemma": "terror, terrōris, m.",
+   "parse": "nom. sg.",
+   "gloss": "terror, alarm"
+  },
+  {
+   "w": "sit",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. subj. (indirect question)",
+   "gloss": "there is",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "exercitū",
+   "p": ",",
+   "lemma": "exercitus, exercitūs, m.",
+   "parse": "abl. sg.",
+   "gloss": "the army"
+  },
+  {
+   "w": "expōnunt",
+   "p": ".",
+   "lemma": "expōnō, expōnere, exposuī, expositum",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "they explain"
+  }
+ ],
+ "translation": "Lucius Quinctius was farming a field of four iugera across the Tiber, opposite the very spot where the dockyards are now; it is called the Quinctian Meadows. There, whether he was digging a ditch and leaning on his spade or ploughing (at any rate, and this much is agreed, he was busy with work on the land), he exchanged greetings with the envoys and was asked by them to put on his toga and hear the senate's instructions, with a prayer that it might turn out well for him and for the state. Surprised, and asking again and again, \"Is everything all right?\", he told his wife Racilia to bring his toga out of the cottage quickly. As soon as he had wiped off the dust and sweat and came forward dressed in it, the envoys congratulated him, hailed him as dictator, summoned him to the city and explained how frightened the army was.",
+ "translation_note": "The long middle sentence hangs on rogātus, \"he was asked\", with a parenthesis (seu ... intentus) and an ablative absolute (salūte datā ... redditāque) before it. quod bene verteret ipsī reīque pūblicae is a formula of good omen, \"and may it turn out well for him and the state\". satin salvē? (satisne salvē [sunt omnia]?) is everyday Latin for \"is all well?\"; it also appears in Lucretia's story (1.58.7). quā ... vēlātus: \"covered with which\", that is, with the toga.",
+ "essay": [
+  [
+   {
+    "t": "Britannica places the episode in 458 BC, when Cincinnatus was made dictator to rescue a consular army.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "In Livy's account the consul Minucius, facing the Aequi near Mount Algidus, let himself be shut in his camp, and five horsemen slipped through the enemy lines to report in Rome that the consul and his army were under siege.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Since the other consul, Nautius, seemed too little help, it was decided to name a dictator, and Lucius Quinctius Cincinnatus was chosen by general consent.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Britannica describes the dictatorship as a temporary magistracy with extraordinary powers, limited to six months and usually laid down as soon as the crisis passed.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Livy's Cincinnatus fits that pattern exactly: appointed for six months, he resigned on the sixteenth day.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Livy introduces the scene as worth hearing for those who despise everything human except wealth and think honour and virtue have no place except where riches pour in.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Notice how he hedges: the envoys found him either digging a ditch, leaning on his spade, or ploughing; all that is agreed is that he was at work on the land.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The familiar picture of Cincinnatus called \"from the plough\" therefore keeps only one of the two versions Livy gives.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Britannica regards him as a historical figure whose career has been much embellished by legend, and says most scholars see no truth in the tradition of a second dictatorship in 439 BC.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The example had a second life in the United States: in May 1783 Continental Army officers organized the Society of the Cincinnati, named after the Roman, and that June George Washington agreed to be its president.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "In 1790 the territorial governor Arthur St. Clair, himself a member, renamed the new settlement of Losantiville \"Cincinnati\" in honour of the Society, so the city takes its name from Cincinnatus by way of the veterans' society.",
+    "src": [
+     5
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What does Livy say is agreed about what Cincinnatus was doing when the envoys came?",
+   "options": [
+    "Only that he was busy with farm work, whether digging or ploughing",
+    "That he was ploughing with oxen",
+    "That he was speaking in the senate",
+    "That he was dining with his sons"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "According to Livy, how long did Cincinnatus keep the dictatorship?",
+   "options": [
+    "He resigned on the sixteenth day, though appointed for six months",
+    "Exactly six months",
+    "For the rest of his life",
+    "One full year"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why is the city of Cincinnati so named?",
+   "options": [
+    "Governor Arthur St. Clair renamed it in honour of the Society of the Cincinnati",
+    "Cincinnatus's descendants founded it",
+    "It was named after a river",
+    "Washington was born there"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Livy, Ab urbe condita (Latin; Weissenborn–Müller, Teubner 1884–1911), Perseus Digital Library TEI file on GitHub",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Lucius Quinctius Cincinnatus\" (Britannica Editors)",
+   "url": "https://www.britannica.com/biography/Lucius-Quinctius-Cincinnatus",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Dictator (Roman official)\"",
+   "url": "https://britannica.com/topic/dictator-Roman-official",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopedia.com, \"Cincinnati, Society of the\" (entries from the Encyclopedia of the American Revolution, the Oxford Companion to American Military History and the Dictionary of American History)",
+   "url": "https://encyclopedia.com/history/united-states-and-canada/us-history/society-cincinnati",
+   "kind": "modern"
+  },
+  {
+   "label": "Online Etymology Dictionary, \"Cincinnati\"",
+   "url": "https://www.etymonline.com/word/cincinnati",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}
