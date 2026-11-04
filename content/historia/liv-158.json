@@ -13,7 +13,7 @@
   "section": "Book 1, chapter 58, sections 10–11 (complete)"
  },
  "source_text": "\"vos\" inquit \"videritis, quid illi debeatur; ego me etsi peccato absolvo, supplicio non libero; nec ulla deinde inpudica Lucretiae exemplo vivet.\" cultrum, quem sub veste abditum habebat, eum in corde defigit prolapsaque in vulnus moribunda cecidit.",
- "excerpt_note": "Sections 1.58.10–11 complete: Lucretia's last words and her death. The edition spells inpudica (the popular form is impudica, as in the Oxford text) and does not capitalize the first word of a sentence; its curly quotation marks are given here as straight ones. The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). They agree word for word apart from spelling (impudica, volnus) and punctuation (a colon after debeatur).",
+ "excerpt_note": "Content note: sexual assault and suicide. Sections 1.58.10–11 complete: Lucretia's last words and her death. The edition spells inpudica (the popular form is impudica, as in the Oxford text) and does not capitalize the first word of a sentence; its curly quotation marks are given here as straight ones. The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). They agree word for word: the Oxford text reads impudica and uolnus, the Loeb inpudica and volnus; both put a colon after debeatur, and the Oxford text has a comma after defigit and none before quid.",
  "macrons": {
   "editorial": true,
   "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
@@ -329,7 +329,7 @@
   ],
   [
    {
-    "t": "Lucretia summoned her father and her husband, who came with Publius Valerius and Lucius Junius Brutus; she told them what had happened and made them pledge that the adulterer would be punished.",
+    "t": "Lucretia summoned her father and her husband, who came with Publius Valerius and Lucius Junius Brutus; she told them what had happened and made them pledge that the man would not go unpunished.",
     "src": [
      1
     ]
@@ -356,7 +356,7 @@
     ]
    },
    {
-    "t": "The body was carried into the forum, the king was shut out, and two consuls, Brutus and Collatinus, were elected; Livy reckons the monarchy at 244 years.",
+    "t": "Her body was carried into the forum of Collatia, and from there the rising spread to Rome; the king was shut out, and two consuls, Brutus and Collatinus, were elected. Livy reckons the monarchy at 244 years.",
     "src": [
      1
     ]
@@ -393,7 +393,7 @@
  ],
  "questions": [
   {
-   "q": "What do Lucretia's father and husband tell her just before the passage?",
+   "q": "What do the men around Lucretia tell her just before the passage?",
    "options": [
     "That it is the mind that sins, not the body, so she is not to blame",
     "That she must leave Rome",

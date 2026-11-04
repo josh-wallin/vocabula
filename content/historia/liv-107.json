@@ -58,8 +58,8 @@
   {
    "w": "certāmine",
    "lemma": "certāmen, certāminis, n.",
-   "parse": "abl. sg. (with īrārum)",
-   "gloss": "in a contest (of their anger)"
+   "parse": "abl. sg. (with īrārum: \"in the heat of their angry rivalry\")",
+   "gloss": "in the heat of rivalry"
   },
   {
    "w": "īrārum",
@@ -341,8 +341,8 @@
    ]
   }
  ],
- "translation": "Then they came to blows in a wrangle, and the contest of their anger turns to bloodshed; there, in the crush, Remus was struck and fell. The more widespread story is that Remus, to mock his brother, jumped over the new walls, and that he was then killed by the angry Romulus, who added these taunting words as well: \"So perish, from now on, anyone else who jumps over my walls!\"",
- "translation_note": "The threat is elliptical: sīc deinde, quīcumque alius trānsiliet moenia mea has no main verb, and something like pereat, \"may he perish\", is understood. The whole second sentence depends on fāma est, \"the story is\", so it is indirect statement (Remum ... trānsiluisse; interfectum [esse]): Livy reports a tale, he does not vouch for it. vertuntur is a vivid present in the middle of past tenses.",
+ "translation": "Then, having come to blows in a quarrel, in the heat of their angry rivalry they turned to bloodshed; there, in the crush, Remus was struck and fell. The more widespread story is that Remus, to mock his brother, jumped over the new walls, and that he was then killed by the angry Romulus, who added these taunting words as well: \"So perish, from now on, anyone else who jumps over my walls!\"",
+ "translation_note": "The threat is elliptical: sīc deinde, quīcumque alius trānsiliet moenia mea has no main verb, and something like pereat, \"may he perish\", is understood. The whole second sentence depends on fāma est, \"the story is\", so it is indirect statement (Remum ... trānsiluisse; interfectum [esse]): Livy reports a tale, he does not vouch for it. vertuntur is a vivid present in the middle of past tenses; it is translated as a past.",
  "essay": [
   [
    {
@@ -350,17 +350,11 @@
     "src": [
      1
     ]
-   },
-   {
-    "t": "Antiquity, he adds, is allowed to mingle the human with the divine to make the beginnings of cities more august.",
-    "src": [
-     1
-    ]
    }
   ],
   [
    {
-    "t": "In his story the usurper Amulius has the newborn twins put into the flooded Tiber; stranded on dry ground, they are suckled by a thirsty she-wolf until the king's herdsman Faustulus finds them.",
+    "t": "In his story the usurper Amulius orders the newborn twins put into running water, but his men, unable to reach the flooded river's channel, leave them in the shallow floodwater; tradition, Livy says, holds that a thirsty she-wolf then suckled them.",
     "src": [
      1
     ]
@@ -374,19 +368,13 @@
   ],
   [
    {
-    "t": "To settle who would name and rule their new city, the twins took the auspices, Romulus on the Palatine, Remus on the Aventine.",
+    "t": "Later the twins quarrelled over the auspices for their new city, Remus seeing six vultures first, Romulus twelve.",
     "src": [
      1
     ]
    },
    {
-    "t": "Remus reportedly saw six vultures first, Romulus twelve later, and each side hailed its man as king.",
-    "src": [
-     1
-    ]
-   },
-   {
-    "t": "Livy then gives two versions of Remus's death: struck down in the brawl that followed, or, in the \"more widespread\" story of the passage, killed by Romulus for jumping over the new walls in mockery.",
+    "t": "Livy then gives two versions of Remus's death: struck down in the brawl, or, in the \"more widespread\" story, killed by Romulus for jumping the new walls.",
     "src": [
      1
     ]
@@ -401,7 +389,7 @@
   ],
   [
    {
-    "t": "Britannica treats Romulus as an invention of later historians, adapted from a folktale told of many Mediterranean founders, and notes that ancient dates for the founding ranged from 814 to 728 BC before 753 became accepted.",
+    "t": "Britannica treats Romulus as an invention of later historians, adapted from a widespread Mediterranean folktale, and notes that ancient dates for the founding ranged from 814 to 728 BC.",
     "src": [
      2
     ]
@@ -413,16 +401,24 @@
     ]
    },
    {
-    "t": "In 2005 Andrea Carandini presented an 8th-century building near the shrine of Vesta as \"a palace fit for a king\"; Elizabeth Fentress of the British School at Rome replied that nothing tied it to Romulus.",
+    "t": "In 2005 Andrea Carandini presented an 8th-century building near the shrine of Vesta as \"a palace fit for a king\"; Elizabeth Fentress of the British School at Rome found the palace \"completely convincing\" but said it \"does not have a direct link to the Romulus myth\".",
     "src": [
      3
     ],
     "doubt": true
    },
    {
-    "t": "Even the bronze she-wolf in Rome's Capitoline Museums is no ancient witness: radiocarbon tests reported in 2012 dated its casting to between about 1021 and 1153, and the twins were added in the Renaissance.",
+    "t": "Carandini goes further, arguing that Romulus really founded Rome in the mid-8th century BC; his reviewer Jeremy Lefkowitz warns that non-specialists will struggle to tell accepted views from his controversial proposals.",
     "src": [
-     4
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The bronze she-wolf in Rome's Capitoline Museums may be no ancient witness either: radiocarbon tests reported in 2012 placed it in the 11th–12th century AD, though the date is still debated and the museum admits both possibilities; the twins are Renaissance additions.",
+    "src": [
+     4,
+     6
     ],
     "doubt": true
    }
@@ -432,10 +428,10 @@
   {
    "q": "How does Livy say Remus died?",
    "options": [
-    "He gives two versions: in a brawl, or (the more common story) killed by Romulus for jumping the new walls",
-    "He drowned in the Tiber as a baby",
-    "He was killed by Amulius",
-    "He ruled jointly with Romulus and died old"
+    "Livy gives two versions: killed in a brawl, or by Romulus for leaping the walls",
+    "Livy says he drowned in the Tiber when the twins were exposed as babies",
+    "Livy says Amulius had him killed before the city was ever founded",
+    "Livy says he ruled beside Romulus and died of old age as king"
    ],
    "answer": 0
   },
@@ -452,10 +448,10 @@
   {
    "q": "What did the 2012 radiocarbon tests suggest about the Capitoline she-wolf?",
    "options": [
-    "It was cast in the Middle Ages, about 1021–1153",
-    "It is an Etruscan work of the 5th century BC",
-    "It dates from the founding of Rome",
-    "The twins are part of the original casting"
+    "It was cast in the Middle Ages, in the 11th–12th century AD",
+    "It was cast in Rome's founding century, the 8th century BC",
+    "It was cast in Augustus's reign, the 1st century BC",
+    "Its twins were cast together with the wolf in antiquity"
    ],
    "answer": 0
   }
@@ -472,13 +468,23 @@
    "kind": "modern"
   },
   {
-   "label": "Al Jazeera, \"Archaeologist revives fable of Rome\" (19 February 2005) (news report; used only for Carandini's claim and Fentress's reply)",
+   "label": "Reuters wire story, \"Archaeologist revives fable of Rome\", on Al Jazeera (19 February 2005) (used only for Carandini's claim and Fentress's reply)",
    "url": "https://www.aljazeera.com/news/2005/2/19/archaeologist-revives-fable-of-rome",
    "kind": "modern"
   },
   {
    "label": "Live Science, R. Lorenzi, \"Roman Icon Actually Younger Than the City\" (25 June 2012) (news report of the radiocarbon dating)",
    "url": "https://livescience.com/21165-she-wolf-rome-icon.html",
+   "kind": "modern"
+  },
+  {
+   "label": "J. B. Lefkowitz, review of A. Carandini, Rome: Day One (Princeton University Press, 2011), Bryn Mawr Classical Review 2012.03.39",
+   "url": "https://bmcr.brynmawr.edu/?p=38841",
+   "kind": "modern"
+  },
+  {
+   "label": "J. Neel, \"Capitoline She-wolf\", Smarthistory (LibreTexts edition), on the disputed date",
+   "url": "https://human.libretexts.org/Bookshelves/Art/SmartHistory_of_Art_2e/02:_SmartHistory_of_Art_II-_Ancient_Mediterranean/04:_Ancient_Rome_II/4.01:_Roman_Republic/4.1.04:_Capitoline_She-wolf",
    "kind": "modern"
   }
  ],

@@ -682,7 +682,7 @@
    "gloss": "they explain"
   }
  ],
- "translation": "Lucius Quinctius was farming a field of four iugera across the Tiber, opposite the very spot where the dockyards are now; it is called the Quinctian Meadows. There, whether he was digging a ditch and leaning on his spade or ploughing (at any rate, and this much is agreed, he was busy with work on the land), he exchanged greetings with the envoys and was asked by them to put on his toga and hear the senate's instructions, with a prayer that it might turn out well for him and for the state. Surprised, and asking again and again, \"Is everything all right?\", he told his wife Racilia to bring his toga out of the cottage quickly. As soon as he had wiped off the dust and sweat and came forward dressed in it, the envoys congratulated him, hailed him as dictator, summoned him to the city and explained how frightened the army was.",
+ "translation": "Lucius Quinctius was farming a field of four iugera across the Tiber, opposite the very spot where the dockyards are now; it is called the Quinctian Meadows. There, whether he was digging a ditch and leaning on his spade or ploughing (at any rate, and this much is agreed, he was busy with work on the land), he exchanged greetings with the envoys and was asked by them to put on his toga and hear the senate's instructions, with a prayer that it might turn out well for him and for the state. Surprised, and asking again and again, \"Is everything all right?\", he told his wife Racilia to bring his toga out of the cottage quickly. As soon as he had wiped off the dust and sweat and came forward dressed in it, the envoys congratulated him, hailed him as dictator, summoned him to the city and explained the alarming state of the army.",
  "translation_note": "The long middle sentence hangs on rogātus, \"he was asked\", with a parenthesis (seu ... intentus) and an ablative absolute (salūte datā ... redditāque) before it. quod bene verteret ipsī reīque pūblicae is a formula of good omen, \"and may it turn out well for him and the state\". satin salvē? (satisne salvē [sunt omnia]?) is everyday Latin for \"is all well?\"; it also appears in Lucretia's story (1.58.7). quā ... vēlātus: \"covered with which\", that is, with the toga.",
  "essay": [
   [
@@ -766,20 +766,20 @@
   {
    "q": "What does Livy say is agreed about what Cincinnatus was doing when the envoys came?",
    "options": [
-    "Only that he was busy with farm work, whether digging or ploughing",
-    "That he was ploughing with oxen",
-    "That he was speaking in the senate",
-    "That he was dining with his sons"
+    "Only that he was busy with farm work, digging or ploughing",
+    "That he was ploughing his field with a team of oxen",
+    "That he was speaking to the senate in the Curia",
+    "That he was dining at home with his three sons"
    ],
    "answer": 0
   },
   {
    "q": "According to Livy, how long did Cincinnatus keep the dictatorship?",
    "options": [
-    "He resigned on the sixteenth day, though appointed for six months",
-    "Exactly six months",
-    "For the rest of his life",
-    "One full year"
+    "He resigned on the sixteenth day of a six-month term",
+    "He kept it for exactly the full six-month term",
+    "He held it for the rest of his long life",
+    "He held it for one year, like a consul"
    ],
    "answer": 0
   },

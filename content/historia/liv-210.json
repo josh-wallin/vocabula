@@ -13,7 +13,7 @@
   "section": "Book 2, chapter 10, section 11 (first two sentences)"
  },
  "source_text": "tum Cocles \"Tiberine pater\" inquit, \"te sancte precor, haec arma et hunc militem propitio flumine accipias.\" ita sicut erat armatus in Tiberim desiluit multisque superincidentibus telis incolumis ad suos tranavit rem ausus plus famae habituram ad posteros quam fidei.",
- "excerpt_note": "The first two sentences of section 2.10.11 (the section ends with the start of the next sentence, grata erga tantam virtutem civitas fuit). In the digital file two words of this section carry OCR corrections, Codes → Cocles and tur → tum; the corrected readings are given. The file prints erat in italics, which this app cannot show and whose meaning there is unclear (perhaps an editorial word). The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). Both read ita sic armatus where this edition has ita sicut erat armatus (\"armed just as he was\" either way), and both put a comma after tranavit.",
+ "excerpt_note": "The first two sentences of section 2.10.11 (the section ends with the start of the next sentence, grata erga tantam virtutem civitas fuit). In the digital file two words of this section carry OCR corrections, Codes → Cocles and tur → tum; the corrected readings are given. The edition prints erat in italic type, which in this Teubner text marks a word added or changed by the editors rather than found in the manuscripts; the Oxford (Conway–Walters) and Loeb (Foster) texts read ita sic armatus. The Perseus file's own header warns that its OCR correction \"appears poor and many misprints remain\", so this text was compared word for word with Perseus's digital texts of the Loeb edition (B. O. Foster, 1919/1922; file perseus-lat4) and the Oxford edition (Conway and Walters; file perseus-lat3). Apart from that they agree word for word, and both put a comma after tranavit.",
  "macrons": {
   "editorial": true,
   "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
@@ -171,7 +171,7 @@
   {
    "w": "erat",
    "lemma": "sum, esse, fuī, futūrum",
-   "parse": "3rd sg. impf. ind.",
+   "parse": "3rd sg. impf. ind. (an editorial supplement: italic in this edition, not in the manuscripts; Oxford and Loeb read ita sic armatus)",
    "gloss": "he was",
    "app": [
     "sum-irr-sum"
@@ -377,7 +377,7 @@
     ]
    },
    {
-    "t": "In his version Horatius, badly wounded, holds the enemy while the bridge is cut, then plunges into the river in full armour and deliberately gives up his life.",
+    "t": "In his version Horatius, with no companions mentioned and badly wounded, holds the enemy while the bridge is cut, then plunges into the river in full armour and deliberately gives up his life.",
     "src": [
      2
     ]
@@ -389,7 +389,7 @@
     ]
    },
    {
-    "t": "Britannica calls Horatius perhaps legendary, says the versions differ on whether he reached safety or drowned, and reports a theory that the story grew up to explain an old statue of a lame, one-eyed man in the precinct of Vulcan.",
+    "t": "Britannica calls Horatius perhaps legendary, says the versions differ on whether he reached safety or drowned, and reports a theory that the story grew up to explain an old statue of a lame, one-eyed man in the nearby Temple of Vulcan, which may have represented Vulcan himself.",
     "src": [
      3
     ],
@@ -398,7 +398,7 @@
   ],
   [
    {
-    "t": "Livy's preface explains what such stories are for: the reader should study examples of every kind, set out as on a conspicuous monument, and take from them what to imitate and what to avoid.",
+    "t": "Livy's preface (praef. 10) explains what such stories are for: the reader should study examples of every kind, set out as on a conspicuous monument, and take from them what to imitate and what to avoid.",
     "src": [
      1
     ]
