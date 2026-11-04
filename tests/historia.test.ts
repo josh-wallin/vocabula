@@ -37,14 +37,14 @@ const byId = new Map(entries.map((e) => [e.id, e]));
 const clone = (e: HistoriaEntry): HistoriaEntry => JSON.parse(JSON.stringify(e)) as HistoriaEntry;
 
 describe('historia: definitions', () => {
-  it('ten entries, one file each, named by id, in order', () => {
+  it('fifteen entries, one file each, named by id, in order', () => {
     const files = readdirSync(DIR).filter((f) => f.endsWith('.json')).sort();
-    expect(files.length).toBe(10);
+    expect(files.length).toBe(15);
     for (const f of files) expect(parseHistoriaEntry(JSON.parse(readFileSync(resolve(DIR, f), 'utf8'))).id).toBe(f.replace('.json', ''));
-    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25']);
-    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    // Exactly one verse entry: Hadrian's lines to his soul.
-    expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25']);
+    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25', 'plin-616', 'plin-620', 'sen-47', 'pomp-4', 'valmax-4']);
+    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+    // Verse entries: Hadrian's lines to his soul; the Pompeii wall texts (a couplet, then one inscription per line).
+    expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25', 'pomp-4']);
   });
 
   it('citations: author, work, standard citation, a named edition with its URL among the sources', () => {
@@ -53,6 +53,17 @@ describe('historia: definitions', () => {
         expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
         expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXIII/);
         expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
+      } else if (e.author === 'Pliny the Younger') {
+        expect(e.citation).toMatch(/^Plin\. Ep\. \d+\.\d+\.\d+(–\d+)?$/);
+        expect(e.edition.url).toMatch(/^https:\/\/raw\.githubusercontent\.com\/PerseusDL\/canonical-latinLit\//);
+      } else if (e.author === 'Seneca') {
+        expect(e.citation).toMatch(/^Sen\. Ep\. \d+\.\d+$/);
+        expect(e.edition.name).toMatch(/Loeb Classical Library.*Gummere/);
+      } else if (e.author === 'Valerius Maximus') {
+        expect(e.citation).toMatch(/^Val\. Max\. /);
+        expect(e.edition.name).toMatch(/Kempf.*1888/);
+      } else if (e.author === 'Pompeian inscriptions') {
+        expect(e.citation).toMatch(/^CIL IV \d+(; CIL IV \d+)*$/);
       } else {
         expect(e.author).toBe('Historia Augusta');
         expect(e.citation).toMatch(/^HA Hadr\. \d+\.\d+(–\d+)?$/);

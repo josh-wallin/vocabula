@@ -4,7 +4,7 @@
  *   npm run build && npx tsx e2e/historia.e2e.ts
  *
  * Imports the private pack and a backup that finishes sections I–II (a learner at Wheelock ch. 2),
- * opens the Historia tab (ten entries with known-word meters), opens Titus's "diem perdidi":
+ * opens the Historia tab (fifteen entries with known-word meters), opens Titus's "diem perdidi":
  * taps every word for its gloss, toggles the translation, answers the questions (one missed on
  * purpose) and checks they are recorded as review events (outbox), and that the sources link out.
  * Run twice: once with the passage's eSpeak clip served (a short silent WAV stand-in), once with
@@ -97,9 +97,9 @@ async function main() {
       await page.getByRole('button', { name: 'Historia' }).click();
       await page.locator('main[data-screen="historia"]').waitFor();
       const cards = page.getByTestId('historia-entry');
-      assert(await cards.count() === 10, `10 entries, got ${await cards.count()}`);
+      assert(await cards.count() === 15, `15 entries, got ${await cards.count()}`);
       const pcts = await page.getByTestId('known-meter').evaluateAll((els) => els.map((e) => Number(e.getAttribute('data-pct'))));
-      assert(pcts.length === 10 && pcts.every((p) => p >= 0 && p <= 100), `meters ${pcts}`);
+      assert(pcts.length === 15 && pcts.every((p) => p >= 0 && p <= 100), `meters ${pcts}`);
       assert(pcts.some((p) => p > 0), `some words known at ch. 2: ${pcts}`);
       assert(pcts.every((p) => p < 100), `not everything known at ch. 2: ${pcts}`);
       const first = (await cards.first().textContent()) ?? '';
