@@ -1,18 +1,23 @@
 /**
  * The lexicon the path is built from: the private Wheelock lemmas (from the
  * imported content pack) plus the public DCC core list, with duplicates merged
- * so a word in both is taught once, in Wheelock's spelling.
+ * so a word in both is taught once, in Wheelock's spelling. Familia Rōmāna preview
+ * entries (optional, from the pack) attach to the same Word when it is the same word,
+ * and otherwise become meaning-only 'fr' words.
  */
 import type { Lemma } from '../morph/types.ts';
 import { stripMacrons } from '../morph/phonology.ts';
+import type { FrEntry } from '../data/fr.ts';
 
-export type Origin = 'wheelock' | 'dcc';
+export type Origin = 'wheelock' | 'dcc' | 'fr';
 
 export interface Word {
   lemma: Lemma;
   origin: Origin;
-  /** Wheelock chapter that introduces the word (first source), or null for DCC-only words. */
+  /** Wheelock chapter that introduces the word (first source), or null for DCC-only / FR-only words. */
   chapter: number | null;
+  /** Familia Rōmāna chapter whose preview lesson shows the word (meaning only), if any. */
+  fr?: { chapter: number; order: number };
 }
 
 export interface Lexicon {
@@ -20,6 +25,8 @@ export interface Lexicon {
   byId: Map<string, Word>;
   /** DCC-only words (not in the Wheelock list), by DCC rank. */
   dccOnly: Word[];
+  /** FR-only words (on neither list): taught for meaning only, never class or forms. */
+  frOnly: Word[];
 }
 
 /** Matching key for "the same word": macron-stripped first citation form + paradigm. */
@@ -29,7 +36,7 @@ export const matchKey = (l: Lemma): string =>
 export const firstChapter = (l: Lemma): number | null =>
   l.sources.reduce<number | null>((m, s) => (m === null || s.chapter < m ? s.chapter : m), null);
 
-export function buildLexicon(wheelock: readonly Lemma[], dcc: readonly Lemma[]): Lexicon {
+export function buildLexicon(wheelock: readonly Lemma[], dcc: readonly Lemma[], fr: readonly FrEntry[] = []): Lexicon {
   const words: Word[] = [];
   const byId = new Map<string, Word>();
   const wKeys = new Map<string, Word>();
@@ -53,8 +60,32 @@ export function buildLexicon(wheelock: readonly Lemma[], dcc: readonly Lemma[]):
     byId.set(l.id, w);
     dccOnly.push(w);
   }
-  return { words, byId, dccOnly };
+  // FR previews: the same word (lemma id, else spelling + paradigm, else DCC rank) shares its
+  // Word, so its FSRS cards are shared; Wheelock's or DCC's spelling and gloss win, as for magnus.
+  const allKeys = new Map<string, Word>();
+  const byRank = new Map<number, Word>();
+  for (const w of words) {
+    if (!allKeys.has(matchKey(w.lemma))) allKeys.set(matchKey(w.lemma), w);
+    if (w.lemma.dcc && !byRank.has(w.lemma.dcc.rank)) byRank.set(w.lemma.dcc.rank, w);
+  }
+  const frOnly: Word[] = [];
+  for (const e of [...fr].sort((a, b) => a.chapter - b.chapter || a.order - b.order)) {
+    // Provisional FR ids (pronouns, numerals, irregular verbs with no paradigm yet) match by id only.
+    const provisional = e.lemma.id.includes('-fr-');
+    const hit = byId.get(e.lemma.id) ?? (provisional ? undefined : allKeys.get(matchKey(e.lemma)))
+      ?? (e.dccRank !== undefined && byRank.get(e.dccRank)?.lemma.pos === e.lemma.pos ? byRank.get(e.dccRank) : undefined);
+    if (hit) {
+      hit.fr ??= { chapter: e.chapter, order: e.order };
+      continue;
+    }
+    const w: Word = { lemma: e.lemma, origin: 'fr', chapter: null, fr: { chapter: e.chapter, order: e.order } };
+    words.push(w);
+    byId.set(e.lemma.id, w);
+    frOnly.push(w);
+  }
+  return { words, byId, dccOnly, frOnly };
 }
+
 
 /** Dictionary-style citation for display: "puella, puellae" / "amō, amāre" / "magnus, magna, magnum". */
 export function citation(l: Lemma): string {

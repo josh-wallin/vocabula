@@ -29,7 +29,7 @@ export interface AppData {
 export async function loadApp(): Promise<AppData | null> {
   const content = await loadContent();
   if (!content) return null;
-  const lex = buildLexicon(content.wheelock, content.dcc);
+  const lex = buildLexicon(content.wheelock, content.dcc, content.fr);
   const path = buildPath(lex);
   const [events, device] = await Promise.all([allEvents(), deviceId()]);
   return { content, lex, path, events, state: replay(events), device };

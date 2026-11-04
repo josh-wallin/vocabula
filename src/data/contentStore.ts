@@ -11,6 +11,7 @@ import type { Lemma } from '../morph/types.ts';
 import dccRaw from '../../content/dcc.json';
 import { parseLemmaList } from './loader.ts';
 import { packHash, packText, parsePack, type ContentPack } from './pack.ts';
+import type { FrEntry } from './fr.ts';
 import { getPack, getPackRecord, savePack } from './db.ts';
 import { apiFetch, type ApiFailure, type FetchFn } from '../sync/http.ts';
 import { API, type PackStatus, type PutPackResponse } from '../sync/protocol.ts';
@@ -21,6 +22,8 @@ export interface Content {
   pack: ContentPack;
   wheelock: Lemma[];
   dcc: Lemma[];
+  /** Familia Rōmāna preview words from the pack (empty for packs without them). */
+  fr: FrEntry[];
 }
 
 let dccCache: Lemma[] | null = null;
@@ -39,7 +42,7 @@ export function chapterText(section: number): string | null {
 export async function loadContent(): Promise<Content | null> {
   const pack = await getPack();
   if (!pack) return null;
-  return { pack, wheelock: pack.lemmas, dcc: dccLemmas() };
+  return { pack, wheelock: pack.lemmas, dcc: dccLemmas(), fr: pack.fr ?? [] };
 }
 
 /** Validate and store a pack from file text or pasted text. Throws a readable error. */

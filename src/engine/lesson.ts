@@ -5,9 +5,9 @@
 import type { CellId, Gender, Lemma } from '../morph/types.ts';
 import { generate } from '../morph/generate.ts';
 import { analyze } from '../morph/analyze.ts';
-import { featureOfCell, genderOptions, hasFeature, type FeatureId } from './curriculum.ts';
+import { featureOfCell, featuresNeeded, genderOptions, hasFeature, type FeatureId } from './curriculum.ts';
 import { citation, classNote, glossKey, type Lexicon } from './lexicon.ts';
-import type { Path, PathNode } from './path.ts';
+import { currentNodeIndex, type Path, type PathNode } from './path.ts';
 import type { DerivedState } from './events.ts';
 import { cardId, isDue, parseCardId, retrievability } from './srs.ts';
 import { cellPrompt, genderName, optionLabeler } from './labels.ts';
@@ -47,6 +47,25 @@ export interface BuildCtx {
   /** Features available to this lesson (the learner's frontier, which includes the node's own). */
   unlocked: ReadonlySet<FeatureId>;
   seed: string;
+  /** Path index the lesson stands at (its node; for ad-hoc practice, the last finished node). */
+  at?: number;
+}
+
+/**
+ * Familia Rōmāna previews are meaning only. No class or forms exercises for:
+ *  - FR-only words, ever;
+ *  - a previewed Wheelock/DCC word before the main path has taught it, unless every feature
+ *    its paradigm needs is already unlocked.
+ */
+export function formsLocked(ctx: BuildCtx, id: string): boolean {
+  const w = ctx.lex.byId.get(id);
+  if (!w) return false;
+  if (w.origin === 'fr') return true;
+  if (!w.fr) return false;
+  const at = ctx.at ?? currentNodeIndex(ctx.path, ctx.state.done) - 1;
+  const mi = ctx.path.mainIndex.get(id);
+  if (mi !== undefined && mi <= at) return false;
+  return !featuresNeeded(w.lemma).every((f) => hasFeature(ctx.unlocked, f));
 }
 
 /* ---------------- exercise factories ---------------- */
@@ -90,6 +109,7 @@ class Factory {
   klass(id: string): Exercise | null {
     const l = this.lemma(id);
     const u = this.ctx.unlocked;
+    if (formsLocked(this.ctx, id)) return null; // FR previews: meaning only
     const ans = CONJ_OF[l.paradigm];
     if (ans && hasClassQuestion(l, u)) {
       const three = u.has('conj3');
@@ -118,6 +138,7 @@ class Factory {
 
   /** Cells of a lemma that may be drilled now, optionally limited to some features. */
   cells(l: Lemma, only?: readonly FeatureId[]): CellId[] {
+    if (formsLocked(this.ctx, l.id)) return []; // FR previews: no forms
     const forms = generate(l);
     return (Object.keys(forms) as CellId[]).filter((c) => {
       const f = featureOfCell(l, c);
@@ -265,11 +286,13 @@ export function glossOverlap(a: string, b: string): boolean {
 
 /* ---------------- lesson builders per node kind ---------------- */
 
-export function buildLesson(node: PathNode, ctx: BuildCtx): Exercise[] {
+export function buildLesson(node: PathNode, base: BuildCtx): Exercise[] {
+  const ctx: BuildCtx = { ...base, at: base.at ?? base.path.index.get(node.id) ?? currentNodeIndex(base.path, base.state.done) - 1 };
   const known = new Set<string>([...ctx.path.knownAt(node.id), ...ctx.state.seen]);
   const f = new Factory(ctx, known);
   switch (node.kind) {
     case 'verba': case 'dcc': return newWordsLesson(node, f, ctx);
+    case 'fr': return newWordsLesson(node, f, ctx, true);
     case 'pattern': return [f.grammar(node.section), ...formsLesson(node, f, ctx, LESSON_SIZE - 1, true)];
     case 'formae': return formsLesson(node, f, ctx, LESSON_SIZE - 1, false);
     case 'repetitio': return reviewLesson(f, ctx, known, REVIEW_SIZE);
@@ -277,7 +300,8 @@ export function buildLesson(node: PathNode, ctx: BuildCtx): Exercise[] {
   }
 }
 
-function newWordsLesson(node: PathNode, f: Factory, ctx: BuildCtx): Exercise[] {
+/** New words: intro + meaning for each; `meaningOnly` (FR previews) skips the class questions. */
+function newWordsLesson(node: PathNode, f: Factory, ctx: BuildCtx, meaningOnly = false): Exercise[] {
   const ws = node.newWords;
   const out: Exercise[] = [];
   // intro 1, intro 2, meaning 1, intro 3, meaning 2, … : each word is quizzed one step after it appears.
@@ -287,7 +311,7 @@ function newWordsLesson(node: PathNode, f: Factory, ctx: BuildCtx): Exercise[] {
   });
   if (ws.length) out.push(f.meaning(ws[ws.length - 1]!));
   // Fill to LESSON_SIZE: class questions on the new words, then due reviews.
-  for (const w of ws) {
+  for (const w of meaningOnly ? [] : ws) {
     if (out.length >= LESSON_SIZE) break;
     const k = f.klass(w);
     if (k) out.push(k);
@@ -399,7 +423,7 @@ export function reviewCardIds(ctx: BuildCtx, known: ReadonlySet<string>, size: n
     .sort((a, b) => a.r - b.r || (a.id < b.id ? -1 : 1));
   // Interleave: an unseen class card, then a low-retrievability card, then a meaning card…
   const classNew = knownSorted
-    .filter((id) => !ctx.state.cards.has(cardId(id, 'class')) && hasClassQuestion(ctx.lex.byId.get(id)!.lemma, ctx.unlocked))
+    .filter((id) => !ctx.state.cards.has(cardId(id, 'class')) && !formsLocked(ctx, id) && hasClassQuestion(ctx.lex.byId.get(id)!.lemma, ctx.unlocked))
     .map((id) => cardId(id, 'class'));
   const meaningAll = knownSorted.map((id) => cardId(id, 'meaning'));
   for (let i = 0; chosen.length < size && (i < classNew.length || i < rest.length || i < meaningAll.length); i++) {

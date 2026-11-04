@@ -11,14 +11,14 @@ import {
   type FeatureId, type SectionSpec,
 } from './curriculum.ts';
 
-export type NodeKind = 'verba' | 'pattern' | 'repetitio' | 'formae' | 'dcc' | 'probatio';
+export type NodeKind = 'verba' | 'pattern' | 'repetitio' | 'formae' | 'dcc' | 'fr' | 'probatio';
 
 export interface PathNode {
   id: string;
   section: number;
   kind: NodeKind;
   title: string;
-  /** Lemma ids introduced by this node (verba / dcc). */
+  /** Lemma ids introduced by this node (verba / dcc / fr). */
   newWords: string[];
   /** Features usable in this node's exercises. */
   unlocked: FeatureId[];
@@ -34,6 +34,8 @@ export interface Path {
   sections: Section[];
   nodes: PathNode[];
   index: Map<string, number>;
+  /** For each lemma, the index of the first non-preview node (Verba / Plūra verba) that teaches it. */
+  mainIndex: Map<string, number>;
   /** Lemma ids known by the time each node starts (inclusive of its own new words). */
   knownAt(nodeId: string): string[];
 }
@@ -41,6 +43,8 @@ export interface Path {
 export const MAX_VERBA = 6;
 export const MAX_DCC_PER_SECTION = 12;
 export const DCC_LESSON_SIZE = 6;
+/** Words per Familia Rōmāna preview lesson (like Verba). */
+export const FR_LESSON_SIZE = 6;
 /** Insert a Repetītiō after this many lessons in a row. */
 export const REVIEW_EVERY = 3;
 
@@ -95,10 +99,33 @@ export function dccBySection(lex: Lexicon, sections: readonly SectionSpec[] = ac
   return out;
 }
 
+/**
+ * Familia Rōmāna preview words for each section: FR chapter N previews come after section N
+ * (only for sections the path has), minus words the main path teaches by then. A Wheelock or
+ * DCC word taught in a later section stays in (same lemma id, so the cards are shared).
+ */
+export function frBySection(lex: Lexicon, sections: readonly SectionSpec[], dcc: ReadonlyMap<number, Word[]>): Map<number, Word[]> {
+  const taughtIn = new Map<string, number>();
+  for (const w of lex.words) if (w.origin === 'wheelock' && w.chapter !== null) {
+    const s = sections.find((x) => x.chapter === w.chapter);
+    if (s) taughtIn.set(w.lemma.id, s.n);
+  }
+  for (const [n, ws] of dcc) for (const w of ws) if (!taughtIn.has(w.lemma.id)) taughtIn.set(w.lemma.id, n);
+  const out = new Map<number, Word[]>();
+  for (const s of sections) {
+    const ws = lex.words
+      .filter((w) => w.fr?.chapter === s.n && (taughtIn.get(w.lemma.id) ?? Infinity) > s.n)
+      .sort((a, b) => a.fr!.order - b.fr!.order);
+    if (ws.length) out.set(s.n, ws);
+  }
+  return out;
+}
+
 export function buildPath(lex: Lexicon): Path {
   const sections: Section[] = [];
   const specs = activeSections(lex);
   const dcc = dccBySection(lex, specs);
+  const fr = frBySection(lex, specs, dcc);
   for (const spec of specs) {
     const before = [...featuresAt(spec.n, false)];
     const after = [...featuresAt(spec.n, true)];
@@ -163,6 +190,16 @@ export function buildPath(lex: Lexicon): Path {
       }
     });
     nodes.push(rep());
+    // Familia Rōmāna previews (meaning only) close the section, before any Probātiō.
+    const frLessons = splitEven(fr.get(spec.n) ?? [], FR_LESSON_SIZE);
+    frLessons.forEach((ws, i) => {
+      nodes.push({
+        id: `${s}.fr.${i + 1}`, section: spec.n, kind: 'fr',
+        title: `Familia Rōmāna · Cap. ${roman(spec.n)}${frLessons.length > 1 ? ` · Pars ${roman(i + 1)}` : ''}`,
+        newWords: ws.map((w) => w.lemma.id), unlocked: after, focus: [], drill: [],
+      });
+      if ((i + 1) % REVIEW_EVERY === 0 && frLessons.length - i - 1 >= 2) nodes.push(rep());
+    });
     if (spec.n === specs[specs.length - 1]!.n) {
       nodes.push({
         id: `${s}.probatio`, section: spec.n, kind: 'probatio', title: 'Probātiō',
@@ -174,6 +211,8 @@ export function buildPath(lex: Lexicon): Path {
 
   const nodes = sections.flatMap((x) => x.nodes);
   const index = new Map(nodes.map((n, i) => [n.id, i]));
+  const mainIndex = new Map<string, number>();
+  nodes.forEach((n, i) => { if (n.kind !== 'fr') for (const id of n.newWords) if (!mainIndex.has(id)) mainIndex.set(id, i); });
   const knownPrefix: string[][] = [];
   const acc: string[] = [];
   for (const n of nodes) {
@@ -181,7 +220,7 @@ export function buildPath(lex: Lexicon): Path {
     knownPrefix.push([...acc]);
   }
   return {
-    sections, nodes, index,
+    sections, nodes, index, mainIndex,
     knownAt(id: string) {
       const i = index.get(id);
       return i === undefined ? [] : knownPrefix[i]!;

@@ -9,11 +9,11 @@ import { IconBook, IconCheck, IconForms, IconLaurel, IconPlus, IconReview, IconT
 const OFFSETS = [0, 62, 78, 26, -40, -74, -20];
 
 const KIND_ICON: Record<NodeKind, (p: { size?: number }) => preact.JSX.Element> = {
-  verba: IconBook, pattern: IconTable, repetitio: IconReview, formae: IconForms, dcc: IconPlus, probatio: IconLaurel,
+  verba: IconBook, pattern: IconTable, repetitio: IconReview, formae: IconForms, dcc: IconPlus, fr: IconBook, probatio: IconLaurel,
 };
 const KIND_DESC: Record<NodeKind, string> = {
   verba: 'new words', pattern: 'new grammar pattern', repetitio: 'review', formae: 'form drills',
-  dcc: 'new words from the DCC core list', probatio: 'checkpoint',
+  dcc: 'new words from the DCC core list', fr: 'Familia Rōmāna preview words, meaning only', probatio: 'checkpoint',
 };
 
 export function PathScreen({ app, onStart, onChapter }: {
