@@ -1,0 +1,26 @@
+[
+  {"id":"l07-1","section":7,"title":"Poēta et rēgīna","titleEn":"The poet and the queen",
+   "context":"A little-known poet falls in love with the queen, and the king finds out.",
+   "sentences":[
+    {"tokens":[{"form":"poēta","lemma":"poeta-n1","cell":"nom.sg"},{"form":"novus","lemma":"novus-adj12","cell":"nom.sg.m"},{"form":"multa","lemma":"multus-adj12","cell":"acc.pl.n"},{"form":"carmina","lemma":"carmen-n3n","cell":"acc.pl"},{"form":"habēbat","lemma":"habeo-v2","cell":"impf.act.ind.3sg"}],"en":"A new poet had many poems."},
+    {"tokens":[{"form":"fāma","lemma":"fama-n1","cell":"nom.sg"},{"form":"poētae","lemma":"poeta-n1","cell":"gen.sg"},{"form":"parva","lemma":"parvus-adj12","cell":"nom.sg.f"},{"form":"erat","lemma":"sum-irr-sum","cell":"impf.act.ind.3sg"}],"en":"The poet's fame was small."},
+    {"tokens":[{"form":"rēgīnam","lemma":"regina-n1","cell":"acc.sg"},{"form":"cīvitātis","lemma":"civitas-n3","cell":"gen.sg"},{"form":"amābat","lemma":"amo-v1","cell":"impf.act.ind.3sg"}],"en":"He loved the queen of the state."},
+    {"tokens":[{"form":"rēgīna","lemma":"regina-n1","cell":"nom.sg"},{"form":"uxor","lemma":"uxor-n3","cell":"nom.sg"},{"form":"rēgis","lemma":"rex-n3","cell":"gen.sg"},{"form":"erat","lemma":"sum-irr-sum","cell":"impf.act.ind.3sg"}],"en":"The queen was the king's wife."},
+    {"tokens":[{"form":"poēta","lemma":"poeta-n1","cell":"nom.sg"},{"form":"rēgīnae","lemma":"regina-n1","cell":"dat.sg"},{"form":"carmina","lemma":"carmen-n3n","cell":"acc.pl"},{"form":"dē","lemma":"de-indecl","cell":"citation"},{"form":"amōre","lemma":"amor-n3","cell":"abl.sg"},{"form":"dabat","lemma":"do-v1","cell":"impf.act.ind.3sg"}],"en":"The poet used to give the queen poems about love."},
+    {"tokens":[{"form":"rēx","lemma":"rex-n3","cell":"nom.sg"},{"form":"carmen","lemma":"carmen-n3n","cell":"acc.sg"},{"form":"videt","lemma":"video-v2","cell":"pres.act.ind.3sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"poētam","lemma":"poeta-n1","cell":"acc.sg"},{"form":"necāre","lemma":"neco-v1","cell":"pres.act.inf"},{"form":"cōgitat","lemma":"cogito-v1","cell":"pres.act.ind.3sg"}],"en":"The king sees a poem and plans to kill the poet."},
+    {"tokens":[{"form":"Ō","lemma":"o-indecl","cell":"citation"},{"form":"rēx","lemma":"rex-n3","cell":"voc.sg","comma":true},{"form":"poēta","lemma":"poeta-n1","cell":"nom.sg"},{"form":"stultus","lemma":"stultus-adj12","cell":"nom.sg.m"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg","comma":true},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"malus","lemma":"malus-adj12","cell":"nom.sg.m"}],"en":"O king, the poet is foolish, not wicked!","punct":"!","speaker":"Rēgīna"},
+    {"tokens":[{"form":"rēx","lemma":"rex-n3","cell":"nom.sg"},{"form":"igitur","lemma":"igitur-indecl","cell":"citation"},{"form":"poētam","lemma":"poeta-n1","cell":"acc.sg"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"necat","lemma":"neco-v1","cell":"pres.act.ind.3sg"}],"en":"So the king does not kill the poet."},
+    {"tokens":[{"form":"propter","lemma":"propter-indecl","cell":"citation"},{"form":"amōrem","lemma":"amor-n3","cell":"acc.sg"},{"form":"fāma","lemma":"fama-n1","cell":"nom.sg"},{"form":"poētae","lemma":"poeta-n1","cell":"gen.sg"},{"form":"nunc","lemma":"nunc-indecl","cell":"citation"},{"form":"magna","lemma":"magnus-adj12","cell":"nom.sg.f"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"Because of his love, the poet's fame is now great."}
+   ],
+   "questions":[
+    {"q":"What was the poet's fame like at first?","options":["Small","Great","Lasting","Bad"],"answer":0},
+    {"q":"Who was the queen?","options":["The king's wife","The poet's sister","A Greek goddess","A farmer's daughter"],"answer":0},
+    {"q":"What does the king plan when he sees a poem?","options":["To kill the poet","To praise the poet","To give the poet money","To write a poem"],"answer":0},
+    {"q":"Why is the poet famous now?","options":["Because of his love","Because of a war","Because of his money","Because the king praises him"],"answer":0}
+   ],
+   "notes":[
+    {"s":2,"t":1,"note":"cīvitātis: genitive, \"of the state\"."},
+    {"s":5,"t":2,"note":"videt: the story moves into the present tense here, as stories often do."}
+   ]
+  }
+]

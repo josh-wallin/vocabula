@@ -1,0 +1,52 @@
+[
+  {"id":"l10-1","section":10,"title":"Voluptās et amīcitia","titleEn":"Pleasure and friendship",
+   "context":"Marcus lives for pleasure; a true friend tells him what old age will bring.",
+   "sentences":[
+    {"tokens":[{"form":"Mārcus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Marcus (a Roman man's name)"},{"form":"voluptātem","lemma":"voluptas-n3","cell":"acc.sg"},{"form":"semper","lemma":"semper-indecl","cell":"citation"},{"form":"capiēbat","lemma":"capio-v3io","cell":"impf.act.ind.3sg"}],"en":"Marcus was always taking his pleasure."},
+    {"tokens":[{"form":"cupiditātēs","lemma":"cupiditas-n3","cell":"nom.pl"},{"form":"Mārcī","lemma":"proper","cell":"gen.sg","proper":true,"gloss":"Marcus (a Roman man's name)"},{"form":"magnae","lemma":"magnus-adj12","cell":"nom.pl.f"},{"form":"erant","lemma":"sum-irr-sum","cell":"impf.act.ind.3pl"}],"en":"Marcus's desires were great."},
+    {"tokens":[{"form":"amīcus","lemma":"amicus-n2m","cell":"nom.sg"},{"form":"vērus","lemma":"verus-adj12","cell":"nom.sg.m"},{"form":"Mārcō","lemma":"proper","cell":"dat.sg","proper":true,"gloss":"Marcus (a Roman man's name)"},{"form":"vēritātem","lemma":"veritas-n3","cell":"acc.sg"},{"form":"dīcit","lemma":"dico-v3","cell":"pres.act.ind.3sg"}],"en":"A true friend tells Marcus the truth."},
+    {"tokens":[{"form":"voluptās","lemma":"voluptas-n3","cell":"nom.sg"},{"form":"hōram","lemma":"hora-n1","cell":"acc.sg"},{"form":"ūnam","lemma":"unus-adj-ius","cell":"acc.sg.f","comma":true},{"form":"amīcitia","lemma":"amicitia-n1","cell":"nom.sg"},{"form":"tōtam","lemma":"totus-adj-ius","cell":"acc.sg.f"},{"form":"vītam","lemma":"vita-n1","cell":"acc.sg"},{"form":"manet","lemma":"maneo-v2","cell":"pres.act.ind.3sg"}],"en":"Pleasure lasts one hour; friendship lasts a whole life.","speaker":"Amīcus"},
+    {"tokens":[{"form":"hodiē","lemma":"hodie-indecl","cell":"citation"},{"form":"vīvō","lemma":"vivo-v3","cell":"pres.act.ind.1sg","comma":true},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"crās","lemma":"cras-indecl","cell":"citation"}],"en":"I live today, not tomorrow!","punct":"!","speaker":"Mārcus"},
+    {"tokens":[{"form":"senectūs","lemma":"senectus-n3","cell":"nom.sg"},{"form":"tamen","lemma":"tamen-indecl","cell":"citation"},{"form":"veniet","lemma":"venio-v4","cell":"fut.act.ind.3sg","comma":true},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"cum","lemma":"cum-indecl","cell":"citation"},{"form":"senectūte","lemma":"senectus-n3","cell":"abl.sg"},{"form":"timor","lemma":"timor-n3","cell":"nom.sg"}],"en":"Old age will come nevertheless, and with old age, fear.","speaker":"Amīcus"},
+    {"tokens":[{"form":"sine","lemma":"sine-indecl","cell":"citation"},{"form":"amīcitiā","lemma":"amicitia-n1","cell":"abl.sg"},{"form":"senectūs","lemma":"senectus-n3","cell":"nom.sg"},{"form":"beāta","lemma":"beatus-adj12","cell":"nom.sg.f"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"Without friendship, old age is not happy.","speaker":"Amīcus"},
+    {"tokens":[{"form":"Mārcus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Marcus (a Roman man's name)"},{"form":"cōgitat","lemma":"cogito-v1","cell":"pres.act.ind.3sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"verba","lemma":"verbum-n2n","cell":"acc.pl"},{"form":"amīcī","lemma":"amicus-n2m","cell":"gen.sg"},{"form":"audit","lemma":"audio-v4","cell":"pres.act.ind.3sg"}],"en":"Marcus thinks and listens to his friend's words."},
+    {"tokens":[{"form":"nunc","lemma":"nunc-indecl","cell":"citation"},{"form":"cum","lemma":"cum-indecl","cell":"citation"},{"form":"amīcīs","lemma":"amicus-n2m","cell":"abl.pl"},{"form":"vīvit","lemma":"vivo-v3","cell":"pres.act.ind.3sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"vēram","lemma":"verus-adj12","cell":"acc.sg.f"},{"form":"voluptātem","lemma":"voluptas-n3","cell":"acc.sg"},{"form":"invenit","lemma":"invenio-v4","cell":"pres.act.ind.3sg"}],"en":"Now he lives with friends and finds true pleasure."}
+   ],
+   "questions":[
+    {"q":"What was Marcus always doing?","options":["Taking his pleasure","Studying","Waging war","Writing poems"],"answer":0},
+    {"q":"How long does pleasure last, according to his friend?","options":["One hour","One day","A whole life","Until old age"],"answer":0},
+    {"q":"What, says the friend, will come with old age?","options":["Fear","Wisdom","Money","Glory"],"answer":0},
+    {"q":"How does Marcus live at the end?","options":["With friends, finding true pleasure","Alone","In fear","Just as before"],"answer":0}
+   ],
+   "notes":[
+    {"s":0,"t":1,"note":"voluptātem capiēbat: \"was taking pleasure\", \"was enjoying himself\"."},
+    {"s":3,"t":1,"note":"hōram ūnam: accusative, \"for one hour\" (how long)."},
+    {"s":5,"t":4,"note":"cum senectūte: \"with old age\"; cum + ablative."}
+   ]
+  },
+  {"id":"l10-2","section":10,"title":"Nautae et vir avārus","titleEn":"The sailors and the greedy man",
+   "context":"Sailors come home rich, and a greedy man is waiting for them.",
+   "sentences":[
+    {"tokens":[{"form":"nautae","lemma":"nauta-n1","cell":"nom.pl"},{"form":"ex","lemma":"ex-indecl","cell":"citation"},{"form":"Graeciā","lemma":"proper","cell":"abl.sg","proper":true,"gloss":"Greece"},{"form":"cum","lemma":"cum-indecl","cell":"citation"},{"form":"multā","lemma":"multus-adj12","cell":"abl.sg.f"},{"form":"pecūniā","lemma":"pecunia-n1","cell":"abl.sg"},{"form":"veniunt","lemma":"venio-v4","cell":"pres.act.ind.3pl"}],"en":"Sailors come from Greece with a lot of money."},
+    {"tokens":[{"form":"vir","lemma":"vir-n2m","cell":"nom.sg"},{"form":"avārus","lemma":"avarus-adj12","cell":"nom.sg.m"},{"form":"pecūniam","lemma":"pecunia-n1","cell":"acc.sg"},{"form":"videt","lemma":"video-v2","cell":"pres.act.ind.3sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"īnsidiās","lemma":"insidiae-n1","cell":"acc.pl"},{"form":"facit","lemma":"facio-v3io","cell":"pres.act.ind.3sg"}],"en":"A greedy man sees the money and sets a trap."},
+    {"tokens":[{"form":"ille","lemma":"ille-pron-ille","cell":"nom.sg.m"},{"form":"nautās","lemma":"nauta-n1","cell":"acc.pl"},{"form":"ad","lemma":"ad-indecl","cell":"citation"},{"form":"locum","lemma":"locus-n2m","cell":"acc.sg"},{"form":"malum","lemma":"malus-adj12","cell":"acc.sg.m"},{"form":"dūcit","lemma":"duco-v3","cell":"pres.act.ind.3sg"}],"en":"He leads the sailors to a bad place."},
+    {"tokens":[{"form":"ūnus","lemma":"unus-adj-ius","cell":"nom.sg.m"},{"form":"nauta","lemma":"nauta-n1","cell":"nom.sg"},{"form":"tamen","lemma":"tamen-indecl","cell":"citation"},{"form":"īnsidiās","lemma":"insidiae-n1","cell":"acc.pl"},{"form":"videt","lemma":"video-v2","cell":"pres.act.ind.3sg"}],"en":"One sailor, however, sees the trap."},
+    {"tokens":[{"form":"fugite","lemma":"fugio-v3io","cell":"pres.act.imp.2pl","comma":true},{"form":"amīcī","lemma":"amicus-n2m","cell":"voc.pl","comma":true},{"form":"hic","lemma":"hic-pron-hic","cell":"nom.sg.m"},{"form":"vir","lemma":"vir-n2m","cell":"nom.sg"},{"form":"avārus","lemma":"avarus-adj12","cell":"nom.sg.m"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"Run, friends, this man is greedy!","punct":"!","speaker":"Nauta"},
+    {"tokens":[{"form":"nautae","lemma":"nauta-n1","cell":"nom.pl"},{"form":"fugiunt","lemma":"fugio-v3io","cell":"pres.act.ind.3pl"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"vītam","lemma":"vita-n1","cell":"acc.sg","comma":true},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"pecūniam","lemma":"pecunia-n1","cell":"acc.sg","comma":true},{"form":"servant","lemma":"servo-v1","cell":"pres.act.ind.3pl"}],"en":"The sailors flee and save their lives, not their money."},
+    {"tokens":[{"form":"vir","lemma":"vir-n2m","cell":"nom.sg"},{"form":"avārus","lemma":"avarus-adj12","cell":"nom.sg.m"},{"form":"pecūniam","lemma":"pecunia-n1","cell":"acc.sg"},{"form":"capit","lemma":"capio-v3io","cell":"pres.act.ind.3sg"}],"en":"The greedy man takes the money."},
+    {"tokens":[{"form":"avārus","lemma":"avarus-adj12","cell":"nom.sg.m"},{"form":"tamen","lemma":"tamen-indecl","cell":"citation"},{"form":"numquam","lemma":"numquam-indecl","cell":"citation"},{"form":"satis","lemma":"satis-indecl","cell":"citation"},{"form":"pecūniae","lemma":"pecunia-n1","cell":"gen.sg"},{"form":"habet","lemma":"habeo-v2","cell":"pres.act.ind.3sg"}],"en":"Yet a greedy man never has enough money."},
+    {"tokens":[{"form":"nautae","lemma":"nauta-n1","cell":"nom.pl"},{"form":"sine","lemma":"sine-indecl","cell":"citation"},{"form":"pecūniā","lemma":"pecunia-n1","cell":"abl.sg","comma":true},{"form":"sed","lemma":"sed-indecl","cell":"citation"},{"form":"cum","lemma":"cum-indecl","cell":"citation"},{"form":"amīcīs","lemma":"amicus-n2m","cell":"abl.pl","comma":true},{"form":"vīvunt","lemma":"vivo-v3","cell":"pres.act.ind.3pl"}],"en":"The sailors live without money, but with friends."}
+   ],
+   "questions":[
+    {"q":"Where do the sailors come from?","options":["Greece","Rome","The fields","The king's city"],"answer":0},
+    {"q":"What does the greedy man do when he sees the money?","options":["Sets a trap","Gives it away","Flees","Praises the sailors"],"answer":0},
+    {"q":"What do the sailors save?","options":["Their lives","Their money","Their friends' ship","The greedy man"],"answer":0},
+    {"q":"What does the passage say about the greedy man at the end?","options":["He never has enough money","He becomes happy","He gives the money back","He becomes a sailor"],"answer":0}
+   ],
+   "notes":[
+    {"s":1,"t":5,"note":"īnsidiās facit: \"makes an ambush\", sets a trap."},
+    {"s":2,"t":0,"note":"Ille: \"that man\", here simply \"he\"."},
+    {"s":4,"t":0,"note":"Fugite: imperative plural of fugiō, \"flee!\", \"run!\"."}
+   ]
+  }
+]

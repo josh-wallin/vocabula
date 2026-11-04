@@ -1,5 +1,7 @@
 /** Import screen, Profile/Settings, Words, About/credits. */
 import { useEffect, useState } from 'preact/hooks';
+import { LectioList } from './Lectio.tsx';
+import { lectioPassages } from '../content/lectio.ts';
 import { listeningLessons } from '../content/listening.ts';
 import { fetchPackFromServer, importPack, localPackHash, serverPackStatus, uploadPackToServer } from '../data/contentStore.ts';
 import { failureText, signInAgain } from '../sync/http.ts';
@@ -256,7 +258,7 @@ function FlagsPanel({ app }: { app: AppData }) {
   );
 }
 
-export function WordsScreen({ app }: { app: AppData }) {
+export function WordsScreen({ app, onLectio }: { app: AppData; onLectio?: (id: string) => void }) {
   const doneNodes = app.path.nodes.filter((n) => app.state.done.has(n.id));
   const ids = [...new Set(doneNodes.flatMap((n) => n.newWords))];
   // Words met as Familia Rōmāna previews (meaning only), tagged "FR".
@@ -279,6 +281,7 @@ export function WordsScreen({ app }: { app: AppData }) {
           })}
         </ul>
       )}
+      {onLectio && <LectioList app={app} passages={lectioPassages()} onOpen={onLectio} />}
     </main>
   );
 }
@@ -316,7 +319,7 @@ export function AboutScreen() {
         Texts: <i lang="la">Navigatio Sancti Brendani</i>, DCC edition by William Turpin; Jerome, <i lang="la">Vita Malchi</i>;
         <i lang="la"> Elegiac Romulus</i>. The lessons’ glosses and questions are original and shared under the same license.
       </p>
-      <p>Grammar chapters, grammar cards and glossary are original writing for this app.</p>
+      <p>Grammar chapters, grammar cards, glossary, practice sentences and <span lang="la">Lectiō</span> reading passages are original writing for this app.</p>
       <p>Scheduling uses the FSRS algorithm via <a href="https://github.com/open-spaced-repetition/ts-fsrs">ts-fsrs</a> (MIT).</p>
       <p>Fonts: Cinzel, EB Garamond and Figtree (SIL Open Font License), loaded from Google Fonts when online.</p>
     </main>

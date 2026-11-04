@@ -1,0 +1,25 @@
+[
+  {"id":"l02-1","section":2,"title":"Poēta et fāma","titleEn":"The poet and fame",
+   "context":"A poet who cares only for fame meets a girl who has other ideas.",
+   "sentences":[
+    {"tokens":[{"form":"poēta","lemma":"poeta-n1","cell":"nom.sg"},{"form":"fāmam","lemma":"fama-n1","cell":"acc.sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"pecūniam","lemma":"pecunia-n1","cell":"acc.sg"},{"form":"amat","lemma":"amo-v1","cell":"pres.act.ind.3sg"}],"en":"The poet loves fame and money."},
+    {"tokens":[{"form":"sine","lemma":"sine-indecl","cell":"citation"},{"form":"fāmā","lemma":"fama-n1","cell":"abl.sg"},{"form":"vītam","lemma":"vita-n1","cell":"acc.sg"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"amat","lemma":"amo-v1","cell":"pres.act.ind.3sg"}],"en":"Without fame he does not love life."},
+    {"tokens":[{"form":"puella","lemma":"puella-n1","cell":"nom.sg"},{"form":"poētam","lemma":"poeta-n1","cell":"acc.sg"},{"form":"saepe","lemma":"saepe-indecl","cell":"citation"},{"form":"monet","lemma":"moneo-v2","cell":"pres.act.ind.3sg"}],"en":"A girl often warns the poet."},
+    {"tokens":[{"form":"Ō","lemma":"o-indecl","cell":"citation"},{"form":"poēta","lemma":"poeta-n1","cell":"voc.sg","comma":true},{"form":"fāma","lemma":"fama-n1","cell":"nom.sg"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"},{"form":"vīta","lemma":"vita-n1","cell":"nom.sg"}],"en":"O poet, fame is not life.","speaker":"Puella"},
+    {"tokens":[{"form":"philosophia","lemma":"philosophia-n1","cell":"nom.sg"},{"form":"vītam","lemma":"vita-n1","cell":"acc.sg"},{"form":"cōnservat","lemma":"conservo-v1","cell":"pres.act.ind.3sg","comma":true},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"fāma","lemma":"fama-n1","cell":"nom.sg"}],"en":"Philosophy preserves life, not fame.","speaker":"Puella"},
+    {"tokens":[{"form":"sed","lemma":"sed-indecl","cell":"citation"},{"form":"fāma","lemma":"fama-n1","cell":"nom.sg"},{"form":"mea","lemma":"meus-adj12","cell":"nom.sg.f"},{"form":"magna","lemma":"magnus-adj12","cell":"nom.sg.f"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"But my fame is great!","punct":"!","speaker":"Poēta"},
+    {"tokens":[{"form":"fortūna","lemma":"fortuna-n1","cell":"nom.sg"},{"form":"fāmam","lemma":"fama-n1","cell":"acc.sg"},{"form":"dat","lemma":"do-v1","cell":"pres.act.ind.3sg","comma":true},{"form":"sed","lemma":"sed-indecl","cell":"citation"},{"form":"fāmam","lemma":"fama-n1","cell":"acc.sg"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"servat","lemma":"servo-v1","cell":"pres.act.ind.3sg"}],"en":"Fortune gives fame, but she does not keep it safe.","speaker":"Puella"},
+    {"tokens":[{"form":"poēta","lemma":"poeta-n1","cell":"nom.sg"},{"form":"cōgitat","lemma":"cogito-v1","cell":"pres.act.ind.3sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"philosophiam","lemma":"philosophia-n1","cell":"acc.sg"},{"form":"laudat","lemma":"laudo-v1","cell":"pres.act.ind.3sg"}],"en":"The poet thinks and praises philosophy."}
+   ],
+   "questions":[
+    {"q":"What does the poet love at the start?","options":["Fame and money","Philosophy","Roses","His country"],"answer":0},
+    {"q":"What, says the girl, preserves life?","options":["Philosophy","Fame","Money","Fortune"],"answer":0},
+    {"q":"According to the girl, what does Fortune do with fame?","options":["She gives it but does not keep it safe","She keeps it forever","She gives it only to sailors","She takes it from girls"],"answer":0},
+    {"q":"What does the poet do at the end?","options":["He thinks and praises philosophy","He leaves his country","He gives the girl money","He praises fame"],"answer":0}
+   ],
+   "notes":[
+    {"s":3,"t":0,"note":"Ō poēta: Ō + the name of the person spoken to (vocative)."},
+    {"s":6,"t":0,"note":"Fortūna: fortune, here almost a person, the goddess Fortune."}
+   ]
+  }
+]

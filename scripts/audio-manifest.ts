@@ -17,6 +17,7 @@ import { buildLexicon } from '../src/engine/lexicon.ts';
 import { parseSentences, type Sentence } from '../src/engine/sentences.ts';
 import { EXTRA_AUDIO_TEXTS, audioItems } from '../src/audio/items.ts';
 import { parseListeningLesson, vocabSay } from '../src/engine/listening.ts';
+import { lectioText, parseLectioFile } from '../src/engine/lectio.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
@@ -37,13 +38,23 @@ export function listeningWordTexts(root = ROOT): string[] {
     .flatMap((f) => parseListeningLesson(JSON.parse(readFileSync(resolve(dir, f), 'utf8'))).vocab.filter((v) => v.drill).map(vocabSay));
 }
 
+/**
+ * eSpeak clips for every Lectiō sentence (content/lectio/s*.json), as printed: each sentence of a
+ * reading passage has a speaker. Passed as extra texts, after the Audītiō words.
+ */
+export function lectioTexts(root = ROOT): string[] {
+  const dir = resolve(root, 'content/lectio');
+  return readdirSync(dir).filter((f) => /^s.*\.json$/.test(f)).sort()
+    .flatMap((f) => parseLectioFile(JSON.parse(readFileSync(resolve(dir, f), 'utf8')))).flatMap((p) => p.sentences.map(lectioText));
+}
+
 const isMain = process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename);
 if (isMain) {
   const file = resolve(process.argv[2] ?? resolve(ROOT, 'content/private/vocabula-pack.json'));
   const pack = parsePack(JSON.parse(readFileSync(file, 'utf8').replace(/^﻿/, '')));
   const dcc = parseLemmaList(JSON.parse(readFileSync(resolve(ROOT, 'content/dcc.json'), 'utf8')));
   const lex = buildLexicon(pack.lemmas, dcc, pack.fr ?? []);
-  const items = audioItems(lex, readSentenceBank(), [...EXTRA_AUDIO_TEXTS, ...listeningWordTexts()]);
+  const items = audioItems(lex, readSentenceBank(), [...EXTRA_AUDIO_TEXTS, ...listeningWordTexts(), ...lectioTexts()]);
   process.stdout.write(items.map((i) => JSON.stringify(i)).join('\n') + '\n');
   const by = items.reduce<Record<string, number>>((a, i) => ({ ...a, [i.kind]: (a[i.kind] ?? 0) + 1 }), {});
   process.stderr.write(`${items.length} clips: ${Object.entries(by).map(([k, n]) => `${n} ${k}`).join(', ')}\n`);

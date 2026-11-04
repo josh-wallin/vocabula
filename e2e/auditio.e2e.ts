@@ -21,6 +21,7 @@ import { parseLemmaList } from '../src/data/loader.ts';
 import { buildLexicon } from '../src/engine/lexicon.ts';
 import { buildPath } from '../src/engine/path.ts';
 import { parseListeningLesson } from '../src/engine/listening.ts';
+import { parseLectioFile } from '../src/engine/lectio.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PACK = resolve(ROOT, 'content/private/vocabula-pack.json');
@@ -49,7 +50,10 @@ async function main() {
   const dir = resolve(ROOT, 'content/listening');
   const lessons = readdirSync(dir).filter((f) => /^listen-.*\.json$/.test(f)).sort()
     .map((f) => parseListeningLesson(JSON.parse(readFileSync(resolve(dir, f), 'utf8')))).sort((a, b) => a.section - b.section);
-  const path = buildPath(lex, { listening: lessons });
+  // Lectiō passages are on the app's path too (nodes before the Audītiō one are marked done).
+  const rdir = resolve(ROOT, 'content/lectio');
+  const passages = existsSync(rdir) ? readdirSync(rdir).filter((f) => /^s\d\d\.json$/.test(f)).sort().flatMap((f) => parseLectioFile(JSON.parse(readFileSync(resolve(rdir, f), 'utf8')))) : [];
+  const path = buildPath(lex, { listening: lessons, lectio: passages });
   const at = path.nodes.findIndex((n) => n.kind === 'auditio');
   if (at < 0) { log('SKIP: the pack has no section with an Audītiō lesson'); return; }
   const node = path.nodes[at]!;

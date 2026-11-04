@@ -1,0 +1,49 @@
+[
+  {"id":"l05-1","section":5,"title":"Glōria et sapientia","titleEn":"Glory and wisdom",
+   "context":"Young Sextus wants glory in war; his mother Cornelia is worried.",
+   "sentences":[
+    {"tokens":[{"form":"Sextus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Sextus (a Roman man's name)"},{"form":"glōriam","lemma":"gloria-n1","cell":"acc.sg"},{"form":"magnam","lemma":"magnus-adj12","cell":"acc.sg.f"},{"form":"amat","lemma":"amo-v1","cell":"pres.act.ind.3sg"}],"en":"Sextus loves great glory."},
+    {"tokens":[{"form":"crās","lemma":"cras-indecl","cell":"citation"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"bellō","lemma":"bellum-n2n","cell":"abl.sg"},{"form":"glōriam","lemma":"gloria-n1","cell":"acc.sg"},{"form":"habēbō","lemma":"habeo-v2","cell":"fut.act.ind.1sg"}],"en":"Tomorrow I will have glory in war!","punct":"!","speaker":"Sextus"},
+    {"tokens":[{"form":"heri","lemma":"heri-indecl","cell":"citation"},{"form":"glōriam","lemma":"gloria-n1","cell":"acc.sg"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"amābās","lemma":"amo-v1","cell":"impf.act.ind.2sg"}],"en":"Yesterday you did not love glory!","punct":"!","speaker":"Cornēlia"},
+    {"tokens":[{"form":"animus","lemma":"animus-n2m","cell":"nom.sg"},{"form":"meus","lemma":"meus-adj12","cell":"nom.sg.m"},{"form":"magnus","lemma":"magnus-adj12","cell":"nom.sg.m"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"līber","lemma":"liber-adj12","cell":"nom.sg.m"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"My spirit is great and free.","speaker":"Sextus"},
+    {"tokens":[{"form":"sine","lemma":"sine-indecl","cell":"citation"},{"form":"sapientiā","lemma":"sapientia-n1","cell":"abl.sg"},{"form":"animus","lemma":"animus-n2m","cell":"nom.sg"},{"form":"magnus","lemma":"magnus-adj12","cell":"nom.sg.m"},{"form":"perīculum","lemma":"periculum-n2n","cell":"nom.sg"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"Without wisdom a great spirit is a danger.","speaker":"Cornēlia"},
+    {"tokens":[{"form":"propter","lemma":"propter-indecl","cell":"citation"},{"form":"glōriam","lemma":"gloria-n1","cell":"acc.sg"},{"form":"multī","lemma":"multus-adj12","cell":"nom.pl.m"},{"form":"virī","lemma":"vir-n2m","cell":"nom.pl"},{"form":"errābant","lemma":"erro-v1","cell":"impf.act.ind.3pl"}],"en":"Because of glory many men used to go astray.","speaker":"Cornēlia"},
+    {"tokens":[{"form":"verba","lemma":"verbum-n2n","cell":"acc.pl"},{"form":"tua","lemma":"tuus-adj12","cell":"acc.pl.n"},{"form":"cōgitābō","lemma":"cogito-v1","cell":"fut.act.ind.1sg","comma":true},{"form":"sed","lemma":"sed-indecl","cell":"citation"},{"form":"glōriam","lemma":"gloria-n1","cell":"acc.sg"},{"form":"amābō","lemma":"amo-v1","cell":"fut.act.ind.1sg"}],"en":"I will think about your words, but I will love glory.","speaker":"Sextus"},
+    {"tokens":[{"form":"valē","lemma":"valeo-v2","cell":"pres.act.imp.2sg"},{"form":"igitur","lemma":"igitur-indecl","cell":"citation","comma":true},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"cōnsilium","lemma":"consilium-n2n","cell":"acc.sg"},{"form":"bonum","lemma":"bonus-adj12","cell":"acc.sg.n"},{"form":"habē","lemma":"habeo-v2","cell":"pres.act.imp.2sg"}],"en":"Farewell then, and have good judgment!","punct":"!","speaker":"Cornēlia"},
+    {"tokens":[{"form":"remanēbit","lemma":"remaneo-v2","cell":"fut.act.ind.3sg","attach":"ne"},{"form":"Sextus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Sextus (a Roman man's name)"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"patriā","lemma":"patria-n1","cell":"abl.sg"}],"en":"Will Sextus stay in his fatherland?","punct":"?"}
+   ],
+   "questions":[
+    {"q":"What does Sextus love?","options":["Great glory","Money","Philosophy","His field"],"answer":0},
+    {"q":"What does Cornelia say about a great spirit without wisdom?","options":["It is a danger","It is free","It is healthy","It is a gift"],"answer":0},
+    {"q":"Why, according to Cornelia, did many men go astray?","options":["Because of glory","Because of money","Because of anger","Because of the gods"],"answer":0},
+    {"q":"How does the passage end?","options":["With a question: will Sextus stay?","Sextus wins a victory","Cornelia praises war","Sextus dines with friends"],"answer":0}
+   ],
+   "notes":[
+    {"s":6,"t":2,"note":"verba tua cōgitābō: \"I will think over your words\"."},
+    {"s":8,"t":0,"note":"Remanēbitne: remanēbit + -ne, which asks a yes/no question."}
+   ]
+  },
+  {"id":"l05-2","section":5,"title":"Crās cēnābimus","titleEn":"Tomorrow we will dine",
+   "context":"Two sisters, Julia and Tullia, plan a dinner with their friends.",
+   "sentences":[
+    {"tokens":[{"form":"crās","lemma":"cras-indecl","cell":"citation"},{"form":"amīcās","lemma":"amica-n1","cell":"acc.pl"},{"form":"nostrās","lemma":"noster-adj12","cell":"acc.pl.f"},{"form":"vocābō","lemma":"voco-v1","cell":"fut.act.ind.1sg"}],"en":"Tomorrow I will invite our friends.","speaker":"Iūlia"},
+    {"tokens":[{"form":"satis","lemma":"satis-indecl","cell":"citation","attach":"ne"},{"form":"pecūniae","lemma":"pecunia-n1","cell":"gen.sg"},{"form":"habēmus","lemma":"habeo-v2","cell":"pres.act.ind.1pl"}],"en":"Do we have enough money?","punct":"?","speaker":"Tullia"},
+    {"tokens":[{"form":"heri","lemma":"heri-indecl","cell":"citation"},{"form":"satis","lemma":"satis-indecl","cell":"citation"},{"form":"habēbāmus","lemma":"habeo-v2","cell":"impf.act.ind.1pl","comma":true},{"form":"crās","lemma":"cras-indecl","cell":"citation"},{"form":"satis","lemma":"satis-indecl","cell":"citation"},{"form":"habēbimus","lemma":"habeo-v2","cell":"fut.act.ind.1pl"}],"en":"Yesterday we had enough; tomorrow we will have enough.","speaker":"Iūlia"},
+    {"tokens":[{"form":"quandō","lemma":"quando-indecl","cell":"citation"},{"form":"igitur","lemma":"igitur-indecl","cell":"citation"},{"form":"cēnābimus","lemma":"ceno-v1","cell":"fut.act.ind.1pl"}],"en":"When, then, will we dine?","punct":"?","speaker":"Tullia"},
+    {"tokens":[{"form":"crās","lemma":"cras-indecl","cell":"citation"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"agrō","lemma":"ager-n2m","cell":"abl.sg"},{"form":"pulchrō","lemma":"pulcher-adj12","cell":"abl.sg.m"},{"form":"cēnābimus","lemma":"ceno-v1","cell":"fut.act.ind.1pl"}],"en":"Tomorrow we will dine in a beautiful field.","speaker":"Iūlia"},
+    {"tokens":[{"form":"tum","lemma":"tum-indecl","cell":"citation"},{"form":"puellae","lemma":"puella-n1","cell":"nom.pl"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"agrō","lemma":"ager-n2m","cell":"abl.sg"},{"form":"cēnābant","lemma":"ceno-v1","cell":"impf.act.ind.3pl"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"caelum","lemma":"caelum-n2n","cell":"acc.sg"},{"form":"pulchrum","lemma":"pulcher-adj12","cell":"acc.sg.n"},{"form":"vidēbant","lemma":"video-v2","cell":"impf.act.ind.3pl"}],"en":"Then the girls dined in the field and looked at the beautiful sky."},
+    {"tokens":[{"form":"parvam","lemma":"parvus-adj12","cell":"acc.sg.f"},{"form":"pecūniam","lemma":"pecunia-n1","cell":"acc.sg","comma":true},{"form":"sed","lemma":"sed-indecl","cell":"citation"},{"form":"magnum","lemma":"magnus-adj12","cell":"acc.sg.n"},{"form":"ōtium","lemma":"otium-n2n","cell":"acc.sg"},{"form":"habēbant","lemma":"habeo-v2","cell":"impf.act.ind.3pl"}],"en":"They had little money, but a great deal of leisure."},
+    {"tokens":[{"form":"remanēbimus","lemma":"remaneo-v2","cell":"fut.act.ind.1pl","attach":"ne"},{"form":"crās","lemma":"cras-indecl","cell":"citation"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"agrō","lemma":"ager-n2m","cell":"abl.sg"}],"en":"Shall we stay in the field tomorrow too?","punct":"?","speaker":"Tullia"}
+   ],
+   "questions":[
+    {"q":"What does Julia plan to do tomorrow?","options":["Invite their friends","Visit the farmer","Leave the country","Buy roses"],"answer":0},
+    {"q":"What does Tullia worry about?","options":["Whether they have enough money","Whether the sky will be fine","Whether their friends are angry","Whether the teacher will blame them"],"answer":0},
+    {"q":"Where do they dine?","options":["In a beautiful field","At the city gate","At the poet's house","At the teacher's house"],"answer":0},
+    {"q":"How does the passage end?","options":["Tullia asks whether they will stay in the field tomorrow","Julia blames Tullia","The friends go home","They run out of money"],"answer":0}
+   ],
+   "notes":[
+    {"s":1,"t":0,"note":"Satisne pecūniae: satis + -ne; satis takes the genitive, \"enough (of) money\"."},
+    {"s":7,"t":0,"note":"Remanēbimusne: remanēbimus + -ne, a yes/no question."}
+   ]
+  }
+]

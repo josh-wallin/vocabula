@@ -18,6 +18,7 @@ import { introAudio, type AudioRef } from '../audio/items.ts';
 import { audioMissing, loadClip, playClip, prefetchClips, stopAudio, unlockAudio } from '../audio/player.ts';
 import { ListenCue, Speaker } from './Speaker.tsx';
 import { AuditView } from './Auditio.tsx';
+import { LectioView } from './Lectio.tsx';
 
 export interface LessonResult { run: string; stats: LessonStats }
 
@@ -100,7 +101,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
 
   if (!ex) return null;
   const pct = Math.round(session.progress * 100);
-  const info = ex.type === 'intro' || ex.type === 'grammar' || ex.type === 'audit';
+  const info = ex.type === 'intro' || ex.type === 'grammar' || ex.type === 'audit' || ex.type === 'lectio';
   const canCheck = (ex.type === 'audit' ? ex.kind !== 'listen1' || revealed : info) ||
     ((ex.type === 'choice' || ex.type === 'sentence') && picked.length > 0) || (ex.type === 'typed' && typed.trim().length > 0);
 
@@ -128,6 +129,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
         {ex.type === 'grammar' && <GrammarCardView section={ex.section} onTerm={setTerm} />}
         {ex.type === 'intro' && <IntroCard app={app} lemmaId={ex.lemma} autoplay={autoplay} />}
         {ex.type === 'audit' && <AuditView app={app} ex={ex} autoplay={autoplay} revealed={revealed} onReveal={() => setRevealed(true)} />}
+        {ex.type === 'lectio' && <LectioView key={ex.id} app={app} ex={ex} autoplay={autoplay} />}
         {ex.type === 'choice' && (
           <ChoiceView ex={ex} picked={picked} outcome={outcome} speak={exerciseAudio(ex, app.lex).prompt}
             onPick={(id) => {
@@ -147,7 +149,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
         <footer class="lesson-foot">
           <button type="button" class="btn" disabled={!canCheck} data-testid="primary"
             onClick={() => (info ? next() : check())}>
-            {ex.type === 'audit' ? AUDIT_BUTTON[ex.kind] : info ? 'Got it' : 'Check'}
+            {ex.type === 'audit' ? AUDIT_BUTTON[ex.kind] : ex.type === 'lectio' ? lectioButton(ex) : info ? 'Got it' : 'Check'}
           </button>
         </footer>
       ) : (
@@ -171,6 +173,11 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
       )}
     </div>
   );
+}
+
+function lectioButton(ex: Extract<Exercise, { type: 'lectio' }>): string {
+  if (ex.kind === 'context') return 'Begin';
+  return ex.index < ex.passage.sentences.length - 1 ? 'Next sentence' : 'On to the questions';
 }
 
 function feedbackBody(ex: Exercise, o: Outcome, retry: number): string {
@@ -238,6 +245,7 @@ function ChoiceView({ ex, picked, outcome, onPick, speak }: { ex: ChoiceExercise
     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
       {ex.audio && <span class="eyebrow" lang="la">Audī</span>}
       {(ex.kind === 'audit-q' || ex.kind === 'audit-word') && <span class="eyebrow" lang="la">Audītiō</span>}
+      {ex.kind === 'lectio-q' && <span class="eyebrow" lang="la">Lectiō</span>}
       <h1 class="prompt">{ex.prompt}</h1>
       {!ex.cue ? null : ex.audio && !outcome
         ? <ListenCue audio={ex.audio} />
