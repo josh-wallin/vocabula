@@ -61,3 +61,14 @@ Everything under `content/private/` (the raw Wheelock lists and the generated `w
 ## Not yet built
 
 Lessons and path UI, ts-fsrs scheduling, IndexedDB persistence, the Worker sync API, 3rd–5th declensions, 3rd/4th conjugations, other tenses, pronouns.
+
+## DCC core vocabulary
+
+`npx tsx scripts/import-dcc.ts` turns `content/source/dcc-core-latin.json` (the DCC Latin Core
+Vocabulary, CC BY-SA 3.0 — see `content/DCC-LICENSE.md`) into `content/dcc.json`, for the paradigms
+implemented so far. Currently 365 of 997 entries; the rest wait for 3rd–5th declensions, 3rd/4th
+conjugations, pronouns and irregulars. The importer reports every entry it can't expand or classify.
+
+Spelling note: DCC marks some "hidden" vowel quantities that Wheelock does not (e.g. DCC *māgnus*,
+Wheelock *magnus*). Of the 54 words in both Wheelock ch. 1–4 and DCC, this is the only difference.
+Rule: when a word is in both, the app shows Wheelock's spelling.

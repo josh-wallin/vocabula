@@ -63,6 +63,8 @@ export interface Lemma {
   sources: Source[];
   /** Cell overrides that replace generated forms (e.g. dō: dās, dā). */
   irregular?: Partial<Record<CellId, string>>;
+  /** DCC Latin Core Vocabulary data (CC BY-SA 3.0, dcc.dickinson.edu), when the word is on that list. */
+  dcc?: { rank: number; semanticGroup?: string; headword: string };
   /** 'pl' for words used only/usually in the plural (paucī). */
   number?: 'pl';
   notes?: string;
