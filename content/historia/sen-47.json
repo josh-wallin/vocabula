@@ -1,7 +1,7 @@
 {
  "id": "sen-47",
  "order": 20,
- "title": "They are slaves. No: human beings",
+ "title": "They're slaves. No, they're people",
  "saying": "Servī sunt. Immō hominēs.",
  "author": "Seneca",
  "work": "Epistulae mōrālēs ad Lūcīlium",
@@ -379,7 +379,7 @@
    ]
   }
  ],
- "translation": "I was pleased to hear from people who come from your house that you live on easy terms with your slaves. That suits a man of your good sense and education. \"They're slaves.\" No: they are people. \"They're slaves.\" No: they share our roof. \"They're slaves.\" No: they are friends of humble rank. \"They're slaves.\" No: they are our fellow slaves, once you consider that Fortune has exactly as much power over the one as over the other.",
+ "translation": "I was glad to learn from people who come from you that you live on friendly terms with your slaves. That suits a man of your good sense and education. \"They're slaves.\" No, they're human beings. \"They're slaves.\" No, they're housemates. \"They're slaves.\" No, they're humble friends. \"They're slaves.\" No, they're fellow slaves, if you consider that Fortune has just as much power over both.",
  "translation_note": "The quoted \"Servī sunt\" is the voice of an imagined objector; each Immō (\"no, rather\") corrects him. contubernālis is literally a soldier who shares your tent; the word was also used of household companions. tantundem in utrōsque licēre fortūnae: \"that Fortune is allowed just as much against both\", i.e. a free man can become a slave. cōgitāveris is taken here as future perfect indicative; it could also be perfect subjunctive (\"if you should reflect\").",
  "essay": [
   [
@@ -431,7 +431,7 @@
    {
     "t": "A conference abstract by Mason Wheelock-Johnson summarizes earlier scholars as reading the letter mainly as a foil for Stoic freedom, with little critique of the institution.",
     "src": [
-     4
+     5
     ],
     "doubt": true
    }
@@ -442,14 +442,14 @@
     "src": [
      1,
      2,
-     5
+     4
     ],
     "doubt": true
    },
    {
     "t": "In a speech Tacitus gives him, Seneca tells Nero that the emperor has surrounded him with countless money, gardens and estates, and offers to hand them back.",
     "src": [
-     5
+     4
     ],
     "doubt": true
    },
@@ -488,12 +488,12 @@
  ],
  "questions": [
   {
-   "q": "What does Seneca answer to the objection \"They are slaves\"?",
+   "q": "How does Seneca first answer the objection \"They're slaves\"?",
    "options": [
-    "Human beings, housemates, humble friends, fellow slaves",
-    "Property that a wise man should not own at all",
-    "Inferiors by nature who must be kept in fear",
-    "Servants who deserve kindness only if educated"
+    "No, they're human beings",
+    "Yes, and so they are property",
+    "No, they're hired servants",
+    "Yes, so keep them in fear"
    ],
    "answer": 0
   },

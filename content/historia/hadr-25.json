@@ -229,7 +229,7 @@
    "gloss": "jokes"
   }
  ],
- "translation": "And as he was dying he is said to have composed these verses: \"Little soul, little wanderer, little charmer, guest and companion of the body, into what places will you go off now, pale little thing, stiff, bare little thing? And you will not make jokes as you used to!\"",
+ "translation": "And as he was dying he is said to have composed these verses: \"Little soul, little wanderer, little charmer, guest and companion of the body, to what places will you go off now, pale, stiff, naked little thing? And you won't make jokes the way you used to!\"",
  "translation_note": "The diminutives (-ula) are affectionate and hard to render; \"little\" is a stand-in. pallidula rigida nūdula can describe the soul (nominative feminine) or the places (accusative neuter plural, with loca); I take them with the soul, but both readings are grammatical; this is my reading of the grammar, not a sourced claim. quae ... in loca is taken as an interrogative (\"into what places\"); a minority reading takes quae as a relative (\"you who will now go\").",
  "essay": [
   [
@@ -346,20 +346,20 @@
   {
    "q": "What does the verb dicitur tell us about the poem?",
    "options": [
-    "The biographer reports it as something said, not as a fact he can vouch for",
-    "Hadrian dictated it to a secretary",
-    "It was carved on his tomb",
-    "It was sung at his funeral"
+    "It is reported, not vouched for, by the biographer",
+    "Hadrian dictated it to his secretary",
+    "It was carved on Hadrian's tomb",
+    "It was sung aloud at his funeral"
    ],
    "answer": 0
   },
   {
    "q": "Why is the attribution to Hadrian uncertain?",
    "options": [
-    "Our only source is the Historia Augusta, written by one author late in the fourth century and often unreliable",
-    "The poem is in Greek",
-    "Several emperors claimed it",
-    "It was first printed in 1951"
+    "Our only source is the late, unreliable Historia Augusta",
+    "The poem survives only in a later Greek version",
+    "Several later emperors claimed the poem as theirs",
+    "It was first printed by Yourcenar in 1951"
    ],
    "answer": 0
   },

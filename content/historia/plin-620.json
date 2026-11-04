@@ -128,7 +128,7 @@
    "w": "clausīs",
    "lemma": "claudō, claudere, clausī, clausum",
    "parse": "perf. pass. participle, abl. pl. m.",
-   "gloss": "closed, shut",
+   "gloss": "closed",
    "app": [
     "claudo-v3"
    ]
@@ -527,7 +527,7 @@
    "gloss": "were interpreting (it as)"
   }
  ],
- "translation": "We had barely sat down when night came on: not a night with no moon or with clouds, but like the dark of a shut room when the lamp has been put out. You could have heard women wailing, babies crying, men shouting. People were calling for their parents, their children, their husbands or wives, and trying to tell them apart by their voices. Some grieved over what was happening to them, others over what was happening to their families; there were people who, out of fear of death, prayed to die. Many lifted their hands to the gods; more concluded that there were no gods anywhere any more, and that this was the everlasting, final night of the world.",
+ "translation": "We had barely sat down when night came on: not a night with no moon or with clouds, but like the darkness of a closed room when the lamp has been put out. You could have heard women wailing, babies crying, men shouting. Some were calling for their parents, others for their children, others for their husbands or wives, trying to recognize them by their voices. Some lamented their own fate, others the fate of their families; there were people who, out of fear of death, prayed to die. Many lifted their hands to the gods; more concluded that there were no gods anywhere any more, and that this was the world's last, eternal night.",
  "translation_note": "Vix cōnsīderāmus looks like the present of cōnsīderō (\"consider\"), but Lewis & Short file this very passage (Plin. Ep. 6, 20, 14) under cōnsīdō, \"sit down\", whose perfect is cōnsēdī or cōnsīdī: so it is the pluperfect, \"we had (barely) sat down\" (Lewis & Short, Perseus TEI, https://raw.githubusercontent.com/PerseusDL/lexica/master/CTS_XML_TEI/perseus/pdllex/lat/ls/lat.ls.perseus-eng1.xml). Audīrēs is a potential subjunctive (\"you would have heard\"). tollere is a historical infinitive, used like a past tense. The last clause is indirect statement: deōs (esse) nusquam, \"that the gods were nowhere\".",
  "essay": [
   [
@@ -595,7 +595,7 @@
   ],
   [
    {
-    "t": "He ends by telling Tacitus that he will read these things, not at all worthy of history, without intending to write them up.",
+    "t": "He ends by telling Tacitus that these details are not at all worthy of history: Tacitus will read them, but not in order to write them up.",
     "src": [
      1
     ]
@@ -623,7 +623,7 @@
   {
    "q": "What does the darkness remind Pliny of?",
    "options": [
-    "A shut room when the lamp is put out",
+    "A closed room when the lamp is put out",
     "A night with no moon and no stars",
     "A cloudy night out at sea",
     "The smoke of a burning city"
