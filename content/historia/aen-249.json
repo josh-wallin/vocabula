@@ -184,7 +184,7 @@
     ]
    },
    {
-    "t": "Aeneas adds that if the Trojans' minds had not been blind, Troy would still be standing.",
+    "t": "Aeneas adds that if the gods' decrees and the Trojans' own minds had not been set against it, Troy would still be standing.",
     "src": [
      1
     ]
@@ -205,7 +205,7 @@
     ]
    },
    {
-    "t": "Versions differ: Vergil makes Laocoön a priest of Neptune chosen by lot, while Britannica describes him as a priest of Apollo and notes other explanations of his punishment.",
+    "t": "Versions differ: Vergil has him serving as Neptune's priest by lot; in other accounts, as in Britannica's summary, he is Apollo's priest, and his punishment is explained in other ways.",
     "src": [
      1,
      2
@@ -253,7 +253,7 @@
     "even",
     "and",
     "but",
-    "therefore"
+    "so"
    ],
    "answer": 0
   },
@@ -261,19 +261,19 @@
    "q": "What does Laocoön do right after his warning?",
    "options": [
     "He hurls a spear into the horse's side",
-    "He opens the horse",
-    "He flees the city",
+    "He climbs inside the horse to search it",
+    "He flees from the city with his sons",
     "He sacrifices the horse to Neptune"
    ],
    "answer": 0
   },
   {
-   "q": "How do Vergil and Britannica differ about Laocoön?",
+   "q": "In Vergil, whose priest is Laocoön (in other accounts he serves Apollo)?",
    "options": [
-    "Vergil makes him a priest of Neptune; Britannica calls him a priest of Apollo",
-    "Vergil says he survived",
-    "Britannica says he built the horse",
-    "They do not differ at all"
+    "Neptune's, chosen by lot",
+    "Apollo's, by birth",
+    "Minerva's, by a vow",
+    "Jupiter's, by election"
    ],
    "answer": 0
   }

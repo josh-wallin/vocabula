@@ -11,7 +11,7 @@
  "edition": {
   "name": "The Bucolics, Aeneid, and Georgics of Virgil, edited by J. B. Greenough (Boston: Ginn and Company, 1881), public domain; the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, phi0690.phi003.perseus-lat2), whose header credits \"J. B. Greenough\", \"Ginn and Company\", \"1881\"",
   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0690/phi003/phi0690.phi003.perseus-lat2.xml",
-  "section": "Aeneid 6.851-853 (the end of Anchises' pageant of Roman heroes)"
+  "section": "Aeneid 6.851-853 (the culmination of Anchises' pageant of Roman heroes; he goes on to the Marcelli, 6.854-886)"
  },
  "source_text": "tu regere imperio populos, Romane, memento;\nhae tibi erunt artes; pacisque imponere morem,\nparcere subiectis, et debellare superbos.",
  "excerpt_note": "Three lines as printed by Greenough, who reads pacisque (\"and of peace\") and punctuates with semicolons; the Latin Library text reads pacique (\"and on peace\") and sets hae tibi erunt artes in parentheses. The sense is nearly the same.",
@@ -22,7 +22,7 @@
    "subiectīs: the first syllable is long by position (sub-iectīs, consonantal i); the vowel u is short.",
    "mementō: long final ō (future imperative); not machine-checked.",
    "dēbellāre: long ē (dē-); not machine-checked.",
-   "hae tibi erunt: hae is shortened before the following vowel in some recitations (hiatus or correption); the macron-free form is the word's own spelling."
+   "hae tibi erunt: hae is long (a diphthong) and is followed by a consonant; it is tibi that elides before erunt, so the line scans hae tib(i) erunt artes pacisqu(e) imponere morem."
   ]
  },
  "tokens": [
@@ -196,13 +196,13 @@
     ]
    },
    {
-    "t": "Among them is Augustus Caesar, \"son of a god\", who will found a golden age again in Latium and extend the empire beyond the Indians.",
+    "t": "Among them is Augustus Caesar, \"son of a god\", who will found a golden age again in Latium.",
     "src": [
      1
     ]
    },
    {
-    "t": "Vergil was writing under Augustus, who was in fact sole ruler of the Roman world, and the poem lacked its final revision when Vergil died in 19 BC.",
+    "t": "Vergil was writing under Augustus, who was sole ruler of the Roman world, and the poem lacked its final revision when Vergil died in 19 BC.",
     "src": [
      2
     ]
@@ -210,7 +210,7 @@
   ],
   [
    {
-    "t": "Anchises ends with a contrast: others will cast bronze and carve marble more finely, plead cases better and chart the stars; the Roman's arts are to rule the nations, set the custom of peace, spare the submissive and war down the proud.",
+    "t": "Anchises' speech climaxes with a contrast: others will cast bronze and carve marble more finely, plead cases better and chart the stars; the Roman's arts are to rule the nations, set the custom of peace, spare the submissive and war down the proud.",
     "src": [
      1
     ]
@@ -232,7 +232,7 @@
     "doubt": true
    },
    {
-    "t": "Adam Parry's 1963 essay \"The Two Voices of Virgil's Aeneid\" gave the argument a name, and R. D. Williams' 1967 survey already cites it while contrasting critics who stress Aeneas' virtues with those who stress his failings.",
+    "t": "The title of Adam Parry's 1963 essay, \"The Two Voices of Virgil's Aeneid\", supplied a common label for it, and R. D. Williams' 1967 survey cites it while contrasting critics who stress Aeneas' virtues with those who stress his failings.",
     "src": [
      3
     ]
@@ -252,7 +252,7 @@
     ]
    },
    {
-    "t": "Turnus, beaten and a suppliant, asks to be spared; Aeneas hesitates, then sees on him the belt of young Pallas, whom Turnus had killed, and kills him in fury.",
+    "t": "Turnus, beaten and a suppliant, says he has deserved it and does not plead for himself, but asks Aeneas to pity his father Daunus and give him, or his body, back to his people; Aeneas hesitates, then sees on him the belt of young Pallas, whom Turnus had killed, and kills him in fury.",
     "src": [
      1
     ]
@@ -265,7 +265,7 @@
     "doubt": true
    },
    {
-    "t": "West, reviewing Putnam and Richard Tarrant in 2013, answers that Anchises pairs sparing with warring down the proud, so the line is no pacifist rule, and that clemency was part of the Augustan settlement.",
+    "t": "West, reviewing Putnam and Richard Tarrant's commentary on Book 12 (which treats the line as a precept) in 2013, answers that Anchises pairs sparing with warring down the proud, so the line is no pacifist rule, and that clemency was part of the Augustan settlement.",
     "src": [
      4
     ]
@@ -284,30 +284,30 @@
   {
    "q": "Which arts does Anchises assign to the Roman?",
    "options": [
-    "Ruling nations, setting the custom of peace, sparing the submissive, warring down the proud",
-    "Sculpture and bronze-casting",
-    "Astronomy and oratory",
-    "Poetry and music"
+    "Ruling, peace, sparing the submissive, warring down the proud",
+    "Casting bronze and carving lifelike faces in marble",
+    "Pleading cases well and charting the rising stars",
+    "Writing poetry and making music for the gods"
    ],
    "answer": 0
   },
   {
-   "q": "Why do some readers find the poem's ending in tension with these lines?",
+   "q": "Why do some readers find the ending in tension with these lines?",
    "options": [
-    "Aeneas kills Turnus after Turnus has submitted and asked for mercy",
-    "Aeneas spares Turnus",
-    "Anchises takes the words back",
-    "Augustus is not mentioned"
+    "Aeneas kills Turnus, who has yielded and asked for pity",
+    "Aeneas spares Turnus, although Turnus is proud",
+    "Anchises takes back his words in the last book",
+    "Turnus kills Aeneas, who had earlier spared him"
    ],
    "answer": 0
   },
   {
    "q": "What is David West's answer to the ironic reading?",
    "options": [
-    "Sparing is paired with warring down the proud, so the line is no pacifist rule",
-    "Vergil did not write the line",
-    "The ending is a later addition",
-    "Turnus never submitted"
+    "Sparing is paired with warring down the proud",
+    "Vergil did not write these three lines",
+    "The ending is a later addition to the poem",
+    "Turnus never submitted or asked for mercy"
    ],
    "answer": 0
   }

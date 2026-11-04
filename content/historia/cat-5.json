@@ -303,7 +303,7 @@
     ]
    },
    {
-    "t": "The last lines say a malicious person could invidere, begrudge or cast an evil eye, if he knew how many kisses there were; reading invidere as the evil eye is a common interpretation, and mine here, rather than something the text states.",
+    "t": "The last lines want no ill-wisher to know the total, so that he cannot cast the evil eye (invidere) by knowing it; reading invidere as the evil eye is a common interpretation, and mine here, rather than something the text states.",
     "src": [
      1
     ],
@@ -342,32 +342,32 @@
  ],
  "questions": [
   {
-   "q": "What do the old men's rumors deserve, according to the speaker?",
+   "q": "What are the old men's rumors worth, according to the speaker?",
    "options": [
-    "To be valued at a single small coin, next to nothing",
-    "To be taken seriously",
-    "To be reported to the authorities",
-    "To be answered with a poem"
+    "A single small coin, next to nothing",
+    "Serious advice from wiser elders",
+    "Charges to report to the magistrates",
+    "Verses worth answering in a poem"
    ],
    "answer": 0
   },
   {
    "q": "What contrast do lines 4-6 draw?",
    "options": [
-    "Suns set and return, but our brief light, once set, leaves one endless night",
-    "Day is for work and night for love",
-    "The young are wise and the old foolish",
-    "Rome is great but Verona is small"
+    "Suns set and return; our light, once set, does not",
+    "Day is for work, while night is for love",
+    "The young are wise, while the old are foolish",
+    "Rome is great, while Verona is small"
    ],
    "answer": 0
   },
   {
    "q": "Why should the lovers confuse the count of their kisses?",
    "options": [
-    "So that neither they nor an ill-wisher can know the total",
-    "Because Catullus could not count",
-    "To win a bet",
-    "To fill out the meter"
+    "So no ill-wisher can cast the evil eye by knowing it",
+    "Because Catullus could not count that high",
+    "So that they could win a bet with their friends",
+    "Because the meter needed extra syllables"
    ],
    "answer": 0
   }

@@ -13,7 +13,7 @@
   "section": "Confessiones 8.12.29, the first two sentences (CSEL 33, p. 194)"
  },
  "source_text": "Dicebam haec et flebam amarissima contritione cordis mei. et ecce audio uocem de diuina domo cum cantu dicentis et crebro repetentis quasi pueri an puellae, nescio: \"tolle lege, tolle lege\".",
- "excerpt_note": "The first two sentences of 8.12.29. Knöll writes u for consonantal v (uocem = vocem, diuina = divina) and prints divina from one manuscript (the Sessorianus), where the other manuscripts and earlier editions read vicina; the gloss shows both. The digital text marks its first tolle as an OCR error (\"toIIe\"); the printed edition reads tolle, as given here.",
+ "excerpt_note": "The first two sentences of 8.12.29. Knöll writes u for consonantal v (uocem = vocem, diuina = divina) and prints divina from one manuscript (the Sessorianus), where the other manuscripts and earlier editions read vicina (F has vicino); the gloss shows both. The digital text marks its first tolle as an OCR error (\"toIIe\"); the printed edition reads tolle, as given here.",
  "macrons": {
   "editorial": true,
   "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
@@ -319,7 +319,7 @@
     ]
    },
    {
-    "t": "He opened the book of the apostle Paul and read Romans 13:13-14: not in revelling and drunkenness, not in lust and wantonness, not in strife and envy, but put on the Lord Jesus Christ.",
+    "t": "He opened the book of the apostle Paul and read Romans 13:13-14: not in revelling and drunkenness, not in lust and wantonness, not in strife and envy, but put on the Lord Jesus Christ ...",
     "src": [
      1,
      2
@@ -347,21 +347,21 @@
     "doubt": true
    },
    {
-    "t": "Pierre Courcelle argued that the scene is a literary construction, the voice coming from a heavenly house rather than a neighbour's; Karl Gross, writing in 1954, summarized and rejected this, defending the account as historical testimony.",
+    "t": "Pierre Courcelle argued that the scene is a literary construction, reading even the neighbouring house as the heavenly one, so that the voice is no real child's; Karl Gross, writing in 1954, summarized and rejected this, defending the account as historical testimony.",
     "src": [
      4
     ],
     "doubt": true
    },
    {
-    "t": "Courcelle drew on a manuscript reading: the Codex Sessorianus has de divina domo, \"from the divine house\", where the other manuscripts have de vicina domo, \"from the house next door\".",
+    "t": "As early support Courcelle cited a reading found only in the Codex Sessorianus, de divina domo, \"from the divine house\", where the other manuscripts have de vicina domo, \"from the house next door\".",
     "src": [
      1,
      4
     ]
    },
    {
-    "t": "Knöll's edition, used here, prints divina, while Gross reports that Theiler called the reading nonsensical and that Courcelle later leaned on it less.",
+    "t": "Knöll's edition, used here, prints divina; Gross reports that Theiler called the reading nonsensical and that Courcelle later relied on it less.",
     "src": [
      1,
      4
@@ -380,30 +380,30 @@
   {
    "q": "What did Augustine read when he opened the book?",
    "options": [
-    "A passage of Paul's Letter to the Romans (13:13-14)",
-    "The opening of Genesis",
-    "A poem by Vergil",
-    "A letter from Ambrose"
+    "Paul's Letter to the Romans (13:13-14)",
+    "The opening chapter of Genesis",
+    "A passage from Vergil's Aeneid",
+    "A letter written to him by Ambrose"
    ],
    "answer": 0
   },
   {
-   "q": "Which manuscript reading did Courcelle use to support a literary, non-literal reading of the voice?",
+   "q": "Which reading, found only in the Codex Sessorianus, did Courcelle first cite?",
    "options": [
     "de divina domo, \"from the divine house\"",
     "de vicina domo, \"from the house next door\"",
-    "tolle et lege",
-    "quasi angeli"
+    "de summa domo, \"from the top of the house\"",
+    "de caelesti domo, \"from the heavenly house\""
    ],
    "answer": 0
   },
   {
    "q": "Why did Augustine first hesitate over the words?",
    "options": [
-    "He tried to recall a children's game that used them and could not",
-    "He did not understand Latin",
-    "Alypius told him to ignore them",
-    "He thought they were Greek"
+    "He tried to recall a children's game that used them",
+    "He did not understand the Latin of the words",
+    "Alypius told him to ignore the voice entirely",
+    "He thought the words were spoken in Greek"
    ],
    "answer": 0
   }

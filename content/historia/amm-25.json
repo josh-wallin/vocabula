@@ -8,7 +8,7 @@
  "citation": "Amm. Marc. 25.4.1",
  "setting": "Mesopotamia, June 363: Ammianus' obituary of Julian",
  "edition": {
-  "name": "Ammianus Marcellinus, Res Gestae, Latin text of the Loeb Classical Library edition by John C. Rolfe (Cambridge, MA: Harvard University Press; London: Heinemann, 1935-1940); the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, stoa0023.stoa001.perseus-lat2), whose header credits \"John C. Rolfe\", \"Harvard University Press\", \"1935-1940\". LacusCurtius treats this Loeb as public domain; the copyright status of a 1935-1940 Loeb is my inference from that, not verified independently",
+  "name": "Ammianus Marcellinus, Res Gestae, Latin text of the Loeb Classical Library edition by John C. Rolfe (Cambridge, MA: Harvard University Press; London: Heinemann; dated 1935-1940 in the Perseus header; book 25 is in vol. II, books 20-26), which LacusCurtius describes as \"Clark's with a few further emendations\" (C. U. Clark, Berlin, 1910-1915); the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, stoa0023.stoa001.perseus-lat2), whose header credits \"John C. Rolfe\", \"Harvard University Press\", \"1935-1940\". Copyright: LacusCurtius presents Rolfe's Loeb Ammianus on single-asterisk (public-domain) pages; I could not verify renewal status independently, and could not reach a clearly public-domain text (Clark, Gardthausen, Eyssenhardt) to check the sentence against",
   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/stoa0023/stoa001/stoa0023.stoa001.perseus-lat2.xml",
   "section": "Res Gestae 25.4.1, first sentence"
  },
@@ -103,15 +103,16 @@
    "gloss": "conspicuous, outstanding"
   }
  ],
- "translation": "He was a man truly to be counted among the heroic natures, outstanding for the glory of his deeds and for a dignity that had grown to be part of him.",
+ "translation": "Truly a man to be ranked among heroic characters, he stood out for the renown of his deeds and for a majesty that had grown into his nature.",
  "translation_note": "The sentence has no main verb: supply est, \"he is (to be counted)\", with connumerandus, a gerundive. coalita maiestas is a dignity that has grown together with him, so ingrained rather than put on.",
  "essay": [
   [
    {
-    "t": "Ammianus was born around 330 at Antioch into a noble Greek family and served in the army under the general Ursicinus, and later on Julian's Persian campaign.",
+    "t": "Ammianus was born around 330, probably at Antioch (the traditional view, which Britannica follows), into a noble Greek family and served in the army under the general Ursicinus, and later on Julian's Persian campaign.",
     "src": [
      2
-    ]
+    ],
+    "doubt": true
    },
    {
     "t": "At the end of his history he calls himself \"once a soldier and a Greek\", and says he wrote from the reign of Nerva to the death of Valens.",
@@ -198,20 +199,20 @@
   {
    "q": "Which of Julian's measures does Ammianus criticize?",
    "options": [
-    "The law barring Christian teachers of rhetoric and grammar",
-    "The Persian campaign",
-    "His lowering of taxes",
-    "His study of philosophy"
+    "His law barring Christian teachers",
+    "His campaign against the Persians",
+    "His lowering of the provincial taxes",
+    "His devotion to the philosophers"
    ],
    "answer": 0
   },
   {
    "q": "How much of Ammianus' history survives?",
    "options": [
-    "The last eighteen of thirty-one books, covering 353 to 378",
-    "All thirty-one books",
-    "Only the obituary of Julian",
-    "The first eighteen books"
+    "The last 18 of 31 books, for 353 to 378",
+    "All 31 books, from Nerva to Valens",
+    "Only the obituary of Julian in book 25",
+    "The first 18 books, from Nerva on"
    ],
    "answer": 0
   }

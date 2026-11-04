@@ -193,14 +193,14 @@
     "doubt": true
    },
    {
-    "t": "In the second century AD, Apuleius, defending his own love poems in his Apologia, listed poets who had disguised real names, and said that Catullus wrote Lesbia for Clodia, just as Ticidas wrote Perilla for Metella and Tibullus wrote Delia for Plania.",
+    "t": "In the second century AD, Apuleius, defending his own love poems in his Apologia, listed poets who had disguised real names, and said that Catullus wrote Lesbia for Clodia, just as, among others, Ticidas wrote Perilla for Metella, Propertius Cynthia for Hostia and Tibullus Delia for Plania.",
     "src": [
      2,
      3
     ]
    },
    {
-    "t": "Britannica is cautious: the identification also rests on \"some uncertain inferences from the Lesbia poems\", and if this Clodia was a patrician she was most probably the one who married Metellus Celer.",
+    "t": "Britannica is cautious: it says the identification has found support in \"some uncertain inferences from the Lesbia poems\", and that the poet's Clodia may have been a patrician; if so, she was most probably the one who married Metellus Celer.",
     "src": [
      3
     ],
@@ -234,32 +234,32 @@
  ],
  "questions": [
   {
-   "q": "What answer does the speaker give to \"why do you do it?\"",
+   "q": "What answer does the speaker give when asked why?",
    "options": [
     "He does not know; he only feels it happening",
-    "Lesbia has betrayed him",
-    "The gods have willed it",
-    "He refuses to say because of gossip"
+    "Lesbia has betrayed him with another man",
+    "The gods have willed that he suffer so",
+    "He will not say, for fear of the gossip"
    ],
    "answer": 0
   },
   {
-   "q": "What is our evidence that \"Lesbia\" stood for a woman named Clodia?",
+   "q": "What is our main ancient testimony that \"Lesbia\" stood for a Clodia?",
    "options": [
-    "A statement by Apuleius, writing about two centuries later",
-    "An inscription found at Verona",
-    "Catullus names her in poem 85",
-    "Cicero quotes the poem"
+    "Apuleius, writing about two centuries later",
+    "An inscription Catullus set up at Verona",
+    "Poem 85, where Catullus names her outright",
+    "Cicero, quoting the poem in a speech"
    ],
    "answer": 0
   },
   {
    "q": "What does an elegiac couplet consist of?",
    "options": [
-    "A dactylic hexameter followed by a dactylic pentameter",
-    "Two eleven-syllable lines",
-    "Two iambic trimeters",
-    "A single line of prose"
+    "A dactylic hexameter, then a dactylic pentameter",
+    "Two eleven-syllable Phalaecean lines",
+    "Two iambic trimeters of equal length",
+    "A hexameter followed by a short refrain"
    ],
    "answer": 0
   }
