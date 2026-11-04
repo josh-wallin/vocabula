@@ -9,20 +9,49 @@
 import type { Lemma, PartOfSpeech } from '../morph/types.ts';
 import { lemmaFromHeadword } from '../morph/lemma.ts';
 import { citationMismatches } from '../morph/citation.ts';
-import { nfc, stripMacrons } from '../morph/phonology.ts';
+import { isVowel, nfc, stripMacrons } from '../morph/phonology.ts';
 
 export interface DccEntry { rank: number; headword: string; definition: string; pos: string; semantic_group: string }
 
-/** DCC part-of-speech labels whose paradigms exist so far, with the paradigm family each must land in. */
-export const SUPPORTED: Record<string, { pos: PartOfSpeech; family: string[] }> = {
+/**
+ * DCC part-of-speech labels whose paradigms exist so far, with the paradigm family each must land in.
+ * `partial`: only some words of the label are implemented (sum, possum among the irregular verbs);
+ * the rest are counted as skipped, not as problems.
+ */
+export const SUPPORTED: Record<string, { pos: PartOfSpeech; family: string[]; partial?: true }> = {
   'Noun: 1st Declension': { pos: 'noun', family: ['n1'] },
   'Noun: 2nd Declension': { pos: 'noun', family: ['n2m', 'n2n'] },
+  'Noun: 3rd Declension': { pos: 'noun', family: ['n3', 'n3n', 'n3i', 'n3in'] },
   'Adjective: 1st and 2nd Declension': { pos: 'adj', family: ['adj12'] },
   'Verb: 1st Conjugation': { pos: 'verb', family: ['v1'] },
   'Verb: 2nd Conjugation': { pos: 'verb', family: ['v2'] },
+  'Verb: 3rd Conjugation -ō': { pos: 'verb', family: ['v3'] },
+  'Verb: 3rd Conjugation -iō': { pos: 'verb', family: ['v3io'] },
+  'Verb: 4th Conjugation': { pos: 'verb', family: ['v4'] },
+  // tollō, tollere has a regular 3rd-conj. present system.
+  'Verb: Irregular': { pos: 'verb', family: ['irr:sum', 'irr:possum', 'v3'], partial: true },
+};
+
+/**
+ * DCC headwords corrected before expansion: abbreviations that cannot be expanded
+ * mechanically, and missing or wrong macrons that would generate wrong forms.
+ * Each fix is checked against Lewis & Short / Allen & Greenough.
+ */
+export const DCC_CORRECTIONS: Record<string, string> = {
+  'senex -is m.': 'senex senis m.',                         // gen. senis is not "senex" + -is
+  'lūmen luminis n.': 'lūmen lūminis n.',                   // ū in every case
+  'tempestas -tātis f.': 'tempestās -tātis f.',             // nom. -ās like every -tās noun
+  'cōnsuētūdo -inis f.': 'cōnsuētūdō -inis f.',             // nom. -ō
+  'tellus tellūris f.': 'tellūs tellūris f.',               // nom. tellūs
+  'respicio -ere -spēxī -spectum': 'respiciō -ere -spēxī -spectum',
+  'deficiō -ficere -fēcī -fectum': 'dēficiō -ficere -fēcī -fectum',
+  'īra irae f.': 'īra īrae f.',
+  'parēns -ntis m./f.': 'parēns parentis m./f.',            // short e before nt in the oblique cases
+  'ōrdō -īnis m.': 'ōrdō -inis m.',                         // ōrdinis, short i
 };
 
 const GENDER = /^(m|f|n)\.$/;
+const COMMON = /^[mf]\.\/[mf]\.$/;
 
 /**
  * Attach an abbreviated form ("-tinēre", "-gra", "-iī") to a base ("retineō", "integer", "convīvium"):
@@ -40,14 +69,62 @@ function attach(base: string, tail: string, fromEnd: boolean): string | null {
 }
 
 /** Expand a DCC headword for the given label. Returns null if the shape isn't recognized. */
+/** Strip a 1sg ending to get the present base: dūcō → dūc, capiō → cap (when `io`). */
+function verbBase(base: string, io: boolean): string | null {
+  if (io && base.endsWith('iō')) return base.slice(0, -2);
+  return base.endsWith('ō') ? base.slice(0, -1) : null;
+}
+
+/**
+ * Expand a 3rd/4th-conj. infinitive tail ("-dere", "-cipere", "-venīre", "-ere") against the 1sg:
+ * the tail minus -ere/-īre must end the 1sg's base (reddō + -dere → reddere, accipiō + -cipere → accipere).
+ */
+function verbTail34(base: string, tail: string, label: string): string | null {
+  const m = /^(.*?)(ere|īre)$/.exec(tail);
+  if (!m) return null;
+  const [, body, end] = m as unknown as [string, string, string];
+  const io = end === 'īre' || label.includes('-iō') || (body !== '' && base.endsWith('iō') && !label.includes('-ō'));
+  for (const b of io ? [verbBase(base, true), verbBase(base, false)] : [verbBase(base, false)]) {
+    if (b !== null && stripMacrons(b).endsWith(stripMacrons(body))) return b.slice(0, b.length - body.length) + tail;
+  }
+  return null;
+}
+
+/** Nominative endings replaced by a 3rd-decl. genitive tail (tempus -oris, nōmen -inis, ratiō -ōnis). */
+const N3_NOM_END = /(us|en|ēs|es|is|ās|ūs|[oō]|s|x)$/;
+
+/** Expand a 3rd-decl. genitive tail against the nominative. */
+function genTail3(base: string, tail: string, plural: boolean): string | null {
+  if (plural) {
+    const m = /^(.*?)(ia|a|ēs)$/.exec(base);
+    return m && /^(ium|um)$/.test(tail) ? m[1] + tail : null;
+  }
+  if (tail === 'is') {
+    // parisyllabic: hostis -is, sēdēs -is, mare -is
+    const m = /^(.*?)(is|ēs|e)$/.exec(base);
+    return m ? m[1] + 'is' : null;
+  }
+  // Overlap the tail's first two letters with the nominative (amor -ōris, aetās -tātis, cōnsul -ulis),
+  // or a single consonant (parēns -ntis, āgmen -minis); a single vowel is too ambiguous (cupīdō -inis).
+  const plain = stripMacrons(base.toLowerCase());
+  const t = stripMacrons(tail.toLowerCase());
+  for (let k = Math.min(3, t.length); k >= 1; k--) {
+    if (k === 1 && isVowel(t[0])) break;
+    const i = plain.lastIndexOf(t.slice(0, k));
+    if (i > 0 && i >= plain.length - 4) return base.slice(0, i) + tail; // only within the nominative's ending
+  }
+  const m = N3_NOM_END.exec(base);
+  return m && m.index > 0 ? base.slice(0, m.index) + tail : null;
+}
+
 export function expandHeadword(raw: string, label: string): { headword: string; plural?: boolean } | null {
-  const hw = nfc(raw).replace(/\s*\([^)]*\)/g, '').replace(/:\s*$/, '').trim();
+  const hw = nfc(DCC_CORRECTIONS[nfc(raw).trim()] ?? raw).replace(/\s*\([^)]*\)/g, '').replace(/:\s*$/, '').trim();
   const toks = hw.split(/\s+/).map((t) => t.replace(/:$/, ''));
   const [base, ...rest] = toks;
   if (!base) return null;
   const plural = rest.includes('pl.');
-  const gender = rest.find((t) => GENDER.test(t));
-  const forms = rest.filter((t) => !GENDER.test(t) && t !== 'pl.');
+  const gender = rest.find((t) => GENDER.test(t) || COMMON.test(t));
+  const forms = rest.filter((t) => !GENDER.test(t) && !COMMON.test(t) && t !== 'pl.');
   const full = (t: string): string | null => {
     if (!t.startsWith('-')) return t;
     const tail = t.slice(1);
@@ -62,6 +139,7 @@ export function expandHeadword(raw: string, label: string): { headword: string; 
       if (m && tail === 'ī') return m[1] + tail;
       return attach(base, tail, true);
     }
+    if (label.startsWith('Noun: 3rd')) return genTail3(base, tail, plural);
     if (label.startsWith('Adjective')) {
       const m = base.match(/^(.*?)(us|ī)$/);
       if (m && /^(a|um|ae|a)$/.test(tail)) return m[1] + tail;
@@ -71,6 +149,7 @@ export function expandHeadword(raw: string, label: string): { headword: string; 
       if (tail === 'āre') return base.replace(/ō$/, '') + tail;
       if (tail === 'ēre') return base.replace(/eō$/, '') + tail;
       if (/[āē]re$/.test(tail)) return attach(base, tail, false);
+      if (/(ere|īre)$/.test(tail)) return verbTail34(base, tail, label);
       return null; // perfect/supine abbreviations: not needed for the present system yet
     }
     return null;
@@ -106,12 +185,13 @@ export function importDcc(entries: DccEntry[]): DccImport {
         : /\s-ae(?=\s|$)/.test(half) ? 'Noun: 1st Declension'
         : /\s-i?ī(?=\s|$)/.test(half) ? 'Noun: 2nd Declension' : e.pos;
       const ex = expandHeadword(half, label);
-      if (!ex) { out.problems.push({ entry: e, reason: `could not expand "${half}"` }); continue; }
+      const skip = (reason: string) => (sup.partial ? out.skipped : out.problems).push({ entry: e, reason });
+      if (!ex) { skip(sup.partial ? `paradigm not implemented yet (${e.pos})` : `could not expand "${half}"`); continue; }
       const { lemma, inference } = lemmaFromHeadword(ex.headword, sup.pos, e.definition, [], {});
-      if (!lemma) { out.problems.push({ entry: e, reason: `not classified: ${inference.reason ?? '?'} (${ex.headword})` }); continue; }
+      if (!lemma) { skip(sup.partial ? `paradigm not implemented yet (${e.pos})` : `not classified: ${inference.reason ?? '?'} (${ex.headword})`); continue; }
       const fam = SUPPORTED[label]?.family ?? sup.family;
       if (!fam.includes(lemma.paradigm)) {
-        out.problems.push({ entry: e, reason: `inferred ${lemma.paradigm}, DCC says ${label} (${ex.headword})` }); continue;
+        skip(sup.partial ? `paradigm not implemented yet (${e.pos})` : `inferred ${lemma.paradigm}, DCC says ${label} (${ex.headword})`); continue;
       }
       if (inference.confidence !== 'high') {
         out.problems.push({ entry: e, reason: `low confidence: ${inference.reason ?? ''} (${ex.headword})` });

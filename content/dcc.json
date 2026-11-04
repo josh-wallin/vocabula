@@ -1,5 +1,42 @@
 [
   {
+    "id": "sum-irr-sum",
+    "headword": "sum, esse, fuī, futūrum",
+    "parts": [
+      "sum",
+      "esse",
+      "fuī",
+      "futūrum"
+    ],
+    "pos": "verb",
+    "paradigm": "irr:sum",
+    "gloss": "be, exist; fut. infin. often = fore, impf. subj. often = forem for essem",
+    "sources": [],
+    "dcc": {
+      "rank": 2,
+      "semanticGroup": "Life and Being",
+      "headword": "sum esse fuī futūrum"
+    }
+  },
+  {
+    "id": "possum-irr-possum",
+    "headword": "possum, posse, potuī",
+    "parts": [
+      "possum",
+      "posse",
+      "potuī"
+    ],
+    "pos": "verb",
+    "paradigm": "irr:possum",
+    "gloss": "be able",
+    "sources": [],
+    "dcc": {
+      "rank": 23,
+      "semanticGroup": "Making/Doing",
+      "headword": "possum posse potuī"
+    }
+  },
+  {
     "id": "magnus-adj12",
     "headword": "māgnus, māgna, māgnum",
     "parts": [
@@ -78,6 +115,50 @@
     }
   },
   {
+    "id": "facio-v3io",
+    "headword": "faciō, facere, fēcī, factum",
+    "parts": [
+      "faciō",
+      "facere",
+      "fēcī",
+      "factum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "do, make",
+    "sources": [],
+    "irregular": {
+      "pres.act.imp.2sg": "fac"
+    },
+    "dcc": {
+      "rank": 32,
+      "semanticGroup": "Making/Doing",
+      "headword": "faciō facere fēcī factum"
+    }
+  },
+  {
+    "id": "dico-v3",
+    "headword": "dīcō, dīcere, dīxī, dictum",
+    "parts": [
+      "dīcō",
+      "dīcere",
+      "dīxī",
+      "dictum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "say; causam dīcere, plead a case; diem dīcere, appoint a day",
+    "sources": [],
+    "irregular": {
+      "pres.act.imp.2sg": "dīc"
+    },
+    "dcc": {
+      "rank": 33,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "dīcō dīcere dīxī dictum"
+    }
+  },
+  {
     "id": "habeo-v2",
     "headword": "habeō, habēre, habuī, habitum",
     "parts": [
@@ -126,6 +207,13 @@
     "gloss": "god; goddess",
     "sources": [],
     "gender": "m",
+    "irregular": {
+      "voc.sg": "deus",
+      "nom.pl": "dī",
+      "voc.pl": "dī",
+      "dat.pl": "dīs",
+      "abl.pl": "dīs"
+    },
     "dcc": {
       "rank": 42,
       "semanticGroup": "Religion",
@@ -144,6 +232,10 @@
     "gloss": "god; goddess",
     "sources": [],
     "gender": "f",
+    "irregular": {
+      "dat.pl": "deābus",
+      "abl.pl": "deābus"
+    },
     "dcc": {
       "rank": 42,
       "semanticGroup": "Religion",
@@ -223,6 +315,24 @@
     }
   },
   {
+    "id": "rex-n3",
+    "headword": "rēx, rēgis, m.",
+    "parts": [
+      "rēx",
+      "rēgis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "king",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 60,
+      "semanticGroup": "The City",
+      "headword": "rēx rēgis m."
+    }
+  },
+  {
     "id": "locus-n2m",
     "headword": "locus, locī, m.",
     "parts": [
@@ -238,6 +348,43 @@
       "rank": 62,
       "semanticGroup": "Geography",
       "headword": "locus -ī m."
+    }
+  },
+  {
+    "id": "venio-v4",
+    "headword": "veniō, venīre, vēnī, ventum",
+    "parts": [
+      "veniō",
+      "venīre",
+      "vēnī",
+      "ventum"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "come",
+    "sources": [],
+    "dcc": {
+      "rank": 63,
+      "semanticGroup": "Motion",
+      "headword": "veniō venīre vēnī ventum"
+    }
+  },
+  {
+    "id": "pars-n3i",
+    "headword": "pars, partis, f.",
+    "parts": [
+      "pars",
+      "partis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "part",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 65,
+      "semanticGroup": "Measurement",
+      "headword": "pars partis f."
     }
   },
   {
@@ -259,6 +406,25 @@
     }
   },
   {
+    "id": "ago-v3",
+    "headword": "agō, agere, ēgī, āctum",
+    "parts": [
+      "agō",
+      "agere",
+      "ēgī",
+      "āctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "drive, do, act",
+    "sources": [],
+    "dcc": {
+      "rank": 69,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "agō agere ēgī āctum"
+    }
+  },
+  {
     "id": "terra-n1",
     "headword": "terra, terrae, f.",
     "parts": [
@@ -277,6 +443,42 @@
     }
   },
   {
+    "id": "pater-n3",
+    "headword": "pater, patris, m.",
+    "parts": [
+      "pater",
+      "patris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "father, ancestor",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 71,
+      "semanticGroup": "The Household",
+      "headword": "pater patris m."
+    }
+  },
+  {
+    "id": "corpus-n3n",
+    "headword": "corpus, corporis, n.",
+    "parts": [
+      "corpus",
+      "corporis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "body",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 75,
+      "semanticGroup": "The Body",
+      "headword": "corpus corporis n."
+    }
+  },
+  {
     "id": "totus-adj12",
     "headword": "tōtus, tōta, tōtum",
     "parts": [
@@ -292,6 +494,43 @@
       "rank": 78,
       "semanticGroup": "Measurement",
       "headword": "tōtus -a -um"
+    }
+  },
+  {
+    "id": "urbs-n3i",
+    "headword": "urbs, urbis, f.",
+    "parts": [
+      "urbs",
+      "urbis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "city",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 82,
+      "semanticGroup": "The City",
+      "headword": "urbs urbis f."
+    }
+  },
+  {
+    "id": "peto-v3",
+    "headword": "petō, petere, petīvī, petītum",
+    "parts": [
+      "petō",
+      "petere",
+      "petīvī",
+      "petītum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "seek, aim at",
+    "sources": [],
+    "dcc": {
+      "rank": 83,
+      "semanticGroup": "Motion",
+      "headword": "petō petere petīvī petītum"
     }
   },
   {
@@ -368,6 +607,42 @@
     }
   },
   {
+    "id": "homo-n3",
+    "headword": "homō, hominis, m.",
+    "parts": [
+      "homō",
+      "hominis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "human being",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 88,
+      "semanticGroup": "People",
+      "headword": "homō hominis m."
+    }
+  },
+  {
+    "id": "tempus-n3n",
+    "headword": "tempus, temporis, n.",
+    "parts": [
+      "tempus",
+      "temporis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "time",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 89,
+      "semanticGroup": "Time",
+      "headword": "tempus -oris n."
+    }
+  },
+  {
     "id": "primus-adj12",
     "headword": "prīmus, prīma, prīmum",
     "parts": [
@@ -386,6 +661,60 @@
     }
   },
   {
+    "id": "hostis-n3i",
+    "headword": "hostis, hostis, m./f.",
+    "parts": [
+      "hostis",
+      "hostis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "stranger, enemy",
+    "sources": [],
+    "dcc": {
+      "rank": 93,
+      "semanticGroup": "War and Peace",
+      "headword": "hostis -is m./f."
+    }
+  },
+  {
+    "id": "mors-n3i",
+    "headword": "mors, mortis, f.",
+    "parts": [
+      "mors",
+      "mortis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "death",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 95,
+      "semanticGroup": "Life and Being",
+      "headword": "mors mortis f."
+    }
+  },
+  {
+    "id": "arma-n2n",
+    "headword": "arma, armōrum, n.",
+    "parts": [
+      "arma",
+      "armōrum"
+    ],
+    "pos": "noun",
+    "paradigm": "n2n",
+    "gloss": "arms, weapons",
+    "sources": [],
+    "gender": "n",
+    "number": "pl",
+    "dcc": {
+      "rank": 98,
+      "semanticGroup": "War and Peace",
+      "headword": "arma -ōrum n. pl."
+    }
+  },
+  {
     "id": "superus-adj12",
     "headword": "superus, supera, superum",
     "parts": [
@@ -401,6 +730,44 @@
       "rank": 99,
       "semanticGroup": "Religion",
       "headword": "superus -a -um"
+    }
+  },
+  {
+    "id": "vinco-v3",
+    "headword": "vincō, vincere, vīcī, victum",
+    "parts": [
+      "vincō",
+      "vincere",
+      "vīcī",
+      "victum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "conquer",
+    "sources": [],
+    "dcc": {
+      "rank": 101,
+      "semanticGroup": "War and Peace",
+      "headword": "vincō vincere vīcī victum"
+    }
+  },
+  {
+    "id": "pono-v3",
+    "headword": "pōnō, pōnere, posuī, positum",
+    "parts": [
+      "pōnō",
+      "pōnere",
+      "posuī",
+      "positum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "put, place; put aside",
+    "sources": [],
+    "dcc": {
+      "rank": 102,
+      "semanticGroup": "Verbs of Transport",
+      "headword": "pōnō pōnere posuī positum"
     }
   },
   {
@@ -457,6 +824,114 @@
     }
   },
   {
+    "id": "credo-v3",
+    "headword": "crēdō, crēdere, crēdidī, crēditum",
+    "parts": [
+      "crēdō",
+      "crēdere",
+      "crēdidī",
+      "crēditum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "believe",
+    "sources": [],
+    "dcc": {
+      "rank": 109,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "crēdō crēdere crēdidī crēditum"
+    }
+  },
+  {
+    "id": "accipio-v3io",
+    "headword": "accipiō, accipere",
+    "parts": [
+      "accipiō",
+      "accipere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "receive",
+    "sources": [],
+    "dcc": {
+      "rank": 110,
+      "semanticGroup": "Social Life",
+      "headword": "accipiō -cipere -cēpī -ceptum"
+    }
+  },
+  {
+    "id": "virtus-n3",
+    "headword": "virtūs, virtūtis, f.",
+    "parts": [
+      "virtūs",
+      "virtūtis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "valor, manliness, virtue",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 111,
+      "semanticGroup": "Personality Traits/Characteristics",
+      "headword": "virtūs -ūtis f."
+    }
+  },
+  {
+    "id": "quaero-v3",
+    "headword": "quaerō, quaerere",
+    "parts": [
+      "quaerō",
+      "quaerere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "seek, inquire",
+    "sources": [],
+    "dcc": {
+      "rank": 113,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "quaerō -rere -sīvī -sītum"
+    }
+  },
+  {
+    "id": "mitto-v3",
+    "headword": "mittō, mittere, mīsī, missum",
+    "parts": [
+      "mittō",
+      "mittere",
+      "mīsī",
+      "missum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "send, let go",
+    "sources": [],
+    "dcc": {
+      "rank": 114,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "mittō mittere mīsī missum"
+    }
+  },
+  {
+    "id": "amor-n3",
+    "headword": "amor, amōris, m.",
+    "parts": [
+      "amor",
+      "amōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "love",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 116,
+      "semanticGroup": "Love",
+      "headword": "amor -ōris m."
+    }
+  },
+  {
     "id": "caelum-n2n",
     "headword": "caelum, caelī, n.",
     "parts": [
@@ -472,6 +947,24 @@
       "rank": 117,
       "semanticGroup": "Air and Fire",
       "headword": "caelum -ī n."
+    }
+  },
+  {
+    "id": "nox-n3i",
+    "headword": "nox, noctis, f.",
+    "parts": [
+      "nox",
+      "noctis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "night",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 119,
+      "semanticGroup": "Lengths of Time",
+      "headword": "nox noctis f."
     }
   },
   {
@@ -508,6 +1001,119 @@
       "rank": 122,
       "semanticGroup": "The City",
       "headword": "populus -ī m."
+    }
+  },
+  {
+    "id": "caput-n3n",
+    "headword": "caput, capitis, n.",
+    "parts": [
+      "caput",
+      "capitis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "head",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 124,
+      "semanticGroup": "The Body",
+      "headword": "caput capitis n."
+    }
+  },
+  {
+    "id": "mare-n3in",
+    "headword": "mare, maris, n.",
+    "parts": [
+      "mare",
+      "maris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3in",
+    "gloss": "sea",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 125,
+      "semanticGroup": "Earth and Water",
+      "headword": "mare -is n."
+    }
+  },
+  {
+    "id": "mater-n3",
+    "headword": "māter, mātris, f.",
+    "parts": [
+      "māter",
+      "mātris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "mother",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 127,
+      "semanticGroup": "The Household",
+      "headword": "māter mātris f."
+    }
+  },
+  {
+    "id": "capio-v3io",
+    "headword": "capiō, capere, cēpī, captum",
+    "parts": [
+      "capiō",
+      "capere",
+      "cēpī",
+      "captum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "seize",
+    "sources": [],
+    "dcc": {
+      "rank": 131,
+      "semanticGroup": "War and Peace",
+      "headword": "capiō capere cēpī captum"
+    }
+  },
+  {
+    "id": "duco-v3",
+    "headword": "dūcō, dūcere, dūxī, ductum",
+    "parts": [
+      "dūcō",
+      "dūcere",
+      "dūxī",
+      "ductum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "lead; uxōrem dūcere, marry",
+    "sources": [],
+    "irregular": {
+      "pres.act.imp.2sg": "dūc"
+    },
+    "dcc": {
+      "rank": 133,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "dūcō dūcere dūxī ductum"
+    }
+  },
+  {
+    "id": "nomen-n3n",
+    "headword": "nōmen, nōminis, n.",
+    "parts": [
+      "nōmen",
+      "nōminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "name",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 135,
+      "semanticGroup": "Social Life",
+      "headword": "nōmen -inis n."
     }
   },
   {
@@ -601,6 +1207,41 @@
     }
   },
   {
+    "id": "relinquo-v3",
+    "headword": "relinquō, relinquere",
+    "parts": [
+      "relinquō",
+      "relinquere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "abandon",
+    "sources": [],
+    "dcc": {
+      "rank": 144,
+      "semanticGroup": "Motion",
+      "headword": "relinquō -linquere -līquī -lictum"
+    }
+  },
+  {
+    "id": "os-n3n",
+    "headword": "ōs, ōris, n.",
+    "parts": [
+      "ōs",
+      "ōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "mouth, face",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 147,
+      "semanticGroup": "The Body",
+      "headword": "ōs ōris n."
+    }
+  },
+  {
     "id": "alter-adj12",
     "headword": "alter, altera, alterum",
     "parts": [
@@ -616,6 +1257,24 @@
       "rank": 148,
       "semanticGroup": "Measurement",
       "headword": "alter altera alterum"
+    }
+  },
+  {
+    "id": "ignis-n3i",
+    "headword": "ignis, ignis, m.",
+    "parts": [
+      "ignis",
+      "ignis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "fire",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 151,
+      "semanticGroup": "Air and Fire",
+      "headword": "ignis -is m."
     }
   },
   {
@@ -636,6 +1295,24 @@
     }
   },
   {
+    "id": "scelus-n3n",
+    "headword": "scelus, sceleris, n.",
+    "parts": [
+      "scelus",
+      "sceleris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "crime, sin",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 154,
+      "semanticGroup": "Justice",
+      "headword": "scelus -eris n."
+    }
+  },
+  {
     "id": "debeo-v2",
     "headword": "dēbeō, dēbēre, dēbuī, dēbitum",
     "parts": [
@@ -652,6 +1329,25 @@
       "rank": 155,
       "semanticGroup": "Business/Money",
       "headword": "dēbeō dēbēre dēbuī dēbitum"
+    }
+  },
+  {
+    "id": "vivo-v3",
+    "headword": "vīvō, vīvere, vīxī, vīctum",
+    "parts": [
+      "vīvō",
+      "vīvere",
+      "vīxī",
+      "vīctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "live",
+    "sources": [],
+    "dcc": {
+      "rank": 156,
+      "semanticGroup": "Life and Being",
+      "headword": "vīvō vīvere vīxī vīctum"
     }
   },
   {
@@ -725,6 +1421,24 @@
     }
   },
   {
+    "id": "miles-n3",
+    "headword": "mīles, mīlitis, m.",
+    "parts": [
+      "mīles",
+      "mīlitis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "soldier",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 161,
+      "semanticGroup": "War and Peace",
+      "headword": "mīles -itis m."
+    }
+  },
+  {
     "id": "medius-adj12",
     "headword": "medius, media, medium",
     "parts": [
@@ -740,6 +1454,23 @@
       "rank": 162,
       "semanticGroup": "Place",
       "headword": "medius -a -um"
+    }
+  },
+  {
+    "id": "audio-v4",
+    "headword": "audiō, audīre",
+    "parts": [
+      "audiō",
+      "audīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "hear, listen to",
+    "sources": [],
+    "dcc": {
+      "rank": 165,
+      "semanticGroup": "Other Senses",
+      "headword": "audiō -īre -īvī/-iī -ītum"
     }
   },
   {
@@ -797,6 +1528,94 @@
     }
   },
   {
+    "id": "vox-n3",
+    "headword": "vōx, vōcis, f.",
+    "parts": [
+      "vōx",
+      "vōcis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "voice, utterance",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 169,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "vōx vōcis f."
+    }
+  },
+  {
+    "id": "genus-n3n",
+    "headword": "genus, generis, n.",
+    "parts": [
+      "genus",
+      "generis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "origin, lineage, kind",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 170,
+      "semanticGroup": "The Household",
+      "headword": "genus generis n."
+    }
+  },
+  {
+    "id": "scio-v4",
+    "headword": "sciō, scīre",
+    "parts": [
+      "sciō",
+      "scīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "know",
+    "sources": [],
+    "dcc": {
+      "rank": 172,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "sciō -īre -īvī/-iī -ītum"
+    }
+  },
+  {
+    "id": "mens-n3i",
+    "headword": "mēns, mentis, f.",
+    "parts": [
+      "mēns",
+      "mentis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "mind",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 173,
+      "semanticGroup": "The Body",
+      "headword": "mēns mentis f."
+    }
+  },
+  {
+    "id": "reddo-v3",
+    "headword": "reddō, reddere",
+    "parts": [
+      "reddō",
+      "reddere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "return, give back",
+    "sources": [],
+    "dcc": {
+      "rank": 174,
+      "semanticGroup": "Verbs of Transport",
+      "headword": "reddō -dere -didī -ditum"
+    }
+  },
+  {
     "id": "solus-adj12",
     "headword": "sōlus, sōla, sōlum",
     "parts": [
@@ -812,6 +1631,25 @@
       "rank": 176,
       "semanticGroup": "Measurement",
       "headword": "sōlus -a -um"
+    }
+  },
+  {
+    "id": "fugio-v3io",
+    "headword": "fugiō, fugere, fūgī, fugitum",
+    "parts": [
+      "fugiō",
+      "fugere",
+      "fūgī",
+      "fugitum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "flee, escape",
+    "sources": [],
+    "dcc": {
+      "rank": 177,
+      "semanticGroup": "Travel",
+      "headword": "fugiō fugere fūgī fugitum"
     }
   },
   {
@@ -851,6 +1689,24 @@
     }
   },
   {
+    "id": "mos-n3",
+    "headword": "mōs, mōris, m.",
+    "parts": [
+      "mōs",
+      "mōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "custom, habit; (pl.) character",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 181,
+      "semanticGroup": "Social Life",
+      "headword": "mōs mōris m."
+    }
+  },
+  {
     "id": "beneficium-n2n",
     "headword": "beneficium, beneficiī, n.",
     "parts": [
@@ -866,6 +1722,24 @@
       "rank": 182,
       "semanticGroup": "Social Life",
       "headword": "beneficium -ī n."
+    }
+  },
+  {
+    "id": "pectus-n3n",
+    "headword": "pectus, pectoris, n.",
+    "parts": [
+      "pectus",
+      "pectoris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "chest, breast",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 183,
+      "semanticGroup": "The Body",
+      "headword": "pectus -oris n."
     }
   },
   {
@@ -887,6 +1761,24 @@
     }
   },
   {
+    "id": "ira-n1",
+    "headword": "īra, īrae, f.",
+    "parts": [
+      "īra",
+      "īrae"
+    ],
+    "pos": "noun",
+    "paradigm": "n1",
+    "gloss": "wrath, anger",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 187,
+      "semanticGroup": "Emotions",
+      "headword": "īra irae f."
+    }
+  },
+  {
     "id": "verbum-n2n",
     "headword": "verbum, verbī, n.",
     "parts": [
@@ -902,6 +1794,23 @@
       "rank": 188,
       "semanticGroup": "Writing/Poetry",
       "headword": "verbum -ī n."
+    }
+  },
+  {
+    "id": "parens-n3",
+    "headword": "parēns, parentis, m./f.",
+    "parts": [
+      "parēns",
+      "parentis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "parent",
+    "sources": [],
+    "dcc": {
+      "rank": 190,
+      "semanticGroup": "The Household",
+      "headword": "parēns -ntis m./f."
     }
   },
   {
@@ -939,6 +1848,42 @@
       "rank": 192,
       "semanticGroup": "Motion",
       "headword": "moveō -ēre mōvī mōtum"
+    }
+  },
+  {
+    "id": "dolor-n3",
+    "headword": "dolor, dolōris, m.",
+    "parts": [
+      "dolor",
+      "dolōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "pain, grief",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 193,
+      "semanticGroup": "Emotions",
+      "headword": "dolor -ōris m."
+    }
+  },
+  {
+    "id": "gens-n3i",
+    "headword": "gēns, gentis, f.",
+    "parts": [
+      "gēns",
+      "gentis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "family, clan",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 194,
+      "semanticGroup": "The Household",
+      "headword": "gēns gentis f."
     }
   },
   {
@@ -996,6 +1941,24 @@
     }
   },
   {
+    "id": "pes-n3",
+    "headword": "pēs, pedis, m.",
+    "parts": [
+      "pēs",
+      "pedis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "foot",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 199,
+      "semanticGroup": "The Body",
+      "headword": "pēs pedis m."
+    }
+  },
+  {
     "id": "imperium-n2n",
     "headword": "imperium, imperiī, n.",
     "parts": [
@@ -1011,6 +1974,24 @@
       "rank": 200,
       "semanticGroup": "War and Peace",
       "headword": "imperium -ī n."
+    }
+  },
+  {
+    "id": "labor-n3",
+    "headword": "labor, labōris, m.",
+    "parts": [
+      "labor",
+      "labōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "toil, exertion",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 201,
+      "semanticGroup": "Business/Money",
+      "headword": "labor -ōris m."
     }
   },
   {
@@ -1050,6 +2031,25 @@
     }
   },
   {
+    "id": "cado-v3",
+    "headword": "cadō, cadere, cecidī, cāsum",
+    "parts": [
+      "cadō",
+      "cadere",
+      "cecidī",
+      "cāsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "fall, be killed",
+    "sources": [],
+    "dcc": {
+      "rank": 210,
+      "semanticGroup": "Violence",
+      "headword": "cadō cadere cecidī cāsum"
+    }
+  },
+  {
     "id": "natus-n2m",
     "headword": "nātus, nātī, m.",
     "parts": [
@@ -1068,6 +2068,43 @@
     }
   },
   {
+    "id": "traho-v3",
+    "headword": "trahō, trahere, trāxī, trāctum",
+    "parts": [
+      "trahō",
+      "trahere",
+      "trāxī",
+      "trāctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "drag, draw",
+    "sources": [],
+    "dcc": {
+      "rank": 213,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "trahō trahere trāxī trāctum"
+    }
+  },
+  {
+    "id": "sanguis-n3",
+    "headword": "sanguis, sanguinis, m.",
+    "parts": [
+      "sanguis",
+      "sanguinis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "blood",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 214,
+      "semanticGroup": "The Body",
+      "headword": "sanguis -inis m."
+    }
+  },
+  {
     "id": "consilium-n2n",
     "headword": "cōnsilium, cōnsiliī, n.",
     "parts": [
@@ -1083,6 +2120,23 @@
       "rank": 217,
       "semanticGroup": "The City",
       "headword": "cōnsilium -ī n."
+    }
+  },
+  {
+    "id": "coniunx-n3",
+    "headword": "coniunx, coniugis, m./f.",
+    "parts": [
+      "coniunx",
+      "coniugis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "spouse, husband, wife",
+    "sources": [],
+    "dcc": {
+      "rank": 218,
+      "semanticGroup": "The Household",
+      "headword": "coniunx coniugis m./f."
     }
   },
   {
@@ -1157,6 +2211,24 @@
     }
   },
   {
+    "id": "frater-n3",
+    "headword": "frāter, frātris, m.",
+    "parts": [
+      "frāter",
+      "frātris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "brother",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 225,
+      "semanticGroup": "The Household",
+      "headword": "frāter frātris m."
+    }
+  },
+  {
     "id": "malus-adj12",
     "headword": "malus, mala, malum",
     "parts": [
@@ -1208,6 +2280,24 @@
       "rank": 229,
       "semanticGroup": "Justice",
       "headword": "līber lībera līberum"
+    }
+  },
+  {
+    "id": "iter-n3n",
+    "headword": "iter, itineris, n.",
+    "parts": [
+      "iter",
+      "itineris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "journey, route",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 230,
+      "semanticGroup": "Travel",
+      "headword": "iter itineris n."
     }
   },
   {
@@ -1265,6 +2355,79 @@
     }
   },
   {
+    "id": "finis-n3i",
+    "headword": "fīnis, fīnis, m.",
+    "parts": [
+      "fīnis",
+      "fīnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "end, boundary",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 236,
+      "semanticGroup": "Geography",
+      "headword": "fīnis -is m."
+    }
+  },
+  {
+    "id": "gero-v3",
+    "headword": "gerō, gerere, gessī, gestum",
+    "parts": [
+      "gerō",
+      "gerere",
+      "gessī",
+      "gestum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "bear, manage; bellum gerere, wage war",
+    "sources": [],
+    "dcc": {
+      "rank": 237,
+      "semanticGroup": "War and Peace",
+      "headword": "gerō gerere gessī gestum"
+    }
+  },
+  {
+    "id": "dux-n3",
+    "headword": "dux, ducis, m./f.",
+    "parts": [
+      "dux",
+      "ducis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "leader, general",
+    "sources": [],
+    "dcc": {
+      "rank": 239,
+      "semanticGroup": "War and Peace",
+      "headword": "dux ducis m./f."
+    }
+  },
+  {
+    "id": "premo-v3",
+    "headword": "premō, premere, pressī, pressum",
+    "parts": [
+      "premō",
+      "premere",
+      "pressī",
+      "pressum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "press, pursue, overwhelm",
+    "sources": [],
+    "dcc": {
+      "rank": 240,
+      "semanticGroup": "War and Peace",
+      "headword": "premō premere pressī pressum"
+    }
+  },
+  {
     "id": "dominus-n2m",
     "headword": "dominus, dominī, m.",
     "parts": [
@@ -1301,6 +2464,24 @@
     }
   },
   {
+    "id": "mons-n3i",
+    "headword": "mōns, montis, m.",
+    "parts": [
+      "mōns",
+      "montis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "mountain",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 242,
+      "semanticGroup": "Geography",
+      "headword": "mōns montis m."
+    }
+  },
+  {
     "id": "saevus-adj12",
     "headword": "saevus, saeva, saevum",
     "parts": [
@@ -1316,6 +2497,24 @@
       "rank": 244,
       "semanticGroup": "Personality Traits/Characteristics",
       "headword": "saevus -a -um"
+    }
+  },
+  {
+    "id": "litus-n3n",
+    "headword": "lītus, lītoris, n.",
+    "parts": [
+      "lītus",
+      "lītoris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "shore",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 245,
+      "semanticGroup": "Geography",
+      "headword": "lītus -oris n."
     }
   },
   {
@@ -1372,6 +2571,43 @@
     }
   },
   {
+    "id": "cogo-v3",
+    "headword": "cōgō, cōgere, coēgī, coāctum",
+    "parts": [
+      "cōgō",
+      "cōgere",
+      "coēgī",
+      "coāctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "drive together; compel",
+    "sources": [],
+    "dcc": {
+      "rank": 250,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "cōgō cōgere coēgī coāctum"
+    }
+  },
+  {
+    "id": "carmen-n3n",
+    "headword": "carmen, carminis, n.",
+    "parts": [
+      "carmen",
+      "carminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "song",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 254,
+      "semanticGroup": "Writing/Poetry",
+      "headword": "carmen -inis n."
+    }
+  },
+  {
     "id": "telum-n2n",
     "headword": "tēlum, tēlī, n.",
     "parts": [
@@ -1390,6 +2626,24 @@
     }
   },
   {
+    "id": "ratio-n3",
+    "headword": "ratiō, ratiōnis, f.",
+    "parts": [
+      "ratiō",
+      "ratiōnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "method, plan, reason",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 256,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "ratiō -ōnis f."
+    }
+  },
+  {
     "id": "umbra-n1",
     "headword": "umbra, umbrae, f.",
     "parts": [
@@ -1405,6 +2659,24 @@
       "rank": 257,
       "semanticGroup": "Vision",
       "headword": "umbra -ae f."
+    }
+  },
+  {
+    "id": "ars-n3i",
+    "headword": "ars, artis, f.",
+    "parts": [
+      "ars",
+      "artis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "skill",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 258,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "ars artis f."
     }
   },
   {
@@ -1462,6 +2734,24 @@
     }
   },
   {
+    "id": "lex-n3",
+    "headword": "lēx, lēgis, f.",
+    "parts": [
+      "lēx",
+      "lēgis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "law",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 264,
+      "semanticGroup": "Justice",
+      "headword": "lēx lēgis f."
+    }
+  },
+  {
     "id": "periculum-n2n",
     "headword": "perīculum, perīculī, n.",
     "parts": [
@@ -1510,6 +2800,7 @@
     "paradigm": "v2",
     "gloss": "dare, be eager",
     "sources": [],
+    "notes": "Semi-deponent: perfect ausus sum",
     "dcc": {
       "rank": 270,
       "semanticGroup": "Personality Traits/Characteristics",
@@ -1532,6 +2823,61 @@
       "rank": 272,
       "semanticGroup": "Earth and Water",
       "headword": "aqua -ae f."
+    }
+  },
+  {
+    "id": "rapio-v3io",
+    "headword": "rapiō, rapere, rapuī, raptum",
+    "parts": [
+      "rapiō",
+      "rapere",
+      "rapuī",
+      "raptum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "seize, tear away",
+    "sources": [],
+    "dcc": {
+      "rank": 273,
+      "semanticGroup": "Violence",
+      "headword": "rapiō rapere rapuī raptum"
+    }
+  },
+  {
+    "id": "munus-n3n",
+    "headword": "mūnus, mūneris, n.",
+    "parts": [
+      "mūnus",
+      "mūneris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "gift, offering; duty, obligation; (pl.) gladiatorial show",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 276,
+      "semanticGroup": "Social Life",
+      "headword": "mūnus mūneris n."
+    }
+  },
+  {
+    "id": "iuvenis-n3",
+    "headword": "iuvenis, iuvenis, m.",
+    "parts": [
+      "iuvenis",
+      "iuvenis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "youth",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 277,
+      "semanticGroup": "People",
+      "headword": "iuvenis -is m."
     }
   },
   {
@@ -1568,6 +2914,24 @@
       "rank": 282,
       "semanticGroup": "Pronouns/Interrogatives",
       "headword": "vester vestra vestrum"
+    }
+  },
+  {
+    "id": "flumen-n3n",
+    "headword": "flūmen, flūminis, n.",
+    "parts": [
+      "flūmen",
+      "flūminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "stream, river",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 283,
+      "semanticGroup": "Earth and Water",
+      "headword": "flūmen -inis n."
     }
   },
   {
@@ -1608,6 +2972,25 @@
     }
   },
   {
+    "id": "verto-v3",
+    "headword": "vertō, vertere, vertī, versum",
+    "parts": [
+      "vertō",
+      "vertere",
+      "vertī",
+      "versum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "turn",
+    "sources": [],
+    "dcc": {
+      "rank": 288,
+      "semanticGroup": "Motion",
+      "headword": "vertō vertere vertī versum"
+    }
+  },
+  {
     "id": "servo-v1",
     "headword": "servō, servāre",
     "parts": [
@@ -1622,6 +3005,24 @@
       "rank": 289,
       "semanticGroup": "The Household",
       "headword": "servō -āre"
+    }
+  },
+  {
+    "id": "honor-n3",
+    "headword": "honor, honōris, m.",
+    "parts": [
+      "honor",
+      "honōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "honor, glory; office, post",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 290,
+      "semanticGroup": "The City",
+      "headword": "honor -ōris m."
     }
   },
   {
@@ -1661,6 +3062,25 @@
     }
   },
   {
+    "id": "tollo-v3",
+    "headword": "tollō, tollere, sustulī, sublātum",
+    "parts": [
+      "tollō",
+      "tollere",
+      "sustulī",
+      "sublātum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "raise up, destroy",
+    "sources": [],
+    "dcc": {
+      "rank": 293,
+      "semanticGroup": "Violence",
+      "headword": "tollō tollere sustulī sublātum"
+    }
+  },
+  {
     "id": "nego-v1",
     "headword": "negō, negāre",
     "parts": [
@@ -1675,6 +3095,41 @@
       "rank": 294,
       "semanticGroup": "Speech/Oratory",
       "headword": "negō -āre"
+    }
+  },
+  {
+    "id": "eques-n3",
+    "headword": "eques, equitis, m.",
+    "parts": [
+      "eques",
+      "equitis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "horseman, knight",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 296,
+      "semanticGroup": "War and Peace",
+      "headword": "eques equitis m."
+    }
+  },
+  {
+    "id": "trado-v3",
+    "headword": "trādō, trādere",
+    "parts": [
+      "trādō",
+      "trādere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "hand over, yield",
+    "sources": [],
+    "dcc": {
+      "rank": 297,
+      "semanticGroup": "Business/Money",
+      "headword": "trādō -dere -didī -ditum"
     }
   },
   {
@@ -1696,6 +3151,43 @@
     }
   },
   {
+    "id": "lux-n3",
+    "headword": "lūx, lūcis, f.",
+    "parts": [
+      "lūx",
+      "lūcis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "light of day",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 299,
+      "semanticGroup": "Air and Fire",
+      "headword": "lūx lūcis f."
+    }
+  },
+  {
+    "id": "sentio-v4",
+    "headword": "sentiō, sentīre, sēnsī, sēnsum",
+    "parts": [
+      "sentiō",
+      "sentīre",
+      "sēnsī",
+      "sēnsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "perceive, feel, hear, see",
+    "sources": [],
+    "dcc": {
+      "rank": 302,
+      "semanticGroup": "Other Senses",
+      "headword": "sentiō sentīre sēnsī sēnsum"
+    }
+  },
+  {
     "id": "aurum-n2n",
     "headword": "aurum, aurī, n.",
     "parts": [
@@ -1711,6 +3203,25 @@
       "rank": 303,
       "semanticGroup": "Business/Money",
       "headword": "aurum -ī n."
+    }
+  },
+  {
+    "id": "cedo-v3",
+    "headword": "cēdō, cēdere, cessī, cessum",
+    "parts": [
+      "cēdō",
+      "cēdere",
+      "cessī",
+      "cessum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "go, move; yield",
+    "sources": [],
+    "dcc": {
+      "rank": 304,
+      "semanticGroup": "War and Peace",
+      "headword": "cēdō cēdere cessī cessum"
     }
   },
   {
@@ -1732,6 +3243,42 @@
     }
   },
   {
+    "id": "aetas-n3",
+    "headword": "aetās, aetātis, f.",
+    "parts": [
+      "aetās",
+      "aetātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "age, time of life",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 308,
+      "semanticGroup": "Lengths of Time",
+      "headword": "aetās -tātis f."
+    }
+  },
+  {
+    "id": "ius-n3n",
+    "headword": "iūs, iūris, n.",
+    "parts": [
+      "iūs",
+      "iūris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "right, justice, law",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 314,
+      "semanticGroup": "Justice",
+      "headword": "iūs iūris n."
+    }
+  },
+  {
     "id": "muto-v1",
     "headword": "mūtō, mūtāre",
     "parts": [
@@ -1746,6 +3293,112 @@
       "rank": 315,
       "semanticGroup": "Making/Doing",
       "headword": "mūtō -āre"
+    }
+  },
+  {
+    "id": "invenio-v4",
+    "headword": "inveniō, invenīre",
+    "parts": [
+      "inveniō",
+      "invenīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "find; discover",
+    "sources": [],
+    "dcc": {
+      "rank": 316,
+      "semanticGroup": "Travel",
+      "headword": "inveniō -venīre -vēnī -ventum"
+    }
+  },
+  {
+    "id": "ops-n3",
+    "headword": "ops, opis, f.",
+    "parts": [
+      "ops",
+      "opis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "assistance, resources",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 318,
+      "semanticGroup": "Business/Money",
+      "headword": "ops opis f."
+    }
+  },
+  {
+    "id": "recipio-v3io",
+    "headword": "recipiō, recipere",
+    "parts": [
+      "recipiō",
+      "recipere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "take back, receive; sē recipere, betake oneself, go",
+    "sources": [],
+    "dcc": {
+      "rank": 319,
+      "semanticGroup": "Verbs of Transport",
+      "headword": "recipiō -cipere -cēpī -ceptum"
+    }
+  },
+  {
+    "id": "sol-n3",
+    "headword": "sōl, sōlis, m.",
+    "parts": [
+      "sōl",
+      "sōlis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "sun",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 320,
+      "semanticGroup": "Air and Fire",
+      "headword": "sōl sōlis m."
+    }
+  },
+  {
+    "id": "consul-n3",
+    "headword": "cōnsul, cōnsulis, m.",
+    "parts": [
+      "cōnsul",
+      "cōnsulis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "consul",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 321,
+      "semanticGroup": "The City",
+      "headword": "cōnsul -ulis m."
+    }
+  },
+  {
+    "id": "orbis-n3i",
+    "headword": "orbis, orbis, m.",
+    "parts": [
+      "orbis",
+      "orbis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "circle; orbis terrārum: world",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 322,
+      "semanticGroup": "Geography",
+      "headword": "orbis -is m."
     }
   },
   {
@@ -1785,6 +3438,25 @@
     }
   },
   {
+    "id": "solvo-v3",
+    "headword": "solvō, solvere, solvī, solūtum",
+    "parts": [
+      "solvō",
+      "solvere",
+      "solvī",
+      "solūtum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "release, set sail",
+    "sources": [],
+    "dcc": {
+      "rank": 325,
+      "semanticGroup": "Travel",
+      "headword": "solvō solvere solvī solūtum"
+    }
+  },
+  {
     "id": "vitium-n2n",
     "headword": "vitium, vitiī, n.",
     "parts": [
@@ -1803,6 +3475,24 @@
     }
   },
   {
+    "id": "vulnus-n3n",
+    "headword": "vulnus, vulneris, n.",
+    "parts": [
+      "vulnus",
+      "vulneris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "wound",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 327,
+      "semanticGroup": "Violence",
+      "headword": "vulnus -eris n."
+    }
+  },
+  {
     "id": "copia-n1",
     "headword": "cōpia, cōpiae, f.",
     "parts": [
@@ -1818,6 +3508,43 @@
       "rank": 331,
       "semanticGroup": "War and Peace",
       "headword": "cōpia -ae f."
+    }
+  },
+  {
+    "id": "opus-n3n",
+    "headword": "opus, operis, n.",
+    "parts": [
+      "opus",
+      "operis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "work",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 332,
+      "semanticGroup": "Business/Money",
+      "headword": "opus operis n."
+    }
+  },
+  {
+    "id": "colo-v3",
+    "headword": "colō, colere, coluī, cultum",
+    "parts": [
+      "colō",
+      "colere",
+      "coluī",
+      "cultum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "inhabit, cultivate",
+    "sources": [],
+    "dcc": {
+      "rank": 333,
+      "semanticGroup": "Animals/Plants",
+      "headword": "colō colere coluī cultum"
     }
   },
   {
@@ -1857,6 +3584,24 @@
     }
   },
   {
+    "id": "tellus-n3",
+    "headword": "tellūs, tellūris, f.",
+    "parts": [
+      "tellūs",
+      "tellūris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "earth",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 337,
+      "semanticGroup": "Earth and Water",
+      "headword": "tellus tellūris f."
+    }
+  },
+  {
     "id": "numerus-n2m",
     "headword": "numerus, numerī, m.",
     "parts": [
@@ -1872,6 +3617,41 @@
       "rank": 338,
       "semanticGroup": "Measurement",
       "headword": "numerus -ī m."
+    }
+  },
+  {
+    "id": "cognosco-v3",
+    "headword": "cōgnōscō, cōgnōscere",
+    "parts": [
+      "cōgnōscō",
+      "cōgnōscere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "learn, understand",
+    "sources": [],
+    "dcc": {
+      "rank": 339,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "cōgnōscō -gnōscere -gnōvī -gnitum"
+    }
+  },
+  {
+    "id": "victor-n3",
+    "headword": "victor, victōris, m.",
+    "parts": [
+      "victor",
+      "victōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "conqueror",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 340,
+      "semanticGroup": "War and Peace",
+      "headword": "victor -ōris m."
     }
   },
   {
@@ -1893,6 +3673,62 @@
     }
   },
   {
+    "id": "frango-v3",
+    "headword": "frangō, frangere, frēgī, frāctum",
+    "parts": [
+      "frangō",
+      "frangere",
+      "frēgī",
+      "frāctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "break, shatter",
+    "sources": [],
+    "dcc": {
+      "rank": 345,
+      "semanticGroup": "Violence",
+      "headword": "frangō frangere frēgī frāctum"
+    }
+  },
+  {
+    "id": "civitas-n3",
+    "headword": "cīvitās, cīvitātis, f.",
+    "parts": [
+      "cīvitās",
+      "cīvitātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "citizenship, state",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 346,
+      "semanticGroup": "The City",
+      "headword": "cīvitās -ātis f."
+    }
+  },
+  {
+    "id": "nosco-v3",
+    "headword": "nōscō, nōscere, nōvī, nōtum",
+    "parts": [
+      "nōscō",
+      "nōscere",
+      "nōvī",
+      "nōtum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "learn, know",
+    "sources": [],
+    "dcc": {
+      "rank": 347,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "nōscō nōscere nōvī nōtum"
+    }
+  },
+  {
     "id": "proelium-n2n",
     "headword": "proelium, proeliī, n.",
     "parts": [
@@ -1911,6 +3747,23 @@
     }
   },
   {
+    "id": "eripio-v3io",
+    "headword": "ēripiō, ēripere",
+    "parts": [
+      "ēripiō",
+      "ēripere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "snatch away, rescue, save",
+    "sources": [],
+    "dcc": {
+      "rank": 349,
+      "semanticGroup": "Verbs of Transport",
+      "headword": "ēripiō -ripere -ripuī -reptum"
+    }
+  },
+  {
     "id": "mundus-n2m",
     "headword": "mundus, mundī, m.",
     "parts": [
@@ -1926,6 +3779,24 @@
       "rank": 350,
       "semanticGroup": "Earth and Water",
       "headword": "mundus -ī m."
+    }
+  },
+  {
+    "id": "navis-n3i",
+    "headword": "nāvis, nāvis, f.",
+    "parts": [
+      "nāvis",
+      "nāvis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "ship",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 353,
+      "semanticGroup": "Travel",
+      "headword": "nāvis -is f."
     }
   },
   {
@@ -1984,6 +3855,42 @@
     }
   },
   {
+    "id": "agmen-n3n",
+    "headword": "āgmen, āgminis, n.",
+    "parts": [
+      "āgmen",
+      "āgminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "line of march",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 358,
+      "semanticGroup": "War and Peace",
+      "headword": "āgmen -minis n."
+    }
+  },
+  {
+    "id": "sidus-n3n",
+    "headword": "sīdus, sīderis, n.",
+    "parts": [
+      "sīdus",
+      "sīderis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "star, constellation",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 359,
+      "semanticGroup": "Air and Fire",
+      "headword": "sīdus -eris n."
+    }
+  },
+  {
     "id": "gloria-n1",
     "headword": "glōria, glōriae, f.",
     "parts": [
@@ -2038,6 +3945,24 @@
     }
   },
   {
+    "id": "auris-n3i",
+    "headword": "auris, auris, f.",
+    "parts": [
+      "auris",
+      "auris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "ear",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 366,
+      "semanticGroup": "The Body",
+      "headword": "auris -is f."
+    }
+  },
+  {
     "id": "alienus-adj12",
     "headword": "aliēnus, aliēna, aliēnum",
     "parts": [
@@ -2070,6 +3995,43 @@
       "rank": 369,
       "semanticGroup": "Other Senses",
       "headword": "taceō -ēre -uī -itum"
+    }
+  },
+  {
+    "id": "legio-n3",
+    "headword": "legiō, legiōnis, f.",
+    "parts": [
+      "legiō",
+      "legiōnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "legion",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 370,
+      "semanticGroup": "War and Peace",
+      "headword": "legiō -ōnis f."
+    }
+  },
+  {
+    "id": "ostendo-v3",
+    "headword": "ostendō, ostendere, ostendī, ostentum",
+    "parts": [
+      "ostendō",
+      "ostendere",
+      "ostendī",
+      "ostentum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "show, hold out",
+    "sources": [],
+    "dcc": {
+      "rank": 371,
+      "semanticGroup": "Other Senses",
+      "headword": "ostendō ostendere ostendī ostentum"
     }
   },
   {
@@ -2109,6 +4071,61 @@
     }
   },
   {
+    "id": "lumen-n3n",
+    "headword": "lūmen, lūminis, n.",
+    "parts": [
+      "lūmen",
+      "lūminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "light",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 375,
+      "semanticGroup": "Vision",
+      "headword": "lūmen luminis n."
+    }
+  },
+  {
+    "id": "tego-v3",
+    "headword": "tegō, tegere, tēxī, tēctum",
+    "parts": [
+      "tegō",
+      "tegere",
+      "tēxī",
+      "tēctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "cover, conceal",
+    "sources": [],
+    "dcc": {
+      "rank": 376,
+      "semanticGroup": "Deception",
+      "headword": "tegō tegere tēxī tēctum"
+    }
+  },
+  {
+    "id": "voluptas-n3",
+    "headword": "voluptās, voluptātis, f.",
+    "parts": [
+      "voluptās",
+      "voluptātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "pleasure, enjoyment",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 378,
+      "semanticGroup": "Social Life",
+      "headword": "voluptās -ātis f."
+    }
+  },
+  {
     "id": "gratia-n1",
     "headword": "grātia, grātiae, f.",
     "parts": [
@@ -2142,6 +4159,24 @@
       "rank": 381,
       "semanticGroup": "Justice",
       "headword": "iniūria -ae f.:"
+    }
+  },
+  {
+    "id": "latus-n3n",
+    "headword": "latus, lateris, n.",
+    "parts": [
+      "latus",
+      "lateris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "side, flank",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 382,
+      "semanticGroup": "The Body",
+      "headword": "latus -eris n."
     }
   },
   {
@@ -2199,6 +4234,43 @@
     }
   },
   {
+    "id": "pax-n3",
+    "headword": "pāx, pācis, f.",
+    "parts": [
+      "pāx",
+      "pācis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "peace",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 388,
+      "semanticGroup": "War and Peace",
+      "headword": "pāx pācis f."
+    }
+  },
+  {
+    "id": "cano-v3",
+    "headword": "canō, canere, cecinī, cantum",
+    "parts": [
+      "canō",
+      "canere",
+      "cecinī",
+      "cantum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "sing",
+    "sources": [],
+    "dcc": {
+      "rank": 389,
+      "semanticGroup": "Writing/Poetry",
+      "headword": "canō canere cecinī cantum"
+    }
+  },
+  {
     "id": "iuvo-v1",
     "headword": "iuvō, iuvāre, iūvī, iūtum",
     "parts": [
@@ -2236,6 +4308,25 @@
     }
   },
   {
+    "id": "claudo-v3",
+    "headword": "claudō, claudere, clausī, clausum",
+    "parts": [
+      "claudō",
+      "claudere",
+      "clausī",
+      "clausum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "close, shut",
+    "sources": [],
+    "dcc": {
+      "rank": 392,
+      "semanticGroup": "The House",
+      "headword": "claudō claudere clausī clausum"
+    }
+  },
+  {
     "id": "doceo-v2",
     "headword": "doceō, docēre",
     "parts": [
@@ -2250,6 +4341,23 @@
       "rank": 393,
       "semanticGroup": "Education/Knowledge",
       "headword": "doceō -ēre -uī doctum"
+    }
+  },
+  {
+    "id": "excipio-v3io",
+    "headword": "excipiō, excipere",
+    "parts": [
+      "excipiō",
+      "excipere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "take out",
+    "sources": [],
+    "dcc": {
+      "rank": 394,
+      "semanticGroup": "Verbs of Transport",
+      "headword": "excipiō -cipere -cēpī -ceptum"
     }
   },
   {
@@ -2324,6 +4432,24 @@
     }
   },
   {
+    "id": "sedes-n3",
+    "headword": "sēdēs, sēdis, f.",
+    "parts": [
+      "sēdēs",
+      "sēdis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "seat, abode, habitation",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 403,
+      "semanticGroup": "The House",
+      "headword": "sēdēs -is f."
+    }
+  },
+  {
     "id": "coma-n1",
     "headword": "coma, comae, f.",
     "parts": [
@@ -2379,6 +4505,23 @@
     }
   },
   {
+    "id": "pervenio-v4",
+    "headword": "perveniō, pervenīre",
+    "parts": [
+      "perveniō",
+      "pervenīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "arrive, reach",
+    "sources": [],
+    "dcc": {
+      "rank": 409,
+      "semanticGroup": "Travel",
+      "headword": "perveniō -venīre -vēnī -ventum"
+    }
+  },
+  {
     "id": "verus-adj12",
     "headword": "vērus, vēra, vērum",
     "parts": [
@@ -2397,6 +4540,96 @@
     }
   },
   {
+    "id": "incipio-v3io",
+    "headword": "incipiō, incipere",
+    "parts": [
+      "incipiō",
+      "incipere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "begin",
+    "sources": [],
+    "dcc": {
+      "rank": 411,
+      "semanticGroup": "Time",
+      "headword": "incipiō -cipere -cēpī -ceptum"
+    }
+  },
+  {
+    "id": "parco-v3",
+    "headword": "parcō, parcere, pepercī, parsum",
+    "parts": [
+      "parcō",
+      "parcere",
+      "pepercī",
+      "parsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "spare, be sparing of (+ dat.)",
+    "sources": [],
+    "dcc": {
+      "rank": 412,
+      "semanticGroup": "War and Peace",
+      "headword": "parcō parcere pepercī parsum"
+    }
+  },
+  {
+    "id": "vestis-n3i",
+    "headword": "vestis, vestis, f.",
+    "parts": [
+      "vestis",
+      "vestis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "garment, robe, clothing",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 413,
+      "semanticGroup": "Life and Being",
+      "headword": "vestis -is f."
+    }
+  },
+  {
+    "id": "caedes-n3i",
+    "headword": "caedēs, caedis, f.",
+    "parts": [
+      "caedēs",
+      "caedis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "killing, slaughter",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 415,
+      "semanticGroup": "Violence",
+      "headword": "caedēs -is f."
+    }
+  },
+  {
+    "id": "ordo-n3",
+    "headword": "ōrdō, ōrdinis, m.",
+    "parts": [
+      "ōrdō",
+      "ōrdinis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "order, rank",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 416,
+      "semanticGroup": "War and Peace",
+      "headword": "ōrdō -īnis m."
+    }
+  },
+  {
     "id": "opto-v1",
     "headword": "optō, optāre",
     "parts": [
@@ -2411,6 +4644,43 @@
       "rank": 417,
       "semanticGroup": "Personality Traits/Characteristics",
       "headword": "optō -āre"
+    }
+  },
+  {
+    "id": "virgo-n3",
+    "headword": "virgō, virginis, f.",
+    "parts": [
+      "virgō",
+      "virginis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "maiden, virgin, girl",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 418,
+      "semanticGroup": "People",
+      "headword": "virgō -inis f."
+    }
+  },
+  {
+    "id": "lego-v3",
+    "headword": "legō, legere, lēgī, lēctum",
+    "parts": [
+      "legō",
+      "legere",
+      "lēgī",
+      "lēctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "gather, choose, read",
+    "sources": [],
+    "dcc": {
+      "rank": 419,
+      "semanticGroup": "Writing/Poetry",
+      "headword": "legō legere lēgī lēctum"
     }
   },
   {
@@ -2464,6 +4734,24 @@
       "rank": 423,
       "semanticGroup": "Other Senses",
       "headword": "praestō -stāre -stitī -stitum"
+    }
+  },
+  {
+    "id": "aequor-n3n",
+    "headword": "aequor, aequoris, n.",
+    "parts": [
+      "aequor",
+      "aequoris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "level surface, sea, plain",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 424,
+      "semanticGroup": "Earth and Water",
+      "headword": "aequor aequoris n."
     }
   },
   {
@@ -2522,6 +4810,24 @@
     }
   },
   {
+    "id": "metuo-v3",
+    "headword": "metuō, metuere, metuī",
+    "parts": [
+      "metuō",
+      "metuere",
+      "metuī"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "to fear, to dread",
+    "sources": [],
+    "dcc": {
+      "rank": 429,
+      "semanticGroup": "Emotions",
+      "headword": "metuō metuere metuī"
+    }
+  },
+  {
     "id": "tempto-v1",
     "headword": "temptō, temptāre",
     "parts": [
@@ -2554,6 +4860,23 @@
       "rank": 432,
       "semanticGroup": "Geography",
       "headword": "ultimus -a -um"
+    }
+  },
+  {
+    "id": "addo-v3",
+    "headword": "addō, addere",
+    "parts": [
+      "addō",
+      "addere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "give to",
+    "sources": [],
+    "dcc": {
+      "rank": 433,
+      "semanticGroup": "Social Life",
+      "headword": "addō -dere -didī -ditum"
     }
   },
   {
@@ -2592,6 +4915,23 @@
     }
   },
   {
+    "id": "impono-v3",
+    "headword": "impōnō, impōnere",
+    "parts": [
+      "impōnō",
+      "impōnere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "put in, put on, impose, levy upon",
+    "sources": [],
+    "dcc": {
+      "rank": 437,
+      "semanticGroup": "Measurement",
+      "headword": "impōnō -ere -posuī -positum"
+    }
+  },
+  {
     "id": "somnus-n2m",
     "headword": "somnus, somnī, m.",
     "parts": [
@@ -2607,6 +4947,23 @@
       "rank": 438,
       "semanticGroup": "Life and Being",
       "headword": "somnus -ī m."
+    }
+  },
+  {
+    "id": "cupio-v3io",
+    "headword": "cupiō, cupere",
+    "parts": [
+      "cupiō",
+      "cupere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "desire",
+    "sources": [],
+    "dcc": {
+      "rank": 441,
+      "semanticGroup": "Love",
+      "headword": "cupiō -ere -īvī -ītum"
     }
   },
   {
@@ -2627,6 +4984,60 @@
     }
   },
   {
+    "id": "compono-v3",
+    "headword": "compōnō, compōnere, posuī, positum",
+    "parts": [
+      "compōnō",
+      "compōnere",
+      "posuī",
+      "positum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "build, construct, arrange",
+    "sources": [],
+    "dcc": {
+      "rank": 443,
+      "semanticGroup": "Making/Doing",
+      "headword": "compōnō -pōnere posuī positum"
+    }
+  },
+  {
+    "id": "laus-n3",
+    "headword": "laus, laudis, f.",
+    "parts": [
+      "laus",
+      "laudis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "praise, glory",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 444,
+      "semanticGroup": "Social Life",
+      "headword": "laus laudis f."
+    }
+  },
+  {
+    "id": "comes-n3",
+    "headword": "comes, comitis, m./f.",
+    "parts": [
+      "comes",
+      "comitis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "companion, comrade; attendant, follower",
+    "sources": [],
+    "dcc": {
+      "rank": 448,
+      "semanticGroup": "Social Life",
+      "headword": "comes comitis m./f."
+    }
+  },
+  {
     "id": "studium-n2n",
     "headword": "studium, studiī, n.",
     "parts": [
@@ -2642,6 +5053,43 @@
       "rank": 450,
       "semanticGroup": "Emotions",
       "headword": "studium -ī n."
+    }
+  },
+  {
+    "id": "numen-n3n",
+    "headword": "nūmen, nūminis, n.",
+    "parts": [
+      "nūmen",
+      "nūminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "divine will, deity",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 452,
+      "semanticGroup": "Religion",
+      "headword": "nūmen -inis n."
+    }
+  },
+  {
+    "id": "sumo-v3",
+    "headword": "sūmō, sūmere, sūmpsī, sūmptum",
+    "parts": [
+      "sūmō",
+      "sūmere",
+      "sūmpsī",
+      "sūmptum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "take up",
+    "sources": [],
+    "dcc": {
+      "rank": 454,
+      "semanticGroup": "Motion",
+      "headword": "sūmō sūmere sūmpsī sūmptum"
     }
   },
   {
@@ -2682,6 +5130,24 @@
     }
   },
   {
+    "id": "nemus-n3n",
+    "headword": "nemus, nemoris, n.",
+    "parts": [
+      "nemus",
+      "nemoris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "grove, forest",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 461,
+      "semanticGroup": "Animals/Plants",
+      "headword": "nemus nemoris n."
+    }
+  },
+  {
     "id": "carus-adj12",
     "headword": "cārus, cāra, cārum",
     "parts": [
@@ -2715,6 +5181,95 @@
       "rank": 464,
       "semanticGroup": "War and Peace",
       "headword": "lēgātus -ī m."
+    }
+  },
+  {
+    "id": "disco-v3",
+    "headword": "discō, discere, didicī",
+    "parts": [
+      "discō",
+      "discere",
+      "didicī"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "learn",
+    "sources": [],
+    "dcc": {
+      "rank": 465,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "discō -ere didicī"
+    }
+  },
+  {
+    "id": "furor-n3",
+    "headword": "furor, furōris, m.",
+    "parts": [
+      "furor",
+      "furōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "rage, fury",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 466,
+      "semanticGroup": "Emotions",
+      "headword": "furor -ōris m."
+    }
+  },
+  {
+    "id": "amnis-n3i",
+    "headword": "amnis, amnis, m.",
+    "parts": [
+      "amnis",
+      "amnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "river, torrent",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 467,
+      "semanticGroup": "Earth and Water",
+      "headword": "amnis -is m."
+    }
+  },
+  {
+    "id": "arbor-n3",
+    "headword": "arbor, arboris, f.",
+    "parts": [
+      "arbor",
+      "arboris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "tree",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 468,
+      "semanticGroup": "Animals/Plants",
+      "headword": "arbor arboris f."
+    }
+  },
+  {
+    "id": "civis-n3i",
+    "headword": "cīvis, cīvis, m./f.",
+    "parts": [
+      "cīvis",
+      "cīvis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "citizen",
+    "sources": [],
+    "dcc": {
+      "rank": 471,
+      "semanticGroup": "The City",
+      "headword": "cīvis -is m./f."
     }
   },
   {
@@ -2770,6 +5325,24 @@
     }
   },
   {
+    "id": "crimen-n3n",
+    "headword": "crīmen, crīminis, n.",
+    "parts": [
+      "crīmen",
+      "crīminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "verdict, accusation",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 475,
+      "semanticGroup": "Justice",
+      "headword": "crīmen -inis n."
+    }
+  },
+  {
     "id": "donum-n2n",
     "headword": "dōnum, dōnī, n.",
     "parts": [
@@ -2806,6 +5379,25 @@
     }
   },
   {
+    "id": "rumpo-v3",
+    "headword": "rumpō, rumpere, rūpī, ruptum",
+    "parts": [
+      "rumpō",
+      "rumpere",
+      "rūpī",
+      "ruptum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "break, rupture",
+    "sources": [],
+    "dcc": {
+      "rank": 480,
+      "semanticGroup": "Violence",
+      "headword": "rumpō rumpere rūpī ruptum"
+    }
+  },
+  {
     "id": "membrum-n2n",
     "headword": "membrum, membrī, n.",
     "parts": [
@@ -2824,6 +5416,23 @@
     }
   },
   {
+    "id": "aspicio-v3io",
+    "headword": "aspiciō, aspicere",
+    "parts": [
+      "aspiciō",
+      "aspicere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "look to or at, behold",
+    "sources": [],
+    "dcc": {
+      "rank": 483,
+      "semanticGroup": "Vision",
+      "headword": "aspiciō -ere -spēxī -spectum"
+    }
+  },
+  {
     "id": "templum-n2n",
     "headword": "templum, templī, n.",
     "parts": [
@@ -2839,6 +5448,58 @@
       "rank": 485,
       "semanticGroup": "Religion",
       "headword": "templum -ī n."
+    }
+  },
+  {
+    "id": "amitto-v3",
+    "headword": "āmittō, āmittere",
+    "parts": [
+      "āmittō",
+      "āmittere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "let go, send away",
+    "sources": [],
+    "dcc": {
+      "rank": 486,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "āmittō -mittere -mīsī -missum"
+    }
+  },
+  {
+    "id": "posco-v3",
+    "headword": "pōscō, pōscere, popōscī",
+    "parts": [
+      "pōscō",
+      "pōscere",
+      "popōscī"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "demand, claim; inquire into",
+    "sources": [],
+    "dcc": {
+      "rank": 487,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "pōscō pōscere popōscī"
+    }
+  },
+  {
+    "id": "perdo-v3",
+    "headword": "perdō, perdere",
+    "parts": [
+      "perdō",
+      "perdere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "destroy",
+    "sources": [],
+    "dcc": {
+      "rank": 488,
+      "semanticGroup": "Violence",
+      "headword": "perdō -dere -didī -ditum"
     }
   },
   {
@@ -2878,6 +5539,41 @@
     }
   },
   {
+    "id": "contingo-v3",
+    "headword": "contingō, contingere",
+    "parts": [
+      "contingō",
+      "contingere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "touch, be contiguous to",
+    "sources": [],
+    "dcc": {
+      "rank": 494,
+      "semanticGroup": "Place",
+      "headword": "contingō -tingere -tigī -tactum"
+    }
+  },
+  {
+    "id": "libertas-n3",
+    "headword": "lībertās, lībertātis, f.",
+    "parts": [
+      "lībertās",
+      "lībertātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "freedom",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 495,
+      "semanticGroup": "The City",
+      "headword": "lībertās -ātis f."
+    }
+  },
+  {
     "id": "servus-n2m",
     "headword": "servus, servī, m.",
     "parts": [
@@ -2893,6 +5589,41 @@
       "rank": 496,
       "semanticGroup": "The Household",
       "headword": "servus -ī m."
+    }
+  },
+  {
+    "id": "soror-n3",
+    "headword": "soror, sorōris, f.",
+    "parts": [
+      "soror",
+      "sorōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "sister",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 497,
+      "semanticGroup": "The Household",
+      "headword": "soror -ōris f."
+    }
+  },
+  {
+    "id": "exigo-v3",
+    "headword": "exigō, exigere",
+    "parts": [
+      "exigō",
+      "exigere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "drive out; collect",
+    "sources": [],
+    "dcc": {
+      "rank": 500,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "exigō -igere -ēgī -āctum"
     }
   },
   {
@@ -2929,6 +5660,43 @@
       "rank": 502,
       "semanticGroup": "Personality Traits/Characteristics",
       "headword": "nimius -a -um"
+    }
+  },
+  {
+    "id": "fallo-v3",
+    "headword": "fallō, fallere, fefellī, falsum",
+    "parts": [
+      "fallō",
+      "fallere",
+      "fefellī",
+      "falsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "deceive",
+    "sources": [],
+    "dcc": {
+      "rank": 503,
+      "semanticGroup": "Deception",
+      "headword": "fallō fallere fefellī falsum"
+    }
+  },
+  {
+    "id": "classis-n3i",
+    "headword": "classis, classis, f.",
+    "parts": [
+      "classis",
+      "classis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "class, division, fleet",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 505,
+      "semanticGroup": "War and Peace",
+      "headword": "classis -is f."
     }
   },
   {
@@ -3006,6 +5774,60 @@
     }
   },
   {
+    "id": "fax-n3",
+    "headword": "fax, facis, f.",
+    "parts": [
+      "fax",
+      "facis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "torch",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 511,
+      "semanticGroup": "Air and Fire",
+      "headword": "fax facis f."
+    }
+  },
+  {
+    "id": "intellego-v3",
+    "headword": "intellegō, intellegere",
+    "parts": [
+      "intellegō",
+      "intellegere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "understand",
+    "sources": [],
+    "dcc": {
+      "rank": 512,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "intellegō -legere -lēxī -lēctum:"
+    }
+  },
+  {
+    "id": "iungo-v3",
+    "headword": "iungō, iungere, iūnxī, iūnctum",
+    "parts": [
+      "iungō",
+      "iungere",
+      "iūnxī",
+      "iūnctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "join",
+    "sources": [],
+    "dcc": {
+      "rank": 513,
+      "semanticGroup": "Making/Doing",
+      "headword": "iungō iungere iūnxī iūnctum"
+    }
+  },
+  {
     "id": "cogito-v1",
     "headword": "cōgitō, cōgitāre",
     "parts": [
@@ -3020,6 +5842,24 @@
       "rank": 515,
       "semanticGroup": "Education/Knowledge",
       "headword": "cōgitō -āre"
+    }
+  },
+  {
+    "id": "limen-n3n",
+    "headword": "līmen, līminis, n.",
+    "parts": [
+      "līmen",
+      "līminis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "threshold",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 516,
+      "semanticGroup": "The House",
+      "headword": "līmen līminis n."
     }
   },
   {
@@ -3059,6 +5899,24 @@
     }
   },
   {
+    "id": "prex-n3",
+    "headword": "prex, precis, f.",
+    "parts": [
+      "prex",
+      "precis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "prayers, entreaties",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 520,
+      "semanticGroup": "Religion",
+      "headword": "prex precis f."
+    }
+  },
+  {
     "id": "dubito-v1",
     "headword": "dubitō, dubitāre",
     "parts": [
@@ -3094,6 +5952,60 @@
     }
   },
   {
+    "id": "fundo-v3",
+    "headword": "fundō, fundere, fūdī, fūsum",
+    "parts": [
+      "fundō",
+      "fundere",
+      "fūdī",
+      "fūsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "pour, scatter",
+    "sources": [],
+    "dcc": {
+      "rank": 523,
+      "semanticGroup": "Earth and Water",
+      "headword": "fundō fundere fūdī fūsum"
+    }
+  },
+  {
+    "id": "funus-n3n",
+    "headword": "fūnus, fūneris, n.",
+    "parts": [
+      "fūnus",
+      "fūneris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "funeral; death; dead body",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 524,
+      "semanticGroup": "Religion",
+      "headword": "fūnus fūneris n."
+    }
+  },
+  {
+    "id": "nescio-v4",
+    "headword": "nesciō, nescīre",
+    "parts": [
+      "nesciō",
+      "nescīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "not know, be ignorant",
+    "sources": [],
+    "dcc": {
+      "rank": 525,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "nesciō -scīre"
+    }
+  },
+  {
     "id": "dubius-adj12",
     "headword": "dubius, dubia, dubium",
     "parts": [
@@ -3109,6 +6021,25 @@
       "rank": 528,
       "semanticGroup": "Deception",
       "headword": "dubius -a -um"
+    }
+  },
+  {
+    "id": "tendo-v3",
+    "headword": "tendō, tendere, tetendī, tentum",
+    "parts": [
+      "tendō",
+      "tendere",
+      "tetendī",
+      "tentum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "stretch, extend, direct (one’s steps or course)",
+    "sources": [],
+    "dcc": {
+      "rank": 529,
+      "semanticGroup": "Travel",
+      "headword": "tendō tendere tetendī tentum"
     }
   },
   {
@@ -3130,6 +6061,44 @@
     }
   },
   {
+    "id": "spargo-v3",
+    "headword": "spargō, spargere, sparsī, sparsum",
+    "parts": [
+      "spargō",
+      "spargere",
+      "sparsī",
+      "sparsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "scatter",
+    "sources": [],
+    "dcc": {
+      "rank": 532,
+      "semanticGroup": "Earth and Water",
+      "headword": "spargō spargere sparsī sparsum"
+    }
+  },
+  {
+    "id": "tango-v3",
+    "headword": "tangō, tangere, tetigī, tāctum",
+    "parts": [
+      "tangō",
+      "tangere",
+      "tetigī",
+      "tāctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "touch",
+    "sources": [],
+    "dcc": {
+      "rank": 534,
+      "semanticGroup": "Other Senses",
+      "headword": "tangō tangere tetigī tāctum"
+    }
+  },
+  {
     "id": "respondeo-v2",
     "headword": "respondeō, respondēre",
     "parts": [
@@ -3144,6 +6113,24 @@
       "rank": 535,
       "semanticGroup": "Speech/Oratory",
       "headword": "respondeō -spondēre -spondī -spōnsum"
+    }
+  },
+  {
+    "id": "timor-n3",
+    "headword": "timor, timōris, m.",
+    "parts": [
+      "timor",
+      "timōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "fear",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 536,
+      "semanticGroup": "Emotions",
+      "headword": "timor -ōris m."
     }
   },
   {
@@ -3182,6 +6169,23 @@
     }
   },
   {
+    "id": "condo-v3",
+    "headword": "condō, condere",
+    "parts": [
+      "condō",
+      "condere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "build, found; store up; hide, conceal",
+    "sources": [],
+    "dcc": {
+      "rank": 540,
+      "semanticGroup": "The City",
+      "headword": "condō -dere -didī -ditum"
+    }
+  },
+  {
     "id": "auxilium-n2n",
     "headword": "auxilium, auxiliī, n.",
     "parts": [
@@ -3200,6 +6204,25 @@
     }
   },
   {
+    "id": "desero-v3",
+    "headword": "dēserō, dēserere, dēseruī, dēsertum",
+    "parts": [
+      "dēserō",
+      "dēserere",
+      "dēseruī",
+      "dēsertum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "leave, desert, abandon",
+    "sources": [],
+    "dcc": {
+      "rank": 544,
+      "semanticGroup": "Motion",
+      "headword": "dēserō -ere dēseruī dēsertum"
+    }
+  },
+  {
     "id": "nudus-adj12",
     "headword": "nūdus, nūda, nūdum",
     "parts": [
@@ -3215,6 +6238,78 @@
       "rank": 545,
       "semanticGroup": "The Body",
       "headword": "nūdus -a -um"
+    }
+  },
+  {
+    "id": "auctor-n3",
+    "headword": "auctor, auctōris, m.",
+    "parts": [
+      "auctor",
+      "auctōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "originator, founder",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 546,
+      "semanticGroup": "Writing/Poetry",
+      "headword": "auctor -ōris m."
+    }
+  },
+  {
+    "id": "animal-n3in",
+    "headword": "animal, animālis, n.",
+    "parts": [
+      "animal",
+      "animālis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3in",
+    "gloss": "a living being, an animal",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 547,
+      "semanticGroup": "Animals/Plants",
+      "headword": "animal -ālis n."
+    }
+  },
+  {
+    "id": "decus-n3n",
+    "headword": "decus, decoris, n.",
+    "parts": [
+      "decus",
+      "decoris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "beauty, grace; ornament, glory, honor",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 548,
+      "semanticGroup": "Personality Traits/Characteristics",
+      "headword": "decus decoris n."
+    }
+  },
+  {
+    "id": "salus-n3",
+    "headword": "salūs, salūtis, f.",
+    "parts": [
+      "salūs",
+      "salūtis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "health, safety",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 549,
+      "semanticGroup": "Life and Being",
+      "headword": "salūs -ūtis f."
     }
   },
   {
@@ -3253,6 +6348,79 @@
     }
   },
   {
+    "id": "uxor-n3",
+    "headword": "uxor, uxōris, f.",
+    "parts": [
+      "uxor",
+      "uxōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "wife",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 552,
+      "semanticGroup": "The Household",
+      "headword": "uxor uxōris f."
+    }
+  },
+  {
+    "id": "rego-v3",
+    "headword": "regō, regere, rēxī, rēctum",
+    "parts": [
+      "regō",
+      "regere",
+      "rēxī",
+      "rēctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "guide, rule",
+    "sources": [],
+    "dcc": {
+      "rank": 554,
+      "semanticGroup": "The City",
+      "headword": "regō regere rēxī rēctum"
+    }
+  },
+  {
+    "id": "senex-n3",
+    "headword": "senex, senis, m.",
+    "parts": [
+      "senex",
+      "senis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "old man, elder; senior, older",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 558,
+      "semanticGroup": "People",
+      "headword": "senex -is m."
+    }
+  },
+  {
+    "id": "frons-n3i",
+    "headword": "frōns, frontis, f.",
+    "parts": [
+      "frōns",
+      "frontis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "forehead, brow; front",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 559,
+      "semanticGroup": "The Body",
+      "headword": "frōns frontis f."
+    }
+  },
+  {
     "id": "regius-adj12",
     "headword": "rēgius, rēgia, rēgium",
     "parts": [
@@ -3271,6 +6439,44 @@
     }
   },
   {
+    "id": "curro-v3",
+    "headword": "currō, currere, cucurrī, cursum",
+    "parts": [
+      "currō",
+      "currere",
+      "cucurrī",
+      "cursum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "run",
+    "sources": [],
+    "dcc": {
+      "rank": 562,
+      "semanticGroup": "Athletics",
+      "headword": "currō currere cucurrī cursum"
+    }
+  },
+  {
+    "id": "pello-v3",
+    "headword": "pellō, pellere, pepulī, pulsum",
+    "parts": [
+      "pellō",
+      "pellere",
+      "pepulī",
+      "pulsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "strike, beat, push, drive",
+    "sources": [],
+    "dcc": {
+      "rank": 563,
+      "semanticGroup": "Violence",
+      "headword": "pellō pellere pepulī pulsum"
+    }
+  },
+  {
     "id": "iudico-v1",
     "headword": "iūdicō, iūdicāre",
     "parts": [
@@ -3285,6 +6491,43 @@
       "rank": 565,
       "semanticGroup": "Justice",
       "headword": "iūdicō -āre"
+    }
+  },
+  {
+    "id": "pecus-n3n",
+    "headword": "pecus, pecoris, n.",
+    "parts": [
+      "pecus",
+      "pecoris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "cattle, sheep",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 566,
+      "semanticGroup": "Animals/Plants",
+      "headword": "pecus -oris n."
+    }
+  },
+  {
+    "id": "scribo-v3",
+    "headword": "scrībō, scrībere, scrīpsī, scrīptum",
+    "parts": [
+      "scrībō",
+      "scrībere",
+      "scrīpsī",
+      "scrīptum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "write",
+    "sources": [],
+    "dcc": {
+      "rank": 568,
+      "semanticGroup": "Writing/Poetry",
+      "headword": "scrībō scrībere scrīpsī scrīptum"
     }
   },
   {
@@ -3306,6 +6549,25 @@
     }
   },
   {
+    "id": "surgo-v3",
+    "headword": "surgō, surgere, surrēxī, surrēctum",
+    "parts": [
+      "surgō",
+      "surgere",
+      "surrēxī",
+      "surrēctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "rise",
+    "sources": [],
+    "dcc": {
+      "rank": 570,
+      "semanticGroup": "Earth and Water",
+      "headword": "surgō surgere surrēxī surrēctum"
+    }
+  },
+  {
     "id": "careo-v2",
     "headword": "careō, carēre",
     "parts": [
@@ -3320,6 +6582,41 @@
       "rank": 572,
       "semanticGroup": "Business/Money",
       "headword": "careō -ēre -uī"
+    }
+  },
+  {
+    "id": "efficio-v3io",
+    "headword": "efficiō, efficere",
+    "parts": [
+      "efficiō",
+      "efficere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "bring about, complete; render (+ ut + subj.)",
+    "sources": [],
+    "dcc": {
+      "rank": 573,
+      "semanticGroup": "Making/Doing",
+      "headword": "efficiō -ficere -fēcī -fectum"
+    }
+  },
+  {
+    "id": "sermo-n3",
+    "headword": "sermō, sermōnis, m.",
+    "parts": [
+      "sermō",
+      "sermōnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "conversation, discourse",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 575,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "sermō -ōnis m."
     }
   },
   {
@@ -3429,6 +6726,24 @@
     }
   },
   {
+    "id": "regio-n3",
+    "headword": "regiō, regiōnis, f.",
+    "parts": [
+      "regiō",
+      "regiōnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "boundary, region",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 585,
+      "semanticGroup": "Geography",
+      "headword": "regiō -ōnis f."
+    }
+  },
+  {
     "id": "sententia-n1",
     "headword": "sententia, sententiae, f.",
     "parts": [
@@ -3480,6 +6795,25 @@
       "rank": 592,
       "semanticGroup": "Personality Traits/Characteristics",
       "headword": "ingrātus -a -um:"
+    }
+  },
+  {
+    "id": "moenia-n3in",
+    "headword": "moenia, moenium, n.",
+    "parts": [
+      "moenia",
+      "moenium"
+    ],
+    "pos": "noun",
+    "paradigm": "n3in",
+    "gloss": "walls, fortifications",
+    "sources": [],
+    "gender": "n",
+    "number": "pl",
+    "dcc": {
+      "rank": 593,
+      "semanticGroup": "The City",
+      "headword": "moenia -ium n. pl."
     }
   },
   {
@@ -3553,6 +6887,24 @@
     }
   },
   {
+    "id": "clamor-n3",
+    "headword": "clāmor, clāmōris, m.",
+    "parts": [
+      "clāmor",
+      "clāmōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "outcry, shout",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 605,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "clāmor -ōris m."
+    }
+  },
+  {
     "id": "dono-v1",
     "headword": "dōnō, dōnāre",
     "parts": [
@@ -3585,6 +6937,42 @@
       "rank": 607,
       "semanticGroup": "The City",
       "headword": "officium -ī n."
+    }
+  },
+  {
+    "id": "committo-v3",
+    "headword": "committō, committere",
+    "parts": [
+      "committō",
+      "committere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "join, entrust to (+ dat.); perform, do",
+    "sources": [],
+    "dcc": {
+      "rank": 608,
+      "semanticGroup": "Social Life",
+      "headword": "committō -mittere -mīsī -missum"
+    }
+  },
+  {
+    "id": "cresco-v3",
+    "headword": "crēscō, crēscere, crēvī, crētum",
+    "parts": [
+      "crēscō",
+      "crēscere",
+      "crēvī",
+      "crētum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "grow, increase",
+    "sources": [],
+    "dcc": {
+      "rank": 609,
+      "semanticGroup": "Animals/Plants",
+      "headword": "crēscō crēscere crēvī crētum"
     }
   },
   {
@@ -3624,6 +7012,25 @@
     }
   },
   {
+    "id": "caedo-v3",
+    "headword": "caedō, caedere, cecīdī, caesum",
+    "parts": [
+      "caedō",
+      "caedere",
+      "cecīdī",
+      "caesum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "strike, kill, cut down",
+    "sources": [],
+    "dcc": {
+      "rank": 612,
+      "semanticGroup": "Violence",
+      "headword": "caedō caedere cecīdī caesum"
+    }
+  },
+  {
     "id": "existimo-v1",
     "headword": "exīstimō, exīstimāre",
     "parts": [
@@ -3638,6 +7045,58 @@
       "rank": 613,
       "semanticGroup": "Education/Knowledge",
       "headword": "exīstimō -āre"
+    }
+  },
+  {
+    "id": "accedo-v3",
+    "headword": "accēdō, accēdere",
+    "parts": [
+      "accēdō",
+      "accēdere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "approach",
+    "sources": [],
+    "dcc": {
+      "rank": 614,
+      "semanticGroup": "Motion",
+      "headword": "accēdō -cēdere -cessī -cessum"
+    }
+  },
+  {
+    "id": "contemno-v3",
+    "headword": "contemnō, contemnere",
+    "parts": [
+      "contemnō",
+      "contemnere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "despise, scorn, disdain",
+    "sources": [],
+    "dcc": {
+      "rank": 615,
+      "semanticGroup": "Emotions",
+      "headword": "contemnō -temnere -tempsī -temptum"
+    }
+  },
+  {
+    "id": "pudor-n3",
+    "headword": "pudor, pudōris, m.",
+    "parts": [
+      "pudor",
+      "pudōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "sense of shame, modesty, propriety",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 616,
+      "semanticGroup": "Personality Traits/Characteristics",
+      "headword": "pudor pudōris m."
     }
   },
   {
@@ -3696,6 +7155,41 @@
     }
   },
   {
+    "id": "custos-n3",
+    "headword": "custōs, custōdis, m.",
+    "parts": [
+      "custōs",
+      "custōdis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "guardian",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 622,
+      "semanticGroup": "The Household",
+      "headword": "custōs custōdis m."
+    }
+  },
+  {
+    "id": "desino-v3",
+    "headword": "dēsinō, dēsinere",
+    "parts": [
+      "dēsinō",
+      "dēsinere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "leave off, cease",
+    "sources": [],
+    "dcc": {
+      "rank": 624,
+      "semanticGroup": "Motion",
+      "headword": "dēsinō -sinere -siī -situm"
+    }
+  },
+  {
     "id": "fessus-adj12",
     "headword": "fessus, fessa, fessum",
     "parts": [
@@ -3747,6 +7241,25 @@
       "rank": 627,
       "semanticGroup": "Education/Knowledge",
       "headword": "memoria -ae f."
+    }
+  },
+  {
+    "id": "divido-v3",
+    "headword": "dīvidō, dīvidere, dīvīsī, dīvīsum",
+    "parts": [
+      "dīvidō",
+      "dīvidere",
+      "dīvīsī",
+      "dīvīsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "divide, separate",
+    "sources": [],
+    "dcc": {
+      "rank": 628,
+      "semanticGroup": "Making/Doing",
+      "headword": "dīvidō -ere dīvīsī dīvīsum"
     }
   },
   {
@@ -3804,6 +7317,25 @@
     }
   },
   {
+    "id": "veho-v3",
+    "headword": "vehō, vehere, vēxī, vectum",
+    "parts": [
+      "vehō",
+      "vehere",
+      "vēxī",
+      "vectum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "carry; vehor vehī vectus sum: travel, ride",
+    "sources": [],
+    "dcc": {
+      "rank": 632,
+      "semanticGroup": "Travel",
+      "headword": "vehō vehere vēxī vectum"
+    }
+  },
+  {
     "id": "falsus-adj12",
     "headword": "falsus, falsa, falsum",
     "parts": [
@@ -3858,6 +7390,24 @@
     }
   },
   {
+    "id": "pondus-n3n",
+    "headword": "pondus, ponderis, n.",
+    "parts": [
+      "pondus",
+      "ponderis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "weight",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 636,
+      "semanticGroup": "Measurement",
+      "headword": "pondus ponderis n."
+    }
+  },
+  {
     "id": "arvum-n2n",
     "headword": "arvum, arvī, n.",
     "parts": [
@@ -3873,6 +7423,42 @@
       "rank": 637,
       "semanticGroup": "Animals/Plants",
       "headword": "arvum -ī n."
+    }
+  },
+  {
+    "id": "arx-n3i",
+    "headword": "arx, arcis, f.",
+    "parts": [
+      "arx",
+      "arcis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "citadel, castle; summit",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 638,
+      "semanticGroup": "The City",
+      "headword": "arx arcis f."
+    }
+  },
+  {
+    "id": "sors-n3i",
+    "headword": "sors, sortis, f.",
+    "parts": [
+      "sors",
+      "sortis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "lot, fate, destiny; oracle",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 639,
+      "semanticGroup": "Religion",
+      "headword": "sors sortis f."
     }
   },
   {
@@ -3912,6 +7498,24 @@
     }
   },
   {
+    "id": "facinus-n3n",
+    "headword": "facinus, facinoris, n.",
+    "parts": [
+      "facinus",
+      "facinoris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "deed, crime",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 646,
+      "semanticGroup": "Justice",
+      "headword": "facinus facinoris n."
+    }
+  },
+  {
     "id": "retineo-v2",
     "headword": "retineō, retinēre",
     "parts": [
@@ -3946,6 +7550,24 @@
     }
   },
   {
+    "id": "plebs-n3",
+    "headword": "plēbs, plēbis, f.",
+    "parts": [
+      "plēbs",
+      "plēbis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "the common people",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 649,
+      "semanticGroup": "The City",
+      "headword": "plēbs plēbis f."
+    }
+  },
+  {
     "id": "pugna-n1",
     "headword": "pūgna, pūgnae, f.",
     "parts": [
@@ -3964,6 +7586,57 @@
     }
   },
   {
+    "id": "repeto-v3",
+    "headword": "repetō, repetere",
+    "parts": [
+      "repetō",
+      "repetere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "demand, exact; revisit; call to mind, recollect; repeat",
+    "sources": [],
+    "dcc": {
+      "rank": 651,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "repetō -petere -petīvī -petītum"
+    }
+  },
+  {
+    "id": "constituo-v3",
+    "headword": "cōnstituō, cōnstituere",
+    "parts": [
+      "cōnstituō",
+      "cōnstituere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "establish, put together",
+    "sources": [],
+    "dcc": {
+      "rank": 652,
+      "semanticGroup": "Making/Doing",
+      "headword": "cōnstituō -stituere -stituī -stitūtum"
+    }
+  },
+  {
+    "id": "defendo-v3",
+    "headword": "dēfendō, dēfendere",
+    "parts": [
+      "dēfendō",
+      "dēfendere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "defend, ward off",
+    "sources": [],
+    "dcc": {
+      "rank": 653,
+      "semanticGroup": "War and Peace",
+      "headword": "dēfendō -fendere -fendī -fēnsum"
+    }
+  },
+  {
     "id": "maritus-n2m",
     "headword": "marītus, marītī, m.",
     "parts": [
@@ -3979,6 +7652,25 @@
       "rank": 654,
       "semanticGroup": "The Household",
       "headword": "marītus -ī m."
+    }
+  },
+  {
+    "id": "cerno-v3",
+    "headword": "cernō, cernere, crēvī, crētum",
+    "parts": [
+      "cernō",
+      "cernere",
+      "crēvī",
+      "crētum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "discern, separate",
+    "sources": [],
+    "dcc": {
+      "rank": 655,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "cernō cernere crēvī crētum"
     }
   },
   {
@@ -4054,6 +7746,26 @@
     }
   },
   {
+    "id": "deduco-v3",
+    "headword": "dēdūcō, dēdūcere",
+    "parts": [
+      "dēdūcō",
+      "dēdūcere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "launch, lead away",
+    "sources": [],
+    "irregular": {
+      "pres.act.imp.2sg": "dēdūc"
+    },
+    "dcc": {
+      "rank": 661,
+      "semanticGroup": "Travel",
+      "headword": "dēdūcō -dūcere -dūxī -ductum"
+    }
+  },
+  {
     "id": "ripa-n1",
     "headword": "rīpa, rīpae, f.",
     "parts": [
@@ -4069,6 +7781,23 @@
       "rank": 662,
       "semanticGroup": "Earth and Water",
       "headword": "rīpa -ae f."
+    }
+  },
+  {
+    "id": "concedo-v3",
+    "headword": "concēdō, concēdere",
+    "parts": [
+      "concēdō",
+      "concēdere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "yield, withdraw",
+    "sources": [],
+    "dcc": {
+      "rank": 663,
+      "semanticGroup": "War and Peace",
+      "headword": "concēdō -cēdere -cessī -cessum"
     }
   },
   {
@@ -4106,6 +7835,43 @@
       "rank": 665,
       "semanticGroup": "Verbs of Compelling/Directing",
       "headword": "vetō -āre vetuī vetītum"
+    }
+  },
+  {
+    "id": "cohors-n3i",
+    "headword": "cohors, cohortis, f.",
+    "parts": [
+      "cohors",
+      "cohortis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "cohort, band, troop",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 666,
+      "semanticGroup": "War and Peace",
+      "headword": "cohors cohortis f."
+    }
+  },
+  {
+    "id": "gigno-v3",
+    "headword": "gīgnō, gīgnere, genuī, genitum",
+    "parts": [
+      "gīgnō",
+      "gīgnere",
+      "genuī",
+      "genitum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "beget, bear, bring forth",
+    "sources": [],
+    "dcc": {
+      "rank": 667,
+      "semanticGroup": "Life and Being",
+      "headword": "gīgnō gīgnere genuī genitum"
     }
   },
   {
@@ -4158,6 +7924,24 @@
       "rank": 671,
       "semanticGroup": "Earth and Water",
       "headword": "impleō -ēre -plēvī -plētum"
+    }
+  },
+  {
+    "id": "magnitudo-n3",
+    "headword": "māgnitūdō, māgnitūdinis, f.",
+    "parts": [
+      "māgnitūdō",
+      "māgnitūdinis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "greatness, size",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 672,
+      "semanticGroup": "Measurement",
+      "headword": "māgnitūdō -inis f."
     }
   },
   {
@@ -4216,6 +8000,57 @@
     }
   },
   {
+    "id": "deficio-v3io",
+    "headword": "dēficiō, dēficere",
+    "parts": [
+      "dēficiō",
+      "dēficere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "fail, give out; revolt from",
+    "sources": [],
+    "dcc": {
+      "rank": 676,
+      "semanticGroup": "War and Peace",
+      "headword": "deficiō -ficere -fēcī -fectum"
+    }
+  },
+  {
+    "id": "occurro-v3",
+    "headword": "occurrō, occurrere",
+    "parts": [
+      "occurrō",
+      "occurrere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "run to meet; come into one’s mind",
+    "sources": [],
+    "dcc": {
+      "rank": 677,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "occurrō -currere -cucurrī -cursum"
+    }
+  },
+  {
+    "id": "statuo-v3",
+    "headword": "statuō, statuere",
+    "parts": [
+      "statuō",
+      "statuere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "set up, determine",
+    "sources": [],
+    "dcc": {
+      "rank": 678,
+      "semanticGroup": "Justice",
+      "headword": "statuō -ere -uī -ūtum"
+    }
+  },
+  {
     "id": "praemium-n2n",
     "headword": "praemium, praemiī, n.",
     "parts": [
@@ -4270,6 +8105,24 @@
     }
   },
   {
+    "id": "vates-n3",
+    "headword": "vātēs, vātis, m.",
+    "parts": [
+      "vātēs",
+      "vātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "poet, bard",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 684,
+      "semanticGroup": "Writing/Poetry",
+      "headword": "vātēs -is m."
+    }
+  },
+  {
     "id": "astrum-n2n",
     "headword": "astrum, astrī, n.",
     "parts": [
@@ -4285,6 +8138,42 @@
       "rank": 685,
       "semanticGroup": "Air and Fire",
       "headword": "astrum -ī n."
+    }
+  },
+  {
+    "id": "canis-n3",
+    "headword": "canis, canis, m./f.",
+    "parts": [
+      "canis",
+      "canis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "dog",
+    "sources": [],
+    "dcc": {
+      "rank": 687,
+      "semanticGroup": "Animals/Plants",
+      "headword": "canis -is m./f."
+    }
+  },
+  {
+    "id": "edo-v3",
+    "headword": "ēdō, ēdere, ēdidī, ēditum",
+    "parts": [
+      "ēdō",
+      "ēdere",
+      "ēdidī",
+      "ēditum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "put forth, state, explain",
+    "sources": [],
+    "dcc": {
+      "rank": 688,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "ēdō ēdere ēdidī ēditum"
     }
   },
   {
@@ -4360,6 +8249,27 @@
     }
   },
   {
+    "id": "os-n3n",
+    "headword": "os, ossis, n.",
+    "parts": [
+      "os",
+      "ossis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "bone",
+    "sources": [],
+    "gender": "n",
+    "irregular": {
+      "gen.pl": "ossium"
+    },
+    "dcc": {
+      "rank": 696,
+      "semanticGroup": "The Body",
+      "headword": "os ossis n."
+    }
+  },
+  {
     "id": "securus-adj12",
     "headword": "sēcūrus, sēcūra, sēcūrum",
     "parts": [
@@ -4375,6 +8285,40 @@
       "rank": 697,
       "semanticGroup": "Personality Traits/Characteristics",
       "headword": "sēcūrus -a -um"
+    }
+  },
+  {
+    "id": "convenio-v4",
+    "headword": "conveniō, convenīre",
+    "parts": [
+      "conveniō",
+      "convenīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "assemble, meet; agree",
+    "sources": [],
+    "dcc": {
+      "rank": 698,
+      "semanticGroup": "Social Life",
+      "headword": "conveniō -venīre -vēnī -ventum"
+    }
+  },
+  {
+    "id": "interficio-v3io",
+    "headword": "interficiō, interficere",
+    "parts": [
+      "interficiō",
+      "interficere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "kill",
+    "sources": [],
+    "dcc": {
+      "rank": 699,
+      "semanticGroup": "Violence",
+      "headword": "interficiō -ficere -fēcī -fectum"
     }
   },
   {
@@ -4413,6 +8357,23 @@
     }
   },
   {
+    "id": "permitto-v3",
+    "headword": "permittō, permittere",
+    "parts": [
+      "permittō",
+      "permittere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "yield, allow, permit",
+    "sources": [],
+    "dcc": {
+      "rank": 702,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "permittō -mittere -mīsī -missum"
+    }
+  },
+  {
     "id": "terreo-v2",
     "headword": "terreō, terrēre, terruī, territum",
     "parts": [
@@ -4429,6 +8390,24 @@
       "rank": 705,
       "semanticGroup": "Emotions",
       "headword": "terreō terrēre terruī territum"
+    }
+  },
+  {
+    "id": "fons-n3i",
+    "headword": "fōns, fontis, m.",
+    "parts": [
+      "fōns",
+      "fontis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "spring, fountain",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 706,
+      "semanticGroup": "Earth and Water",
+      "headword": "fōns fontis m."
     }
   },
   {
@@ -4597,6 +8576,113 @@
     }
   },
   {
+    "id": "sino-v3",
+    "headword": "sinō, sinere, sīvī, situm",
+    "parts": [
+      "sinō",
+      "sinere",
+      "sīvī",
+      "situm"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "allow, let go",
+    "sources": [],
+    "dcc": {
+      "rank": 717,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "sinō sinere sīvī situm"
+    }
+  },
+  {
+    "id": "effundo-v3",
+    "headword": "effundō, effundere",
+    "parts": [
+      "effundō",
+      "effundere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "pour out",
+    "sources": [],
+    "dcc": {
+      "rank": 719,
+      "semanticGroup": "Earth and Water",
+      "headword": "effundō -fundere -fūdī -fūsum"
+    }
+  },
+  {
+    "id": "promitto-v3",
+    "headword": "prōmittō, prōmittere",
+    "parts": [
+      "prōmittō",
+      "prōmittere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "send forth, offer",
+    "sources": [],
+    "dcc": {
+      "rank": 720,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "prōmittō -mittere -mīsī -missum"
+    }
+  },
+  {
+    "id": "fingo-v3",
+    "headword": "fingō, fingere, fīnxī, fīctum",
+    "parts": [
+      "fingō",
+      "fingere",
+      "fīnxī",
+      "fīctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "shape; invent",
+    "sources": [],
+    "dcc": {
+      "rank": 721,
+      "semanticGroup": "Making/Doing",
+      "headword": "fingō fingere fīnxī fīctum"
+    }
+  },
+  {
+    "id": "respicio-v3io",
+    "headword": "respiciō, respicere",
+    "parts": [
+      "respiciō",
+      "respicere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "look back, regard, consider",
+    "sources": [],
+    "dcc": {
+      "rank": 722,
+      "semanticGroup": "Vision",
+      "headword": "respicio -ere -spēxī -spectum"
+    }
+  },
+  {
+    "id": "imperator-n3",
+    "headword": "imperātor, imperātōris, m.",
+    "parts": [
+      "imperātor",
+      "imperātōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "commander",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 723,
+      "semanticGroup": "War and Peace",
+      "headword": "imperātor -ōris m."
+    }
+  },
+  {
     "id": "vaco-v1",
     "headword": "vacō, vacāre",
     "parts": [
@@ -4611,6 +8697,41 @@
       "rank": 724,
       "semanticGroup": "Measurement",
       "headword": "vacō vacāre"
+    }
+  },
+  {
+    "id": "color-n3",
+    "headword": "color, colōris, m.",
+    "parts": [
+      "color",
+      "colōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "color",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 725,
+      "semanticGroup": "Vision",
+      "headword": "color -ōris m."
+    }
+  },
+  {
+    "id": "discedo-v3",
+    "headword": "discēdō, discēdere",
+    "parts": [
+      "discēdō",
+      "discēdere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "go away, depart",
+    "sources": [],
+    "dcc": {
+      "rank": 726,
+      "semanticGroup": "Travel",
+      "headword": "discēdō -ere -cessī -cessum"
     }
   },
   {
@@ -4685,6 +8806,24 @@
     }
   },
   {
+    "id": "multitudo-n3",
+    "headword": "multitūdō, multitūdinis, f.",
+    "parts": [
+      "multitūdō",
+      "multitūdinis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "multitude, number",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 733,
+      "semanticGroup": "Measurement",
+      "headword": "multitūdō -inis f."
+    }
+  },
+  {
     "id": "aeternus-adj12",
     "headword": "aeternus, aeterna, aeternum",
     "parts": [
@@ -4700,6 +8839,42 @@
       "rank": 734,
       "semanticGroup": "Lengths of Time",
       "headword": "aeternus -a -um"
+    }
+  },
+  {
+    "id": "oratio-n3",
+    "headword": "ōrātiō, ōrātiōnis, f.",
+    "parts": [
+      "ōrātiō",
+      "ōrātiōnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "speech, address",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 736,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "ōrātiō -ōnis f."
+    }
+  },
+  {
+    "id": "potestas-n3",
+    "headword": "potestās, potestātis, f.",
+    "parts": [
+      "potestās",
+      "potestātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "power",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 737,
+      "semanticGroup": "The City",
+      "headword": "potestās -ātis f."
     }
   },
   {
@@ -4739,6 +8914,24 @@
     }
   },
   {
+    "id": "testis-n3i",
+    "headword": "testis, testis, m.",
+    "parts": [
+      "testis",
+      "testis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "witness",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 741,
+      "semanticGroup": "Justice",
+      "headword": "testis -is m."
+    }
+  },
+  {
     "id": "curo-v1",
     "headword": "cūrō, cūrāre",
     "parts": [
@@ -4753,6 +8946,41 @@
       "rank": 743,
       "semanticGroup": "Love",
       "headword": "cūrō -āre"
+    }
+  },
+  {
+    "id": "aes-n3n",
+    "headword": "aes, aeris, n.",
+    "parts": [
+      "aes",
+      "aeris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "copper, bronze",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 744,
+      "semanticGroup": "Business/Money",
+      "headword": "aes aeris n."
+    }
+  },
+  {
+    "id": "procedo-v3",
+    "headword": "prōcēdō, prōcēdere",
+    "parts": [
+      "prōcēdō",
+      "prōcēdere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "go forth, advance",
+    "sources": [],
+    "dcc": {
+      "rank": 746,
+      "semanticGroup": "Motion",
+      "headword": "prōcēdō -cēdere -cessī -cessum"
     }
   },
   {
@@ -4863,6 +9091,42 @@
     }
   },
   {
+    "id": "tempestas-n3",
+    "headword": "tempestās, tempestātis, f.",
+    "parts": [
+      "tempestās",
+      "tempestātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "period of time, season; bad weather, storm",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 753,
+      "semanticGroup": "Lengths of Time",
+      "headword": "tempestas -tātis f."
+    }
+  },
+  {
+    "id": "imago-n3",
+    "headword": "imāgō, imāginis, f.",
+    "parts": [
+      "imāgō",
+      "imāginis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "image, form, figure",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 754,
+      "semanticGroup": "Vision",
+      "headword": "imāgō -inis f."
+    }
+  },
+  {
     "id": "oro-v1",
     "headword": "ōrō, ōrāre",
     "parts": [
@@ -4877,6 +9141,23 @@
       "rank": 755,
       "semanticGroup": "Religion",
       "headword": "ōrō -āre"
+    }
+  },
+  {
+    "id": "consulo-v3",
+    "headword": "cōnsulō, cōnsulere",
+    "parts": [
+      "cōnsulō",
+      "cōnsulere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "consult, plan (+ acc.); consider the interests of (+dat)",
+    "sources": [],
+    "dcc": {
+      "rank": 757,
+      "semanticGroup": "The City",
+      "headword": "cōnsulō -sulere -suluī -sultum"
     }
   },
   {
@@ -4895,6 +9176,24 @@
       "rank": 759,
       "semanticGroup": "The City",
       "headword": "porta -ae f."
+    }
+  },
+  {
+    "id": "libido-n3",
+    "headword": "libīdō, libīdinis, f.",
+    "parts": [
+      "libīdō",
+      "libīdinis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "passion, lust",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 761,
+      "semanticGroup": "Love",
+      "headword": "libīdō -inis f."
     }
   },
   {
@@ -4917,6 +9216,42 @@
     }
   },
   {
+    "id": "maiores-n3",
+    "headword": "māiōrēs, māiōrum, m.",
+    "parts": [
+      "māiōrēs",
+      "māiōrum"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "ancestors",
+    "sources": [],
+    "gender": "m",
+    "number": "pl",
+    "dcc": {
+      "rank": 764,
+      "semanticGroup": "The Household",
+      "headword": "māiōrēs māiōrum m."
+    }
+  },
+  {
+    "id": "reperio-v4",
+    "headword": "reperiō, reperīre",
+    "parts": [
+      "reperiō",
+      "reperīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "find, find out",
+    "sources": [],
+    "dcc": {
+      "rank": 765,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "reperiō -perīre -pperī -pertum"
+    }
+  },
+  {
     "id": "intro-v1",
     "headword": "intrō, intrāre",
     "parts": [
@@ -4931,6 +9266,24 @@
       "rank": 766,
       "semanticGroup": "Motion",
       "headword": "intrō -āre"
+    }
+  },
+  {
+    "id": "pietas-n3",
+    "headword": "pietās, pietātis, f.",
+    "parts": [
+      "pietās",
+      "pietātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "sense of duty, devotion, esp. between parents and children",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 767,
+      "semanticGroup": "The Household",
+      "headword": "pietās -tātis f."
     }
   },
   {
@@ -4988,6 +9341,25 @@
     }
   },
   {
+    "id": "fluo-v3",
+    "headword": "fluō, fluere, fluxī, fluxum",
+    "parts": [
+      "fluō",
+      "fluere",
+      "fluxī",
+      "fluxum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "flow",
+    "sources": [],
+    "dcc": {
+      "rank": 772,
+      "semanticGroup": "Earth and Water",
+      "headword": "fluō fluere fluxī fluxum"
+    }
+  },
+  {
     "id": "tenebrae-n1",
     "headword": "tenebrae, tenebrārum, f.",
     "parts": [
@@ -5022,6 +9394,76 @@
       "rank": 776,
       "semanticGroup": "Lengths of Time",
       "headword": "saeculum -ī n."
+    }
+  },
+  {
+    "id": "dimitto-v3",
+    "headword": "dīmittō, dīmittere",
+    "parts": [
+      "dīmittō",
+      "dīmittere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "send away",
+    "sources": [],
+    "dcc": {
+      "rank": 777,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "dīmittō -mittere -mīsī -missum"
+    }
+  },
+  {
+    "id": "cinis-n3",
+    "headword": "cinis, cineris, m./f.",
+    "parts": [
+      "cinis",
+      "cineris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "ashes, embers",
+    "sources": [],
+    "dcc": {
+      "rank": 779,
+      "semanticGroup": "Air and Fire",
+      "headword": "cinis cineris m./f."
+    }
+  },
+  {
+    "id": "consisto-v3",
+    "headword": "cōnsistō, cōnsistere",
+    "parts": [
+      "cōnsistō",
+      "cōnsistere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "take position; consist in, be composed of",
+    "sources": [],
+    "dcc": {
+      "rank": 780,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "cōnsistō -sistere -stitī"
+    }
+  },
+  {
+    "id": "laedo-v3",
+    "headword": "laedō, laedere, laesī, laesum",
+    "parts": [
+      "laedō",
+      "laedere",
+      "laesī",
+      "laesum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "injure by striking, hurt",
+    "sources": [],
+    "dcc": {
+      "rank": 783,
+      "semanticGroup": "Violence",
+      "headword": "laedō laedere laesī laesum"
     }
   },
   {
@@ -5113,6 +9555,24 @@
     }
   },
   {
+    "id": "cor-n3n",
+    "headword": "cor, cordis, n.",
+    "parts": [
+      "cor",
+      "cordis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "heart; cordī est, it is pleasing to (+ dat.)",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 795,
+      "semanticGroup": "The Body",
+      "headword": "cor cordis n."
+    }
+  },
+  {
     "id": "sapientia-n1",
     "headword": "sapientia, sapientiae, f.",
     "parts": [
@@ -5128,6 +9588,92 @@
       "rank": 797,
       "semanticGroup": "Education/Knowledge",
       "headword": "sapientia -ae f."
+    }
+  },
+  {
+    "id": "accido-v3",
+    "headword": "accidō, accidere",
+    "parts": [
+      "accidō",
+      "accidere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "fall; happen",
+    "sources": [],
+    "dcc": {
+      "rank": 799,
+      "semanticGroup": "Motion",
+      "headword": "accidō -cidere -cidī"
+    }
+  },
+  {
+    "id": "decerno-v3",
+    "headword": "dēcernō, dēcernere",
+    "parts": [
+      "dēcernō",
+      "dēcernere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "determine, decide",
+    "sources": [],
+    "dcc": {
+      "rank": 800,
+      "semanticGroup": "Education/Knowledge",
+      "headword": "dēcernō -cernere -crēvī -crētum"
+    }
+  },
+  {
+    "id": "occido-v3",
+    "headword": "occīdō, occīdere",
+    "parts": [
+      "occīdō",
+      "occīdere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "kill, cut down",
+    "sources": [],
+    "dcc": {
+      "rank": 801,
+      "semanticGroup": "Violence",
+      "headword": "occīdō -cīdere -cīdī -cīsum"
+    }
+  },
+  {
+    "id": "descendo-v3",
+    "headword": "dēscendō, dēscendere",
+    "parts": [
+      "dēscendō",
+      "dēscendere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "climb down, descend",
+    "sources": [],
+    "dcc": {
+      "rank": 802,
+      "semanticGroup": "Travel",
+      "headword": "dēscendō -scendere -scendī -scēnsum"
+    }
+  },
+  {
+    "id": "hiems-n3",
+    "headword": "hiems, hiemis, f.",
+    "parts": [
+      "hiems",
+      "hiemis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "winter",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 803,
+      "semanticGroup": "Lengths of Time",
+      "headword": "hiems hiemis f."
     }
   },
   {
@@ -5163,6 +9709,29 @@
       "rank": 807,
       "semanticGroup": "The City",
       "headword": "tribūnus -ī m."
+    }
+  },
+  {
+    "id": "bos-n3",
+    "headword": "bōs, bovis, m.",
+    "parts": [
+      "bōs",
+      "bovis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "ox; gen. pl. boum",
+    "sources": [],
+    "gender": "m",
+    "irregular": {
+      "gen.pl": "boum",
+      "dat.pl": "bōbus",
+      "abl.pl": "bōbus"
+    },
+    "dcc": {
+      "rank": 808,
+      "semanticGroup": "Animals/Plants",
+      "headword": "bōs bovis m."
     }
   },
   {
@@ -5219,6 +9788,25 @@
     }
   },
   {
+    "id": "cingo-v3",
+    "headword": "cingō, cingere, cīnxī, cīnctum",
+    "parts": [
+      "cingō",
+      "cingere",
+      "cīnxī",
+      "cīnctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "encircle, surround, gird",
+    "sources": [],
+    "dcc": {
+      "rank": 814,
+      "semanticGroup": "War and Peace",
+      "headword": "cingō cingere cīnxī cīnctum"
+    }
+  },
+  {
     "id": "integer-adj12",
     "headword": "integer, integra, integrum",
     "parts": [
@@ -5252,6 +9840,79 @@
       "rank": 816,
       "semanticGroup": "Personality Traits/Characteristics",
       "headword": "validus -a -um"
+    }
+  },
+  {
+    "id": "alo-v3",
+    "headword": "alō, alere, aluī, alitum",
+    "parts": [
+      "alō",
+      "alere",
+      "aluī",
+      "alitum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "nourish",
+    "sources": [],
+    "dcc": {
+      "rank": 817,
+      "semanticGroup": "Life and Being",
+      "headword": "alō alere aluī alitum"
+    }
+  },
+  {
+    "id": "flos-n3",
+    "headword": "flōs, flōris, m.",
+    "parts": [
+      "flōs",
+      "flōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "flower, bloom",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 818,
+      "semanticGroup": "Animals/Plants",
+      "headword": "flōs flōris m."
+    }
+  },
+  {
+    "id": "colligo-v3",
+    "headword": "colligō, colligere",
+    "parts": [
+      "colligō",
+      "colligere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "gather together, collect",
+    "sources": [],
+    "dcc": {
+      "rank": 820,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "colligō -ere -lēgī -lēctum"
+    }
+  },
+  {
+    "id": "pergo-v3",
+    "headword": "pergō, pergere, perrēxī, perrēctum",
+    "parts": [
+      "pergō",
+      "pergere",
+      "perrēxī",
+      "perrēctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "continue, proceed; awaken",
+    "sources": [],
+    "dcc": {
+      "rank": 821,
+      "semanticGroup": "Motion",
+      "headword": "pergō pergere perrēxī perrēctum"
     }
   },
   {
@@ -5309,6 +9970,63 @@
     }
   },
   {
+    "id": "recedo-v3",
+    "headword": "recēdō, recēdere",
+    "parts": [
+      "recēdō",
+      "recēdere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "step back, recoil, recede, withdraw",
+    "sources": [],
+    "dcc": {
+      "rank": 826,
+      "semanticGroup": "Motion",
+      "headword": "recēdō -cēdere -cessī -cessum"
+    }
+  },
+  {
+    "id": "fames-n3i",
+    "headword": "famēs, famis, f.",
+    "parts": [
+      "famēs",
+      "famis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "hunger, famine",
+    "sources": [],
+    "gender": "f",
+    "irregular": {
+      "abl.sg": "famē"
+    },
+    "dcc": {
+      "rank": 828,
+      "semanticGroup": "Life and Being",
+      "headword": "famēs -is f."
+    }
+  },
+  {
+    "id": "pario-v3io",
+    "headword": "pariō, parere, peperī, partum",
+    "parts": [
+      "pariō",
+      "parere",
+      "peperī",
+      "partum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "bring forth, give birth to; accomplish",
+    "sources": [],
+    "dcc": {
+      "rank": 829,
+      "semanticGroup": "Life and Being",
+      "headword": "pariō parere peperī partum"
+    }
+  },
+  {
     "id": "appareo-v2",
     "headword": "appāreō, appārēre",
     "parts": [
@@ -5323,6 +10041,41 @@
       "rank": 830,
       "semanticGroup": "Vision",
       "headword": "appāreō -ēre -uī"
+    }
+  },
+  {
+    "id": "error-n3",
+    "headword": "error, errōris, m.",
+    "parts": [
+      "error",
+      "errōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "wandering; error, mistake",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 832,
+      "semanticGroup": "Travel",
+      "headword": "error -ōris m."
+    }
+  },
+  {
+    "id": "converto-v3",
+    "headword": "convertō, convertere",
+    "parts": [
+      "convertō",
+      "convertere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "turn about, turn, change",
+    "sources": [],
+    "dcc": {
+      "rank": 834,
+      "semanticGroup": "Motion",
+      "headword": "convertō -vertere -vertī -versum"
     }
   },
   {
@@ -5344,6 +10097,25 @@
     }
   },
   {
+    "id": "aperio-v4",
+    "headword": "aperiō, aperīre, aperuī, apertum",
+    "parts": [
+      "aperiō",
+      "aperīre",
+      "aperuī",
+      "apertum"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "open",
+    "sources": [],
+    "dcc": {
+      "rank": 837,
+      "semanticGroup": "The House",
+      "headword": "aperiō aperīre aperuī apertum"
+    }
+  },
+  {
     "id": "castus-adj12",
     "headword": "castus, casta, castum",
     "parts": [
@@ -5362,6 +10134,60 @@
     }
   },
   {
+    "id": "iudex-n3",
+    "headword": "iūdex, iūdicis, m.",
+    "parts": [
+      "iūdex",
+      "iūdicis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "judge, juror",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 839,
+      "semanticGroup": "Justice",
+      "headword": "iūdex iūdicis m."
+    }
+  },
+  {
+    "id": "lapis-n3",
+    "headword": "lapis, lapidis, m.",
+    "parts": [
+      "lapis",
+      "lapidis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "stone",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 840,
+      "semanticGroup": "Earth and Water",
+      "headword": "lapis lapidis m."
+    }
+  },
+  {
+    "id": "onus-n3n",
+    "headword": "onus, oneris, n.",
+    "parts": [
+      "onus",
+      "oneris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "load, burden",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 842,
+      "semanticGroup": "Measurement",
+      "headword": "onus oneris n."
+    }
+  },
+  {
     "id": "opera-n1",
     "headword": "opera, operae, f.",
     "parts": [
@@ -5377,6 +10203,24 @@
       "rank": 843,
       "semanticGroup": "Business/Money",
       "headword": "opera -ae f."
+    }
+  },
+  {
+    "id": "aer-n3",
+    "headword": "āēr, āeris, m.",
+    "parts": [
+      "āēr",
+      "āeris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "air",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 845,
+      "semanticGroup": "Air and Fire",
+      "headword": "āēr āeris m."
     }
   },
   {
@@ -5434,6 +10278,24 @@
     }
   },
   {
+    "id": "aether-n3n",
+    "headword": "aethēr, aetheris, n.",
+    "parts": [
+      "aethēr",
+      "aetheris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "pure upper air, ether, heaven, sky",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 851,
+      "semanticGroup": "Air and Fire",
+      "headword": "aethēr aetheris n."
+    }
+  },
+  {
     "id": "mereo-v2",
     "headword": "mereō, merēre, meruī, meritum",
     "parts": [
@@ -5485,6 +10347,24 @@
       "rank": 854,
       "semanticGroup": "Pronouns/Interrogatives",
       "headword": "proprius -a -um"
+    }
+  },
+  {
+    "id": "avis-n3i",
+    "headword": "avis, avis, f.",
+    "parts": [
+      "avis",
+      "avis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "bird",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 855,
+      "semanticGroup": "Animals/Plants",
+      "headword": "avis -is f."
     }
   },
   {
@@ -5540,6 +10420,24 @@
       "rank": 858,
       "semanticGroup": "Measurement",
       "headword": "paucī -ae -a"
+    }
+  },
+  {
+    "id": "voluntas-n3",
+    "headword": "voluntās, voluntātis, f.",
+    "parts": [
+      "voluntās",
+      "voluntātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "wish, desire",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 859,
+      "semanticGroup": "Emotions",
+      "headword": "voluntās -ātis f."
     }
   },
   {
@@ -5666,6 +10564,76 @@
     }
   },
   {
+    "id": "consumo-v3",
+    "headword": "cōnsūmō, cōnsūmere",
+    "parts": [
+      "cōnsūmō",
+      "cōnsūmere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "to use up, consume",
+    "sources": [],
+    "dcc": {
+      "rank": 869,
+      "semanticGroup": "Life and Being",
+      "headword": "cōnsūmō -sūmere -sūmpsī -sūmptum"
+    }
+  },
+  {
+    "id": "corrumpo-v3",
+    "headword": "corrumpō, corrumpere",
+    "parts": [
+      "corrumpō",
+      "corrumpere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "break up, destroy, ruin",
+    "sources": [],
+    "dcc": {
+      "rank": 870,
+      "semanticGroup": "Violence",
+      "headword": "corrumpō -rumpere -rūpī -ruptum"
+    }
+  },
+  {
+    "id": "incido-v3",
+    "headword": "incidō, incidere, incidī",
+    "parts": [
+      "incidō",
+      "incidere",
+      "incidī"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "fall upon, fall into; happen",
+    "sources": [],
+    "dcc": {
+      "rank": 871,
+      "semanticGroup": "Motion",
+      "headword": "incidō incidere incidī"
+    }
+  },
+  {
+    "id": "hospes-n3",
+    "headword": "hospes, hospitis, m.",
+    "parts": [
+      "hospes",
+      "hospitis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "guest, guest-friend; stranger; host",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 873,
+      "semanticGroup": "Social Life",
+      "headword": "hospes hospitis m."
+    }
+  },
+  {
     "id": "rideo-v2",
     "headword": "rīdeō, rīdēre, rīsī, rīsum",
     "parts": [
@@ -5721,6 +10689,42 @@
     }
   },
   {
+    "id": "praetor-n3",
+    "headword": "praetor, praetōris, m.",
+    "parts": [
+      "praetor",
+      "praetōris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "praetor, one of the chief Roman magistrates",
+    "sources": [],
+    "gender": "m",
+    "dcc": {
+      "rank": 878,
+      "semanticGroup": "The City",
+      "headword": "praetor -ōris m."
+    }
+  },
+  {
+    "id": "rus-n3n",
+    "headword": "rūs, rūris, n.",
+    "parts": [
+      "rūs",
+      "rūris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3n",
+    "gloss": "country",
+    "sources": [],
+    "gender": "n",
+    "dcc": {
+      "rank": 879,
+      "semanticGroup": "Geography",
+      "headword": "rūs rūris n."
+    }
+  },
+  {
     "id": "vito-v1",
     "headword": "vītō, vītāre",
     "parts": [
@@ -5753,6 +10757,43 @@
       "rank": 882,
       "semanticGroup": "Social Life",
       "headword": "prīvātus -a -um"
+    }
+  },
+  {
+    "id": "servio-v4",
+    "headword": "serviō, servīre",
+    "parts": [
+      "serviō",
+      "servīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "be a slave, serve (+ dat.)",
+    "sources": [],
+    "dcc": {
+      "rank": 883,
+      "semanticGroup": "The Household",
+      "headword": "serviō -īre"
+    }
+  },
+  {
+    "id": "adduco-v3",
+    "headword": "addūcō, addūcere",
+    "parts": [
+      "addūcō",
+      "addūcere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "lead to, induce",
+    "sources": [],
+    "irregular": {
+      "pres.act.imp.2sg": "addūc"
+    },
+    "dcc": {
+      "rank": 886,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "addūcō -ere -dūxī -ductum"
     }
   },
   {
@@ -5843,6 +10884,40 @@
     }
   },
   {
+    "id": "conficio-v3io",
+    "headword": "cōnficiō, cōnficere",
+    "parts": [
+      "cōnficiō",
+      "cōnficere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "complete, accomplish; destroy, kill, consume",
+    "sources": [],
+    "dcc": {
+      "rank": 894,
+      "semanticGroup": "Violence",
+      "headword": "cōnficiō -ficere -fēcī -fectum"
+    }
+  },
+  {
+    "id": "intendo-v3",
+    "headword": "intendō, intendere",
+    "parts": [
+      "intendō",
+      "intendere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "stretch out, strain",
+    "sources": [],
+    "dcc": {
+      "rank": 895,
+      "semanticGroup": "Motion",
+      "headword": "intendō -tendere -tendī -tentum:"
+    }
+  },
+  {
     "id": "iuro-v1",
     "headword": "iūrō, iūrāre",
     "parts": [
@@ -5857,6 +10932,43 @@
       "rank": 896,
       "semanticGroup": "Justice",
       "headword": "iūrō -āre"
+    }
+  },
+  {
+    "id": "auctoritas-n3",
+    "headword": "auctōritās, auctōritātis, f.",
+    "parts": [
+      "auctōritās",
+      "auctōritātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "influence, clout, authority",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 898,
+      "semanticGroup": "Social Life",
+      "headword": "auctōritās -ātis f."
+    }
+  },
+  {
+    "id": "iacio-v3io",
+    "headword": "iaciō, iacere, iēcī, iactum",
+    "parts": [
+      "iaciō",
+      "iacere",
+      "iēcī",
+      "iactum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "throw, hurl",
+    "sources": [],
+    "dcc": {
+      "rank": 899,
+      "semanticGroup": "Athletics",
+      "headword": "iaciō iacere iēcī iactum"
     }
   },
   {
@@ -5910,6 +11022,24 @@
       "rank": 902,
       "semanticGroup": "Air and Fire",
       "headword": "lūna -ae f."
+    }
+  },
+  {
+    "id": "cupido-n3",
+    "headword": "cupīdō, cupīdinis, f.",
+    "parts": [
+      "cupīdō",
+      "cupīdinis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "desire, eagerness, craving",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 906,
+      "semanticGroup": "Love",
+      "headword": "cupīdō -inis f."
     }
   },
   {
@@ -5988,6 +11118,24 @@
     }
   },
   {
+    "id": "necessitas-n3",
+    "headword": "necessitās, necessitātis, f.",
+    "parts": [
+      "necessitās",
+      "necessitātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "necessity, need",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 911,
+      "semanticGroup": "Business/Money",
+      "headword": "necessitās -tātis f."
+    }
+  },
+  {
     "id": "poeta-n1",
     "headword": "poēta, poētae, m.",
     "parts": [
@@ -6057,6 +11205,24 @@
       "rank": 919,
       "semanticGroup": "Travel",
       "headword": "nūntius -ī m."
+    }
+  },
+  {
+    "id": "condicio-n3",
+    "headword": "condīciō, condīciōnis, f.",
+    "parts": [
+      "condīciō",
+      "condīciōnis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "agreement, condition",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 920,
+      "semanticGroup": "Business/Money",
+      "headword": "condīciō -ōnis f."
     }
   },
   {
@@ -6151,6 +11317,59 @@
     }
   },
   {
+    "id": "prodo-v3",
+    "headword": "prōdō, prōdere, prōdidī, prōditum",
+    "parts": [
+      "prōdō",
+      "prōdere",
+      "prōdidī",
+      "prōditum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "publish, hand down; give over, betray",
+    "sources": [],
+    "dcc": {
+      "rank": 929,
+      "semanticGroup": "Verbs of Transport",
+      "headword": "prōdō prōdere prōdidī prōditum"
+    }
+  },
+  {
+    "id": "propono-v3",
+    "headword": "prōpōnō, prōpōnere",
+    "parts": [
+      "prōpōnō",
+      "prōpōnere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "put forth, propose, present",
+    "sources": [],
+    "dcc": {
+      "rank": 930,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "prōpōnō -pōnere -posuī -positum"
+    }
+  },
+  {
+    "id": "instituo-v3",
+    "headword": "īnstituō, īnstituere",
+    "parts": [
+      "īnstituō",
+      "īnstituere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "undertake; equip",
+    "sources": [],
+    "dcc": {
+      "rank": 931,
+      "semanticGroup": "Making/Doing",
+      "headword": "īnstituō -stituere -stituī -stitūtum:"
+    }
+  },
+  {
     "id": "magister-n2m",
     "headword": "magister, magistrī, m.",
     "parts": [
@@ -6187,6 +11406,26 @@
     }
   },
   {
+    "id": "educo-v3",
+    "headword": "ēdūcō, ēdūcere",
+    "parts": [
+      "ēdūcō",
+      "ēdūcere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "lead forth",
+    "sources": [],
+    "irregular": {
+      "pres.act.imp.2sg": "ēdūc"
+    },
+    "dcc": {
+      "rank": 935,
+      "semanticGroup": "Verbs of Compelling/Directing",
+      "headword": "ēdūcō -dūcere -dūxī -ductum"
+    }
+  },
+  {
     "id": "frumentum-n2n",
     "headword": "frūmentum, frūmentī, n.",
     "parts": [
@@ -6202,6 +11441,40 @@
       "rank": 936,
       "semanticGroup": "Animals/Plants",
       "headword": "frūmentum -ī n."
+    }
+  },
+  {
+    "id": "suscipio-v3io",
+    "headword": "suscipiō, suscipere",
+    "parts": [
+      "suscipiō",
+      "suscipere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "take up",
+    "sources": [],
+    "dcc": {
+      "rank": 937,
+      "semanticGroup": "Verbs of Transport",
+      "headword": "suscipiō -cipere -cēpī ceptum"
+    }
+  },
+  {
+    "id": "sacerdos-n3",
+    "headword": "sacerdōs, sacerdōtis, m./f.",
+    "parts": [
+      "sacerdōs",
+      "sacerdōtis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "priest, priestess",
+    "sources": [],
+    "dcc": {
+      "rank": 939,
+      "semanticGroup": "Religion",
+      "headword": "sacerdōs -dōtis m./f."
     }
   },
   {
@@ -6242,6 +11515,25 @@
     }
   },
   {
+    "id": "eligo-v3",
+    "headword": "ēligō, ēligere, ēlēgī, ēlēctum",
+    "parts": [
+      "ēligō",
+      "ēligere",
+      "ēlēgī",
+      "ēlēctum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "pick out, select",
+    "sources": [],
+    "dcc": {
+      "rank": 942,
+      "semanticGroup": "The City",
+      "headword": "ēligō ēligere ēlēgī ēlēctum"
+    }
+  },
+  {
     "id": "familia-n1",
     "headword": "familia, familiae, f.",
     "parts": [
@@ -6257,6 +11549,23 @@
       "rank": 943,
       "semanticGroup": "The Household",
       "headword": "familia -ae f."
+    }
+  },
+  {
+    "id": "praecipio-v3io",
+    "headword": "praecipiō, praecipere",
+    "parts": [
+      "praecipiō",
+      "praecipere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "anticipate, advise, warn",
+    "sources": [],
+    "dcc": {
+      "rank": 945,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "praecipiō -cipere -cēpī -ceptum"
     }
   },
   {
@@ -6367,6 +11676,42 @@
     }
   },
   {
+    "id": "consuetudo-n3",
+    "headword": "cōnsuētūdō, cōnsuētūdinis, f.",
+    "parts": [
+      "cōnsuētūdō",
+      "cōnsuētūdinis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "custom, habit",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 954,
+      "semanticGroup": "Personality Traits/Characteristics",
+      "headword": "cōnsuētūdo -inis f."
+    }
+  },
+  {
+    "id": "dignitas-n3",
+    "headword": "dīgnitās, dīgnitātis, f.",
+    "parts": [
+      "dīgnitās",
+      "dīgnitātis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "worth, reputation, honor",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 956,
+      "semanticGroup": "Personality Traits/Characteristics",
+      "headword": "dīgnitās -ātis f."
+    }
+  },
+  {
     "id": "fugo-v1",
     "headword": "fugō, fugāre",
     "parts": [
@@ -6384,6 +11729,23 @@
     }
   },
   {
+    "id": "afficio-v3io",
+    "headword": "afficiō, afficere",
+    "parts": [
+      "afficiō",
+      "afficere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3io",
+    "gloss": "affect, visit with (+ abl.)",
+    "sources": [],
+    "dcc": {
+      "rank": 958,
+      "semanticGroup": "Social Life",
+      "headword": "afficiō -ficere -fēcī -fectum"
+    }
+  },
+  {
     "id": "adhibeo-v2",
     "headword": "adhibeō, adhibēre",
     "parts": [
@@ -6398,6 +11760,24 @@
       "rank": 959,
       "semanticGroup": "Making/Doing",
       "headword": "adhibeō -hibēre -hibuī -hibitum"
+    }
+  },
+  {
+    "id": "mulier-n3",
+    "headword": "mulier, mulieris, f.",
+    "parts": [
+      "mulier",
+      "mulieris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "woman",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 961,
+      "semanticGroup": "People",
+      "headword": "mulier -eris f."
     }
   },
   {
@@ -6419,6 +11799,24 @@
     }
   },
   {
+    "id": "aedes-n3i",
+    "headword": "aedēs, aedis, f.",
+    "parts": [
+      "aedēs",
+      "aedis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "building; (pl.) house",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 965,
+      "semanticGroup": "The House",
+      "headword": "aedēs -is f."
+    }
+  },
+  {
     "id": "fabula-n1",
     "headword": "fābula, fābulae, f.",
     "parts": [
@@ -6437,6 +11835,25 @@
     }
   },
   {
+    "id": "quiesco-v3",
+    "headword": "quiēscō, quiēscere, quiēvī, quiētum",
+    "parts": [
+      "quiēscō",
+      "quiēscere",
+      "quiēvī",
+      "quiētum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "keep quiet; sleep",
+    "sources": [],
+    "dcc": {
+      "rank": 969,
+      "semanticGroup": "Life and Being",
+      "headword": "quiēscō quiēscere quiēvī quiētum"
+    }
+  },
+  {
     "id": "scientia-n1",
     "headword": "scientia, scientiae, f.",
     "parts": [
@@ -6452,6 +11869,57 @@
       "rank": 971,
       "semanticGroup": "Education/Knowledge",
       "headword": "scientia -ae f."
+    }
+  },
+  {
+    "id": "diligo-v3",
+    "headword": "dīligō, dīligere",
+    "parts": [
+      "dīligō",
+      "dīligere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "choose, cherish, love",
+    "sources": [],
+    "dcc": {
+      "rank": 973,
+      "semanticGroup": "Love",
+      "headword": "dīligō -ligere -lēxī -lēctum"
+    }
+  },
+  {
+    "id": "dormio-v4",
+    "headword": "dormiō, dormīre",
+    "parts": [
+      "dormiō",
+      "dormīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "sleep",
+    "sources": [],
+    "dcc": {
+      "rank": 975,
+      "semanticGroup": "Life and Being",
+      "headword": "dormiō -īre"
+    }
+  },
+  {
+    "id": "volucris-n3",
+    "headword": "volucris, volucris, f./m.",
+    "parts": [
+      "volucris",
+      "volucris"
+    ],
+    "pos": "noun",
+    "paradigm": "n3",
+    "gloss": "bird",
+    "sources": [],
+    "dcc": {
+      "rank": 976,
+      "semanticGroup": "Animals/Plants",
+      "headword": "volucris -is f./m."
     }
   },
   {
@@ -6507,6 +11975,59 @@
     }
   },
   {
+    "id": "adverto-v3",
+    "headword": "advertō, advertere",
+    "parts": [
+      "advertō",
+      "advertere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "turn towards",
+    "sources": [],
+    "dcc": {
+      "rank": 986,
+      "semanticGroup": "Motion",
+      "headword": "advertō -vertere -vertī -versum"
+    }
+  },
+  {
+    "id": "advenio-v4",
+    "headword": "adveniō, advenīre",
+    "parts": [
+      "adveniō",
+      "advenīre"
+    ],
+    "pos": "verb",
+    "paradigm": "v4",
+    "gloss": "come to, arrive at",
+    "sources": [],
+    "dcc": {
+      "rank": 987,
+      "semanticGroup": "Travel",
+      "headword": "adveniō -īre -vēnī -ventum"
+    }
+  },
+  {
+    "id": "pendo-v3",
+    "headword": "pendō, pendere, pependī, pēnsum",
+    "parts": [
+      "pendō",
+      "pendere",
+      "pependī",
+      "pēnsum"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "weigh, hang, suspend; pay",
+    "sources": [],
+    "dcc": {
+      "rank": 988,
+      "semanticGroup": "Business/Money",
+      "headword": "pendō pendere pependī pēnsum"
+    }
+  },
+  {
     "id": "studeo-v2",
     "headword": "studeō, studēre",
     "parts": [
@@ -6521,6 +12042,78 @@
       "rank": 989,
       "semanticGroup": "Emotions",
       "headword": "studeō -ēre -uī"
+    }
+  },
+  {
+    "id": "ascendo-v3",
+    "headword": "ascendō, ascendere",
+    "parts": [
+      "ascendō",
+      "ascendere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "climb up, ascend",
+    "sources": [],
+    "dcc": {
+      "rank": 990,
+      "semanticGroup": "Travel",
+      "headword": "ascendō -ere -scendī -scēnsum"
+    }
+  },
+  {
+    "id": "fors-n3i",
+    "headword": "fors, fortis, f.",
+    "parts": [
+      "fors",
+      "fortis"
+    ],
+    "pos": "noun",
+    "paradigm": "n3i",
+    "gloss": "chance",
+    "sources": [],
+    "gender": "f",
+    "dcc": {
+      "rank": 993,
+      "semanticGroup": "Religion",
+      "headword": "fors fortis f."
+    }
+  },
+  {
+    "id": "reverto-v3",
+    "headword": "revertō, revertere",
+    "parts": [
+      "revertō",
+      "revertere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "turn back",
+    "sources": [],
+    "dcc": {
+      "rank": 995,
+      "semanticGroup": "Motion",
+      "headword": "revertō -vertere -vertī"
+    }
+  },
+  {
+    "id": "edico-v3",
+    "headword": "ēdīcō, ēdīcere",
+    "parts": [
+      "ēdīcō",
+      "ēdīcere"
+    ],
+    "pos": "verb",
+    "paradigm": "v3",
+    "gloss": "declare",
+    "sources": [],
+    "irregular": {
+      "pres.act.imp.2sg": "ēdīc"
+    },
+    "dcc": {
+      "rank": 996,
+      "semanticGroup": "Speech/Oratory",
+      "headword": "ēdīcō -dīcere -dīxī -dictum"
     }
   },
   {
