@@ -103,7 +103,7 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
     blocks: [
       { p: 'Verbs with a short -ere infinitive belong to the 3rd conjugation: *agō, agere*. Drop -ere to find the base (ag-) and add the endings with a short i: *agis*, *agit*, *agimus*, *agitis*, but *agunt*.' },
       { table: { kind: 'verbs', headwords: ['agō, agere', 'dūcō, dūcere'], glosses: ['drive', 'lead'] } },
-      { p: 'The singular command is the base + -e: *age!* Four verbs drop the -e: *dūc!*, *dīc!*, *fac!* and *fer!*' },
+      { p: 'The singular command is the base + -e: *age!* A few verbs drop the -e, such as *dūc!*; the others come with their verbs later.' },
       { p: 'The 3rd-conjugation future has no -b-: -am, -ēs, -et, -ēmus, -ētis, -ent. *Agam*, I shall drive; *aget*, she will drive; but *agit*, she drives.' },
       { table: { kind: 'verbs', headwords: ['agō, agere', 'scrībō, scrībere'], glosses: ['drive', 'write'], tense: 'fut' } },
       { p: 'The imperfect uses -ēbam: *agēbam*, *dūcēbant*. Mind the trap: *agēs* and *aget* look like the 2nd-conjugation present (*monēs*, *monet*), but here they are future.' },
