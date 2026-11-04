@@ -121,7 +121,7 @@ Local full stack: `npm run build && npm run dev:worker` (`wrangler dev` serves `
 
 ## Sentence exercises
 
-Original Latin sentences (written for this app, never copied from Wheelock), public and bundled: `content/sentences/sNN.json`, one file per section (s01–s08 so far, 16–20 sentences each). `src/content/sentenceBank.ts` globs the folder, so a new section is a new file.
+Original Latin sentences (written for this app, never copied from Wheelock), public and bundled: `content/sentences/sNN.json`, one file per section (s01–s10 so far, 16–20 sentences each). `src/content/sentenceBank.ts` globs the folder, so a new section is a new file.
 
 ### Schema
 
@@ -143,7 +143,7 @@ Original Latin sentences (written for this app, never copied from Wheelock), pub
 ```
 
 - `form` is exactly what the morph engine generates for `lemma` + `cell` (macrons; capitals only for names and *Ō*). Lemma ids are the lexicon's (`lemmaId`). Indeclinables use cell `citation`.
-- `role`: `subj`, `obj`, `iobj`, `verb`, `pred` (predicate nominative), `voc`. Every finite verb (and imperative) is `verb`; implied subjects simply have no `subj` token.
+- `role`: `subj`, `obj`, `iobj`, `verb`, `pred` (predicate nominative), `voc`. Every finite verb (and imperative) is `verb`; implied subjects simply have no `subj` token. A demonstrative standing alone (*Ille numquam errat*, "That man / He never makes mistakes") takes the role itself; one modifying a noun (*hic morbus*) has no role, like any adjective, and the noun is the subject or object. Its English lists the pronoun readings too ("{That man|He}", "these things").
 - `attach: "que" | "ne"`: the enclitic is written onto this word (*puellae* + `que` → *puellaeque*).
 - `phrase: n`: this word heads a unit with the next n tokens (a preposition and its object phrase; *Ō* + a vocative).
 - `comma: true`: a comma follows the word in the printed sentence.
@@ -151,7 +151,7 @@ Original Latin sentences (written for this app, never copied from Wheelock), pub
 
 ### Word order (English → Latin tiles)
 
-Latin word order is free, within units. `order` is a tree: a token index, or `[kind, ...children]` with kind `free` (any order), `fixed` (as written), `first` (first child first, rest free) or `coord` (`[A, conj, B]` or `[B, conj, A]`). Without `order`, it is derived: everything free, except a `phrase` unit (head first, its words in any order), *nōn* + the next word or unit (fixed), a `-que` word right after the word before it, and a `-ne` word first. Sentences with a clause word (*et, sed, sī, dum, igitur, tamen, ubi, quandō, quārē*) or two finite verbs must give `order` (a test checks). An answer is right when its tiles, in order, are one of the tree's orders (`latinOrders`, ≤ 7 words, so they are simply enumerated). The written order must itself be allowed (a test checks).
+Latin word order is free, within units. `order` is a tree: a token index, or `[kind, ...children]` with kind `free` (any order), `fixed` (as written), `first` (first child first, rest free) or `coord` (`[A, conj, B]` or `[B, conj, A]`). Without `order`, it is derived: everything free, except a `phrase` unit (head first, its words in any order), *nōn* + the next word or unit (fixed), a `-que` word right after the word before it, and a `-ne` word first. Sentences with a clause word (*et, sed, sī, dum, igitur, tamen, enim, ubi, quandō, quārē, quoniam*) or two finite verbs must give `order` (a test checks); postpositive *enim* and *tamen* are kept second. An answer is right when its tiles, in order, are one of the tree's orders (`latinOrders`, ≤ 7 words, so they are simply enumerated). The written order must itself be allowed (a test checks).
 
 ### English answers (Latin → English tiles)
 
@@ -159,7 +159,7 @@ Latin word order is free, within units. `order` is a tree: a token index, or `[k
 
 ### Eligibility
 
-A sentence appears only when its section is reached, every lemma (and enclitic) is known to the learner (`path.knownAt` + seen), and every token's ending feature is unlocked (`featureOfCell` / `hasFeature`). `tests/sentence-bank.test.ts` checks the bank against the private Wheelock list (skipped without it): each lemma is a Wheelock word first taught at or before the sentence's section (DCC-only words are impossible: they aren't on the list), `generate(lemma)[cell] === form`, the cell's feature is unlocked by `featuresAt(section, true)`, each sentence is eligible at the end of its section on the real path with ≥ 3 exercise types, and each uses something its section introduces. Shape checks (ids, 2–7 words, roles vs cases, subject–verb agreement, order trees, English markup) always run. `content/private/coverage/sentences_s01-s08.txt` lists every sentence as `Latin = English` for an independent back-translation check, with the `{a|b}` / `[x]` notation so a checker sees exactly what is accepted.
+A sentence appears only when its section is reached, every lemma (and enclitic) is known to the learner (`path.knownAt` + seen), and every token's ending feature is unlocked (`featureOfCell` / `hasFeature`). `tests/sentence-bank.test.ts` checks the bank against the private Wheelock list (skipped without it): each lemma is a Wheelock word first taught at or before the sentence's section (DCC-only words are impossible: they aren't on the list), `generate(lemma)[cell] === form`, the cell's feature is unlocked by `featuresAt(section, true)`, each sentence is eligible at the end of its section on the real path with ≥ 3 exercise types, and each uses something its section introduces. Shape checks (ids, 2–7 words, roles vs cases, subject–verb agreement, order trees, English markup) always run. `content/private/coverage/sentences_s01-s08.txt` and `sentences_s09-s10.txt` list every sentence as `Latin = English` for an independent back-translation check, with the `{a|b}` / `[x]` notation so a checker sees exactly what is accepted.
 
 ### Exercise types (`src/engine/sentences.ts`, UI `src/ui/SentenceView.tsx`)
 
@@ -185,7 +185,7 @@ Pronunciation clips come from **eSpeak NG**'s Latin voice (`la`, restored classi
 - **Keys** (`src/audio/key.ts`): `key = sha256("espeak-ng+p1|la|130|" + normalize(text))`, first 24 hex digits; normalize = NFC, lowercase, single spaces, trimmed, punctuation kept. Pure synchronous SHA-256, so lessons (built synchronously) can compute keys. Test vector, also asserted in the content repo: `Amō` → `fb92e07d84a2cd968a353adf`. `p1` is the version of the pre-processing below: bump it (here and in vocabula-content `scripts/audio-lib.mts`) whenever the pre-processing or the voice changes, so every clip is regenerated under new keys.
 - **Pre-processing** (`src/audio/speech.ts`), applied to the text eSpeak is given (the key covers it through the version tag): consonantal *i* → *j* at the start of a word before a vowel (*iam* → *jam*; eSpeak reads *iam* as two syllables) and after a prefix (*adiuvō, coniungō, iniūria, obiectus*; *obiciō* → *objiciō*), vocalic forms of *eō* left alone; *eu* → *eü* except in real diphthongs (*heu, seu, ceu, neu, neuter*, Greek *Eu-*), because eSpeak makes every *eu* a diphthong (*deus* as one syllable); enclitic hyphens dropped. Intervocalic *i* (*cuius, huius, maior, eius*) eSpeak already doubles (/kʊjjʊs/).
 - **What eSpeak gets right** (checked with `espeak-ng -v la -x`): *c* = /k/, *v* = /w/, *ae* = /ai/, *oe* = /oi/, *gn* = /ŋn/, *qu* = /kw/, *ph th* aspirated, macrons → long vowels, penult-law stress (*agricola* /aɡˈrɪkɔla/, *amāre* /amˈaːrɛ/). **Known gaps**: final *-m* is not nasalized; no elision; *deinde* is stressed de-ín-de; *coniungō* gets initial stress; *cui*, *huic* are two syllables; isolated words sometimes carry only secondary stress (*eius*, *mihi*).
-- **Manifest** (`src/audio/items.ts`, `scripts/audio-manifest.ts`): each lemma's first citation form (*amō*), its full citation when it has more than one form (*rosa, rosae*; *amō, amāre*; *magnus, magna, magnum*), every bank sentence as printed, every written word in the bank, and the voice-test items (`src/compare/items.ts`). Currently 2061 clips (16 of them the Audītiō pre-teach words). The output holds Wheelock words: never commit it.
+- **Manifest** (`src/audio/items.ts`, `scripts/audio-manifest.ts`): each lemma's first citation form (*amō*), its full citation when it has more than one form (*rosa, rosae*; *amō, amāre*; *magnus, magna, magnum*), every bank sentence as printed, every written word in the bank, and the voice-test items (`src/compare/items.ts`). Currently 2162 clips (16 of them the Audītiō pre-teach words). The output holds Wheelock words: never commit it.
 - **Pipeline**: the private content repo's Action (`vocabula-content/.github/workflows/audio.yml`) builds the manifest from this repo's code, synthesizes only the keys D1 doesn't have (`espeak-ng -v la -s 130` → ffmpeg → MP3), and uploads them with `wrangler d1 execute --file` (`INSERT OR REPLACE … X'…'`, each statement < 90 KB). It runs on pushes that change the pack or scripts, or by hand (inputs `app_ref`, `force`). Table: `audio (key TEXT PRIMARY KEY, mime, bytes BLOB, text, engine, created_at)` (`worker/schema.ts`, `migrations/0002_audio.sql`).
 - **Format**: MP3, mono, 22.05 kHz, 32 kbps CBR, leading silence trimmed (≈ 4 KB per word, 8 KB on average, 22 KB max; 15.9 MB for all 2045). MP3 plays on iOS Safari and Android Chrome alike; Opus would be smaller, but Safari's support depends on the iOS version and the container.
 - **Client** (`src/audio/player.ts`): clips are fetched (`redirect: 'manual'`, so an expired sign-in is a failure, not a login page) and played from blob URLs through one shared `<audio>` element (no Range requests, which Safari wants for media URLs). The first tap in a lesson unlocks the element on iOS so later clips can autoplay. A 404 marks the key missing for the session. The service worker caches `/api/audio/*` **CacheFirst** (cache `audio`, 5000 entries, only `200 audio/mpeg`), a rule placed before the `NetworkOnly` `/api` rule (`pwa-runtime.ts`). A lesson prefetches its clips when it starts.
@@ -272,7 +272,7 @@ Everything under `content/private/` (the raw Wheelock and Familia Rōmāna lists
 
 ## Not yet built
 
-Sections beyond 4, 3rd–5th declensions, 3rd/4th conjugations, other tenses, pronouns, sentences for sections 9–10, dark mode.
+Sections beyond 4, 3rd–5th declensions, 3rd/4th conjugations, other tenses, personal pronouns, dark mode.
 
 ## DCC core vocabulary
 

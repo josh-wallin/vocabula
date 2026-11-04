@@ -25,11 +25,11 @@ const files = readdirSync(DIR).filter((f) => /^s\d\d\.json$/.test(f)).sort();
 const bank = sentenceBank();
 const FINITE = /^(pres|fut|impf)\.act\.(ind|imp)\./;
 /** Words that join or introduce clauses: their sentences must spell out word order. */
-const CONNECTIVES = new Set(['et-indecl', 'sed-indecl', 'si-indecl', 'dum-indecl', 'igitur-indecl', 'tamen-indecl', 'ubi-indecl', 'quando-indecl', 'quare-indecl']);
+const CONNECTIVES = new Set(['et-indecl', 'sed-indecl', 'si-indecl', 'dum-indecl', 'igitur-indecl', 'tamen-indecl', 'ubi-indecl', 'quando-indecl', 'quare-indecl', 'enim-indecl', 'quoniam-indecl']);
 
 describe('sentence bank: shape', () => {
-  it('files s01–s08 parse, each holding its own section, 16–20 sentences', () => {
-    expect(files.slice(0, 8)).toEqual(['s01.json', 's02.json', 's03.json', 's04.json', 's05.json', 's06.json', 's07.json', 's08.json']);
+  it('files s01–s10 parse, each holding its own section, 16–20 sentences', () => {
+    expect(files.slice(0, 10)).toEqual(Array.from({ length: 10 }, (_, i) => `s${String(i + 1).padStart(2, '0')}.json`));
     for (const f of files) {
       const n = Number(f.slice(1, 3));
       const list = parseSentences(JSON.parse(readFileSync(resolve(DIR, f), 'utf8')));

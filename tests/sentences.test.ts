@@ -314,6 +314,32 @@ describe('tap the subject / object', () => {
     expect(canBuild(implied, 'obj', ctxAt(4))).toBe(false);
     expect(canBuild(ifClause, 'subj', ctxAt(4))).toBe(false);
   });
+  it('demonstratives: alone they are the subject / object; with a noun, the noun is', () => {
+    const dlex = buildLexicon([...LEMMAS, W(9, 1, 'hic, haec, hoc', 'pron', 'this'), W(9, 2, 'ille, illa, illud', 'pron', 'that')], []);
+    const d = { lex: dlex, known: new Set(dlex.words.map((w) => w.lemma.id)), unlocked: featuresAt(9, true), section: 9, rng: rng(1), nextId: () => `x${++n}`, pool: BANK };
+    // Hic illam videt. "This man sees that woman."
+    const pron = S({ id: 't-d1', section: 9, en: ['{This man|He} sees {that woman|her}.'], tokens: [
+      tok('hic', 'hic-pron-hic', 'nom.sg.m', { role: 'subj' }), tok('illam', 'ille-pron-ille', 'acc.sg.f', { role: 'obj' }), tok('videt', 'video-v2', 'pres.act.ind.3sg', { role: 'verb' })] });
+    expect(sentenceEligible(pron, d)).toBe(true);
+    const s = buildSentenceExercise(pron, 'subj', d)!;
+    expect(s.answer).toEqual(['w0']);
+    expect(s.note).toMatch(/^hic \(.*\): the subject\./);
+    expect(buildSentenceExercise(pron, 'obj', d)!.answer).toEqual(['w1']);
+    expect(checkEnglish(pron, 'He sees her')).toBe(true);
+    expect(checkEnglish(pron, 'This man sees her')).toBe(true);
+    // Hic puer illam puellam videt. "This boy sees that girl."
+    const adj = S({ id: 't-d2', section: 9, en: ['This boy sees that girl.'], tokens: [
+      tok('hic', 'hic-pron-hic', 'nom.sg.m'), tok('puer', 'puer-n2m', 'nom.sg', { role: 'subj' }),
+      tok('illam', 'ille-pron-ille', 'acc.sg.f'), tok('puellam', 'puella-n1', 'acc.sg', { role: 'obj' }), tok('videt', 'video-v2', 'pres.act.ind.3sg', { role: 'verb' })] });
+    expect(buildSentenceExercise(adj, 'subj', d)!.answer).toEqual(['w1']);
+    expect(buildSentenceExercise(adj, 'obj', d)!.answer).toEqual(['w3']);
+    // Latin tiles: the demonstrative may stand on either side of its noun; distractors are other forms of hic / ille.
+    expect(checkLatinOrder(adj, ['puer', 'hic', 'puellam', 'illam', 'videt'])).toBe(true);
+    const la = buildSentenceExercise(adj, 'la', d)!;
+    const extra = la.options.filter((o) => o.id.startsWith('d')).map((o) => o.text);
+    expect(extra.length).toBe(2);
+    for (const f of extra) expect(['hic', 'puer', 'illam', 'puellam', 'videt']).not.toContain(f);
+  });
 });
 
 describe('English → Latin tiles', () => {
