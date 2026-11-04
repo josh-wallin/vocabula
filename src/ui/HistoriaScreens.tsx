@@ -1,5 +1,5 @@
 /**
- * Historia tab: famous sayings in real Latin (Suetonius, the Historia Augusta), each with tap-to-gloss words,
+ * Historia tab: famous sayings in real Latin (Livy and Caesar to Augustine and Vegetius), each with tap-to-gloss words,
  * an eSpeak reading, an original translation, a sourced essay and graded questions.
  * Reuses the Audītiō transcript / gloss styling (.transcript, .tok, .tgloss) and Speaker.
  * Its own chunk with the entries' JSON, loaded through src/ui/Historia.tsx.
@@ -22,7 +22,7 @@ export function HistoriaList({ app, onOpen }: { app: AppData; onOpen: (id: strin
   return (
     <main class="page" data-screen="historia">
       <h1 lang="la">Historia</h1>
-      <p>Famous sayings in real Latin (Suetonius, the Historia Augusta), with the story around them and what we can and can’t know about them.</p>
+      <p>Famous sayings and passages in real Latin, from the legends of Troy and early Rome to late antiquity, with the story around them and what we can and can’t know about them. The authors run from Livy, Caesar, Cicero, Catullus, Vergil and Augustus’s own Res Gestae to Seneca, Tacitus, Suetonius, Pliny, Valerius Maximus, the Historia Augusta, Ammianus, Augustine and Vegetius, with writing from the walls of Pompeii.</p>
       <ul class="hist-list">
         {historiaEntries().map((e) => {
           const k = knownShare(e, known, heads);

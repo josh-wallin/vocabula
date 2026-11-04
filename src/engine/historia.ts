@@ -1,5 +1,5 @@
 /**
- * Historia: short passages of real Latin (Suetonius, the Historia Augusta) containing a famous saying, with
+ * Historia: short passages of real Latin (Livy, Caesar, Suetonius, Tacitus, Vergil and others) containing a famous saying, with
  * word-by-word glosses, an original translation, a sourced essay and a few questions.
  * Definitions live in content/historia/*.json (public: the Latin is public domain; the
  * glosses, translations, essays and questions are original). Pure: no DOM, no fetch.

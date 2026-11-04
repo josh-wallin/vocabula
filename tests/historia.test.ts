@@ -46,6 +46,15 @@ describe('historia: definitions', () => {
     const orders = entries.map((e) => e.order);
     expect(new Set(orders).size).toBe(orders.length);
     expect(orders).toEqual([...orders].sort((a, b) => a - b));
+    // A rough chronology of what each passage is about: legend (Troy, early Rome), the Republic,
+    // Caesar and Augustus, the Julio-Claudians and Flavians (Vesuvius), Trajan and Hadrian, late antiquity.
+    expect(entries.map((e) => e.id)).toEqual([
+      'aen-249', 'aen-6851', 'liv-107', 'liv-158', 'liv-210', 'liv-326', 'liv-548', 'liv-2251',
+      'valmax-4', 'catil-1', 'cat-85', 'cat-5', 'bg-425', 'iul-32', 'iul-37', 'rg-34', 'aug-23', 'aug-28',
+      'claud-21', 'sen-47', 'ann-15', 'nero-49', 'vesp-23', 'pomp-4', 'plin-616', 'plin-620', 'tit-8',
+      'agr-30', 'plin-96', 'hadr-11', 'hadr-14', 'hadr-25', 'amm-25', 'conf-812', 'veg-3',
+    ]);
+    expect(orders).toEqual(entries.map((_, i) => i + 1));
     // Verse entries keep their lines: Hadrian's lines to his soul, the Pompeii wall texts, Catullus, Vergil.
     const VERSE = new Set(['hadr-25', 'pomp-4', 'cat-85', 'cat-5', 'aen-249', 'aen-6851']);
     for (const e of entries) expect(!!e.verse, `${e.id} verse`).toBe(VERSE.has(e.id));
@@ -112,6 +121,8 @@ describe('historia: definitions', () => {
       expect(e.sources.some((s) => s.url === e.edition.url && s.kind === 'ancient')).toBe(true);
       expect(e.verified).toBe('2026-11-04');
     }
+    // No stale rules: every author in the table has an entry.
+    for (const a of Object.keys(AUTHORS)) expect(entries.some((e) => e.author === a), a).toBe(true);
   });
 
   it('every token is glossed and parsed, and the tokens spell the edition text verbatim', () => {

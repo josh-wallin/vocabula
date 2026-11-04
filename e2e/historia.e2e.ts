@@ -4,7 +4,7 @@
  *   npm run build && npx tsx e2e/historia.e2e.ts
  *
  * Imports the private pack and a backup that finishes sections I–II (a learner at Wheelock ch. 2),
- * opens the Historia tab (ten entries with known-word meters), opens Titus's "diem perdidi":
+ * opens the Historia tab (every entry, in `order`, with known-word meters), opens Titus's "diem perdidi":
  * taps every word for its gloss, toggles the translation, answers the questions (one missed on
  * purpose) and checks they are recorded as review events (outbox), and that the sources link out.
  * Run twice: once with the passage's eSpeak clip served (a short silent WAV stand-in), once with
@@ -14,7 +14,7 @@
 import { existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { chromium, type BrowserContext } from 'playwright-core';
+import { chromium, type BrowserContext, type Page } from 'playwright-core';
 import { assertPortFree, PREVIEW_PORT, startPreview, stopServers, waitForHttp } from './serve.ts';
 import { assert } from './play.ts';
 import { parsePack } from '../src/data/pack.ts';
@@ -84,9 +84,11 @@ async function main() {
       await page.getByRole('button', { name: 'Profile' }).click();
       await page.locator('label:has-text("Import backup") input[type="file"]').setInputFiles(backupFile);
       await page.locator('p.okmsg[role="status"]').waitFor();
-      const outboxBefore = Number(await page.getByTestId('outbox-count').textContent());
+      // The import's events reach the outbox asynchronously: wait for the count to settle on them.
+      const outboxBefore = await stableOutbox(page, backup.events.length);
+      assert(outboxBefore === backup.events.length, `imported events queued: ${outboxBefore} of ${backup.events.length}`);
 
-      // The list: eight entries, each with a meter; a ch. 2 learner knows some words of some entries.
+      // The list: every entry, each with a meter; a ch. 2 learner knows some words of some entries.
       await page.getByRole('button', { name: 'Historia' }).click();
       await page.locator('main[data-screen="historia"]').waitFor();
       const cards = page.getByTestId('historia-entry');
@@ -95,8 +97,13 @@ async function main() {
       assert(pcts.length === entries.length && pcts.every((p) => p >= 0 && p <= 100), `meters ${pcts}`);
       assert(pcts.some((p) => p > 0), `some words known at ch. 2: ${pcts}`);
       assert(pcts.every((p) => p < 100), `not everything known at ch. 2: ${pcts}`);
+      const ids = await cards.evaluateAll((els) => els.map((e) => e.getAttribute('data-id') ?? ''));
+      const byOrder = [...entries].sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
+      assert(JSON.stringify(ids) === JSON.stringify(byOrder.map((e) => e.id)), `cards in order: ${ids}`);
       const first = (await cards.first().textContent()) ?? '';
-      assert(first.includes('Suet. Iul. 32') && first.includes('Iacta ālea est'), `first card: ${first}`);
+      assert(first.includes(byOrder[0]!.citation) && first.includes(byOrder[0]!.saying), `first card: ${first}`);
+      const iul = (await page.locator('[data-testid="historia-entry"][data-id="iul-32"]').textContent()) ?? '';
+      assert(iul.includes('Suet. Iul. 32') && iul.includes('Iacta ālea est'), `Iul. 32 card: ${iul}`);
       if (SHOTS && withClip) await page.screenshot({ path: join(SHOTS, 'historia-list.png'), fullPage: true });
       log(`${withClip ? 'with clip' : 'no clip'}: list ok, known ${pcts.join('/')}%`);
 
@@ -157,7 +164,7 @@ async function main() {
       await page.locator('main[data-screen="historia"]').waitFor();
       await page.getByRole('button', { name: 'Profile' }).click();
       await page.getByTestId('outbox-count').waitFor();
-      const outboxAfter = Number(await page.getByTestId('outbox-count').textContent());
+      const outboxAfter = await stableOutbox(page, outboxBefore + titus.questions.length);
       assert(outboxAfter === outboxBefore + titus.questions.length, `review events queued: ${outboxBefore} → ${outboxAfter}`);
       // The reviews are in the log with historia card ids.
       const cardsInDb = await page.evaluate((DBN) => new Promise<string[]>((res, rej) => {
@@ -181,6 +188,26 @@ async function main() {
     await browser.close();
     await stopServers();
   }
+}
+
+/**
+ * The outbox count once it has stopped changing: the same number on several reads in a row
+ * (and, if given, equal to `expected`), polling up to `timeout` ms; returns the last read either
+ * way, so the caller's assertion reports the real value.
+ */
+async function stableOutbox(page: Page, expected?: number, timeout = 10_000): Promise<number> {
+  const read = async () => Number(await page.getByTestId('outbox-count').textContent());
+  const deadline = Date.now() + timeout;
+  let last = await read();
+  let same = 0;
+  while (Date.now() < deadline) {
+    await page.waitForTimeout(150);
+    const v = await read();
+    same = v === last ? same + 1 : 0;
+    last = v;
+    if (same >= 4 && (expected === undefined || v === expected)) break;
+  }
+  return last;
 }
 
 /** 0.3 s of 8 kHz 8-bit mono silence. */
