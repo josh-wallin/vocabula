@@ -233,8 +233,10 @@ class Factory {
     if (!bank.length || want <= 0) return [];
     const r = rng(hashSeed(`${this.ctx.seed}:sentences`));
     const sctx = { lex: this.ctx.lex, known: this.known, unlocked: this.ctx.unlocked, section: node.section };
-    const pool = bank.filter((s) => sentenceEligible(s, sctx));
-    const picks = chooseSentences({ ...sctx, bank: pool, state: this.ctx.state, now: this.ctx.now, count: want, rng: r, ...(focus ? { focus } : {}) });
+    const eligible = bank.filter((s) => sentenceEligible(s, sctx));
+    const picks = chooseSentences({ ...sctx, bank: eligible, state: this.ctx.state, now: this.ctx.now, count: want, rng: r, ...(focus ? { focus } : {}) });
+    // English distractor tiles may come from any sentence of the sections reached.
+    const pool = bank.filter((s) => s.section <= node.section);
     const out: SentenceExercise[] = [];
     for (const p of picks) {
       const e = buildSentenceExercise(p.s, p.type, { ...sctx, rng: r, nextId: () => this.nextId(), pool, ...(focus ? { focus } : {}) });

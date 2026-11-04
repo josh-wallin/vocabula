@@ -380,6 +380,14 @@ function latinDistractorCandidates(s: Sentence, c: SentCtx): { tok: number; form
 
 const roleLabel: Record<'subj' | 'obj', string> = { subj: 'subject', obj: 'direct object' };
 
+/** A one-word English gloss for a distractor tile ("to love, like" → "love"), or null. */
+function glossWord(g: string): string | null {
+  const w = g.split(/[,;(]/)[0]!.trim().replace(/^to\s+/, '');
+  return /^[a-z]+$/.test(w) ? w : null;
+}
+/** Last-resort distractor tiles. */
+const COMMON_WORDS = ['they', 'we', 'is', 'not', 'have', 'and', 'with', 'was', 'will', 'see', 'give', 'here'];
+
 export interface BuildDeps extends SentCtx {
   rng: Rng;
   nextId: () => string;
@@ -419,10 +427,18 @@ export function buildSentenceExercise(s: Sentence, type: SentType, d: BuildDeps)
     case 'en': {
       const ref = englishWords(s.en[0]!);
       const accepted = new Set(s.en.flatMap(expandEnglish).flatMap((e) => normalizeEnglish(e).split(' ')));
-      const cand = [...new Set(d.pool.filter((o) => o.id !== s.id).flatMap((o) => englishWords(o.en[0]!)))]
-        .filter((w) => !ARTICLES.has(w.toLowerCase()) && !accepted.has(normalizeEnglish(w)) && !ref.includes(w));
+      const usable = (w: string) => !ARTICLES.has(w.toLowerCase()) && !accepted.has(normalizeEnglish(w)) && !ref.includes(w);
       const n = ref.length <= 6 ? 3 : 2;
-      const extra = shuffle(cand.sort(), d.rng).slice(0, n);
+      // Distractor words: other sentences' English first, then the known words' glosses, then a few common words.
+      const fromSentences = [...new Set(d.pool.filter((o) => o.id !== s.id).flatMap((o) => englishWords(o.en[0]!)))].filter(usable).sort();
+      const extra = shuffle(fromSentences, d.rng).slice(0, n);
+      if (extra.length < n) {
+        const glosses = [...new Set([...d.known].sort().map((id) => glossWord(d.lex.byId.get(id)?.lemma.gloss ?? '')).filter((w): w is string => !!w))];
+        for (const w of [...shuffle(glosses.filter(usable), d.rng), ...COMMON_WORDS.filter(usable)]) {
+          if (extra.length >= n) break;
+          if (!extra.includes(w)) extra.push(w);
+        }
+      }
       const tiles = shuffle([...ref.map((w, k) => ({ id: `t${k}`, text: w })), ...extra.map((w, k) => ({ id: `d${k}`, text: w }))], d.rng);
       return {
         ...base, prompt: 'Translate into English', words: shown, options: tiles, answer: ref.map((_, k) => `t${k}`), multi: false,
@@ -436,7 +452,7 @@ export function buildSentenceExercise(s: Sentence, type: SentType, d: BuildDeps)
       const answer = idx.length ? idx.map((i) => `w${i}`) : ['none'];
       const verb = s.tokens.find(isFinite)!;
       const note = idx.length
-        ? `${idx.map((i) => `${tokenText(s.tokens[i]!)} (${cellLabel(s.tokens[i]!.cell)})`).join(' and ')}: the ${roleLabel[type]}. ${en}`
+        ? `${idx.map((i) => { const t = s.tokens[i]!; return t.cell === 'citation' ? tokenText(t) : `${tokenText(t)} (${cellLabel(t.cell)})`; }).join(' and ')}: the ${roleLabel[type]}. ${en}`
         : `No subject is written: the ending of ${verb.form} supplies it. ${en}`;
       return {
         ...base, prompt: type === 'subj' ? (idx.length > 1 ? 'Tap the subjects' : 'Tap the subject') : (idx.length > 1 ? 'Tap the direct objects' : 'Tap the direct object'),
@@ -493,7 +509,7 @@ export interface ChooseOpts extends SentCtx {
 
 /**
  * Pick up to `count` (sentence, type) pairs, one per sentence: due cards first (lowest
- * retrievability), then never-practised ones, then the rest; sentences using the focus
+ * retrievability), then never-practised ones (the current section's first), then the rest; sentences using the focus
  * features lead when given; exercise types are spread out. Deterministic for a given rng.
  */
 export function chooseSentences(o: ChooseOpts): { s: Sentence; type: SentType }[] {
@@ -508,7 +524,8 @@ export function chooseSentences(o: ChooseOpts): { s: Sentence; type: SentType }[
     for (const type of SENT_TYPES) {
       if (!canBuild(s, type, o)) continue;
       const card = o.state.cards.get(sentenceCard(s.id, type));
-      const tier = (hasFocus(s) ? 0 : 3) + (!card ? 1 : isDue(card, o.now) ? 0 : 2);
+      // due → never practised (this section's first) → not yet due; focus sentences lead each group.
+      const tier = (hasFocus(s) ? 0 : 4) + (!card ? (s.section === o.section ? 1 : 2) : isDue(card, o.now) ? 0 : 3);
       cands.push({ s, type, tier, r: card ? retrievability(card, o.now) : 0, tie: o.rng() });
     }
   }
