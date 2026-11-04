@@ -113,14 +113,12 @@ describe('-īus adjectives (UNUS NAUTA)', () => {
     const u = generate(L('uter, utra, utrum', 'adj'));
     expect([u['nom.sg.m'], u['gen.sg.m'], u['dat.sg.f'], u['abl.sg.f']]).toEqual(['uter', 'utrīus', 'utrī', 'utrā']);
   });
-  it('alius: neuter aliud, dat. aliī; gen. sg. not generated (usually alterīus; alīus is rare)', () => {
+  it('alius: neuter aliud, dat. aliī; gen. sg. alterīus as Wheelock prints it (alīus is rare)', () => {
     const l = L('alius, alia, aliud', 'adj');
-    const p = generate(l);
-    const sg = { m: ['alius', '', 'aliī', 'alium', 'aliō'], f: ['alia', '', 'aliī', 'aliam', 'aliā'], n: ['aliud', '', 'aliī', 'aliud', 'aliō'] };
-    const want = table(sg, PL('ali'));
-    for (const g of ['m', 'f', 'n']) delete want[`gen.sg.${g}`];
-    expect(p).toEqual(want);
-    expect(l.notes).toMatch(/alterīus/);
+    expect(generate(l)).toEqual(table(
+      { m: ['alius', 'alterīus', 'aliī', 'alium', 'aliō'], f: ['alia', 'alterīus', 'aliī', 'aliam', 'aliā'], n: ['aliud', 'alterīus', 'aliī', 'aliud', 'aliō'] },
+      PL('ali')));
+    expect(l.notes).toMatch(/alīus is rare/);
   });
   it('no vocative cells', () => {
     expect(Object.keys(generate(L('tōtus, tōta, tōtum', 'adj'))).some((c) => c.startsWith('voc.'))).toBe(false);
@@ -148,6 +146,11 @@ describe('analyze(): ambiguous demonstrative forms', () => {
   it('without macrons, hoc also matches the ablative hōc', () => {
     const loose = analyze('hoc', lemmas, { ignoreMacrons: true }).map((a) => a.cell).sort();
     expect(loose).toEqual(['abl.sg.m', 'abl.sg.n', 'acc.sg.n', 'nom.sg.n']);
+  });
+  it('alterīus: genitive singular of alter and (borrowed) of alius', () => {
+    const both = [...lemmas, L('alter, altera, alterum', 'adj')];
+    const g = analyze('alterīus', both).map((a) => `${a.lemma.parts[0]}:${a.cell}`).sort();
+    expect(g).toEqual(['alius:gen.sg.f', 'alius:gen.sg.m', 'alius:gen.sg.n', 'alter:gen.sg.f', 'alter:gen.sg.m', 'alter:gen.sg.n']);
   });
   it('ūnī: dative singular or masculine nominative plural; aliī likewise', () => {
     expect(an('ūnī')).toEqual(['ūnus:dat.sg.f', 'ūnus:dat.sg.m', 'ūnus:dat.sg.n', 'ūnus:nom.pl.m']);

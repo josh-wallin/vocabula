@@ -57,6 +57,14 @@ export const KNOWN_IRREGULAR: Record<string, KnownIrregular> = {
   dūcō: { cells: { 'pres.act.imp.2sg': 'dūc' }, note: 'Imperative sg. dūc.', paradigm: 'v3' },
   dīcō: { cells: { 'pres.act.imp.2sg': 'dīc' }, note: 'Imperative sg. dīc.', paradigm: 'v3' },
   faciō: { cells: { 'pres.act.imp.2sg': 'fac' }, note: 'Imperative sg. fac.', paradigm: 'v3io' },
+  locus: {
+    // Wheelock ch. 9; A&G §106 b: pl. loca, locōrum, n. (places, region) beside locī, m. (passages in books).
+    // One form per cell: nom./acc./voc. pl. use the common neuter loca; gen./dat./abl. pl. locōrum, locīs serve both.
+    cells: { 'nom.pl': 'loca', 'acc.pl': 'loca', 'voc.pl': 'loca' },
+    note: 'Pl. loca, n. (places, region); also locī, m. (passages in literature), not generated.',
+    paradigm: 'n2m',
+    lemmaNote: 'Pl. usually loca, locōrum, n., places, region; locī, locōrum, m., passages in literature',
+  },
   bōs: {
     // A&G §79: gen. pl. boum, dat./abl. pl. bōbus (or būbus).
     cells: { 'gen.pl': 'boum', 'dat.pl': 'bōbus', 'abl.pl': 'bōbus' },

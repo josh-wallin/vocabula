@@ -65,7 +65,13 @@ export function importWheelock(entries: readonly WheelockEntry[]): ImportResult 
       }
       if (e.notes) lemma.notes = nfc(e.notes);
       const existing = byId.get(lemma.id);
-      if (existing) { existing.sources.push(source); continue; }
+      if (existing) {
+        // A later chapter re-listing a word with a new sense (in + acc., ch. 9): keep both glosses.
+        existing.sources.push(source);
+        const norm = (g: string) => g.toLowerCase().replace(/\s+/g, ' ').trim();
+        if (!norm(existing.gloss).includes(norm(gloss))) existing.gloss = `${existing.gloss}; ${gloss}`;
+        continue;
+      }
       if (inference.confidence === 'low') lowConfidence.push({ lemmaId: lemma.id, reason: reasonOf(inference) });
       byId.set(lemma.id, lemma);
     }

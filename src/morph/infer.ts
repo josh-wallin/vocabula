@@ -287,7 +287,7 @@ export const IUS_ADJECTIVES: ReadonlySet<string> = new Set(['ūllus', 'nūllus',
 
 /** Lexical notes for the -īus adjectives (stored on the lemma when the source gives none). */
 const IUS_NOTE: Record<string, string> = {
-  alius: 'Gen. sg. usually supplied by alterīus (alīus is rare); dat. sg. aliī; neuter aliud',
+  alius: 'Gen. sg. alterīus, borrowed from alter (the regular alīus is rare); dat. sg. aliī; neuter aliud',
   alter: 'Gen. sg. alterīus (often alterius, with short i); dat. sg. alterī',
 };
 

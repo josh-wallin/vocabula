@@ -148,8 +148,8 @@ const PL_N: Row5 = ['a', 'ōrum', 'īs', 'a', 'īs'];
 
 /**
  * The -īus adjectives (A&G §113; Wheelock ch. 9): gen. sg. -īus and dat. sg. -ī in every gender,
- * otherwise like magnus / pulcher. alius has neuter aliud; its genitive is normally supplied by
- * alterīus (alīus is rare), so alius gets no gen. sg. cells. Vocatives are not generated.
+ * otherwise like magnus / pulcher. alius has neuter aliud; its genitive singular is given as
+ * alterīus, as Wheelock prints it (the regular alīus is rare). Vocatives are not generated.
  */
 function genAdjIus(l: Lemma): Paradigm {
   const base = adj12Base(l);
@@ -161,7 +161,7 @@ function genAdjIus(l: Lemma): Paradigm {
   fill5(out, base, ['a', 'īus', 'ī', 'am', 'ā'], 'sg', 'f');
   fill5(out, base, [alius ? 'ud' : 'um', 'īus', 'ī', alius ? 'ud' : 'um', 'ō'], 'sg', 'n');
   if (!masc.endsWith('us')) out['nom.sg.m'] = masc; // alter, neuter, uter
-  if (alius) for (const g of ['m', 'f', 'n'] as const) delete out[`gen.sg.${g}`];
+  if (alius) for (const g of ['m', 'f', 'n'] as const) out[`gen.sg.${g}`] = 'alterīus';
   fill5(out, base, PL_M, 'pl', 'm');
   fill5(out, base, PL_F, 'pl', 'f');
   fill5(out, base, PL_N, 'pl', 'n');

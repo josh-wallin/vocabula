@@ -94,3 +94,18 @@ describe.skipIf(!existsSync(SRC910))('Wheelock ch. 9–10 import (private data)'
     expect([imp('faciō'), imp('dīcō')]).toEqual(['fac', 'dīc']);
   });
 });
+
+describe('re-listed words (invented entries)', () => {
+  const E = (chapter: number, order: number, headword: string, pos: string, meaning: string): WheelockEntry =>
+    ({ chapter, order, headword, lemma: headword, pos, gender: null, declension_or_conjugation: null, meaning, notes: '' });
+  it('a later chapter with a new sense appends its gloss; the same gloss is not repeated', () => {
+    const r = importWheelock([
+      E(3, 1, 'in', 'prep', 'in, on'), E(9, 1, 'in', 'prep', 'into, toward'),
+      E(1, 1, 'nihil', 'noun', 'nothing'), E(4, 1, 'nihil, indeclinable, n.', 'noun', 'nothing'),
+    ]);
+    const by = (id: string) => r.lemmas.find((l) => l.id === id)!;
+    expect(by('in-indecl').gloss).toBe('in, on; into, toward');
+    expect(by('in-indecl').sources.map((s) => s.chapter)).toEqual([3, 9]);
+    expect(by('nihil-indecl').gloss).toBe('nothing');
+  });
+});

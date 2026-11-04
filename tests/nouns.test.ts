@@ -207,3 +207,16 @@ describe('Wheelock ch. 6 irregular nouns', () => {
     });
   });
 });
+
+describe('locus: heterogeneous plural (Wheelock ch. 9)', () => {
+  it('nom./acc./voc. pl. use the neuter loca; gen./dat./abl. pl. locōrum, locīs', async () => {
+    const { generate } = await import('../src/morph/generate.ts');
+    const { L, nounTable } = await import('./helpers.ts');
+    const l = L('locus, locī, m.', 'noun');
+    expect(l.paradigm).toBe('n2m');
+    expect(generate(l)).toEqual(nounTable(
+      ['locus', 'locī', 'locō', 'locum', 'locō', 'loce'],
+      ['loca', 'locōrum', 'locīs', 'loca', 'locīs', 'loca']));
+    expect(l.notes).toMatch(/loca/);
+  });
+});

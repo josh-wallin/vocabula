@@ -124,7 +124,7 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
       { p: '*Ille* has the endings of *magnus* except in four places: the masculine nominative *ille*, the neuter *illud*, the genitive singular *illīus* and the dative singular *illī*, the same in all genders. *Iste, ista, istud*, that of yours, declines exactly like *ille* and often sounds scornful: *iste tyrannus*.' },
       { p: 'Nine adjectives share that genitive in -īus and dative in -ī, though dictionaries list them like *bonus*: *ūllus*, *nūllus*, *ūnus*, *tōtus*, *sōlus*, *neuter*, *alius*, *alter*, *uter*. Everywhere else they decline like *bonus*: *ūnīus fēminae*, *tōtī patriae*, but *ūnam fēminam*.' },
       { table: { kind: 'gendered', headword: 'sōlus, sōla, sōlum', gloss: 'alone, only', pos: 'adj' } },
-      { p: 'Two need care. *Alius* has neuter *aliud*, and its genitive is usually borrowed from *alter*: *alterīus*. *Alter*, the other of two, keeps its e like *līber*: *altera*, *alterum*, *alterī*.' },
+      { p: 'Two need care. *Alius* has neuter *aliud*, and its genitive singular is borrowed from *alter*: *alterīus*. *Alter*, the other of two, keeps its e like *līber*: *altera*, *alterum*, *alterī*.' },
       { p: 'Watch -ī: in *illī* or *ūnī* it can be dative singular or masculine nominative plural, never genitive. The genitive singular of these words always ends in -īus.' },
     ],
   },

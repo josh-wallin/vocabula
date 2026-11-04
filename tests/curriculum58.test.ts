@@ -206,7 +206,6 @@ describe('grammar cards for sections 5–8', () => {
         if (t.kind === 'gendered') {
           const l = L(t.headword, t.pos);
           for (const c of ['nom', 'gen', 'dat', 'acc', 'abl']) for (const n of ['sg', 'pl']) for (const g of ['m', 'f', 'n']) {
-            if (l.paradigm === 'adj:ius' && l.parts[0] === 'alius' && c === 'gen' && n === 'sg') continue;
             expect(generate(l)[`${c}.${n}.${g}` as never], `${t.headword} ${c}.${n}.${g}`).toBeTruthy();
           }
           continue;

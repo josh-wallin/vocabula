@@ -206,7 +206,7 @@
     "paradigm": "adj:ius",
     "gloss": "other, another; ālias: at another time",
     "sources": [],
-    "notes": "Gen. sg. usually supplied by alterīus (alīus is rare); dat. sg. aliī; neuter aliud",
+    "notes": "Gen. sg. alterīus, borrowed from alter (the regular alīus is rare); dat. sg. aliī; neuter aliud",
     "dcc": {
       "rank": 37,
       "semanticGroup": "Pronouns/Interrogatives",
@@ -401,6 +401,12 @@
     "gloss": "place; loca (n. pl.) region",
     "sources": [],
     "gender": "m",
+    "irregular": {
+      "nom.pl": "loca",
+      "acc.pl": "loca",
+      "voc.pl": "loca"
+    },
+    "notes": "Pl. usually loca, locōrum, n., places, region; locī, locōrum, m., passages in literature",
     "dcc": {
       "rank": 62,
       "semanticGroup": "Geography",
