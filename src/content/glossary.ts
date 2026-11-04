@@ -1,5 +1,5 @@
 /**
- * Grammar glossary for sections 1–8. Original definitions; every Latin example
+ * Grammar glossary for sections 1–10. Original definitions; every Latin example
  * uses only vocabulary available by the term's section.
  * A term is shown (as a tappable dotted-underline word) only once its section is unlocked.
  */
@@ -159,6 +159,17 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'complementary-infinitive', name: 'Complementary infinitive', latin: 'īnfīnītīvus complēmentī', section: 6,
     def: 'An infinitive that completes the meaning of a verb such as possum or dēbeō. It has no subject of its own: the subject of the main verb does the action.',
     ex: 'Patriam servāre possumus.', exEn: 'We can save our country.',
+  },
+  /* ---- Section 9: demonstratives ---- */
+  {
+    id: 'pronoun', name: 'Pronoun', latin: 'prōnōmen', section: 9,
+    def: 'A word that stands in for a noun already known from context, such as he, she, it, this one, that one. Many Latin pronouns can also be used as adjectives beside a noun.',
+    ex: 'Hic laudat; ille culpat.', exEn: 'This man praises; that one blames.',
+  },
+  {
+    id: 'demonstrative', name: 'Demonstrative', latin: 'prōnōmen dēmōnstrātīvum', section: 9,
+    def: 'A pronoun or adjective that points something out: hic, this (near the speaker); ille, that (farther away); iste, that of yours. As an adjective it agrees with its noun in gender, number and case.',
+    ex: 'Hic liber est meus; ille est tuus.', exEn: 'This book is mine; that one is yours.',
   },
 ];
 

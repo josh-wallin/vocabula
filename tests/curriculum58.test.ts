@@ -49,7 +49,7 @@ describe('sections 5–8 appear only when the pack has words for them', () => {
 
 describe('features of sections 5–8', () => {
   it('each section unlocks its grammar at its pattern node', () => {
-    expect(SECTIONS.slice(4).map((s) => [s.n, s.chapter, s.paradigm])).toEqual([
+    expect(SECTIONS.slice(4, 8).map((s) => [s.n, s.chapter, s.paradigm])).toEqual([
       [5, 5, ['v12.fut', 'v12.impf']],
       [6, 6, ['sum.fut', 'sum.impf', 'possum.pres', 'possum.fut', 'possum.impf']],
       [7, 7, ['n3', 'n3n']],
@@ -96,8 +96,10 @@ describe('features of sections 5–8', () => {
     expect(f('nōmen, nōminis, n.', 'noun')).toBe(7);
     expect(f('mittō, mittere', 'verb')).toBe(8);
     expect(f('possum, posse', 'verb')).toBe(6);
-    expect(f('capiō, capere', 'verb')).toBeNull();
-    expect(f('audiō, audīre', 'verb')).toBeNull();
+    // 3rd -iō and 4th wait for section 10 (see curriculum910.test.ts); within sections 1–8 they are not eligible.
+    const f8 = (hw: string) => firstEligibleSection(featuresNeeded(L(hw, 'verb')), SECTIONS.slice(0, 8));
+    expect(f8('capiō, capere')).toBeNull();
+    expect(f8('audiō, audīre')).toBeNull();
     expect(f('urbs, urbis, f.', 'noun')).toBeNull();
     expect(f('mare, maris, n.', 'noun')).toBeNull();
     // Limited to the sections a ch. 1–4 path has, nothing new is eligible.
@@ -201,6 +203,14 @@ describe('grammar cards for sections 5–8', () => {
       for (const b of c.blocks) {
         if (!('table' in b)) continue;
         const t = b.table;
+        if (t.kind === 'gendered') {
+          const l = L(t.headword, t.pos);
+          for (const c of ['nom', 'gen', 'dat', 'acc', 'abl']) for (const n of ['sg', 'pl']) for (const g of ['m', 'f', 'n']) {
+            if (l.paradigm === 'adj:ius' && l.parts[0] === 'alius' && c === 'gen' && n === 'sg') continue;
+            expect(generate(l)[`${c}.${n}.${g}` as never], `${t.headword} ${c}.${n}.${g}`).toBeTruthy();
+          }
+          continue;
+        }
         const hws = t.kind === 'noun' ? [t.headword] : t.kind === 'verbs' ? t.headwords : [t.headword ?? 'sum, esse'];
         for (const hw of hws) {
           const l = L(hw, t.kind === 'noun' ? 'noun' : 'verb');

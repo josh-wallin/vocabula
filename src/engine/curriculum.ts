@@ -6,7 +6,7 @@
  *  - lexical features (conjugation class, gender options) unlock when a section starts;
  *  - paradigm features (endings) unlock at that section's Dēclīnātiō/Coniugātiō node.
  *
- * Sections 1–4 always exist. Sections 5+ appear only when the content pack has
+ * Sections 1–4 always exist. Sections 5–10 appear only when the content pack has
  * Wheelock words for their chapter (see activeSections in path.ts), so a pack
  * with only ch. 1–4 builds exactly the old path.
  */
@@ -16,15 +16,19 @@ import { tenseOf } from '../morph/cells.ts';
 export type FeatureId =
   | 'conj'          // tell 1st from 2nd conjugation
   | 'conj3'         // … and from 3rd (section 8)
+  | 'conj4'         // … and 3rd -iō and 4th (section 10)
   | 'gender.mf'     // masculine / feminine
   | 'gender.n'      // neuter
   | 'v12.ind' | 'v12.inf' | 'v12.imp' | 'v12.fut' | 'v12.impf'
   | 'v3.ind' | 'v3.inf' | 'v3.imp' | 'v3.fut' | 'v3.impf'
-  // Wheelock ch. 10 (3rd -iō, 4th) and ch. 14 (i-stems): generated, but no section unlocks them yet.
+  // Wheelock ch. 10: 3rd -iō and 4th conjugation.
   | 'v3io.ind' | 'v3io.inf' | 'v3io.imp' | 'v3io.fut' | 'v3io.impf'
   | 'v4.ind' | 'v4.inf' | 'v4.imp' | 'v4.fut' | 'v4.impf'
+  // Wheelock ch. 14 (i-stems): generated, but no section unlocks them yet.
   | 'n1' | 'n2m' | 'n2n' | 'n3' | 'n3n' | 'n3i' | 'n3in'
   | 'adj.f' | 'adj.m' | 'adj.n'
+  // Wheelock ch. 9: demonstratives and the gen. -īus / dat. -ī cells of the -īus adjectives.
+  | 'pron.hic' | 'pron.ille' | 'adj.ius'
   | 'sum.3sg' | 'sum.pres' | 'sum.fut' | 'sum.impf'
   | 'possum.pres' | 'possum.fut' | 'possum.impf';
 
@@ -84,6 +88,20 @@ export const SECTIONS: readonly SectionSpec[] = [
     paradigm: ['v3.ind', 'v3.inf', 'v3.imp', 'v3.fut', 'v3.impf'], leadParadigms: ['v3'],
     patternKind: 'coniugatio', patternTitle: 'Third conjugation: present, future, imperfect',
   },
+  // Sections 9–10, likewise only when the pack has words for them.
+  {
+    n: 9, chapter: 9, title: 'Demonstratives', lexical: [],
+    paradigm: ['pron.hic', 'pron.ille', 'adj.ius'], leadParadigms: ['pron:hic', 'pron:ille', 'adj:ius'],
+    patternKind: 'declinatio', patternTitle: 'hic, ille, iste; the -īus adjectives',
+  },
+  {
+    // Wheelock treats -iō verbs as a kind of 3rd conjugation; the conjugation question
+    // names them "3rd conjugation -iō" because the 1st person singular is what tells them apart.
+    n: 10, chapter: 10, title: 'Fourth conjugation and -iō verbs', lexical: ['conj4'],
+    paradigm: ['v4.ind', 'v4.inf', 'v4.imp', 'v4.fut', 'v4.impf', 'v3io.ind', 'v3io.inf', 'v3io.imp', 'v3io.fut', 'v3io.impf'],
+    leadParadigms: ['v4', 'v3io'],
+    patternKind: 'coniugatio', patternTitle: '4th conjugation & 3rd -iō: present, future, imperfect',
+  },
 ];
 
 /** Sections that exist whatever the content pack holds. */
@@ -123,6 +141,15 @@ export function featureOfCell(l: Lemma, cell: CellId): FeatureId | null {
       const g = cell.split('.')[2] as Gender | undefined;
       return g ? (`adj.${g}` as FeatureId) : null;
     }
+    case 'adj:ius': {
+      // Only gen./dat. sg. (and alius's neuter aliud) differ from bonus; the rest drill as ordinary adjective cells.
+      const [c, n, g] = cell.split('.') as [string, string, Gender | undefined];
+      if (!g) return null;
+      const aliud = (l.parts[2] ?? '').endsWith('ud') && n === 'sg' && g === 'n' && (c === 'nom' || c === 'acc');
+      return (n === 'sg' && (c === 'gen' || c === 'dat')) || aliud ? 'adj.ius' : (`adj.${g}` as FeatureId);
+    }
+    case 'pron:hic': return cell.split('.').length === 3 ? 'pron.hic' : null;
+    case 'pron:ille': return cell.split('.').length === 3 ? 'pron.ille' : null;
     case 'irr:sum': {
       const t = tenseOf(cell);
       if (t === 'fut') return 'sum.fut';
@@ -163,9 +190,12 @@ export function featuresNeeded(l: Lemma): FeatureId[] {
     case 'v1': case 'v2': return ['conj', 'v12.ind', 'v12.inf', 'v12.imp'];
     case 'v3': return ['conj3', 'v3.ind', 'v3.inf', 'v3.imp', 'v3.fut', 'v3.impf'];
     case 'v3io': case 'v4':
-      return [`${l.paradigm}.ind`, `${l.paradigm}.inf`, `${l.paradigm}.imp`, `${l.paradigm}.fut`, `${l.paradigm}.impf`];
+      return ['conj4', `${l.paradigm}.ind`, `${l.paradigm}.inf`, `${l.paradigm}.imp`, `${l.paradigm}.fut`, `${l.paradigm}.impf`];
     case 'n1': case 'n2m': case 'n2n': case 'n3': case 'n3n': case 'n3i': case 'n3in': return [l.paradigm, ...g];
     case 'adj12': return ['adj.m', 'adj.f', 'adj.n'];
+    case 'adj:ius': return ['adj.m', 'adj.f', 'adj.n', 'adj.ius'];
+    case 'pron:hic': return ['pron.hic'];
+    case 'pron:ille': return ['pron.ille'];
     case 'irr:sum': return ['sum.pres'];
     case 'irr:possum': return ['possum.pres'];
     case 'indecl': return g;

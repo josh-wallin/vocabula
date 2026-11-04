@@ -75,8 +75,14 @@ describe('FR import', () => {
   });
 
   it('gives declinable words without a paradigm a provisional id that cannot collide', () => {
-    expect(ids).toEqual(expect.arrayContaining(['ego-fr-pron', 'hic-indecl', 'hic-fr-pron']));
-    expect(r.fallback.map((f) => f.entry.headword)).toEqual(expect.arrayContaining(['ego, meī', 'hic, haec, hoc']));
+    expect(ids).toEqual(expect.arrayContaining(['ego-fr-pron', 'hic-indecl']));
+    expect(r.fallback.map((f) => f.entry.headword)).toEqual(expect.arrayContaining(['ego, meī']));
+  });
+
+  it('the demonstrative hic now has a paradigm, so it gets the real id (shared with Wheelock ch. 9 / DCC)', () => {
+    expect(ids).toContain('hic-pron-hic');
+    expect(ids).not.toContain('hic-fr-pron');
+    expect(r.fallback.map((f) => f.entry.headword)).not.toContain('hic, haec, hoc');
   });
 
   it('carries only forms and the gloss (no FR notes, no sources)', () => {

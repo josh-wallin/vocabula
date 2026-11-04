@@ -22,7 +22,8 @@ export const SUPPORTED: Record<string, { pos: PartOfSpeech; family: string[]; pa
   'Noun: 1st Declension': { pos: 'noun', family: ['n1'] },
   'Noun: 2nd Declension': { pos: 'noun', family: ['n2m', 'n2n'] },
   'Noun: 3rd Declension': { pos: 'noun', family: ['n3', 'n3n', 'n3i', 'n3in'] },
-  'Adjective: 1st and 2nd Declension': { pos: 'adj', family: ['adj12'] },
+  // nūllus, sōlus, tōtus, ūnus, alius, alter, ūllus: the -īus adjectives (recognized by name in infer.ts).
+  'Adjective: 1st and 2nd Declension': { pos: 'adj', family: ['adj12', 'adj:ius'] },
   'Verb: 1st Conjugation': { pos: 'verb', family: ['v1'] },
   'Verb: 2nd Conjugation': { pos: 'verb', family: ['v2'] },
   'Verb: 3rd Conjugation -ō': { pos: 'verb', family: ['v3'] },
@@ -30,6 +31,8 @@ export const SUPPORTED: Record<string, { pos: PartOfSpeech; family: string[]; pa
   'Verb: 4th Conjugation': { pos: 'verb', family: ['v4'] },
   // tollō, tollere has a regular 3rd-conj. present system.
   'Verb: Irregular': { pos: 'verb', family: ['irr:sum', 'irr:possum', 'v3'], partial: true },
+  // Only the demonstratives hic, ille, iste so far; other pronouns are skipped.
+  'Pronoun': { pos: 'pron', family: ['pron:hic', 'pron:ille'], partial: true },
 };
 
 /**

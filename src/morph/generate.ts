@@ -131,6 +131,70 @@ function genAdj12(l: Lemma): Paradigm {
   return out;
 }
 
+/* ---------------- pronominal declension (Wheelock ch. 9) ---------------- */
+
+/** Endings for nom, gen, dat, acc, abl (these words have no vocative). */
+type Row5 = readonly [string, string, string, string, string];
+const CASES5 = CASES.slice(0, 5);
+
+function fill5(out: Paradigm, stem: string, row: Row5, num: 'sg' | 'pl', g: 'm' | 'f' | 'n'): void {
+  CASES5.forEach((c, i) => { out[`${c}.${num}.${g}` as CellId] = join(stem, row[i]!); });
+}
+
+/** Plural of the pronominal declension: exactly like bonus, minus the vocative. */
+const PL_M: Row5 = ['ī', 'ōrum', 'īs', 'ōs', 'īs'];
+const PL_F: Row5 = ['ae', 'ārum', 'īs', 'ās', 'īs'];
+const PL_N: Row5 = ['a', 'ōrum', 'īs', 'a', 'īs'];
+
+/**
+ * The -īus adjectives (A&G §113; Wheelock ch. 9): gen. sg. -īus and dat. sg. -ī in every gender,
+ * otherwise like magnus / pulcher. alius has neuter aliud; its genitive is normally supplied by
+ * alterīus (alīus is rare), so alius gets no gen. sg. cells. Vocatives are not generated.
+ */
+function genAdjIus(l: Lemma): Paradigm {
+  const base = adj12Base(l);
+  const masc = nfc(need(l.parts[0], `${l.id}: missing masculine`));
+  const neut = nfc(need(l.parts[2], `${l.id}: missing neuter`));
+  const alius = neut === base + 'ud';
+  const out: Paradigm = {};
+  fill5(out, base, ['us', 'īus', 'ī', 'um', 'ō'], 'sg', 'm');
+  fill5(out, base, ['a', 'īus', 'ī', 'am', 'ā'], 'sg', 'f');
+  fill5(out, base, [alius ? 'ud' : 'um', 'īus', 'ī', alius ? 'ud' : 'um', 'ō'], 'sg', 'n');
+  if (!masc.endsWith('us')) out['nom.sg.m'] = masc; // alter, neuter, uter
+  if (alius) for (const g of ['m', 'f', 'n'] as const) delete out[`gen.sg.${g}`];
+  fill5(out, base, PL_M, 'pl', 'm');
+  fill5(out, base, PL_F, 'pl', 'f');
+  fill5(out, base, PL_N, 'pl', 'n');
+  return out;
+}
+
+/** ille, illa, illud / iste, ista, istud (A&G §146): base from the feminine (ill-, ist-). */
+function genIlle(l: Lemma): Paradigm {
+  const base = adj12Base(l);
+  const out: Paradigm = {};
+  fill5(out, base, ['e', 'īus', 'ī', 'um', 'ō'], 'sg', 'm');
+  fill5(out, base, ['a', 'īus', 'ī', 'am', 'ā'], 'sg', 'f');
+  fill5(out, base, ['ud', 'īus', 'ī', 'ud', 'ō'], 'sg', 'n');
+  fill5(out, base, PL_M, 'pl', 'm');
+  fill5(out, base, PL_F, 'pl', 'f');
+  fill5(out, base, PL_N, 'pl', 'n');
+  return out;
+}
+
+/** hic, haec, hoc (A&G §146; Wheelock ch. 9). Wheelock prints hic, hoc, huius, huic without macrons. */
+const HIC: Paradigm = (() => {
+  const out: Paradigm = {};
+  const put5 = (num: 'sg' | 'pl', g: 'm' | 'f' | 'n', forms: Row5) =>
+    CASES5.forEach((c, i) => { out[`${c}.${num}.${g}` as CellId] = forms[i]!; });
+  put5('sg', 'm', ['hic', 'huius', 'huic', 'hunc', 'hōc']);
+  put5('sg', 'f', ['haec', 'huius', 'huic', 'hanc', 'hāc']);
+  put5('sg', 'n', ['hoc', 'huius', 'huic', 'hoc', 'hōc']);
+  put5('pl', 'm', ['hī', 'hōrum', 'hīs', 'hōs', 'hīs']);
+  put5('pl', 'f', ['hae', 'hārum', 'hīs', 'hās', 'hīs']);
+  put5('pl', 'n', ['haec', 'hōrum', 'hīs', 'haec', 'hīs']);
+  return out;
+})();
+
 /* ---------------- verbs ---------------- */
 
 /** Present stem from the infinitive: laudāre → laudā-, monēre → monē-, dare → da-. */
@@ -239,6 +303,9 @@ export function generate(l: Lemma): Paradigm {
     case 'n2n': out = genN2n(l); break;
     case 'n3': case 'n3n': case 'n3i': case 'n3in': out = genN3(l); break;
     case 'adj12': out = genAdj12(l); break;
+    case 'adj:ius': out = genAdjIus(l); break;
+    case 'pron:hic': out = { ...HIC }; break;
+    case 'pron:ille': out = genIlle(l); break;
     case 'v1': out = genVerb(l, 1); break;
     case 'v2': out = genVerb(l, 2); break;
     case 'v3': out = genVerb3(l, false); break;

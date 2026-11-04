@@ -113,14 +113,19 @@ class Factory {
     const ans = CONJ_OF[l.paradigm];
     if (ans && hasClassQuestion(l, u)) {
       const three = u.has('conj3');
+      const four = u.has('conj4');
       const options = [{ id: '1', text: '1st conjugation' }, { id: '2', text: '2nd conjugation' }];
       if (three) options.push({ id: '3', text: '3rd conjugation' });
-      const why = ans === '1' ? 'ā, so 1st' : ans === '2' ? 'ē, so 2nd' : 'a short e, so 3rd';
+      // Wheelock ch. 10: -iō verbs are a kind of 3rd conjugation, told apart by the 1st person in -iō.
+      if (four) options.push({ id: '3io', text: '3rd conjugation -iō' }, { id: '4', text: '4th conjugation' });
+      const why = ans === '1' ? 'ā, so 1st conjugation' : ans === '2' ? 'ē, so 2nd conjugation' : ans === '4' ? 'ī, so 4th conjugation'
+        : ans === '3io' ? `a short e, so 3rd conjugation; with ${l.parts[0]} in -iō it is a 3rd-conjugation -iō verb`
+        : four ? `a short e and ${l.parts[0]} has no -iō, so plain 3rd conjugation` : 'a short e, so 3rd conjugation';
       return {
         id: this.nextId(), type: 'choice', kind: 'conj', lemma: id, card: cardId(id, 'class'),
         prompt: three ? 'Which conjugation?' : '1st or 2nd conjugation?', cue: citation(l), cueLa: true,
         options, answer: [ans], multi: false,
-        note: `${l.parts[1]}: the vowel before -re is ${why} conjugation.`,
+        note: `${l.parts[1]}: the vowel before -re is ${why}.`,
       };
     }
     if (l.pos === 'noun' && l.gender) {
@@ -233,12 +238,13 @@ class Factory {
 }
 
 /** Conjugation-question answer for the conjugations the curriculum asks about. */
-const CONJ_OF: Partial<Record<Lemma['paradigm'], '1' | '2' | '3'>> = { v1: '1', v2: '2', v3: '3' };
+const CONJ_OF: Partial<Record<Lemma['paradigm'], '1' | '2' | '3' | '3io' | '4'>> = { v1: '1', v2: '2', v3: '3', v3io: '3io', v4: '4' };
 
 /** Whether a gender / conjugation question exists for a word with the unlocked features. */
 export function hasClassQuestion(l: Lemma, u: ReadonlySet<FeatureId>): boolean {
   if (l.paradigm === 'v1' || l.paradigm === 'v2') return u.has('conj');
   if (l.paradigm === 'v3') return u.has('conj') && u.has('conj3');
+  if (l.paradigm === 'v3io' || l.paradigm === 'v4') return u.has('conj') && u.has('conj3') && u.has('conj4');
   if (l.pos === 'noun' && l.gender) {
     const gs = genderOptions(u);
     return gs.length >= 2 && gs.includes(l.gender);
@@ -256,7 +262,7 @@ export function recallAnswers(l: Lemma): string[] {
 
 function nominativeHint(l: Lemma): string {
   if (l.pos === 'noun') return l.number === 'pl' ? 'nominative plural' : 'nominative';
-  if (l.pos === 'adj') return l.number === 'pl' ? 'masculine nominative plural' : 'masculine nominative';
+  if (l.pos === 'adj' || l.paradigm === 'pron:hic' || l.paradigm === 'pron:ille') return l.number === 'pl' ? 'masculine nominative plural' : 'masculine nominative';
   if (l.pos === 'verb') return '“I” form';
   return '';
 }

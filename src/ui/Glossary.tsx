@@ -117,6 +117,32 @@ export function ParadigmTable({ spec, section, onTerm }: { spec: TableSpec; sect
       </table>
     );
   }
+  if (spec.kind === 'gendered') {
+    const l = lemmaOf(spec.headword, spec.pos);
+    const f = generate(l);
+    const G = [['m', 'Masc.'], ['f', 'Fem.'], ['n', 'Neut.']] as const;
+    return (
+      <table class="ptable">
+        <caption lang="la"><i>{l.parts.slice(0, 3).join(', ')}</i> <span lang="en">{spec.gloss}</span></caption>
+        <thead><tr><th scope="col">Case</th>{G.map(([g, name]) => <th key={g} scope="col">{name}</th>)}</tr></thead>
+        {(['sg', 'pl'] as const).map((num) => (
+          <tbody key={num} lang="la">
+            <tr><th scope="colgroup" colSpan={4} lang="en">{num === 'sg' ? 'Singular' : 'Plural'}</th></tr>
+            {CASES.slice(0, 5).map((c) => {
+              const [abbr, id] = CASE_ABBR[c]!;
+              const t = termIfUnlocked(id, section);
+              return (
+                <tr key={c}>
+                  <th scope="row" lang="en">{t ? <button type="button" class="term" onClick={() => onTerm(t)}>{abbr}</button> : abbr}</th>
+                  {G.map(([g]) => <td key={g}>{f[`${c}.${num}.${g}` as CellId] ?? '—'}</td>)}
+                </tr>
+              );
+            })}
+          </tbody>
+        ))}
+      </table>
+    );
+  }
   const l = lemmaOf(spec.headword ?? 'sum, esse, fuī, futūrum', 'verb');
   const f = generate(l);
   const tense = spec.tense ?? 'pres';

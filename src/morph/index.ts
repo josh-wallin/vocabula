@@ -1,7 +1,7 @@
 export * from './types.ts';
 export * from './cells.ts';
 export { generate, form, cellsFor, adj12Base, presentStem, v3Base, n3Base } from './generate.ts';
-export { inferParadigm, parseHeadword, lemmaId, splitPairedHeadword } from './infer.ts';
+export { inferParadigm, parseHeadword, lemmaId, splitPairedHeadword, IUS_ADJECTIVES } from './infer.ts';
 export type { Inference, InferHints, Confidence } from './infer.ts';
 export { analyze, FormIndex } from './analyze.ts';
 export type { Analysis, AnalyzeOptions } from './analyze.ts';

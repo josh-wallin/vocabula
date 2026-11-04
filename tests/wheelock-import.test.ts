@@ -70,3 +70,27 @@ describe.skipIf(!present)('Wheelock ch. 1–4 import (private data)', () => {
     expect(by).toEqual({ indecl: 12, v1: 10, v2: 7, n1: 23, n2m: 9, n2n: 9, adj12: 15, 'irr:sum': 1 });
   });
 });
+
+const SRC910 = resolve(__dirname, '../content/private/source/vocab_ch9-10.json');
+describe.skipIf(!existsSync(SRC910))('Wheelock ch. 9–10 import (private data)', () => {
+  const entries = existsSync(SRC910) ? (JSON.parse(readFileSync(SRC910, 'utf8')) as WheelockEntry[]) : [];
+  const r = importWheelock(entries);
+  const pid = (first: string) => r.lemmas.find((l) => l.parts[0] === first)?.paradigm;
+  it('classifies every entry with no low confidence or citation mismatch', () => {
+    expect(r.unclassified).toEqual([]);
+    expect(r.lowConfidence).toEqual([]);
+    expect(r.mismatches).toEqual([]);
+  });
+  it('demonstratives and the nine -īus adjectives get their paradigms', () => {
+    expect(['hic', 'ille', 'iste'].map(pid)).toEqual(['pron:hic', 'pron:ille', 'pron:ille']);
+    const ius = ['alius', 'alter', 'neuter', 'nūllus', 'sōlus', 'tōtus', 'ūllus', 'ūnus', 'uter'];
+    expect(ius.map(pid)).toEqual(Array(9).fill('adj:ius'));
+  });
+  it('3rd -iō vs 3rd vs 4th from the principal parts', () => {
+    expect(['audiō', 'veniō', 'inveniō'].map(pid)).toEqual(['v4', 'v4', 'v4']);
+    expect(['capiō', 'faciō', 'fugiō'].map(pid)).toEqual(['v3io', 'v3io', 'v3io']);
+    expect(['dīcō', 'vīvō'].map(pid)).toEqual(['v3', 'v3']);
+    const imp = (first: string) => r.lemmas.find((l) => l.parts[0] === first)?.irregular?.['pres.act.imp.2sg'];
+    expect([imp('faciō'), imp('dīcō')]).toEqual(['fac', 'dīc']);
+  });
+});

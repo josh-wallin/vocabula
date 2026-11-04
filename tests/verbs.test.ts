@@ -173,3 +173,38 @@ describe('4th conjugation: audiō, audīre', () => {
     expect(p['pres.act.imp.2sg']).toBe('venī');
   });
 });
+
+describe('Wheelock ch. 10: full present systems of faciō and veniō; conjugation from the principal parts', () => {
+  it('faciō: 3rd -iō with the short imperative fac', () => {
+    const l = L('faciō, facere, fēcī, factum', 'verb');
+    expect(l.paradigm).toBe('v3io');
+    expect(generate(l)).toEqual(verbTable(
+      ['faciō', 'facis', 'facit', 'facimus', 'facitis', 'faciunt'], 'facere', ['fac', 'facite'], {
+        fut: ['faciam', 'faciēs', 'faciet', 'faciēmus', 'faciētis', 'facient'],
+        impf: ['faciēbam', 'faciēbās', 'faciēbat', 'faciēbāmus', 'faciēbātis', 'faciēbant'],
+      }));
+  });
+  it('veniō: 4th conjugation, full table', () => {
+    expect(generate(L('veniō, venīre, vēnī, ventum', 'verb'))).toEqual(verbTable(
+      ['veniō', 'venīs', 'venit', 'venīmus', 'venītis', 'veniunt'], 'venīre', ['venī', 'venīte'], {
+        fut: ['veniam', 'veniēs', 'veniet', 'veniēmus', 'veniētis', 'venient'],
+        impf: ['veniēbam', 'veniēbās', 'veniēbat', 'veniēbāmus', 'veniēbātis', 'veniēbant'],
+      }));
+  });
+  it('agō, agere → v3; capiō, capere → v3io; audiō, audīre → v4 (also compounds and fugiō, inveniō)', () => {
+    const p = (hw: string) => L(hw, 'verb').paradigm;
+    expect(p('agō, agere, ēgī, āctum')).toBe('v3');
+    expect(p('vīvō, vīvere, vīxī, vīctum')).toBe('v3');
+    expect(p('capiō, capere, cēpī, captum')).toBe('v3io');
+    expect(p('fugiō, fugere, fūgī, fugitūrum')).toBe('v3io');
+    expect(p('accipiō, accipere')).toBe('v3io');
+    expect(p('audiō, audīre, audīvī, audītum')).toBe('v4');
+    expect(p('inveniō, invenīre, invēnī, inventum')).toBe('v4');
+    expect(p('dīcō, dīcere, dīxī, dictum')).toBe('v3');
+  });
+  it('other -iō verbs and -ficiō compounds of faciō have the regular -e imperative', () => {
+    expect(generate(L('accipiō, accipere', 'verb'))['pres.act.imp.2sg']).toBe('accipe');
+    expect(generate(L('cōnficiō, cōnficere', 'verb'))['pres.act.imp.2sg']).toBe('cōnfice');
+    expect(generate(L('fugiō, fugere', 'verb'))['pres.act.imp.2sg']).toBe('fuge');
+  });
+});

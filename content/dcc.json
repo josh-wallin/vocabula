@@ -19,6 +19,42 @@
     }
   },
   {
+    "id": "hic-pron-hic",
+    "headword": "hic, haec, hoc",
+    "parts": [
+      "hic",
+      "haec",
+      "hoc"
+    ],
+    "pos": "pron",
+    "paradigm": "pron:hic",
+    "gloss": "this, these",
+    "sources": [],
+    "dcc": {
+      "rank": 7,
+      "semanticGroup": "Pronouns/Interrogatives",
+      "headword": "hic haec hoc"
+    }
+  },
+  {
+    "id": "ille-pron-ille",
+    "headword": "ille, illa, illud",
+    "parts": [
+      "ille",
+      "illa",
+      "illud"
+    ],
+    "pos": "pron",
+    "paradigm": "pron:ille",
+    "gloss": "that",
+    "sources": [],
+    "dcc": {
+      "rank": 8,
+      "semanticGroup": "Pronouns/Interrogatives",
+      "headword": "ille illa illud"
+    }
+  },
+  {
     "id": "possum-irr-possum",
     "headword": "possum, posse, potuī",
     "parts": [
@@ -159,6 +195,25 @@
     }
   },
   {
+    "id": "alius-adj-ius",
+    "headword": "alius, alia, aliud",
+    "parts": [
+      "alius",
+      "alia",
+      "aliud"
+    ],
+    "pos": "adj",
+    "paradigm": "adj:ius",
+    "gloss": "other, another; ālias: at another time",
+    "sources": [],
+    "notes": "Gen. sg. usually supplied by alterīus (alīus is rare); dat. sg. aliī; neuter aliud",
+    "dcc": {
+      "rank": 37,
+      "semanticGroup": "Pronouns/Interrogatives",
+      "headword": "alius -a -ud"
+    }
+  },
+  {
     "id": "habeo-v2",
     "headword": "habeō, habēre, habuī, habitum",
     "parts": [
@@ -279,7 +334,7 @@
     }
   },
   {
-    "id": "nullus-adj12",
+    "id": "nullus-adj-ius",
     "headword": "nūllus, nūlla, nūllum",
     "parts": [
       "nūllus",
@@ -287,9 +342,10 @@
       "nūllum"
     ],
     "pos": "adj",
-    "paradigm": "adj12",
+    "paradigm": "adj:ius",
     "gloss": "not any, no one",
     "sources": [],
+    "notes": "Gen. sg. nūllīus, dat. sg. nūllī",
     "dcc": {
       "rank": 49,
       "semanticGroup": "Pronouns/Interrogatives",
@@ -297,7 +353,7 @@
     }
   },
   {
-    "id": "unus-adj12",
+    "id": "unus-adj-ius",
     "headword": "ūnus, ūna, ūnum",
     "parts": [
       "ūnus",
@@ -305,9 +361,10 @@
       "ūnum"
     ],
     "pos": "adj",
-    "paradigm": "adj12",
+    "paradigm": "adj:ius",
     "gloss": "one",
     "sources": [],
+    "notes": "Gen. sg. ūnīus, dat. sg. ūnī",
     "dcc": {
       "rank": 53,
       "semanticGroup": "Measurement",
@@ -479,7 +536,7 @@
     }
   },
   {
-    "id": "totus-adj12",
+    "id": "totus-adj-ius",
     "headword": "tōtus, tōta, tōtum",
     "parts": [
       "tōtus",
@@ -487,13 +544,32 @@
       "tōtum"
     ],
     "pos": "adj",
-    "paradigm": "adj12",
+    "paradigm": "adj:ius",
     "gloss": "whole, entire",
     "sources": [],
+    "notes": "Gen. sg. tōtīus, dat. sg. tōtī",
     "dcc": {
       "rank": 78,
       "semanticGroup": "Measurement",
       "headword": "tōtus -a -um"
+    }
+  },
+  {
+    "id": "iste-pron-ille",
+    "headword": "iste, ista, istud",
+    "parts": [
+      "iste",
+      "ista",
+      "istud"
+    ],
+    "pos": "pron",
+    "paradigm": "pron:ille",
+    "gloss": "that, that of yours; adv. istīc or istūc: over there; istinc: from over there",
+    "sources": [],
+    "dcc": {
+      "rank": 81,
+      "semanticGroup": "Pronouns/Interrogatives",
+      "headword": "iste ista istud"
     }
   },
   {
@@ -1242,7 +1318,7 @@
     }
   },
   {
-    "id": "alter-adj12",
+    "id": "alter-adj-ius",
     "headword": "alter, altera, alterum",
     "parts": [
       "alter",
@@ -1250,9 +1326,10 @@
       "alterum"
     ],
     "pos": "adj",
-    "paradigm": "adj12",
+    "paradigm": "adj:ius",
     "gloss": "other of two",
     "sources": [],
+    "notes": "Gen. sg. alterīus (often alterius, with short i); dat. sg. alterī",
     "dcc": {
       "rank": 148,
       "semanticGroup": "Measurement",
@@ -1616,7 +1693,7 @@
     }
   },
   {
-    "id": "solus-adj12",
+    "id": "solus-adj-ius",
     "headword": "sōlus, sōla, sōlum",
     "parts": [
       "sōlus",
@@ -1624,9 +1701,10 @@
       "sōlum"
     ],
     "pos": "adj",
-    "paradigm": "adj12",
+    "paradigm": "adj:ius",
     "gloss": "only, alone",
     "sources": [],
+    "notes": "Gen. sg. sōlīus, dat. sg. sōlī",
     "dcc": {
       "rank": 176,
       "semanticGroup": "Measurement",
@@ -1653,7 +1731,7 @@
     }
   },
   {
-    "id": "ullus-adj12",
+    "id": "ullus-adj-ius",
     "headword": "ūllus, ūlla, ūllum",
     "parts": [
       "ūllus",
@@ -1661,9 +1739,10 @@
       "ūllum"
     ],
     "pos": "adj",
-    "paradigm": "adj12",
+    "paradigm": "adj:ius",
     "gloss": "any, anyone",
     "sources": [],
+    "notes": "Gen. sg. ūllīus, dat. sg. ūllī",
     "dcc": {
       "rank": 178,
       "semanticGroup": "Pronouns/Interrogatives",

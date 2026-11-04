@@ -19,6 +19,10 @@ export type Gender = 'm' | 'f' | 'n';
  *  n3i        – 3rd declension i-stems, masc./fem. (hostis, urbs: gen. pl. -ium)
  *  n3in       – 3rd declension i-stems, neuter in -e, -al, -ar (mare, animal)
  *  adj12      – 1st/2nd declension adjectives (-us,-a,-um and -er,-(e)ra,-(e)rum)
+ *  adj:ius    – the nine -īus adjectives (ūnus, sōlus, tōtus, ūllus, nūllus, alius, alter, uter, neuter):
+ *               gen. sg. -īus and dat. sg. -ī in all genders, otherwise like adj12; no vocative
+ *  pron:hic   – demonstrative hic, haec, hoc
+ *  pron:ille  – demonstratives ille, illa, illud and iste, ista, istud (same endings on ill- / ist-)
  *  irr:sum    – sum, esse (present, future, imperfect indicative + infinitive)
  *  irr:possum – possum, posse (present, future, imperfect indicative + infinitive)
  *  indecl     – indeclinable (only the citation form)
@@ -26,7 +30,7 @@ export type Gender = 'm' | 'f' | 'n';
 export type ParadigmId =
   | 'v1' | 'v2' | 'v3' | 'v3io' | 'v4'
   | 'n1' | 'n2m' | 'n2n' | 'n3' | 'n3n' | 'n3i' | 'n3in'
-  | 'adj12' | 'irr:sum' | 'irr:possum' | 'indecl';
+  | 'adj12' | 'adj:ius' | 'pron:hic' | 'pron:ille' | 'irr:sum' | 'irr:possum' | 'indecl';
 
 export type Case = 'nom' | 'gen' | 'dat' | 'acc' | 'abl' | 'voc';
 export type GramNumber = 'sg' | 'pl';

@@ -85,3 +85,28 @@ export const FIX_DCC_58: Lemma[] = [
   D(45, 'urbs, urbis, f.', 'noun', 'city'),              // n3i → no section yet (ch. 14)
   D(46, 'mare, maris, n.', 'noun', 'sea'),               // n3in → no section yet (ch. 14)
 ];
+
+/** Invented ch. 9–10 words (real Latin; chapter placement follows Wheelock's grammar, glosses made up). */
+export const FIX_WHEELOCK_910: Lemma[] = [
+  W(9, 1, 'locus, locī, m.', 'noun', 'place'),
+  W(9, 2, 'hic, haec, hoc', 'pron', 'this'),
+  W(9, 3, 'ille, illa, illud', 'pron', 'that'),
+  W(9, 4, 'iste, ista, istud', 'pron', 'that of yours'),
+  W(9, 5, 'sōlus, -a, -um', 'adj', 'alone'),
+  W(9, 6, 'alius, alia, aliud', 'adj', 'other'),
+  W(9, 7, 'enim', 'conj', 'for'),
+  W(10, 2, 'audiō, audīre, audīvī, audītum', 'verb', 'hear'),
+  W(10, 3, 'capiō, capere, cēpī, captum', 'verb', 'take'),
+  W(10, 4, 'faciō, facere, fēcī, factum', 'verb', 'make'),
+  W(10, 5, 'veniō, venīre, vēnī, ventum', 'verb', 'come'),
+  W(10, 6, 'vīvō, vīvere, vīxī, vīctum', 'verb', 'live'),
+];
+
+/** DCC words for sections 9–10: pronouns, -īus adjectives, 3rd -iō and 4th conjugation. */
+export const FIX_DCC_910: Lemma[] = [
+  D(60, 'nūllus, nūlla, nūllum', 'adj', 'no, none'),     // adj:ius → section 9
+  D(61, 'tōtus, tōta, tōtum', 'adj', 'whole'),           // adj:ius → section 9
+  D(62, 'ille, illa, illud', 'pron', 'that (DCC)'),      // duplicate of Wheelock ille → merged
+  D(63, 'fugiō, fugere', 'verb', 'flee'),                // v3io → section 10
+  D(64, 'sentiō, sentīre', 'verb', 'feel'),              // v4 → section 10
+];

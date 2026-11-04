@@ -8,7 +8,9 @@ export type TableSpec =
   /** One column per verb; present shows infinitive and imperatives too. Default tense: present. */
   | { kind: 'verbs'; headwords: string[]; glosses: string[]; tense?: 'pres' | 'fut' | 'impf' }
   /** sum (default) or another irregular (possum), one tense, in a 3×2 person grid. */
-  | { kind: 'sum'; headword?: string; gloss?: string; tense?: 'pres' | 'fut' | 'impf' };
+  | { kind: 'sum'; headword?: string; gloss?: string; tense?: 'pres' | 'fut' | 'impf' }
+  /** A word declined in three genders (demonstratives, -īus adjectives): nom.–abl., singular then plural. */
+  | { kind: 'gendered'; headword: string; gloss: string; pos: 'pron' | 'adj' };
 
 export interface GrammarCard {
   section: number;
@@ -108,6 +110,36 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
       { table: { kind: 'verbs', headwords: ['agō, agere', 'scrībō, scrībere'], glosses: ['drive', 'write'], tense: 'fut' } },
       { p: 'The imperfect uses -ēbam: *agēbam*, *dūcēbant*. Mind the trap: *agēs* and *aget* look like the 2nd-conjugation present (*monēs*, *monet*), but here they are future.' },
       { table: { kind: 'verbs', headwords: ['agō, agere', 'dūcō, dūcere'], glosses: ['drive', 'lead'], tense: 'impf' } },
+    ],
+  },
+  /* Sections 9–10, likewise. */
+  {
+    section: 9,
+    title: '[[demonstrative|Demonstratives]]; the -īus adjectives',
+    blocks: [
+      { p: 'A [[demonstrative|demonstrative]] points something out. *Hic* means this (near me); *ille* means that (over there). With a noun it works as an adjective and agrees with it: *hic liber*, *haec puella*, *hoc dōnum*. On its own it is a [[pronoun|pronoun]]: *hic*, this man; *illa*, that woman.' },
+      { table: { kind: 'gendered', headword: 'hic, haec, hoc', gloss: 'this', pos: 'pron' } },
+      { p: 'Mind the look-alikes. *Haec* is feminine singular or neuter plural: *haec puella*, *haec dōna*. *Hoc* is neuter nominative or accusative, but *hōc* and *hāc*, with a long vowel, are ablative. *Huic* is dative in every gender.' },
+      { table: { kind: 'gendered', headword: 'ille, illa, illud', gloss: 'that', pos: 'pron' } },
+      { p: '*Ille* has the endings of *magnus* except in four places: the masculine nominative *ille*, the neuter *illud*, the genitive singular *illīus* and the dative singular *illī*, the same in all genders. *Iste, ista, istud*, that of yours, declines exactly like *ille* and often sounds scornful: *iste tyrannus*.' },
+      { p: 'Nine adjectives share that genitive in -īus and dative in -ī, though dictionaries list them like *bonus*: *ūllus*, *nūllus*, *ūnus*, *tōtus*, *sōlus*, *neuter*, *alius*, *alter*, *uter*. Everywhere else they decline like *bonus*: *ūnīus fēminae*, *tōtī patriae*, but *ūnam fēminam*.' },
+      { table: { kind: 'gendered', headword: 'sōlus, sōla, sōlum', gloss: 'alone, only', pos: 'adj' } },
+      { p: 'Two need care. *Alius* has neuter *aliud*, and its genitive is usually borrowed from *alter*: *alterīus*. *Alter*, the other of two, keeps its e like *līber*: *altera*, *alterum*, *alterī*.' },
+      { p: 'Watch -ī: in *illī* or *ūnī* it can be dative singular or masculine nominative plural, never genitive. The genitive singular of these words always ends in -īus.' },
+    ],
+  },
+  {
+    section: 10,
+    title: 'Fourth [[conjugation|conjugation]] and 3rd-conjugation -iō verbs',
+    blocks: [
+      { p: 'Verbs with infinitive -īre belong to the 4th conjugation: *audiō, audīre*. The stem is audī-, and the long ī shows in *audīs*, *audīmus*, *audītis*, *audī!* It goes short before another vowel and before a final -t or nt: *audiō*, *audit*, *audiunt*.' },
+      { p: 'Some verbs have a 3rd-conjugation infinitive in short -ere, yet a first form in -iō: *capiō, capere*. Wheelock counts them as a kind of 3rd conjugation. They keep an i wherever the 4th conjugation has one before a vowel (*capiō*, *capiunt*, *capiam*, *capiēbam*) and otherwise behave like *agō*: *capis*, *capit*, *capimus*, *capere*, *cape!*' },
+      { table: { kind: 'verbs', headwords: ['agō, agere', 'capiō, capere', 'audiō, audīre'], glosses: ['drive', 'take', 'hear'] } },
+      { p: 'So read the first two forms together: -āre is 1st, -ēre is 2nd, -īre is 4th. Short -ere is 3rd, and if the first form ends in -iō, it is a 3rd-conjugation -iō verb.' },
+      { p: 'The future and imperfect follow the 3rd conjugation, with that i: -iam, -iēs, -iet; -iēbam, -iēbās. *Audiet*, she will hear; *audiēbat*, she was hearing; but *audit*, she hears.' },
+      { table: { kind: 'verbs', headwords: ['capiō, capere', 'audiō, audīre'], glosses: ['take', 'hear'], tense: 'fut' } },
+      { table: { kind: 'verbs', headwords: ['capiō, capere', 'audiō, audīre'], glosses: ['take', 'hear'], tense: 'impf' } },
+      { p: 'The short commands now come with their verbs: *dīc!* from *dīcō*, *fac!* from *faciō*.' },
     ],
   },
 ];

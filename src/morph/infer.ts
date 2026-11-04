@@ -87,6 +87,9 @@ export function inferParadigm(headword: string, pos: PartOfSpeech, hints: InferH
     case 'verb': return withIrr(inferVerb(parts));
     case 'noun': return withIrr(inferNoun(parts, gender, parsed.common === true));
     case 'adj': return withIrr(inferAdj(parts));
+    case 'pron': return inferPronoun(parts) ?? none(parts, `pronoun "${p0}": not implemented yet (only the demonstratives hic, ille, iste are)`);
+    // ūnus may be listed as a numeral; other numerals are not implemented.
+    case 'num': return IUS_ADJECTIVES.has(p0) ? inferAdj(parts) : none(parts, `paradigms for part of speech "num" are not implemented yet`);
     default: return none(parts, `paradigms for part of speech "${pos}" are not implemented yet`);
   }
 }
@@ -276,9 +279,44 @@ function inferN3Plural(parts: string[], nom: string, gen: string, gender: Gender
 
 /* ---------------- adjectives ---------------- */
 
-function inferAdj(parts: string[]): Inference {
+/**
+ * The -īus adjectives (Wheelock ch. 9 "UNUS NAUTA"; A&G §113): gen. sg. -īus, dat. sg. -ī.
+ * Dictionaries print them like bonus ("sōlus, -a, -um"), so they are recognized by name.
+ */
+export const IUS_ADJECTIVES: ReadonlySet<string> = new Set(['ūllus', 'nūllus', 'ūnus', 'tōtus', 'sōlus', 'neuter', 'alius', 'alter', 'uter']);
+
+/** Lexical notes for the -īus adjectives (stored on the lemma when the source gives none). */
+const IUS_NOTE: Record<string, string> = {
+  alius: 'Gen. sg. usually supplied by alterīus (alīus is rare); dat. sg. aliī; neuter aliud',
+  alter: 'Gen. sg. alterīus (often alterius, with short i); dat. sg. alterī',
+};
+
+/** Expand "-a, -um" / "-a, -ud" tails after an -us masculine: "sōlus, -a, -um" → sōlus, sōla, sōlum. */
+function expandAdjTails(parts: string[]): string[] {
+  const m = parts[0];
+  if (!m || !m.endsWith('us') || !parts.slice(1).some((x) => x.startsWith('-'))) return parts;
+  const base = m.slice(0, -2);
+  return parts.map((x, i) => (i > 0 && /^-(a|um|ud)$/.test(x) ? base + x.slice(1) : x));
+}
+
+/** Demonstratives: hic, haec, hoc → pron:hic; ille, illa, illud / iste, ista, istud → pron:ille. */
+function inferPronoun(parts: string[]): Inference | null {
+  const [m, f, n] = parts;
+  if (m === 'hic' && f === 'haec' && n === 'hoc') return { paradigm: 'pron:hic', stem: null, parts, confidence: 'high', reason: 'demonstrative' };
+  if (m && f && n && f.endsWith('a')) {
+    const base = f.slice(0, -1);
+    if (base.length >= 2 && m === base + 'e' && n === base + 'ud') return { paradigm: 'pron:ille', stem: base, parts, confidence: 'high', reason: 'demonstrative' };
+  }
+  return null;
+}
+
+function inferAdj(raw: string[]): Inference {
+  const parts = expandAdjTails(raw);
   const [m, f, n] = parts as [string, string | undefined, string | undefined];
   if (!f || !n) return none(parts, `adjective "${m}" needs three nominative forms`);
+  const pron = inferPronoun(parts);
+  if (pron) return pron;
+  if (IUS_ADJECTIVES.has(m)) return inferIus(parts, m, f, n);
   // Plural-only (paucī, paucae, pauca).
   if (m.endsWith('ī') && f.endsWith('ae') && n.endsWith('a')) {
     const base = f.slice(0, -2);
@@ -293,6 +331,16 @@ function inferAdj(parts: string[]): Inference {
     return { paradigm: 'adj12', stem: base, parts, confidence: 'high', reason: m === base ? '-er adjective keeping e' : '-er adjective dropping e' };
   }
   return { paradigm: 'adj12', stem: base, parts, confidence: 'low', reason: `masculine ${m} does not match feminine ${f}` };
+}
+
+function inferIus(parts: string[], m: string, f: string, n: string): Inference {
+  if (!f.endsWith('a')) return none(parts, `${m}, ${f}, ${n}: feminine must end in -a`);
+  const base = f.slice(0, -1);
+  const neutOk = m === 'alius' ? n === base + 'ud' : n === base + 'um';
+  const mascOk = m === base + 'us' || m === base || (base.endsWith('r') && m === base.slice(0, -1) + 'er');
+  const note = IUS_NOTE[m] ?? `Gen. sg. ${base}īus, dat. sg. ${base}ī`;
+  if (!neutOk || !mascOk) return { paradigm: 'adj:ius', stem: base, parts, note, confidence: 'low', reason: `${m}, ${f}, ${n}: forms do not share a base` };
+  return { paradigm: 'adj:ius', stem: base, parts, note, confidence: 'high', reason: '-īus adjective (gen. -īus, dat. -ī)' };
 }
 
 /**

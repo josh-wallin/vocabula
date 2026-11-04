@@ -169,6 +169,8 @@ function introNote(paradigm: string, pos: string): string {
     case 'v3': return 'The infinitive ends in short -ere: 3rd conjugation.';
     case 'v3io': return 'Infinitive in short -ere, but 1st person in -iō: 3rd conjugation -iō verb.';
     case 'v4': return 'The infinitive ends in -īre: 4th conjugation.';
+    case 'adj:ius': return 'Listed like bonus, but one of the nine adjectives with genitive singular -īus and dative singular -ī in every gender.';
+    case 'pron:hic': case 'pron:ille': return 'A demonstrative: it points things out, as an adjective (this book) or on its own as a pronoun (this man).';
     case 'n3': case 'n3n': case 'n3i': case 'n3in': return 'Genitive in -is: 3rd declension. Drop -is to find the base, and learn the gender with the word.';
     case 'irr:sum': case 'irr:possum': return 'An irregular verb: learn its forms by heart.';
     default: return pos === 'prep' ? 'A preposition: it doesn’t change form.' : 'This word doesn’t change form.';

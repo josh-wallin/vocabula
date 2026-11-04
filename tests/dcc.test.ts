@@ -94,9 +94,23 @@ describe.skipIf(!existsSync(real))('full DCC list', () => {
     expect(by('v3')).toBeGreaterThanOrEqual(114);
     expect(by('v3io')).toBe(21);
     expect(by('v4')).toBe(13);
-    // Known: alius and plērusque (pronominal / compound adjectives), vōs (mislabelled pronoun),
+    // Known: plērusque (compound adjective), vōs (mislabelled pronoun),
     // vulgus (n. and m.), humus (fem. 2nd decl.), vīs (irregular, no genitive printed).
     expect(r.problems.length).toBeLessThanOrEqual(6);
+  });
+  it('demonstratives and -īus adjectives (Wheelock ch. 9) import with their own paradigms; other pronouns are skipped', () => {
+    const by = (p: string) => r.lemmas.filter((l) => l.paradigm === p).map((l) => l.parts[0]).sort();
+    expect(by('pron:hic')).toEqual(['hic']);
+    expect(by('pron:ille')).toEqual(['ille', 'iste']);
+    expect(by('adj:ius')).toEqual(['alius', 'alter', 'nūllus', 'sōlus', 'tōtus', 'ūllus', 'ūnus']);
+    expect(r.lemmas.find((l) => l.parts[0] === 'nūllus')!.paradigm).toBe('adj:ius');
+    expect(form(r.lemmas.find((l) => l.parts[0] === 'nūllus')!, 'gen.sg.m')).toBe('nūllīus');
+    expect(r.lemmas.find((l) => l.parts[0] === 'alius')!.parts).toEqual(['alius', 'alia', 'aliud']);
+    for (const hw of ['is ea id', 'ipse ipsa ipsum', 'īdem eadem idem']) {
+      expect(r.skipped.some((s) => s.entry.headword === hw), hw).toBe(true);
+    }
+    expect(r.problems.some((p) => p.entry.headword.startsWith('alius'))).toBe(false);
+    expect(r.problems.length).toBeLessThanOrEqual(5);
   });
   it('3rd-decl. i-stems and their A&G exceptions', () => {
     const p = (nom: string) => r.lemmas.find((l) => l.parts[0] === nom)?.paradigm;
