@@ -296,6 +296,19 @@ export function currentNodeIndex(path: Path, done: ReadonlySet<string>): number 
   return i === -1 ? path.nodes.length : i;
 }
 
+/**
+ * How the path shows node `i`: `done`; `current` (the frontier); `open`, an Audītiō or Lectiō node
+ * added behind the learner and not played yet (playable, never blocks, but not done either);
+ * or `locked`.
+ */
+export type NodeStatus = 'done' | 'current' | 'open' | 'locked';
+export function nodeStatus(path: Path, done: ReadonlySet<string>, i: number, current = currentNodeIndex(path, done)): NodeStatus {
+  if (i === current) return 'current';
+  const n = path.nodes[i];
+  if (n && done.has(n.id)) return 'done';
+  return i < current ? 'open' : 'locked';
+}
+
 export const isUnlocked = (path: Path, done: ReadonlySet<string>, id: string): boolean =>
   (path.index.get(id) ?? Infinity) <= currentNodeIndex(path, done);
 

@@ -13,7 +13,7 @@ import {
   type AuditScreen, type ListeningLesson,
 } from '../src/engine/listening.ts';
 import { externalAudioKey, isAudioKey } from '../src/audio/key.ts';
-import { buildPath, currentNodeIndex, isUnlocked } from '../src/engine/path.ts';
+import { buildPath, currentNodeIndex, isUnlocked, nodeStatus } from '../src/engine/path.ts';
 import { buildLexicon } from '../src/engine/lexicon.ts';
 import { buildLesson, isScored, type ChoiceExercise, type Exercise } from '../src/engine/lesson.ts';
 import { Session } from '../src/engine/session.ts';
@@ -139,6 +139,14 @@ describe('listening lessons: path placement', () => {
     done.add('s4.probatio');
     expect(currentNodeIndex(path, done)).toBe(path.nodes.length);
     expect(isUnlocked(path, done, 's3.audit.listen-a')).toBe(true);
+    // Skipped, it shows as open (new, playable), not as done; played, it is done.
+    const at = (id: string) => path.index.get(id)!;
+    expect(nodeStatus(path, done, at('s3.audit.listen-a'))).toBe('open');
+    expect(nodeStatus(path, done, at('s4.audit.listen-c'))).toBe('open');
+    expect(nodeStatus(path, done, at('s4.probatio'))).toBe('done');
+    done.add('s3.audit.listen-a');
+    expect(nodeStatus(path, done, at('s3.audit.listen-a'))).toBe('done');
+    expect(currentNodeIndex(path, done)).toBe(path.nodes.length);
     // Normal order: an Audītiō node is required like any other.
     const upTo = new Set(path.nodes.slice(0, path.index.get('s3.audit.listen-a')!).map((x) => x.id));
     expect(path.nodes[currentNodeIndex(path, upTo)]!.id).toBe('s3.audit.listen-a');

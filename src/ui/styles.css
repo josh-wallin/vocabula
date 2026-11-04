@@ -118,6 +118,12 @@ button.chip.sync.auth { color: var(--bad-ink); border-color: var(--bad); backgro
   box-shadow: 0 6px 0 var(--bronze-shadow), 0 0 0 6px var(--bg), 0 0 0 9px var(--bronze-ring);
 }
 .node.locked .disc { background: var(--locked); color: var(--muted); box-shadow: 0 5px 0 var(--locked-shadow); }
+/* A reading/listening node added behind the learner, not played yet: playable, not done. */
+.node.open .disc { background: var(--card); color: var(--plum); border: 3px solid var(--plum); box-shadow: 0 5px 0 var(--line); }
+.newtag {
+  margin-bottom: 6px; padding: 2px 8px; border-radius: 99px; background: var(--plum-tint); color: var(--plum);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+}
 .node .label { margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--muted); text-align: center; max-width: 140px; }
 .node.current .label { font-size: 14px; font-weight: 700; color: var(--ink); margin-top: 12px; }
 .incipe {

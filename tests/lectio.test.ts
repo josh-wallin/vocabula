@@ -13,7 +13,7 @@ import {
   buildLectio, compactCells, formCells, lectioQuestionCard, lectioText, parseLectio, parseLectioCard, parseLectioFile,
   shortCell, tokenProblem, wordInfo, wordInfoLine, type Lectio, type LectioScreen,
 } from '../src/engine/lectio.ts';
-import { buildPath, currentNodeIndex, isUnlocked } from '../src/engine/path.ts';
+import { buildPath, currentNodeIndex, isUnlocked, nodeStatus } from '../src/engine/path.ts';
 import { buildLexicon } from '../src/engine/lexicon.ts';
 import { buildLesson, parseListenCard, type ChoiceExercise, type Exercise } from '../src/engine/lesson.ts';
 import { Session } from '../src/engine/session.ts';
@@ -188,6 +188,14 @@ describe('Lectiō: path placement and gating', () => {
     const done = new Set(plain.nodes.slice(0, plain.index.get('s3.verba.1')! + 1).map((x) => x.id));
     expect(path.nodes[currentNodeIndex(path, done)]!.id).toBe(plain.nodes[plain.index.get('s3.verba.1')! + 1]!.id);
     expect(isUnlocked(path, done, 's2.lectio.l02-1')).toBe(true);
+    // The skipped passage is open (no check mark), the nodes around it done, the frontier current.
+    const cur = currentNodeIndex(path, done);
+    expect(nodeStatus(path, done, path.index.get('s2.lectio.l02-1')!)).toBe('open');
+    expect(nodeStatus(path, done, path.index.get('s3.verba.1')!)).toBe('done');
+    expect(nodeStatus(path, done, cur)).toBe('current');
+    expect(nodeStatus(path, done, cur + 1)).toBe('locked');
+    // In normal order nothing is ever open: every node before the frontier is done.
+    expect(path.nodes.map((_, i) => nodeStatus(path, upTo, i)).filter((s) => s === 'open')).toEqual([]);
   });
 });
 

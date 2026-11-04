@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'preact/hooks';
 import type { AppData } from '../app/controller.ts';
 import { frontier } from '../app/controller.ts';
 import { roman } from '../engine/curriculum.ts';
-import type { NodeKind, PathNode } from '../engine/path.ts';
+import { nodeStatus, type NodeKind, type PathNode } from '../engine/path.ts';
 import { IconBook, IconCheck, IconForms, IconLaurel, IconPlus, IconReview, IconSpeaker, IconTable } from './icons.tsx';
 import { IconScroll } from './Lectio.tsx';
 
@@ -50,20 +50,21 @@ export function PathScreen({ app, onStart, onChapter }: {
             <div class="nodes">
               {sec.nodes.map((n) => {
                 const i = app.path.index.get(n.id)!;
-                const status = app.state.done.has(n.id) && i !== f.index ? 'done' : i === f.index ? 'current' : i < f.index ? 'done' : 'locked';
+                const status = nodeStatus(app.path, app.state.done, i, f.index);
                 const off = OFFSETS[k++ % OFFSETS.length]!;
                 const Icon = status === 'done' ? IconCheck : KIND_ICON[n.kind];
                 const desc = KIND_DESC[n.kind];
                 return (
                   <div class={`node ${status}`} key={n.id} style={{ transform: `translateX(${off}px)` }}>
                     {status === 'current' && <span class="incipe" lang="la" aria-hidden="true">INCIPE</span>}
+                    {status === 'open' && <span class="newtag" aria-hidden="true">NEW</span>}
                     {status === 'locked' ? (
                       <span class="disc" role="img" aria-label={`${n.title}, ${desc}, locked`} data-node={n.id} data-status={status}>
                         <Icon size={26} />
                       </span>
                     ) : (
                       <button type="button" class="disc" ref={status === 'current' ? currentRef : undefined}
-                        aria-label={`${n.title}, ${desc}. ${status === 'done' ? 'Completed. Practice again' : 'Start lesson'}`}
+                        aria-label={`${n.title}, ${desc}. ${status === 'done' ? 'Completed. Practice again' : status === 'open' ? 'New, not done yet. Start lesson' : 'Start lesson'}`}
                         data-node={n.id} data-status={status} onClick={() => onStart(n)}>
                         <Icon size={status === 'current' ? 30 : 28} />
                       </button>
