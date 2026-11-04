@@ -17,6 +17,7 @@ export function flagRef(ex: Exercise): string {
   switch (ex.type) {
     case 'intro': return `lemma:${ex.lemma}`;
     case 'grammar': return `grammar:${ex.section}`;
+    case 'audit': return `audit:${ex.lesson.id}:${ex.kind}${ex.vocab ? `:${ex.vocab.id}` : ''}`;
     default: return ex.card;
   }
 }
@@ -27,6 +28,7 @@ export function flagShown(ex: Exercise): string {
   switch (ex.type) {
     case 'intro': s = `New word ${ex.lemma}`; break;
     case 'grammar': s = `Grammar card ${ex.section}`; break;
+    case 'audit': s = ex.vocab ? `New word ${ex.vocab.headword}: ${ex.vocab.gloss}` : `Audītiō ${ex.kind} ${ex.lesson.ref}`; break;
     case 'sentence': s = `${ex.prompt}: ${latinText(ex.s)} = ${ex.en} [${ex.options.map((o) => o.text).join(' / ')}]`; break;
     case 'choice': s = `${ex.prompt} ${ex.cue} [${ex.options.map((o) => o.text).join(' / ')}]`; break;
     case 'typed': s = `${ex.prompt} ${ex.cue} (${ex.accepted.join(' / ')})`; break;

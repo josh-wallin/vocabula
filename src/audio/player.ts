@@ -32,7 +32,7 @@ export async function initAudioCache(): Promise<void> {
     if (typeof caches === 'undefined') return;
     const c = await caches.open(AUDIO_CACHE);
     for (const req of await c.keys()) {
-      const m = /\/api\/audio\/([0-9a-f]+)$/.exec(new URL(req.url).pathname);
+      const m = /\/api\/audio\/((?:dcc-)?[0-9a-f]+)$/.exec(new URL(req.url).pathname);
       if (m) cached.add(m[1]!);
     }
   } catch { /* no Cache Storage: fine */ }

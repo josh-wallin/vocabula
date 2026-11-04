@@ -1,0 +1,349 @@
+{
+ "id": "listen-fab2-1-3",
+ "title": "The wolf and the lamb at the stream",
+ "section": 10,
+ "ref": "Elegiac Romulus 2 (De lupo et agno), lines 1–3",
+ "context": "A verse fable (12th century) about a wolf and a lamb. Line 2 is poetic: \"each one looks for the stream at a different spot because of thirst.\"",
+ "where": "Your lines open the reading: the first three verses, up to “bibit agnus in īmō”.",
+ "audio": {
+  "recording": "dcc-fab2-wli",
+  "title": "De Lupo et Agno read by Wanzie Li",
+  "reader": "Wanzie Li",
+  "record_url": "https://dcc.dickinson.edu/podcasts/de-lupo-et-agno-read-wanzie-li",
+  "mp3_url": "https://dcc.dickinson.edu/sites/default/files/sites/all/files/podcasts/Fable%202%20Recording.mp3",
+  "key": "dcc-fb11d0f087c9c74f2fb8bb9c",
+  "seconds": 105,
+  "license": "CC BY-SA",
+  "attribution": "Audio: “De Lupo et Agno read by Wanzie Li”, read by Wanzie Li. Dickinson College Commentaries, https://dcc.dickinson.edu/podcasts/de-lupo-et-agno-read-wanzie-li. CC BY-SA."
+ },
+ "text_source": {
+  "title": "Elegiac Romulus 2, De lupo et agno (Dickinson College Commentaries)",
+  "url": "https://dcc.dickinson.edu/elegiac-romulus/2-de-lupo-et-agno",
+  "license": "CC BY-SA"
+ },
+ "transcript": [
+  {
+   "ref": "line 1",
+   "text": "Est lupus, est agnus: sitit hic, sitit ille, fluentum",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "Est",
+     "lemma": "sum-irr-sum"
+    },
+    {
+     "w": "lupus",
+     "vocab": "dcc-lupus",
+     "p": ","
+    },
+    {
+     "w": "est",
+     "lemma": "sum-irr-sum"
+    },
+    {
+     "w": "agnus",
+     "vocab": "dcc-agnus",
+     "p": ":"
+    },
+    {
+     "w": "sitit",
+     "vocab": "dcc-sitio"
+    },
+    {
+     "w": "hic",
+     "lemma": "hic-pron-hic",
+     "p": ","
+    },
+    {
+     "w": "sitit",
+     "vocab": "dcc-sitio"
+    },
+    {
+     "w": "ille",
+     "lemma": "ille-pron-ille",
+     "p": ","
+    },
+    {
+     "w": "fluentum",
+     "vocab": "dcc-fluentum"
+    }
+   ]
+  },
+  {
+   "ref": "line 2",
+   "text": "līmite nōn ūnō quaerit uterque sitī.",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "līmite",
+     "vocab": "dcc-limes"
+    },
+    {
+     "w": "nōn",
+     "lemma": "non-indecl"
+    },
+    {
+     "w": "ūnō",
+     "lemma": "unus-adj-ius"
+    },
+    {
+     "w": "quaerit",
+     "lemma": "quaero-v3"
+    },
+    {
+     "w": "uterque",
+     "vocab": "dcc-uterque"
+    },
+    {
+     "w": "sitī",
+     "vocab": "dcc-sitis",
+     "p": "."
+    }
+   ]
+  },
+  {
+   "ref": "line 3",
+   "text": "In summō bibit amne lupus, bibit agnus in īmō.",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "In",
+     "lemma": "in-indecl"
+    },
+    {
+     "w": "summō",
+     "vocab": "dcc-summus"
+    },
+    {
+     "w": "bibit",
+     "vocab": "dcc-bibo"
+    },
+    {
+     "w": "amne",
+     "vocab": "dcc-amnis"
+    },
+    {
+     "w": "lupus",
+     "vocab": "dcc-lupus",
+     "p": ","
+    },
+    {
+     "w": "bibit",
+     "vocab": "dcc-bibo"
+    },
+    {
+     "w": "agnus",
+     "vocab": "dcc-agnus"
+    },
+    {
+     "w": "in",
+     "lemma": "in-indecl"
+    },
+    {
+     "w": "īmō",
+     "vocab": "dcc-imus",
+     "p": "."
+    }
+   ]
+  },
+  {
+   "ref": "line 4",
+   "text": "Hunc timor impugnat verba movente lupō:"
+  },
+  {
+   "ref": "line 5",
+   "text": "“Rūpistī pōtumque mihi rīvōque decōrem.”"
+  },
+  {
+   "ref": "line 6",
+   "text": "Agnus utrumque negat sē ratiōne tuēns:"
+  },
+  {
+   "ref": "line 7",
+   "text": "“Nec tibi nec rīvō nocuī: nam prōna supīnum"
+  },
+  {
+   "ref": "line 8",
+   "text": "nescit iter nec adhūc unda nitōre caret.”"
+  },
+  {
+   "ref": "line 9",
+   "text": "Sīc iterum tonat ōre lupus: “Mihi damna mināris?”"
+  },
+  {
+   "ref": "line 10",
+   "text": "“Nōn minor,” agnus ait. Cui lupus: “Immō facis;"
+  },
+  {
+   "ref": "line 11",
+   "text": "Fēcit idem tuus ante pater sex mēnsibus āctīs:"
+  },
+  {
+   "ref": "line 12",
+   "text": "Cum bene patrissēs, crīmine patris obī.”"
+  },
+  {
+   "ref": "line 13",
+   "text": "Agnus ad haec: “Tantō nōn vīxī tempore, praedō.”"
+  },
+  {
+   "ref": "line 14",
+   "text": "Sīc tonat: “An loqueris, furcifer?” huncque vorat."
+  },
+  {
+   "ref": "line 15",
+   "text": "Sīc nocet innocuō nocuus, causamque nocendī"
+  },
+  {
+   "ref": "line 16",
+   "text": "invenit. Hī rēgnant quālibet urbe lupī."
+  }
+ ],
+ "vocab": [
+  {
+   "id": "dcc-lupus",
+   "headword": "lupus, lupī, m.",
+   "gloss": "wolf",
+   "pos": "noun",
+   "forms": [
+    "lupus"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-agnus",
+   "headword": "agnus, agnī, m.",
+   "gloss": "lamb",
+   "pos": "noun",
+   "forms": [
+    "agnus"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-sitio",
+   "headword": "sitiō, sitīre, sitīvī",
+   "gloss": "be thirsty",
+   "pos": "verb",
+   "forms": [
+    "sitit"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-bibo",
+   "headword": "bibō, bibere, bibī",
+   "gloss": "drink",
+   "pos": "verb",
+   "forms": [
+    "bibit"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-amnis",
+   "headword": "amnis, amnis, m.",
+   "gloss": "river, stream",
+   "pos": "noun",
+   "forms": [
+    "amne"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-summus",
+   "headword": "summus, summa, summum",
+   "gloss": "highest; the top of",
+   "pos": "adj",
+   "forms": [
+    "summō"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-imus",
+   "headword": "īmus, īma, īmum",
+   "gloss": "lowest; the bottom of",
+   "pos": "adj",
+   "forms": [
+    "īmō"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-uterque",
+   "headword": "uterque, utraque, utrumque",
+   "gloss": "each (of two), both",
+   "pos": "pron",
+   "forms": [
+    "uterque"
+   ],
+   "drill": false,
+   "note": "uter + -que"
+  },
+  {
+   "id": "dcc-fluentum",
+   "headword": "fluentum, fluentī, n.",
+   "gloss": "stream, flowing water",
+   "pos": "noun",
+   "forms": [
+    "fluentum"
+   ],
+   "drill": false
+  },
+  {
+   "id": "dcc-limes",
+   "headword": "līmes, līmitis, m.",
+   "gloss": "boundary; path, spot",
+   "pos": "noun",
+   "forms": [
+    "līmite"
+   ],
+   "drill": false
+  },
+  {
+   "id": "dcc-sitis",
+   "headword": "sitis, sitis, f.",
+   "gloss": "thirst (abl. sitī, \"because of thirst\")",
+   "pos": "noun",
+   "forms": [
+    "sitī"
+   ],
+   "drill": false
+  }
+ ],
+ "notes": [
+  {
+   "form": "in summō … amne / in īmō",
+   "gloss": "\"at the top of the stream\" (upstream) / \"at the bottom\" (downstream)"
+  }
+ ],
+ "questions": [
+  {
+   "q": "Who is thirsty?",
+   "options": [
+    "only the wolf",
+    "only the lamb",
+    "both the wolf and the lamb"
+   ],
+   "answer": 2
+  },
+  {
+   "q": "True or false: the wolf drinks upstream, at the top of the stream.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Where does the lamb drink?",
+   "options": [
+    "downstream, at the bottom",
+    "upstream, at the top",
+    "at a well"
+   ],
+   "answer": 0
+  }
+ ]
+}

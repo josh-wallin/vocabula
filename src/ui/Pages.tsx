@@ -1,5 +1,6 @@
 /** Import screen, Profile/Settings, Words, About/credits. */
 import { useEffect, useState } from 'preact/hooks';
+import { listeningLessons } from '../content/listening.ts';
 import { fetchPackFromServer, importPack, localPackHash, serverPackStatus, uploadPackToServer } from '../data/contentStore.ts';
 import { failureText, signInAgain } from '../sync/http.ts';
 import { syncLabel, type SyncStatus } from '../sync/sync.ts';
@@ -282,6 +283,9 @@ export function WordsScreen({ app }: { app: AppData }) {
   );
 }
 
+/** One line per recording the Audītiō lessons use (same recording once). */
+const AUDIO_CREDITS = [...new Map(listeningLessons().map((l) => [l.audio.key, { key: l.audio.key, title: l.audio.title, reader: l.audio.reader, url: l.audio.record_url }])).values()];
+
 export function AboutScreen() {
   return (
     <main class="page" data-screen="about">
@@ -297,6 +301,20 @@ export function AboutScreen() {
       <p>
         <span lang="la">Familia Rōmāna</span> preview words (Hans H. Ørberg, <i>Lingua Latina per se illustrata</i>) come from your own copy,
         through the same private content pack: only each word’s headword and gloss, never the book’s text, and never part of this site.
+      </p>
+      <p data-testid="credits-audio">
+        <span lang="la">Audītiō</span> recordings and their Latin texts are from <strong>Dickinson College Commentaries</strong>{' '}
+        (<a href="https://dcc.dickinson.edu">dcc.dickinson.edu</a>; Audio Credit: DCC), licensed{' '}
+        <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA</a> (Attribution-ShareAlike), re-encoded for the app:
+      </p>
+      <ul class="credits-list">
+        {AUDIO_CREDITS.map((c) => (
+          <li key={c.key}><a href={c.url}>“{c.title}”</a>, read by <strong>{c.reader}</strong>.</li>
+        ))}
+      </ul>
+      <p>
+        Texts: <i lang="la">Navigatio Sancti Brendani</i>, DCC edition by William Turpin; Jerome, <i lang="la">Vita Malchi</i>;
+        <i lang="la"> Elegiac Romulus</i>. The lessons’ glosses and questions are original and shared under the same license.
       </p>
       <p>Grammar chapters, grammar cards and glossary are original writing for this app.</p>
       <p>Scheduling uses the FSRS algorithm via <a href="https://github.com/open-spaced-repetition/ts-fsrs">ts-fsrs</a> (MIT).</p>

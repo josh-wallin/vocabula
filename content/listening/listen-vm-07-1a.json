@@ -1,0 +1,268 @@
+{
+ "id": "listen-vm-07-1a",
+ "title": "Alone in the desert",
+ "section": 9,
+ "ref": "Jerome, Vita Malchi 7.1",
+ "context": "Malchus, a monk captured by desert raiders, is now working as a shepherd for his master. He is telling his own story.",
+ "where": "Your sentence opens the reading: the first two clauses, before “coepī mēcum tacitus volvere”.",
+ "audio": {
+  "recording": "dcc-vm-7-cf",
+  "title": "Jerome Vita Malchi 7 read aloud (CF)",
+  "reader": "Christopher Francese",
+  "record_url": "https://dcc.dickinson.edu/podcasts/jerome-vita-malchi-7-read-aloud-cf",
+  "mp3_url": "https://dcc.dickinson.edu/sites/default/files/sites/all/files/podcasts/Vita-Malchi-7.mp3",
+  "key": "dcc-339fa38ba3a13e62c0791d96",
+  "seconds": 146,
+  "license": "CC BY-SA",
+  "attribution": "Audio: “Jerome Vita Malchi 7 read aloud (CF)”, read by Christopher Francese. Dickinson College Commentaries, https://dcc.dickinson.edu/podcasts/jerome-vita-malchi-7-read-aloud-cf. CC BY-SA."
+ },
+ "text_source": {
+  "title": "Jerome, Vita Malchi (Dickinson College Commentaries)",
+  "url": "https://dcc.dickinson.edu/podcasts/jerome-vita-malchi-7-read-aloud-cf",
+  "license": "CC BY-SA"
+ },
+ "transcript": [
+  {
+   "ref": "7.1",
+   "text": "Post grande intervāllum, dum sōlus in erēmō sedeō,",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "Post",
+     "lemma": "post-indecl"
+    },
+    {
+     "w": "grande",
+     "vocab": "dcc-grandis"
+    },
+    {
+     "w": "intervāllum",
+     "vocab": "dcc-intervallum",
+     "p": ","
+    },
+    {
+     "w": "dum",
+     "lemma": "dum-indecl"
+    },
+    {
+     "w": "sōlus",
+     "lemma": "solus-adj-ius"
+    },
+    {
+     "w": "in",
+     "lemma": "in-indecl"
+    },
+    {
+     "w": "erēmō",
+     "vocab": "dcc-eremus"
+    },
+    {
+     "w": "sedeō",
+     "vocab": "dcc-sedeo",
+     "p": ","
+    }
+   ]
+  },
+  {
+   "ref": "7.1",
+   "text": "et praeter caelum terramque nihil videō,",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "et",
+     "lemma": "et-indecl"
+    },
+    {
+     "w": "praeter",
+     "vocab": "dcc-praeter"
+    },
+    {
+     "w": "caelum",
+     "lemma": "caelum-n2n"
+    },
+    {
+     "w": "terramque",
+     "lemma": "terra-n1",
+     "enclitic": "que"
+    },
+    {
+     "w": "nihil",
+     "lemma": "nihil-indecl"
+    },
+    {
+     "w": "videō",
+     "lemma": "video-v2",
+     "p": ","
+    }
+   ]
+  },
+  {
+   "ref": "7.1",
+   "text": "coepī mēcum tacitus volvere,"
+  },
+  {
+   "ref": "7.1",
+   "text": "et, inter multa, monachōrum contubernia recordārī,"
+  },
+  {
+   "ref": "7.1",
+   "text": "maximēque vultum patris meī,"
+  },
+  {
+   "ref": "7.1",
+   "text": "quī mē ērudierat, tenuerat, perdiderat."
+  },
+  {
+   "ref": "7.2",
+   "text": "Sīcque cōgitāns, aspiciō formīcārum gregem angustō calle fervēre."
+  },
+  {
+   "ref": "7.2",
+   "text": "Vidērēs onera māiōra quam corpora."
+  },
+  {
+   "ref": "7.2",
+   "text": "Aliae herbārum quaedam sēmina forcipe ōris trahēbant,"
+  },
+  {
+   "ref": "7.2",
+   "text": "aliae ēgerēbant humum dē foveīs et aquārum meātus aggeribus exclūdēbant."
+  },
+  {
+   "ref": "7.2",
+   "text": "Illae, ventūrae hiemis memorēs, nē madefacta humus in herbam horrea verteret,"
+  },
+  {
+   "ref": "7.2",
+   "text": "illāta sēmina praecīdēbant;"
+  },
+  {
+   "ref": "7.2",
+   "text": "hae, lūctū celebrī, corpora dēfūncta portābant."
+  },
+  {
+   "ref": "7.2",
+   "text": "Quodque magis mīrum est in tantō agmine, ēgrediēns nōn obstābat intrantibus;"
+  },
+  {
+   "ref": "7.2",
+   "text": "quīn potius, sī quam sub fasce vīdissent et onere concidisse, suppositīs umerīs, adiuvābant."
+  },
+  {
+   "ref": "7.3",
+   "text": "Quid multa?"
+  },
+  {
+   "ref": "7.3",
+   "text": "Pulchrum mihi spectāculum diēs illa praebuit,"
+  },
+  {
+   "ref": "7.3",
+   "text": "unde, recordātus Salomōnis ad formīcae sollertiam nōs mittentis et pigrās mentēs sub tālī exemplō suscitantis,"
+  },
+  {
+   "ref": "7.3",
+   "text": "coepī taedēre captīvitātis,"
+  },
+  {
+   "ref": "7.3",
+   "text": "et monastēriī cellulās quaerere ac formīcārum illārum sollicitūdinem dēsīderāre"
+  },
+  {
+   "ref": "7.3",
+   "text": "ubi labōrātur in medium,"
+  },
+  {
+   "ref": "7.3",
+   "text": "et, cum nihil cūiusquam proprium sit, omnia omnium sunt."
+  }
+ ],
+ "vocab": [
+  {
+   "id": "dcc-sedeo",
+   "headword": "sedeō, sedēre, sēdī, sessum",
+   "gloss": "sit; stay",
+   "pos": "verb",
+   "forms": [
+    "sedeō"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-eremus",
+   "headword": "erēmus, erēmī, f.",
+   "gloss": "desert, wilderness",
+   "pos": "noun",
+   "forms": [
+    "erēmō"
+   ],
+   "drill": true,
+   "note": "feminine 2nd-declension noun (Greek loanword)"
+  },
+  {
+   "id": "dcc-praeter",
+   "headword": "praeter (prep. + acc.)",
+   "gloss": "besides, except; past",
+   "pos": "prep",
+   "forms": [
+    "praeter"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-intervallum",
+   "headword": "intervāllum, intervāllī, n.",
+   "gloss": "interval, gap (of space or time)",
+   "pos": "noun",
+   "forms": [
+    "intervāllum"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-grandis",
+   "headword": "grandis, grande",
+   "gloss": "large, great; grown-up",
+   "pos": "adj",
+   "forms": [
+    "grande"
+   ],
+   "drill": true,
+   "note": "3rd-declension adjective; here neuter acc. sg."
+  }
+ ],
+ "notes": [
+  {
+   "form": "grande",
+   "gloss": "\"long\" (with intervāllum: \"after a long while\")"
+  }
+ ],
+ "questions": [
+  {
+   "q": "Where is the speaker sitting?",
+   "options": [
+    "in the desert",
+    "in a city",
+    "on a ship"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "True or false: the speaker has many companions with him.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1
+  },
+  {
+   "q": "Besides the sky and the land, what does he see?",
+   "options": [
+    "nothing",
+    "his flock",
+    "a river"
+   ],
+   "answer": 0
+  }
+ ]
+}

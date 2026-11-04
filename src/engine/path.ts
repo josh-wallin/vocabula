@@ -10,8 +10,9 @@ import {
   BASE_SECTIONS, SECTIONS, featureOfCell, featuresAt, featuresNeeded, firstEligibleSection, hasFeature, roman,
   type FeatureId, type SectionSpec,
 } from './curriculum.ts';
+import type { ListeningLesson } from './listening.ts';
 
-export type NodeKind = 'verba' | 'pattern' | 'repetitio' | 'formae' | 'dcc' | 'fr' | 'probatio';
+export type NodeKind = 'verba' | 'pattern' | 'repetitio' | 'formae' | 'dcc' | 'fr' | 'auditio' | 'probatio';
 
 export interface PathNode {
   id: string;
@@ -26,6 +27,8 @@ export interface PathNode {
   focus: FeatureId[];
   /** Pattern / Fōrmae: the chapter's lemma ids to drill. */
   drill: string[];
+  /** Audītiō: the listening lesson's id (content/listening). */
+  listening?: string;
 }
 
 export interface Section { spec: SectionSpec; nodes: PathNode[] }
@@ -121,7 +124,15 @@ export function frBySection(lex: Lexicon, sections: readonly SectionSpec[], dcc:
   return out;
 }
 
-export function buildPath(lex: Lexicon): Path {
+export interface PathOptions {
+  /**
+   * Audītiō lessons: each is placed at the end of its section (after its Repetītiō and any
+   * Familia Rōmāna previews, before a Probātiō), only when the path has that section.
+   */
+  listening?: readonly ListeningLesson[];
+}
+
+export function buildPath(lex: Lexicon, opts: PathOptions = {}): Path {
   const sections: Section[] = [];
   const specs = activeSections(lex);
   const dcc = dccBySection(lex, specs);
@@ -200,6 +211,13 @@ export function buildPath(lex: Lexicon): Path {
       });
       if ((i + 1) % REVIEW_EVERY === 0 && frLessons.length - i - 1 >= 2) nodes.push(rep());
     });
+    const audits = (opts.listening ?? []).filter((l) => l.section === spec.n);
+    audits.forEach((l, i) => {
+      nodes.push({
+        id: `${s}.audit.${l.id}`, section: spec.n, kind: 'auditio', title: audits.length > 1 ? `Audītiō ${roman(i + 1)}` : 'Audītiō',
+        newWords: [], unlocked: after, focus: [], drill: [], listening: l.id,
+      });
+    });
     if (spec.n === specs[specs.length - 1]!.n) {
       nodes.push({
         id: `${s}.probatio`, section: spec.n, kind: 'probatio', title: 'Probātiō',
@@ -241,9 +259,15 @@ function wordHasFeature(w: Word, f: FeatureId): boolean {
   return (Object.keys(generate(w.lemma)) as CellId[]).some((c) => featureOfCell(w.lemma, c) === f);
 }
 
-/** Current node: the first one not completed. */
+/**
+ * Current node: the first one not completed. An Audītiō node the learner has already gone past
+ * (a later node is done: the lesson was added after they got there) doesn't hold the path back;
+ * it stays open to play.
+ */
 export function currentNodeIndex(path: Path, done: ReadonlySet<string>): number {
-  const i = path.nodes.findIndex((n) => !done.has(n.id));
+  let lastDone = -1;
+  path.nodes.forEach((n, i) => { if (done.has(n.id)) lastDone = i; });
+  const i = path.nodes.findIndex((n, k) => !done.has(n.id) && !(n.kind === 'auditio' && k < lastDone));
   return i === -1 ? path.nodes.length : i;
 }
 

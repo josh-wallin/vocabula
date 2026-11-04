@@ -1,0 +1,282 @@
+{
+ "id": "listen-nb-10-3",
+ "title": "A bare, rocky island",
+ "section": 9,
+ "ref": "Navigatio Brendani 10.3",
+ "context": "Brendan and his monks land on a new island. (In the story it turns out not to be an island at all.)",
+ "where": "Your two sentences come in the middle of the reading, after the monks pull the boat to shore with ropes.",
+ "audio": {
+  "recording": "dcc-nb-10.1-7-cf",
+  "title": "Navigatio Brendani 10.1-7 read by Christopher Francese",
+  "reader": "Christopher Francese",
+  "record_url": "https://dcc.dickinson.edu/podcasts/navigatio-brendani-10-1-7-read-christopher-francese",
+  "mp3_url": "https://dcc.dickinson.edu/sites/default/files/sites/all/files/podcasts/Brendan_10.1-7_cf.mp3",
+  "key": "dcc-978d2ea0b44e4cbec72c95d7",
+  "seconds": 123,
+  "license": "CC BY-SA",
+  "attribution": "Audio: “Navigatio Brendani 10.1-7 read by Christopher Francese”, read by Christopher Francese. Dickinson College Commentaries, https://dcc.dickinson.edu/podcasts/navigatio-brendani-10-1-7-read-christopher-francese. CC BY-SA."
+ },
+ "text_source": {
+  "title": "Navigatio Sancti Brendani, ed. William Turpin (Dickinson College Commentaries)",
+  "url": "https://dcc.dickinson.edu/navigatio-brendani/10-1%E2%80%937",
+  "license": "CC BY-SA"
+ },
+ "transcript": [
+  {
+   "ref": "10.1",
+   "text": "Cum autem vēnissent ad aliam īnsulam,"
+  },
+  {
+   "ref": "10.1",
+   "text": "coepit illa nāvis stāre, antequam portum illīus potuissent tenēre."
+  },
+  {
+   "ref": "10.2",
+   "text": "Sānctus Brendānus praecēpit frātribus exīre dē nāvī, in mare, et ita fēcērunt;"
+  },
+  {
+   "ref": "10.2",
+   "text": "tenēbantque nāvim ex utrāque parte cum fūnibus, usque dum ad portum vēnit."
+  },
+  {
+   "ref": "10.3",
+   "text": "Erat autem illa īnsula petrōsa sine ūllā herbā.",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "Erat",
+     "lemma": "sum-irr-sum"
+    },
+    {
+     "w": "autem",
+     "vocab": "dcc-autem"
+    },
+    {
+     "w": "illa",
+     "lemma": "ille-pron-ille"
+    },
+    {
+     "w": "īnsula",
+     "vocab": "dcc-insula"
+    },
+    {
+     "w": "petrōsa",
+     "vocab": "dcc-petrosus"
+    },
+    {
+     "w": "sine",
+     "lemma": "sine-indecl"
+    },
+    {
+     "w": "ūllā",
+     "lemma": "ullus-adj-ius"
+    },
+    {
+     "w": "herbā",
+     "vocab": "dcc-herba",
+     "p": "."
+    }
+   ]
+  },
+  {
+   "ref": "10.3",
+   "text": "Silva rāra erat ibi, et in lītore illīus nihil dē arēnā fuit.",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "Silva",
+     "lemma": "silva-n1"
+    },
+    {
+     "w": "rāra",
+     "vocab": "dcc-rarus"
+    },
+    {
+     "w": "erat",
+     "lemma": "sum-irr-sum"
+    },
+    {
+     "w": "ibi",
+     "lemma": "ibi-indecl",
+     "p": ","
+    },
+    {
+     "w": "et",
+     "lemma": "et-indecl"
+    },
+    {
+     "w": "in",
+     "lemma": "in-indecl"
+    },
+    {
+     "w": "lītore",
+     "lemma": "litus-n3n"
+    },
+    {
+     "w": "illīus",
+     "lemma": "ille-pron-ille"
+    },
+    {
+     "w": "nihil",
+     "lemma": "nihil-indecl"
+    },
+    {
+     "w": "dē",
+     "lemma": "de-indecl"
+    },
+    {
+     "w": "arēnā",
+     "vocab": "dcc-arena"
+    },
+    {
+     "w": "fuit",
+     "vocab": "dcc-fuit",
+     "p": "."
+    }
+   ]
+  },
+  {
+   "ref": "10.4",
+   "text": "Porrō pernoctantibus in ōrātiōnibus et in vigiliīs frātribus forīs nāvim, vir Deī sedēbat intus:"
+  },
+  {
+   "ref": "10.4",
+   "text": "sciēbat enim quālis erat illa īnsula;"
+  },
+  {
+   "ref": "10.4",
+   "text": "tamen nōluit indicāre, nē fuissent perterritī."
+  },
+  {
+   "ref": "10.5",
+   "text": "Manē autem factō, praecepit sacerdōtibus ut singulī missās cantāssent, et ita fēcērunt."
+  },
+  {
+   "ref": "10.6",
+   "text": "Cum sānctus Brendānus et ipse cantāsset in nāvī, coepērunt frātrēs carnēs crūdās portāre forās dē nāvī, ut condīssent sale illās, et etiam piscēs quōs sēcum tulērunt dē aliā īnsulā."
+  },
+  {
+   "ref": "10.7",
+   "text": "Cum haec fēcissent, posuērunt cācabum super ignem."
+  },
+  {
+   "ref": "10.7",
+   "text": "Cum autem ministrābant lignīs ignem et fervēre coepisset cācabus, coepit illa īnsula sē movēre sīcut unda."
+  }
+ ],
+ "vocab": [
+  {
+   "id": "dcc-insula",
+   "headword": "īnsula, īnsulae, f.",
+   "gloss": "island",
+   "pos": "noun",
+   "forms": [
+    "īnsula"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-herba",
+   "headword": "herba, herbae, f.",
+   "gloss": "grass, plant, herb",
+   "pos": "noun",
+   "forms": [
+    "herbā"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-rarus",
+   "headword": "rārus, rāra, rārum",
+   "gloss": "thin, scattered; rare",
+   "pos": "adj",
+   "forms": [
+    "rāra"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-petrosus",
+   "headword": "petrōsus, petrōsa, petrōsum",
+   "gloss": "rocky, stony",
+   "pos": "adj",
+   "forms": [
+    "petrōsa"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-arena",
+   "headword": "arēna, arēnae, f.",
+   "gloss": "sand; sandy beach",
+   "pos": "noun",
+   "forms": [
+    "arēnā"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-autem",
+   "headword": "autem (postpositive conj.)",
+   "gloss": "however; moreover, now",
+   "pos": "conj",
+   "forms": [
+    "autem"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-fuit",
+   "headword": "fuit",
+   "gloss": "was (perfect of sum)",
+   "pos": "phrase",
+   "forms": [
+    "fuit"
+   ],
+   "drill": false,
+   "note": "perfect tense of sum (not taught yet)"
+  }
+ ],
+ "notes": [
+  {
+   "form": "nihil dē arēnā",
+   "gloss": "\"nothing of sand\", i.e. no sand at all"
+  }
+ ],
+ "questions": [
+  {
+   "q": "What was the island like?",
+   "options": [
+    "rocky",
+    "sandy",
+    "covered with thick forest"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "True or false: there was plenty of grass on the island.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1
+  },
+  {
+   "q": "What were the woods there like?",
+   "options": [
+    "thin and scattered",
+    "thick and dark",
+    "on fire"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "True or false: there was sand on the shore.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1
+  }
+ ]
+}

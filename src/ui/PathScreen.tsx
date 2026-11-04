@@ -4,16 +4,17 @@ import type { AppData } from '../app/controller.ts';
 import { frontier } from '../app/controller.ts';
 import { roman } from '../engine/curriculum.ts';
 import type { NodeKind, PathNode } from '../engine/path.ts';
-import { IconBook, IconCheck, IconForms, IconLaurel, IconPlus, IconReview, IconTable } from './icons.tsx';
+import { IconBook, IconCheck, IconForms, IconLaurel, IconPlus, IconReview, IconSpeaker, IconTable } from './icons.tsx';
 
 const OFFSETS = [0, 62, 78, 26, -40, -74, -20];
 
 const KIND_ICON: Record<NodeKind, (p: { size?: number }) => preact.JSX.Element> = {
-  verba: IconBook, pattern: IconTable, repetitio: IconReview, formae: IconForms, dcc: IconPlus, fr: IconBook, probatio: IconLaurel,
+  verba: IconBook, pattern: IconTable, repetitio: IconReview, formae: IconForms, dcc: IconPlus, fr: IconBook, auditio: IconSpeaker, probatio: IconLaurel,
 };
 const KIND_DESC: Record<NodeKind, string> = {
   verba: 'new words', pattern: 'new grammar pattern', repetitio: 'review', formae: 'form drills',
-  dcc: 'new words from the DCC core list', fr: 'Familia Rōmāna preview words, meaning only', probatio: 'checkpoint',
+  dcc: 'new words from the DCC core list', fr: 'Familia Rōmāna preview words, meaning only',
+  auditio: 'listening to a real Latin reading', probatio: 'checkpoint',
 };
 
 export function PathScreen({ app, onStart, onChapter }: {

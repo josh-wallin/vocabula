@@ -1,0 +1,202 @@
+{
+ "id": "listen-nb-01-2",
+ "title": "Who was Brendan?",
+ "section": 8,
+ "ref": "Navigatio Brendani 1.1",
+ "context": "The opening of a medieval travel tale about an Irish abbot, Saint Brendan (Sānctus Brendānus).",
+ "where": "Your sentence is the second one of the reading, right after the opening sentence about Brendan’s family.",
+ "audio": {
+  "recording": "dcc-nb-1.1-5-cf",
+  "title": "Navigatio Brendani 1.1-5 read by Christopher Francese",
+  "reader": "Christopher Francese",
+  "record_url": "https://dcc.dickinson.edu/podcasts/navigatio-sancti-brendani-1-1-5",
+  "mp3_url": "https://dcc.dickinson.edu/sites/default/files/sites/all/files/podcasts/Breandan_1.1-5_cfmp3.mp3",
+  "key": "dcc-bcdb1720be123f40a899c1a3",
+  "seconds": 103,
+  "license": "CC BY-SA",
+  "attribution": "Audio: “Navigatio Brendani 1.1-5 read by Christopher Francese”, read by Christopher Francese. Dickinson College Commentaries, https://dcc.dickinson.edu/podcasts/navigatio-sancti-brendani-1-1-5. CC BY-SA."
+ },
+ "text_source": {
+  "title": "Navigatio Sancti Brendani, ed. William Turpin (Dickinson College Commentaries)",
+  "url": "https://dcc.dickinson.edu/navigatio-brendani/1-1-5",
+  "license": "CC BY-SA"
+ },
+ "transcript": [
+  {
+   "ref": "1.1",
+   "text": "Sānctus Brendānus, fīlius Finlocha nepōtis Altī, dē genere Eogēnī, stāgnī Lēn regiōnis Mumenensium ortus fuit."
+  },
+  {
+   "ref": "1.1",
+   "text": "Erat vir magnae abstinentiae et in virtūtibus clārus, trium mīlium ferē monachōrum pater.",
+   "excerpt": true,
+   "tokens": [
+    {
+     "w": "Erat",
+     "lemma": "sum-irr-sum"
+    },
+    {
+     "w": "vir",
+     "lemma": "vir-n2m"
+    },
+    {
+     "w": "magnae",
+     "lemma": "magnus-adj12"
+    },
+    {
+     "w": "abstinentiae",
+     "vocab": "dcc-abstinentia"
+    },
+    {
+     "w": "et",
+     "lemma": "et-indecl"
+    },
+    {
+     "w": "in",
+     "lemma": "in-indecl"
+    },
+    {
+     "w": "virtūtibus",
+     "lemma": "virtus-n3"
+    },
+    {
+     "w": "clārus",
+     "vocab": "dcc-clarus",
+     "p": ","
+    },
+    {
+     "w": "trium",
+     "vocab": "dcc-trium-milium"
+    },
+    {
+     "w": "mīlium",
+     "vocab": "dcc-trium-milium"
+    },
+    {
+     "w": "ferē",
+     "vocab": "dcc-fere"
+    },
+    {
+     "w": "monachōrum",
+     "vocab": "dcc-monachus"
+    },
+    {
+     "w": "pater",
+     "lemma": "pater-n3",
+     "p": "."
+    }
+   ]
+  },
+  {
+   "ref": "1.2",
+   "text": "Cum esset in suō certāmine, in locō quī dīcitur Saltus Virtūtum Brendānī, contigit ut quīdam patrum ad illum quōdam vespere vēnisset, nōmine Barrindus, nepōs Neil."
+  },
+  {
+   "ref": "1.3",
+   "text": "Cumque interrogātus esset multīs sermōnibus ā praedictō sānctō patre, coepit lacrimāre et sē prostrāre in terram et diūtius permanēre in ōrātiōne."
+  },
+  {
+   "ref": "1.4",
+   "text": "Sānctus Brendānus ērēxit illum dē terrā et ōsculātus est eum, dīcēns: “Pater, cūr trīstitiam habēmus in adventū tuō?"
+  },
+  {
+   "ref": "1.4",
+   "text": "Nōnne ad cōnsōlātiōnem nostram vēnistī?"
+  },
+  {
+   "ref": "1.5",
+   "text": "Magis laetitiam tū dēbēs frātribus praeparāre."
+  },
+  {
+   "ref": "1.5",
+   "text": "Indicā nōbīs verbum Deī, atque refice animās nostrās dē dīversīs mīrāculīs quae vīdistī in ōceanō.”"
+  }
+ ],
+ "vocab": [
+  {
+   "id": "dcc-clarus",
+   "headword": "clārus, clāra, clārum",
+   "gloss": "clear, bright; famous",
+   "pos": "adj",
+   "forms": [
+    "clārus"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-monachus",
+   "headword": "monachus, monachī, m.",
+   "gloss": "monk",
+   "pos": "noun",
+   "forms": [
+    "monachōrum"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-abstinentia",
+   "headword": "abstinentia, abstinentiae, f.",
+   "gloss": "self-restraint, abstinence (esp. from food)",
+   "pos": "noun",
+   "forms": [
+    "abstinentiae"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-fere",
+   "headword": "ferē",
+   "gloss": "almost, about, nearly",
+   "pos": "adv",
+   "forms": [
+    "ferē"
+   ],
+   "drill": true
+  },
+  {
+   "id": "dcc-trium-milium",
+   "headword": "trium mīlium",
+   "gloss": "of three thousand (gen. of trēs, tria + mīlia)",
+   "pos": "phrase",
+   "forms": [
+    "trium",
+    "mīlium"
+   ],
+   "drill": false
+  }
+ ],
+ "notes": [
+  {
+   "form": "magnae abstinentiae",
+   "gloss": "\"of great self-restraint\" (genitive describing a person)"
+  }
+ ],
+ "questions": [
+  {
+   "q": "What was Brendan famous for?",
+   "options": [
+    "his virtues",
+    "his wealth",
+    "his skill as a sailor"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Brendan was the father (abbot) of about how many monks?",
+   "options": [
+    "three",
+    "three hundred",
+    "three thousand"
+   ],
+   "answer": 2
+  },
+  {
+   "q": "True or false: Brendan is described as a man of great self-restraint.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0
+  }
+ ]
+}

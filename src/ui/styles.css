@@ -348,3 +348,29 @@ textarea.paste:focus { outline: none; border-color: var(--plum); }
 .toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
 .toggle input { width: 22px; height: 22px; accent-color: var(--plum); flex: none; }
 .toggle .sub { display: block; color: var(--muted); font-size: 14px; }
+
+/* Audītiō (listening lessons on DCC recordings) */
+.audit { display: flex; flex-direction: column; gap: 16px; }
+.audit-context { margin: 0; font-size: 17px; line-height: 1.5; }
+.audit-audio { width: 100%; }
+.audit-missing { margin: 0; padding: 12px 14px; border-radius: 12px; background: var(--bad-bg); color: var(--bad-ink); font-size: 14px; line-height: 1.45; }
+.transcript-wrap { display: flex; flex-direction: column; gap: 10px; }
+.transcript {
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px;
+  font-family: var(--font-text); font-size: 19px; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere;
+}
+.transcript .tline.excerpt { color: var(--ink); background: var(--plum-tint); box-shadow: 0 0 0 3px var(--plum-tint); border-radius: 4px; }
+.transcript .tok {
+  font: inherit; color: inherit; background: none; border: 0; padding: 0 1px; margin: 0; border-radius: 4px; cursor: pointer;
+  min-height: 32px;
+}
+.transcript .tok.new { text-decoration: underline dotted var(--plum); text-underline-offset: 4px; }
+.transcript .tok.on { background: var(--plum); color: #fff; }
+.tgloss { position: sticky; bottom: 0; z-index: 1; background: var(--card); min-height: 52px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 10px 14px; border-radius: 12px; border: 1.5px dashed var(--line); }
+.tgloss .tg-w { font-family: var(--font-text); font-weight: 600; font-size: 20px; }
+.tgloss .tg-h { font-family: var(--font-text); font-size: 17px; color: var(--muted); }
+.tgloss .tg-g { flex-basis: 100%; font-size: 16px; font-weight: 600; }
+.audit-notes { display: flex; flex-direction: column; gap: 4px; }
+.attribution { margin: 0; font-size: 12px; line-height: 1.45; color: var(--muted); }
+.attribution a { color: inherit; }
+.credits-list { margin: 0 0 12px; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }

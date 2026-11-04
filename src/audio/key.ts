@@ -28,7 +28,15 @@ export function audioKey(text: string): string {
 }
 
 export const audioUrl = (key: string): string => `${AUDIO_PATH}${key}`;
-export const isAudioKey = (s: string): boolean => new RegExp(`^[0-9a-f]{${AUDIO_KEY_LEN}}$`).test(s);
+export const isAudioKey = (s: string): boolean => new RegExp(`^(?:${EXTERNAL_AUDIO_PREFIX})?[0-9a-f]{${AUDIO_KEY_LEN}}$`).test(s);
+
+/**
+ * Human recordings (Audītiō lessons, from Dickinson College Commentaries) are stored under
+ * `dcc-` + the first 24 hex digits of sha256(the source MP3 URL, exactly as written), by the
+ * vocabula-content audio Action (scripts/audio-external.mts), engine 'dcc'.
+ */
+export const EXTERNAL_AUDIO_PREFIX = 'dcc-';
+export const externalAudioKey = (url: string): string => EXTERNAL_AUDIO_PREFIX + sha256Hex(url).slice(0, AUDIO_KEY_LEN);
 
 /** Shared test vector (also asserted in vocabula-content). */
 export const TEST_VECTOR = { text: 'Amō', input: 'espeak-ng+p1|la|130|amō', key: 'fb92e07d84a2cd968a353adf' } as const;

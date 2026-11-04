@@ -10,7 +10,8 @@ import { ensureSchema } from './schema.ts';
 
 export const AUDIO_ROUTE = '/api/audio/';
 export const AUDIO_CACHE_CONTROL = 'private, max-age=31536000, immutable';
-const KEY = /^[0-9a-f]{16,64}$/;
+/** eSpeak clips: hex; human recordings (Audītiō): dcc-<hex> (src/audio/key.ts externalAudioKey). */
+const KEY = /^(?:dcc-)?[0-9a-f]{16,64}$/;
 
 const err = (status: number, error: string): Response => new Response(JSON.stringify({ error }), {
   status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' },

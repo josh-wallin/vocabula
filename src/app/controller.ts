@@ -6,6 +6,7 @@ import { buildLexicon, type Lexicon } from '../engine/lexicon.ts';
 import { buildPath, currentNodeIndex, type Path, type PathNode } from '../engine/path.ts';
 import { replay, streak, type DerivedState, type FlagBody, type LessonStats, type NodeDoneBody, type VEvent } from '../engine/events.ts';
 import { sentenceBank } from '../content/sentenceBank.ts';
+import { listeningLessons } from '../content/listening.ts';
 import { buildLesson, type Exercise } from '../engine/lesson.ts';
 import type { FeatureId } from '../engine/curriculum.ts';
 import type { Grade } from '../engine/srs.ts';
@@ -31,7 +32,7 @@ export async function loadApp(): Promise<AppData | null> {
   const content = await loadContent();
   if (!content) return null;
   const lex = buildLexicon(content.wheelock, content.dcc, content.fr);
-  const path = buildPath(lex);
+  const path = buildPath(lex, { listening: listeningLessons() });
   const [events, device] = await Promise.all([allEvents(), deviceId()]);
   return { content, lex, path, events, state: replay(events), device };
 }
@@ -79,6 +80,7 @@ export function lessonFor(app: AppData, node: PathNode, now = new Date(), opts: 
     : app.path;
   return buildLesson(node, {
     lex: app.lex, path: pathForKnown, state: app.state, now, unlocked, seed: `${node.id}:${now.getTime()}`, sentences: sentenceBank(),
+    auditio: listeningLessons(),
     ...(opts.audioAvailable && settingOn(app, SETTING_LISTENING) ? { listening: { available: opts.audioAvailable } } : {}),
   });
 }

@@ -17,6 +17,7 @@ import { exerciseAudio } from '../audio/exercise.ts';
 import { introAudio, type AudioRef } from '../audio/items.ts';
 import { audioMissing, loadClip, playClip, prefetchClips, stopAudio, unlockAudio } from '../audio/player.ts';
 import { ListenCue, Speaker } from './Speaker.tsx';
+import { AuditView } from './Auditio.tsx';
 
 export interface LessonResult { run: string; stats: LessonStats }
 
@@ -35,6 +36,7 @@ interface Props {
 }
 
 const MACRONS = ['ā', 'ē', 'ī', 'ō', 'ū'];
+const AUDIT_BUTTON = { context: 'Begin', word: 'Got it', listen1: 'Continue', listen2: 'On to the questions' } as const;
 
 export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, onFlag, autoplay = true }: Props) {
   const session = useMemo(() => new Session(exercises), [exercises]);
@@ -45,6 +47,8 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
   const [term, setTerm] = useState<GlossaryTerm | null>(null);
   const [flagOpen, setFlagOpen] = useState(false);
   const [flagged, setFlagged] = useState<string | null>(null);
+  /** Audītiō first listen: the transcript (and Continue) appear once the reading ends or is skipped. */
+  const [revealed, setRevealed] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const contRef = useRef<HTMLButtonElement>(null);
   const item = session.current;
@@ -83,7 +87,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
 
   const next = () => {
     session.advance();
-    setPicked([]); setTyped(''); setOutcome(null); setFlagOpen(false); setTick((t) => t + 1);
+    setPicked([]); setTyped(''); setOutcome(null); setFlagOpen(false); setRevealed(false); setTick((t) => t + 1);
     if (session.done) finish();
   };
 
@@ -96,7 +100,8 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
 
   if (!ex) return null;
   const pct = Math.round(session.progress * 100);
-  const canCheck = ex.type === 'intro' || ex.type === 'grammar' ||
+  const info = ex.type === 'intro' || ex.type === 'grammar' || ex.type === 'audit';
+  const canCheck = (ex.type === 'audit' ? ex.kind !== 'listen1' || revealed : info) ||
     ((ex.type === 'choice' || ex.type === 'sentence') && picked.length > 0) || (ex.type === 'typed' && typed.trim().length > 0);
 
   const onKey = (e: KeyboardEvent) => {
@@ -122,6 +127,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
         {item.retry > 0 && <span class="retry-tag">Try this one again</span>}
         {ex.type === 'grammar' && <GrammarCardView section={ex.section} onTerm={setTerm} />}
         {ex.type === 'intro' && <IntroCard app={app} lemmaId={ex.lemma} autoplay={autoplay} />}
+        {ex.type === 'audit' && <AuditView app={app} ex={ex} autoplay={autoplay} revealed={revealed} onReveal={() => setRevealed(true)} />}
         {ex.type === 'choice' && (
           <ChoiceView ex={ex} picked={picked} outcome={outcome} speak={exerciseAudio(ex, app.lex).prompt}
             onPick={(id) => {
@@ -140,8 +146,8 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
       {!outcome ? (
         <footer class="lesson-foot">
           <button type="button" class="btn" disabled={!canCheck} data-testid="primary"
-            onClick={() => (ex.type === 'intro' || ex.type === 'grammar' ? next() : check())}>
-            {ex.type === 'intro' || ex.type === 'grammar' ? 'Got it' : 'Check'}
+            onClick={() => (info ? next() : check())}>
+            {ex.type === 'audit' ? AUDIT_BUTTON[ex.kind] : info ? 'Got it' : 'Check'}
           </button>
         </footer>
       ) : (
@@ -177,7 +183,7 @@ function feedbackBody(ex: Exercise, o: Outcome, retry: number): string {
   if (o.ok && o.macronMiss) return `Spelled with macrons: ${o.expected}. ${ex.note}`;
   if (o.ok) return ex.note;
   const again = retry < 2 ? ' It will come back before this lesson ends.' : '';
-  return `Correct answer: ${o.expected}. ${ex.type === 'choice' && ex.kind === 'meaning' ? '' : ex.note}${again}`.replace(/\s+/g, ' ').trim();
+  return `Correct answer: ${o.expected}. ${ex.type === 'choice' && (ex.kind === 'meaning' || ex.kind === 'audit-word') ? '' : ex.note}${again}`.replace(/\s+/g, ' ').trim();
 }
 
 function IntroCard({ app, lemmaId, autoplay }: { app: AppData; lemmaId: string; autoplay: boolean }) {
@@ -231,8 +237,9 @@ function ChoiceView({ ex, picked, outcome, onPick, speak }: { ex: ChoiceExercise
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
       {ex.audio && <span class="eyebrow" lang="la">Audī</span>}
+      {(ex.kind === 'audit-q' || ex.kind === 'audit-word') && <span class="eyebrow" lang="la">Audītiō</span>}
       <h1 class="prompt">{ex.prompt}</h1>
-      {ex.audio && !outcome
+      {!ex.cue ? null : ex.audio && !outcome
         ? <ListenCue audio={ex.audio} />
         : (
           <div class="cue"><span class="with-speaker">

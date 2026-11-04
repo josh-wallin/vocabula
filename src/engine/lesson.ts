@@ -17,6 +17,7 @@ import {
   type Sentence, type SentenceExercise, type SentListenType,
 } from './sentences.ts';
 import { sentenceAudio, wordAudio, wordText, type AudioRef } from '../audio/items.ts';
+import { buildAuditio, type AuditScreen, type ListeningLesson } from './listening.ts';
 
 export interface Option { id: string; text: string; la?: boolean }
 
@@ -24,8 +25,11 @@ export type Exercise =
   | { id: string; type: 'grammar'; kind: 'grammar'; section: number }
   | { id: string; type: 'intro'; kind: 'intro'; lemma: string }
   | {
-      /** listen: hear the word, choose its meaning (the cue is shown only after answering). */
-      id: string; type: 'choice'; kind: 'meaning' | 'gender' | 'conj' | 'parse' | 'listen';
+      /**
+       * listen: hear the word, choose its meaning (the cue is shown only after answering).
+       * audit-word / audit-q: Audītiō pre-teach quiz / comprehension question (lemma: vocab id / '').
+       */
+      id: string; type: 'choice'; kind: 'meaning' | 'gender' | 'conj' | 'parse' | 'listen' | 'audit-word' | 'audit-q';
       lemma: string; card: string; prompt: string; cue: string; cueLa: boolean;
       options: Option[]; answer: string[]; multi: boolean; note: string;
       audio?: AudioRef; fallback?: Exercise;
@@ -37,7 +41,8 @@ export type Exercise =
       accepted: string[]; note: string;
       audio?: AudioRef; fallback?: Exercise;
     }
-  | SentenceExercise;
+  | SentenceExercise
+  | AuditScreen;
 
 export type ChoiceExercise = Extract<Exercise, { type: 'choice' }>;
 export type TypedExercise = Extract<Exercise, { type: 'typed' }>;
@@ -72,6 +77,8 @@ export interface BuildCtx {
    * playable now (online, or cached on this device, and not known to be missing).
    */
   listening?: { available: (key: string) => boolean };
+  /** Audītiō lesson definitions (content/listening), for `auditio` nodes. */
+  auditio?: readonly ListeningLesson[];
 }
 
 /** Listening cards: {lemma}:listen (hear → meaning), {lemma}:dictate (hear → type it). */
@@ -480,6 +487,11 @@ export function buildLesson(node: PathNode, base: BuildCtx): Exercise[] {
       const heard = want ? f.sentenceListening(node, SENTENCE_LISTENING.probatio) : [];
       const sent = [...f.sentenceExercises(node, want, undefined, avoidHeard(heard, f.eligibleSentenceCount(node), want)), ...heard];
       return withSentences(sent, (k) => probatio(f, ctx, PROBATIO_SIZE - k));
+    }
+    case 'auditio': {
+      const l = ctx.auditio?.find((x) => x.id === node.listening);
+      if (!l) throw new Error(`no listening lesson ${node.listening ?? '?'} for ${node.id}`);
+      return buildAuditio(l, ctx.seed);
     }
   }
 }
