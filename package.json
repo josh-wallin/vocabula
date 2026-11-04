@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit -p . && tsc --noEmit -p worker",
     "import:wheelock": "tsx scripts/import-wheelock.ts",
     "deploy": "npm run build && wrangler deploy",
-    "test:e2e": "tsx e2e/smoke.e2e.ts",
+    "test:e2e": "tsx e2e/smoke.e2e.ts && tsx e2e/sync.e2e.ts",
     "build:pack": "tsx scripts/build-pack.ts",
     "types:worker": "wrangler types worker/types/worker-configuration.d.ts",
     "dev:worker": "wrangler dev"
