@@ -314,8 +314,15 @@ function formsLesson(node: PathNode, f: Factory, ctx: BuildCtx, size: number, re
   const words = drillWords(node, f, ctx);
   const out: Exercise[] = [];
   if (words.length === 0) return reviewLesson(f, ctx, f.known, size);
-  // Chapter words lead; cycle through them so each gets drilled.
-  const primary = words.slice(0, Math.max(4, Math.min(words.length, 8)));
+  // Chapter words lead; make sure every focus feature has a word among the leads; cycle through them.
+  const leads: typeof words = [];
+  for (const ft of node.focus) {
+    const w = words.find((x) => x.feats.includes(ft));
+    if (w && !leads.includes(w)) leads.push(w);
+  }
+  for (const w of words) if (leads.length < 8 && !leads.includes(w)) leads.push(w);
+  const order = words.filter((w) => leads.includes(w)); // keep chapter order
+  const primary = order.slice(0, Math.max(4, Math.min(order.length, 8)));
   let i = 0;
   let guard = 0;
   while (out.length < size && guard++ < size * 6) {
