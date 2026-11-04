@@ -45,8 +45,9 @@ async function main() {
   try {
     await waitForServer();
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
-    // Fonts are optional; the network is blocked in CI, so fail them fast.
-    await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+    // Fonts are self-hosted and precached: nothing may come from a font CDN.
+    const fontCdn: string[] = [];
+    await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => { fontCdn.push(r.request().url()); return r.abort(); });
     // vite preview has no /api: serve every clip as a short silent WAV, so listening exercises stay (no fallback).
     let clips = 0;
     await context.route(/\/api\/audio\/[0-9a-f]+$/, (r) => { clips++; return r.fulfill({ status: 200, contentType: 'audio/mpeg', body: silentWav() }); });
@@ -139,6 +140,7 @@ async function main() {
     await flags.waitFor();
     assert(((await flags.textContent()) ?? '').includes('e2e flag'), 'flag listed in Profile');
     log('flag recorded and listed in Profile');
+    assert(fontCdn.length === 0, `no font CDN requests: ${fontCdn.join(', ')}`);
     assert(errors.length === 0, `no page errors: ${errors.join('; ')}`);
     log('PASS');
   } finally {

@@ -71,7 +71,6 @@ async function main() {
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH ?? '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox'] });
   try {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
-    await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
     const page = await context.newPage();
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(String(e)));

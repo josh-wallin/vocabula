@@ -5,7 +5,7 @@ A phone-first, offline-capable PWA for drilling Latin vocabulary and paradigms a
 ## What exists (milestone 1: foundation)
 
 - **App shell**: Vite + TypeScript (strict) + Preact.
-- **PWA**: `vite-plugin-pwa` (Workbox `generateSW`). Manifest: name "Vocābula", theme `#5e2550`, background `#eceeea`. The service worker precaches the app shell (HTML, JS, CSS, icons), so the app opens offline. Cinzel / EB Garamond / Figtree load from Google Fonts when online (cached at runtime) and fall back to system serif/sans fonts otherwise.
+- **PWA**: `vite-plugin-pwa` (Workbox `generateSW`). Manifest: name "Vocābula", theme `#5e2550`, background `#eceeea`. The service worker precaches the app shell (HTML, JS, CSS, icons, fonts), so the app opens offline. Fonts are self-hosted from pinned `@fontsource` packages (`src/ui/fonts.css`): Cinzel 500/700, EB Garamond 400/600/400 italic, Figtree 400/600, latin + latin-ext subsets only (latin-ext carries the macron vowels), woff2 only, about 340 KB, all precached. Nothing is loaded from a font CDN.
 - **`src/morph`**: a pure morphology library (no UI):
   - `generate(lemma)`: every supported form, keyed by cell id (`nom.sg`, `acc.pl.f`, `pres.act.ind.3pl`, `pres.act.inf`, `pres.act.imp.2sg`, …). Paradigms: `v1`, `v2` (present active indicative, infinitive, imperatives), `n1`, `n2m` (-us, -er keeping/dropping e, -ir, -ius), `n2n` (-um, -ium), `adj12` (-us/-a/-um and -er/-(e)ra/-(e)rum; plural-only like *paucī*), `irr:sum`, `indecl`.
   - Vowel quantity: a long vowel shortens before another vowel, before final -m/-r/-t, and before nt/nd. 1st-conj. 1sg contracts (*laudō*). Lexical exceptions sit in `lemma.irregular` (e.g. *dō*: *dās*, *dā*; *meus*: voc. *mī*; *fīlia*: *fīliābus*), drawn from `src/morph/irregulars.ts`.

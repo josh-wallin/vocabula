@@ -74,7 +74,6 @@ async function waitChip(page: Page, state: string, timeout = 15000) {
 }
 async function newDevice(browser: import('playwright-core').Browser): Promise<{ context: BrowserContext; page: Page; errors: string[] }> {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
-  await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
   const page = await context.newPage();
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(String(e)));

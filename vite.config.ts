@@ -31,7 +31,8 @@ export default defineConfig({
       },
       workbox: {
         // Precache the whole app shell so it opens offline.
-        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+        // woff2: the self-hosted fonts (src/ui/fonts.css, latin + latin-ext only).
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
         navigateFallback: 'index.html',
         // The Worker API and Cloudflare Access endpoints (/cdn-cgi/access/authorized, /logout)
         // must reach the network as real navigations, or the Access login round-trip breaks.

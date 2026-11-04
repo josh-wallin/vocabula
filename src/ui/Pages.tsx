@@ -321,7 +321,7 @@ export function AboutScreen() {
       </p>
       <p>Grammar chapters, grammar cards, glossary, practice sentences and <span lang="la">Lectiō</span> reading passages are original writing for this app.</p>
       <p>Scheduling uses the FSRS algorithm via <a href="https://github.com/open-spaced-repetition/ts-fsrs">ts-fsrs</a> (MIT).</p>
-      <p>Fonts: Cinzel, EB Garamond and Figtree (SIL Open Font License), loaded from Google Fonts when online.</p>
+      <p>Fonts: Cinzel, EB Garamond and Figtree (SIL Open Font License), bundled with the app, so they work offline.</p>
     </main>
   );
 }

@@ -21,14 +21,4 @@ export const runtimeCaching: RuntimeCaching[] = [
     urlPattern: ({ url }) => url.pathname.startsWith('/api/') || url.pathname.startsWith('/cdn-cgi/'),
     handler: 'NetworkOnly',
   },
-  {
-    // Google Fonts: optional; app falls back to system fonts offline.
-    urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
-    handler: 'StaleWhileRevalidate',
-    options: {
-      cacheName: 'google-fonts',
-      expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 },
-      cacheableResponse: { statuses: [0, 200] },
-    },
-  },
 ];

@@ -66,7 +66,6 @@ async function main() {
     await waitForServer();
     for (const withClip of [true, false]) {
       const context: BrowserContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
-      await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
       let dccRequests = 0;
       // Real recording stand-in: a tiny valid MP3 frame sequence is hard to hand-make, so serve a WAV with an audio/mpeg type (Chrome sniffs it).
       await context.route(/\/api\/audio\/dcc-[0-9a-f]+$/, (r) => {

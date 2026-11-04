@@ -64,7 +64,6 @@ async function main() {
   try {
     await waitForServer();
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
-    await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
     const asked = new Set<string>();
     await context.route(/\/api\/audio\/[0-9a-f]+$/, (r) => {
       asked.add(r.request().url().split('/').pop()!);
