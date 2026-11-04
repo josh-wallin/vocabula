@@ -4,8 +4,10 @@
  * node ids are stable and progress can be derived from `node_done` events.
  */
 import type { Lexicon, Word } from './lexicon.ts';
+import type { CellId } from '../morph/types.ts';
+import { generate } from '../morph/generate.ts';
 import {
-  SECTIONS, featuresAt, featuresNeeded, firstEligibleSection, hasFeature, roman,
+  BASE_SECTIONS, SECTIONS, featureOfCell, featuresAt, featuresNeeded, firstEligibleSection, hasFeature, roman,
   type FeatureId, type SectionSpec,
 } from './curriculum.ts';
 
@@ -58,13 +60,28 @@ export function splitEven<T>(items: readonly T[], max: number): T[][] {
 
 const ord = (w: Word): number => w.lemma.sources[0]?.order ?? 0;
 
+/**
+ * Sections this lexicon's path has: 1–4 always, then 5, 6, … for as long as the
+ * content pack has Wheelock words for the section's chapter. Stopping at the first
+ * missing chapter keeps the path gap-free (features accumulate section by section).
+ */
+export function activeSections(lex: Lexicon): SectionSpec[] {
+  const chapters = new Set(lex.words.filter((w) => w.origin === 'wheelock').map((w) => w.chapter));
+  const out: SectionSpec[] = [];
+  for (const s of SECTIONS) {
+    if (s.n > BASE_SECTIONS && !chapters.has(s.chapter)) break;
+    out.push(s);
+  }
+  return out;
+}
+
 /** DCC words to add in each section (up to 12, by frequency; surplus carries forward). */
-export function dccBySection(lex: Lexicon): Map<number, Word[]> {
+export function dccBySection(lex: Lexicon, sections: readonly SectionSpec[] = activeSections(lex)): Map<number, Word[]> {
   const out = new Map<number, Word[]>();
   const taken = new Set<string>();
   const eligibleAt = new Map<string, number | null>();
-  for (const w of lex.dccOnly) eligibleAt.set(w.lemma.id, firstEligibleSection(featuresNeeded(w.lemma)));
-  for (const s of SECTIONS) {
+  for (const w of lex.dccOnly) eligibleAt.set(w.lemma.id, firstEligibleSection(featuresNeeded(w.lemma), sections));
+  for (const s of sections) {
     const pick: Word[] = [];
     for (const w of lex.dccOnly) {
       if (pick.length >= MAX_DCC_PER_SECTION) break;
@@ -80,8 +97,9 @@ export function dccBySection(lex: Lexicon): Map<number, Word[]> {
 
 export function buildPath(lex: Lexicon): Path {
   const sections: Section[] = [];
-  const dcc = dccBySection(lex);
-  for (const spec of SECTIONS) {
+  const specs = activeSections(lex);
+  const dcc = dccBySection(lex, specs);
+  for (const spec of specs) {
     const before = [...featuresAt(spec.n, false)];
     const after = [...featuresAt(spec.n, true)];
     const chapterWords = lex.words
@@ -145,7 +163,7 @@ export function buildPath(lex: Lexicon): Path {
       }
     });
     nodes.push(rep());
-    if (spec.n === SECTIONS[SECTIONS.length - 1]!.n) {
+    if (spec.n === specs[specs.length - 1]!.n) {
       nodes.push({
         id: `${s}.probatio`, section: spec.n, kind: 'probatio', title: 'Probātiō',
         newWords: [], unlocked: after, focus: [], drill: [],
@@ -179,15 +197,9 @@ function patternNode(spec: SectionSpec, unlocked: FeatureId[], drill: string[]):
   };
 }
 
+/** True if some generated cell of the word is drilled under feature `f`. */
 function wordHasFeature(w: Word, f: FeatureId): boolean {
-  const p = w.lemma.paradigm;
-  switch (f) {
-    case 'v12.ind': case 'v12.inf': case 'v12.imp': return p === 'v1' || p === 'v2';
-    case 'n1': case 'n2m': case 'n2n': return p === f;
-    case 'adj.m': case 'adj.f': case 'adj.n': return p === 'adj12';
-    case 'sum.3sg': case 'sum.pres': return p === 'irr:sum';
-    default: return false;
-  }
+  return (Object.keys(generate(w.lemma)) as CellId[]).some((c) => featureOfCell(w.lemma, c) === f);
 }
 
 /** Current node: the first one not completed. */

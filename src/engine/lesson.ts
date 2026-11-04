@@ -10,7 +10,7 @@ import { citation, classNote, glossKey, type Lexicon } from './lexicon.ts';
 import type { Path, PathNode } from './path.ts';
 import type { DerivedState } from './events.ts';
 import { cardId, isDue, parseCardId, retrievability } from './srs.ts';
-import { cellLabel, cellPrompt, genderName } from './labels.ts';
+import { cellPrompt, genderName, optionLabeler } from './labels.ts';
 import { hashSeed, pick, rng, shuffle, type Rng } from './util.ts';
 
 export interface Option { id: string; text: string; la?: boolean }
@@ -90,13 +90,17 @@ class Factory {
   klass(id: string): Exercise | null {
     const l = this.lemma(id);
     const u = this.ctx.unlocked;
-    if ((l.paradigm === 'v1' || l.paradigm === 'v2') && u.has('conj')) {
-      const ans = l.paradigm === 'v1' ? '1' : '2';
+    const ans = CONJ_OF[l.paradigm];
+    if (ans && hasClassQuestion(l, u)) {
+      const three = u.has('conj3');
+      const options = [{ id: '1', text: '1st conjugation' }, { id: '2', text: '2nd conjugation' }];
+      if (three) options.push({ id: '3', text: '3rd conjugation' });
+      const why = ans === '1' ? 'ā, so 1st' : ans === '2' ? 'ē, so 2nd' : 'a short e, so 3rd';
       return {
         id: this.nextId(), type: 'choice', kind: 'conj', lemma: id, card: cardId(id, 'class'),
-        prompt: '1st or 2nd conjugation?', cue: citation(l), cueLa: true,
-        options: [{ id: '1', text: '1st conjugation' }, { id: '2', text: '2nd conjugation' }], answer: [ans], multi: false,
-        note: `${l.parts[1]}: the vowel before -re is ${ans === '1' ? 'ā, so 1st' : 'ē, so 2nd'} conjugation.`,
+        prompt: three ? 'Which conjugation?' : '1st or 2nd conjugation?', cue: citation(l), cueLa: true,
+        options, answer: [ans], multi: false,
+        note: `${l.parts[1]}: the vowel before -re is ${why} conjugation.`,
       };
     }
     if (l.pos === 'noun' && l.gender) {
@@ -135,13 +139,14 @@ class Factory {
     const nDistractors = Math.max(2, 4 - answerCells.length);
     if (others.length < 1) return null;
     const chosen = shuffle([...answerCells, ...others.slice(0, nDistractors)], this.r);
-    const opts = chosen.map((c) => ({ id: c, text: cellLabel(c) }));
+    const label = optionLabeler(chosen);
+    const opts = chosen.map((c) => ({ id: c, text: label(c) }));
     const multi = answerCells.length > 1;
     return {
       id: this.nextId(), type: 'choice', kind: 'parse', lemma: id, card: cardId(id, 'forms', f),
       prompt: multi ? 'Which forms could this be?' : 'Which form is this?', cue: form, cueLa: true,
       options: opts, answer: answerCells, multi,
-      note: `${form} (${l.parts[0]}): ${answerCells.map(cellLabel).join('; ')}.`,
+      note: `${form} (${l.parts[0]}): ${answerCells.map(label).join('; ')}.`,
     };
   }
 
@@ -206,9 +211,13 @@ class Factory {
   }
 }
 
+/** Conjugation-question answer for the conjugations the curriculum asks about. */
+const CONJ_OF: Partial<Record<Lemma['paradigm'], '1' | '2' | '3'>> = { v1: '1', v2: '2', v3: '3' };
+
 /** Whether a gender / conjugation question exists for a word with the unlocked features. */
 export function hasClassQuestion(l: Lemma, u: ReadonlySet<FeatureId>): boolean {
   if (l.paradigm === 'v1' || l.paradigm === 'v2') return u.has('conj');
+  if (l.paradigm === 'v3') return u.has('conj') && u.has('conj3');
   if (l.pos === 'noun' && l.gender) {
     const gs = genderOptions(u);
     return gs.length >= 2 && gs.includes(l.gender);
@@ -237,6 +246,7 @@ function genderNote(l: Lemma): string {
   if (l.paradigm === 'n1' && g === 'm') return `${base} Most 1st-declension nouns are feminine, but words for men’s roles, like nauta and poēta, are masculine.`;
   if (l.paradigm === 'n2m' && g === 'm') return `${base} 2nd-declension nouns in -us, -er and -ir are usually masculine.`;
   if (l.paradigm === 'n2n') return `${base} 2nd-declension nouns in -um are neuter.`;
+  if (l.paradigm.startsWith('n3')) return `${base} The 3rd declension has all three genders: learn each noun’s gender with it.`;
   return base;
 }
 

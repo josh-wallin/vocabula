@@ -59,3 +59,29 @@ export const FIX_DCC: Lemma[] = [
 
 export const fixLexicon = () => buildLexicon(FIX_WHEELOCK, FIX_DCC);
 export const fixPath = () => buildPath(fixLexicon());
+
+/** Invented ch. 5–8 words (real Latin; chapter placement follows Wheelock's grammar, glosses made up). */
+export const FIX_WHEELOCK_58: Lemma[] = [
+  W(5, 1, 'superō, superāre', 'verb', 'overcome'),
+  W(5, 2, 'maneō, manēre', 'verb', 'remain'),
+  W(5, 3, 'pulcher, pulchra, pulchrum', 'adj', 'beautiful'),
+  W(6, 1, 'possum, posse, potuī', 'verb', 'be able'),
+  W(6, 2, 'tolerō, tolerāre', 'verb', 'endure'),
+  W(7, 1, 'rēx, rēgis, m.', 'noun', 'king'),
+  W(7, 2, 'corpus, corporis, n.', 'noun', 'body'),
+  W(7, 3, 'virtūs, virtūtis, f.', 'noun', 'courage'),
+  W(8, 1, 'agō, agere, ēgī, āctum', 'verb', 'drive'),
+  W(8, 2, 'dūcō, dūcere, dūxī, ductum', 'verb', 'lead'),
+  W(8, 3, 'frāter, frātris, m.', 'noun', 'brother'),
+];
+
+/** DCC words for the later paradigms, including ones no section unlocks yet. */
+export const FIX_DCC_58: Lemma[] = [
+  D(40, 'pater, patris, m.', 'noun', 'father'),          // n3 → section 7
+  D(41, 'nōmen, nōminis, n.', 'noun', 'name'),           // n3n → section 7
+  D(42, 'mittō, mittere', 'verb', 'send'),               // v3 → section 8
+  D(43, 'capiō, capere', 'verb', 'take'),                // v3io → no section yet (ch. 10)
+  D(44, 'audiō, audīre', 'verb', 'hear'),                // v4 → no section yet (ch. 10)
+  D(45, 'urbs, urbis, f.', 'noun', 'city'),              // n3i → no section yet (ch. 14)
+  D(46, 'mare, maris, n.', 'noun', 'sea'),               // n3in → no section yet (ch. 14)
+];
