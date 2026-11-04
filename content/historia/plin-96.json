@@ -16,9 +16,9 @@
  "excerpt_note": "Two passages joined: the first sentence of Pliny's 10.96.7, then (after the ellipsis, which is Vocābula's, not the edition's) the first sentence of Trajan's reply, 10.97.2, from the separate DCC page https://dcc.dickinson.edu/pliny-letters/10-97. The DCC text prints macrons; they are removed here for tracing. The Perseus text of the letters (edition unnamed) spells Affirmabant and appellati.",
  "macrons": {
   "editorial": true,
-  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise. Here they also agree with the macrons printed by the DCC edition, from which the text is taken.",
+  "note": "Macrons are editorial (not in the ancient text), but here they are not Vocābula's own: they are the macrons printed by the Dickinson College Commentaries edition, reused under DCC's Creative Commons Attribution-ShareAlike licence (terms: https://dcc.dickinson.edu/terms-use; licence: https://creativecommons.org/licenses/by-sa/4.0/, version not stated by DCC). The app lexicon's spellings agree with them where the word is in it.",
   "uncertain": [
-   "Chrīstō, Chrīstiānum: long ī as printed by DCC; not machine-checked.",
+   "Chrīstō, Chrīstiānum: long ī as printed by DCC; not independently checked.",
    "manifēstum: long ē as printed by DCC (some dictionaries print manifestus); not machine-checked.",
    "fūrta: long ū as printed by DCC; not machine-checked.",
    "dīs: dative plural of deus (contracted from deīs); long ī as printed by DCC."
@@ -633,7 +633,7 @@
    "gloss": "(that he) may obtain"
   }
  ],
- "translation": "They declared, however, that the sum of their guilt, or their error, had been this: they used to meet on a fixed day before daybreak and chant a hymn among themselves, taking turns, to Christ as to a god, and to bind themselves by an oath, not to commit some crime, but not to commit theft, banditry or adultery, not to break their word, and not to deny holding a deposit when asked to return it. … [Trajan:] They are not to be hunted down. If they are reported and proved guilty, they must be punished, but on this condition: anyone who denies being a Christian and makes this plain in action, that is, by praying to our gods, is to be pardoned for his repentance, however suspect he may have been in the past.",
+ "translation": "They declared, however, that the sum of their guilt, or their error, had been this: they used to meet on a fixed day before daybreak and chant a hymn among themselves, taking turns, to Christ as to a god, and to bind themselves by an oath, not to commit some crime, but not to commit theft, banditry or adultery, not to break their word, and, when asked to hand back money left in their care, not to claim they had never received it. … [Trajan:] They are not to be hunted down. If they are reported and proved guilty, they must be punished, but on this condition: anyone who denies he is a Christian and proves it by his actions, that is, by praying to our gods, shall obtain pardon through repentance, even if he was under suspicion before.",
  "translation_note": "Pliny's sentence is reported speech after Adfirmābant: infinitives (fuisse, convenīre, dīcere, obstringere) and subjunctives (essent, committerent). Sēcum invicem probably means the chant was sung responsively, but \"among themselves in turn\" is the literal sense. Trajan's gerundives (conquīrendī, pūniendī) express obligation. Negāverit and fēcerit can be read as future perfect indicatives or perfect subjunctives; English uses the present.",
  "essay": [
   [
@@ -644,29 +644,30 @@
     ]
    },
    {
-    "t": "The province was normally governed by a proconsul; the Judaism and Rome project explains that it was made temporarily imperial so Trajan could choose the governor, after years of financial trouble and disorder caused by factions.",
+    "t": "Normally run by a proconsul, the province was made temporarily imperial, the Judaism and Rome project explains, so Trajan could choose the governor after years of financial trouble and factional disorder.",
     "src": [
      4
     ]
    },
    {
-    "t": "The date is uncertain: Livius gives 109–111, the Judaism and Rome project \"probably\" 110–112, adding that Pliny died about 113, not long after this correspondence.",
+    "t": "The dates are uncertain: Livius gives 109–111, the Judaism and Rome project \"probably\" 110–112. His death is placed about 113 by Britannica and about 115 by Livius; both are estimates.",
     "src": [
      3,
-     4
+     4,
+     7
     ],
     "doubt": true
    }
   ],
   [
    {
-    "t": "In another letter of Book 10, Pliny asks to form a guild of 150 firemen at Nicomedia after a great fire; Trajan refuses, warning that any group formed in that province would soon become a political club, a hetaeria.",
+    "t": "Elsewhere in Book 10, Pliny asks to form a guild of 150 firemen at Nicomedia after a fire; Trajan refuses: in that province any such group would soon become a political club, a hetaeria.",
     "src": [
      5
     ]
    },
    {
-    "t": "The same rule surfaces here: the Christians said they had stopped their common meal after Pliny's edict, issued on Trajan's instructions, banned hetaeriae.",
+    "t": "Here, the Christians said they had stopped their common meal after Pliny's edict, issued on Trajan's instructions, banned hetaeriae.",
     "src": [
      1
     ]
@@ -683,32 +684,39 @@
   ],
   [
    {
-    "t": "Pliny admits he had never attended a trial of Christians and did not know whether the name itself was punishable or only crimes attached to it.",
+    "t": "Pliny admits he had never attended a trial of Christians and did not know whether the name itself was punishable or only attached crimes.",
     "src": [
      1
     ]
    },
    {
-    "t": "He asked the accused up to three times, executed those who persisted, sent Roman citizens to Rome, and released those who invoked the gods, offered incense and wine to Trajan's image and cursed Christ.",
+    "t": "He questioned the accused three times, executed those who persisted, sent citizens to Rome, and released those who invoked the gods, offered incense and wine to Trajan's image and cursed Christ.",
     "src": [
      1
     ]
    },
    {
-    "t": "Trajan approved: Christians were not to be sought out, but if accused and convicted they were punished, unless they recanted by praying to the gods; anonymous accusations were not to be accepted.",
+    "t": "Trajan approved: Christians were not to be sought out, but if accused and convicted were punished unless they recanted by praying to the gods; anonymous accusations were barred.",
     "src": [
      2
     ]
    },
    {
-    "t": "Scholars still disagree about the legal basis for punishing Christians at all.",
+    "t": "The legal basis is debated: Sherwin-White held that obstinacy (contumacia) was punished; others posit an existing law.",
     "src": [
      4
+    ]
+   },
+   {
+    "t": "Classic papers: de Ste. Croix (1963) and Sherwin-White's reply; I checked only their bibliographic records.",
+    "src": [
+     8,
+     9
     ],
     "doubt": true
    },
    {
-    "t": "Tertullian later summed the ruling up as: not to be sought out, but punished if brought forward; Davies judges his account accurate in substance.",
+    "t": "Tertullian later summed up the ruling: not to be sought out, but punished if brought forward.",
     "src": [
      6
     ]
@@ -716,7 +724,7 @@
   ],
   [
    {
-    "t": "For early Christian practice this is rare outside testimony, but it comes from people under interrogation, some of them former members, and may be shaped by what they hoped would save them.",
+    "t": "This is rare outside testimony to early Christian worship, but it comes from people under interrogation, some former members, and may reflect what they hoped would save them.",
     "src": [
      1
     ],
@@ -734,30 +742,30 @@
   {
    "q": "What did Trajan rule about Christians?",
    "options": [
-    "They were not to be hunted down, but punished if accused and convicted",
-    "They were to be hunted down everywhere",
-    "They were to be released in all cases",
-    "They were to be sent to Rome for trial"
+    "Not to be hunted down, but punished if convicted",
+    "To be hunted down in every city of the province",
+    "To be released whether convicted or not",
+    "To be sent to Rome for trial by the emperor"
    ],
    "answer": 0
   },
   {
-   "q": "Which earlier exchange between Pliny and Trajan shows the same worry about associations?",
+   "q": "Which other exchange shows the same worry about associations?",
    "options": [
-    "Trajan refused a guild of firemen at Nicomedia",
-    "Trajan refused to build an aqueduct",
-    "Trajan banned the Olympic games",
-    "Trajan closed the temples"
+    "Trajan refused a firemen's guild at Nicomedia",
+    "Trajan refused a new aqueduct at Nicomedia",
+    "Trajan banned athletic games in Bithynia",
+    "Trajan closed the temples of Nicomedia"
    ],
    "answer": 0
   },
   {
-   "q": "How did people accused of being Christians prove they were not, according to Pliny and Trajan?",
+   "q": "How could the accused show they were not Christians?",
    "options": [
-    "By praying to the gods, and for Pliny also offering to Trajan's image and cursing Christ",
-    "By paying a fine",
-    "By swearing on the Gospels",
-    "By leaving the province"
+    "By praying to the gods and cursing Christ",
+    "By paying a fine to the governor",
+    "By swearing an oath on their own lives",
+    "By leaving the province for good"
    ],
    "answer": 0
   }
@@ -791,6 +799,21 @@
   {
    "label": "G. A. T. Davies, \"Tertullian and the Pliny-Trajan Correspondence\", Journal of Theological Studies 14 (1913) 407–414, tertullian.org",
    "url": "https://www.tertullian.org/articles/davies_tert_pliny.htm",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Pliny the Younger\"",
+   "url": "https://www.britannica.com/biography/Pliny-the-Younger",
+   "kind": "modern"
+  },
+  {
+   "label": "G. E. M. de Ste. Croix, \"Why Were the Early Christians Persecuted?\", Past and Present 26 (1963) 6–38 (bibliographic record, Judaism and Rome)",
+   "url": "https://heurist.huma-num.fr/heurist/judaism_and_rome/view/3969",
+   "kind": "modern"
+  },
+  {
+   "label": "A. N. Sherwin-White, \"The Early Persecutions and Roman Law Again\", Journal of Theological Studies n.s. 3 (record gives 1953) 199–213 (bibliographic record, Judaism and Rome)",
+   "url": "https://heurist.huma-num.fr/heurist/judaism_and_rome/view/4206",
    "kind": "modern"
   }
  ],

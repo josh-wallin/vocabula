@@ -13,7 +13,7 @@
   "section": "In Catilinam 1.1 (complete) and the first sentence of 1.2"
  },
  "source_text": "quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia? nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt? patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides? quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consili ceperis quem nostrum ignorare arbitraris? O tempora, o mores! senatus haec intellegit, consul videt; hic tamen vivit.",
- "excerpt_note": "Section 1.1 complete and the opening of 1.2, up to \"hic tamen vivit.\" The Perseus file prints sentence-initial words in lower case (it tags them as regularized), so the speech begins \"quo usque\"; this text keeps the letters exactly. Clark's apparatus notes (e.g. that some manuscripts omit nos) are left out.",
+ "excerpt_note": "Section 1.1 complete and the opening of 1.2, up to \"hic tamen vivit.\" The Perseus file prints sentence-initial words in lower case (it tags them as regularized), so the speech begins \"quo usque\"; this text keeps the letters exactly. Clark's apparatus notes are left out (e.g. \"nos om. A et Iulius Victor\": one manuscript, A, and the rhetorician Julius Victor omit nos).",
  "macrons": {
   "editorial": true,
   "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
@@ -22,6 +22,7 @@
    "Catilīna: long ī in the third syllable; not machine-checked.",
    "abūtēre: long ū (ab + ūtor) and long ē in the future ending -ēre (= -ēris).",
    "ēlūdet, effrēnāta, mūnītissimus, Palātī, coniūrātiōnem, ignōrāre: standard dictionary quantities; not machine-checked.",
+   "cōnstrictam: short i in the participle (as in strictus), with long ī only in the perfect cōnstrīnxī; some dictionaries print strīctus by Lachmann's law. Not machine-checked.",
    "voltūs: the edition spells the old form voltus (= vultus); long ū in the 4th-declension nominative plural.",
    "quō, quam, etiam, nōs, iam, quis, sē, tū, omnis: spelled as in the app's Familia Rōmāna preview words."
   ]
@@ -741,7 +742,7 @@
    "w": "tamen",
    "lemma": "tamen",
    "parse": "adverb",
-   "gloss": "nevertheless, still",
+   "gloss": "(and) yet",
    "app": [
     "tamen-indecl"
    ]
@@ -762,19 +763,26 @@
  "essay": [
   [
    {
-    "t": "Cicero was consul in 63 BC; Britannica says the optimates had backed his election because they feared the revolutionary ideas of his rival, Catiline.",
+    "t": "Cicero was consul in 63 BC; Britannica says the optimates backed his election because they feared the revolutionary ideas of his rival, Catiline.",
     "src": [
      5
     ]
    },
    {
-    "t": "Catiline planned armed risings and arson, and Cicero struggled to convince the senate of the danger until the \"last decree\" was passed on 22 October.",
+    "t": "Sallust adds that the nobility, who had thought a \"new man\" would pollute the consulship, dropped their jealousy once news of the conspiracy spread.",
     "src": [
-     5
+     3
     ]
    },
    {
-    "t": "Sallust, the other main narrative source, says Catiline came into the senate to look innocent, and that Cicero, either afraid of his presence or angry, delivered a brilliant speech useful to the state, which he afterwards wrote out and published.",
+    "t": "Catiline planned armed risings and arson, and Cicero struggled to convince the senate until it passed its \"last decree\"; Britannica dates this to 22 October, a date modern scholars infer rather than read in a source.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Sallust says Catiline came into the senate to look innocent, and that Cicero, from fear of his presence or from anger, gave a brilliant speech useful to the state, which he afterwards wrote out and published.",
     "src": [
      2,
      3
@@ -783,13 +791,13 @@
   ],
   [
    {
-    "t": "That last detail matters. In a letter to Atticus of 60 BC, Cicero says he is assembling a collection of \"consular speeches\", on the model of Demosthenes' Philippics, and lists among them the speech \"when I drove Catiline out\".",
+    "t": "In a letter to Atticus of 60 BC, Cicero says he is assembling \"consular speeches\" on the model of Demosthenes' Philippics, among them the one \"when I sent Catiline out of the city\".",
     "src": [
      4
     ]
    },
    {
-    "t": "So the text we read is the version Cicero chose to publish; how closely it matches what he said on the day cannot be checked.",
+    "t": "So we read the version Cicero chose to publish; how closely it matches what he said that day cannot be checked.",
     "src": [
      4,
      3
@@ -797,7 +805,7 @@
     "doubt": true
    },
    {
-    "t": "In my reading, the published speech casts him as the watchful consul who sees everything, as in the line \"the consul sees\".",
+    "t": "In my reading, it casts him as the watchful consul who sees everything: \"the consul sees\".",
     "src": [
      1
     ],
@@ -806,19 +814,19 @@
   ],
   [
    {
-    "t": "The arrested conspirators were debated in the senate, where, in Sallust's account, Caesar warned against deciding in anger.",
+    "t": "In the debate on the arrested conspirators, Caesar, in Sallust's account, warned against deciding in anger.",
     "src": [
      2
     ]
    },
    {
-    "t": "The senate followed Cato. Lentulus was taken down into the Tullianum, a dark, foul cell about twelve feet underground, and strangled with a noose; four others were executed the same way.",
+    "t": "The senate followed Cato. Lentulus was lowered into the Tullianum, a dark, foul cell about twelve feet underground, and strangled with a noose; four others died the same way.",
     "src": [
      3
     ]
    },
    {
-    "t": "Catiline died fighting in the field; Sallust says he was found far from his own men among enemy corpses, still breathing.",
+    "t": "Catiline fell in battle; Sallust says he was found far from his own men among enemy corpses, still breathing.",
     "src": [
      3
     ]
@@ -826,21 +834,25 @@
   ],
   [
    {
-    "t": "Britannica describes the executions as carried out \"on Cicero's responsibility\" and says he announced them with one word, vixerunt, \"they have lived\"; the anecdote is not in Sallust, and I have not traced its ancient source.",
-    "src": [
-     5,
-     3
-    ],
-    "doubt": true
-   },
-   {
-    "t": "That responsibility came back to him. When Clodius became tribune in 58 BC and Pompey refused help, Cicero left Rome, and Clodius passed a law of doubtful legality declaring him an exile; Pompey and Milo later helped secure his recall.",
+    "t": "Britannica says the executions were carried out \"on Cicero's responsibility\".",
     "src": [
      5
     ]
    },
    {
-    "t": "The famous cry, then, survives in a speech its author shaped for readers as well as for the senate.",
+    "t": "Plutarch reports that Cicero announced them by calling out \"They have lived\", since Romans avoid ill-omened words for death; vixerunt is the Latin that Plutarch's Greek renders.",
+    "src": [
+     6
+    ]
+   },
+   {
+    "t": "When Clodius became tribune in 58 BC and Pompey refused help, Cicero left Rome, and Clodius passed a law of doubtful legality declaring him an exile; Pompey and Milo later helped secure his recall.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "The famous cry survives in a speech its author shaped for readers as well as for the senate.",
     "src": [
      4,
      1
@@ -854,9 +866,9 @@
    "q": "According to Sallust, what did Cicero do with this speech after giving it?",
    "options": [
     "He wrote it out and published it",
-    "He burned it",
-    "He gave it to Catiline",
-    "He had it carved on bronze"
+    "He had it read aloud in the Forum",
+    "He sent it to Pompey in Asia",
+    "He kept it secret until his exile"
    ],
    "answer": 0
   },
@@ -864,19 +876,19 @@
    "q": "What does Sallust say happened to Lentulus?",
    "options": [
     "He was strangled in the Tullianum",
-    "He escaped to Gaul",
-    "He was exiled with Cicero",
-    "He died in battle beside Catiline"
+    "He escaped to Gaul with Catiline",
+    "He was exiled along with Cicero",
+    "He died in battle near Catiline"
    ],
    "answer": 0
   },
   {
    "q": "Why did the executions later cause trouble for Cicero?",
    "options": [
-    "Clodius passed a law declaring him an exile",
-    "Catiline returned to prosecute him",
-    "Caesar had him arrested",
-    "The senate cancelled his consulship"
+    "Clodius had a law passed declaring him an exile",
+    "Catiline's allies took him to court for murder",
+    "Caesar had him expelled from the senate",
+    "The people voted to cancel his consulship"
    ],
    "answer": 0
   }
@@ -893,12 +905,12 @@
    "kind": "ancient"
   },
   {
-   "label": "Sallust, Bellum Catilinae 31, 55 and 61 (Latin), Perseus Digital Library TEI file (edition not named in the file header)",
+   "label": "Sallust, Bellum Catilinae 23.5–6, 31, 55 and 61 (Latin), Perseus Digital Library TEI file (edition not named in the file)",
    "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0631/phi001/phi0631.phi001.perseus-lat4.xml",
    "kind": "ancient"
   },
   {
-   "label": "Cicero, Letters to Atticus 2.1.3 (Latin; Purser, Oxford 1903), Perseus Digital Library TEI file",
+   "label": "Cicero, Letters to Atticus 2.1.3 (Latin; Purser, Oxford 1903; dated 60 BC in the file), Perseus Digital Library TEI file",
    "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0474/phi057/phi0474.phi057.perseus-lat2.xml",
    "kind": "ancient"
   },
@@ -906,6 +918,11 @@
    "label": "Encyclopaedia Britannica, \"Cicero\"",
    "url": "https://www.britannica.com/biography/Cicero",
    "kind": "modern"
+  },
+  {
+   "label": "Plutarch, Cicero 22 (Loeb translation, B. Perrin, vol. VII, 1919), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Cicero*.html",
+   "kind": "ancient"
   }
  ],
  "verified": "2026-11-04"

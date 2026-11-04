@@ -367,7 +367,7 @@
    "w": "repressaque",
    "lemma": "reprimō, reprimere, repressī, repressum + -que",
    "parse": "perf. pass. participle, nom. sg. f. + enclitic -que",
-   "gloss": "and checked",
+   "gloss": "and (though) suppressed",
    "enclitic": "que"
   },
   {
@@ -547,7 +547,7 @@
    "enclitic": "que"
   }
  ],
- "translation": "But no human effort, no largesse from the emperor, no rites to appease the gods could dispel the ugly belief that the fire had been started on orders. So, to kill the rumour, Nero put forward culprits and inflicted the most elaborate punishments on people hated for their outrages, whom the common people called Christians. The founder of the name, Christus, had been executed in the reign of Tiberius by the procurator Pontius Pilate; checked for the moment, the deadly superstition was breaking out again, not only in Judaea, where the evil began, but even in the City, where everything horrible or shameful flows in from every side and finds a following.",
+ "translation": "Yet neither human efforts nor the emperor's gifts nor offerings to placate the gods could rid him of the scandal: people went on believing that the fire had been set on orders. So, to kill the rumour, Nero put forward culprits and inflicted the most elaborate punishments on people hated for their outrages, whom the common people called Christians. The founder of the name, Christus, had been executed in the reign of Tiberius by the procurator Pontius Pilate; the deadly superstition, suppressed for a while, was breaking out again, not only in Judaea, where the evil began, but even in the City, where everything horrible or shameful flows in from every side and finds a following.",
  "translation_note": "Quīn after a negative (\"nothing removed the scandal\") introduces what the scandal was: \"that the fire was believed to have been ordered\". Deum is the short genitive plural of deus (= deōrum). The sentence about Christus is in the pluperfect (adfectus erat): it explains the name, as background. Celebrantur here means \"are thronged, made popular\", not \"celebrated\" in a religious sense.",
  "essay": [
   [
@@ -565,7 +565,7 @@
     ]
    },
    {
-    "t": "In this passage he says that neither rebuilding nor rites removed the belief that the fire had been ordered, so Nero produced culprits.",
+    "t": "In this passage he says that neither human effort, nor the emperor's handouts, nor rites to appease the gods removed the belief that the fire had been ordered, so Nero produced culprits.",
     "src": [
      1
     ]
@@ -579,65 +579,74 @@
   ],
   [
    {
-    "t": "Tacitus, born in AD 56, was a boy at the time; he later governed the province of Asia in 112–113.",
+    "t": "Tacitus was born around AD 56, so he was a boy at the time; he later governed the province of Asia, probably in 112–113.",
     "src": [
-     3
+     3,
+     7
     ]
    },
    {
-    "t": "He does not name his sources; Lawrence Mykytiuk suggests he may have learned about Christians as governor of Asia, where he probably supervised trials of accused Christians.",
+    "t": "He names no sources; Lawrence Mykytiuk suggests he may have learned about Christians as governor of Asia, where he probably supervised trials of accused Christians.",
     "src": [
      4
     ],
     "doubt": true
    },
    {
-    "t": "In my reading, the passage is evidence for an upper-class Roman view of Christians as a hated and deadly superstition, and for what was known in Rome of Christus's execution under Tiberius.",
+    "t": "In my reading, it is evidence for an upper-class Roman view of Christians, and for what Rome knew of Christus's execution.",
     "src": [
      1
     ],
     "doubt": true
    },
    {
-    "t": "It calls Pilate procurator, but an inscription from Caesarea shows that his title was prefect; Britannica dates his governorship of Judaea to 26–36.",
+    "t": "It calls Pilate procurator, but the inscription found at Caesarea in 1961 calls him prefect, as usually restored: [PRAEF]ECTUS IUDA[EA]E.",
     "src": [
      1,
-     5
+     5,
+     8
     ]
    }
   ],
   [
    {
-    "t": "Mykytiuk argues the passage is authentic, partly because it is written in \"true Tacitean\" Latin; the classicist Peter Gainsford also answers yes to whether Tacitus wrote it, though he thinks it is probably not independent evidence for the historical Jesus.",
+    "t": "Mykytiuk argues the passage is authentic, partly from its \"true Tacitean\" Latin; the classicist Peter Gainsford agrees, though he doubts it is independent evidence for the historical Jesus.",
     "src": [
      4,
      6
     ]
    },
    {
-    "t": "That this is the mainstream view I state from these two sources, not from a survey of the scholarship.",
+    "t": "Richard Carrier argues the opposite: that the sentence about Christus is a Christian interpolation of the fourth century or later.",
+    "src": [
+     9
+    ]
+   },
+   {
+    "t": "I call authenticity the majority view on the strength of these sources, not a survey of the scholarship.",
     "src": [
      4,
-     6
+     6,
+     9
     ],
     "doubt": true
    },
    {
-    "t": "Fisher prints Christianos, but Gainsford argues from the oldest manuscript of this book (Florence, Laurentian Library, Plut. 68.2) that the scribe first wrote Chrestianos and that someone scraped the e into an i, while Christus in the next line is original.",
+    "t": "Fisher prints Christianos, but Gainsford argues from the oldest manuscript of this book (Florence, Laurentian Library, Plut. 68.2) that the scribe first wrote Chrestianos and someone scraped the e into an i, while Christus in the next line is original.",
     "src": [
      1,
      6
     ]
    },
    {
-    "t": "If so, Tacitus may have reported the crowd's form of the name, \"Chrestians\", beside the founder's correct name; this is debated.",
+    "t": "If so, Tacitus may have reported the crowd's form of the name, \"Chrestians\", beside the founder's correct name.",
     "src": [
      6
     ],
     "doubt": true
    },
    {
-    "t": "How far per flagitia invisos expresses Tacitus's own judgement is also debated; he goes on to call the victims guilty, yet says they were convicted less for arson than for hatred of the human race.",
+    "t": "How far per flagitia invisos is Tacitus's own judgement is debated; he later calls the victims guilty, yet says they were convicted less of arson than of hatred of the human race.",
     "src": [
      1
     ],
@@ -649,20 +658,20 @@
   {
    "q": "What title does Tacitus give Pontius Pilate, and what does the inscription from Caesarea show?",
    "options": [
-    "Procurator; the inscription shows he was a prefect",
-    "Prefect; the inscription shows he was a procurator",
-    "Consul; the inscription shows he was a king",
-    "Legate; the inscription shows he was a tribune"
+    "Procurator; the inscription calls him prefect",
+    "Prefect; the inscription calls him procurator",
+    "Consul; the inscription calls him a king",
+    "Legate; the inscription calls him tribune"
    ],
    "answer": 0
   },
   {
-   "q": "According to Gainsford, what happened to the word for \"Christians\" in the Medicean manuscript?",
+   "q": "In the oldest manuscript of this book, what seems to have happened to the word for \"Christians\"?",
    "options": [
     "An original e was scraped into an i",
-    "The word was added in the margin",
-    "Christus was changed to Chrestus",
-    "The whole passage was written in later"
+    "The word was squeezed into the margin",
+    "Christus was altered to read Chrestus",
+    "The whole sentence was added later"
    ],
    "answer": 0
   },
@@ -671,8 +680,8 @@
    "options": [
     "Suetonius says plainly that Nero set it",
     "Suetonius blames the Christians for it",
-    "Suetonius says it was an accident",
-    "Suetonius does not mention a fire"
+    "Suetonius calls it a pure accident",
+    "Suetonius never mentions the fire"
    ],
    "answer": 0
   }
@@ -706,6 +715,21 @@
   {
    "label": "P. Gainsford, \"Chrest or Christ\", Kiwi Hellenist (blog of a classicist), 30 March 2023",
    "url": "https://kiwihellenist.blogspot.com/2023/03/chrest-or-christ.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Judaism and Rome project, \"Tacitus, Annals\" (introduction: proconsulship of Asia, probably 112–113)",
+   "url": "https://heurist.huma-num.fr/heurist/judaism_and_rome/view/1085",
+   "kind": "modern"
+  },
+  {
+   "label": "Madain Project, \"Pilate Stone\" (restored text; found 1961, Israel Museum)",
+   "url": "https://madainproject.com/pilate_stone",
+   "kind": "modern"
+  },
+  {
+   "label": "R. Carrier, \"The Prospect of a Christian Interpolation in Tacitus, Annals 15.44\", Vigiliae Christianae 68 (2014) 264–283 (library record with abstract)",
+   "url": "https://lib.ir/fa/book/90445172/The-Prospect-of-a-Christian-Interpolation-in-Tacit",
    "kind": "modern"
   }
  ],

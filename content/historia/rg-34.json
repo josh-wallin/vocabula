@@ -22,7 +22,8 @@
    "cīvica, cīvīlia: long ī in cīv-, and in the suffix of cīvīlis; standard dictionary quantities, not machine-checked.",
    "clupeus: short u (also spelled clipeus); the stone has an apex on this u (clúpei), which is unexpected.",
    "cōnsulātū, ūniversōrum, potītus, exstīnxeram, trānstulī, fīxa, cūriā, Iūliā, iūstitiae, clēmentiae, īnscrīptiōnem, conlēgae: standard dictionary quantities; not machine-checked.",
-   "caussā: old spelling of causā, kept from the edition."
+   "caussā: old spelling of causā, kept from the edition.",
+   "quōque: taken as the ablative of quisque (quō + -que, long ō) with magistrātū, \"in each office\"; it can also be read as the adverb quoque, \"also\". Not machine-checked."
   ]
  },
  "tokens": [
@@ -667,10 +668,10 @@
    "gloss": "my (lit. to me)"
   },
   {
-   "w": "quoque",
-   "lemma": "quoque",
-   "parse": "adverb",
-   "gloss": "also"
+   "w": "quōque",
+   "lemma": "quisque, quaeque, quidque",
+   "parse": "abl. sg. m. (with magistrātū: in each office)",
+   "gloss": "each"
   },
   {
    "w": "in",
@@ -696,7 +697,7 @@
   }
  ],
  "translation": "In my sixth and seventh consulships, after I had ended the civil wars, and when by universal consent I had gained control of all affairs, I transferred the state out of my own power into the control of the senate and the Roman people. For this service I was named Augustus by decree of the senate; the doorposts of my house were publicly decked with laurels, a civic crown was fixed above my door, and a golden shield was placed in the Julian senate house, whose inscription records that the senate and the Roman people gave it to me for my courage, clemency, justice and devotion. From that time on I surpassed everyone in rank, but I had no more power than the men who were my colleagues in each office.",
- "translation_note": "Rem pūblicam is literally \"the public thing\": the state or commonwealth, not \"republic\" in the modern sense. Potītus rērum omnium uses potior with the genitive. Nihilō amplius is \"more by nothing\": \"no more\". Mihi ... conlēgae is a dative of possession, \"who were colleagues to me\". Where this 1924 text has dīgnitāte (\"in rank\"), modern editions read auctōritāte (\"in influence, authority\"); see the essay.",
+ "translation_note": "Rem pūblicam is literally \"the public thing\": the state or commonwealth, not \"republic\" in the modern sense. Potītus rērum omnium uses potior with the genitive. Nihilō amplius is \"more by nothing\": \"no more\". In quōque ... magistrātū, quōque is the ablative of quisque, \"in each office\"; read as the adverb quoque the clause means \"who were also my colleagues in office\". Mihi ... conlēgae is a dative of possession, \"who were colleagues to me\". Where this 1924 text has dīgnitāte (\"in rank\"), modern editions read auctōritāte (\"in influence, authority\"); see the essay.",
  "essay": [
   [
    {
@@ -709,12 +710,17 @@
     "t": "The bronzes are lost. The fullest copy, the Monumentum Ancyranum, is inscribed in Latin and Greek on the temple of Roma and Augustus at Ancyra (Ankara); other copies come from Antioch and Apollonia in Pisidia.",
     "src": [
      3,
-     1,
-     5
+     1
     ]
    },
    {
-    "t": "Its internal references point to about AD 14: chapter 35 says he was in his seventy-sixth year when writing.",
+    "t": "A Greek fragment from Sardis, identified by Peter Thonemann in 2012, is the first copy found outside the province of Galatia.",
+    "src": [
+     10
+    ]
+   },
+   {
+    "t": "Internal references point to about AD 14: chapter 35 says he was in his seventy-sixth year when writing.",
     "src": [
      3
     ]
@@ -734,45 +740,52 @@
     ]
    },
    {
-    "t": "The change comes from the copy at Antioch. The project credits a new fragment found there with correcting one reconstructed line, and reads potens, not Mommsen's potitus, in 34.1; the Loeb text still has potitus.",
+    "t": "The Latin word came from the copy at Antioch, published by Ramsay and Premerstein as Monumentum Antiochenum in 1927; I have checked that book's catalogue record, not its pages.",
     "src": [
-     4,
-     1
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "An abstract for a Marburg lecture scheduled for 1 February 2027 says Ramsay's excavations yielded over 220 new fragments and that Premerstein's chapter 34 differed from Mommsen's at one significant point.",
+    "src": [
+     6
     ]
    },
    {
-    "t": "A Marburg lecture summary says Ramsay's excavations produced over 220 new fragments, and that Premerstein's reconstruction of chapter 34 differed significantly from Mommsen's at one point; that this point is auctoritate is my inference, not something the summary states.",
+    "t": "Separately, the project reads potens, not potitus, in 34.1, citing a newer Antioch fragment; the Loeb text still has potitus. I have not verified that fragment's publication.",
     "src": [
-     5
+     4,
+     1
     ],
     "doubt": true
    }
   ],
   [
    {
-    "t": "Cassius Dio records the same honours, the laurels at his door and the oak crown, but judges that from this time there was, strictly speaking, a monarchy, with the old offices surviving while everything followed the ruler's wishes.",
+    "t": "Cassius Dio records the same honours but judges that from then on there was, strictly speaking, a monarchy: the old offices survived, but everything followed the ruler's wishes.",
     "src": [
-     6
+     7
     ]
    },
    {
-    "t": "Tacitus is harsher: Augustus gradually drew the functions of the senate, the magistrates and the laws into his own hands, with no one opposing him, since the boldest had died in battle or in the proscriptions.",
+    "t": "Tacitus is harsher: Augustus gradually drew the functions of the senate, the magistrates and the laws into his own hands, unopposed, since the boldest had died in battle or in the proscriptions.",
     "src": [
-     7
+     8
     ]
    },
    {
     "t": "Gregory Rowe argues that the auctoritas claim alludes to one event, probably Octavian becoming princeps senatus in 28 BC, and notes that no other source repeats the idea.",
     "src": [
-     8
+     9
     ],
     "doubt": true
    },
    {
-    "t": "My own reading: both can be true. Augustus may have held no single office larger than a colleague's, while his combined powers and prestige still made him master of Rome.",
+    "t": "My reading: both can be true. No single office of his outranked a colleague's, yet his combined powers made him master of Rome.",
     "src": [
-     6,
-     7
+     7,
+     8
     ],
     "doubt": true
    }
@@ -793,19 +806,19 @@
    "q": "Where, according to Suetonius, did Augustus want this record inscribed?",
    "options": [
     "On bronze tablets in front of his Mausoleum",
-    "On the walls of the senate house",
-    "On a golden shield",
-    "On the temple at Ancyra"
+    "On marble walls inside the senate house",
+    "On the gold shield in the Curia Iulia",
+    "On the temple of Roma and Augustus"
    ],
    "answer": 0
   },
   {
    "q": "What does Cassius Dio conclude about the government after these honours?",
    "options": [
-    "Strictly speaking, it was a monarchy",
-    "The republic was fully restored",
-    "The senate ruled alone",
-    "The army chose every magistrate"
+    "That strictly speaking it was a monarchy",
+    "That the old republic was truly restored",
+    "That the senate now governed on its own",
+    "That the army controlled every election"
    ],
    "answer": 0
   }
@@ -832,7 +845,12 @@
    "kind": "modern"
   },
   {
-   "label": "Philipps-Universität Marburg, lecture abstract \"Exponierte Marburger Epigraphik: Anton Ritter von Premerstein und das Monumentum Ancyranum\" (K. Ruffing)",
+   "label": "W. M. Ramsay and A. von Premerstein, Monumentum Antiochenum (Klio Beiheft 19, Leipzig 1927), catalogue record, Zenon (DAI)",
+   "url": "https://zenon.dainst.org/Record/000145717/Description",
+   "kind": "modern"
+  },
+  {
+   "label": "Philipps-Universität Marburg, abstract of a lecture scheduled for 1 February 2027, \"Exponierte Marburger Epigraphik: Anton Ritter von Premerstein und das Monumentum Ancyranum\" (K. Ruffing)",
    "url": "https://www.uni-marburg.de/de/mcaw/ringvorlesung/exponiert-abstracts/exponierte-marburger-epigraphik-anton-ritter-von-premerstein-und-das-monumentum-ancyranum",
    "kind": "modern"
   },
@@ -849,6 +867,11 @@
   {
    "label": "G. Rowe, \"Reconsidering the Auctoritas of Augustus\", Journal of Roman Studies 103 (2013) 1–15 (abstract)",
    "url": "https://www.cambridge.org/core/journals/journal-of-roman-studies/article/reconsidering-the-auctoritas-of-augustus/326ABA5F1A73DBFE84781C7BC5BF2FBC",
+   "kind": "modern"
+  },
+  {
+   "label": "P. Thonemann, \"A Copy of Augustus' Res Gestae at Sardis\", Historia 61.3 (2012) 282–288 (record and abstract, Oxford Research Archive)",
+   "url": "https://ora.ox.ac.uk/objects/uuid:fbaef241-de17-42b2-a260-bb0fb39dff40",
    "kind": "modern"
   }
  ],
