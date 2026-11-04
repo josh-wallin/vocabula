@@ -1,0 +1,912 @@
+{
+ "id": "catil-1",
+ "order": 11,
+ "title": "How long, Catiline?",
+ "saying": "Quō ūsque tandem abūtēre, Catilīna, patientiā nostrā?",
+ "author": "Cicero",
+ "work": "In Catilīnam I",
+ "citation": "Cic. Cat. 1.1–2",
+ "setting": "The senate, Rome, 63 BC",
+ "edition": {
+  "name": "Cicero, Orationes vol. I, ed. Albert Curtis Clark (Oxford: Clarendon Press, 1908; Oxford Classical Texts), public domain; as encoded by the Perseus Digital Library (TEI file phi0474.phi013.perseus-lat2, whose header names \"Albert Curtis Clark\" as editor and \"Clarendon\", \"1908\"; markup CC BY-SA 4.0)",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0474/phi013/phi0474.phi013.perseus-lat2.xml",
+  "section": "In Catilinam 1.1 (complete) and the first sentence of 1.2"
+ },
+ "source_text": "quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia? nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt? patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides? quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consili ceperis quem nostrum ignorare arbitraris? O tempora, o mores! senatus haec intellegit, consul videt; hic tamen vivit.",
+ "excerpt_note": "Section 1.1 complete and the opening of 1.2, up to \"hic tamen vivit.\" The Perseus file prints sentence-initial words in lower case (it tags them as regularized), so the speech begins \"quo usque\"; this text keeps the letters exactly. Clark's apparatus notes (e.g. that some manuscripts omit nos) are left out.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "ūsque: long ū, the usual dictionary quantity; not machine-checked (some books print usque).",
+   "Catilīna: long ī in the third syllable; not machine-checked.",
+   "abūtēre: long ū (ab + ūtor) and long ē in the future ending -ēre (= -ēris).",
+   "ēlūdet, effrēnāta, mūnītissimus, Palātī, coniūrātiōnem, ignōrāre: standard dictionary quantities; not machine-checked.",
+   "voltūs: the edition spells the old form voltus (= vultus); long ū in the 4th-declension nominative plural.",
+   "quō, quam, etiam, nōs, iam, quis, sē, tū, omnis: spelled as in the app's Familia Rōmāna preview words."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "quō",
+   "lemma": "quō",
+   "parse": "interrogative adverb (with ūsque: up to what point?)",
+   "gloss": "to what point"
+  },
+  {
+   "w": "ūsque",
+   "lemma": "ūsque",
+   "parse": "adverb",
+   "gloss": "all the way (quō ūsque: how far, how long)"
+  },
+  {
+   "w": "tandem",
+   "lemma": "tandem",
+   "parse": "adverb (impatient, in a question)",
+   "gloss": "tell me, for heaven's sake"
+  },
+  {
+   "w": "abūtēre",
+   "p": ",",
+   "lemma": "abūtor, abūtī, abūsus sum (+ abl.)",
+   "parse": "2nd sg. fut. ind., deponent (-ēre = -ēris)",
+   "gloss": "will you abuse"
+  },
+  {
+   "w": "Catilīna",
+   "p": ",",
+   "lemma": "Catilīna, Catilīnae, m.",
+   "parse": "voc. sg.",
+   "gloss": "Catiline"
+  },
+  {
+   "w": "patientiā",
+   "lemma": "patientia, patientiae, f.",
+   "parse": "abl. sg. (object of abūtēre)",
+   "gloss": "patience"
+  },
+  {
+   "w": "nostrā",
+   "p": "?",
+   "lemma": "noster, nostra, nostrum",
+   "parse": "abl. sg. f.",
+   "gloss": "our",
+   "app": [
+    "noster-adj12"
+   ]
+  },
+  {
+   "w": "quam",
+   "lemma": "quam",
+   "parse": "adverb (with diū: how long?)",
+   "gloss": "how"
+  },
+  {
+   "w": "diū",
+   "lemma": "diū",
+   "parse": "adverb",
+   "gloss": "long, for a long time"
+  },
+  {
+   "w": "etiam",
+   "lemma": "etiam",
+   "parse": "adverb",
+   "gloss": "still"
+  },
+  {
+   "w": "furor",
+   "lemma": "furor, furōris, m.",
+   "parse": "nom. sg.",
+   "gloss": "madness, frenzy",
+   "app": [
+    "furor-n3"
+   ]
+  },
+  {
+   "w": "iste",
+   "lemma": "iste, ista, istud",
+   "parse": "nom. sg. m. (often contemptuous)",
+   "gloss": "that (... of yours)",
+   "app": [
+    "iste-pron-ille"
+   ]
+  },
+  {
+   "w": "tuus",
+   "lemma": "tuus, tua, tuum",
+   "parse": "nom. sg. m.",
+   "gloss": "your",
+   "app": [
+    "tuus-adj12"
+   ]
+  },
+  {
+   "w": "nōs",
+   "lemma": "nōs, nostrum/nostrī",
+   "parse": "acc. pl.",
+   "gloss": "us"
+  },
+  {
+   "w": "ēlūdet",
+   "p": "?",
+   "lemma": "ēlūdō, ēlūdere, ēlūsī, ēlūsum",
+   "parse": "3rd sg. fut. ind. act.",
+   "gloss": "will mock, make fools of"
+  },
+  {
+   "w": "quem",
+   "lemma": "quī, quae, quod",
+   "parse": "interrogative adjective, acc. sg. m.",
+   "gloss": "what, which"
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to, up to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "fīnem",
+   "lemma": "fīnis, fīnis, m.",
+   "parse": "acc. sg.",
+   "gloss": "end, limit",
+   "app": [
+    "finis-n3i"
+   ]
+  },
+  {
+   "w": "sēsē",
+   "lemma": "sē, suī (here doubled: sēsē)",
+   "parse": "reflexive pronoun, acc. sg.",
+   "gloss": "itself"
+  },
+  {
+   "w": "effrēnāta",
+   "lemma": "effrēnātus, effrēnāta, effrēnātum",
+   "parse": "nom. sg. f.",
+   "gloss": "unbridled"
+  },
+  {
+   "w": "iactābit",
+   "lemma": "iactō, iactāre, iactāvī, iactātum",
+   "parse": "3rd sg. fut. ind. act. (sē iactāre: to swagger)",
+   "gloss": "will toss about, flaunt"
+  },
+  {
+   "w": "audācia",
+   "p": "?",
+   "lemma": "audācia, audāciae, f.",
+   "parse": "nom. sg.",
+   "gloss": "recklessness, audacity"
+  },
+  {
+   "w": "nihilne",
+   "lemma": "nihil + -ne",
+   "parse": "indeclinable, here adverbial (not at all) + enclitic -ne (asks a question)",
+   "gloss": "not at all ...?",
+   "app": [
+    "nihil-indecl"
+   ]
+  },
+  {
+   "w": "tē",
+   "lemma": "tū, tuī",
+   "parse": "acc. sg.",
+   "gloss": "you"
+  },
+  {
+   "w": "nocturnum",
+   "lemma": "nocturnus, nocturna, nocturnum",
+   "parse": "nom. sg. n.",
+   "gloss": "night-time"
+  },
+  {
+   "w": "praesidium",
+   "lemma": "praesidium, praesidiī, n.",
+   "parse": "nom. sg.",
+   "gloss": "guard, garrison",
+   "app": [
+    "praesidium-n2n"
+   ]
+  },
+  {
+   "w": "Palātī",
+   "p": ",",
+   "lemma": "Palātium, Palātiī, n.",
+   "parse": "gen. sg. (-ī for -iī)",
+   "gloss": "of the Palatine (hill)"
+  },
+  {
+   "w": "nihil",
+   "lemma": "nihil",
+   "parse": "indeclinable, adverbial",
+   "gloss": "not at all",
+   "app": [
+    "nihil-indecl"
+   ]
+  },
+  {
+   "w": "urbis",
+   "lemma": "urbs, urbis, f.",
+   "parse": "gen. sg.",
+   "gloss": "of the city",
+   "app": [
+    "urbs-n3i"
+   ]
+  },
+  {
+   "w": "vigiliae",
+   "p": ",",
+   "lemma": "vigilia, vigiliae, f.",
+   "parse": "nom. pl.",
+   "gloss": "watches, patrols"
+  },
+  {
+   "w": "nihil",
+   "lemma": "nihil",
+   "parse": "indeclinable, adverbial",
+   "gloss": "not at all",
+   "app": [
+    "nihil-indecl"
+   ]
+  },
+  {
+   "w": "timor",
+   "lemma": "timor, timōris, m.",
+   "parse": "nom. sg.",
+   "gloss": "fear",
+   "app": [
+    "timor-n3"
+   ]
+  },
+  {
+   "w": "populī",
+   "p": ",",
+   "lemma": "populus, populī, m.",
+   "parse": "gen. sg.",
+   "gloss": "of the people",
+   "app": [
+    "populus-n2m"
+   ]
+  },
+  {
+   "w": "nihil",
+   "lemma": "nihil",
+   "parse": "indeclinable, adverbial",
+   "gloss": "not at all",
+   "app": [
+    "nihil-indecl"
+   ]
+  },
+  {
+   "w": "concursus",
+   "lemma": "concursus, concursūs, m.",
+   "parse": "nom. sg.",
+   "gloss": "rallying, gathering"
+  },
+  {
+   "w": "bonōrum",
+   "lemma": "bonus, bona, bonum",
+   "parse": "gen. pl. m., used as a noun",
+   "gloss": "of the loyal (lit. good) citizens",
+   "app": [
+    "bonus-adj12"
+   ]
+  },
+  {
+   "w": "omnium",
+   "p": ",",
+   "lemma": "omnis, omne",
+   "parse": "gen. pl. m.",
+   "gloss": "of all"
+  },
+  {
+   "w": "nihil",
+   "lemma": "nihil",
+   "parse": "indeclinable, adverbial",
+   "gloss": "not at all",
+   "app": [
+    "nihil-indecl"
+   ]
+  },
+  {
+   "w": "hic",
+   "lemma": "hic, haec, hoc",
+   "parse": "nom. sg. m. (demonstrative adjective)",
+   "gloss": "this (here)",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "mūnītissimus",
+   "lemma": "mūnītus, mūnīta, mūnītum (from mūniō)",
+   "parse": "superlative, nom. sg. m.",
+   "gloss": "most strongly defended"
+  },
+  {
+   "w": "habendī",
+   "lemma": "habeō, habēre, habuī, habitum",
+   "parse": "gerundive, gen. sg. m. (with senātūs: of holding the senate)",
+   "gloss": "of holding",
+   "app": [
+    "habeo-v2"
+   ]
+  },
+  {
+   "w": "senātūs",
+   "lemma": "senātus, senātūs, m.",
+   "parse": "gen. sg.",
+   "gloss": "(of) the senate"
+  },
+  {
+   "w": "locus",
+   "p": ",",
+   "lemma": "locus, locī, m.",
+   "parse": "nom. sg.",
+   "gloss": "place",
+   "app": [
+    "locus-n2m"
+   ]
+  },
+  {
+   "w": "nihil",
+   "lemma": "nihil",
+   "parse": "indeclinable, adverbial",
+   "gloss": "not at all",
+   "app": [
+    "nihil-indecl"
+   ]
+  },
+  {
+   "w": "hōrum",
+   "lemma": "hic, haec, hoc",
+   "parse": "gen. pl. m. (the senators present)",
+   "gloss": "of these men",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "ōra",
+   "lemma": "ōs, ōris, n.",
+   "parse": "nom. pl.",
+   "gloss": "faces",
+   "app": [
+    "os-n3n"
+   ]
+  },
+  {
+   "w": "voltūsque",
+   "lemma": "vultus (old spelling voltus), vultūs, m. + -que",
+   "parse": "nom. pl. + enclitic -que",
+   "gloss": "and expressions",
+   "enclitic": "que"
+  },
+  {
+   "w": "mōvērunt",
+   "p": "?",
+   "lemma": "moveō, movēre, mōvī, mōtum",
+   "parse": "3rd pl. perf. ind. act.",
+   "gloss": "have moved",
+   "app": [
+    "moveo-v2"
+   ]
+  },
+  {
+   "w": "patēre",
+   "lemma": "pateō, patēre, patuī",
+   "parse": "pres. inf. act. (indirect statement after sentīs)",
+   "gloss": "to lie open, be exposed",
+   "app": [
+    "pateo-v2"
+   ]
+  },
+  {
+   "w": "tua",
+   "lemma": "tuus, tua, tuum",
+   "parse": "acc. pl. n.",
+   "gloss": "your",
+   "app": [
+    "tuus-adj12"
+   ]
+  },
+  {
+   "w": "cōnsilia",
+   "lemma": "cōnsilium, cōnsiliī, n.",
+   "parse": "acc. pl. (subject of patēre)",
+   "gloss": "plans",
+   "app": [
+    "consilium-n2n"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "sentīs",
+   "p": ",",
+   "lemma": "sentiō, sentīre, sēnsī, sēnsum",
+   "parse": "2nd sg. pres. ind. act.",
+   "gloss": "you perceive, realize",
+   "app": [
+    "sentio-v4"
+   ]
+  },
+  {
+   "w": "cōnstrictam",
+   "lemma": "cōnstringō, cōnstringere, cōnstrīnxī, cōnstrictum",
+   "parse": "perf. pass. participle, acc. sg. f. (predicate with tenērī)",
+   "gloss": "tied up, bound fast"
+  },
+  {
+   "w": "iam",
+   "lemma": "iam",
+   "parse": "adverb",
+   "gloss": "already"
+  },
+  {
+   "w": "hōrum",
+   "lemma": "hic, haec, hoc",
+   "parse": "gen. pl. m.",
+   "gloss": "of these men",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "omnium",
+   "lemma": "omnis, omne",
+   "parse": "gen. pl. m.",
+   "gloss": "of all"
+  },
+  {
+   "w": "scientiā",
+   "lemma": "scientia, scientiae, f.",
+   "parse": "abl. sg. (means)",
+   "gloss": "by the knowledge",
+   "app": [
+    "scientia-n1"
+   ]
+  },
+  {
+   "w": "tenērī",
+   "lemma": "teneō, tenēre",
+   "parse": "pres. inf. pass. (indirect statement after vidēs)",
+   "gloss": "to be held",
+   "app": [
+    "teneo-v2"
+   ]
+  },
+  {
+   "w": "coniūrātiōnem",
+   "lemma": "coniūrātiō, coniūrātiōnis, f.",
+   "parse": "acc. sg.",
+   "gloss": "conspiracy"
+  },
+  {
+   "w": "tuam",
+   "lemma": "tuus, tua, tuum",
+   "parse": "acc. sg. f.",
+   "gloss": "your",
+   "app": [
+    "tuus-adj12"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "vidēs",
+   "p": "?",
+   "lemma": "videō, vidēre, vīdī, vīsum",
+   "parse": "2nd sg. pres. ind. act.",
+   "gloss": "you see",
+   "app": [
+    "video-v2"
+   ]
+  },
+  {
+   "w": "quid",
+   "lemma": "quis, quid",
+   "parse": "interrogative pronoun, acc. sg. n.",
+   "gloss": "what"
+  },
+  {
+   "w": "proximā",
+   "p": ",",
+   "lemma": "proximus, proxima, proximum",
+   "parse": "abl. sg. f. (with nocte: last night)",
+   "gloss": "nearest, last"
+  },
+  {
+   "w": "quid",
+   "lemma": "quis, quid",
+   "parse": "interrogative pronoun, acc. sg. n.",
+   "gloss": "what"
+  },
+  {
+   "w": "superiōre",
+   "lemma": "superior, superius",
+   "parse": "abl. sg. f. (the night before last)",
+   "gloss": "previous"
+  },
+  {
+   "w": "nocte",
+   "lemma": "nox, noctis, f.",
+   "parse": "abl. sg. (time when)",
+   "gloss": "night",
+   "app": [
+    "nox-n3i"
+   ]
+  },
+  {
+   "w": "ēgeris",
+   "p": ",",
+   "lemma": "agō, agere, ēgī, āctum",
+   "parse": "2nd sg. perf. subj. act. (indirect question)",
+   "gloss": "you did",
+   "app": [
+    "ago-v3"
+   ]
+  },
+  {
+   "w": "ubi",
+   "lemma": "ubi",
+   "parse": "interrogative adverb",
+   "gloss": "where",
+   "app": [
+    "ubi-indecl"
+   ]
+  },
+  {
+   "w": "fueris",
+   "p": ",",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "2nd sg. perf. subj. (indirect question)",
+   "gloss": "you were",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "quōs",
+   "lemma": "quis, quid",
+   "parse": "interrogative pronoun, acc. pl. m.",
+   "gloss": "whom"
+  },
+  {
+   "w": "convocāveris",
+   "p": ",",
+   "lemma": "convocō, convocāre, convocāvī, convocātum",
+   "parse": "2nd sg. perf. subj. act. (indirect question)",
+   "gloss": "you called together"
+  },
+  {
+   "w": "quid",
+   "lemma": "quis, quid",
+   "parse": "interrogative pronoun, acc. sg. n. (with cōnsilī: what plan)",
+   "gloss": "what"
+  },
+  {
+   "w": "cōnsilī",
+   "lemma": "cōnsilium, cōnsiliī, n.",
+   "parse": "gen. sg. (-ī for -iī; partitive with quid)",
+   "gloss": "(of) plan",
+   "app": [
+    "consilium-n2n"
+   ]
+  },
+  {
+   "w": "cēperis",
+   "lemma": "capiō, capere, cēpī, captum",
+   "parse": "2nd sg. perf. subj. act. (cōnsilium capere: adopt a plan)",
+   "gloss": "you adopted",
+   "app": [
+    "capio-v3io"
+   ]
+  },
+  {
+   "w": "quem",
+   "lemma": "quis, quid",
+   "parse": "interrogative pronoun, acc. sg. m. (subject of ignōrāre)",
+   "gloss": "which one, whom"
+  },
+  {
+   "w": "nostrum",
+   "lemma": "nōs, nostrum/nostrī",
+   "parse": "gen. pl. (partitive)",
+   "gloss": "of us"
+  },
+  {
+   "w": "ignōrāre",
+   "lemma": "ignōrō, ignōrāre, ignōrāvī, ignōrātum",
+   "parse": "pres. inf. act. (indirect statement)",
+   "gloss": "to be unaware of"
+  },
+  {
+   "w": "arbitrāris",
+   "p": "?",
+   "lemma": "arbitror, arbitrārī, arbitrātus sum",
+   "parse": "2nd sg. pres. ind., deponent",
+   "gloss": "do you think"
+  },
+  {
+   "w": "Ō",
+   "lemma": "Ō",
+   "parse": "interjection",
+   "gloss": "O",
+   "app": [
+    "o-indecl"
+   ]
+  },
+  {
+   "w": "tempora",
+   "p": ",",
+   "lemma": "tempus, temporis, n.",
+   "parse": "acc. pl. (accusative of exclamation)",
+   "gloss": "times",
+   "app": [
+    "tempus-n3n"
+   ]
+  },
+  {
+   "w": "ō",
+   "lemma": "Ō",
+   "parse": "interjection",
+   "gloss": "O",
+   "app": [
+    "o-indecl"
+   ]
+  },
+  {
+   "w": "mōrēs",
+   "p": "!",
+   "lemma": "mōs, mōris, m.",
+   "parse": "acc. pl. (accusative of exclamation)",
+   "gloss": "ways, morals",
+   "app": [
+    "mos-n3"
+   ]
+  },
+  {
+   "w": "senātus",
+   "lemma": "senātus, senātūs, m.",
+   "parse": "nom. sg.",
+   "gloss": "the senate"
+  },
+  {
+   "w": "haec",
+   "lemma": "hic, haec, hoc",
+   "parse": "acc. pl. n.",
+   "gloss": "these things",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "intellegit",
+   "p": ",",
+   "lemma": "intellegō, intellegere",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "understands",
+   "app": [
+    "intellego-v3"
+   ]
+  },
+  {
+   "w": "cōnsul",
+   "lemma": "cōnsul, cōnsulis, m.",
+   "parse": "nom. sg.",
+   "gloss": "the consul (Cicero himself)",
+   "app": [
+    "consul-n3"
+   ]
+  },
+  {
+   "w": "videt",
+   "p": ";",
+   "lemma": "videō, vidēre, vīdī, vīsum",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "sees",
+   "app": [
+    "video-v2"
+   ]
+  },
+  {
+   "w": "hic",
+   "lemma": "hic, haec, hoc",
+   "parse": "nom. sg. m., used as a pronoun",
+   "gloss": "this man (Catiline)",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "tamen",
+   "lemma": "tamen",
+   "parse": "adverb",
+   "gloss": "nevertheless, still",
+   "app": [
+    "tamen-indecl"
+   ]
+  },
+  {
+   "w": "vīvit",
+   "p": ".",
+   "lemma": "vīvō, vīvere, vīxī, vīctum",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "lives",
+   "app": [
+    "vivo-v3"
+   ]
+  }
+ ],
+ "translation": "Just how far, Catiline, will you go in abusing our patience? How much longer will that madness of yours keep making fools of us? What limit is there to the swaggering of your unbridled recklessness? Has nothing moved you: not the night guard on the Palatine, not the patrols in the city, not the people's fear, not the rallying of every loyal citizen, not this heavily defended place where the senate is meeting, not the faces and looks of the men here? Do you not realize that your plans are out in the open? Do you not see that your conspiracy is already caught and held, because everyone here knows about it? What you did last night and the night before, where you were, whom you called together, what plan you settled on: which of us do you suppose does not know? What times! What morals! The senate understands all this, the consul sees it; and yet this man is still alive.",
+ "translation_note": "Abūtēre is the future of the deponent abūtor, with the alternative ending -ēre for -ēris; it takes an ablative (patientiā). Quō ūsque means \"up to what point\". In Ō tempora, ō mōrēs! the accusatives are exclamations. The repeated nihil (\"not at all\") is used as an adverb, with all six subjects sharing the one verb mōvērunt. Bonī, \"the good\", is Cicero's word for loyal, propertied citizens on his side.",
+ "essay": [
+  [
+   {
+    "t": "Cicero was consul in 63 BC; Britannica says the optimates had backed his election because they feared the revolutionary ideas of his rival, Catiline.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "Catiline planned armed risings and arson, and Cicero struggled to convince the senate of the danger until the \"last decree\" was passed on 22 October.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "Sallust, the other main narrative source, says Catiline came into the senate to look innocent, and that Cicero, either afraid of his presence or angry, delivered a brilliant speech useful to the state, which he afterwards wrote out and published.",
+    "src": [
+     2,
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "That last detail matters. In a letter to Atticus of 60 BC, Cicero says he is assembling a collection of \"consular speeches\", on the model of Demosthenes' Philippics, and lists among them the speech \"when I drove Catiline out\".",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "So the text we read is the version Cicero chose to publish; how closely it matches what he said on the day cannot be checked.",
+    "src": [
+     4,
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "In my reading, the published speech casts him as the watchful consul who sees everything, as in the line \"the consul sees\".",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The arrested conspirators were debated in the senate, where, in Sallust's account, Caesar warned against deciding in anger.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The senate followed Cato. Lentulus was taken down into the Tullianum, a dark, foul cell about twelve feet underground, and strangled with a noose; four others were executed the same way.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Catiline died fighting in the field; Sallust says he was found far from his own men among enemy corpses, still breathing.",
+    "src": [
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Britannica describes the executions as carried out \"on Cicero's responsibility\" and says he announced them with one word, vixerunt, \"they have lived\"; the anecdote is not in Sallust, and I have not traced its ancient source.",
+    "src": [
+     5,
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "That responsibility came back to him. When Clodius became tribune in 58 BC and Pompey refused help, Cicero left Rome, and Clodius passed a law of doubtful legality declaring him an exile; Pompey and Milo later helped secure his recall.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "The famous cry, then, survives in a speech its author shaped for readers as well as for the senate.",
+    "src": [
+     4,
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "According to Sallust, what did Cicero do with this speech after giving it?",
+   "options": [
+    "He wrote it out and published it",
+    "He burned it",
+    "He gave it to Catiline",
+    "He had it carved on bronze"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does Sallust say happened to Lentulus?",
+   "options": [
+    "He was strangled in the Tullianum",
+    "He escaped to Gaul",
+    "He was exiled with Cicero",
+    "He died in battle beside Catiline"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why did the executions later cause trouble for Cicero?",
+   "options": [
+    "Clodius passed a law declaring him an exile",
+    "Catiline returned to prosecute him",
+    "Caesar had him arrested",
+    "The senate cancelled his consulship"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Cicero, In Catilinam 1.1–2 (Latin; Clark, Oxford 1908), Perseus Digital Library TEI file",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0474/phi013/phi0474.phi013.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Sallust, Bellum Catilinae 31 and 51 (Loeb translation, J. C. Rolfe 1921, rev. 1931), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Sallust/Bellum_Catilinae*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Sallust, Bellum Catilinae 31, 55 and 61 (Latin), Perseus Digital Library TEI file (edition not named in the file header)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0631/phi001/phi0631.phi001.perseus-lat4.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cicero, Letters to Atticus 2.1.3 (Latin; Purser, Oxford 1903), Perseus Digital Library TEI file",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0474/phi057/phi0474.phi057.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Cicero\"",
+   "url": "https://www.britannica.com/biography/Cicero",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

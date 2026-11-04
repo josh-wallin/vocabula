@@ -97,9 +97,9 @@ async function main() {
       await page.getByRole('button', { name: 'Historia' }).click();
       await page.locator('main[data-screen="historia"]').waitFor();
       const cards = page.getByTestId('historia-entry');
-      assert(await cards.count() === 10, `10 entries, got ${await cards.count()}`);
+      assert(await cards.count() === entries.length, `${entries.length} entries, got ${await cards.count()}`);
       const pcts = await page.getByTestId('known-meter').evaluateAll((els) => els.map((e) => Number(e.getAttribute('data-pct'))));
-      assert(pcts.length === 10 && pcts.every((p) => p >= 0 && p <= 100), `meters ${pcts}`);
+      assert(pcts.length === entries.length && pcts.every((p) => p >= 0 && p <= 100), `meters ${pcts}`);
       assert(pcts.some((p) => p > 0), `some words known at ch. 2: ${pcts}`);
       assert(pcts.every((p) => p < 100), `not everything known at ch. 2: ${pcts}`);
       const first = (await cards.first().textContent()) ?? '';

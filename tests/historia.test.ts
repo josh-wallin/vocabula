@@ -37,12 +37,12 @@ const byId = new Map(entries.map((e) => [e.id, e]));
 const clone = (e: HistoriaEntry): HistoriaEntry => JSON.parse(JSON.stringify(e)) as HistoriaEntry;
 
 describe('historia: definitions', () => {
-  it('ten entries, one file each, named by id, in order', () => {
+  it('fourteen entries, one file each, named by id, in order', () => {
     const files = readdirSync(DIR).filter((f) => f.endsWith('.json')).sort();
-    expect(files.length).toBe(10);
+    expect(files.length).toBe(14);
     for (const f of files) expect(parseHistoriaEntry(JSON.parse(readFileSync(resolve(DIR, f), 'utf8'))).id).toBe(f.replace('.json', ''));
-    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25']);
-    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25', 'catil-1', 'rg-34', 'ann-15', 'plin-96']);
+    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
     // Exactly one verse entry: Hadrian's lines to his soul.
     expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25']);
   });
@@ -53,6 +53,18 @@ describe('historia: definitions', () => {
         expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
         expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXIII/);
         expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
+      } else if (e.author === 'Cicero') {
+        expect(e.citation).toMatch(/^Cic\. Cat\. \d+\.\d+(–\d+)?$/);
+        expect(e.edition.name).toMatch(/Clark.*1908/);
+      } else if (e.author === 'Augustus') {
+        expect(e.citation).toMatch(/^RG \d+(\.\d+)?$/);
+        expect(e.edition.name).toMatch(/Loeb Classical Library.*Shipley.*1924/);
+      } else if (e.author === 'Tacitus') {
+        expect(e.citation).toMatch(/^Tac\. Ann\. \d+\.\d+\.\d+(–\d+)?$/);
+        expect(e.edition.name).toMatch(/Fisher.*1906/);
+      } else if (e.author === 'Pliny the Younger') {
+        expect(e.citation).toMatch(/^Plin\. Ep\. 10\.\d+\.\d+(; 10\.\d+\.\d+)?$/);
+        expect(e.edition.url).toMatch(/^https:\/\/dcc\.dickinson\.edu\/pliny-letters\//);
       } else {
         expect(e.author).toBe('Historia Augusta');
         expect(e.citation).toMatch(/^HA Hadr\. \d+\.\d+(–\d+)?$/);
