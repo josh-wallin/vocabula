@@ -1,0 +1,662 @@
+{
+ "id": "plin-620",
+ "order": 12,
+ "title": "The last night of the world",
+ "saying": "aeternamque illam et novissimam noctem mundō",
+ "author": "Pliny the Younger",
+ "work": "Epistulae",
+ "citation": "Plin. Ep. 6.20.14–15",
+ "setting": "The road out of Misenum, AD 79",
+ "edition": {
+  "name": "Pliny the Younger, Epistulae, Latin text of the Perseus Digital Library (Tufts University), TEI file phi1318.phi001.perseus-lat1 in the PerseusDL canonical-latinLit repository (\"Letters\", released 2004-08-24); the file's own header names no source edition (its imprint fields are empty), so the editor and year cannot be stated. Checked word for word against The Latin Library's text (thelatinlibrary.com/pliny.ep6.html), which also names no editor. A comparison with Kukula's Teubner text (Leipzig 1908; Perseus catalog phi1318.phi001.opp-lat5) was not possible: the Perseus repository has no TEI file for it (only perseus-lat1 is listed for this work) and the scans on archive.org could not be reached. Perseus Digital Library, CC BY-SA 4.0 (licence stated in the repository README)",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1318/phi001/phi1318.phi001.perseus-lat1.xml",
+  "section": "Epistulae 6.20.14 (the whole section) and 6.20.15 (first sentence)"
+ },
+ "source_text": "Vix consideramus, et nox - non qualis illunis aut nubila, sed qualis in locis clausis lumine exstincto. Audires ululatus feminarum, infantum quiritatus, clamores virorum; alii parentes alii liberos alii coniuges vocibus requirebant, vocibus noscitabant; hi suum casum, illi suorum miserabantur; erant qui metu mortis mortem precarentur; multi ad deos manus tollere, plures nusquam iam deos ullos aeternamque illam et novissimam noctem mundo interpretabantur.",
+ "excerpt_note": "All of 6.20.14 and the first sentence of 6.20.15. The Perseus text ends 6.20.14 with a semicolon and begins 6.20.15 in lower case; the sentence runs on across the section break. The dash after nox is a spaced hyphen in the file; there is no closing dash.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "cōnsīderāmus: long ī, from the perfect stem cōnsīd- (Lewis & Short give the perfect as cōnsēdī, also cōnsīdī); not machine-checked.",
+   "exstīnctō: long ī before nct (hidden quantity), as in most modern dictionaries; not machine-checked.",
+   "quirītātūs, ululātūs, illūnis, nūbila, nōscitābant: the usual dictionary quantities; not machine-checked.",
+   "īnfantum: long ī before nf, the usual dictionary quantity; not machine-checked. The genitive plural is usually īnfantium; Lewis & Short cite infantum from this letter (their reference reads \"Plin. Ep. 9, 20, 14\", evidently for 6.20.14). Not checked against a critical edition."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Vix",
+   "lemma": "vix",
+   "parse": "adverb",
+   "gloss": "scarcely"
+  },
+  {
+   "w": "cōnsīderāmus",
+   "p": ",",
+   "lemma": "cōnsīdō, cōnsīdere, cōnsēdī (also cōnsīdī), cōnsessum",
+   "parse": "1st pl. pluperf. ind. act. (from the perfect cōnsīdī)",
+   "gloss": "we had sat down"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and (= when)",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "nox",
+   "p": " -",
+   "lemma": "nox, noctis, f.",
+   "parse": "nom. sg.",
+   "gloss": "night (came)",
+   "app": [
+    "nox-n3i"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "quālis",
+   "lemma": "quālis, quāle",
+   "parse": "nom. sg. f. (relative of kind)",
+   "gloss": "such as (is)"
+  },
+  {
+   "w": "illūnis",
+   "lemma": "illūnis, illūne",
+   "parse": "nom. sg. f.",
+   "gloss": "moonless"
+  },
+  {
+   "w": "aut",
+   "lemma": "aut",
+   "parse": "conjunction",
+   "gloss": "or"
+  },
+  {
+   "w": "nūbila",
+   "p": ",",
+   "lemma": "nūbilus, nūbila, nūbilum",
+   "parse": "nom. sg. f.",
+   "gloss": "cloudy"
+  },
+  {
+   "w": "sed",
+   "lemma": "sed",
+   "parse": "conjunction",
+   "gloss": "but",
+   "app": [
+    "sed-indecl"
+   ]
+  },
+  {
+   "w": "quālis",
+   "lemma": "quālis, quāle",
+   "parse": "nom. sg. f.",
+   "gloss": "such as (is)"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "locīs",
+   "lemma": "locus, locī, m.",
+   "parse": "abl. pl.",
+   "gloss": "places, rooms",
+   "app": [
+    "locus-n2m"
+   ]
+  },
+  {
+   "w": "clausīs",
+   "lemma": "claudō, claudere, clausī, clausum",
+   "parse": "perf. pass. participle, abl. pl. m.",
+   "gloss": "closed, shut",
+   "app": [
+    "claudo-v3"
+   ]
+  },
+  {
+   "w": "lūmine",
+   "lemma": "lūmen, lūminis, n.",
+   "parse": "abl. sg. (ablative absolute with exstīnctō)",
+   "gloss": "the lamp, light",
+   "app": [
+    "lumen-n3n"
+   ]
+  },
+  {
+   "w": "exstīnctō",
+   "p": ".",
+   "lemma": "exstinguō, exstinguere, exstīnxī, exstīnctum",
+   "parse": "perf. pass. participle, abl. sg. n. (ablative absolute)",
+   "gloss": "put out"
+  },
+  {
+   "w": "Audīrēs",
+   "lemma": "audiō, audīre, audīvī, audītum",
+   "parse": "2nd sg. impf. subj. act. (potential: 'you could have heard')",
+   "gloss": "you could have heard",
+   "app": [
+    "audio-v4"
+   ]
+  },
+  {
+   "w": "ululātūs",
+   "lemma": "ululātus, ululātūs, m.",
+   "parse": "acc. pl.",
+   "gloss": "wailing"
+  },
+  {
+   "w": "fēminārum",
+   "p": ",",
+   "lemma": "fēmina, fēminae, f.",
+   "parse": "gen. pl.",
+   "gloss": "of women",
+   "app": [
+    "femina-n1"
+   ]
+  },
+  {
+   "w": "īnfantum",
+   "lemma": "īnfāns, īnfantis, m./f.",
+   "parse": "gen. pl.",
+   "gloss": "of babies"
+  },
+  {
+   "w": "quirītātūs",
+   "p": ",",
+   "lemma": "quirītātus, quirītātūs, m.",
+   "parse": "acc. pl.",
+   "gloss": "shrieks, cries"
+  },
+  {
+   "w": "clāmōrēs",
+   "lemma": "clāmor, clāmōris, m.",
+   "parse": "acc. pl.",
+   "gloss": "shouts",
+   "app": [
+    "clamor-n3"
+   ]
+  },
+  {
+   "w": "virōrum",
+   "p": ";",
+   "lemma": "vir, virī, m.",
+   "parse": "gen. pl.",
+   "gloss": "of men",
+   "app": [
+    "vir-n2m"
+   ]
+  },
+  {
+   "w": "aliī",
+   "lemma": "alius, alia, aliud",
+   "parse": "nom. pl. m. (aliī ... aliī: some ... others)",
+   "gloss": "some",
+   "app": [
+    "alius-adj-ius"
+   ]
+  },
+  {
+   "w": "parentēs",
+   "lemma": "parēns, parentis, m./f.",
+   "parse": "acc. pl.",
+   "gloss": "parents",
+   "app": [
+    "parens-n3"
+   ]
+  },
+  {
+   "w": "aliī",
+   "lemma": "alius, alia, aliud",
+   "parse": "nom. pl. m.",
+   "gloss": "others",
+   "app": [
+    "alius-adj-ius"
+   ]
+  },
+  {
+   "w": "līberōs",
+   "lemma": "līberī, līberōrum, m.",
+   "parse": "acc. pl.",
+   "gloss": "children"
+  },
+  {
+   "w": "aliī",
+   "lemma": "alius, alia, aliud",
+   "parse": "nom. pl. m.",
+   "gloss": "others",
+   "app": [
+    "alius-adj-ius"
+   ]
+  },
+  {
+   "w": "coniugēs",
+   "lemma": "coniunx, coniugis, m./f.",
+   "parse": "acc. pl.",
+   "gloss": "husbands or wives",
+   "app": [
+    "coniunx-n3"
+   ]
+  },
+  {
+   "w": "vōcibus",
+   "lemma": "vōx, vōcis, f.",
+   "parse": "abl. pl. (means)",
+   "gloss": "with their voices, by calling",
+   "app": [
+    "vox-n3"
+   ]
+  },
+  {
+   "w": "requīrēbant",
+   "p": ",",
+   "lemma": "requīrō, requīrere, requīsīvī, requīsītum",
+   "parse": "3rd pl. impf. ind. act.",
+   "gloss": "were looking for"
+  },
+  {
+   "w": "vōcibus",
+   "lemma": "vōx, vōcis, f.",
+   "parse": "abl. pl. (means)",
+   "gloss": "by their voices",
+   "app": [
+    "vox-n3"
+   ]
+  },
+  {
+   "w": "nōscitābant",
+   "p": ";",
+   "lemma": "nōscitō, nōscitāre",
+   "parse": "3rd pl. impf. ind. act.",
+   "gloss": "were trying to recognize"
+  },
+  {
+   "w": "hī",
+   "lemma": "hic, haec, hoc",
+   "parse": "nom. pl. m. (hī ... illī: some ... others)",
+   "gloss": "some",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "suum",
+   "lemma": "suus, sua, suum",
+   "parse": "acc. sg. m.",
+   "gloss": "their own",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "cāsum",
+   "p": ",",
+   "lemma": "cāsus, cāsūs, m.",
+   "parse": "acc. sg.",
+   "gloss": "fate, misfortune"
+  },
+  {
+   "w": "illī",
+   "lemma": "ille, illa, illud",
+   "parse": "nom. pl. m.",
+   "gloss": "others",
+   "app": [
+    "ille-pron-ille"
+   ]
+  },
+  {
+   "w": "suōrum",
+   "lemma": "suus, sua, suum",
+   "parse": "gen. pl. m. (used as a noun: 'of their own people'; cāsum understood)",
+   "gloss": "(the fate) of their families",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "miserābantur",
+   "p": ";",
+   "lemma": "miseror, miserārī",
+   "parse": "3rd pl. impf. ind. (deponent)",
+   "gloss": "were lamenting"
+  },
+  {
+   "w": "erant",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. impf. ind.",
+   "gloss": "there were (people)",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pron., nom. pl. m. (generic: 'people who')",
+   "gloss": "who"
+  },
+  {
+   "w": "metū",
+   "lemma": "metus, -ūs, m.",
+   "parse": "abl. sg. (cause)",
+   "gloss": "out of fear"
+  },
+  {
+   "w": "mortis",
+   "lemma": "mors, mortis, f.",
+   "parse": "gen. sg.",
+   "gloss": "of death",
+   "app": [
+    "mors-n3i"
+   ]
+  },
+  {
+   "w": "mortem",
+   "lemma": "mors, mortis, f.",
+   "parse": "acc. sg.",
+   "gloss": "death",
+   "app": [
+    "mors-n3i"
+   ]
+  },
+  {
+   "w": "precārentur",
+   "p": ";",
+   "lemma": "precor, precārī",
+   "parse": "3rd pl. impf. subj. (relative clause of characteristic; deponent)",
+   "gloss": "prayed for"
+  },
+  {
+   "w": "multī",
+   "lemma": "multus, multa, multum",
+   "parse": "nom. pl. m. (used as a noun)",
+   "gloss": "many",
+   "app": [
+    "multus-adj12"
+   ]
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition",
+   "gloss": "to",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "deōs",
+   "lemma": "deus, deī, m.",
+   "parse": "acc. pl.",
+   "gloss": "the gods",
+   "app": [
+    "deus-n2m"
+   ]
+  },
+  {
+   "w": "manūs",
+   "lemma": "manus, -ūs, f.",
+   "parse": "acc. pl.",
+   "gloss": "hands"
+  },
+  {
+   "w": "tollere",
+   "p": ",",
+   "lemma": "tollō, tollere, sustulī, sublātum",
+   "parse": "pres. inf. act. (historical infinitive: 'raised')",
+   "gloss": "raised",
+   "app": [
+    "tollo-v3"
+   ]
+  },
+  {
+   "w": "plūrēs",
+   "lemma": "plūs, plūris (comparative of multus)",
+   "parse": "nom. pl. m. (used as a noun)",
+   "gloss": "more (people)"
+  },
+  {
+   "w": "nusquam",
+   "lemma": "nusquam",
+   "parse": "adverb",
+   "gloss": "nowhere"
+  },
+  {
+   "w": "iam",
+   "lemma": "iam",
+   "parse": "adverb",
+   "gloss": "any longer"
+  },
+  {
+   "w": "deōs",
+   "lemma": "deus, deī, m.",
+   "parse": "acc. pl. (subject of esse understood: indirect statement)",
+   "gloss": "gods",
+   "app": [
+    "deus-n2m"
+   ]
+  },
+  {
+   "w": "ūllōs",
+   "lemma": "ūllus, ūlla, ūllum",
+   "parse": "acc. pl. m.",
+   "gloss": "any",
+   "app": [
+    "ullus-adj-ius"
+   ]
+  },
+  {
+   "w": "aeternamque",
+   "lemma": "aeternus, aeterna, aeternum + -que",
+   "parse": "acc. sg. f. + enclitic -que",
+   "gloss": "and eternal",
+   "app": [
+    "aeternus-adj12"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "illam",
+   "lemma": "ille, illa, illud",
+   "parse": "acc. sg. f.",
+   "gloss": "that (famous)",
+   "app": [
+    "ille-pron-ille"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "novissimam",
+   "lemma": "novus, nova, novum (superl. novissimus)",
+   "parse": "superlative, acc. sg. f.",
+   "gloss": "last, final",
+   "app": [
+    "novus-adj12"
+   ]
+  },
+  {
+   "w": "noctem",
+   "lemma": "nox, noctis, f.",
+   "parse": "acc. sg.",
+   "gloss": "night",
+   "app": [
+    "nox-n3i"
+   ]
+  },
+  {
+   "w": "mundō",
+   "lemma": "mundus, mundī, m.",
+   "parse": "dat. sg. (for the world)",
+   "gloss": "for the world",
+   "app": [
+    "mundus-n2m"
+   ]
+  },
+  {
+   "w": "interpretābantur",
+   "p": ".",
+   "lemma": "interpretor, interpretārī",
+   "parse": "3rd pl. impf. ind. (deponent)",
+   "gloss": "were interpreting (it as)"
+  }
+ ],
+ "translation": "We had barely sat down when night came on: not a night with no moon or with clouds, but like the dark of a shut room when the lamp has been put out. You could have heard women wailing, babies crying, men shouting. People were calling for their parents, their children, their husbands or wives, and trying to tell them apart by their voices. Some grieved over what was happening to them, others over what was happening to their families; there were people who, out of fear of death, prayed to die. Many lifted their hands to the gods; more concluded that there were no gods anywhere any more, and that this was the everlasting, final night of the world.",
+ "translation_note": "Vix cōnsīderāmus looks like the present of cōnsīderō (\"consider\"), but Lewis & Short file this very passage (Plin. Ep. 6, 20, 14) under cōnsīdō, \"sit down\", whose perfect is cōnsēdī or cōnsīdī: so it is the pluperfect, \"we had (barely) sat down\" (Lewis & Short, Perseus TEI, https://raw.githubusercontent.com/PerseusDL/lexica/master/CTS_XML_TEI/perseus/pdllex/lat/ls/lat.ls.perseus-eng1.xml). Audīrēs is a potential subjunctive (\"you would have heard\"). tollere is a historical infinitive, used like a past tense. The last clause is indirect statement: deōs (esse) nusquam, \"that the gods were nowhere\".",
+ "essay": [
+  [
+   {
+    "t": "Tacitus, having read Pliny's letter about his uncle, asked what Pliny himself had gone through after staying behind at Misenum, and this second letter answers.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Pliny introduces it with a line Aeneas speaks before telling of the fall of Troy, quamquam animus meminisse horret (Aeneid 2.12): \"though my mind shudders to remember\".",
+    "src": [
+     1,
+     3
+    ]
+   },
+   {
+    "t": "He says he was in his eighteenth year and, with what he calls either composure or foolishness, sat reading Livy and making excerpts.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "When the danger grew, his mother begged him to escape without her, since she was old and heavy; he refused and made her hurry along with him.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "A dense darkness followed them, spreading over the land like a torrent, and the darkness and panic of this passage fell on the crowd on the road.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The USGS notes that the eruption produced pyroclastic flows and surges as well as heavy ashfall; linking Pliny's moving cloud to such a flow is my inference, not his.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Pliny reports rumours too: people adding invented terrors to real dangers, and messengers announcing, falsely but to believing ears, that Misenum had collapsed or was in flames.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "He says he could boast that no groan escaped him, were it not that he believed he and the whole world were dying together, which he calls a wretched but great comfort.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "When daylight returned, the sun was pale as in an eclipse and everything lay under ash like snow; the family went back to Misenum and waited for news of the uncle.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "He ends by telling Tacitus that he will read these things, not at all worthy of history, without intending to write them up.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "That modesty may be literary: Pliny wrote the letter at Tacitus' request and published it in his own collection, and its vivid scenes are carefully composed.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What did many people in the crowd conclude, according to Pliny?",
+   "options": [
+    "That there were no gods and this was the last night",
+    "That the gods would soon end the darkness",
+    "That the emperor's ships would rescue them",
+    "That the cloud came from a fire in Misenum"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does the darkness remind Pliny of?",
+   "options": [
+    "A shut room when the lamp is put out",
+    "A night with no moon and no stars",
+    "A cloudy night out at sea",
+    "The smoke of a burning city"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "How does Pliny frame the whole letter at its start?",
+   "options": [
+    "With Aeneas' words before the fall of Troy",
+    "With a line from his uncle's Natural History",
+    "With a prayer to the god Vulcan",
+    "With the date and hour of the eruption"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Pliny the Younger, Epistulae 6.20 (Latin; Perseus Digital Library TEI text, phi1318.phi001.perseus-lat1)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1318/phi001/phi1318.phi001.perseus-lat1.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "USGS Volcano Hazards Program, glossary: \"Plinian eruption\"",
+   "url": "https://volcanoes.usgs.gov/vsc/glossary/plinian.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Vergil, Aeneid 2.10–13 (Latin; Perseus Digital Library TEI text from Greenough's 1881 edition)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0690/phi003/phi0690.phi003.perseus-lat2.xml",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

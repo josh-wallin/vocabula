@@ -1,0 +1,636 @@
+{
+ "id": "plin-616",
+ "order": 11,
+ "title": "A cloud like a pine tree",
+ "saying": "nōn alia magis arbor quam pīnus expresserit",
+ "author": "Pliny the Younger",
+ "work": "Epistulae",
+ "citation": "Plin. Ep. 6.16.5–6",
+ "setting": "Misenum, on the Bay of Naples, AD 79",
+ "edition": {
+  "name": "Pliny the Younger, Epistulae, Latin text of the Perseus Digital Library (Tufts University), TEI file phi1318.phi001.perseus-lat1 in the PerseusDL canonical-latinLit repository (\"Letters\", released 2004-08-24); the file's own header names no source edition (its imprint fields are empty), so the editor and year cannot be stated. Checked word for word against The Latin Library's text (thelatinlibrary.com/pliny.ep6.html), which also names no editor. A comparison with Kukula's Teubner text (Leipzig 1908; Perseus catalog phi1318.phi001.opp-lat5) was not possible: the Perseus repository has no TEI file for it (only perseus-lat1 is listed for this work) and the scans on archive.org could not be reached. Perseus Digital Library, CC BY-SA 4.0 (licence stated in the repository README)",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1318/phi001/phi1318.phi001.perseus-lat1.xml",
+  "section": "Epistulae 6.16.5 (second sentence) and 6.16.6 (the whole section)"
+ },
+ "source_text": "Nubes - incertum procul intuentibus ex quo monte; Vesuvium fuisse postea cognitum est - oriebatur, cuius similitudinem et formam non alia magis arbor quam pinus expresserit. Nam longissimo velut trunco elata in altum quibusdam ramis diffundebatur, credo quia recenti spiritu evecta, dein senescente eo destituta aut etiam pondere suo victa in latitudinem vanescebat, candida interdum, interdum sordida et maculosa prout terram cineremve sustulerat.",
+ "excerpt_note": "The second sentence of 6.16.5 and all of 6.16.6. The Perseus file prints the dashes around the parenthesis as spaced hyphens ( - ), and they are kept as printed; The Latin Library prints the same words with long dashes.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "cōgnitum: long ō before gn, following the app lexicon's cōgnōscō; many dictionaries print cognitum.",
+   "pīnus, spīritū, ēlāta, ēvecta, dēstitūta: the usual dictionary quantities; not machine-checked.",
+   "senēscente, vānēscēbat: long ē in the inceptive suffix -ēsc-, the usual dictionary quantity; not machine-checked.",
+   "lātitūdinem, similitūdinem, maculōsa: the usual dictionary quantities; not machine-checked.",
+   "monte: short o in the oblique cases of mōns (the ō of the nominative is long only before ns)."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Nūbēs",
+   "p": " -",
+   "lemma": "nūbēs, nūbis, f.",
+   "parse": "nom. sg.",
+   "gloss": "a cloud"
+  },
+  {
+   "w": "incertum",
+   "lemma": "incertus, incerta, incertum",
+   "parse": "nom. sg. n. (impersonal: [it was] uncertain)",
+   "gloss": "(it was) uncertain"
+  },
+  {
+   "w": "procul",
+   "lemma": "procul",
+   "parse": "adverb",
+   "gloss": "from far off"
+  },
+  {
+   "w": "intuentibus",
+   "lemma": "intueor, intuērī",
+   "parse": "pres. participle, dat. pl. m. (dative of reference)",
+   "gloss": "to those watching"
+  },
+  {
+   "w": "ex",
+   "lemma": "ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from",
+   "app": [
+    "ex-indecl"
+   ]
+  },
+  {
+   "w": "quō",
+   "lemma": "quī, quae, quod",
+   "parse": "interrogative adj., abl. sg. m. (with monte)",
+   "gloss": "which"
+  },
+  {
+   "w": "monte",
+   "p": ";",
+   "lemma": "mōns, montis, m.",
+   "parse": "abl. sg.",
+   "gloss": "mountain",
+   "app": [
+    "mons-n3i"
+   ]
+  },
+  {
+   "w": "Vesuvium",
+   "lemma": "Vesuvius, Vesuviī, m.",
+   "parse": "acc. sg. (subject of the infinitive)",
+   "gloss": "Vesuvius"
+  },
+  {
+   "w": "fuisse",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "perf. inf.",
+   "gloss": "to have been",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "posteā",
+   "lemma": "posteā",
+   "parse": "adverb",
+   "gloss": "afterwards"
+  },
+  {
+   "w": "cōgnitum",
+   "lemma": "cōgnōscō, cōgnōscere",
+   "parse": "perf. pass. participle, nom. sg. n. (with est: impersonal)",
+   "gloss": "(it was) learned",
+   "app": [
+    "cognosco-v3"
+   ]
+  },
+  {
+   "w": "est",
+   "p": " -",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind. (with cōgnitum: perf. pass.)",
+   "gloss": "(it) was",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "oriēbātur",
+   "p": ",",
+   "lemma": "orior, orīrī, ortus sum",
+   "parse": "3rd sg. impf. ind. (deponent)",
+   "gloss": "was rising"
+  },
+  {
+   "w": "cuius",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pron., gen. sg. f. (refers to nūbēs)",
+   "gloss": "whose"
+  },
+  {
+   "w": "similitūdinem",
+   "lemma": "similitūdō, similitūdinis, f.",
+   "parse": "acc. sg.",
+   "gloss": "likeness"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "fōrmam",
+   "lemma": "fōrma, fōrmae, f.",
+   "parse": "acc. sg.",
+   "gloss": "shape",
+   "app": [
+    "forma-n1"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "alia",
+   "lemma": "alius, alia, aliud",
+   "parse": "nom. sg. f. (with arbor)",
+   "gloss": "other",
+   "app": [
+    "alius-adj-ius"
+   ]
+  },
+  {
+   "w": "magis",
+   "lemma": "magis",
+   "parse": "adverb",
+   "gloss": "more, better"
+  },
+  {
+   "w": "arbor",
+   "lemma": "arbor, arboris, f.",
+   "parse": "nom. sg.",
+   "gloss": "tree",
+   "app": [
+    "arbor-n3"
+   ]
+  },
+  {
+   "w": "quam",
+   "lemma": "quam",
+   "parse": "conjunction (after magis)",
+   "gloss": "than"
+  },
+  {
+   "w": "pīnus",
+   "lemma": "pīnus, pīnūs (or pīnī), f.",
+   "parse": "nom. sg.",
+   "gloss": "a pine"
+  },
+  {
+   "w": "expresserit",
+   "p": ".",
+   "lemma": "exprimō, exprimere, expressī, expressum",
+   "parse": "3rd sg. perf. subj. act. (potential subjunctive with present sense, A&G §447.1)",
+   "gloss": "would express, could represent"
+  },
+  {
+   "w": "Nam",
+   "lemma": "nam",
+   "parse": "conjunction",
+   "gloss": "for"
+  },
+  {
+   "w": "longissimō",
+   "lemma": "longus, longa, longum (superl. longissimus)",
+   "parse": "superlative, abl. sg. m.",
+   "gloss": "very long",
+   "app": [
+    "longus-adj12"
+   ]
+  },
+  {
+   "w": "velut",
+   "lemma": "velut",
+   "parse": "adverb",
+   "gloss": "as if (on)"
+  },
+  {
+   "w": "truncō",
+   "lemma": "truncus, truncī, m.",
+   "parse": "abl. sg.",
+   "gloss": "trunk"
+  },
+  {
+   "w": "ēlāta",
+   "lemma": "efferō, efferre, extulī, ēlātum",
+   "parse": "perf. pass. participle, nom. sg. f. (agrees with the cloud)",
+   "gloss": "carried up"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "into",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "altum",
+   "lemma": "altus, alta, altum",
+   "parse": "acc. sg. n. (used as a noun)",
+   "gloss": "the height (in altum: up high)",
+   "app": [
+    "altus-adj12"
+   ]
+  },
+  {
+   "w": "quibusdam",
+   "lemma": "quīdam, quaedam, quiddam",
+   "parse": "abl. pl. m. (with rāmīs)",
+   "gloss": "a sort of, certain"
+  },
+  {
+   "w": "rāmīs",
+   "lemma": "rāmus, rāmī, m.",
+   "parse": "abl. pl.",
+   "gloss": "branches"
+  },
+  {
+   "w": "diffundēbātur",
+   "p": ",",
+   "lemma": "diffundō, diffundere, diffūdī, diffūsum",
+   "parse": "3rd sg. impf. ind. pass. (middle sense)",
+   "gloss": "it spread out"
+  },
+  {
+   "w": "crēdō",
+   "lemma": "crēdō, crēdere, crēdidī, crēditum",
+   "parse": "1st sg. pres. ind. act. (parenthetic)",
+   "gloss": "I believe",
+   "app": [
+    "credo-v3"
+   ]
+  },
+  {
+   "w": "quia",
+   "lemma": "quia",
+   "parse": "conjunction",
+   "gloss": "because"
+  },
+  {
+   "w": "recentī",
+   "lemma": "recēns, recentis",
+   "parse": "abl. sg. m. (with spīritū)",
+   "gloss": "fresh"
+  },
+  {
+   "w": "spīritū",
+   "lemma": "spīritus, spīritūs, m.",
+   "parse": "abl. sg. (means)",
+   "gloss": "blast, breath"
+  },
+  {
+   "w": "ēvecta",
+   "p": ",",
+   "lemma": "ēvehō, ēvehere, ēvexī, ēvectum",
+   "parse": "perf. pass. participle, nom. sg. f.",
+   "gloss": "carried up"
+  },
+  {
+   "w": "dein",
+   "lemma": "dein (= deinde)",
+   "parse": "adverb",
+   "gloss": "then"
+  },
+  {
+   "w": "senēscente",
+   "lemma": "senēscō, senēscere, senuī",
+   "parse": "pres. participle, abl. sg. m. (ablative absolute with eō)",
+   "gloss": "weakening, dying down"
+  },
+  {
+   "w": "eō",
+   "lemma": "is, ea, id",
+   "parse": "abl. sg. m. (refers to spīritus)",
+   "gloss": "it (the blast)"
+  },
+  {
+   "w": "dēstitūta",
+   "lemma": "dēstituō, dēstituere, dēstituī, dēstitūtum",
+   "parse": "perf. pass. participle, nom. sg. f.",
+   "gloss": "left unsupported"
+  },
+  {
+   "w": "aut",
+   "lemma": "aut",
+   "parse": "conjunction",
+   "gloss": "or"
+  },
+  {
+   "w": "etiam",
+   "lemma": "etiam",
+   "parse": "adverb",
+   "gloss": "even"
+  },
+  {
+   "w": "pondere",
+   "lemma": "pondus, ponderis, n.",
+   "parse": "abl. sg. (means)",
+   "gloss": "weight",
+   "app": [
+    "pondus-n3n"
+   ]
+  },
+  {
+   "w": "suō",
+   "lemma": "suus, sua, suum",
+   "parse": "abl. sg. n.",
+   "gloss": "its own",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "victa",
+   "lemma": "vincō, vincere, vīcī, victum",
+   "parse": "perf. pass. participle, nom. sg. f.",
+   "gloss": "overcome",
+   "app": [
+    "vinco-v3"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "into, sideways (in lātitūdinem)",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "lātitūdinem",
+   "lemma": "lātitūdō, lātitūdinis, f.",
+   "parse": "acc. sg.",
+   "gloss": "breadth, width"
+  },
+  {
+   "w": "vānēscēbat",
+   "p": ",",
+   "lemma": "vānēscō, vānēscere",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "it thinned out, faded"
+  },
+  {
+   "w": "candida",
+   "lemma": "candidus, candida, candidum",
+   "parse": "nom. sg. f.",
+   "gloss": "white",
+   "app": [
+    "candidus-adj12"
+   ]
+  },
+  {
+   "w": "interdum",
+   "p": ",",
+   "lemma": "interdum",
+   "parse": "adverb",
+   "gloss": "sometimes"
+  },
+  {
+   "w": "interdum",
+   "lemma": "interdum",
+   "parse": "adverb",
+   "gloss": "sometimes"
+  },
+  {
+   "w": "sordida",
+   "lemma": "sordidus, sordida, sordidum",
+   "parse": "nom. sg. f.",
+   "gloss": "dirty"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "maculōsa",
+   "lemma": "maculōsus, maculōsa, maculōsum",
+   "parse": "nom. sg. f.",
+   "gloss": "blotched, spotted"
+  },
+  {
+   "w": "prout",
+   "lemma": "prout",
+   "parse": "conjunction",
+   "gloss": "according as"
+  },
+  {
+   "w": "terram",
+   "lemma": "terra, terrae, f.",
+   "parse": "acc. sg.",
+   "gloss": "earth",
+   "app": [
+    "terra-n1"
+   ]
+  },
+  {
+   "w": "cineremve",
+   "lemma": "cinis, cineris, m./f. (with enclitic -ve 'or')",
+   "parse": "acc. sg. + enclitic -ve",
+   "gloss": "or ash",
+   "app": [
+    "cinis-n3"
+   ]
+  },
+  {
+   "w": "sustulerat",
+   "p": ".",
+   "lemma": "tollō, tollere, sustulī, sublātum",
+   "parse": "3rd sg. pluperf. ind. act.",
+   "gloss": "it had lifted up",
+   "app": [
+    "tollo-v3"
+   ]
+  }
+ ],
+ "translation": "A cloud was rising (to people watching from a distance it was unclear from which mountain; afterwards it was learned to have been Vesuvius) whose likeness and shape no other tree would represent better than a pine. For it was carried up high as if on a very long trunk and then spread out into a kind of branches, I suppose because a fresh blast had lifted it and then, as the blast died down, it was left without support, or was even beaten down by its own weight, and thinned out sideways; at times it was white, at times dirty and blotched, depending on whether it had carried up earth or ash.",
+ "translation_note": "Pliny writes as an observer at Misenum, across the bay: the parenthesis (incertum ... cōgnitum est) admits that at the time no one knew which mountain it was. expresserit is a potential subjunctive: the perfect tense here has present sense (\"would express\", \"could represent\"; Allen and Greenough §447.1). crēdō marks the explanation of the shape as Pliny's own guess. -ve on cineremve means \"or\" (terram cineremve: \"earth or ash\").",
+ "essay": [
+  [
+   {
+    "t": "Pliny the Younger wrote this letter to the historian Tacitus, who had asked for an account of his uncle's death to hand down more truthfully to posterity.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Britannica describes Tacitus' Histories as covering AD 69 to 96, a span that includes the eruption.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "The surviving text breaks off in mid-sentence at 5.26, in a speech by the rebel Civilis, so whatever Tacitus made of the letter is lost.",
+    "src": [
+     6
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Pliny's uncle, Pliny the Elder, commanded the fleet at Misenum; the letter dates the first sight of the cloud to the ninth day before the Kalends of September (24 August), when Pliny's mother pointed it out.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The elder Pliny launched warships to bring help, steered toward the danger while dictating notes on what he saw, and died on the shore at Stabiae; his body was found unharmed when daylight returned.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "His nephew suggests that dense fumes blocked his breathing, but he marks this as his own inference (ut ego colligo).",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The pine-tree image entered science: the US Geological Survey calls large explosive eruptions that build enormous columns of tephra and gas \"Plinian\", after Pliny the Younger's description of Vesuvius.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The USGS puts the death toll at roughly 2,000 people.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "In 2018 excavators in Regio V found a charcoal note dated the sixteenth day before the Kalends of November (17 October), with no year; the site's team called it highly probable that it dated to October AD 79, which would point to an autumn eruption.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "In the Pompeii park's e-journal in 2024, Gabriel Zuchtriegel and colleagues report that charcoal writing put on the same wall on 17 October 2023 was still legible ten months later, so the 2018 note could date from October 78.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "They also cite Pedar Foss's 2022 collation of the manuscripts, which found no manuscript support for any date except 24 August.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "They do not call August proven: they ask whether archaeology now offers enough to doubt it, and leave the question open.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The manuscripts support only 24 August; the case for autumn rests on finds that the park's own team now judges not decisive.",
+    "src": [
+     3,
+     4
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "Why did Pliny write this letter?",
+   "options": [
+    "Tacitus asked him for an account of his uncle's death",
+    "The emperor asked him for a report on the fleet",
+    "He wanted to write a treatise on volcanoes himself",
+    "His mother asked him to record the day it began"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does the word crēdō signal in the description of the cloud's shape?",
+   "options": [
+    "That the explanation is his own guess",
+    "That an eyewitness had told him so",
+    "That he read it in his uncle's notes",
+    "That everyone at Misenum agreed on it"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What did the 2023 experiment at Pompeii show about the charcoal note found in 2018?",
+   "options": [
+    "Charcoal writing stayed legible for ten months",
+    "Charcoal writing faded within a few days",
+    "The 2018 note turned out to be modern",
+    "The note named the year of the eruption"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Pliny the Younger, Epistulae 6.16 (Latin; Perseus Digital Library TEI text, phi1318.phi001.perseus-lat1)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1318/phi001/phi1318.phi001.perseus-lat1.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "USGS Volcano Hazards Program, glossary: \"Plinian eruption\"",
+   "url": "https://volcanoes.usgs.gov/vsc/glossary/plinian.html",
+   "kind": "modern"
+  },
+  {
+   "label": "G. Zuchtriegel, C. Comegna, F. Conte, A. Russo, \"La data della distruzione di Pompei: premesse per un dibattito aperto\", E-Journal degli Scavi di Pompei 27 (12 December 2024), Parco Archeologico di Pompei",
+   "url": "https://pompeiisites.org/wp-content/uploads/27_E-Journal_La-data-della-distruzione-di-Pompei.pdf",
+   "kind": "modern"
+  },
+  {
+   "label": "CNN, report on the 2018 charcoal inscription (\"XVI K Nov\") from Regio V, Pompeii",
+   "url": "https://edition.cnn.com/style/article/pompeii-eruption-inscription-date-intl",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Tacitus\"",
+   "url": "https://www.britannica.com/biography/Tacitus-Roman-historian",
+   "kind": "modern"
+  },
+  {
+   "label": "Tacitus, Historiae (Latin; C. D. Fisher, Oxford 1911, Perseus Digital Library TEI): the text ends in mid-sentence at 5.26",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1351/phi004/phi1351.phi004.perseus-lat2.xml",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

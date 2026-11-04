@@ -1,0 +1,411 @@
+{
+ "id": "pomp-4",
+ "order": 14,
+ "title": "Writing on the walls",
+ "saying": "Admīror ō pariēns tē nōn cecidisse ruīnīs",
+ "author": "Pompeian inscriptions",
+ "work": "Corpus Īnscrīptiōnum Latīnārum IV",
+ "citation": "CIL IV 1904; CIL IV 7928; CIL IV 807",
+ "setting": "Pompeii, before AD 79",
+ "verse": true,
+ "edition": {
+  "name": "Three Pompeian wall texts, each as printed by its online edition. CIL IV 1904 (scratched, Basilica VIII.1.1): AGP-EDR158840, The Ancient Graffiti Project, https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR158840 [accessed: 04 Nov 2026] (editor Rebecca Benefiel, principal contributor Kyle Helms), licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); changes made: macrons added; line division moved (the couplet is broken after ruinis). CIL IV 7928 (painted, IX.13.1-3) and CIL IV 807 (painted, VII.1.44): via Pompeii in Pictures, which gives the 7928 reading from the Clauss/Slaby epigraphic database (EDCS) and its location from Varone and Stefani, Titulorum Pictorum Pompeianorum (2009), pp. 460-1, and prints 807 in capitals, citing Dobbins and Foss (2008) and Mau (1907); neither was checked against EDCS, which could not be reached",
+  "url": "https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR158840",
+  "section": "CIL IV 1904 (complete), CIL IV 7928 (complete), CIL IV 807 (the legible part)"
+ },
+ "source_text": "Admiror o pariens (:paries) te non cecidisse ruinis\nqui tot scriptorum taedia sustineas\nCn(aeum) Helvium Sabin(um) aed(ilem) v(irum) p(robum) vicini rog(ant)\nHOSPITIVM HIC LOCATVR TRICLINIVM CVM TRIBVS LECTIS ET COMM(odis)",
+ "excerpt_note": "Three separate inscriptions, one after another: lines 1-2 are the couplet CIL IV 1904, broken after ruinis, where the AGP apparatus says the hexameter ends; line 3 is the electoral notice CIL IV 7928; line 4 is the inn notice CIL IV 807, in capitals as Pompeii in Pictures prints it. The wall's own line divisions are not reproduced. Letters in parentheses are the editors' expansions of abbreviations; (:paries) is the editors' standard spelling for the writer's PARIENS. They are kept exactly as the editions print them.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise. The walls have no macrons, and the editors' expansions in parentheses are left unmarked.",
+  "uncertain": [
+   "pariēns: the writer's misspelling of pariēs, marked with the long ē of the correct nominative; not machine-checked.",
+   "ruīnīs, admīror: the usual dictionary quantities; not machine-checked.",
+   "HĪC, LOCĀTVR, TRICLĪNIVM, LECTĪS: macrons added to a text printed in capitals (V for U); the usual dictionary quantities."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Admīror",
+   "lemma": "admīror, admīrārī",
+   "parse": "1st sg. pres. ind. (deponent)",
+   "gloss": "I am amazed"
+  },
+  {
+   "w": "ō",
+   "lemma": "Ō",
+   "parse": "interjection",
+   "gloss": "O",
+   "app": [
+    "o-indecl"
+   ]
+  },
+  {
+   "w": "pariēns",
+   "p": " (:paries)",
+   "lemma": "pariēs, parietis, m.",
+   "parse": "voc. sg. (written PARIENS for paries; the editors' correction follows in parentheses)",
+   "gloss": "wall"
+  },
+  {
+   "w": "tē",
+   "lemma": "tū, tuī",
+   "parse": "acc. sg. (subject of cecidisse)",
+   "gloss": "that you"
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "cecidisse",
+   "lemma": "cadō, cadere, cecidī, cāsum",
+   "parse": "perf. inf. act. (indirect statement)",
+   "gloss": "have fallen",
+   "app": [
+    "cado-v3"
+   ]
+  },
+  {
+   "w": "ruīnīs",
+   "br": true,
+   "lemma": "ruīna, ruīnae, f.",
+   "parse": "abl. pl. (manner)",
+   "gloss": "in ruins"
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pron., nom. sg. m. (refers to the wall)",
+   "gloss": "(you) who"
+  },
+  {
+   "w": "tot",
+   "lemma": "tot",
+   "parse": "indeclinable adjective",
+   "gloss": "so many"
+  },
+  {
+   "w": "scrīptōrum",
+   "lemma": "scrīptor, scrīptōris, m.",
+   "parse": "gen. pl.",
+   "gloss": "of writers",
+   "app": [
+    "scriptor-n3"
+   ]
+  },
+  {
+   "w": "taedia",
+   "lemma": "taedium, taediī, n.",
+   "parse": "acc. pl.",
+   "gloss": "tedious stuff, boredom"
+  },
+  {
+   "w": "sustineās",
+   "br": true,
+   "lemma": "sustineō, sustinēre, sustinuī, sustentum",
+   "parse": "2nd sg. pres. subj. act. (causal relative clause)",
+   "gloss": "you hold up, bear",
+   "app": [
+    "sustineo-v2"
+   ]
+  },
+  {
+   "w": "Cn",
+   "p": "(aeum)",
+   "lemma": "Cn. (abbreviation of Gnaeus, a first name)",
+   "parse": "acc. sg. (the editors write out Cn(aeum))",
+   "gloss": "Gnaeus"
+  },
+  {
+   "w": "Helvium",
+   "lemma": "Helvius, Helviī, m.",
+   "parse": "acc. sg.",
+   "gloss": "Helvius (family name)"
+  },
+  {
+   "w": "Sabin",
+   "p": "(um)",
+   "lemma": "Sabīnus, Sabīnī, m.",
+   "parse": "acc. sg. (abbreviated: Sabin(um))",
+   "gloss": "Sabinus (surname)"
+  },
+  {
+   "w": "aed",
+   "p": "(ilem)",
+   "lemma": "aedīlis, aedīlis, m.",
+   "parse": "acc. sg., predicate (abbreviated: aed(ilem))",
+   "gloss": "(as) aedile"
+  },
+  {
+   "w": "v",
+   "p": "(irum)",
+   "lemma": "vir, virī, m.",
+   "parse": "acc. sg. (abbreviated: v(irum))",
+   "gloss": "a man",
+   "app": [
+    "vir-n2m"
+   ]
+  },
+  {
+   "w": "p",
+   "p": "(robum)",
+   "lemma": "probus, proba, probum",
+   "parse": "acc. sg. m. (abbreviated: p(robum))",
+   "gloss": "honest, upright"
+  },
+  {
+   "w": "vīcīnī",
+   "lemma": "vīcīnus, vīcīna, vīcīnum",
+   "parse": "nom. pl. m. (used as a noun)",
+   "gloss": "the neighbours",
+   "app": [
+    "vicinus-adj12"
+   ]
+  },
+  {
+   "w": "rog",
+   "p": "(ant)",
+   "br": true,
+   "lemma": "rogō, rogāre",
+   "parse": "3rd pl. pres. ind. act. (abbreviated: rog(ant))",
+   "gloss": "ask (for him)",
+   "app": [
+    "rogo-v1"
+   ]
+  },
+  {
+   "w": "HOSPITIVM",
+   "lemma": "hospitium, hospitiī, n.",
+   "parse": "nom. sg.",
+   "gloss": "lodging, an inn"
+  },
+  {
+   "w": "HĪC",
+   "lemma": "hīc",
+   "parse": "adverb",
+   "gloss": "here",
+   "app": [
+    "hic-indecl"
+   ]
+  },
+  {
+   "w": "LOCĀTVR",
+   "lemma": "locō, locāre",
+   "parse": "3rd sg. pres. ind. pass.",
+   "gloss": "is let, is for rent"
+  },
+  {
+   "w": "TRICLĪNIVM",
+   "lemma": "triclīnium, triclīniī, n.",
+   "parse": "nom. sg.",
+   "gloss": "a dining room"
+  },
+  {
+   "w": "CVM",
+   "lemma": "cum (+ abl.)",
+   "parse": "preposition",
+   "gloss": "with",
+   "app": [
+    "cum-indecl"
+   ]
+  },
+  {
+   "w": "TRIBVS",
+   "lemma": "trēs, tria",
+   "parse": "abl. pl. m.",
+   "gloss": "three"
+  },
+  {
+   "w": "LECTĪS",
+   "lemma": "lectus, lectī, m.",
+   "parse": "abl. pl.",
+   "gloss": "couches"
+  },
+  {
+   "w": "ET",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "COMM",
+   "p": "(odis)",
+   "lemma": "commodum, commodī, n.",
+   "parse": "abl. pl. (abbreviated: comm(odis))",
+   "gloss": "conveniences, amenities"
+  }
+ ],
+ "translation": "I'm amazed, wall, that you haven't collapsed in ruins, when you hold up the boring scribbles of so many writers. | Gnaeus Helvius Sabinus for aedile, an upright man: his neighbours request it. | To let here: lodging, a dining room with three couches, and amenities.",
+ "translation_note": "The vertical bars separate the three inscriptions. In the couplet, quī ... sustineās is a relative clause with a causal sense (\"since you bear\"). In the electoral notice the names are accusative as objects of rog(ant), \"the neighbours ask for ...\"; other notices use the formula o(rō) v(ōs) f(aciātis), \"I beg you to elect\". v(irum) p(robum), \"an upright man\", is a stock phrase of these notices.",
+ "essay": [
+  [
+   {
+    "t": "Pompeii's walls carry two main kinds of writing: graffiti scratched into the plaster and notices painted with a brush.",
+    "src": [
+     6,
+     5
+    ]
+   },
+   {
+    "t": "The couplet here was scratched in the Basilica; the Ancient Graffiti Project's edition prints the writer's PARIENS and supplies the standard paries in parentheses.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Its apparatus notes that a hexameter ends after ruinis; the second line is a pentameter, which makes an elegiac couplet.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "According to Pompeii in Pictures, the same couplet was also written in the Large Theatre (CIL IV 2461) and the Amphitheatre (CIL IV 2487).",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "A wall complaining about graffiti, copied in three public buildings, looks like a known joke passed around; that is my interpretation.",
+    "src": [
+     1,
+     4
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The Naples Archaeological Museum counts more than 2,600 electoral notices from Pompeii.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "Often professional sign-painters (scriptores) painted them in red or black on walls along the main streets, naming a candidate, an office and often the supporters, who could be individuals or groups such as fruit sellers.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "Many use the letters OVF, oro vos faciatis, \"I beg you to elect\".",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "In CIL IV 7928, by the doorway of IX.13.1-3 on the Via dell'Abbondanza, the supporters are simply the neighbours; editors write out in parentheses what the painter abbreviated: Cn(aeum), aed(ilem), v(irum) p(robum), rog(ant).",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "CIL IV 807, painted below an image of an elephant at VII.1.44, advertises a room to let; Mau thought the rest of the notice illegible and the owner uncertain.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "How many Pompeians could read is disputed: William Harris estimates literacy across the empire as low as 15 percent, while Pompeii's abundant writing has been taken to suggest a higher rate.",
+    "src": [
+     6
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Sarah Levin-Richardson stresses that literacy was uneven, ranging from copying letters to composing sentences, and cites Franklin's suggestion that the large names on electoral notices could be made out even by the semi-literate.",
+    "src": [
+     6
+    ],
+    "doubt": true
+   },
+   {
+    "t": "So the walls show that writing was everywhere in public life, not that everyone could read it.",
+    "src": [
+     6,
+     5
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What does (:paries) after PARIENS mean in the edition?",
+   "options": [
+    "The editors' spelling for the writer's misspelling",
+    "A second word scratched by another hand",
+    "A Greek gloss added in antiquity",
+    "A sign that the rest of the line is lost"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Who asks voters to support Helvius Sabinus in CIL IV 7928?",
+   "options": [
+    "His neighbours",
+    "The fruit sellers",
+    "The town council",
+    "His freedmen"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What do the letters in parentheses, such as aed(ilem), show?",
+   "options": [
+    "Editors' expansions of the painter's abbreviations",
+    "Letters the painter added at a later date",
+    "Letters that were erased in antiquity",
+    "Corrections made by a second painter"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "AGP-EDR158840, The Ancient Graffiti Project [accessed: 04 Nov 2026]: CIL IV 1904, Basilica (VIII.1.1), Pompeii (ed. Rebecca Benefiel; CC BY-NC-SA 4.0)",
+   "url": "https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR158840",
+   "kind": "ancient"
+  },
+  {
+   "label": "Pompeii in Pictures, IX.13.1-3: electoral notices including CIL IV 7928 (reading from Clauss/Slaby)",
+   "url": "https://pompeii.pictures/R9/9%2013%2001.htm",
+   "kind": "ancient"
+  },
+  {
+   "label": "Pompeii in Pictures, VII.1.44 (Hospitium Sittii): CIL IV 807",
+   "url": "https://www.pompeii.pictures/R7/7%2001%2044.htm",
+   "kind": "ancient"
+  },
+  {
+   "label": "Pompeii in Pictures, VIII.1.1 Basilica: CIL IV 1904 and its parallels CIL IV 2461, 2487",
+   "url": "https://pompeii.pictures/R8/8%2001%2001%20p3.htm",
+   "kind": "modern"
+  },
+  {
+   "label": "Museo Archeologico Nazionale di Napoli, \"Elections in Pompeii\" (Google Arts & Culture)",
+   "url": "https://artsandculture.google.com/story/elections-in-pompeii-national-archaeological-museum-of-naples/tgUBNHEcEscIJg?hl=en",
+   "kind": "modern"
+  },
+  {
+   "label": "S. Levin-Richardson, The Brothel of Pompeii (Cambridge University Press), ch. 3 \"Graffiti\" (chapter PDF)",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/78C406AADBA82C91694E35A3B55F1233/9781108496872c3_40-63.pdf/graffiti.pdf",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

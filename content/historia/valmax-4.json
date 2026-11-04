@@ -1,0 +1,712 @@
+{
+ "id": "valmax-4",
+ "order": 15,
+ "title": "These are my jewels",
+ "saying": "haec ōrnāmenta sunt mea",
+ "author": "Valerius Maximus",
+ "work": "Factōrum et dictōrum memorābilium librī",
+ "citation": "Val. Max. 4.4.pr.; 8.3.3",
+ "setting": "Rome, 2nd century BC (Cornelia) and 42 BC (Hortensia)",
+ "edition": {
+  "name": "Valerius Maximus, Factorum et dictorum memorabilium libri novem, Latin text of the Teubner edition by Karl Friedrich Kempf (Leipzig 1888), as encoded by the Perseus Digital Library (TEI file phi1038.phi001.perseus-lat1), whose header credits \"Karl Friedrich Kempf\", Teubner, Leipzig, 1888; public domain text; Perseus Digital Library, CC BY-SA 4.0 (licence stated in the repository README)",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1038/phi001/phi1038.phi001.perseus-lat1.xml",
+  "section": "4.4 praefatio (the Cornelia anecdote, from \"Cornelia\" to \"mea\") and 8.3.3 (first sentence)"
+ },
+ "source_text": "Cornelia Gracchorum mater, cum Campana matrona apud illam hospita ornamenta sua pulcherrima illius saeculi ostenderet, traxit eam sermone, <donec> e schola redirent liberi, et 'haec' inquit 'ornamenta sunt mea'. … Hortensia uero Q. Hortensi filia, cum ordo matronarum graui tributo a triumuiris esset oneratus <nec> quisquam uirorum patrocinium eis accommodare auderet, causam feminarum apud triumuiros et constanter et feliciter egit: repraesentata enim patris facundia impetrauit ut maior pars imperatae pecuniae his remitteretur.",
+ "excerpt_note": "Two short excerpts joined by an ellipsis (…), which is not in the edition: the Cornelia story from the preface to 4.4 (\"On poverty\"), and the first sentence of 8.3.3 from the chapter on women who pleaded cases before magistrates. Kempf writes u for consonantal v (uero, graui, triumuiris), begins sentences in lower case, and uses single quotation marks; all are kept. Words in angle brackets (donec, nec) are the editor's supplements, marked <add> in the Perseus file.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise. Where the edition writes u for consonantal v, the macronized word keeps the u.",
+  "uncertain": [
+   "Hortēnsia, Hortēnsī: long ē before ns, the usual dictionary quantity; not machine-checked.",
+   "fācundiā: long ā, the usual dictionary quantity; not machine-checked.",
+   "illīus: long ī in the genitive, the usual classical quantity (poets sometimes shorten it).",
+   "patrōcinium, tribūtō, mātrōna: the usual dictionary quantities; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Cornēlia",
+   "lemma": "Cornēlia, Cornēliae, f.",
+   "parse": "nom. sg.",
+   "gloss": "Cornelia"
+  },
+  {
+   "w": "Gracchōrum",
+   "lemma": "Gracchus, Gracchī, m.",
+   "parse": "gen. pl.",
+   "gloss": "of the Gracchi"
+  },
+  {
+   "w": "māter",
+   "p": ",",
+   "lemma": "māter, mātris, f.",
+   "parse": "nom. sg.",
+   "gloss": "mother",
+   "app": [
+    "mater-n3"
+   ]
+  },
+  {
+   "w": "cum",
+   "lemma": "cum",
+   "parse": "conjunction (with subjunctive)",
+   "gloss": "when",
+   "nolink": true
+  },
+  {
+   "w": "Campāna",
+   "lemma": "Campānus, Campāna, Campānum",
+   "parse": "nom. sg. f.",
+   "gloss": "Campanian"
+  },
+  {
+   "w": "mātrōna",
+   "lemma": "mātrōna, mātrōnae, f.",
+   "parse": "nom. sg.",
+   "gloss": "lady, married woman"
+  },
+  {
+   "w": "apud",
+   "lemma": "apud",
+   "parse": "preposition (+ acc.)",
+   "gloss": "at the house of"
+  },
+  {
+   "w": "illam",
+   "lemma": "ille, illa, illud",
+   "parse": "acc. sg. f.",
+   "gloss": "her (Cornelia)",
+   "app": [
+    "ille-pron-ille"
+   ]
+  },
+  {
+   "w": "hospita",
+   "lemma": "hospita, hospitae, f.",
+   "parse": "nom. sg. (in apposition)",
+   "gloss": "(staying) as a guest"
+  },
+  {
+   "w": "ōrnāmenta",
+   "lemma": "ōrnāmentum, ōrnāmentī, n.",
+   "parse": "acc. pl.",
+   "gloss": "jewellery, ornaments"
+  },
+  {
+   "w": "sua",
+   "lemma": "suus, sua, suum",
+   "parse": "acc. pl. n.",
+   "gloss": "her own",
+   "app": [
+    "suus-adj12"
+   ]
+  },
+  {
+   "w": "pulcherrima",
+   "lemma": "pulcher, pulchra, pulchrum",
+   "parse": "superlative, acc. pl. n.",
+   "gloss": "most beautiful",
+   "app": [
+    "pulcher-adj12"
+   ]
+  },
+  {
+   "w": "illīus",
+   "lemma": "ille, illa, illud",
+   "parse": "gen. sg. n.",
+   "gloss": "of that",
+   "app": [
+    "ille-pron-ille"
+   ]
+  },
+  {
+   "w": "saeculī",
+   "lemma": "saeculum, saeculī, n.",
+   "parse": "gen. sg.",
+   "gloss": "age, era",
+   "app": [
+    "saeculum-n2n"
+   ]
+  },
+  {
+   "w": "ostenderet",
+   "p": ",",
+   "lemma": "ostendō, ostendere, ostendī, ostentum",
+   "parse": "3rd sg. impf. subj. act. (cum clause)",
+   "gloss": "was showing off",
+   "app": [
+    "ostendo-v3"
+   ]
+  },
+  {
+   "w": "trāxit",
+   "lemma": "trahō, trahere, trāxī, tractum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "she drew (her) along",
+   "app": [
+    "traho-v3"
+   ]
+  },
+  {
+   "w": "eam",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. f.",
+   "gloss": "her (the guest)"
+  },
+  {
+   "w": "sermōne",
+   "p": ",",
+   "lemma": "sermō, sermōnis, m.",
+   "parse": "abl. sg. (means)",
+   "gloss": "in conversation",
+   "app": [
+    "sermo-n3"
+   ]
+  },
+  {
+   "w": "dōnec",
+   "pre": "<",
+   "p": ">",
+   "lemma": "dōnec",
+   "parse": "conjunction (supplied by the editor, in angle brackets)",
+   "gloss": "until"
+  },
+  {
+   "w": "ē",
+   "lemma": "ē (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from",
+   "app": [
+    "e-indecl"
+   ]
+  },
+  {
+   "w": "scholā",
+   "lemma": "schola, scholae, f.",
+   "parse": "abl. sg.",
+   "gloss": "school"
+  },
+  {
+   "w": "redīrent",
+   "lemma": "redeō, redīre, rediī, reditum",
+   "parse": "3rd pl. impf. subj. (dōnec of expectation)",
+   "gloss": "should come back"
+  },
+  {
+   "w": "līberī",
+   "p": ",",
+   "lemma": "līberī, līberōrum, m.",
+   "parse": "nom. pl.",
+   "gloss": "children"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "haec",
+   "pre": "'",
+   "p": "'",
+   "lemma": "hic, haec, hoc",
+   "parse": "nom. pl. n.",
+   "gloss": "these",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "inquit",
+   "lemma": "inquam, inquis, inquit",
+   "parse": "3rd sg. (defective verb)",
+   "gloss": "she said"
+  },
+  {
+   "w": "ōrnāmenta",
+   "pre": "'",
+   "lemma": "ōrnāmentum, ōrnāmentī, n.",
+   "parse": "nom. pl. (predicate)",
+   "gloss": "jewels"
+  },
+  {
+   "w": "sunt",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. pres. ind.",
+   "gloss": "are",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "mea",
+   "p": "'. …",
+   "lemma": "meus, mea, meum",
+   "parse": "nom. pl. n.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "Hortēnsia",
+   "lemma": "Hortēnsia, Hortēnsiae, f.",
+   "parse": "nom. sg.",
+   "gloss": "Hortensia"
+  },
+  {
+   "w": "uērō",
+   "lemma": "vērō",
+   "parse": "adverb (postpositive; the edition writes u for consonantal v)",
+   "gloss": "and, moreover"
+  },
+  {
+   "w": "Q",
+   "p": ".",
+   "lemma": "Q. (abbreviation of Quīntus, a first name)",
+   "parse": "gen. sg. (with Hortēnsī)",
+   "gloss": "Quintus"
+  },
+  {
+   "w": "Hortēnsī",
+   "lemma": "Hortēnsius, Hortēnsiī (or -ī), m.",
+   "parse": "gen. sg.",
+   "gloss": "of Hortensius"
+  },
+  {
+   "w": "fīlia",
+   "p": ",",
+   "lemma": "fīlia, fīliae, f.",
+   "parse": "nom. sg.",
+   "gloss": "daughter",
+   "app": [
+    "filia-n1"
+   ]
+  },
+  {
+   "w": "cum",
+   "lemma": "cum",
+   "parse": "conjunction (with subjunctive)",
+   "gloss": "when, since",
+   "nolink": true
+  },
+  {
+   "w": "ōrdō",
+   "lemma": "ōrdō, ōrdinis, m.",
+   "parse": "nom. sg.",
+   "gloss": "order, body",
+   "app": [
+    "ordo-n3"
+   ]
+  },
+  {
+   "w": "mātrōnārum",
+   "lemma": "mātrōna, mātrōnae, f.",
+   "parse": "gen. pl.",
+   "gloss": "of married women"
+  },
+  {
+   "w": "grauī",
+   "lemma": "gravis, -e",
+   "parse": "abl. sg. n. (the edition writes u for v)",
+   "gloss": "heavy"
+  },
+  {
+   "w": "tribūtō",
+   "lemma": "tribūtum, tribūtī, n.",
+   "parse": "abl. sg.",
+   "gloss": "tax"
+  },
+  {
+   "w": "ā",
+   "lemma": "ā (or ab)",
+   "parse": "preposition (+ abl.; agent)",
+   "gloss": "by"
+  },
+  {
+   "w": "triumuirīs",
+   "lemma": "triumvir, triumvirī, m.",
+   "parse": "abl. pl. (the edition writes u for v)",
+   "gloss": "the triumvirs"
+  },
+  {
+   "w": "esset",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. impf. subj. (with onerātus: pluperf. pass.)",
+   "gloss": "had been",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "onerātus",
+   "lemma": "onerō, onerāre, onerāvī, onerātum",
+   "parse": "perf. pass. participle, nom. sg. m.",
+   "gloss": "burdened"
+  },
+  {
+   "w": "nec",
+   "pre": "<",
+   "p": ">",
+   "lemma": "nec (= neque)",
+   "parse": "conjunction (supplied by the editor, in angle brackets)",
+   "gloss": "and not"
+  },
+  {
+   "w": "quisquam",
+   "lemma": "quisquam, quicquam",
+   "parse": "nom. sg. m.",
+   "gloss": "anyone"
+  },
+  {
+   "w": "uirōrum",
+   "lemma": "vir, virī, m.",
+   "parse": "gen. pl. (the edition writes u for v)",
+   "gloss": "of the men",
+   "app": [
+    "vir-n2m"
+   ]
+  },
+  {
+   "w": "patrōcinium",
+   "lemma": "patrōcinium, patrōciniī, n.",
+   "parse": "acc. sg.",
+   "gloss": "advocacy, legal support"
+  },
+  {
+   "w": "eīs",
+   "lemma": "is, ea, id",
+   "parse": "dat. pl. f.",
+   "gloss": "to them"
+  },
+  {
+   "w": "accommodāre",
+   "lemma": "accommodō, accommodāre",
+   "parse": "pres. inf. act.",
+   "gloss": "to lend"
+  },
+  {
+   "w": "audēret",
+   "p": ",",
+   "lemma": "audeō, audēre, ausus sum",
+   "parse": "3rd sg. impf. subj. act. (cum clause)",
+   "gloss": "dared",
+   "app": [
+    "audeo-v2"
+   ]
+  },
+  {
+   "w": "causam",
+   "lemma": "causa, causae, f.",
+   "parse": "acc. sg.",
+   "gloss": "case",
+   "app": [
+    "causa-n1"
+   ]
+  },
+  {
+   "w": "fēminārum",
+   "lemma": "fēmina, fēminae, f.",
+   "parse": "gen. pl.",
+   "gloss": "of the women",
+   "app": [
+    "femina-n1"
+   ]
+  },
+  {
+   "w": "apud",
+   "lemma": "apud",
+   "parse": "preposition (+ acc.)",
+   "gloss": "before (a court)"
+  },
+  {
+   "w": "triumuirōs",
+   "lemma": "triumvir, triumvirī, m.",
+   "parse": "acc. pl.",
+   "gloss": "the triumvirs"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction (et ... et: both ... and)",
+   "gloss": "both",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "cōnstanter",
+   "lemma": "cōnstanter",
+   "parse": "adverb",
+   "gloss": "resolutely"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "fēlīciter",
+   "lemma": "fēlīciter",
+   "parse": "adverb",
+   "gloss": "successfully"
+  },
+  {
+   "w": "ēgit",
+   "p": ":",
+   "lemma": "agō, agere, ēgī, āctum",
+   "parse": "3rd sg. perf. ind. act. (causam agere: plead a case)",
+   "gloss": "she pleaded",
+   "app": [
+    "ago-v3"
+   ]
+  },
+  {
+   "w": "repraesentātā",
+   "lemma": "repraesentō, repraesentāre",
+   "parse": "perf. pass. participle, abl. sg. f. (ablative absolute with fācundiā)",
+   "gloss": "brought back to life"
+  },
+  {
+   "w": "enim",
+   "lemma": "enim",
+   "parse": "conjunction (postpositive)",
+   "gloss": "for",
+   "app": [
+    "enim-indecl"
+   ]
+  },
+  {
+   "w": "patris",
+   "lemma": "pater, patris, m.",
+   "parse": "gen. sg.",
+   "gloss": "of her father",
+   "app": [
+    "pater-n3"
+   ]
+  },
+  {
+   "w": "fācundiā",
+   "lemma": "fācundia, fācundiae, f.",
+   "parse": "abl. sg. (ablative absolute)",
+   "gloss": "eloquence"
+  },
+  {
+   "w": "impetrāuit",
+   "lemma": "impetrō, impetrāre, impetrāvī, impetrātum",
+   "parse": "3rd sg. perf. ind. act. (the edition writes u for v)",
+   "gloss": "she obtained"
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (substantive ut-clause, indirect command, after impetrō)",
+   "gloss": "that"
+  },
+  {
+   "w": "maior",
+   "lemma": "maior, maius (comparative of magnus)",
+   "parse": "nom. sg. f.",
+   "gloss": "the greater"
+  },
+  {
+   "w": "pars",
+   "lemma": "pars, partis, f.",
+   "parse": "nom. sg.",
+   "gloss": "part",
+   "app": [
+    "pars-n3i"
+   ]
+  },
+  {
+   "w": "imperātae",
+   "lemma": "imperō, imperāre",
+   "parse": "perf. pass. participle, gen. sg. f.",
+   "gloss": "demanded, ordered",
+   "app": [
+    "impero-v1"
+   ]
+  },
+  {
+   "w": "pecūniae",
+   "lemma": "pecūnia, pecūniae, f.",
+   "parse": "gen. sg.",
+   "gloss": "of the money",
+   "app": [
+    "pecunia-n1"
+   ]
+  },
+  {
+   "w": "hīs",
+   "lemma": "hic, haec, hoc",
+   "parse": "dat. pl. f.",
+   "gloss": "to them (the women)",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "remitterētur",
+   "p": ".",
+   "lemma": "remittō, remittere, remīsī, remissum",
+   "parse": "3rd sg. impf. subj. pass.",
+   "gloss": "should be remitted"
+  }
+ ],
+ "translation": "When a lady from Campania, staying with Cornelia, the mother of the Gracchi, was showing off her jewellery, the finest of the day, Cornelia kept her talking until her children came home from school, and then said: \"These are my jewels.\" … When the order of married women had been loaded with a heavy tax by the triumvirs and no man dared to take on their defence, Hortensia, the daughter of Quintus Hortensius, pleaded the women's case before the triumvirs firmly and with success: by reviving her father's eloquence she won the remission of most of the money demanded of them.",
+ "translation_note": "Valerius' Latin has ornamenta sunt mea (\"are my ornaments\"); it is often quoted in shorter forms such as \"Haec ornamenta mea\" (so the title of the English Wikipedia article, a tertiary source). trāxit eam sermōne means she drew the guest on in conversation. repraesentātā patris fācundiā is an ablative absolute: \"with her father's eloquence brought back\". Valerius files Cornelia under poverty: her wealth is her children.",
+ "essay": [
+  [
+   {
+    "t": "Valerius Maximus says he gathered memorable deeds and sayings from distinguished authors to spare readers seeking examples a long search; the Cornelia story opens his chapter on poverty, and he says he found it in a collection by Pomponius Rufus.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The anecdote is therefore secondhand, and its exact wording cannot be traced further back.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Plutarch says Cornelia was the daughter of Scipio, the victor over Hannibal, bore twelve children of whom three survived, refused a king Ptolemy's offer of marriage, and raised her sons with great care.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Quintilian says the Gracchi owed much of their eloquence to their mother, whose letters still showed the cultivation of her style.",
+    "src": [
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Hortensia belongs to Valerius' chapter on women who pleaded cases before magistrates; he presents her success as her father's eloquence reborn in a daughter.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Appian gives the fuller story: the triumvirs ordered 1,400 of the richest women to value their property and pay toward the war.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The women first appealed to the triumvirs' female relatives; Octavian's sister and Antony's mother received them, but Antony's wife Fulvia drove them away.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "In Appian's version Hortensia asks why women should pay taxes when they have no share in honours, commands or statecraft, and notes that their mothers had given jewellery voluntarily during the war with Carthage.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The triumvirs, angry that women held a public meeting while men kept silent, had their lictors drive them off until the crowd protested; the next day they cut the number of women taxed from 1,400 to 400 and also imposed a levy on wealthy men.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "An EBSCO reference article dates the speech to 42 BC; in Appian the levy follows directly on the proscriptions, so it belongs to the winter of 43/42 BC; the month is uncertain (my inference).",
+    "src": [
+     5,
+     2
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Appian's Greek speech may not reproduce her Latin words; the same article suggests it may be a later rhetorical exercise, while Quintilian confirms that her speech was still being read in his time.",
+    "src": [
+     5,
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The two sources also differ in detail: Valerius says most of the money was remitted, Appian that the number of women taxed was reduced.",
+    "src": [
+     1,
+     2
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "Why does Valerius put the Cornelia story in his chapter on poverty?",
+   "options": [
+    "Her children, not jewellery, were her treasure",
+    "She had lost her fortune in the civil wars",
+    "The Campanian guest was really very poor",
+    "The triumvirs had taxed all her jewellery"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "According to Appian, what happened the day after Hortensia's speech?",
+   "options": [
+    "The number of women taxed fell from 1,400 to 400",
+    "The tax on the women was doubled at once",
+    "Hortensia was sent into exile from Rome",
+    "Fulvia paid the tax for all the women"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why should Appian's text of the speech be read with caution?",
+   "options": [
+    "It is a later Greek version, perhaps a rhetorical piece",
+    "It was written down by Hortensia's enemies",
+    "It survives only on a damaged inscription",
+    "Quintilian says the real speech was lost"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Valerius Maximus 4.4.pr. and 8.3.3 (Latin; Kempf's Teubner text, 1888, Perseus Digital Library TEI)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1038/phi001/phi1038.phi001.perseus-lat1.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Appian, Civil Wars 4.32–34 (Loeb 1913 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Appian/Civil_Wars/4*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Quintilian, Institutio Oratoria 1.1.6 (Loeb 1920 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Quintilian/Institutio_Oratoria/1A*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Plutarch, Tiberius Gracchus 1 (Loeb 1921 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Tiberius_Gracchus*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "EBSCO Research Starters, \"Hortensia\" (Janet B. Davis)",
+   "url": "https://www.ebsco.com/research-starters/womens-studies-and-feminism/hortensia",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

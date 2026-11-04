@@ -1,0 +1,549 @@
+{
+ "id": "sen-47",
+ "order": 13,
+ "title": "They are slaves. No: human beings",
+ "saying": "Servī sunt. Immō hominēs.",
+ "author": "Seneca",
+ "work": "Epistulae mōrālēs ad Lūcīlium",
+ "citation": "Sen. Ep. 47.1",
+ "setting": "A letter to Lucilius, early 60s AD",
+ "edition": {
+  "name": "Seneca, Ad Lucilium Epistulae Morales, Latin text of the Loeb Classical Library edition (Richard M. Gummere, vol. I, Cambridge, Mass. and London 1917), as encoded by the Perseus Digital Library (TEI file phi1017.phi015.perseus-lat2), whose header credits \"Richard Mott Gummere\", Harvard University Press / William Heinemann, \"1917-1925\", Loeb Classical Library; public domain text, file under CC BY-SA 4.0",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1017/phi015/phi1017.phi015.perseus-lat2.xml",
+  "section": "Epistulae morales 47.1 (the whole section)"
+ },
+ "source_text": "Libenter ex is, qui a te veniunt, cognovi familiariter te cum servis tuis vivere. Hoc prudentiam tuam, hoc eruditionem decet. \"Servi sunt.\" Immo homines. \"Servi sunt.\" Immo contubernales. \"Servi sunt.\" Immo humiles amici. \"Servi sunt.\" Immo conservi, si cogitaveris tantundem in utrosque licere fortunae.",
+ "excerpt_note": "Section 47.1 complete. The edition prints \"Servi sunt.\" in quotation marks each time (an imagined objector speaking). It reads ex is, Hense's correction; the manuscripts have his or iis, according to the edition's note.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "īs: the ablative plural of is is written īs (contracted from iīs); not machine-checked.",
+   "cōgnōvī: long ō before gn, following the app lexicon's cōgnōscō.",
+   "contubernālēs, ērudītiōnem, prūdentiam, familiāriter, cōnservī: the usual dictionary quantities; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Libenter",
+   "lemma": "libenter",
+   "parse": "adverb",
+   "gloss": "gladly"
+  },
+  {
+   "w": "ex",
+   "lemma": "ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from",
+   "app": [
+    "ex-indecl"
+   ]
+  },
+  {
+   "w": "īs",
+   "p": ",",
+   "lemma": "is, ea, id",
+   "parse": "abl. pl. m. (antecedent of quī)",
+   "gloss": "those"
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pron., nom. pl. m.",
+   "gloss": "who"
+  },
+  {
+   "w": "ā",
+   "lemma": "ā (or ab)",
+   "parse": "preposition (+ abl.)",
+   "gloss": "from"
+  },
+  {
+   "w": "tē",
+   "lemma": "tū, tuī",
+   "parse": "abl. sg.",
+   "gloss": "you"
+  },
+  {
+   "w": "veniunt",
+   "p": ",",
+   "lemma": "veniō, venīre, vēnī, ventum",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "come",
+   "app": [
+    "venio-v4"
+   ]
+  },
+  {
+   "w": "cōgnōvī",
+   "lemma": "cōgnōscō, cōgnōscere",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I have learned",
+   "app": [
+    "cognosco-v3"
+   ]
+  },
+  {
+   "w": "familiāriter",
+   "lemma": "familiāriter",
+   "parse": "adverb",
+   "gloss": "on familiar terms"
+  },
+  {
+   "w": "tē",
+   "lemma": "tū, tuī",
+   "parse": "acc. sg. (subject of vīvere: indirect statement)",
+   "gloss": "you"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum (+ abl.)",
+   "parse": "preposition",
+   "gloss": "with",
+   "app": [
+    "cum-indecl"
+   ]
+  },
+  {
+   "w": "servīs",
+   "lemma": "servus, servī, m.",
+   "parse": "abl. pl.",
+   "gloss": "slaves",
+   "app": [
+    "servus-n2m"
+   ]
+  },
+  {
+   "w": "tuīs",
+   "lemma": "tuus, tua, tuum",
+   "parse": "abl. pl. m.",
+   "gloss": "your",
+   "app": [
+    "tuus-adj12"
+   ]
+  },
+  {
+   "w": "vīvere",
+   "p": ".",
+   "lemma": "vīvō, vīvere, vīxī, vīctum",
+   "parse": "pres. inf. act. (indirect statement)",
+   "gloss": "live",
+   "app": [
+    "vivo-v3"
+   ]
+  },
+  {
+   "w": "Hoc",
+   "lemma": "hic, haec, hoc",
+   "parse": "nom. sg. n.",
+   "gloss": "this",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "prūdentiam",
+   "lemma": "prūdentia, prūdentiae, f.",
+   "parse": "acc. sg.",
+   "gloss": "good sense"
+  },
+  {
+   "w": "tuam",
+   "p": ",",
+   "lemma": "tuus, tua, tuum",
+   "parse": "acc. sg. f.",
+   "gloss": "your",
+   "app": [
+    "tuus-adj12"
+   ]
+  },
+  {
+   "w": "hoc",
+   "lemma": "hic, haec, hoc",
+   "parse": "nom. sg. n.",
+   "gloss": "this",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "ērudītiōnem",
+   "lemma": "ērudītiō, ērudītiōnis, f.",
+   "parse": "acc. sg.",
+   "gloss": "learning, education"
+  },
+  {
+   "w": "decet",
+   "p": ".",
+   "lemma": "decet, decēre, decuit",
+   "parse": "3rd sg. pres. ind. (impersonal; + acc.)",
+   "gloss": "befits"
+  },
+  {
+   "w": "Servī",
+   "pre": "\"",
+   "lemma": "servus, servī, m.",
+   "parse": "nom. pl.",
+   "gloss": "slaves",
+   "app": [
+    "servus-n2m"
+   ]
+  },
+  {
+   "w": "sunt",
+   "p": ".\"",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. pres. ind.",
+   "gloss": "they are",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "Immō",
+   "lemma": "immō",
+   "parse": "adverb (correcting what was said)",
+   "gloss": "no, rather"
+  },
+  {
+   "w": "hominēs",
+   "p": ".",
+   "lemma": "homō, hominis, m.",
+   "parse": "nom. pl.",
+   "gloss": "human beings",
+   "app": [
+    "homo-n3"
+   ]
+  },
+  {
+   "w": "Servī",
+   "pre": "\"",
+   "lemma": "servus, servī, m.",
+   "parse": "nom. pl.",
+   "gloss": "slaves",
+   "app": [
+    "servus-n2m"
+   ]
+  },
+  {
+   "w": "sunt",
+   "p": ".\"",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. pres. ind.",
+   "gloss": "they are",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "Immō",
+   "lemma": "immō",
+   "parse": "adverb (correcting what was said)",
+   "gloss": "no, rather"
+  },
+  {
+   "w": "contubernālēs",
+   "p": ".",
+   "lemma": "contubernālis, contubernālis, m.",
+   "parse": "nom. pl.",
+   "gloss": "housemates (lit. tent-mates)"
+  },
+  {
+   "w": "Servī",
+   "pre": "\"",
+   "lemma": "servus, servī, m.",
+   "parse": "nom. pl.",
+   "gloss": "slaves",
+   "app": [
+    "servus-n2m"
+   ]
+  },
+  {
+   "w": "sunt",
+   "p": ".\"",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. pres. ind.",
+   "gloss": "they are",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "Immō",
+   "lemma": "immō",
+   "parse": "adverb (correcting what was said)",
+   "gloss": "no, rather"
+  },
+  {
+   "w": "humilēs",
+   "lemma": "humilis, humile",
+   "parse": "nom. pl. m.",
+   "gloss": "humble"
+  },
+  {
+   "w": "amīcī",
+   "p": ".",
+   "lemma": "amīcus, amīcī, m.",
+   "parse": "nom. pl.",
+   "gloss": "friends",
+   "app": [
+    "amicus-n2m"
+   ]
+  },
+  {
+   "w": "Servī",
+   "pre": "\"",
+   "lemma": "servus, servī, m.",
+   "parse": "nom. pl.",
+   "gloss": "slaves",
+   "app": [
+    "servus-n2m"
+   ]
+  },
+  {
+   "w": "sunt",
+   "p": ".\"",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. pres. ind.",
+   "gloss": "they are",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "Immō",
+   "lemma": "immō",
+   "parse": "adverb (correcting what was said)",
+   "gloss": "no, rather"
+  },
+  {
+   "w": "cōnservī",
+   "p": ",",
+   "lemma": "cōnservus, cōnservī, m.",
+   "parse": "nom. pl.",
+   "gloss": "fellow slaves"
+  },
+  {
+   "w": "sī",
+   "lemma": "sī",
+   "parse": "conjunction",
+   "gloss": "if",
+   "app": [
+    "si-indecl"
+   ]
+  },
+  {
+   "w": "cōgitāveris",
+   "lemma": "cōgitō, cōgitāre, cōgitāvī, cōgitātum",
+   "parse": "2nd sg. fut. perf. ind. act.",
+   "gloss": "you (will have) reflected",
+   "app": [
+    "cogito-v1"
+   ]
+  },
+  {
+   "w": "tantundem",
+   "lemma": "tantundem",
+   "parse": "adverb / indecl. pronoun",
+   "gloss": "just as much"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "over, against",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "utrōsque",
+   "lemma": "uterque, utraque, utrumque",
+   "parse": "acc. pl. m.",
+   "gloss": "both (masters and slaves)"
+  },
+  {
+   "w": "licēre",
+   "lemma": "licet, licēre, licuit",
+   "parse": "pres. inf. (impersonal; indirect statement)",
+   "gloss": "is allowed, has power"
+  },
+  {
+   "w": "fortūnae",
+   "p": ".",
+   "lemma": "fortūna, fortūnae, f.",
+   "parse": "dat. sg. (with licēre)",
+   "gloss": "to Fortune",
+   "app": [
+    "fortuna-n1"
+   ]
+  }
+ ],
+ "translation": "I was pleased to hear from people who come from your house that you live on easy terms with your slaves. That suits a man of your good sense and education. \"They're slaves.\" No: they are people. \"They're slaves.\" No: they share our roof. \"They're slaves.\" No: they are friends of humble rank. \"They're slaves.\" No: they are our fellow slaves, once you consider that Fortune has exactly as much power over the one as over the other.",
+ "translation_note": "The quoted \"Servī sunt\" is the voice of an imagined objector; each Immō (\"no, rather\") corrects him. contubernālis is literally a soldier who shares your tent; the word was also used of household companions. tantundem in utrōsque licēre fortūnae: \"that Fortune is allowed just as much against both\", i.e. a free man can become a slave. cōgitāveris is taken here as future perfect indicative; it could also be perfect subjunctive (\"if you should reflect\").",
+ "essay": [
+  [
+   {
+    "t": "Letter 47 praises Lucilius for living on familiar terms with his slaves, then attacks masters who keep slaves standing silent around the dinner table, where even a cough or a hiccup is punished with the rod.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Seneca rejects the proverb that a man has as many enemies as slaves: \"we do not have them as enemies, we make them so\".",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "His rule is to live with an inferior as you would want a superior to live with you.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The letter does not call for freeing slaves.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Seneca imagines the charge that he is summoning slaves to the cap of freedom, and answers that he asks only that slaves respect their master rather than fear him.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "He will not seat every slave at his table, though he will judge them by character rather than by their work.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "His deeper point is Stoic: everyone serves something, whether lust, greed, ambition or fear, and no slavery is more shameful than the voluntary kind.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "A conference abstract by Mason Wheelock-Johnson summarizes earlier scholars as reading the letter mainly as a foil for Stoic freedom, with little critique of the institution.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Seneca owned slaves himself and was enormously rich.",
+    "src": [
+     1,
+     2,
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "In a speech Tacitus gives him, Seneca tells Nero that the emperor has surrounded him with countless money, gardens and estates, and offers to hand them back.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Tacitus reports that the accuser Suillius charged him with gathering 300 million sesterces in four years of imperial favour, through legacy-hunting and usury; this is a hostile accusation.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Cassius Dio, also hostile, repeats the figure, says Seneca criticized the rich while acquiring it, and credits him with five hundred citrus-wood tables.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "In letter 12 he jokes about a decrepit doorkeeper at his villa, who turns out to be Felicio, his bailiff's son and once his pet; I read this as a glimpse of the household behind the philosophy.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "My view: the letter is a memorable early statement that slaves are human beings, written by a man whose wealth rested on the system it describes; it is not an argument against slavery.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What does Seneca answer to the objection \"They are slaves\"?",
+   "options": [
+    "Human beings, housemates, humble friends, fellow slaves",
+    "Property that a wise man should not own at all",
+    "Inferiors by nature who must be kept in fear",
+    "Servants who deserve kindness only if educated"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What charge does Seneca imagine and answer?",
+   "options": [
+    "That he is summoning slaves to freedom",
+    "That he is too harsh with his own slaves",
+    "That he dines alone, never with friends",
+    "That he values birth above character"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why does the essay call Suillius's charge against Seneca \"hostile\"?",
+   "options": [
+    "It came from an accuser, so it may be exaggerated",
+    "Seneca himself admitted it in this very letter",
+    "It comes from an inscription on his villa",
+    "It was invented by modern historians of Rome"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Seneca, Epistulae morales 12 and 47 (Latin; Loeb text, Gummere 1917, Perseus Digital Library TEI)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1017/phi015/phi1017.phi015.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Annals 13.42 (Loeb 1937 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Tacitus/Annals/13B*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cassius Dio, Roman History 61.10 (Loeb translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/61*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Annals 14.53-54 (Latin; C. D. Fisher, Oxford 1906, Perseus Digital Library TEI)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1351/phi005/phi1351.phi005.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Society for Classical Studies, abstract: Mason Wheelock-Johnson, \"Time and Enslavement in Seneca, Epistulae Morales ad Lucilium 47 and 124\"",
+   "url": "https://classicalstudies.org/time-and-enslavement-seneca-epistulae-morales-ad-lucilius-47-and-124",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}
