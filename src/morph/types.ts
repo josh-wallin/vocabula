@@ -6,16 +6,27 @@ export type PartOfSpeech =
 export type Gender = 'm' | 'f' | 'n';
 
 /**
- * Paradigm ids. Supported so far (Wheelock ch. 1–4):
- *  v1, v2     – 1st/2nd conjugation, present active system (ind., inf., imp.)
+ * Paradigm ids:
+ *  v1, v2     – 1st/2nd conjugation, present active system (pres./fut./impf. ind., inf., imp.)
+ *  v3         – 3rd conjugation (agō, agere), present active system
+ *  v3io       – 3rd conjugation -iō (capiō, capere), present active system
+ *  v4         – 4th conjugation (audiō, audīre), present active system
  *  n1         – 1st declension
  *  n2m        – 2nd declension -us / -er / -ir / -ius nouns (masc., rarely fem.)
  *  n2n        – 2nd declension neuters in -um / -ium
+ *  n3         – 3rd declension consonant stems, masc./fem. (rēx, rēgis)
+ *  n3n        – 3rd declension consonant stems, neuter (corpus, corporis)
+ *  n3i        – 3rd declension i-stems, masc./fem. (hostis, urbs: gen. pl. -ium)
+ *  n3in       – 3rd declension i-stems, neuter in -e, -al, -ar (mare, animal)
  *  adj12      – 1st/2nd declension adjectives (-us,-a,-um and -er,-(e)ra,-(e)rum)
- *  irr:sum    – sum, esse (present indicative + infinitive)
+ *  irr:sum    – sum, esse (present, future, imperfect indicative + infinitive)
+ *  irr:possum – possum, posse (present, future, imperfect indicative + infinitive)
  *  indecl     – indeclinable (only the citation form)
  */
-export type ParadigmId = 'v1' | 'v2' | 'n1' | 'n2m' | 'n2n' | 'adj12' | 'irr:sum' | 'indecl';
+export type ParadigmId =
+  | 'v1' | 'v2' | 'v3' | 'v3io' | 'v4'
+  | 'n1' | 'n2m' | 'n2n' | 'n3' | 'n3n' | 'n3i' | 'n3in'
+  | 'adj12' | 'irr:sum' | 'irr:possum' | 'indecl';
 
 export type Case = 'nom' | 'gen' | 'dat' | 'acc' | 'abl' | 'voc';
 export type GramNumber = 'sg' | 'pl';
@@ -25,9 +36,11 @@ export type Person = '1sg' | '2sg' | '3sg' | '1pl' | '2pl' | '3pl';
 export type NounCell = `${Case}.${GramNumber}`;
 /** Adjective cell, e.g. "nom.sg.m", "abl.pl.f". */
 export type AdjCell = `${Case}.${GramNumber}.${Gender}`;
-/** Verb cells (present active system only for now). */
+/** Indicative tenses of the present system. */
+export type Tense = 'pres' | 'fut' | 'impf';
+/** Verb cells (present active system: present, future, imperfect indicative; infinitive; imperative). */
 export type VerbCell =
-  | `pres.act.ind.${Person}`
+  | `${Tense}.act.ind.${Person}`
   | 'pres.act.inf'
   | 'pres.act.imp.2sg'
   | 'pres.act.imp.2pl';

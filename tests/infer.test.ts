@@ -29,6 +29,24 @@ const CASES: Case[] = [
   ['pulcher, pulchra, pulchrum', 'adj', 'adj12', 'pulchr'],
   ['paucī, paucae, pauca', 'adj', 'adj12', 'pauc', { number: 'pl' }],
   ['sum, esse, fuī, futūrum', 'verb', 'irr:sum', null],
+  ['possum, posse, potuī', 'verb', 'irr:possum', null],
+  ['agō, agere, ēgī, āctum', 'verb', 'v3', 'ag'],
+  ['dūcō, dūcere, dūxī, ductum', 'verb', 'v3', 'dūc'],
+  ['scrībō, scrībere, scrīpsī, scrīptum', 'verb', 'v3', 'scrīb'],
+  ['capiō, capere, cēpī, captum', 'verb', 'v3io', 'cap'],
+  ['fugiō, fugere, fūgī, fugitūrum', 'verb', 'v3io', 'fug'],
+  ['audiō, audīre, audīvī, audītum', 'verb', 'v4', 'audī'],
+  ['rēx, rēgis, m.', 'noun', 'n3', 'rēg', { gender: 'm' }],
+  ['virtūs, virtūtis, f.', 'noun', 'n3', 'virtūt', { gender: 'f' }],
+  ['homō, hominis, m.', 'noun', 'n3', 'homin'],
+  ['amor, amōris, m.', 'noun', 'n3', 'amōr'],
+  ['Carthāgō, Carthāginis, f.', 'noun', 'n3', 'Carthāgin'],
+  ['corpus, corporis, n.', 'noun', 'n3n', 'corpor', { gender: 'n' }],
+  ['tempus, temporis, n.', 'noun', 'n3n', 'tempor'],
+  ['nōmen, nōminis, n.', 'noun', 'n3n', 'nōmin'],
+  ['hostis, hostis, m.', 'noun', 'n3i', 'host'],
+  ['mare, maris, n.', 'noun', 'n3in', 'mar'],
+  ['arma, armōrum, n.', 'noun', 'n2n', 'arm', { number: 'pl' }],
   ['nihil, indeclinable, n.', 'noun', 'indecl', null],
   ['saepe', 'adv', 'indecl', null],
 ];
@@ -50,11 +68,13 @@ describe('inferParadigm: classified headwords', () => {
 
 describe('inferParadigm: refusals and doubts carry a reason', () => {
   it.each<[string, PartOfSpeech, RegExp]>([
-    ['rēx, rēgis, m.', 'noun', /3rd declension/],
     ['manus, manūs, f.', 'noun', /4th declension/],
     ['rēs, reī, f.', 'noun', /5th declension/],
-    ['dūcō, dūcere, dūxī, ductum', 'verb', /3rd conjugation/],
-    ['audiō, audīre, audīvī, audītum', 'verb', /4th conjugation/],
+    ['eō, īre, iī, itum', 'verb', /4th conjugation, but 1sg/],
+    ['lūmen, luminis, n.', 'noun', /vowel length differs/],
+    ['tempestas, tempestātis, f.', 'noun', /should be tempestās/],
+    ['cōnsuētūdo, cōnsuētūdinis, f.', 'noun', /should end in -ō/],
+    ['vīs, f.', 'noun', /no genitive/],
     ['est', 'verb', /no infinitive/],
     ['fortis, forte', 'adj', /three nominative forms/],
     ['ācer, ācris, ācre', 'adj', /not a 1st\/2nd/],
@@ -76,6 +96,16 @@ describe('inferParadigm: refusals and doubts carry a reason', () => {
     expect(r.confidence).toBe('low');
     expect(r.reason).toBeTruthy();
   });
+  it('a 3rd-decl. nominative that shares no stem with the genitive is low confidence (Iuppiter, Iovis)', () => {
+    expect(inferParadigm('Iuppiter, Iovis, m.', 'noun')).toMatchObject({ paradigm: 'n3', confidence: 'low' });
+  });
+  it('a 3rd-decl. noun without gender is low confidence, with a guess', () => {
+    expect(inferParadigm('corpus, corporis', 'noun')).toMatchObject({ paradigm: 'n3n', confidence: 'low', reason: expect.stringMatching(/guessed neuter/) });
+    expect(inferParadigm('rēx, rēgis', 'noun')).toMatchObject({ paradigm: 'n3', confidence: 'low', reason: expect.stringMatching(/guessed m\.\/f\./) });
+  });
+  it('3rd-conj. 1sg and infinitive with different stems is low confidence', () => {
+    expect(inferParadigm('agō, regere', 'verb')).toMatchObject({ paradigm: 'v3', confidence: 'low' });
+  });
   it('missing gender on a 1st-decl. noun is low confidence', () => {
     expect(inferParadigm('porta, portae', 'noun')).toMatchObject({ paradigm: 'n1', confidence: 'low', reason: 'gender not given' });
   });
@@ -86,7 +116,30 @@ describe('headword parsing', () => {
     expect(parseHeadword('iuvō (or adiuvō), iuvāre, iūvī, iūtum').parts).toEqual(['iuvō', 'iuvāre', 'iūvī', 'iūtum']);
     expect(parseHeadword('ager, agrī, m.')).toEqual({ parts: ['ager', 'agrī'], gender: 'm', indeclinable: false });
   });
+  it('recognizes common gender (m./f.)', () => {
+    expect(parseHeadword('cīvis, cīvis, m./f.')).toEqual({ parts: ['cīvis', 'cīvis'], indeclinable: false, common: true });
+    expect(parseHeadword('volucris, volucris, f./m.').common).toBe(true);
+  });
   it('splits paired entries', () => {
     expect(splitPairedHeadword('amīcus, amīcī, m., and amīca, amīcae, f.')).toEqual(['amīcus, amīcī, m.', 'amīca, amīcae, f.']);
+  });
+});
+
+describe('lemma ids and notes', () => {
+  it('enclitics get -enclitic ids (no collision with nē)', async () => {
+    const { lemmaFromHeadword } = await import('../src/morph/lemma.ts');
+    expect(lemmaFromHeadword('-ne', 'adv', '', []).lemma!.id).toBe('ne-enclitic');
+    expect(lemmaFromHeadword('-que', 'conj', '', []).lemma!.id).toBe('que-enclitic');
+    expect(lemmaFromHeadword('nē', 'adv', '', []).lemma!.id).toBe('ne-indecl');
+  });
+  it('audeō: regular 2nd-conj. present system, semi-deponent perfect noted', async () => {
+    const { lemmaFromHeadword } = await import('../src/morph/lemma.ts');
+    const l = lemmaFromHeadword('audeō, audēre, ausus sum', 'verb', '', []).lemma!;
+    expect(l.paradigm).toBe('v2');
+    expect(l.irregular).toBeUndefined();
+    expect(l.notes).toMatch(/ausus sum/);
+  });
+  it('a pronoun (tē) is left unclassified without throwing', () => {
+    expect(inferParadigm('tē', 'pron')).toMatchObject({ paradigm: null, confidence: 'none' });
   });
 });

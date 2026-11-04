@@ -9,11 +9,11 @@ export function citationForms(l: Lemma): string[] {
   const p = generate(l);
   const pl = l.number === 'pl';
   switch (l.paradigm) {
-    case 'n1': case 'n2m': case 'n2n':
+    case 'n1': case 'n2m': case 'n2n': case 'n3': case 'n3n': case 'n3i': case 'n3in':
       return pl ? [p['nom.pl']!, p['gen.pl']!] : [p['nom.sg']!, p['gen.sg']!];
     case 'adj12':
       return pl ? [p['nom.pl.m']!, p['nom.pl.f']!, p['nom.pl.n']!] : [p['nom.sg.m']!, p['nom.sg.f']!, p['nom.sg.n']!];
-    case 'v1': case 'v2': case 'irr:sum':
+    case 'v1': case 'v2': case 'v3': case 'v3io': case 'v4': case 'irr:sum': case 'irr:possum':
       return [p['pres.act.ind.1sg']!, p['pres.act.inf']!];
     case 'indecl':
       return [p.citation!];

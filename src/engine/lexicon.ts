@@ -59,7 +59,7 @@ export function buildLexicon(wheelock: readonly Lemma[], dcc: readonly Lemma[]):
 /** Dictionary-style citation for display: "puella, puellae" / "amō, amāre" / "magnus, magna, magnum". */
 export function citation(l: Lemma): string {
   switch (l.paradigm) {
-    case 'v1': case 'v2': case 'irr:sum': return `${l.parts[0]}, ${l.parts[1]}`;
+    case 'v1': case 'v2': case 'v3': case 'v3io': case 'v4': case 'irr:sum': case 'irr:possum': return `${l.parts[0]}, ${l.parts[1]}`;
     case 'adj12': return l.parts.slice(0, 3).join(', ');
     case 'indecl': return l.parts[0] ?? l.headword;
     default: return `${l.parts[0]}, ${l.parts[1]}`;
@@ -71,10 +71,15 @@ export function classNote(l: Lemma): string {
   switch (l.paradigm) {
     case 'v1': return '1st conjugation';
     case 'v2': return '2nd conjugation';
+    case 'v3': return '3rd conjugation';
+    case 'v3io': return '3rd conjugation (-iō)';
+    case 'v4': return '4th conjugation';
     case 'n1': return '1st declension';
     case 'n2m': case 'n2n': return '2nd declension';
+    case 'n3': case 'n3n': return '3rd declension';
+    case 'n3i': case 'n3in': return '3rd declension (i-stem)';
     case 'adj12': return l.number === 'pl' ? 'adjective, 1st/2nd declension (plural)' : 'adjective, 1st/2nd declension';
-    case 'irr:sum': return 'irregular verb';
+    case 'irr:sum': case 'irr:possum': return 'irregular verb';
     case 'indecl': return POS_LABEL[l.pos] ?? l.pos;
   }
 }

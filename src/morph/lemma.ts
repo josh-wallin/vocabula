@@ -18,6 +18,7 @@ export function lemmaFromHeadword(
     ...(inference.gender ? { gender: inference.gender } : {}),
     ...(inference.number ? { number: inference.number } : {}),
     ...(inference.irregular ? { irregular: inference.irregular } : {}),
+    ...(inference.note ? { notes: inference.note } : {}),
   };
   return { lemma, inference };
 }

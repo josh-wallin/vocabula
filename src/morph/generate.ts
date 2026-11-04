@@ -1,5 +1,5 @@
-import type { CellId, Lemma, Paradigm } from './types.ts';
-import { adjCells, CASES, NOUN_CELLS, NUMBERS } from './cells.ts';
+import type { CellId, Lemma, Paradigm, Tense } from './types.ts';
+import { adjCells, CASES, NOUN_CELLS, NUMBERS, tenseCells } from './cells.ts';
 import { join, nfc } from './phonology.ts';
 
 /** Endings per case, in CASES order (nom, gen, dat, acc, abl, voc). */
@@ -66,6 +66,45 @@ function genN2n(l: Lemma): Paradigm {
   return out;
 }
 
+/* 3rd declension. Nominative (and vocative, and neuter accusative) singular is the
+ * printed nominative; every other case is the base (genitive minus -is) + ending. */
+const N3_SG: Row = ['', 'is', 'ī', 'em', 'e', ''];
+const N3_PL: Row = ['ēs', 'um', 'ibus', 'ēs', 'ibus', 'ēs'];
+const N3N_SG: Row = ['', 'is', 'ī', '', 'e', ''];
+const N3N_PL: Row = ['a', 'um', 'ibus', 'a', 'ibus', 'a'];
+/** i-stems (Wheelock ch. 14): m./f. differ only in gen. pl. -ium; neuters have abl. sg. -ī, -ia, -ium. */
+const N3I_PL: Row = ['ēs', 'ium', 'ibus', 'ēs', 'ibus', 'ēs'];
+const N3IN_SG: Row = ['', 'is', 'ī', '', 'ī', ''];
+const N3IN_PL: Row = ['ia', 'ium', 'ibus', 'ia', 'ibus', 'ia'];
+
+/** Base of a 3rd-declension noun, from the genitive: rēgis → rēg-, corporis → corpor-, (pl.) moenium → moen-. */
+export function n3Base(l: Lemma): string {
+  const gen = nfc(need(l.parts[1], `${l.id}: missing genitive`));
+  if (l.number === 'pl') {
+    const i = l.paradigm === 'n3i' || l.paradigm === 'n3in';
+    return need(strip(gen, i ? 'ium' : 'um'), `${l.id}: 3rd-decl genitive plural must end in ${i ? '-ium' : '-um'}`);
+  }
+  return need(strip(gen, 'is'), `${l.id}: 3rd-decl genitive must end in -is`);
+}
+
+function genN3(l: Lemma): Paradigm {
+  const base = n3Base(l);
+  const neuter = l.paradigm === 'n3n' || l.paradigm === 'n3in';
+  const iStem = l.paradigm === 'n3i' || l.paradigm === 'n3in';
+  const sg = l.paradigm === 'n3in' ? N3IN_SG : neuter ? N3N_SG : N3_SG;
+  const pl = l.paradigm === 'n3in' ? N3IN_PL : neuter ? N3N_PL : iStem ? N3I_PL : N3_PL;
+  const out: Paradigm = {};
+  if (l.number !== 'pl') {
+    const nom = nfc(need(l.parts[0], `${l.id}: missing nominative`));
+    fill(out, base, sg, 'sg');
+    out['nom.sg'] = nom;
+    out['voc.sg'] = nom;
+    if (neuter) out['acc.sg'] = nom;
+  }
+  fill(out, base, pl, 'pl');
+  return out;
+}
+
 /* ---------------- adjectives ---------------- */
 
 /** Base of a 1st/2nd-declension adjective, found from the feminine (magna → magn-, pulchra → pulchr-). */
@@ -100,22 +139,66 @@ export function presentStem(l: Lemma): string {
   return need(strip(inf, 're'), `${l.id}: infinitive must end in -re`);
 }
 
+type Row6 = readonly [string, string, string, string, string, string];
+
+function put(out: Paradigm, tense: Tense, stem: string, endings: Row6, prefix = ''): void {
+  tenseCells(tense).forEach((c, i) => { out[c] = join(stem, prefix + endings[i]!); });
+}
+
+const V12_PRES: Row6 = ['ō', 's', 't', 'mus', 'tis', 'nt'];
+const V12_FUT: Row6 = ['bō', 'bis', 'bit', 'bimus', 'bitis', 'bunt'];
+/** Imperfect -ba- (all conjugations): -bam, -bās, -bat, -bāmus, -bātis, -bant. */
+const IMPF: Row6 = ['bam', 'bās', 'bat', 'bāmus', 'bātis', 'bant'];
+const V3_PRES: Row6 = ['ō', 'is', 'it', 'imus', 'itis', 'unt'];
+const V3IO_PRES: Row6 = ['iō', 'is', 'it', 'imus', 'itis', 'iunt'];
+const V4_PRES: Row6 = ['ō', 's', 't', 'mus', 'tis', 'unt'];
+/** Future of the 3rd and 4th conjugations: -am, -ēs, -et, -ēmus, -ētis, -ent. */
+const V34_FUT: Row6 = ['am', 'ēs', 'et', 'ēmus', 'ētis', 'ent'];
+
 function genVerb(l: Lemma, conj: 1 | 2): Paradigm {
   const stem = presentStem(l);
+  const out: Paradigm = {};
+  put(out, 'pres', stem, V12_PRES);
   // 1st conj.: stem vowel contracts with -ō (laudā + ō → laudō, da + ō → dō).
   // 2nd conj.: stem vowel is kept and shortened before the vowel (monē + ō → moneō).
-  const first = conj === 1 ? stem.slice(0, -1) + 'ō' : join(stem, 'ō');
-  return {
-    'pres.act.ind.1sg': first,
-    'pres.act.ind.2sg': join(stem, 's'),
-    'pres.act.ind.3sg': join(stem, 't'),
-    'pres.act.ind.1pl': join(stem, 'mus'),
-    'pres.act.ind.2pl': join(stem, 'tis'),
-    'pres.act.ind.3pl': join(stem, 'nt'),
-    'pres.act.inf': join(stem, 're'),
-    'pres.act.imp.2sg': stem,
-    'pres.act.imp.2pl': join(stem, 'te'),
-  };
+  if (conj === 1) out['pres.act.ind.1sg'] = stem.slice(0, -1) + 'ō';
+  out['pres.act.inf'] = join(stem, 're');
+  out['pres.act.imp.2sg'] = stem;
+  out['pres.act.imp.2pl'] = join(stem, 'te');
+  put(out, 'fut', stem, V12_FUT);   // laudābō, monēbō
+  put(out, 'impf', stem, IMPF);     // laudābam, monēbam
+  return out;
+}
+
+/** Consonant base of a 3rd-conjugation verb: agere → ag-, capere → cap-. */
+export function v3Base(l: Lemma): string {
+  const inf = nfc(need(l.parts[1], `${l.id}: missing infinitive`));
+  return need(strip(inf, 'ere'), `${l.id}: 3rd-conj. infinitive must end in -ere`);
+}
+
+function genVerb3(l: Lemma, io: boolean): Paradigm {
+  const base = v3Base(l);
+  const out: Paradigm = {};
+  put(out, 'pres', base, io ? V3IO_PRES : V3_PRES);
+  out['pres.act.inf'] = base + 'ere';
+  out['pres.act.imp.2sg'] = base + 'e';
+  out['pres.act.imp.2pl'] = base + 'ite';
+  put(out, 'fut', base, V34_FUT, io ? 'i' : '');      // agam, agēs / capiam, capiēs
+  put(out, 'impf', base, IMPF, io ? 'iē' : 'ē');      // agēbam / capiēbam
+  return out;
+}
+
+function genVerb4(l: Lemma): Paradigm {
+  const stem = presentStem(l); // audī-
+  const out: Paradigm = {};
+  // join() shortens ī before a vowel and before final -t / nt: audiō, audit, audiunt, audiam, audiēbam.
+  put(out, 'pres', stem, V4_PRES);
+  out['pres.act.inf'] = join(stem, 're');
+  out['pres.act.imp.2sg'] = stem;
+  out['pres.act.imp.2pl'] = join(stem, 'te');
+  put(out, 'fut', stem, V34_FUT);
+  put(out, 'impf', stem, IMPF, 'ē');
+  return out;
 }
 
 const SUM: Paradigm = {
@@ -126,7 +209,24 @@ const SUM: Paradigm = {
   'pres.act.ind.2pl': 'estis',
   'pres.act.ind.3pl': 'sunt',
   'pres.act.inf': 'esse',
+  'fut.act.ind.1sg': 'erō',
+  'fut.act.ind.2sg': 'eris',
+  'fut.act.ind.3sg': 'erit',
+  'fut.act.ind.1pl': 'erimus',
+  'fut.act.ind.2pl': 'eritis',
+  'fut.act.ind.3pl': 'erunt',
+  'impf.act.ind.1sg': 'eram',
+  'impf.act.ind.2sg': 'erās',
+  'impf.act.ind.3sg': 'erat',
+  'impf.act.ind.1pl': 'erāmus',
+  'impf.act.ind.2pl': 'erātis',
+  'impf.act.ind.3pl': 'erant',
 };
+
+/** possum = pot- + sum; pot- becomes pos- before s (possum, possunt), and the infinitive is posse. */
+const POSSUM: Paradigm = Object.fromEntries(
+  Object.entries(SUM).map(([cell, f]) => [cell, cell === 'pres.act.inf' ? 'posse' : (f!.startsWith('s') ? 'pos' : 'pot') + f]),
+);
 
 /* ---------------- entry point ---------------- */
 
@@ -137,10 +237,15 @@ export function generate(l: Lemma): Paradigm {
     case 'n1': out = genN1(l); break;
     case 'n2m': out = genN2m(l); break;
     case 'n2n': out = genN2n(l); break;
+    case 'n3': case 'n3n': case 'n3i': case 'n3in': out = genN3(l); break;
     case 'adj12': out = genAdj12(l); break;
     case 'v1': out = genVerb(l, 1); break;
     case 'v2': out = genVerb(l, 2); break;
+    case 'v3': out = genVerb3(l, false); break;
+    case 'v3io': out = genVerb3(l, true); break;
+    case 'v4': out = genVerb4(l); break;
     case 'irr:sum': out = { ...SUM }; break;
+    case 'irr:possum': out = { ...POSSUM }; break;
     case 'indecl': out = { citation: nfc(l.headword.split(',')[0]!.trim()) }; break;
   }
   if (l.irregular) {

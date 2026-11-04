@@ -1,4 +1,4 @@
-import type { AdjCell, Case, Gender, GramNumber, NounCell, Person, VerbCell } from './types.ts';
+import type { AdjCell, Case, Gender, GramNumber, NounCell, Person, Tense, VerbCell } from './types.ts';
 
 /** Canonical display order (Wheelock / A&G order: nom, gen, dat, acc, abl, voc). */
 export const CASES: readonly Case[] = ['nom', 'gen', 'dat', 'acc', 'abl', 'voc'];
@@ -11,9 +11,22 @@ export const NOUN_CELLS: readonly NounCell[] = NUMBERS.flatMap((n) => CASES.map(
 export const adjCells = (numbers: readonly GramNumber[] = NUMBERS): AdjCell[] =>
   GENDERS.flatMap((g) => numbers.flatMap((n) => CASES.map((c) => `${c}.${n}.${g}` as AdjCell)));
 
+export const TENSES: readonly Tense[] = ['pres', 'fut', 'impf'];
+
+/** The six finite cells of one indicative tense, in person order. */
+export const tenseCells = (t: Tense): VerbCell[] => PERSONS.map((p) => `${t}.act.ind.${p}` as VerbCell);
+
 export const VERB_CELLS: readonly VerbCell[] = [
-  ...PERSONS.map((p) => `pres.act.ind.${p}` as VerbCell),
+  ...tenseCells('pres'),
   'pres.act.inf',
   'pres.act.imp.2sg',
   'pres.act.imp.2pl',
+  ...tenseCells('fut'),
+  ...tenseCells('impf'),
 ];
+
+/** Tense of a finite verb cell, or null for non-finite / non-verb cells. */
+export function tenseOf(cell: string): Tense | null {
+  const m = /^(pres|fut|impf)\.act\.ind\./.exec(cell);
+  return m ? (m[1] as Tense) : null;
+}
