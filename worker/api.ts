@@ -11,6 +11,7 @@ import {
 } from '../src/sync/protocol.ts';
 import type { D1Like } from './d1.ts';
 import { ensureSchema } from './schema.ts';
+import { handleAudio, isAudioPath } from './audio.ts';
 import { createRemoteJWKSet, jwtVerify, type JWTVerifyGetKey } from 'jose';
 
 export interface ApiEnv {
@@ -251,6 +252,8 @@ export async function handleApi(req: Request, env: ApiEnv, ctx?: ApiCtx): Promis
       }
       return json({ email });
     }
+
+    if (isAudioPath(path)) return await handleAudio(req, env.DB, path);
 
     const known = [API.pack, API.packStatus, API.events] as string[];
     if (!known.includes(path)) return fail(404, 'not found');

@@ -12,7 +12,11 @@ import type { DerivedState } from './events.ts';
 import { cardId, isDue, parseCardId, retrievability } from './srs.ts';
 import { cellPrompt, genderName, optionLabeler } from './labels.ts';
 import { hashSeed, pick, rng, shuffle, type Rng } from './util.ts';
-import { buildSentenceExercise, chooseSentences, sentenceEligible, type Sentence, type SentenceExercise } from './sentences.ts';
+import {
+  buildListeningSentence, buildSentenceExercise, chooseSentences, sentenceCard, sentenceEligible,
+  type Sentence, type SentenceExercise, type SentListenType,
+} from './sentences.ts';
+import { sentenceAudio, wordAudio, wordText, type AudioRef } from '../audio/items.ts';
 
 export interface Option { id: string; text: string; la?: boolean }
 
@@ -20,14 +24,18 @@ export type Exercise =
   | { id: string; type: 'grammar'; kind: 'grammar'; section: number }
   | { id: string; type: 'intro'; kind: 'intro'; lemma: string }
   | {
-      id: string; type: 'choice'; kind: 'meaning' | 'gender' | 'conj' | 'parse';
+      /** listen: hear the word, choose its meaning (the cue is shown only after answering). */
+      id: string; type: 'choice'; kind: 'meaning' | 'gender' | 'conj' | 'parse' | 'listen';
       lemma: string; card: string; prompt: string; cue: string; cueLa: boolean;
       options: Option[]; answer: string[]; multi: boolean; note: string;
+      audio?: AudioRef; fallback?: Exercise;
     }
   | {
-      id: string; type: 'typed'; kind: 'recall' | 'produce';
+      /** dictate: hear the word, type it (macrons optional, as for recall). */
+      id: string; type: 'typed'; kind: 'recall' | 'produce' | 'dictate';
       lemma: string; card: string; prompt: string; cue: string; cueLa: boolean; hint: string;
       accepted: string[]; note: string;
+      audio?: AudioRef; fallback?: Exercise;
     }
   | SentenceExercise;
 
@@ -38,6 +46,9 @@ export const isGraded = (e: Exercise): e is GradedExercise => e.type === 'choice
 export const isSentence = (e: Exercise): e is SentenceExercise => e.type === 'sentence';
 /** Exercises that are answered and graded (word exercises and sentence exercises). */
 export const isScored = (e: Exercise): e is GradedExercise | SentenceExercise => isGraded(e) || isSentence(e);
+/** A listening exercise: it plays a clip, and has a non-audio fallback for when the clip can't be played. */
+export const isListening = (e: Exercise): e is (GradedExercise | SentenceExercise) & { audio: AudioRef; fallback: Exercise } =>
+  (isGraded(e) || isSentence(e)) && !!e.audio && !!e.fallback;
 
 export const LESSON_SIZE = 12;
 export const REVIEW_SIZE = 13;
@@ -56,7 +67,25 @@ export interface BuildCtx {
   at?: number;
   /** Sentence bank for sentence exercises (none when absent). */
   sentences?: readonly Sentence[];
+  /**
+   * Listening exercises (none when absent): `available(key)` says whether a clip is likely
+   * playable now (online, or cached on this device, and not known to be missing).
+   */
+  listening?: { available: (key: string) => boolean };
 }
+
+/** Listening cards: {lemma}:listen (hear → meaning), {lemma}:dictate (hear → type it). */
+export type ListenKind = 'listen' | 'dictate';
+export const listenCard = (lemma: string, kind: ListenKind): string => `${lemma}:${kind}`;
+export function parseListenCard(card: string): { lemma: string; kind: ListenKind } | null {
+  const m = /^([^:]+):(listen|dictate)$/.exec(card);
+  return m && !card.startsWith('sent:') ? { lemma: m[1]!, kind: m[2] as ListenKind } : null;
+}
+/** A word may get listening exercises once it has this many correct meaning reviews. */
+export const MIN_MEANING_FOR_LISTEN = 1;
+/** Listening exercises per lesson (when the words / sentences and their clips are there). */
+export const WORD_LISTENING_PER_LESSON = 2;
+export const SENTENCE_LISTENING = { repetitio: 1, probatio: 2 } as const;
 
 /** Sentence exercises per lesson kind (when enough sentences are eligible). */
 export const SENTENCES_PER_REVIEW = { min: 2, max: 4 } as const;
@@ -228,12 +257,12 @@ class Factory {
    * Up to `want` sentence exercises for a node: only sentences whose section is reached, whose words
    * are known and whose endings are unlocked. Uses its own RNG stream so word exercises are unaffected.
    */
-  sentenceExercises(node: PathNode, want: number, focus?: readonly FeatureId[]): SentenceExercise[] {
+  sentenceExercises(node: PathNode, want: number, focus?: readonly FeatureId[], exclude?: ReadonlySet<string>): SentenceExercise[] {
     const bank = this.ctx.sentences ?? [];
     if (!bank.length || want <= 0) return [];
     const r = rng(hashSeed(`${this.ctx.seed}:sentences`));
     const sctx = { lex: this.ctx.lex, known: this.known, unlocked: this.ctx.unlocked, section: node.section };
-    const eligible = bank.filter((s) => sentenceEligible(s, sctx));
+    const eligible = bank.filter((s) => sentenceEligible(s, sctx) && !exclude?.has(s.id));
     const picks = chooseSentences({ ...sctx, bank: eligible, state: this.ctx.state, now: this.ctx.now, count: want, rng: r, ...(focus ? { focus } : {}) });
     // English distractor tiles may come from any sentence of the sections reached.
     const pool = bank.filter((s) => s.section <= node.section);
@@ -249,6 +278,98 @@ class Factory {
   eligibleSentenceCount(node: PathNode): number {
     const sctx = { lex: this.ctx.lex, known: this.known, unlocked: this.ctx.unlocked, section: node.section };
     return (this.ctx.sentences ?? []).filter((s) => sentenceEligible(s, sctx)).length;
+  }
+
+  /** Hear the word, choose the meaning; falls back to the plain meaning question. */
+  listenMeaning(id: string): Exercise {
+    const base = this.meaning(id) as ChoiceExercise;
+    return {
+      ...base, id: this.nextId(), kind: 'listen', card: listenCard(id, 'listen'),
+      prompt: 'What does this word mean?', audio: wordAudio(this.lemma(id)), fallback: base,
+    };
+  }
+
+  /** Hear the word, type it; falls back to the plain meaning question. */
+  dictate(id: string): Exercise {
+    const l = this.lemma(id);
+    const word = wordText(l);
+    const fallback = this.meaning(id);
+    return {
+      id: this.nextId(), type: 'typed', kind: 'dictate', lemma: id, card: listenCard(id, 'dictate'),
+      prompt: 'Type what you hear', cue: word, cueLa: true, hint: '',
+      accepted: [word], note: `${citation(l)}${l.gender ? ` (${l.gender}.)` : ''}: ${l.gloss}.`,
+      audio: wordAudio(l), fallback,
+    };
+  }
+
+  /**
+   * Up to `want` word listening exercises on words with ≥ MIN_MEANING_FOR_LISTEN correct meaning
+   * reviews whose clip is available, one per word, none on `exclude`d words: due listening cards first
+   * (lowest retrievability), then new ones (hear → meaning before dictation), then the weakest.
+   * Own RNG stream, so the rest of the lesson doesn't depend on it.
+   */
+  wordListening(want: number, exclude: ReadonlySet<string>): Exercise[] {
+    const L = this.ctx.listening;
+    if (!L || want <= 0) return [];
+    const r = rng(hashSeed(`${this.ctx.seed}:listen`));
+    const st = this.ctx.state;
+    const cands: { id: string; kind: ListenKind; tier: number; r: number; tie: number }[] = [];
+    for (const id of [...this.known].sort()) {
+      const w = this.ctx.lex.byId.get(id);
+      if (!w || exclude.has(id) || (st.meaningGood.get(id) ?? 0) < MIN_MEANING_FOR_LISTEN) continue;
+      if (!L.available(wordAudio(w.lemma).key)) continue;
+      const listen = st.cards.get(listenCard(id, 'listen'));
+      for (const kind of ['listen', 'dictate'] as const) {
+        const card = st.cards.get(listenCard(id, kind));
+        if (kind === 'dictate' && !listen) continue; // dictation only after a hear → meaning review
+        const tier = !card ? (kind === 'listen' ? 1 : 2) : isDue(card, this.ctx.now) ? 0 : 3;
+        cands.push({ id, kind, tier, r: card ? retrievability(card, this.ctx.now) : 0, tie: r() });
+      }
+    }
+    cands.sort((a, b) => a.tier - b.tier || a.r - b.r || a.tie - b.tie);
+    const out: Exercise[] = [];
+    const used = new Set<string>();
+    for (const c of cands) {
+      if (out.length >= want) break;
+      if (used.has(c.id)) continue;
+      used.add(c.id);
+      out.push(c.kind === 'listen' ? this.listenMeaning(c.id) : this.dictate(c.id));
+    }
+    return out;
+  }
+
+  /**
+   * Up to `want` sentence listening exercises (eligible sentences with an available clip), one per
+   * sentence: due cards first, then new (hear → English before dictation), then the weakest.
+   */
+  sentenceListening(node: PathNode, want: number): SentenceExercise[] {
+    const L = this.ctx.listening;
+    const bank = this.ctx.sentences ?? [];
+    if (!L || !bank.length || want <= 0) return [];
+    const r = rng(hashSeed(`${this.ctx.seed}:listen-sent`));
+    const sctx = { lex: this.ctx.lex, known: this.known, unlocked: this.ctx.unlocked, section: node.section };
+    const st = this.ctx.state;
+    const cands: { s: Sentence; kind: SentListenType; tier: number; r: number; tie: number }[] = [];
+    for (const s of bank) {
+      if (!sentenceEligible(s, sctx) || !L.available(sentenceAudio(s).key)) continue;
+      const listen = st.cards.get(sentenceCard(s.id, 'listen'));
+      for (const kind of ['listen', 'dictate'] as const) {
+        const card = st.cards.get(sentenceCard(s.id, kind));
+        if (kind === 'dictate' && !listen) continue;
+        const tier = !card ? (kind === 'listen' ? 1 : 2) : isDue(card, this.ctx.now) ? 0 : 3;
+        cands.push({ s, kind, tier, r: card ? retrievability(card, this.ctx.now) : 0, tie: r() });
+      }
+    }
+    cands.sort((a, b) => a.tier - b.tier || a.r - b.r || a.tie - b.tie);
+    const pool = bank.filter((s) => s.section <= node.section);
+    const out: SentenceExercise[] = [];
+    for (const c of cands) {
+      if (out.length >= want) break;
+      if (out.some((e) => e.sentence === c.s.id)) continue;
+      const e = buildListeningSentence(c.s, c.kind, { ...sctx, rng: r, nextId: () => this.nextId(), pool }, sentenceAudio(c.s));
+      if (e) out.push(e);
+    }
+    return out;
   }
 
   /** Same-POS distractor lemmas: already-seen words first, never an overlapping gloss. */
@@ -347,13 +468,29 @@ export function buildLesson(node: PathNode, base: BuildCtx): Exercise[] {
     case 'repetitio': {
       const n = f.eligibleSentenceCount(node);
       const want = n === 0 ? 0 : n >= 8 ? SENTENCES_PER_REVIEW.max : n >= 3 ? 3 : SENTENCES_PER_REVIEW.min;
-      return withSentences(f.sentenceExercises(node, want), (k) => reviewLesson(f, ctx, known, REVIEW_SIZE - k));
+      // Listening (only with ctx.listening): sentences first so the others avoid them; words kept out of the review part.
+      const heard = f.sentenceListening(node, SENTENCE_LISTENING.repetitio);
+      const sent = [...f.sentenceExercises(node, want, undefined, new Set(heard.map((e) => e.sentence))), ...heard];
+      const listen = f.wordListening(WORD_LISTENING_PER_LESSON, new Set());
+      const listenLemmas = new Set(listen.map((e) => ('lemma' in e ? e.lemma : '')));
+      return withSentences(sent, (k) => mixIn(reviewLesson(f, ctx, known, REVIEW_SIZE - k - listen.length, listenLemmas), listen));
     }
     case 'probatio': {
       const want = f.eligibleSentenceCount(node) ? SENTENCES_PER_PROBATIO : 0;
-      return withSentences(f.sentenceExercises(node, want), (k) => probatio(f, ctx, PROBATIO_SIZE - k));
+      const heard = want ? f.sentenceListening(node, SENTENCE_LISTENING.probatio) : [];
+      const sent = [...f.sentenceExercises(node, want, undefined, new Set(heard.map((e) => e.sentence))), ...heard];
+      return withSentences(sent, (k) => probatio(f, ctx, PROBATIO_SIZE - k));
     }
   }
+}
+
+/** Spread `extra` evenly through the second two thirds of `xs` (listening after some warm-up). */
+function mixIn(xs: Exercise[], extra: Exercise[]): Exercise[] {
+  if (!extra.length) return xs;
+  const out = [...xs];
+  const start = Math.ceil(out.length / 3);
+  extra.forEach((e, i) => out.splice(Math.min(out.length, start + Math.round(((i + 1) * (out.length - start)) / (extra.length + 1)) + i), 0, e));
+  return out;
 }
 
 /** Build the word part with room left for the sentences, then spread the sentences evenly through it. */
@@ -368,6 +505,9 @@ function withSentences(sent: SentenceExercise[], words: (k: number) => Exercise[
 /** New words: intro + meaning for each; `meaningOnly` (FR previews) skips the class questions. */
 function newWordsLesson(node: PathNode, f: Factory, ctx: BuildCtx, meaningOnly = false): Exercise[] {
   const ws = node.newWords;
+  // Listening on already-known words (not this lesson's): part of the fill, or extra when intros + quizzes fill the lesson.
+  const listen = f.wordListening(WORD_LISTENING_PER_LESSON, new Set(ws));
+  const fillTo = LESSON_SIZE - listen.length;
   const out: Exercise[] = [];
   // intro 1, intro 2, meaning 1, intro 3, meaning 2, … : each word is quizzed one step after it appears.
   ws.forEach((w, i) => {
@@ -377,21 +517,21 @@ function newWordsLesson(node: PathNode, f: Factory, ctx: BuildCtx, meaningOnly =
   if (ws.length) out.push(f.meaning(ws[ws.length - 1]!));
   // Fill to LESSON_SIZE: class questions on the new words, then due reviews.
   for (const w of meaningOnly ? [] : ws) {
-    if (out.length >= LESSON_SIZE) break;
+    if (out.length >= fillTo) break;
     const k = f.klass(w);
     if (k) out.push(k);
   }
-  if (out.length < LESSON_SIZE) {
-    const exclude = new Set(ws);
+  if (out.length < fillTo) {
+    const exclude = new Set([...ws, ...listen.map((e) => ('lemma' in e ? e.lemma : ''))]);
     for (const card of dueCards(ctx, f.known)) {
-      if (out.length >= LESSON_SIZE) break;
+      if (out.length >= fillTo) break;
       const p = parseCardId(card);
       if (!p || exclude.has(p.lemma)) continue;
       const e = f.forCard(card);
       if (e) { out.push(e); exclude.add(p.lemma); }
     }
   }
-  return out;
+  return mixIn(out, listen);
 }
 
 /** Drill words for pattern / Fōrmae nodes: the chapter's words first, then other known words with the feature. */
@@ -499,11 +639,12 @@ export function reviewCardIds(ctx: BuildCtx, known: ReadonlySet<string>, size: n
   return chosen;
 }
 
-function reviewLesson(f: Factory, ctx: BuildCtx, known: ReadonlySet<string>, size: number): Exercise[] {
-  const ids = reviewCardIds(ctx, known, size + 6);
+function reviewLesson(f: Factory, ctx: BuildCtx, known: ReadonlySet<string>, size: number, exclude?: ReadonlySet<string>): Exercise[] {
+  const ids = reviewCardIds(ctx, known, size + 6 + (exclude?.size ? 2 * exclude.size : 0));
   const out: Exercise[] = [];
   for (const id of ids) {
     if (out.length >= size) break;
+    if (exclude?.size && exclude.has(parseCardId(id)?.lemma ?? '')) continue;
     const e = f.forCard(id);
     if (e) out.push(e);
   }

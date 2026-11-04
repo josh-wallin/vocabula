@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { runtimeCaching } from './pwa-runtime.ts';
 
 export default defineConfig({
   plugins: [
@@ -35,23 +36,7 @@ export default defineConfig({
         // The Worker API and Cloudflare Access endpoints (/cdn-cgi/access/authorized, /logout)
         // must reach the network as real navigations, or the Access login round-trip breaks.
         navigateFallbackDenylist: [/^\/api\//, /^\/cdn-cgi\//],
-        runtimeCaching: [
-          {
-            // Never cache API or Access responses.
-            urlPattern: ({ url }) => url.pathname.startsWith('/api/') || url.pathname.startsWith('/cdn-cgi/'),
-            handler: 'NetworkOnly',
-          },
-          {
-            // Google Fonts: optional; app falls back to system fonts offline.
-            urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
-            handler: 'StaleWhileRevalidate',
-            options: {
-              cacheName: 'google-fonts',
-              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 },
-              cacheableResponse: { statuses: [0, 200] },
-            },
-          },
-        ],
+        runtimeCaching,
       },
     }),
   ],

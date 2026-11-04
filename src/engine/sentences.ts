@@ -53,7 +53,10 @@ export interface Sentence {
 
 export type SentType = 'cloze' | 'en' | 'subj' | 'obj' | 'la';
 export const SENT_TYPES: readonly SentType[] = ['cloze', 'en', 'subj', 'obj', 'la'];
-export const sentenceCard = (id: string, type: SentType): string => `sent:${id}:${type}`;
+/** Listening exercises (cards sent:<id>:listen / sent:<id>:dictate): chosen separately, never by chooseSentences. */
+export type SentListenType = 'listen' | 'dictate';
+export const SENT_LISTEN_TYPES: readonly SentListenType[] = ['listen', 'dictate'];
+export const sentenceCard = (id: string, type: SentType | SentListenType): string => `sent:${id}:${type}`;
 export function parseSentenceCard(card: string): { id: string; type: SentType } | null {
   const m = /^sent:([^:]+):([a-z]+)$/.exec(card);
   return m && (SENT_TYPES as readonly string[]).includes(m[2]!) ? { id: m[1]!, type: m[2] as SentType } : null;
@@ -308,7 +311,8 @@ export interface SentOption { id: string; text: string; la?: boolean }
 export interface SentenceExercise {
   id: string;
   type: 'sentence';
-  kind: SentType;
+  /** listen: hear the Latin, build the English; dictate: hear the Latin, build it from tiles in the heard order. */
+  kind: SentType | SentListenType;
   card: string;
   sentence: string;
   prompt: string;
@@ -325,6 +329,10 @@ export interface SentenceExercise {
   expected: string;
   note: string;
   s: Sentence;
+  /** Listening exercises: the clip to play (src/audio/items.ts sentenceAudio). */
+  audio?: { key: string; text: string };
+  /** Listening exercises: what to show instead if the clip can't be played (ungraded swap). */
+  fallback?: SentenceExercise;
 }
 
 const FINITE = /^(pres|fut|impf)\.act\.(ind\.|imp\.)/;
@@ -502,10 +510,29 @@ export function checkSentence(ex: SentenceExercise, picked: readonly string[]): 
     case 'cloze': case 'subj': case 'obj':
       ok = [...new Set(picked)].sort().join('|') === [...ex.answer].sort().join('|');
       break;
-    case 'en': ok = picked.length > 0 && checkEnglish(ex.s, picked.map(text).join(' ')); break;
+    case 'en': case 'listen': ok = picked.length > 0 && checkEnglish(ex.s, picked.map(text).join(' ')); break;
     case 'la': ok = picked.length > 0 && checkLatinOrder(ex.s, picked.map(text)); break;
+    // Dictation: the heard order is the answer.
+    case 'dictate': ok = picked.map((id) => nfc(text(id))).join(' ') === ex.s.tokens.map(tokenText).join(' '); break;
   }
   return { ok, macronMiss: false, expected: ex.expected };
+}
+
+/**
+ * A listening exercise for a sentence, with its non-audio fallback: `listen` builds on the
+ * Latin → English tiles ('en'), `dictate` on the Latin tiles ('la', same distractor forms) but
+ * must match the heard (written) order exactly.
+ */
+export function buildListeningSentence(s: Sentence, type: SentListenType, d: BuildDeps, audio: { key: string; text: string }): SentenceExercise | null {
+  const base = buildSentenceExercise(s, type === 'listen' ? 'en' : 'la', d);
+  if (!base) return null;
+  const latin = latinText(s);
+  return {
+    ...base, id: d.nextId(), kind: type, card: sentenceCard(s.id, type), audio, fallback: base,
+    prompt: type === 'listen' ? 'Translate what you hear' : 'Build what you hear',
+    expected: type === 'listen' ? base.expected : latin,
+    note: `${latin} ${base.en}`,
+  };
 }
 
 /* ---------------- choosing sentences for a lesson ---------------- */

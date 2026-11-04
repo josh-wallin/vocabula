@@ -1,7 +1,7 @@
 /**
  * Schema, created lazily: the deploy pipeline runs no migrations, so the first
  * API request in each isolate runs CREATE TABLE IF NOT EXISTS (memoized).
- * migrations/0001_init.sql holds the same SQL for reference / manual use.
+ * migrations/0001_init.sql + 0002_audio.sql hold the same SQL for reference / manual use.
  */
 import type { D1Like } from './d1.ts';
 
@@ -22,6 +22,15 @@ export const SCHEMA: readonly string[] = [
   grade TEXT,
   body TEXT,
   received_at TEXT NOT NULL
+)`,
+  // Pre-generated pronunciation clips (eSpeak NG), written by the content repo's audio Action.
+  `CREATE TABLE IF NOT EXISTS audio (
+  key TEXT PRIMARY KEY,
+  mime TEXT NOT NULL,
+  bytes BLOB NOT NULL,
+  text TEXT,
+  engine TEXT,
+  created_at TEXT
 )`,
 ];
 

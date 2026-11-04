@@ -67,6 +67,15 @@ export class Session {
     return out;
   }
 
+  /**
+   * Replace the current, not yet answered exercise (a listening exercise whose clip can't be
+   * played → its non-audio fallback). Nothing is graded for the replaced one.
+   */
+  swapCurrent(ex: Exercise): void {
+    const item = this.current;
+    if (item) this.queue[this.pos] = { ex, retry: item.retry };
+  }
+
   /** Move past the current exercise (after feedback, or after an intro / grammar card). */
   advance(): void { if (!this.done) this.pos++; }
 }
