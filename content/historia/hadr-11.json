@@ -206,14 +206,15 @@
  "essay": [
   [
    {
-    "t": "This sentence is the only classical literary statement of what Hadrian's Wall was for, as Historic England's guide to linear frontiers points out.",
+    "t": "As Historic England's guide to linear frontiers points out, this is the only classical literary statement of what Hadrian's Wall was for; other passages, such as the Life of Severus (18.2), credit Severus with a wall across the island.",
     "src": [
      4,
-     1
+     1,
+     6
     ]
    },
    {
-    "t": "It comes from the Life of Hadrian in the Historia Augusta, a collection that claims six authors writing around AD 300 but which Hermann Dessau showed in 1889 to be the work of one author writing toward the end of the fourth century or later.",
+    "t": "It comes from the Life of Hadrian in the Historia Augusta, a collection that claims six authors writing around AD 300 but which Hermann Dessau argued in 1889, in a view now generally accepted, was the work of one author writing toward the end of the fourth century or later.",
     "src": [
      2
     ]
@@ -242,7 +243,7 @@
     ]
    },
    {
-    "t": "Britannica says Hadrian visited Britain in 122; the Wall was built mainly by soldiers of the province's three legions and took at least six years.",
+    "t": "Britannica says Hadrian visited Britain in 122; English Heritage says the Wall was built mainly by soldiers of the province's three legions and took at least six years.",
     "src": [
      5,
      3
@@ -287,13 +288,6 @@
     "doubt": true
    },
    {
-    "t": "Primus, \"the first\", is the biographer's claim; it is not something the stones can confirm.",
-    "src": [
-     1
-    ],
-    "doubt": true
-   },
-   {
     "t": "The Wall was left for about twenty years while the Antonine Wall further north was in use, reoccupied around AD 160, and served as the frontier for nearly 300 years.",
     "src": [
      3,
@@ -307,29 +301,29 @@
    "q": "How long was the Wall, according to English Heritage?",
    "options": [
     "73 miles, or 80 Roman miles",
-    "30 miles",
-    "200 Roman miles",
-    "It ran the whole length of Britain"
+    "37 miles, sea to sea",
+    "118 Roman miles, coast to coast",
+    "80 miles, or 73 Roman miles"
    ],
    "answer": 0
   },
   {
    "q": "Why should the Historia Augusta be read with caution?",
    "options": [
-    "It was written by one author late in the fourth century or later under false names, and its checkable claims often prove unfounded",
-    "It was written by Hadrian himself",
-    "It survives only as an inscription on the Wall",
-    "It is a Greek poem"
+    "One late author wrote it under six false names",
+    "It is a Greek novel translated in the Middle Ages",
+    "It is Hadrian's own memoir, heavily rewritten",
+    "It survives only as a damaged inscription"
    ],
    "answer": 0
   },
   {
    "q": "What do archaeologists stress about the Wall's purpose?",
    "options": [
-    "Control of movement across the frontier, not just a barrier",
-    "It was purely decorative",
-    "It was built to keep Romans in",
-    "It was a road for trade only"
+    "Control of movement across the frontier",
+    "A purely ceremonial boundary marker",
+    "A barrier to stop soldiers deserting",
+    "A paved road for long-distance trade"
    ],
    "answer": 0
   }
@@ -359,6 +353,11 @@
    "label": "Encyclopaedia Britannica, \"Hadrian's Wall\" (D. J. Breeze and the Editors)",
    "url": "https://www.britannica.com/topic/Hadrians-Wall",
    "kind": "modern"
+  },
+  {
+   "label": "Historia Augusta, Vita Severi 18.2 (Latin; Loeb text, Magie), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Septimius_Severus*.html",
+   "kind": "ancient"
   }
  ],
  "verified": "2026-11-04"

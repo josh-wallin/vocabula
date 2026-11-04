@@ -480,7 +480,7 @@
    ]
   }
  ],
- "translation": "Then the senate met, and the military tribunes were given the task of making terms. Next the matter was settled at a parley between Quintus Sulpicius, a military tribune, and Brennus, the chieftain of the Gauls, and a thousand pounds of gold was fixed as the price of a people who would soon rule the nations. To a transaction shameful in itself an outrage was added: the Gauls brought false weights, and when the tribune objected, the arrogant Gaul added his sword to the weight, and words unbearable to Roman ears were heard: \"Woe to the conquered!\"",
+ "translation": "Then the senate met, and the military tribunes were given the task of making terms. Next the matter was settled at a parley between Quintus Sulpicius, a military tribune, and Brennus, the chieftain of the Gauls, and a thousand pounds of gold was fixed as the price of a people who would soon rule the nations. To this deal, most shameful in itself, an outrage was added: the Gauls brought false weights, and when the tribune objected, the arrogant Gaul threw his sword onto the weights, and words no Roman could bear to hear were spoken: \"Woe to the conquered!\"",
  "translation_note": "Livy leaves out est with most of the perfect passives (habitus, datum, trānsācta, factum, additus, audīta): \"was held\", \"was given\" and so on. populī gentibus mox imperātūrī: the future participle agrees with populī and governs the dative gentibus (\"of a people soon to rule the nations\"). vae takes the dative: vae victīs, \"woe to the conquered\".",
  "essay": [
   [
@@ -507,12 +507,6 @@
     ]
    },
    {
-    "t": "Then come the false weights, the sword thrown on the scale, and \"vae victis\".",
-    "src": [
-     1
-    ]
-   },
-   {
     "t": "In the next chapter the dictator Camillus arrives before all the gold is weighed, declares the agreement invalid because it was made without his authority, and tells his men to win back their country with iron, not gold.",
     "src": [
      1
@@ -521,20 +515,13 @@
   ],
   [
    {
-    "t": "Other writers tell it differently.",
-    "src": [
-     2,
-     4
-    ]
-   },
-   {
     "t": "Polybius says that the Gauls, distracted by an invasion of their own land by the Veneti, made a treaty with the Romans and went home; he mentions neither gold nor Camillus.",
     "src": [
      2
     ]
    },
    {
-    "t": "Elsewhere he says they held the city for seven months and gave it up of their own free will.",
+    "t": "The \"seven months\" and voluntary departure mentioned later come from a speech by Gallic envoys, not from his narrative.",
     "src": [
      2
     ]
@@ -555,26 +542,28 @@
   ],
   [
    {
-    "t": "So a payment is reported by Livy and Diodorus, while Polybius speaks only of a treaty; the rescue at the scales is found only in Livy's version and looks like patriotic embroidery.",
+    "t": "Plutarch's Life of Camillus has the scene at the scales too: the tampered weights, Brennus adding his sword and belt, \"woe to the vanquished\", and Camillus delivering the city with iron, not gold.",
+    "src": [
+     6
+    ]
+   },
+   {
+    "t": "So a payment is reported by Livy, Plutarch and Diodorus, while Polybius speaks only of a treaty; the rescue at the scales is in Livy and Plutarch but not in Polybius or Diodorus, and looks like patriotic embroidery in the Roman tradition.",
     "src": [
      1,
+     6,
      2,
      4
     ],
     "doubt": true
    },
    {
-    "t": "The famous \"vae victis\" belongs to that version: it is Livy's scene, not a record of what any Gaul said.",
+    "t": "The same goes for \"vae victis\", which is no record of what a Gaul said.",
     "src": [
-     1
+     1,
+     6
     ],
     "doubt": true
-   },
-   {
-    "t": "Livy's own framing shows his purpose: the gold is the price of \"a people soon to rule the nations\".",
-    "src": [
-     1
-    ]
    }
   ]
  ],
@@ -582,10 +571,10 @@
   {
    "q": "What does Polybius say about how the Gauls left Rome?",
    "options": [
-    "They made a treaty and went home because the Veneti had invaded their land; he mentions no gold",
-    "Camillus drove them out at the scales",
-    "They were all killed on the Capitol",
-    "They stayed and founded a colony"
+    "They made a treaty and went home to fight the Veneti",
+    "Camillus drove them out at the scales with iron",
+    "They were starved out by the Capitol's defenders",
+    "They were paid in gold and settled in Etruria"
    ],
    "answer": 0
   },
@@ -602,10 +591,10 @@
   {
    "q": "According to Diodorus, where did Camillus recover the gold?",
    "options": [
-    "From the baggage of a Gallic force he defeated at Veascium",
-    "From the temple of Jupiter",
-    "At the scales in the Forum",
-    "He never recovered it"
+    "From Gallic baggage after a victory at Veascium",
+    "At the scales on the Capitol, before it was paid",
+    "From the Gauls' camp at the Allia, years later",
+    "From the Veneti, who had captured it from the Gauls"
    ],
    "answer": 0
   }
@@ -635,6 +624,11 @@
    "label": "Encyclopaedia Britannica, \"Marcus Furius Camillus\" (Britannica Editors)",
    "url": "https://www.britannica.com/biography/Marcus-Furius-Camillus",
    "kind": "modern"
+  },
+  {
+   "label": "Plutarch, Life of Camillus 28–29 (tr. B. Perrin, Loeb Classical Library, vol. II, 1914), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Camillus*.html",
+   "kind": "ancient"
   }
  ],
  "verified": "2026-11-04"

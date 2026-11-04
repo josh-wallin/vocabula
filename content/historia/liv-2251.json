@@ -103,7 +103,7 @@
    "w": "bellō",
    "lemma": "bellum, bellī, n.",
    "parse": "abl. sg. (with perfūnctus)",
-   "gloss": "a fight, war",
+   "gloss": "war",
    "app": [
     "bellum-n2n"
    ]
@@ -584,7 +584,7 @@
    "w": "voluntātem",
    "lemma": "voluntās, voluntātis, f.",
    "parse": "acc. sg.",
-   "gloss": "goodwill, zeal",
+   "gloss": "zeal",
    "app": [
     "voluntas-n3"
    ]
@@ -866,8 +866,8 @@
    ]
   }
  ],
- "translation": "The others crowded round the victorious Hannibal with congratulations and urged him, now that he had come through so great a fight, to take the rest of the day and the following night for rest himself and to give it to his tired soldiers. But Maharbal, the cavalry commander, who thought there must be no delay at all, said: \"No: so that you may know what this battle has achieved, on the fifth day you will dine as victor on the Capitol. Follow me; I will go ahead with the cavalry, so that they learn we have arrived before they learn we are coming.\" To Hannibal the idea seemed too happy, and too large, for him to grasp at once. So he said he praised Maharbal's zeal, but that he needed time to weigh the plan. Then Maharbal said: \"Evidently the gods have not given everything to the same man. You know how to win, Hannibal; how to use a victory, you do not.\" That day's delay is fairly widely believed to have saved the city and the empire.",
- "translation_note": "The first sentence is one long period: cum ... grātulārentur suādērentque (while the others ...), then the main subject Maharbal ... inquit. diē quīntō counts inclusively in the Roman way, so \"on the fifth day\" may mean four days later. victōriā ūtī: ūtor takes the ablative. mora ... crēditur ... fuisse is a personal passive (\"the delay is believed to have been\"), and salūtī is a dative of purpose (\"for salvation\").",
+ "translation": "The others crowded round the victorious Hannibal with congratulations and urged him, now that he had come through so great a war, to take the rest of the day and the following night for rest himself and to give it to his tired soldiers. But Maharbal, the cavalry commander, who thought there must be no delay at all, said: \"No: so that you may know what this battle has achieved, on the fifth day you will dine as victor on the Capitol. Follow me; I will go ahead with the cavalry, so that they learn I have arrived before they learn I am coming.\" To Hannibal the idea seemed too happy, and too large, for him to grasp at once. So he said he praised Maharbal's zeal, but that he needed time to weigh the plan. Then Maharbal said: \"Evidently the gods have not given everything to the same man. You know how to win, Hannibal; how to use a victory, you do not.\" That day's delay is fairly widely believed to have saved the city and the empire.",
+ "translation_note": "In vēnisse ... ventūrum the unexpressed subject is Maharbal himself (\"me\"), riding ahead with the cavalry, so the translation has \"I\". The first sentence is one long period: cum ... grātulārentur suādērentque (while the others ...), then the main subject Maharbal ... inquit. diē quīntō counts inclusively in the Roman way, so \"on the fifth day\" may mean four days later. victōriā ūtī: ūtor takes the ablative. mora ... crēditur ... fuisse is a personal passive (\"the delay is believed to have been\"), and salūtī is a dative of purpose (\"for salvation\").",
  "essay": [
   [
    {
@@ -877,9 +877,10 @@
     ]
    },
    {
-    "t": "Roman losses are reported as about 55,000 by Livy and 70,000 by Polybius; the Carthaginians lost about 6,000.",
+    "t": "The figures differ: Livy reports 45,500 infantry and 2,700 cavalry killed, about 4,500 captured and about 8,000 of Hannibal's men dead, while Polybius gives 70,000 Romans killed, 10,000 captured and some 5,700 Carthaginian losses (4,000 Celts, 1,500 Iberians and Libyans, 200 cavalry).",
     "src": [
-     2
+     1,
+     5
     ],
     "doubt": true
    }
@@ -930,12 +931,10 @@
   ],
   [
    {
-    "t": "Not everyone has judged Hannibal so kindly; the Roman tradition Livy reports clearly thought the delay a mistake, and Zimmermann notes that even Livy's own sources disagreed.",
+    "t": "Livy himself later reports that military experts judged Hannibal's wintering at Capua a worse error than not marching straight on Rome: the delay after Cannae could be seen as merely postponing victory.",
     "src": [
-     1,
-     4
-    ],
-    "doubt": true
+     1
+    ]
    },
    {
     "t": "Britannica records the rebuke as Livy's report and notes that Rome went back to avoiding pitched battle while Hannibal's strength was gradually worn down.",
@@ -968,9 +967,9 @@
    "q": "Which of these is one of Zimmermann's arguments against a march on Rome?",
    "options": [
     "Rome was about 400 km away, so surprise was impossible",
-    "Hannibal had no cavalry",
-    "Rome had no walls",
-    "The Romans had already surrendered"
+    "Hannibal's cavalry had been destroyed in the battle",
+    "Rome's walls had fallen down and could not be held",
+    "The Romans had already offered to surrender to him"
    ],
    "answer": 0
   },
@@ -978,9 +977,9 @@
    "q": "What does Livy say the day's delay did?",
    "options": [
     "It is believed to have saved the city and the empire",
-    "It allowed Hannibal to capture Rome",
-    "It led to Maharbal's execution",
-    "It ended the war"
+    "It let the Carthaginian cavalry reach Rome first",
+    "It gave the Romans time to sue Hannibal for peace",
+    "It cost Maharbal his command of the cavalry"
    ],
    "answer": 0
   }
@@ -1005,6 +1004,11 @@
    "label": "K. Zimmermann, \"Hannibal ante portas: ¿por qué desistió Aníbal de capturar Roma en el 216 a.C.?\", De Rebus Antiquis 8 (2019) 61–77 (Spanish; open access)",
    "url": "https://erevistas.uca.edu.ar/index.php/DRA/en/article/view/2567",
    "kind": "modern"
+  },
+  {
+   "label": "Polybius, Histories 3.117 (tr. E. S. Shuckburgh, 1889), Perseus Digital Library canonical-greekLit (CC BY-SA 4.0)",
+   "url": "https://github.com/PerseusDL/canonical-greekLit/blob/master/data/tlg0543/tlg001/tlg0543.tlg001.perseus-eng2.xml",
+   "kind": "ancient"
   }
  ],
  "verified": "2026-11-04"

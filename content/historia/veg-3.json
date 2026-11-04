@@ -13,7 +13,7 @@
   "section": "Book 3, preface (unnumbered on the page), last two sentences"
  },
  "source_text": "Igitur qui desiderat pacem, praeparet bellum; qui uictoriam cupit, milites inbuat diligenter; qui secundos optat euentus, dimicet arte, non casu. Nemo prouocare, nemo audet offendere quem intellegit superiorem esse, si pugnet.",
- "excerpt_note": "The last two sentences of the preface to Book 3, which comes before section I on the page. The text prints u for consonantal v (uictoriam, euentus, prouocare) and inbuat for imbuat; both are kept as printed.",
+ "excerpt_note": "The last two sentences of the preface to Book 3, which comes before section I on the page. The Latin was taken from The Latin Library page (thelatinlibrary.com/vegetius3.html), which names no edition; it has not been checked against Lang's Teubner text (1885) or any other printed edition. The text prints u for consonantal v (uictoriam, euentus, prouocare) and inbuat for imbuat; both are kept as printed.",
  "macrons": {
   "editorial": true,
   "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
@@ -290,7 +290,7 @@
     ]
    },
    {
-    "t": "The date is disputed: Walter Goffart's study in Traditio surveys an old debate between a date under Theodosius I, late in the fourth century, and one under Valentinian III, in the fifth, favoured by Gibbon and the editor Carl Lang.",
+    "t": "The date is disputed. Many scholars, among them the editor Carl Lang, place the work under Theodosius I, late in the fourth century; Gibbon and Otto Seeck (1876) preferred Valentinian III, in the fifth, and Walter Goffart argues for Valentinian III, building on a hint of Gibbon's.",
     "src": [
      3
     ],
@@ -305,7 +305,7 @@
     ]
    },
    {
-    "t": "Just before them he recalls that Hannibal, bound for Italy, sought out a Spartan teacher of warfare whose advice let him destroy consuls and legions with fewer men.",
+    "t": "Just before them he recalls that Hannibal, bound for Italy, hired a Spartan teacher of warfare.",
     "src": [
      1
     ]
@@ -346,7 +346,7 @@
     ]
    },
    {
-    "t": "Cornelius Nepos has Epaminondas tell the Thebans that peace is won by war (paritur pax bello).",
+    "t": "Cornelius Nepos has Epaminondas answer Meneclides, who was urging the Thebans to prefer peace, that peace is won by war (paritur pax bello).",
     "src": [
      5
     ]
@@ -379,10 +379,10 @@
   {
    "q": "What did Vegetius actually write?",
    "options": [
-    "Quī dēsīderat pācem, praeparet bellum (\"whoever wants peace should get ready for war\")",
-    "Sī vīs pācem, parā bellum, word for word",
-    "Pāx optima rērum",
-    "Cēdant arma togae"
+    "Quī dēsīderat pācem, praeparet bellum",
+    "Sī vīs pācem, parā bellum, Rōmāne",
+    "Quī pācem optat, mīlitēs exerceat",
+    "Quī bellum timet, pācem nōn habet"
    ],
    "answer": 0
   },
@@ -399,10 +399,10 @@
   {
    "q": "Why is the date of the work uncertain?",
    "options": [
-    "Scholars disagree whether it was written under Theodosius I (late 4th c.) or Valentinian III (5th c.)",
-    "It was written by George Washington",
-    "It survives only in a Greek translation",
-    "Vegetius names a different emperor in every book"
+    "Scholars split between Theodosius I and Valentinian III",
+    "The only manuscript breaks off before the preface",
+    "Vegetius dates it by a consul no one can identify",
+    "It survives only in a medieval Greek translation"
    ],
    "answer": 0
   }
@@ -419,7 +419,7 @@
    "kind": "modern"
   },
   {
-   "label": "W. Goffart, \"The Date and Purpose of Vegetius' De re militari\", Traditio (Cambridge Core page; used for the dating debate in its opening pages and notes)",
+   "label": "W. Goffart, \"The Date and Purpose of Vegetius' De re militari\", Traditio 33 (1977) 65–100 (Cambridge Core)",
    "url": "https://core-prod.cambridgecore.org/core/journals/traditio/article/date-and-purpose-of-vegetius-de-re-militari/0360FD1597AA93B3FFF3BF0C097CB2FE",
    "kind": "modern"
   },

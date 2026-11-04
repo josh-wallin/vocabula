@@ -295,8 +295,8 @@
   {
    "w": "nōminibus",
    "lemma": "nōmen, nōminis, n.",
-   "parse": "abl. pl. (means)",
-   "gloss": "by names",
+   "parse": "abl. pl. (means: under ... names)",
+   "gloss": "names",
    "app": [
     "nomen-n3n"
    ]
@@ -362,13 +362,14 @@
    ]
   }
  ],
- "translation": "Plunderers of the world, now that the lands have run out under their ravaging, they search the sea. If an enemy is rich, they are greedy; if poor, they are hungry for glory. Neither East nor West has glutted them; alone of all men they crave wealth and want with the same passion. Taking, killing, seizing they call by a false name, \"empire\"; and where they make a wilderness, they call it \"peace\".",
+ "translation": "Plunderers of the world, now that the lands have run out under their ravaging, they search the sea. If an enemy is rich, they are greedy; if poor, they are hungry for glory. Neither East nor West has glutted them; alone of all men they crave wealth and want with the same passion. Taking, killing and seizing they call, under false names, \"empire\"; and where they make a wilderness, they call it \"peace\".",
  "translation_note": "Calgacus is speaking of the Romans. The three infinitives in the last sentence act as nouns, and appellant does double duty: they call those things \"empire\" and the wilderness \"peace\". vastantibus is a participle in the dative with dēfuēre (\"the lands failed them as they laid everything waste\").",
  "essay": [
   [
    {
     "t": "The Agricola is Tacitus' account of his father-in-law Agricola and his governorship of Britain.",
     "src": [
+     7,
      5
     ]
    },
@@ -396,7 +397,7 @@
     "doubt": true
    },
    {
-    "t": "Ancient historians commonly composed speeches for their characters; a note quoted in the DCC commentary observes that exact reporting \"was not the practice of the rhetorical historians.\"",
+    "t": "Ancient historians commonly composed speeches for their characters; D. R. Stuart, a commentator of the early 1900s quoted in the DCC notes, observes that exact reporting \"was not the practice of the rhetorical historians.\"",
     "src": [
      3
     ]
@@ -408,10 +409,18 @@
     ]
    },
    {
-    "t": "Encyclopaedia Romana puts it plainly: the words are those of Tacitus, and even the name Calgacus, perhaps meaning \"swordsman\", is known only from this book.",
+    "t": "Encyclopaedia Romana puts it plainly: the words are those of Tacitus.",
+    "src": [
+     5,
+     3
+    ]
+   },
+   {
+    "t": "Even the name Calgacus, perhaps meaning \"swordsman\", is known only from this book.",
     "src": [
      5
-    ]
+    ],
+    "doubt": true
    }
   ],
   [
@@ -430,13 +439,13 @@
     "doubt": true
    },
    {
-    "t": "An older commentator quoted by the DCC calls the closing phrase \"one of the most famous utterances in Latin literature.\"",
+    "t": "Stuart calls the closing phrase \"one of the most famous utterances in Latin literature\", and Alfred Gudeman (1899) remarks that the euphemism was all but adopted as the official name for conquest.",
     "src": [
      1
     ]
    },
    {
-    "t": "Whether Tacitus meant it as criticism of Rome, of Domitian's regime, or simply as fitting rhetoric for an enemy is a matter of interpretation; Encyclopaedia Romana reads it as voicing Tacitus' own bitterness.",
+    "t": "Whether Tacitus meant it as criticism of Rome, of Domitian, or simply as fitting rhetoric for an enemy is open; Encyclopaedia Romana hears Tacitus' own bitterness.",
     "src": [
      5
     ],
@@ -451,7 +460,7 @@
     ]
    },
    {
-    "t": "Commentators doubt the round enemy figure but think the Roman one may come from Agricola himself.",
+    "t": "Gudeman thought the Roman figure likely accurate, perhaps supplied by Agricola himself, while Stuart put the gap down to official reports on one side and a rough estimate on the other.",
     "src": [
      4
     ],
@@ -469,10 +478,10 @@
   {
    "q": "What does \"in hunc modum locutus fertur\" tell the reader about the speech?",
    "options": [
-    "Calgacus is \"said to have spoken in this manner\": Tacitus does not claim his exact words",
-    "Tacitus copied the speech from a Roman archive",
+    "Tacitus does not claim the exact words",
+    "Tacitus copied it from Agricola's notes",
     "Calgacus wrote the speech down himself",
-    "Agricola translated the speech word for word"
+    "A Roman interpreter took it down live"
    ],
    "answer": 0
   },
@@ -489,10 +498,10 @@
   {
    "q": "What happened to the fortress at Inchtuthil?",
    "options": [
-    "It was abandoned in AD 87",
+    "It was abandoned in AD 87, soon after building",
     "It became the capital of Roman Britain",
-    "It was the site of Mons Graupius",
-    "It was built by Calgacus"
+    "It was the site of the battle of Mons Graupius",
+    "It was stormed and burnt by Calgacus' army"
    ],
    "answer": 0
   }
@@ -526,6 +535,11 @@
   {
    "label": "Encyclopaedia Romana (J. Grout, University of Chicago), \"Mons Graupius\"",
    "url": "https://penelope.uchicago.edu/~grout/encyclopaedia_romana/Britannia/monsgraupius/monsgraupius.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Tacitus\"",
+   "url": "https://www.britannica.com/biography/Tacitus-Roman-historian",
    "kind": "modern"
   }
  ],

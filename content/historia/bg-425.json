@@ -139,7 +139,7 @@
   {
    "w": "ut",
    "lemma": "ut",
-   "parse": "conjunction (purpose: a prayer)",
+   "parse": "conjunction (noun clause of prayer after contestātus deōs)",
    "gloss": "that"
   },
   {
@@ -466,8 +466,8 @@
   {
    "w": "nē",
    "lemma": "nē",
-   "parse": "conjunction (negative purpose)",
-   "gloss": "so that ... not"
+   "parse": "conjunction (indirect command after cohortātī inter sē)",
+   "gloss": "not to"
   },
   {
    "w": "tantum",
@@ -524,14 +524,13 @@
   }
  ],
  "translation": "And as our soldiers hung back, chiefly because the water was deep, the man who carried the eagle of the Tenth Legion called on the gods to let his act turn out well for the legion and cried, \"Jump down, soldiers, unless you want to hand the eagle over to the enemy. I at any rate will have done my duty to the state and to my commander.\" When he had said this in a loud voice, he flung himself from the ship and began to carry the eagle toward the enemy. Then our men urged one another not to allow so great a disgrace, and all of them leapt down from the ship.",
- "translation_note": "quī ... ferēbat has no expressed antecedent: \"(the man) who carried\". praestiterō is a future perfect: \"I shall have done my duty\", whatever you do. nē ... admitterētur is a negative purpose clause. T. Rice Holmes's Oxford text (1914) reads X legionis aquilam gerebat and obtestatus where the DCC has decimae legionis aquilam ferebat and contestatus; the meaning is the same.",
+ "translation_note": "quī ... ferēbat has no expressed antecedent: \"(the man) who carried\". praestiterō is a future perfect: \"I shall have done my duty\", whatever you do. ut ea rēs ... ēvenīret is a noun clause of prayer after contestātus deōs, and nē ... admitterētur an indirect command after cohortātī inter sē (\"urged one another not to allow\"). T. Rice Holmes's Oxford text (1914) reads X legionis aquilam gerebat and obtestatus where the DCC has decimae legionis aquilam ferebat and contestatus; the meaning is the same.",
  "essay": [
   [
    {
-    "t": "Late in the summer of 55 BC Caesar crossed from Gaul to Britain, saying that the Britons had sent help to his enemies in almost all his Gallic wars.",
+    "t": "With little of the summer left, Caesar crossed from Gaul to Britain, saying that the Britons had sent help to his enemies in almost all his Gallic wars.",
     "src": [
-     2,
-     3
+     2
     ]
    },
    {
@@ -571,7 +570,13 @@
   ],
   [
    {
-    "t": "The rest of the expedition was no triumph: the cavalry transports were scattered by a storm and never arrived, so the beaten Britons could not be pursued, which Caesar says was all that his usual good fortune lacked.",
+    "t": "Once ashore, the Romans routed the Britons but could not pursue them, because the cavalry had not yet been able to reach the island; Caesar says this alone was missing from his usual good fortune.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Four days later a storm scattered the cavalry transports, and they never arrived.",
     "src": [
      2
     ]
@@ -629,9 +634,9 @@
    "q": "Why did the soldiers hesitate to leave the ships?",
    "options": [
     "Chiefly because of the depth of the water",
-    "Because Caesar had forbidden it",
-    "Because the Britons had surrendered",
-    "Because the eagle had been lost"
+    "Because Caesar had ordered them to wait",
+    "Because the Britons had already surrendered",
+    "Because the eagle had fallen into the sea"
    ],
    "answer": 0
   },
@@ -641,17 +646,17 @@
     "A thanksgiving of twenty days",
     "A triumph through Rome",
     "His recall from Gaul",
-    "Nothing at all"
+    "A formal vote of censure"
    ],
    "answer": 0
   },
   {
    "q": "What did Asinius Pollio think of Caesar's commentaries, according to Suetonius?",
    "options": [
-    "That they were written with too little care and regard for truth",
-    "That they were the finest history ever written",
-    "That Cicero had written them",
-    "That they were in Greek"
+    "That they were careless and not wholly true to the facts",
+    "That they were the finest history Rome had produced",
+    "That Hirtius, not Caesar, had really written them",
+    "That they were too ornate and full of rhetoric"
    ],
    "answer": 0
   }
