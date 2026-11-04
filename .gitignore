@@ -5,3 +5,5 @@ dev-dist/
 .DS_Store
 # Copyrighted textbook data: NEVER commit.
 content/private/
+
+.wrangler/

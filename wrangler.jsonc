@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vocabula",
+  "compatibility_date": "2026-11-03",
+  "observability": { "enabled": true },
+  // Static app served from the Vite build output. The sync API (Worker + D1) comes later.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
