@@ -5,7 +5,7 @@ import { failureText, signInAgain } from '../sync/http.ts';
 import { syncLabel, type SyncStatus } from '../sync/sync.ts';
 import type { PackStatus } from '../sync/protocol.ts';
 import type { AppData } from '../app/controller.ts';
-import { exportBackupText, importBackupText, streakNow, syncCodeToday } from '../app/controller.ts';
+import { exportBackupText, importBackupText, recordSetting, settingOn, streakNow, syncCodeToday, SETTING_AUTOPLAY, SETTING_LISTENING } from '../app/controller.ts';
 import { citation } from '../engine/lexicon.ts';
 import { parseCardId, State } from '../engine/srs.ts';
 import type { ContentPack } from '../data/pack.ts';
@@ -149,6 +149,18 @@ function CloudPanel({ app, sync, onSyncNow }: { app: AppData; sync: SyncStatus; 
   );
 }
 
+function SettingToggle({ app, setApp, k, label, sub, testid }: { app: AppData; setApp: (a: AppData) => void; k: string; label: string; sub: string; testid: string }) {
+  const on = settingOn(app, k);
+  const id = `setting-${k}`;
+  return (
+    <label class="toggle" for={id}>
+      <span>{label}<span class="sub">{sub}</span></span>
+      <input id={id} type="checkbox" role="switch" checked={on} data-testid={testid}
+        onChange={() => { void recordSetting(app, k, !on).then(setApp); }} />
+    </label>
+  );
+}
+
 function download(name: string, text: string) {
   const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
   const a = document.createElement('a');
@@ -187,6 +199,13 @@ export function ProfileScreen({ app, setApp, onAbout, sync, onSyncNow }: {
         <h2>Iter Latinum code for today</h2>
         <span class="code">{syncCodeToday(app)}</span>
       </div>
+
+      <h2>Listening</h2>
+      <SettingToggle app={app} setApp={setApp} k={SETTING_LISTENING} testid="setting-listening"
+        label="Listening exercises" sub="Hear a word or sentence, then choose its meaning, type it or build it. Only when the audio can play." />
+      <SettingToggle app={app} setApp={setApp} k={SETTING_AUTOPLAY} testid="setting-autoplay"
+        label="Autoplay audio" sub="Play new words and listening clips without a tap." />
+      <p class="note">Pronunciation: eSpeak NG’s Latin voice (restored classical). Clips are kept on this device once heard.</p>
 
       <CloudPanel app={app} sync={sync} onSyncNow={onSyncNow} />
 

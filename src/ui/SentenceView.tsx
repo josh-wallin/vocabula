@@ -1,22 +1,28 @@
 /** Sentence exercises: cloze, tap the subject / object, and tile building (Latin → English, English → Latin). */
 import type { SentenceExercise } from '../engine/sentences.ts';
 import type { Outcome } from '../engine/session.ts';
+import type { AudioRef } from '../audio/items.ts';
+import { ListenCue, Speaker } from './Speaker.tsx';
 
 interface Props {
   ex: SentenceExercise;
   picked: string[];
   setPicked: (p: string[]) => void;
   outcome: Outcome | null;
+  /** Clip that may play before answering (Latin → English, subject / object). */
+  speak?: AudioRef | null;
 }
 
-export function SentenceView({ ex, picked, setPicked, outcome }: Props) {
+export function SentenceView({ ex, picked, setPicked, outcome, speak }: Props) {
+  const listening = ex.kind === 'listen' || ex.kind === 'dictate';
   return (
     <div class="sent" data-sentence={ex.sentence} data-kind={ex.kind}>
-      <span class="eyebrow" lang="la">Sententia</span>
+      <span class="eyebrow" lang="la">{listening ? 'Audī · Sententia' : 'Sententia'}</span>
       <h1 class="prompt">{ex.prompt}</h1>
+      {speak && !outcome && (ex.kind === 'subj' || ex.kind === 'obj') && <div class="with-speaker"><Speaker key={speak.key} audio={speak} label="Listen to the sentence" /></div>}
       {ex.kind === 'cloze' && <Cloze ex={ex} picked={picked} setPicked={setPicked} outcome={outcome} />}
       {(ex.kind === 'subj' || ex.kind === 'obj') && <TapRole ex={ex} picked={picked} setPicked={setPicked} outcome={outcome} />}
-      {(ex.kind === 'en' || ex.kind === 'la') && <Tiles ex={ex} picked={picked} setPicked={setPicked} outcome={outcome} />}
+      {(ex.kind === 'en' || ex.kind === 'la' || listening) && <Tiles ex={ex} picked={picked} setPicked={setPicked} outcome={outcome} speak={speak ?? null} />}
     </div>
   );
 }
@@ -91,15 +97,22 @@ function TapRole({ ex, picked, setPicked, outcome }: Props) {
   );
 }
 
-function Tiles({ ex, picked, setPicked, outcome }: Props) {
-  const la = ex.kind === 'la';
+function Tiles({ ex, picked, setPicked, outcome, speak }: Props) {
+  // Latin tiles for English → Latin and for dictation; English tiles otherwise.
+  const la = ex.kind === 'la' || ex.kind === 'dictate';
   const text = (id: string) => ex.options.find((o) => o.id === id)?.text ?? '';
+  const latinLine = <span class="la-big" lang="la" data-testid="cue">{ex.s.tokens.map((t, i) => (t.form + (t.attach ?? '')) + (t.comma && i < ex.s.tokens.length - 1 ? ',' : '')).join(' ').replace(/^./, (c) => c.toUpperCase())}{ex.s.punct ?? '.'}</span>;
   return (
     <>
       <div class="cue">
-        {la
-          ? <span class="en-big" lang="en" data-testid="cue">{ex.en}</span>
-          : <span class="la-big" lang="la" data-testid="cue">{ex.words.map((w) => w.text).join(' ')}{ex.s.punct ?? '.'}</span>}
+        {ex.audio && !outcome
+          ? <ListenCue audio={ex.audio} />
+          : ex.audio
+            ? <>{latinLine}<span class="hint">{ex.en}</span></>
+            : la
+              ? <span class="en-big" lang="en" data-testid="cue">{ex.en}</span>
+              : <span class="with-speaker"><span class="la-big" lang="la" data-testid="cue">{ex.words.map((w) => w.text).join(' ')}{ex.s.punct ?? '.'}</span>
+                {speak && !outcome && <Speaker key={speak.key} audio={speak} label="Listen to the sentence" />}</span>}
       </div>
       <div class={`tile-answer${outcome ? (outcome.ok ? ' ok' : ' bad') : ''}`} aria-label="Your answer" data-testid="tile-answer">
         {picked.length === 0 && <span class="tile-placeholder">Tap the words in order</span>}

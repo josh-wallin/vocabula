@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { AppData } from '../app/controller.ts';
 import type { PathNode } from '../engine/path.ts';
-import { isGraded, isScored, type ChoiceExercise, type Exercise, type TypedExercise } from '../engine/lesson.ts';
+import { isGraded, isListening, isScored, type ChoiceExercise, type Exercise, type TypedExercise } from '../engine/lesson.ts';
 import { Session, type Outcome } from '../engine/session.ts';
 import { citation, classNote } from '../engine/lexicon.ts';
 import { roman } from '../engine/curriculum.ts';
@@ -13,6 +13,10 @@ import type { FlagBody, LessonStats } from '../engine/events.ts';
 import { SentenceView } from './SentenceView.tsx';
 import { FlagSheet } from './Flag.tsx';
 import type { Grade } from '../engine/srs.ts';
+import { exerciseAudio } from '../audio/exercise.ts';
+import { introAudio, type AudioRef } from '../audio/items.ts';
+import { audioMissing, loadClip, playClip, prefetchClips, stopAudio, unlockAudio } from '../audio/player.ts';
+import { ListenCue, Speaker } from './Speaker.tsx';
 
 export interface LessonResult { run: string; stats: LessonStats }
 
@@ -26,11 +30,13 @@ interface Props {
   onQuit: () => void;
   /** Record a flag on the current exercise. */
   onFlag?: (b: FlagBody) => void;
+  /** Play new words and listening clips without a tap (Profile → Autoplay audio). */
+  autoplay?: boolean;
 }
 
 const MACRONS = ['ā', 'ē', 'ī', 'ō', 'ū'];
 
-export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, onFlag }: Props) {
+export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, onFlag, autoplay = true }: Props) {
   const session = useMemo(() => new Session(exercises), [exercises]);
   const [, setTick] = useState(0);
   const [picked, setPicked] = useState<string[]>([]);
@@ -45,6 +51,23 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
   const ex = item?.ex;
 
   useEffect(() => { if (ex?.type === 'typed') inputRef.current?.focus(); }, [ex]);
+  // Warm the audio cache: listening clips first, then the speakers' clips. Never blocks.
+  useEffect(() => {
+    const listen = exercises.filter(isListening).map((e) => e.audio.key);
+    const other = exercises.flatMap((e) => { const a = exerciseAudio(e, app.lex); return [a.prompt?.key, a.answer?.key]; }).filter((k): k is string => !!k);
+    void prefetchClips([...listen, ...other]);
+    return () => stopAudio();
+  }, [exercises]);
+  // A listening exercise whose clip can't be had becomes its non-audio fallback (nothing graded).
+  useEffect(() => {
+    if (!ex || !isListening(ex) || outcome) return;
+    const cur = ex;
+    const swap = () => { if (session.current?.ex === cur) { session.swapCurrent(cur.fallback); setPicked([]); setTyped(''); setTick((t) => t + 1); } };
+    if (audioMissing(cur.audio.key)) { swap(); return; }
+    let live = true;
+    loadClip(cur.audio.key).then(() => { if (live && autoplay) void playClip(cur.audio.key); }, () => { if (live) swap(); });
+    return () => { live = false; };
+  }, [ex]);
   useEffect(() => { if (outcome) contRef.current?.focus(); }, [outcome]);
 
   const finish = () => {
@@ -81,7 +104,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
   };
 
   return (
-    <div class="screen" data-screen="lesson" data-node={node.id}>
+    <div class="screen" data-screen="lesson" data-node={node.id} onPointerDown={unlockAudio}>
       <header class="lesson-head">
         <button type="button" class="iconbtn" aria-label="Quit lesson" onClick={onQuit} data-testid="quit"><IconX /></button>
         <div class="progress" role="progressbar" aria-label="Lesson progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct}>
@@ -98,9 +121,9 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
       <main class="lesson-body" data-exercise={ex.type} data-kind={ex.kind} onKeyDown={onKey}>
         {item.retry > 0 && <span class="retry-tag">Try this one again</span>}
         {ex.type === 'grammar' && <GrammarCardView section={ex.section} onTerm={setTerm} />}
-        {ex.type === 'intro' && <IntroCard app={app} lemmaId={ex.lemma} />}
+        {ex.type === 'intro' && <IntroCard app={app} lemmaId={ex.lemma} autoplay={autoplay} />}
         {ex.type === 'choice' && (
-          <ChoiceView ex={ex} picked={picked} outcome={outcome}
+          <ChoiceView ex={ex} picked={picked} outcome={outcome} speak={exerciseAudio(ex, app.lex).prompt}
             onPick={(id) => {
               if (outcome) return;
               setPicked(ex.multi ? (picked.includes(id) ? picked.filter((x) => x !== id) : [...picked, id]) : [id]);
@@ -110,7 +133,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
           <TypedView ex={ex} typed={typed} setTyped={setTyped} locked={!!outcome} inputRef={inputRef} />
         )}
         {ex.type === 'sentence' && (
-          <SentenceView ex={ex} picked={picked} outcome={outcome} setPicked={(p) => { if (!outcome) setPicked(p); }} />
+          <SentenceView ex={ex} picked={picked} outcome={outcome} speak={exerciseAudio(ex, app.lex).prompt} setPicked={(p) => { if (!outcome) setPicked(p); }} />
         )}
       </main>
 
@@ -127,7 +150,10 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
             <span class="ft" lang={outcome.ok && !outcome.macronMiss ? 'la' : 'en'}>
               {outcome.ok ? (outcome.macronMiss ? 'Rēctē, but mind the macrons' : 'Rēctē!') : 'Not quite'}
             </span>
-            <span class="fb">{feedbackBody(ex, outcome, item.retry)}</span>
+            <span class="fb-row">
+              <span class="fb">{feedbackBody(ex, outcome, item.retry)}</span>
+              {(() => { const a = exerciseAudio(ex, app.lex).answer; return a ? <Speaker key={a.key} audio={a} label="Listen to the answer" /> : null; })()}
+            </span>
           </div>
           <button type="button" ref={contRef} class={`btn ${outcome.ok ? 'ok' : 'bad'}`} onClick={next} data-testid="continue">Continue</button>
         </footer>
@@ -154,7 +180,7 @@ function feedbackBody(ex: Exercise, o: Outcome, retry: number): string {
   return `Correct answer: ${o.expected}. ${ex.type === 'choice' && ex.kind === 'meaning' ? '' : ex.note}${again}`.replace(/\s+/g, ' ').trim();
 }
 
-function IntroCard({ app, lemmaId }: { app: AppData; lemmaId: string }) {
+function IntroCard({ app, lemmaId, autoplay }: { app: AppData; lemmaId: string; autoplay: boolean }) {
   const w = app.lex.byId.get(lemmaId);
   if (!w) return null;
   const l = w.lemma;
@@ -168,6 +194,7 @@ function IntroCard({ app, lemmaId }: { app: AppData; lemmaId: string }) {
       <div class="wordcard">
         <div class="head">
           <span class="hw" lang="la">{first}</span>
+          <Speaker key={l.id} audio={introAudio(l)} autoplay={autoplay} label={`Listen: ${citation(l)}`} />
           {rest.length > 0 && <span class="parts" lang="la">{rest.join(', ')}</span>}
           {l.gender && <span class="gchip">{l.gender}.</span>}
         </div>
@@ -200,11 +227,19 @@ function introNote(paradigm: string, pos: string): string {
   }
 }
 
-function ChoiceView({ ex, picked, outcome, onPick }: { ex: ChoiceExercise; picked: string[]; outcome: Outcome | null; onPick: (id: string) => void }) {
+function ChoiceView({ ex, picked, outcome, onPick, speak }: { ex: ChoiceExercise; picked: string[]; outcome: Outcome | null; onPick: (id: string) => void; speak: AudioRef | null }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+      {ex.audio && <span class="eyebrow" lang="la">Audī</span>}
       <h1 class="prompt">{ex.prompt}</h1>
-      <div class="cue"><span class={ex.cueLa ? 'la-big' : 'en-big'} lang={ex.cueLa ? 'la' : 'en'} data-testid="cue">{ex.cue}</span></div>
+      {ex.audio && !outcome
+        ? <ListenCue audio={ex.audio} />
+        : (
+          <div class="cue"><span class="with-speaker">
+            <span class={ex.cueLa ? 'la-big' : 'en-big'} lang={ex.cueLa ? 'la' : 'en'} data-testid="cue">{ex.cue}</span>
+            {speak && !outcome && <Speaker key={speak.key} audio={speak} />}
+          </span></div>
+        )}
       {ex.multi && <span class="select-all">Select all that fit</span>}
       <div class="options" role={ex.multi ? 'group' : 'radiogroup'} aria-label="Answers">
         {ex.options.map((o) => {
@@ -243,14 +278,19 @@ function TypedView({ ex, typed, setTyped, locked, inputRef }: {
   const id = `answer-${ex.id}`;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+      {ex.audio && <span class="eyebrow" lang="la">Audī</span>}
       <h1 class="prompt">{ex.prompt}</h1>
-      <div class="cue">
-        <span class={ex.cueLa ? 'la-big' : 'en-big'} lang={ex.cueLa ? 'la' : 'en'} data-testid="cue">{ex.cue}</span>
-        {ex.hint && <span class="hint">{ex.hint}</span>}
-      </div>
+      {ex.audio
+        ? (locked ? <div class="cue"><span class="la-big" lang="la" data-testid="cue">{ex.cue}</span></div> : <ListenCue audio={ex.audio} />)
+        : (
+          <div class="cue">
+            <span class={ex.cueLa ? 'la-big' : 'en-big'} lang={ex.cueLa ? 'la' : 'en'} data-testid="cue">{ex.cue}</span>
+            {ex.hint && <span class="hint">{ex.hint}</span>}
+          </div>
+        )}
       <label for={id} class="field-label">Your answer</label>
       <input id={id} ref={inputRef} class="answer-input" lang="la" autocomplete="off" autocapitalize="off" autocorrect="off"
-        spellcheck={false} placeholder={ex.kind === 'recall' ? 'Latin word' : 'Latin form'} value={typed} disabled={locked}
+        spellcheck={false} placeholder={ex.kind === 'recall' ? 'Latin word' : ex.kind === 'dictate' ? 'What you hear' : 'Latin form'} value={typed} disabled={locked}
         data-testid="answer" onInput={(e) => setTyped((e.target as HTMLInputElement).value)} />
       <div class="macrons">
         <span class="lbl">Macrons</span>
@@ -263,3 +303,4 @@ function TypedView({ ex, typed, setTyped, locked, inputRef }: {
     </div>
   );
 }
+

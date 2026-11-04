@@ -10,6 +10,9 @@ import { AUDIO_ENGINE, audioKey, normalizeAudioText, sha256Hex, TEST_VECTOR } fr
 import { consonantalI, espeakInput, euHiatus } from '../src/audio/speech.ts';
 import { audioItems, citationText, introAudio, sentenceAudio, wordAudio, wordText } from '../src/audio/items.ts';
 import { exerciseAudio } from '../src/audio/exercise.ts';
+import { COMPARE_ITEMS } from '../src/compare/items.ts';
+import { audioUrl } from '../src/audio/key.ts';
+const espeakUrlSync = (t: string) => audioUrl(audioKey(t));
 import { fixLexicon } from './fixtures.ts';
 import { buildLexicon } from '../src/engine/lexicon.ts';
 import { buildPath } from '../src/engine/path.ts';
@@ -105,6 +108,11 @@ describe('audio manifest', () => {
     expect(sentenceAudio(BANK[0]!).text).toBe(normalizeAudioText(latinText(BANK[0]!)));
     expect(items.find((i) => i.text === 'iam')?.speak ?? 'jam').toBe('jam');
   });
+  it('includes the voice-test items (eSpeak column of #/compare)', () => {
+    const ks = new Set(audioItems({ words: [] }, []).map((i) => i.key));
+    for (const it of COMPARE_ITEMS) expect(ks.has(audioKey(it.la)), it.id).toBe(true);
+    expect(espeakUrlSync(COMPARE_ITEMS[0]!.la)).toBe(`/api/audio/${audioKey(COMPARE_ITEMS[0]!.la)}`);
+  });
   it('covers the real sentence bank', () => {
     const bank = sentenceBank();
     const all = new Set(audioItems({ words: [] }, bank).map((i) => i.key));
@@ -175,7 +183,7 @@ describe('service worker', () => {
     expect(a.handler).toBe('CacheFirst');
     expect(a.options?.cacheName).toBe('audio');
     expect(a.options?.expiration?.maxEntries).toBe(5000);
-    expect(a.options?.cacheableResponse?.statuses).toEqual([200]);
+    expect(a.options?.cacheableResponse).toEqual({ statuses: [200], headers: { 'content-type': 'audio/mpeg' } });
     expect(rule('/api/events')!.handler).toBe('NetworkOnly');
     expect(rule('/api/pack')!.handler).toBe('NetworkOnly');
   });

@@ -8,14 +8,16 @@
  *  - citation: the full citation when it has more than one form (rosa, rosae; amō, amāre; magnus, magna, magnum)
  *  - sentence: every bank sentence as printed (Puella rosam amat.)
  *  - form:     every distinct written word in the bank's sentences (rosam, puellaeque)
+ *  - extra:    the voice-test page's items (src/compare/items.ts), so its eSpeak column has clips
  */
 import type { Lemma } from '../morph/types.ts';
 import { citation, type Lexicon } from '../engine/lexicon.ts';
 import { latinText, tokenText, type Sentence } from '../engine/sentences.ts';
 import { audioKey, normalizeAudioText } from './key.ts';
 import { espeakInput } from './speech.ts';
+import { COMPARE_ITEMS } from '../compare/items.ts';
 
-export type AudioKind = 'word' | 'citation' | 'sentence' | 'form';
+export type AudioKind = 'word' | 'citation' | 'sentence' | 'form' | 'extra';
 export interface AudioItem { key: string; text: string; kind: AudioKind; speak: string }
 export interface AudioRef { key: string; text: string }
 
@@ -38,8 +40,11 @@ export const introAudio = (l: Lemma): AudioRef => ref(citationText(l) ?? wordTex
 export const sentenceAudio = (s: Sentence): AudioRef => ref(latinText(s));
 export const formAudio = (form: string): AudioRef => ref(form);
 
+/** Texts with clips beyond the lexicon and the bank: the voice-test page's items. */
+export const EXTRA_AUDIO_TEXTS: readonly string[] = COMPARE_ITEMS.map((i) => i.la);
+
 /** Every clip the app may ask for, de-duplicated by key, in a stable order. */
-export function audioItems(lex: Pick<Lexicon, 'words'>, sentences: readonly Sentence[]): AudioItem[] {
+export function audioItems(lex: Pick<Lexicon, 'words'>, sentences: readonly Sentence[], extra: readonly string[] = EXTRA_AUDIO_TEXTS): AudioItem[] {
   const out = new Map<string, AudioItem>();
   const add = (text: string, kind: AudioKind) => {
     const r = ref(text);
@@ -50,5 +55,6 @@ export function audioItems(lex: Pick<Lexicon, 'words'>, sentences: readonly Sent
   for (const w of lex.words) { const c = citationText(w.lemma); if (c) add(c, 'citation'); }
   for (const s of sentences) add(latinText(s), 'sentence');
   for (const s of sentences) for (const t of s.tokens) add(tokenText(t), 'form');
+  for (const t of extra) add(t, 'extra');
   return [...out.values()];
 }

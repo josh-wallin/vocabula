@@ -39,3 +39,6 @@ export const IconPractice = (p: P) => <S {...p}><path d="M6 8v8M18 8v8M3 10v4M21
 export const IconWords = (p: P) => <S {...p}><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" /></S>;
 export const IconProfile = (p: P) => <S {...p}><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></S>;
 export const IconFlag = (p: P) => <S sw={2.2} {...p}><path d="M5 21V4" /><path d="M5 4h11l-2 4 2 4H5" /></S>;
+export const IconSpeaker = (p: P) => (
+  <S {...p}><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" /><path d="M15.5 9a4 4 0 0 1 0 6" /><path d="M18 6.5a7.5 7.5 0 0 1 0 11" /></S>
+);

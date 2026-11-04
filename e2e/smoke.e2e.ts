@@ -21,6 +21,15 @@ const PACK = resolve(ROOT, 'content/private/vocabula-pack.json');
 const PORT = Number(process.env.E2E_PORT ?? 4179);
 const URL = `http://localhost:${PORT}/`;
 
+/** 0.2 s of 8 kHz 8-bit mono silence. */
+function silentWav(): Buffer {
+  const n = 1600;
+  const b = Buffer.alloc(44 + n, 0x80);
+  b.write('RIFF', 0); b.writeUInt32LE(36 + n, 4); b.write('WAVEfmt ', 8); b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22);
+  b.writeUInt32LE(8000, 24); b.writeUInt32LE(8000, 28); b.writeUInt16LE(1, 32); b.writeUInt16LE(8, 34); b.write('data', 36); b.writeUInt32LE(n, 40);
+  return b;
+}
+
 function log(s: string) { console.log(`[e2e] ${s}`); }
 function assert(c: unknown, msg: string): asserts c { if (!c) throw new Error(`assertion failed: ${msg}`); }
 
@@ -46,6 +55,9 @@ async function main() {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
     // Fonts are optional; the network is blocked in CI, so fail them fast.
     await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+    // vite preview has no /api: serve every clip as a short silent WAV, so listening exercises stay (no fallback).
+    let clips = 0;
+    await context.route(/\/api\/audio\/[0-9a-f]+$/, (r) => { clips++; return r.fulfill({ status: 200, contentType: 'audio/mpeg', body: silentWav() }); });
     const page = await context.newPage();
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(String(e)));
@@ -108,6 +120,8 @@ async function main() {
     await page.getByTestId('complete-continue').click();
     assert(await page.locator('[data-node="s1.pattern"][data-status="done"]').count() === 1, 's1.pattern done offline');
 
+    // Offline with no clips cached, no listening exercises were built. Back online, they are.
+    await context.setOffline(false);
     // Verba II, then the first Repetītiō: it mixes in sentence exercises. Flag one exercise on the way.
     await page.locator('button.disc[data-status="current"]').click();
     await page.locator('main.lesson-body').waitFor();
@@ -122,8 +136,11 @@ async function main() {
     assert(await page.locator('[data-node="s1.rep.1"][data-status="current"]').count() === 1, 's1.rep.1 is current');
     await page.locator('button.disc[data-status="current"]').click();
     const rep = await playLesson(page);
-    assert(rep.sentences >= 2, `Repetītiō had ${rep.sentences} sentence exercises`);
+    assert(rep.sentences >= 2, `Repetītiō had ${rep.sentences} sentence exercises (${JSON.stringify(rep)})`);
     log(`Repetītiō: ${rep.sentences} sentence exercises answered`);
+    assert(rep.listened >= 1, `Repetītiō had ${rep.listened} listening exercises`);
+    assert(clips > 0, 'audio clips were fetched');
+    log(`Repetītiō: ${rep.listened} listening exercises answered; ${clips} clip requests`);
     await page.getByTestId('complete-continue').click();
     await page.getByRole('button', { name: 'Profile' }).click();
     const flags = page.getByTestId('flag-list');

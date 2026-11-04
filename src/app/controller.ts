@@ -59,7 +59,17 @@ export function practiceNode(app: AppData): PathNode {
   };
 }
 
-export function lessonFor(app: AppData, node: PathNode, now = new Date()): Exercise[] {
+/** Listening settings (synced 'setting' events; both default on). */
+export const SETTING_LISTENING = 'listening';
+export const SETTING_AUTOPLAY = 'autoplay';
+export const settingOn = (app: AppData, key: string): boolean => app.state.settings[key] !== false;
+
+export interface LessonOpts {
+  /** Whether a clip is likely playable now; listening exercises only when given and the setting is on. */
+  audioAvailable?: (key: string) => boolean;
+}
+
+export function lessonFor(app: AppData, node: PathNode, now = new Date(), opts: LessonOpts = {}): Exercise[] {
   const f = frontier(app);
   // A lesson can use the features of its node plus whatever the learner has already unlocked.
   const prev = app.path.nodes[Math.max(0, Math.min(f.index, app.path.nodes.length) - 1)];
@@ -69,6 +79,7 @@ export function lessonFor(app: AppData, node: PathNode, now = new Date()): Exerc
     : app.path;
   return buildLesson(node, {
     lex: app.lex, path: pathForKnown, state: app.state, now, unlocked, seed: `${node.id}:${now.getTime()}`, sentences: sentenceBank(),
+    ...(opts.audioAvailable && settingOn(app, SETTING_LISTENING) ? { listening: { available: opts.audioAvailable } } : {}),
   });
 }
 
@@ -86,6 +97,13 @@ export async function recordReview(app: AppData, card: string, grade: Grade, nod
 export async function recordNodeDone(app: AppData, node: string, run: string, stats: LessonStats): Promise<AppData> {
   const body: NodeDoneBody = { node, run, stats };
   const e = ev(app, 'node_done', { body });
+  await putEvents([e]);
+  return withEvents(app, [e]);
+}
+
+/** Persist a setting (synced; the latest ts wins on every device). */
+export async function recordSetting(app: AppData, key: string, value: unknown): Promise<AppData> {
+  const e = ev(app, 'setting', { body: { key, value } });
   await putEvents([e]);
   return withEvents(app, [e]);
 }

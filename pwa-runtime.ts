@@ -13,7 +13,7 @@ export const runtimeCaching: RuntimeCaching[] = [
     options: {
       cacheName: 'audio',
       expiration: { maxEntries: 5000 },
-      cacheableResponse: { statuses: [200] },
+      cacheableResponse: { statuses: [200], headers: { 'content-type': 'audio/mpeg' } },
     },
   },
   {

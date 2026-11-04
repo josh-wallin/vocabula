@@ -470,7 +470,7 @@ export function buildLesson(node: PathNode, base: BuildCtx): Exercise[] {
       const want = n === 0 ? 0 : n >= 8 ? SENTENCES_PER_REVIEW.max : n >= 3 ? 3 : SENTENCES_PER_REVIEW.min;
       // Listening (only with ctx.listening): sentences first so the others avoid them; words kept out of the review part.
       const heard = f.sentenceListening(node, SENTENCE_LISTENING.repetitio);
-      const sent = [...f.sentenceExercises(node, want, undefined, new Set(heard.map((e) => e.sentence))), ...heard];
+      const sent = [...f.sentenceExercises(node, want, undefined, avoidHeard(heard, n, want)), ...heard];
       const listen = f.wordListening(WORD_LISTENING_PER_LESSON, new Set());
       const listenLemmas = new Set(listen.map((e) => ('lemma' in e ? e.lemma : '')));
       return withSentences(sent, (k) => mixIn(reviewLesson(f, ctx, known, REVIEW_SIZE - k - listen.length, listenLemmas), listen));
@@ -478,10 +478,18 @@ export function buildLesson(node: PathNode, base: BuildCtx): Exercise[] {
     case 'probatio': {
       const want = f.eligibleSentenceCount(node) ? SENTENCES_PER_PROBATIO : 0;
       const heard = want ? f.sentenceListening(node, SENTENCE_LISTENING.probatio) : [];
-      const sent = [...f.sentenceExercises(node, want, undefined, new Set(heard.map((e) => e.sentence))), ...heard];
+      const sent = [...f.sentenceExercises(node, want, undefined, avoidHeard(heard, f.eligibleSentenceCount(node), want)), ...heard];
       return withSentences(sent, (k) => probatio(f, ctx, PROBATIO_SIZE - k));
     }
   }
+}
+
+/**
+ * Sentences the ordinary sentence exercises should leave out because a listening exercise uses
+ * them, but only while enough other sentences remain (with few sentences, both may use one).
+ */
+function avoidHeard(heard: readonly SentenceExercise[], eligible: number, want: number): Set<string> | undefined {
+  return heard.length && eligible - heard.length >= Math.min(want, 2) ? new Set(heard.map((e) => e.sentence)) : undefined;
 }
 
 /** Spread `extra` evenly through the second two thirds of `xs` (listening after some warm-up). */

@@ -94,6 +94,7 @@ Worker "vocabula"
 | `GET /api/pack/status` | `{present, hash?, id?, lemmas?, updatedAt?}` for Profile. |
 | `POST /api/events` | `{events: VEvent[]}`, ≤ 500 per request, each validated with `parseEvent`. One D1 batch of `INSERT OR IGNORE` (idempotent by event id). Returns `{accepted, cursor}` (`cursor` = max `seq`). |
 | `GET /api/events?after=<seq>&limit=1000` | `{events: [...each with seq], cursor, more}`, ordered by `seq`. `limit` is clamped to 1–1000. |
+| `GET /api/audio/:key` | A pronunciation clip (`audio/mpeg`) from D1 table `audio`, `Cache-Control: private, max-age=31536000, immutable`, `ETag: "<key>"` (`If-None-Match` → `304` without a database read). Unknown key → `404 {"error":"no audio"}`. Handler: `worker/audio.ts`. |
 
 Events on the wire are exactly the client's `VEvent` (`{id, device, ts (ms, integer), kind, card?, grade? ('good'|'again'), body?}`), without the device-local `outbox` flag. Table `events(seq INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT UNIQUE, device, ts INTEGER, kind, card, grade TEXT, body TEXT (JSON), received_at)`. `seq` increases but may skip values (ignored duplicates can consume AUTOINCREMENT numbers); clients only rely on order.
 
@@ -103,7 +104,7 @@ Events on the wire are exactly the client's `VEvent` (`{id, device, ts (ms, inte
 - **Sync loop** (`src/sync/sync.ts`): runs on start, on `online`, when the page becomes visible, after a lesson ends or is quit, from Profile → Sync now, and every 5 minutes while visible. It POSTs the outbox in chunks of 500 (oldest first) and clears `outbox` only for chunks that got a 2xx, then GETs `/api/events?after=<cursor>` until `more` is false, appends events whose id it doesn't have, and stores the cursor (IndexedDB `meta.syncCursor`). If anything new arrived, the app re-reads the log and replays (deferred until the current lesson ends). Failures back off exponentially (15 s doubling, max 15 min); nothing is thrown to the UI.
 - **Status chip** (top bar): `Offline` / `Syncing…` / `Synced` / `N queued` (`Not synced` after an error with nothing queued), or a `Sign in` button when the session has expired.
 - **Expired session**: Access protects static assets too, but the service worker serves the app shell from cache, so an expired session first shows up on `/api` calls. Those use `fetch(…, {redirect: 'manual'})`; Access's redirect to its login page then arrives as an `opaqueredirect` response. That, any 3xx, 401/403, or a 2xx that isn't JSON counts as "session expired". **Sign in again** does a full navigation to `/api/me?return=/`: Access sends the browser through login and back, and the Worker redirects to `/`.
-- **Service worker**: `navigateFallbackDenylist` has `/^\/api\//` and `/^\/cdn-cgi\//` (Access's `/cdn-cgi/access/authorized` and `/logout` live on the app origin), and both prefixes are `NetworkOnly` (never precached or cached).
+- **Service worker**: `navigateFallbackDenylist` has `/^\/api\//` and `/^\/cdn-cgi\//` (Access's `/cdn-cgi/access/authorized` and `/logout` live on the app origin), and both prefixes are `NetworkOnly` (never precached or cached), except pronunciation clips (`/api/audio/*`, CacheFirst, see Listening).
 
 ### How state converges
 
@@ -177,6 +178,30 @@ Repetītiō (13) has 2–4 sentence exercises (2 with 1–2 eligible sentences, 
 
 Every exercise screen (words and sentences, intro and grammar cards too) has a flag button: reason (*wrong answer* / *bad Latin* / *bad English* / *other*) + optional note. It records a `flag` event, body `{ref, reason, note?, shown?, node?}`: `ref` is the card id (`amo-v1:meaning`, `sent:s02-01:la`) or `lemma:<id>` / `grammar:<section>`; `shown` is what the screen showed (prompt, cue, options; ≤ 500 chars). The shared `parseEvent` validates it (reason from the list, ref ≤ 256, note ≤ 1000), so the Worker, sync and backups accept it like any event. `replay` collects `state.flags`; Profile → Flags lists them, newest first. An older client that pulls a `flag` event skips it (sync drops records its validator rejects).
 
+## Listening (Audī)
+
+Pronunciation clips come from **eSpeak NG**'s Latin voice (`la`, restored classical pronunciation), pre-generated at 130 words per minute (slower than eSpeak's 175, for learners) and stored in D1. Nothing is synthesized on the device or in the Worker.
+
+- **Keys** (`src/audio/key.ts`): `key = sha256("espeak-ng+p1|la|130|" + normalize(text))`, first 24 hex digits; normalize = NFC, lowercase, single spaces, trimmed, punctuation kept. Pure synchronous SHA-256, so lessons (built synchronously) can compute keys. Test vector, also asserted in the content repo: `Amō` → `fb92e07d84a2cd968a353adf`. `p1` is the version of the pre-processing below: bump it (here and in vocabula-content `scripts/audio-lib.mts`) whenever the pre-processing or the voice changes, so every clip is regenerated under new keys.
+- **Pre-processing** (`src/audio/speech.ts`), applied to the text eSpeak is given (the key covers it through the version tag): consonantal *i* → *j* at the start of a word before a vowel (*iam* → *jam*; eSpeak reads *iam* as two syllables) and after a prefix (*adiuvō, coniungō, iniūria, obiectus*; *obiciō* → *objiciō*), vocalic forms of *eō* left alone; *eu* → *eü* except in real diphthongs (*heu, seu, ceu, neu, neuter*, Greek *Eu-*), because eSpeak makes every *eu* a diphthong (*deus* as one syllable); enclitic hyphens dropped. Intervocalic *i* (*cuius, huius, maior, eius*) eSpeak already doubles (/kʊjjʊs/).
+- **What eSpeak gets right** (checked with `espeak-ng -v la -x`): *c* = /k/, *v* = /w/, *ae* = /ai/, *oe* = /oi/, *gn* = /ŋn/, *qu* = /kw/, *ph th* aspirated, macrons → long vowels, penult-law stress (*agricola* /aɡˈrɪkɔla/, *amāre* /amˈaːrɛ/). **Known gaps**: final *-m* is not nasalized; no elision; *deinde* is stressed de-ín-de; *coniungō* gets initial stress; *cui*, *huic* are two syllables; isolated words sometimes carry only secondary stress (*eius*, *mihi*).
+- **Manifest** (`src/audio/items.ts`, `scripts/audio-manifest.ts`): each lemma's first citation form (*amō*), its full citation when it has more than one form (*rosa, rosae*; *amō, amāre*; *magnus, magna, magnum*), every bank sentence as printed, every written word in the bank, and the voice-test items (`src/compare/items.ts`). Currently 2045 clips. The output holds Wheelock words: never commit it.
+- **Pipeline**: the private content repo's Action (`vocabula-content/.github/workflows/audio.yml`) builds the manifest from this repo's code, synthesizes only the keys D1 doesn't have (`espeak-ng -v la -s 130` → ffmpeg → MP3), and uploads them with `wrangler d1 execute --file` (`INSERT OR REPLACE … X'…'`, each statement < 90 KB). It runs on pushes that change the pack or scripts, or by hand (inputs `app_ref`, `force`). Table: `audio (key TEXT PRIMARY KEY, mime, bytes BLOB, text, engine, created_at)` (`worker/schema.ts`, `migrations/0002_audio.sql`).
+- **Format**: MP3, mono, 22.05 kHz, 32 kbps CBR, leading silence trimmed (≈ 4 KB per word, 8 KB on average, 22 KB max; 15.9 MB for all 2045). MP3 plays on iOS Safari and Android Chrome alike; Opus would be smaller, but Safari's support depends on the iOS version and the container.
+- **Client** (`src/audio/player.ts`): clips are fetched (`redirect: 'manual'`, so an expired sign-in is a failure, not a login page) and played from blob URLs through one shared `<audio>` element (no Range requests, which Safari wants for media URLs). The first tap in a lesson unlocks the element on iOS so later clips can autoplay. A 404 marks the key missing for the session. The service worker caches `/api/audio/*` **CacheFirst** (cache `audio`, 5000 entries, only `200 audio/mpeg`), a rule placed before the `NetworkOnly` `/api` rule (`pwa-runtime.ts`). A lesson prefetches its clips when it starts.
+- **Speakers**: on new-word cards (the citation; autoplays), beside Latin cues that don't give the answer away (Latin → English, gender / conjugation, parse, subject / object), and in every feedback panel (the word, form or sentence). Hidden when the clip can't play (offline and not cached, or missing).
+- **Exercises** (Latin label *Audī*), only when the setting is on and the clip is likely playable (online, or cached on this device, and not known missing):
+
+| Card | Exercise | Fallback when the clip fails |
+|---|---|---|
+| `{lemma}:listen` | Hear the word, choose its meaning (Latin → English distractors) | the meaning question |
+| `{lemma}:dictate` | Hear the word, type it; macrons optional, spelling shown (only after a `:listen` review) | the meaning question |
+| `sent:<id>:listen` | Hear the sentence, build the English from tiles (any accepted translation) | `sent:<id>:en` |
+| `sent:<id>:dictate` | Hear the sentence, build it from Latin tiles in the heard order (only after a `:listen` review) | `sent:<id>:la` |
+
+  A word gets listening once it has ≥ 1 correct meaning review. Verba / Plūra verba / FR lessons get 2 word-listening exercises on earlier words (part of the 12, or added when intros and quizzes already fill it); Repetītiō 2 word + 1 sentence listening, Probātiō 2 sentence listening, within their usual lengths; pattern and Fōrmae lessons none. Due listening cards come first, then new ones, then the weakest. If a clip can't be loaded when its exercise comes up, the fallback takes its place, ungraded for the listening card. These are ordinary `review` events: `parseEvent` accepts any card id, and `parseCardId` / `parseSentenceCard` ignore them, so they never touch word cards or the sentence chooser. Without `ctx.listening` (or with nothing available) every lesson is exactly as before.
+- **Profile → Listening**: *Listening exercises* and *Autoplay audio* (both on by default; `setting` events, so they sync).
+
 ## Run
 
 ```sh
@@ -215,14 +240,15 @@ src/
   engine/     curriculum, path, lessons, session, FSRS, events/replay, backup, sync code (pure)
   content/    glossary, grammar cards, sentence bank loader (original writing)
   sync/       client sync: fetch wrapper, sync loop, wire protocol (shared with the Worker)
+  audio/      clip keys, eSpeak pre-processing, manifest items, browser player
   app/        controller: content + event log → derived state
   main.tsx    app entry
 worker/       Cloudflare Worker: /api handlers, D1 schema, its own tsconfig and generated types
-migrations/   D1 schema SQL (reference; the Worker creates tables itself)
+migrations/   D1 schema SQL (reference; the Worker creates tables itself; 0002 = audio)
 content/      data files
   sentences/  sentence bank, one JSON file per section (original Latin, public)
   private/    copyrighted textbook data: gitignored, NEVER committed (a symlink to it is ignored too)
-scripts/      CLI tools (import-wheelock.ts, import-dcc.ts, build-pack.ts)
+scripts/      CLI tools (import-wheelock.ts, import-dcc.ts, build-pack.ts, audio-manifest.ts)
 e2e/          headless browser smoke test
 tests/        Vitest specs
 public/       icons and static assets

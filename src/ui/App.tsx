@@ -1,7 +1,7 @@
 /** App shell: routes between import, path, lesson, complete and tab pages. */
 import { useEffect, useRef, useState } from 'preact/hooks';
 import {
-  frontier, lessonFor, loadApp, withEvents, practiceNode, recordFlag, recordNodeDone, recordReview, streakNow, PRACTICE_NODE, type AppData,
+  frontier, lessonFor, loadApp, settingOn, SETTING_AUTOPLAY, withEvents, practiceNode, recordFlag, recordNodeDone, recordReview, streakNow, PRACTICE_NODE, type AppData,
 } from '../app/controller.ts';
 import type { PathNode } from '../engine/path.ts';
 import type { Exercise } from '../engine/lesson.ts';
@@ -11,6 +11,7 @@ import { Syncer, syncLabel, type SyncStatus } from '../sync/sync.ts';
 import { idbSyncStore } from '../sync/idbStore.ts';
 import { signInAgain } from '../sync/http.ts';
 import { uuid } from '../engine/util.ts';
+import { audioAvailable, initAudioCache } from '../audio/player.ts';
 import { roman } from '../engine/curriculum.ts';
 import { PathScreen } from './PathScreen.tsx';
 import { Lesson, type LessonResult } from './Lesson.tsx';
@@ -49,7 +50,7 @@ export function App() {
   useEffect(() => { const f = () => setHash(location.hash); addEventListener('hashchange', f); return () => removeEventListener('hashchange', f); }, []);
 
   const reload = () => loadApp().then(setApp).catch((e: Error) => setErr(e.message));
-  useEffect(() => { void reload(); }, []);
+  useEffect(() => { void reload(); void initAudioCache(); }, []);
 
   const loaded = app !== undefined && app !== null;
   // Start syncing once content is present. Remote events re-run replay (deferred during a lesson).
@@ -79,13 +80,13 @@ export function App() {
   if (app === null) return <ImportScreen onImported={() => void reload()} />;
 
   const start = (node: PathNode) => {
-    const exercises = lessonFor(app, node);
+    const exercises = lessonFor(app, node, new Date(), { audioAvailable });
     setView({ v: 'lesson', node, exercises, run: uuid() });
   };
 
   if (view.v === 'lesson') {
     return (
-      <Lesson app={app} node={view.node} exercises={view.exercises} run={view.run}
+      <Lesson app={app} node={view.node} exercises={view.exercises} run={view.run} autoplay={settingOn(app, SETTING_AUTOPLAY)}
         onReview={(card, grade) => {
           void recordReview(app, card, grade, view.node.id, view.run).then((e) => setApp((a) => (a ? withEvents(a, [e]) : a)));
         }}
