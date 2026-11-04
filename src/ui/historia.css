@@ -23,7 +23,7 @@
 .hist-latin-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .hist-text { color: var(--ink); }
 .hist-text .tok.known { text-decoration: underline solid var(--ok); text-decoration-thickness: 2px; text-underline-offset: 4px; }
-.hist-text .tok.on { text-decoration-color: #fff; }
+.hist-text .tok.on { text-decoration-color: var(--on-fill); }
 .tgloss .tg-p { flex-basis: 100%; font-size: 14px; color: var(--muted); }
 .hist-en { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--card); border-radius: 12px; border: 1.5px solid var(--line); }
 .hist-en p:first-child { font-size: 17px; line-height: 1.5; }

@@ -26,7 +26,7 @@ import { analyze } from '../src/morph/analyze.ts';
 import { buildLexicon } from '../src/engine/lexicon.ts';
 import { buildPath } from '../src/engine/path.ts';
 import { parsePack } from '../src/data/pack.ts';
-import { dccLemmas } from '../src/data/contentStore.ts';
+import { dccLemmas } from '../src/content/dccList.ts';
 import { fixLexicon } from './fixtures.ts';
 import { handleApi, type ApiCtx, type ApiEnv } from '../worker/api.ts';
 import { FakeD1 } from './d1fake.ts';
