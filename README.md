@@ -101,7 +101,7 @@ Every device keeps the same append-only log of events with globally unique ids. 
 
 ### One-time setup
 
-1. **Access**: Workers & Pages → vocabula → Settings → Access: enable it for all traffic with a policy allowing only your email. Copy the application's AUD tag into `ACCESS_AUD` in `wrangler.jsonc` (already set for the current app). Without Access, `ctx.access` is absent and every `/api` call is 403.
+1. **Access**: Workers & Pages → vocabula → Access: enable it for all traffic with a policy allowing only your email. Copy the application's AUD tag into `ACCESS_AUD` in `wrangler.jsonc` (already set for the current app). Without Access, `ctx.access` is absent and every `/api` call is 403.
 2. **Allowed email**: `ALLOWED_EMAILS` in `wrangler.jsonc` `vars` (comma-separated). Changing it is a commit + deploy.
 3. **D1**: database `vocabula` is bound as `DB`; tables are created on the first API call. Optionally `npx wrangler d1 migrations apply vocabula --remote`.
 4. **Pack**: on a device that has the file, import it, then Profile → **Upload this device's pack to the cloud**. Other devices then use **Sign in & download**.
