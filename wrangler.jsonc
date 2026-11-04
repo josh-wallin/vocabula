@@ -3,6 +3,9 @@
   "name": "vocabula",
   "compatibility_date": "2026-11-03",
   "observability": { "enabled": true },
+  // Keep variables added in the dashboard (e.g. API keys entered as plain "Text") across deploys.
+  // Keys should be added as type "Secret", which deploys never touch.
+  "keep_vars": true,
   // Sync API (worker/index.ts). Only /api/* reaches the Worker; everything else is
   // served straight from the Vite build output with SPA fallback.
   "main": "worker/index.ts",
