@@ -1,0 +1,547 @@
+{
+ "id": "agr-30",
+ "order": 12,
+ "title": "They make a desert and call it peace",
+ "saying": "ubi sōlitūdinem faciunt, pācem appellant",
+ "author": "Tacitus",
+ "work": "Agricola",
+ "citation": "Tac. Agr. 30.4–5",
+ "setting": "Northern Britain, before the battle of Mons Graupius, AD 83 or 84",
+ "edition": {
+  "name": "Tacitus, Agricola, ed. Cynthia Damon, Dickinson College Commentaries (Carlisle, Pennsylvania, 2016; ISBN 978-1-947822-09-2), as credited on the page; DCC content is licensed CC BY-SA (\"Dickinson College Commentaries by Dickinson College is licensed under a Creative Commons Attribution-ShareAlike License\")",
+  "url": "https://dcc.dickinson.edu/tacitus-agricola/30",
+  "section": "Agricola 30.4 (from \"Raptōrēs\") and 30.5 (the page marks [30.4] only; 30.5 begins at \"Auferre\")"
+ },
+ "source_text": "Raptores orbis, postquam cuncta vastantibus defuere terrae, mare scrutantur: si locuples hostis est, avari, si pauper, ambitiosi, quos non Oriens, non Occidens satiaverit: soli omnium opes atque inopiam pari adfectu concupiscunt. Auferre trucidare rapere falsis nominibus imperium, atque ubi solitudinem faciunt, pacem appellant.",
+ "excerpt_note": "The end of chapter 30 (sections 4 and 5), the close of the first part of Calgacus' speech. The DCC text prints macrons; the edition text here is given without them, and the macronized text matches the DCC's.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial, not part of any manuscript. Here they follow the macronized DCC text (ed. C. Damon), which agrees with the app lexicon (Wheelock / DCC spellings) for every word the app has.",
+  "uncertain": [
+   "concupīscunt: long ī before -sc- (inceptive), as printed by the DCC; not machine-checked.",
+   "locuplēs, Oriēns, Occidēns: long vowels before -s / -ns as printed by the DCC; not machine-checked.",
+   "dēfuēre: long ē of the 3rd pl. perfect ending -ēre, as printed by the DCC; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Raptōrēs",
+   "lemma": "raptor, raptōris, m.",
+   "parse": "nom. pl. (describing the Romans, the subject of scrūtantur)",
+   "gloss": "plunderers"
+  },
+  {
+   "w": "orbis",
+   "p": ",",
+   "lemma": "orbis, orbis, m.",
+   "parse": "gen. sg.",
+   "gloss": "of the world",
+   "app": [
+    "orbis-n3i"
+   ]
+  },
+  {
+   "w": "postquam",
+   "lemma": "postquam",
+   "parse": "conjunction",
+   "gloss": "after, now that"
+  },
+  {
+   "w": "cūncta",
+   "lemma": "cūnctus, cūncta, cūnctum",
+   "parse": "acc. pl. n., used as a noun (object of vastantibus)",
+   "gloss": "everything",
+   "app": [
+    "cunctus-adj12"
+   ]
+  },
+  {
+   "w": "vastantibus",
+   "lemma": "vastō, vastāre",
+   "parse": "pres. act. participle, dat. pl. m. (with dēfuēre: \"failed them as they laid waste\")",
+   "gloss": "(them) laying waste"
+  },
+  {
+   "w": "dēfuēre",
+   "lemma": "dēsum, dēesse, dēfuī",
+   "parse": "3rd pl. perf. ind. (= dēfuērunt)",
+   "gloss": "have run out, failed (+ dat.)"
+  },
+  {
+   "w": "terrae",
+   "p": ",",
+   "lemma": "terra, terrae, f.",
+   "parse": "nom. pl.",
+   "gloss": "the lands",
+   "app": [
+    "terra-n1"
+   ]
+  },
+  {
+   "w": "mare",
+   "lemma": "mare, maris, n.",
+   "parse": "acc. sg.",
+   "gloss": "the sea",
+   "app": [
+    "mare-n3in"
+   ]
+  },
+  {
+   "w": "scrūtantur",
+   "p": ":",
+   "lemma": "scrūtor, scrūtārī",
+   "parse": "3rd pl. pres. ind. (deponent)",
+   "gloss": "they search, ransack"
+  },
+  {
+   "w": "sī",
+   "lemma": "sī",
+   "parse": "conjunction",
+   "gloss": "if",
+   "app": [
+    "si-indecl"
+   ]
+  },
+  {
+   "w": "locuplēs",
+   "lemma": "locuplēs, locuplētis",
+   "parse": "nom. sg. m.",
+   "gloss": "rich"
+  },
+  {
+   "w": "hostis",
+   "lemma": "hostis, hostis, m./f.",
+   "parse": "nom. sg.",
+   "gloss": "the enemy",
+   "app": [
+    "hostis-n3i"
+   ]
+  },
+  {
+   "w": "est",
+   "p": ",",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "is",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "avārī",
+   "p": ",",
+   "lemma": "avārus, avāra, avārum",
+   "parse": "nom. pl. m. ([sunt] understood)",
+   "gloss": "(they are) greedy",
+   "app": [
+    "avarus-adj12"
+   ]
+  },
+  {
+   "w": "sī",
+   "lemma": "sī",
+   "parse": "conjunction",
+   "gloss": "if",
+   "app": [
+    "si-indecl"
+   ]
+  },
+  {
+   "w": "pauper",
+   "p": ",",
+   "lemma": "pauper, pauperis",
+   "parse": "nom. sg. m. ([est] understood)",
+   "gloss": "poor"
+  },
+  {
+   "w": "ambitiōsī",
+   "p": ",",
+   "lemma": "ambitiōsus, ambitiōsa, ambitiōsum",
+   "parse": "nom. pl. m.",
+   "gloss": "(they are) hungry for glory"
+  },
+  {
+   "w": "quōs",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. pl. m.",
+   "gloss": "whom"
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "Oriēns",
+   "p": ",",
+   "lemma": "oriēns, orientis, m.",
+   "parse": "nom. sg.",
+   "gloss": "the East (lit. the rising sun)"
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "Occidēns",
+   "lemma": "occidēns, occidentis, m.",
+   "parse": "nom. sg.",
+   "gloss": "the West (lit. the setting sun)"
+  },
+  {
+   "w": "satiāverit",
+   "p": ":",
+   "lemma": "satiō, satiāre, satiāvī, satiātum",
+   "parse": "3rd sg. perf. subj. act. (relative clause of characteristic)",
+   "gloss": "has glutted, satisfied",
+   "app": [
+    "satio-v1"
+   ]
+  },
+  {
+   "w": "sōlī",
+   "lemma": "sōlus, sōla, sōlum",
+   "parse": "nom. pl. m.",
+   "gloss": "alone",
+   "app": [
+    "solus-adj-ius"
+   ]
+  },
+  {
+   "w": "omnium",
+   "lemma": "omnis, omne",
+   "parse": "gen. pl., used as a noun (partitive)",
+   "gloss": "of all (men)"
+  },
+  {
+   "w": "opēs",
+   "lemma": "ops, opis, f.",
+   "parse": "acc. pl. (plural: wealth)",
+   "gloss": "wealth",
+   "app": [
+    "ops-n3"
+   ]
+  },
+  {
+   "w": "atque",
+   "lemma": "atque (or ac)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "inopiam",
+   "lemma": "inopia, inopiae, f.",
+   "parse": "acc. sg.",
+   "gloss": "poverty, want"
+  },
+  {
+   "w": "parī",
+   "lemma": "pār, paris",
+   "parse": "abl. sg.",
+   "gloss": "equal"
+  },
+  {
+   "w": "adfectū",
+   "lemma": "adfectus (affectus), adfectūs, m.",
+   "parse": "abl. sg. (manner)",
+   "gloss": "desire, passion"
+  },
+  {
+   "w": "concupīscunt",
+   "p": ".",
+   "lemma": "concupīscō, concupīscere",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "they crave"
+  },
+  {
+   "w": "Auferre",
+   "lemma": "auferō, auferre, abstulī, ablātum",
+   "parse": "pres. inf. act., used as a noun",
+   "gloss": "taking away"
+  },
+  {
+   "w": "trucīdāre",
+   "lemma": "trucīdō, trucīdāre",
+   "parse": "pres. inf. act., used as a noun",
+   "gloss": "slaughtering"
+  },
+  {
+   "w": "rapere",
+   "lemma": "rapiō, rapere, rapuī, raptum",
+   "parse": "pres. inf. act., used as a noun",
+   "gloss": "seizing, plundering",
+   "app": [
+    "rapio-v3io"
+   ]
+  },
+  {
+   "w": "falsīs",
+   "lemma": "falsus, falsa, falsum",
+   "parse": "abl. pl. n.",
+   "gloss": "false",
+   "app": [
+    "falsus-adj12"
+   ]
+  },
+  {
+   "w": "nōminibus",
+   "lemma": "nōmen, nōminis, n.",
+   "parse": "abl. pl. (means: under ... names)",
+   "gloss": "names",
+   "app": [
+    "nomen-n3n"
+   ]
+  },
+  {
+   "w": "imperium",
+   "p": ",",
+   "lemma": "imperium, imperiī, n.",
+   "parse": "acc. sg. (predicate; appellant is understood)",
+   "gloss": "\"empire\", rule",
+   "app": [
+    "imperium-n2n"
+   ]
+  },
+  {
+   "w": "atque",
+   "lemma": "atque (or ac)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "ubi",
+   "lemma": "ubi",
+   "parse": "conjunction",
+   "gloss": "where",
+   "app": [
+    "ubi-indecl"
+   ]
+  },
+  {
+   "w": "sōlitūdinem",
+   "lemma": "sōlitūdō, sōlitūdinis, f.",
+   "parse": "acc. sg.",
+   "gloss": "a wilderness, desert"
+  },
+  {
+   "w": "faciunt",
+   "p": ",",
+   "lemma": "faciō, facere, fēcī, factum",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "they make",
+   "app": [
+    "facio-v3io"
+   ]
+  },
+  {
+   "w": "pācem",
+   "lemma": "pāx, pācis, f.",
+   "parse": "acc. sg. (predicate: they call it \"peace\")",
+   "gloss": "\"peace\"",
+   "app": [
+    "pax-n3"
+   ]
+  },
+  {
+   "w": "appellant",
+   "p": ".",
+   "lemma": "appellō, appellāre",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "they call",
+   "app": [
+    "appello-v1"
+   ]
+  }
+ ],
+ "translation": "Plunderers of the world, now that the lands have run out under their ravaging, they search the sea. If an enemy is rich, they are greedy; if poor, they are hungry for glory. Neither East nor West has glutted them; alone of all men they crave wealth and want with the same passion. Taking, killing and seizing they call, under false names, \"empire\"; and where they make a wilderness, they call it \"peace\".",
+ "translation_note": "Calgacus is speaking of the Romans. The three infinitives in the last sentence act as nouns, and appellant does double duty: they call those things \"empire\" and the wilderness \"peace\". vastantibus is a participle in the dative with dēfuēre (\"the lands failed them as they laid everything waste\").",
+ "essay": [
+  [
+   {
+    "t": "The Agricola is Tacitus' account of his father-in-law Agricola and his governorship of Britain.",
+    "src": [
+     7,
+     5
+    ]
+   },
+   {
+    "t": "Its climax is a battle at Mons Graupius in northern Britain; the DCC commentary dates the opening of that campaign to the summer of AD 83, Encyclopaedia Romana allows AD 83 or 84, and the site has never been identified.",
+    "src": [
+     2,
+     6
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Before the battle, Tacitus says, Calgacus, outstanding among the many leaders for courage and birth, \"is said to have spoken in this manner\" (in hunc modum locutus fertur).",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "That phrase is a warning: Tacitus does not claim to report Calgacus' actual words, and it is hard to imagine how any Roman could have heard them.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Ancient historians commonly composed speeches for their characters; D. R. Stuart, a commentator of the early 1900s quoted in the DCC notes, observes that exact reporting \"was not the practice of the rhetorical historians.\"",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "The same commentary notes that Agricola's answering speech is set against Calgacus' point for point, which alone would mark both as works of the imagination.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Encyclopaedia Romana puts it plainly: the words are those of Tacitus.",
+    "src": [
+     5,
+     3
+    ]
+   },
+   {
+    "t": "Even the name Calgacus, perhaps meaning \"swordsman\", is known only from this book.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "So one of the most famous indictments of Roman imperialism was written by a Roman.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The speech turns Rome's own words against it: imperium and pax become false names for plunder and devastation.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Stuart calls the closing phrase \"one of the most famous utterances in Latin literature\", and Alfred Gudeman (1899) remarks that the euphemism was all but adopted as the official name for conquest.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Whether Tacitus meant it as criticism of Rome, of Domitian, or simply as fitting rhetoric for an enemy is open; Encyclopaedia Romana hears Tacitus' own bitterness.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Tacitus claims about 10,000 enemy dead against 360 Romans.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Gudeman thought the Roman figure likely accurate, perhaps supplied by Agricola himself, while Stuart put the gap down to official reports on one side and a rough estimate on the other.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The victory led nowhere lasting: the legionary fortress at Inchtuthil was abandoned in AD 87, and the frontier later settled far to the south, at Hadrian's Wall.",
+    "src": [
+     6
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What does \"in hunc modum locutus fertur\" tell the reader about the speech?",
+   "options": [
+    "Tacitus does not claim the exact words",
+    "Tacitus copied it from Agricola's notes",
+    "Calgacus wrote the speech down himself",
+    "A Roman interpreter took it down live"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "In the passage, what do the Romans call the wilderness they make?",
+   "options": [
+    "Peace (pāx)",
+    "Empire (imperium)",
+    "Victory (victōria)",
+    "Freedom (lībertās)"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What happened to the fortress at Inchtuthil?",
+   "options": [
+    "It was abandoned in AD 87, soon after building",
+    "It became the capital of Roman Britain",
+    "It was the site of the battle of Mons Graupius",
+    "It was stormed and burnt by Calgacus' army"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Tacitus, Agricola 30 (Latin, ed. C. Damon, with notes), Dickinson College Commentaries (CC BY-SA)",
+   "url": "https://dcc.dickinson.edu/tacitus-agricola/30",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Agricola 29 (Latin, ed. C. Damon, with notes), Dickinson College Commentaries",
+   "url": "https://dcc.dickinson.edu/tacitus-agricola/29",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Agricola 33 (Latin, ed. C. Damon, with notes on the paired speeches), Dickinson College Commentaries",
+   "url": "https://dcc.dickinson.edu/node/27099",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Agricola 37 (Latin, ed. C. Damon, with notes on the casualty figures), Dickinson College Commentaries",
+   "url": "https://dcc.dickinson.edu/tacitus-agricola/37",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Romana (J. Grout, University of Chicago), \"Calgacus\"",
+   "url": "https://penelope.uchicago.edu/~grout/encyclopaedia_romana/Britannia/monsgraupius/calgacus.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Romana (J. Grout, University of Chicago), \"Mons Graupius\"",
+   "url": "https://penelope.uchicago.edu/~grout/encyclopaedia_romana/Britannia/monsgraupius/monsgraupius.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Tacitus\"",
+   "url": "https://www.britannica.com/biography/Tacitus-Roman-historian",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

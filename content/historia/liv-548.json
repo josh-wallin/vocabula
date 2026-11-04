@@ -1,0 +1,635 @@
+{
+ "id": "liv-548",
+ "order": 14,
+ "title": "Woe to the conquered",
+ "saying": "vae victīs",
+ "author": "Livy",
+ "work": "Ab urbe conditā",
+ "citation": "Liv. 5.48.8–9",
+ "setting": "Rome, besieged by the Gauls, c. 390 BC (traditional date)",
+ "edition": {
+  "name": "Livy, Ab urbe condita, ed. W. Weissenborn and H. J. Müller (Leipzig: Teubner, 1884–1911; public domain), Latin text as digitized by the Perseus Digital Library in its canonical-latinLit repository, file phi0914.phi001.perseus-lat2, whose header credits \"W. Weissenborn\", \"H. J. Müller\", \"Teubner\", \"1884-1911\" (digital file CC BY-SA 4.0)",
+  "url": "https://github.com/PerseusDL/canonical-latinLit/blob/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+  "section": "Book 5, chapter 48, sections 8–9 (end of the chapter)"
+ },
+ "source_text": "tum senatus habitus tribunisque militum negotium datum, ut paciscerentur, inde inter Q. Sulpicium tribunum militum et Brennum, regulum Gallorum, conloquio transacta res, et mille pondo auri pretium populi gentibus mox imperaturi factum. rei foedissimae per se adiecta indignitas est: pondera ab Gallis adlata iniqua, et tribuno recusante additus ab insolente Gallo ponderi gladius auditaque intoleranda Romanis vox: vae victis.",
+ "excerpt_note": "Sections 8 and 9 of chapter 48, the end of the chapter. Section 8 begins in lower case, as in the edition; Perseus's correction of a scanning error (\"tur\" for tum) is followed.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "paciscerentur: no macrons marked; dictionaries differ on the i (pacīscor or paciscor).",
+   "senātus, trānsācta, inīqua, recūsante, īnsolente: the usual dictionary quantities; not machine-checked.",
+   "pondō: long final ō, as in the dictionaries; not machine-checked.",
+   "imperātūrī: long ā and ū of the future participle; the app has imperō but the participle is not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "tum",
+   "lemma": "tum",
+   "parse": "adverb",
+   "gloss": "then",
+   "app": [
+    "tum-indecl"
+   ]
+  },
+  {
+   "w": "senātus",
+   "lemma": "senātus, senātūs, m.",
+   "parse": "nom. sg.",
+   "gloss": "the senate"
+  },
+  {
+   "w": "habitus",
+   "lemma": "habeō, habēre, habuī, habitum",
+   "parse": "perf. pass. participle, nom. sg. m. ([est] understood)",
+   "gloss": "was held, met",
+   "app": [
+    "habeo-v2"
+   ]
+  },
+  {
+   "w": "tribūnīsque",
+   "lemma": "tribūnus, tribūnī, m. + -que",
+   "parse": "dat. pl. + enclitic -que",
+   "gloss": "and to the tribunes",
+   "app": [
+    "tribunus-n2m"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "mīlitum",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "gen. pl. (tribūnī mīlitum: military tribunes)",
+   "gloss": "of the soldiers",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "negōtium",
+   "lemma": "negōtium, negōtiī, n.",
+   "parse": "nom. sg.",
+   "gloss": "the task",
+   "app": [
+    "negotium-n2n"
+   ]
+  },
+  {
+   "w": "datum",
+   "p": ",",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "perf. pass. participle, nom. sg. n. ([est] understood)",
+   "gloss": "was given",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (indirect command)",
+   "gloss": "to (lit. that)"
+  },
+  {
+   "w": "paciscerentur",
+   "p": ",",
+   "lemma": "pacīscor, pacīscī, pactus sum",
+   "parse": "3rd pl. impf. subj. (deponent; indirect command)",
+   "gloss": "they should make terms"
+  },
+  {
+   "w": "inde",
+   "lemma": "inde",
+   "parse": "adverb",
+   "gloss": "then, next"
+  },
+  {
+   "w": "inter",
+   "lemma": "inter (+ acc.)",
+   "parse": "preposition",
+   "gloss": "between"
+  },
+  {
+   "w": "Q",
+   "p": ".",
+   "lemma": "Q. (abbreviation of the first name Quīntus, Quīntī, m.)",
+   "parse": "acc. sg. (abbreviated first name)",
+   "gloss": "Quintus"
+  },
+  {
+   "w": "Sulpicium",
+   "lemma": "Sulpicius, Sulpiciī, m.",
+   "parse": "acc. sg.",
+   "gloss": "Sulpicius"
+  },
+  {
+   "w": "tribūnum",
+   "lemma": "tribūnus, tribūnī, m.",
+   "parse": "acc. sg. (in apposition)",
+   "gloss": "tribune",
+   "app": [
+    "tribunus-n2m"
+   ]
+  },
+  {
+   "w": "mīlitum",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "gen. pl.",
+   "gloss": "of the soldiers",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "Brennum",
+   "p": ",",
+   "lemma": "Brennus, Brennī, m.",
+   "parse": "acc. sg.",
+   "gloss": "Brennus"
+  },
+  {
+   "w": "rēgulum",
+   "lemma": "rēgulus, rēgulī, m.",
+   "parse": "acc. sg. (in apposition)",
+   "gloss": "chieftain, petty king"
+  },
+  {
+   "w": "Gallōrum",
+   "p": ",",
+   "lemma": "Gallus, Gallī, m.",
+   "parse": "gen. pl.",
+   "gloss": "of the Gauls",
+   "nolink": true
+  },
+  {
+   "w": "conloquiō",
+   "lemma": "conloquium (colloquium), conloquiī, n.",
+   "parse": "abl. sg. (means)",
+   "gloss": "at a parley"
+  },
+  {
+   "w": "trānsācta",
+   "lemma": "trānsigō, trānsigere, trānsēgī, trānsāctum",
+   "parse": "perf. pass. participle, nom. sg. f. ([est] understood)",
+   "gloss": "was settled"
+  },
+  {
+   "w": "rēs",
+   "p": ",",
+   "lemma": "rēs, reī, f.",
+   "parse": "nom. sg.",
+   "gloss": "the matter"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "mīlle",
+   "lemma": "mīlle",
+   "parse": "indeclinable numeral",
+   "gloss": "a thousand"
+  },
+  {
+   "w": "pondō",
+   "lemma": "pondō",
+   "parse": "indeclinable (old ablative: \"by weight\")",
+   "gloss": "pounds (by weight)"
+  },
+  {
+   "w": "aurī",
+   "lemma": "aurum, aurī, n.",
+   "parse": "gen. sg.",
+   "gloss": "of gold",
+   "app": [
+    "aurum-n2n"
+   ]
+  },
+  {
+   "w": "pretium",
+   "lemma": "pretium, pretiī, n.",
+   "parse": "nom. sg.",
+   "gloss": "the price",
+   "app": [
+    "pretium-n2n"
+   ]
+  },
+  {
+   "w": "populī",
+   "lemma": "populus, populī, m.",
+   "parse": "gen. sg.",
+   "gloss": "of a people",
+   "app": [
+    "populus-n2m"
+   ]
+  },
+  {
+   "w": "gentibus",
+   "lemma": "gēns, gentis, f.",
+   "parse": "dat. pl. (with imperātūrī)",
+   "gloss": "the nations",
+   "app": [
+    "gens-n3i"
+   ]
+  },
+  {
+   "w": "mox",
+   "lemma": "mox",
+   "parse": "adverb",
+   "gloss": "soon"
+  },
+  {
+   "w": "imperātūrī",
+   "lemma": "imperō, imperāre",
+   "parse": "fut. act. participle, gen. sg. m. (agrees with populī; + dat.)",
+   "gloss": "who would rule",
+   "app": [
+    "impero-v1"
+   ]
+  },
+  {
+   "w": "factum",
+   "p": ".",
+   "lemma": "faciō, facere, fēcī, factum",
+   "parse": "perf. pass. participle, nom. sg. n. ([est] understood)",
+   "gloss": "was made, fixed",
+   "app": [
+    "facio-v3io"
+   ]
+  },
+  {
+   "w": "reī",
+   "lemma": "rēs, reī, f.",
+   "parse": "dat. sg. (with adiecta)",
+   "gloss": "to the affair"
+  },
+  {
+   "w": "foedissimae",
+   "lemma": "foedus, foeda, foedum",
+   "parse": "superlative, dat. sg. f.",
+   "gloss": "most shameful",
+   "app": [
+    "foedus-adj12"
+   ]
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition (per sē: in itself)",
+   "gloss": "in"
+  },
+  {
+   "w": "sē",
+   "lemma": "sē (suī, sibi), reflexive pronoun",
+   "parse": "acc.",
+   "gloss": "itself"
+  },
+  {
+   "w": "adiecta",
+   "lemma": "adiciō, adicere, adiēcī, adiectum",
+   "parse": "perf. pass. participle, nom. sg. f. (with est: perfect passive)",
+   "gloss": "was added"
+  },
+  {
+   "w": "indignitās",
+   "lemma": "indignitās, indignitātis, f.",
+   "parse": "nom. sg.",
+   "gloss": "an outrage, insult"
+  },
+  {
+   "w": "est",
+   "p": ":",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "(has) been",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "pondera",
+   "lemma": "pondus, ponderis, n.",
+   "parse": "nom. pl.",
+   "gloss": "the weights",
+   "app": [
+    "pondus-n3n"
+   ]
+  },
+  {
+   "w": "ab",
+   "lemma": "ā, ab (+ abl.)",
+   "parse": "preposition",
+   "gloss": "by"
+  },
+  {
+   "w": "Gallīs",
+   "lemma": "Gallus, Gallī, m.",
+   "parse": "abl. pl.",
+   "gloss": "the Gauls",
+   "nolink": true
+  },
+  {
+   "w": "adlāta",
+   "lemma": "afferō (adferō), afferre, attulī, allātum",
+   "parse": "perf. pass. participle, nom. pl. n. ([sunt] understood)",
+   "gloss": "brought"
+  },
+  {
+   "w": "inīqua",
+   "p": ",",
+   "lemma": "inīquus, inīqua, inīquum",
+   "parse": "nom. pl. n. (predicate)",
+   "gloss": "unfair, false"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "tribūnō",
+   "lemma": "tribūnus, tribūnī, m.",
+   "parse": "abl. sg. (ablative absolute)",
+   "gloss": "the tribune",
+   "app": [
+    "tribunus-n2m"
+   ]
+  },
+  {
+   "w": "recūsante",
+   "lemma": "recūsō, recūsāre",
+   "parse": "pres. act. participle, abl. sg. (ablative absolute)",
+   "gloss": "objecting"
+  },
+  {
+   "w": "additus",
+   "lemma": "addō, addere, addidī, additum",
+   "parse": "perf. pass. participle, nom. sg. m. ([est] understood)",
+   "gloss": "was added",
+   "app": [
+    "addo-v3"
+   ]
+  },
+  {
+   "w": "ab",
+   "lemma": "ā, ab (+ abl.)",
+   "parse": "preposition",
+   "gloss": "by"
+  },
+  {
+   "w": "īnsolente",
+   "lemma": "īnsolēns, īnsolentis",
+   "parse": "abl. sg. m.",
+   "gloss": "arrogant"
+  },
+  {
+   "w": "Gallō",
+   "lemma": "Gallus, Gallī, m.",
+   "parse": "abl. sg.",
+   "gloss": "Gaul",
+   "nolink": true
+  },
+  {
+   "w": "ponderī",
+   "lemma": "pondus, ponderis, n.",
+   "parse": "dat. sg.",
+   "gloss": "to the weight",
+   "app": [
+    "pondus-n3n"
+   ]
+  },
+  {
+   "w": "gladius",
+   "lemma": "gladius, gladiī, m.",
+   "parse": "nom. sg.",
+   "gloss": "a sword",
+   "app": [
+    "gladius-n2m"
+   ]
+  },
+  {
+   "w": "audītaque",
+   "lemma": "audiō, audīre, audīvī, audītum + -que",
+   "parse": "perf. pass. participle, nom. sg. f. ([est] understood) + enclitic -que",
+   "gloss": "and was heard",
+   "app": [
+    "audio-v4"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "intoleranda",
+   "lemma": "intolerandus, intoleranda, intolerandum",
+   "parse": "nom. sg. f.",
+   "gloss": "unbearable"
+  },
+  {
+   "w": "Rōmānīs",
+   "lemma": "Rōmānus, Rōmāna, Rōmānum",
+   "parse": "dat. pl. m., used as a noun",
+   "gloss": "to Romans",
+   "app": [
+    "romanus-adj12"
+   ]
+  },
+  {
+   "w": "vōx",
+   "p": ":",
+   "lemma": "vōx, vōcis, f.",
+   "parse": "nom. sg.",
+   "gloss": "a saying, words",
+   "app": [
+    "vox-n3"
+   ]
+  },
+  {
+   "w": "vae",
+   "lemma": "vae",
+   "parse": "interjection (+ dat.)",
+   "gloss": "woe (to)"
+  },
+  {
+   "w": "victīs",
+   "p": ".",
+   "lemma": "vincō, vincere, vīcī, victum",
+   "parse": "perf. pass. participle, dat. pl. m., used as a noun",
+   "gloss": "the conquered",
+   "app": [
+    "vinco-v3"
+   ]
+  }
+ ],
+ "translation": "Then the senate met, and the military tribunes were given the task of making terms. Next the matter was settled at a parley between Quintus Sulpicius, a military tribune, and Brennus, the chieftain of the Gauls, and a thousand pounds of gold was fixed as the price of a people who would soon rule the nations. To this deal, most shameful in itself, an outrage was added: the Gauls brought false weights, and when the tribune objected, the arrogant Gaul threw his sword onto the weights, and words no Roman could bear to hear were spoken: \"Woe to the conquered!\"",
+ "translation_note": "Livy leaves out est with most of the perfect passives (habitus, datum, trānsācta, factum, additus, audīta): \"was held\", \"was given\" and so on. populī gentibus mox imperātūrī: the future participle agrees with populī and governs the dative gentibus (\"of a people soon to rule the nations\"). vae takes the dative: vae victīs, \"woe to the conquered\".",
+ "essay": [
+  [
+   {
+    "t": "Not long after a defeat in the field, a Gallic army occupied the whole of Rome except the Capitol; Polybius says the city fell three days after the battle.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The date is uncertain: Polybius dates the capture by Greek events, the year of the Peace of Antalcidas and the nineteenth after Aegospotami, while Britannica gives the conventional Roman date of about 390 BC.",
+    "src": [
+     3,
+     5
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "In Livy, famine on both sides leads to talks; the senate authorizes the military tribunes to negotiate, and Quintus Sulpicius agrees with the Gallic leader Brennus on a thousand pounds of gold.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "In the next chapter the dictator Camillus arrives before all the gold is weighed, declares the agreement invalid because it was made without his authority, and tells his men to win back their country with iron, not gold.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Polybius says that the Gauls, distracted by an invasion of their own land by the Veneti, made a treaty with the Romans and went home; he mentions neither gold nor Camillus.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The \"seven months\" and voluntary departure mentioned later come from a speech by Gallic envoys, not from his narrative.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Diodorus has the Romans pay the thousand pounds of gold to make the Gauls leave, and only later has Camillus defeat a Gallic force besieging the town of Veascium and recover the gold from its baggage.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Britannica judges Camillus' victory over the Gauls in 390 \"probably invented\" to offset the defeat at the Allia, while accepting that he dominated Rome's recovery afterwards.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Plutarch's Life of Camillus has the scene at the scales too: the tampered weights, Brennus adding his sword and belt, \"woe to the vanquished\", and Camillus delivering the city with iron, not gold.",
+    "src": [
+     6
+    ]
+   },
+   {
+    "t": "So a payment is reported by Livy, Plutarch and Diodorus, while Polybius speaks only of a treaty; the rescue at the scales is in Livy and Plutarch but not in Polybius or Diodorus, and looks like patriotic embroidery in the Roman tradition.",
+    "src": [
+     1,
+     6,
+     2,
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The same goes for \"vae victis\", which is no record of what a Gaul said.",
+    "src": [
+     1,
+     6
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What does Polybius say about how the Gauls left Rome?",
+   "options": [
+    "They made a treaty and went home to fight the Veneti",
+    "Camillus drove them out at the scales with iron",
+    "They were starved out by the Capitol's defenders",
+    "They were paid in gold and settled in Etruria"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "In Livy, what does the Gaul add to the weights?",
+   "options": [
+    "His sword",
+    "His shield",
+    "His helmet",
+    "More gold"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "According to Diodorus, where did Camillus recover the gold?",
+   "options": [
+    "From Gallic baggage after a victory at Veascium",
+    "At the scales on the Capitol, before it was paid",
+    "From the Gauls' camp at the Allia, years later",
+    "From the Veneti, who had captured it from the Gauls"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Livy, Ab urbe condita 5.48–49 (Latin; Weissenborn–Müller, Teubner), Perseus Digital Library canonical-latinLit (CC BY-SA 4.0)",
+   "url": "https://github.com/PerseusDL/canonical-latinLit/blob/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Polybius, Histories 2.18 and 2.22 (Loeb Classical Library, vol. I, 1922), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/2*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Polybius, Histories 1.6 (Loeb Classical Library, vol. I, 1922), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/1*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Diodorus Siculus, Library 14.113–117 (Loeb Classical Library, vol. VI, 1954), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Diodorus_Siculus/14G*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Marcus Furius Camillus\" (Britannica Editors)",
+   "url": "https://www.britannica.com/biography/Marcus-Furius-Camillus",
+   "kind": "modern"
+  },
+  {
+   "label": "Plutarch, Life of Camillus 28–29 (tr. B. Perrin, Loeb Classical Library, vol. II, 1914), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Camillus*.html",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

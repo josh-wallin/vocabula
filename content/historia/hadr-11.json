@@ -1,0 +1,364 @@
+{
+ "id": "hadr-11",
+ "order": 16,
+ "title": "A wall to divide them",
+ "saying": "mūrumque per octōgintā mīlia passuum prīmus dūxit, quī barbarōs Rōmānōsque dīvideret",
+ "author": "Historia Augusta",
+ "work": "Vīta Hadriānī",
+ "citation": "HA Hadr. 11.2",
+ "setting": "Britain, AD 122",
+ "edition": {
+  "name": "Historia Augusta, Latin text of the Loeb Classical Library edition (D. Magie), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit \"a Loeb Classical Library\" edition of MCMXXI (1921); public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Hadrian/1*.html",
+  "section": "Vita Hadriani 11.2 (the whole section)"
+ },
+ "source_text": "Ergo conversis regio more militibus Britanniam petiit, in qua multa correxit murumque per octoginta milia passuum primus duxit, qui barbaros Romanosque divideret.",
+ "excerpt_note": "Section 11.2 complete, one sentence. The edition's footnote on regio (an apparatus note listing conjectures) is not reproduced.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "corrēxit: long ē before x (as in rēxī); not machine-checked.",
+   "Britanniam: short vowels, the usual dictionary quantities; not machine-checked.",
+   "ergō: long final ō, as in the app lexicon (Familia Rōmāna preview)."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Ergō",
+   "lemma": "ergō",
+   "parse": "adverb",
+   "gloss": "so, then"
+  },
+  {
+   "w": "conversīs",
+   "lemma": "convertō, convertere, convertī, conversum",
+   "parse": "perf. pass. participle, abl. pl. (ablative absolute)",
+   "gloss": "turned, reformed",
+   "app": [
+    "converto-v3"
+   ]
+  },
+  {
+   "w": "rēgiō",
+   "lemma": "rēgius, rēgia, rēgium",
+   "parse": "abl. sg. m.",
+   "gloss": "royal, kingly",
+   "app": [
+    "regius-adj12"
+   ]
+  },
+  {
+   "w": "mōre",
+   "lemma": "mōs, mōris, m.",
+   "parse": "abl. sg. (manner)",
+   "gloss": "in the manner, fashion",
+   "app": [
+    "mos-n3"
+   ]
+  },
+  {
+   "w": "mīlitibus",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "abl. pl. (ablative absolute)",
+   "gloss": "the soldiers",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "Britanniam",
+   "lemma": "Britannia, Britanniae, f.",
+   "parse": "acc. sg.",
+   "gloss": "Britain"
+  },
+  {
+   "w": "petiit",
+   "p": ",",
+   "lemma": "petō, petere, petīvī, petītum",
+   "parse": "3rd sg. perf. ind. act. (= petīvit)",
+   "gloss": "he made for, went to",
+   "app": [
+    "peto-v3"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "quā",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, abl. sg. f.",
+   "gloss": "which"
+  },
+  {
+   "w": "multa",
+   "lemma": "multus, multa, multum",
+   "parse": "acc. pl. n., used as a noun",
+   "gloss": "many things",
+   "app": [
+    "multus-adj12"
+   ]
+  },
+  {
+   "w": "corrēxit",
+   "lemma": "corrigō, corrigere, corrēxī, corrēctum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he set right, reformed"
+  },
+  {
+   "w": "mūrumque",
+   "lemma": "mūrus, mūrī, m. + -que",
+   "parse": "acc. sg. + enclitic -que",
+   "gloss": "and a wall",
+   "app": [
+    "murus-n2m"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition (extent of space)",
+   "gloss": "over, for"
+  },
+  {
+   "w": "octōgintā",
+   "lemma": "octōgintā",
+   "parse": "indeclinable numeral",
+   "gloss": "eighty"
+  },
+  {
+   "w": "mīlia",
+   "lemma": "mīlle (pl. mīlia, mīlium, n.)",
+   "parse": "acc. pl.",
+   "gloss": "thousands"
+  },
+  {
+   "w": "passuum",
+   "lemma": "passus, passūs, m.",
+   "parse": "gen. pl. (mīlia passuum: miles; a Roman mile is a thousand paces)",
+   "gloss": "of paces"
+  },
+  {
+   "w": "prīmus",
+   "lemma": "prīmus, prīma, prīmum",
+   "parse": "nom. sg. m. (predicate: he was the first to ...)",
+   "gloss": "the first",
+   "app": [
+    "primus-adj12"
+   ]
+  },
+  {
+   "w": "dūxit",
+   "p": ",",
+   "lemma": "dūcō, dūcere, dūxī, ductum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "drew, built (a line)",
+   "app": [
+    "duco-v3"
+   ]
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. sg. m. (relative clause of purpose)",
+   "gloss": "which (was to)"
+  },
+  {
+   "w": "barbarōs",
+   "lemma": "barbarus, barbarī, m.",
+   "parse": "acc. pl.",
+   "gloss": "the barbarians",
+   "app": [
+    "barbarus-n2m"
+   ]
+  },
+  {
+   "w": "Rōmānōsque",
+   "lemma": "Rōmānus, Rōmāna, Rōmānum + -que",
+   "parse": "acc. pl. m., used as a noun, + enclitic -que",
+   "gloss": "and the Romans",
+   "app": [
+    "romanus-adj12"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "dīvideret",
+   "p": ".",
+   "lemma": "dīvidō, dīvidere, dīvīsī, dīvīsum",
+   "parse": "3rd sg. impf. subj. act. (purpose)",
+   "gloss": "should divide, separate",
+   "app": [
+    "divido-v3"
+   ]
+  }
+ ],
+ "translation": "So, having reformed the soldiers in kingly fashion, he made for Britain, where he set many things right and was the first to build a wall, eighty miles long, to divide the barbarians and the Romans.",
+ "translation_note": "conversīs ... mīlitibus is an ablative absolute, looking back to the military reforms of chapter 10. The reading rēgiō mōre is doubted: the edition's apparatus lists the conjectures egregio (Novak), rigido (Frankfurter) and recto (Baehrens). per octōgintā mīlia passuum is extent of space; quī ... dīvideret is a relative clause of purpose (\"a wall to divide\").",
+ "essay": [
+  [
+   {
+    "t": "As Historic England's guide to linear frontiers points out, this is the only classical literary statement of what Hadrian's Wall was for; other passages, such as the Life of Severus (18.2), credit Severus with a wall across the island.",
+    "src": [
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "t": "It comes from the Life of Hadrian in the Historia Augusta, a collection that claims six authors writing around AD 300 but which Hermann Dessau argued in 1889, in a view now generally accepted, was the work of one author writing toward the end of the fourth century or later.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Where its claims can be tested, the Last Historians of Rome project warns, they have often proved unfounded, so anything not corroborated elsewhere is under suspicion.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Here, unusually, the physical evidence supports the core of the claim.",
+    "src": [
+     3,
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "English Heritage dates the start of building to AD 122 and gives the length as 73 miles, which is 80 Roman miles, from Wallsend on the Tyne to Bowness-on-Solway: the text's octoginta milia passuum fits.",
+    "src": [
+     3,
+     1
+    ]
+   },
+   {
+    "t": "Britannica says Hadrian visited Britain in 122; English Heritage says the Wall was built mainly by soldiers of the province's three legions and took at least six years.",
+    "src": [
+     5,
+     3
+    ]
+   },
+   {
+    "t": "Historic England adds that work continued into the 130s and that forts were added part-way through.",
+    "src": [
+     4
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The text says the Wall was to divide barbarians and Romans; English Heritage and Britannica both quote the biographer as saying it was \"to separate the Romans from the barbarians\", with the order reversed.",
+    "src": [
+     1,
+     3,
+     5
+    ]
+   },
+   {
+    "t": "Archaeologists do not read it as a simple barrier: English Heritage and Britannica stress control of movement across the frontier.",
+    "src": [
+     3,
+     5
+    ]
+   },
+   {
+    "t": "Historic England sets out a debate between a controlled border, whose gated milecastles may have been used to collect taxes, and a more aggressive military posture once the forts were added.",
+    "src": [
+     4
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Doubts remain about the sentence itself: the apparatus of this edition records conjectures for regio, \"in kingly fashion\", such as egregio and rigido.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The Wall was left for about twenty years while the Antonine Wall further north was in use, reoccupied around AD 160, and served as the frontier for nearly 300 years.",
+    "src": [
+     3,
+     5
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "How long was the Wall, according to English Heritage?",
+   "options": [
+    "73 miles, or 80 Roman miles",
+    "37 miles, sea to sea",
+    "118 Roman miles, coast to coast",
+    "80 miles, or 73 Roman miles"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why should the Historia Augusta be read with caution?",
+   "options": [
+    "One late author wrote it under six false names",
+    "It is a Greek novel translated in the Middle Ages",
+    "It is Hadrian's own memoir, heavily rewritten",
+    "It survives only as a damaged inscription"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What do archaeologists stress about the Wall's purpose?",
+   "options": [
+    "Control of movement across the frontier",
+    "A purely ceremonial boundary marker",
+    "A barrier to stop soldiers deserting",
+    "A paved road for long-distance trade"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Historia Augusta, Vita Hadriani 11 (Latin; Loeb text, Magie), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Hadrian/1*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "The Last Historians of Rome (AHRC project, Universities of Edinburgh and Nottingham), \"Historia Augusta\"",
+   "url": "https://lasthistorians.shca.ed.ac.uk/historia-augusta",
+   "kind": "modern"
+  },
+  {
+   "label": "English Heritage, \"Hadrian's Wall FAQs\"",
+   "url": "https://www.english-heritage.org.uk/faqs-hadrians-wall/",
+   "kind": "modern"
+  },
+  {
+   "label": "Historic England, Linear Frontiers: Introductions to Heritage Assets (T. Wilmott, 2018)",
+   "url": "https://historicengland.org.uk/images-books/publications/iha-linear-frontiers/heag208-linear-frontiers",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Hadrian's Wall\" (D. J. Breeze and the Editors)",
+   "url": "https://www.britannica.com/topic/Hadrians-Wall",
+   "kind": "modern"
+  },
+  {
+   "label": "Historia Augusta, Vita Severi 18.2 (Latin; Loeb text, Magie), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Historia_Augusta/Septimius_Severus*.html",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

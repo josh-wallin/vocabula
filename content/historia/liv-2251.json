@@ -1,0 +1,1015 @@
+{
+ "id": "liv-2251",
+ "order": 13,
+ "title": "You know how to win, Hannibal",
+ "saying": "vincere scīs, Hannibal; victōriā ūtī nescīs",
+ "author": "Livy",
+ "work": "Ab urbe conditā",
+ "citation": "Liv. 22.51.1–4",
+ "setting": "The battlefield of Cannae, Apulia, August 216 BC",
+ "edition": {
+  "name": "Livy, Ab urbe condita, ed. W. Weissenborn and H. J. Müller (Leipzig: Teubner, 1884–1911; public domain), Latin text as digitized by the Perseus Digital Library in its canonical-latinLit repository, file phi0914.phi001.perseus-lat2, whose header credits \"W. Weissenborn\", \"H. J. Müller\", \"Teubner\", \"1884-1911\" (digital file CC BY-SA 4.0)",
+  "url": "https://github.com/PerseusDL/canonical-latinLit/blob/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+  "section": "Book 22, chapter 51, sections 1–4"
+ },
+ "source_text": "Hannibali victori cum ceteri circumfusi gratularentur suaderentque, ut tanto perfunctus bello diei quod reliquum esset noctisque insequentis quietem et ipse sibi sumeret et fessis daret militibus, Maharbal praefectus equitum, minime cessandum ratus \"immo ut, quid hac pugna sit actum, scias, die quinto\" inquit \"victor in Capitolio epulaberis. sequere; cum equite ut prius venisse quam venturum sciant, praecedam.\" Hannibali nimis laeta res est visa maiorque, quam ut eam statim capere animo posset. itaque voluntatem se laudare Maharbalis ait; ad consilium pensandum temporis opus esse. tum Maharbal: \"non omnia nimirum eidem di dedere: vincere scis, Hannibal, victoria uti nescis.\" mora eius diei satis creditur saluti fuisse urbi atque imperio.",
+ "excerpt_note": "Sections 1–4 of chapter 51, complete. As in the Teubner text, sentences after the first begin in lower case. The Perseus file prints \"et\" (sect. 1) and \"di\" (sect. 4) in italics, apparently words supplied by the editor; they are kept. Perseus's corrections of scanning errors (immo, eam, omnia) are followed. Curly quotation marks are given as ASCII.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "pūgnā: long ū before -gn-, following the app lexicon (DCC pūgna); many dictionaries print pugna.",
+   "maior: printed without a macron (the a is short; the first syllable is heavy because of the consonantal i).",
+   "Hannibal, Maharbal: Punic names; quantities not marked.",
+   "Capitōliō: long ō, the usual dictionary quantity; not machine-checked.",
+   "pēnsandum: long ē before -ns-; not machine-checked.",
+   "eīdem: long ī in the dat. sg. of īdem; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Hannibalī",
+   "lemma": "Hannibal, Hannibalis, m.",
+   "parse": "dat. sg. (with grātulārentur)",
+   "gloss": "Hannibal"
+  },
+  {
+   "w": "victōrī",
+   "lemma": "victor, victōris, m.",
+   "parse": "dat. sg. (in apposition)",
+   "gloss": "the victor",
+   "app": [
+    "victor-n3"
+   ]
+  },
+  {
+   "w": "cum",
+   "lemma": "cum",
+   "parse": "conjunction (with subjunctive)",
+   "gloss": "when, while",
+   "nolink": true
+  },
+  {
+   "w": "cēterī",
+   "lemma": "cēterus, cētera, cēterum",
+   "parse": "nom. pl. m., used as a noun",
+   "gloss": "the others",
+   "app": [
+    "ceterus-adj12"
+   ]
+  },
+  {
+   "w": "circumfūsī",
+   "lemma": "circumfundō, circumfundere, circumfūdī, circumfūsum",
+   "parse": "perf. pass. participle, nom. pl. m. (middle sense)",
+   "gloss": "crowding round"
+  },
+  {
+   "w": "grātulārentur",
+   "lemma": "grātulor, grātulārī",
+   "parse": "3rd pl. impf. subj. (deponent; cum clause)",
+   "gloss": "were congratulating"
+  },
+  {
+   "w": "suādērentque",
+   "p": ",",
+   "lemma": "suādeō, suādēre, suāsī, suāsum + -que",
+   "parse": "3rd pl. impf. subj. act. + enclitic -que",
+   "gloss": "and were urging",
+   "enclitic": "que"
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (indirect command)",
+   "gloss": "to (lit. that)"
+  },
+  {
+   "w": "tantō",
+   "lemma": "tantus, tanta, tantum",
+   "parse": "abl. sg. n.",
+   "gloss": "so great",
+   "app": [
+    "tantus-adj12"
+   ]
+  },
+  {
+   "w": "perfūnctus",
+   "lemma": "perfungor, perfungī, perfūnctus sum",
+   "parse": "perf. participle (deponent), nom. sg. m. (+ abl.)",
+   "gloss": "having got through"
+  },
+  {
+   "w": "bellō",
+   "lemma": "bellum, bellī, n.",
+   "parse": "abl. sg. (with perfūnctus)",
+   "gloss": "war",
+   "app": [
+    "bellum-n2n"
+   ]
+  },
+  {
+   "w": "diēī",
+   "lemma": "diēs, diēī, m.",
+   "parse": "gen. sg.",
+   "gloss": "of the day"
+  },
+  {
+   "w": "quod",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. sg. n.",
+   "gloss": "which, what"
+  },
+  {
+   "w": "reliquum",
+   "lemma": "reliquus, reliqua, reliquum",
+   "parse": "nom. sg. n. (predicate)",
+   "gloss": "left, remaining",
+   "app": [
+    "reliquus-adj12"
+   ]
+  },
+  {
+   "w": "esset",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. impf. subj. (clause inside indirect command)",
+   "gloss": "was",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "noctisque",
+   "lemma": "nox, noctis, f. + -que",
+   "parse": "gen. sg. + enclitic -que",
+   "gloss": "and of the night",
+   "app": [
+    "nox-n3i"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "īnsequentis",
+   "lemma": "īnsequor, īnsequī, īnsecūtus sum",
+   "parse": "pres. participle, gen. sg. f.",
+   "gloss": "following"
+  },
+  {
+   "w": "quiētem",
+   "lemma": "quiēs, quiētis, f.",
+   "parse": "acc. sg.",
+   "gloss": "rest"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction (et ... et: both ... and)",
+   "gloss": "both",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "ipse",
+   "lemma": "ipse, ipsa, ipsum",
+   "parse": "nom. sg. m.",
+   "gloss": "himself"
+  },
+  {
+   "w": "sibi",
+   "lemma": "sē (suī, sibi), reflexive pronoun",
+   "parse": "dat. sg.",
+   "gloss": "for himself"
+  },
+  {
+   "w": "sūmeret",
+   "lemma": "sūmō, sūmere, sūmpsī, sūmptum",
+   "parse": "3rd sg. impf. subj. act. (indirect command)",
+   "gloss": "should take",
+   "app": [
+    "sumo-v3"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "fessīs",
+   "lemma": "fessus, fessa, fessum",
+   "parse": "dat. pl. m.",
+   "gloss": "tired",
+   "app": [
+    "fessus-adj12"
+   ]
+  },
+  {
+   "w": "daret",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "3rd sg. impf. subj. act. (indirect command)",
+   "gloss": "should give",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "mīlitibus",
+   "p": ",",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "dat. pl.",
+   "gloss": "to the soldiers",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "Maharbal",
+   "lemma": "Maharbal, Maharbalis, m.",
+   "parse": "nom. sg.",
+   "gloss": "Maharbal"
+  },
+  {
+   "w": "praefectus",
+   "lemma": "praefectus, praefectī, m.",
+   "parse": "nom. sg. (in apposition)",
+   "gloss": "commander"
+  },
+  {
+   "w": "equitum",
+   "p": ",",
+   "lemma": "eques, equitis, m.",
+   "parse": "gen. pl.",
+   "gloss": "of the cavalry",
+   "app": [
+    "eques-n3"
+   ]
+  },
+  {
+   "w": "minimē",
+   "lemma": "minimē",
+   "parse": "adverb",
+   "gloss": "not at all (lit. least)"
+  },
+  {
+   "w": "cessandum",
+   "lemma": "cessō, cessāre",
+   "parse": "gerundive, acc. sg. n., impersonal ([esse] understood: indirect statement)",
+   "gloss": "(that) there must be delay"
+  },
+  {
+   "w": "ratus",
+   "lemma": "reor, rērī, ratus sum",
+   "parse": "perf. participle (deponent), nom. sg. m., present sense",
+   "gloss": "thinking"
+  },
+  {
+   "w": "immō",
+   "pre": "\"",
+   "lemma": "immō",
+   "parse": "adverb",
+   "gloss": "no, rather"
+  },
+  {
+   "w": "ut",
+   "p": ",",
+   "lemma": "ut",
+   "parse": "conjunction (purpose)",
+   "gloss": "so that"
+  },
+  {
+   "w": "quid",
+   "lemma": "quis, quid",
+   "parse": "interrogative pronoun, nom. sg. n. (indirect question)",
+   "gloss": "what"
+  },
+  {
+   "w": "hāc",
+   "lemma": "hic, haec, hoc",
+   "parse": "abl. sg. f.",
+   "gloss": "this",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "pūgnā",
+   "lemma": "pūgna, pūgnae, f.",
+   "parse": "abl. sg. (means)",
+   "gloss": "by (this) battle",
+   "app": [
+    "pugna-n1"
+   ]
+  },
+  {
+   "w": "sit",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. subj. (indirect question; with āctum: perfect passive)",
+   "gloss": "has been",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "āctum",
+   "p": ",",
+   "lemma": "agō, agere, ēgī, āctum",
+   "parse": "perf. pass. participle, nom. sg. n. (sit āctum: has been achieved)",
+   "gloss": "achieved",
+   "app": [
+    "ago-v3"
+   ]
+  },
+  {
+   "w": "sciās",
+   "p": ",",
+   "lemma": "sciō, scīre",
+   "parse": "2nd sg. pres. subj. act. (purpose)",
+   "gloss": "you may know",
+   "app": [
+    "scio-v4"
+   ]
+  },
+  {
+   "w": "diē",
+   "lemma": "diēs, diēī, m.",
+   "parse": "abl. sg. (time when)",
+   "gloss": "on the day"
+  },
+  {
+   "w": "quīntō",
+   "p": "\"",
+   "lemma": "quīntus, quīnta, quīntum",
+   "parse": "abl. sg. m.",
+   "gloss": "fifth"
+  },
+  {
+   "w": "inquit",
+   "lemma": "inquam (defective verb)",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "he said"
+  },
+  {
+   "w": "victor",
+   "pre": "\"",
+   "lemma": "victor, victōris, m.",
+   "parse": "nom. sg. (predicate: as victor)",
+   "gloss": "as victor",
+   "app": [
+    "victor-n3"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in",
+   "parse": "preposition (+ abl.)",
+   "gloss": "on",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "Capitōliō",
+   "lemma": "Capitōlium, Capitōliī, n.",
+   "parse": "abl. sg.",
+   "gloss": "the Capitol (Rome's citadel hill)"
+  },
+  {
+   "w": "epulāberis",
+   "p": ".",
+   "lemma": "epulor, epulārī",
+   "parse": "2nd sg. fut. ind. (deponent)",
+   "gloss": "you will feast"
+  },
+  {
+   "w": "sequere",
+   "p": ";",
+   "lemma": "sequor, sequī, secūtus sum",
+   "parse": "2nd sg. pres. imperative (deponent)",
+   "gloss": "follow!"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum (+ abl.)",
+   "parse": "preposition",
+   "gloss": "with",
+   "app": [
+    "cum-indecl"
+   ]
+  },
+  {
+   "w": "equite",
+   "lemma": "eques, equitis, m.",
+   "parse": "abl. sg. (collective: the cavalry)",
+   "gloss": "the cavalry",
+   "app": [
+    "eques-n3"
+   ]
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (purpose)",
+   "gloss": "so that"
+  },
+  {
+   "w": "prius",
+   "lemma": "prius",
+   "parse": "adverb (prius ... quam: before)",
+   "gloss": "sooner"
+  },
+  {
+   "w": "vēnisse",
+   "lemma": "veniō, venīre, vēnī, ventum",
+   "parse": "perf. inf. act. (indirect statement after sciant)",
+   "gloss": "(that I) have come",
+   "app": [
+    "venio-v4"
+   ]
+  },
+  {
+   "w": "quam",
+   "lemma": "quam",
+   "parse": "conjunction (prius ... quam)",
+   "gloss": "than"
+  },
+  {
+   "w": "ventūrum",
+   "lemma": "veniō, venīre, vēnī, ventum",
+   "parse": "fut. act. participle, acc. sg. m. ([esse] understood: future infinitive)",
+   "gloss": "(that I) am going to come",
+   "app": [
+    "venio-v4"
+   ]
+  },
+  {
+   "w": "sciant",
+   "p": ",",
+   "lemma": "sciō, scīre",
+   "parse": "3rd pl. pres. subj. act. (purpose)",
+   "gloss": "they know",
+   "app": [
+    "scio-v4"
+   ]
+  },
+  {
+   "w": "praecēdam",
+   "p": ".\"",
+   "lemma": "praecēdō, praecēdere, praecessī, praecessum",
+   "parse": "1st sg. fut. ind. act.",
+   "gloss": "I will go ahead"
+  },
+  {
+   "w": "Hannibalī",
+   "lemma": "Hannibal, Hannibalis, m.",
+   "parse": "dat. sg.",
+   "gloss": "to Hannibal"
+  },
+  {
+   "w": "nimis",
+   "lemma": "nimis",
+   "parse": "adverb",
+   "gloss": "too",
+   "app": [
+    "nimis-indecl"
+   ]
+  },
+  {
+   "w": "laeta",
+   "lemma": "laetus, laeta, laetum",
+   "parse": "nom. sg. f.",
+   "gloss": "happy, welcome",
+   "app": [
+    "laetus-adj12"
+   ]
+  },
+  {
+   "w": "rēs",
+   "lemma": "rēs, reī, f.",
+   "parse": "nom. sg.",
+   "gloss": "the idea, the thing"
+  },
+  {
+   "w": "est",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind. (with vīsa: perfect passive)",
+   "gloss": "(has) been",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "vīsa",
+   "lemma": "videō, vidēre, vīdī, vīsum",
+   "parse": "perf. pass. participle, nom. sg. f. (passive: seemed)",
+   "gloss": "seemed",
+   "app": [
+    "video-v2"
+   ]
+  },
+  {
+   "w": "maiorque",
+   "p": ",",
+   "lemma": "magnus, magna, magnum (comparative maior, maius) + -que",
+   "parse": "comparative, nom. sg. f. + enclitic -que",
+   "gloss": "and too great",
+   "app": [
+    "magnus-adj12"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "quam",
+   "lemma": "quam",
+   "parse": "conjunction (comparative ... quam ut: too ... to)",
+   "gloss": "than"
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (result, after quam)",
+   "gloss": "that"
+  },
+  {
+   "w": "eam",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. f.",
+   "gloss": "it"
+  },
+  {
+   "w": "statim",
+   "lemma": "statim",
+   "parse": "adverb",
+   "gloss": "at once"
+  },
+  {
+   "w": "capere",
+   "lemma": "capiō, capere, cēpī, captum",
+   "parse": "pres. inf. act.",
+   "gloss": "to take in, grasp",
+   "app": [
+    "capio-v3io"
+   ]
+  },
+  {
+   "w": "animō",
+   "lemma": "animus, animī, m.",
+   "parse": "abl. sg. (means)",
+   "gloss": "with (his) mind",
+   "app": [
+    "animus-n2m"
+   ]
+  },
+  {
+   "w": "posset",
+   "p": ".",
+   "lemma": "possum, posse, potuī",
+   "parse": "3rd sg. impf. subj. (result)",
+   "gloss": "he could",
+   "app": [
+    "possum-irr-possum"
+   ]
+  },
+  {
+   "w": "itaque",
+   "lemma": "itaque",
+   "parse": "adverb",
+   "gloss": "and so"
+  },
+  {
+   "w": "voluntātem",
+   "lemma": "voluntās, voluntātis, f.",
+   "parse": "acc. sg.",
+   "gloss": "zeal",
+   "app": [
+    "voluntas-n3"
+   ]
+  },
+  {
+   "w": "sē",
+   "lemma": "sē (suī, sibi), reflexive pronoun",
+   "parse": "acc. (subject of laudāre, indirect statement)",
+   "gloss": "that he"
+  },
+  {
+   "w": "laudāre",
+   "lemma": "laudō, laudāre, laudāvī, laudātum",
+   "parse": "pres. inf. act. (indirect statement)",
+   "gloss": "praised",
+   "app": [
+    "laudo-v1"
+   ]
+  },
+  {
+   "w": "Maharbalis",
+   "lemma": "Maharbal, Maharbalis, m.",
+   "parse": "gen. sg.",
+   "gloss": "Maharbal's"
+  },
+  {
+   "w": "ait",
+   "p": ";",
+   "lemma": "aiō (defective verb)",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "he says"
+  },
+  {
+   "w": "ad",
+   "lemma": "ad (+ acc.)",
+   "parse": "preposition (with gerundive: purpose)",
+   "gloss": "for",
+   "app": [
+    "ad-indecl"
+   ]
+  },
+  {
+   "w": "cōnsilium",
+   "lemma": "cōnsilium, cōnsiliī, n.",
+   "parse": "acc. sg.",
+   "gloss": "the plan",
+   "app": [
+    "consilium-n2n"
+   ]
+  },
+  {
+   "w": "pēnsandum",
+   "lemma": "pēnsō, pēnsāre",
+   "parse": "gerundive, acc. sg. n. (ad cōnsilium pēnsandum: for weighing the plan)",
+   "gloss": "weighing"
+  },
+  {
+   "w": "temporis",
+   "lemma": "tempus, temporis, n.",
+   "parse": "gen. sg. (with opus)",
+   "gloss": "(of) time",
+   "app": [
+    "tempus-n3n"
+   ]
+  },
+  {
+   "w": "opus",
+   "lemma": "opus, operis, n.",
+   "parse": "nom. sg. (opus esse: to be needed)",
+   "gloss": "need",
+   "app": [
+    "opus-n3n"
+   ]
+  },
+  {
+   "w": "esse",
+   "p": ".",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "pres. inf. (indirect statement)",
+   "gloss": "there was",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "tum",
+   "lemma": "tum",
+   "parse": "adverb",
+   "gloss": "then",
+   "app": [
+    "tum-indecl"
+   ]
+  },
+  {
+   "w": "Maharbal",
+   "p": ":",
+   "lemma": "Maharbal, Maharbalis, m.",
+   "parse": "nom. sg.",
+   "gloss": "Maharbal"
+  },
+  {
+   "w": "nōn",
+   "pre": "\"",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "omnia",
+   "lemma": "omnis, omne",
+   "parse": "acc. pl. n., used as a noun",
+   "gloss": "everything"
+  },
+  {
+   "w": "nimīrum",
+   "lemma": "nimīrum",
+   "parse": "adverb",
+   "gloss": "evidently, of course"
+  },
+  {
+   "w": "eīdem",
+   "lemma": "īdem, eadem, idem",
+   "parse": "dat. sg. m.",
+   "gloss": "to the same man"
+  },
+  {
+   "w": "dī",
+   "lemma": "deus, deī, m.",
+   "parse": "nom. pl. (= deī)",
+   "gloss": "the gods",
+   "app": [
+    "deus-n2m"
+   ]
+  },
+  {
+   "w": "dedēre",
+   "p": ":",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "3rd pl. perf. ind. act. (= dedērunt)",
+   "gloss": "have given",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "vincere",
+   "lemma": "vincō, vincere, vīcī, victum",
+   "parse": "pres. inf. act.",
+   "gloss": "to win",
+   "app": [
+    "vinco-v3"
+   ]
+  },
+  {
+   "w": "scīs",
+   "p": ",",
+   "lemma": "sciō, scīre",
+   "parse": "2nd sg. pres. ind. act.",
+   "gloss": "you know (how)",
+   "app": [
+    "scio-v4"
+   ]
+  },
+  {
+   "w": "Hannibal",
+   "p": ",",
+   "lemma": "Hannibal, Hannibalis, m.",
+   "parse": "voc. sg.",
+   "gloss": "Hannibal"
+  },
+  {
+   "w": "victōriā",
+   "lemma": "victōria, victōriae, f.",
+   "parse": "abl. sg. (with ūtī)",
+   "gloss": "victory",
+   "app": [
+    "victoria-n1"
+   ]
+  },
+  {
+   "w": "ūtī",
+   "lemma": "ūtor, ūtī, ūsus sum",
+   "parse": "pres. inf. (deponent, + abl.)",
+   "gloss": "to use, make use of"
+  },
+  {
+   "w": "nescīs",
+   "p": ".\"",
+   "lemma": "nesciō, nescīre",
+   "parse": "2nd sg. pres. ind. act.",
+   "gloss": "you do not know (how)",
+   "app": [
+    "nescio-v4"
+   ]
+  },
+  {
+   "w": "mora",
+   "lemma": "mora, morae, f.",
+   "parse": "nom. sg.",
+   "gloss": "the delay",
+   "app": [
+    "mora-n1"
+   ]
+  },
+  {
+   "w": "eius",
+   "lemma": "is, ea, id",
+   "parse": "gen. sg. m.",
+   "gloss": "of that"
+  },
+  {
+   "w": "diēī",
+   "lemma": "diēs, diēī, m.",
+   "parse": "gen. sg.",
+   "gloss": "day"
+  },
+  {
+   "w": "satis",
+   "lemma": "satis",
+   "parse": "adverb",
+   "gloss": "well enough, fairly",
+   "app": [
+    "satis-indecl"
+   ]
+  },
+  {
+   "w": "crēditur",
+   "lemma": "crēdō, crēdere, crēdidī, crēditum",
+   "parse": "3rd sg. pres. ind. pass. (personal construction)",
+   "gloss": "is believed",
+   "app": [
+    "credo-v3"
+   ]
+  },
+  {
+   "w": "salūtī",
+   "lemma": "salūs, salūtis, f.",
+   "parse": "dat. sg. (predicative dative)",
+   "gloss": "(as) salvation",
+   "app": [
+    "salus-n3"
+   ]
+  },
+  {
+   "w": "fuisse",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "perf. inf.",
+   "gloss": "to have been",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "urbī",
+   "lemma": "urbs, urbis, f.",
+   "parse": "dat. sg.",
+   "gloss": "for the city",
+   "app": [
+    "urbs-n3i"
+   ]
+  },
+  {
+   "w": "atque",
+   "lemma": "atque (or ac)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "imperiō",
+   "p": ".",
+   "lemma": "imperium, imperiī, n.",
+   "parse": "dat. sg.",
+   "gloss": "for the empire",
+   "app": [
+    "imperium-n2n"
+   ]
+  }
+ ],
+ "translation": "The others crowded round the victorious Hannibal with congratulations and urged him, now that he had come through so great a war, to take the rest of the day and the following night for rest himself and to give it to his tired soldiers. But Maharbal, the cavalry commander, who thought there must be no delay at all, said: \"No: so that you may know what this battle has achieved, on the fifth day you will dine as victor on the Capitol. Follow me; I will go ahead with the cavalry, so that they learn I have arrived before they learn I am coming.\" To Hannibal the idea seemed too happy, and too large, for him to grasp at once. So he said he praised Maharbal's zeal, but that he needed time to weigh the plan. Then Maharbal said: \"Evidently the gods have not given everything to the same man. You know how to win, Hannibal; how to use a victory, you do not.\" That day's delay is fairly widely believed to have saved the city and the empire.",
+ "translation_note": "In vēnisse ... ventūrum the unexpressed subject is Maharbal himself (\"me\"), riding ahead with the cavalry, so the translation has \"I\". The first sentence is one long period: cum ... grātulārentur suādērentque (while the others ...), then the main subject Maharbal ... inquit. diē quīntō counts inclusively in the Roman way, so \"on the fifth day\" may mean four days later. victōriā ūtī: ūtor takes the ablative. mora ... crēditur ... fuisse is a personal passive (\"the delay is believed to have been\"), and salūtī is a dative of purpose (\"for salvation\").",
+ "essay": [
+  [
+   {
+    "t": "At Cannae in Apulia, in August 216 BC, Hannibal destroyed a Roman army under the consuls Lucius Aemilius Paullus and Gaius Terentius Varro, in what military historians, Britannica says, regard as a classic double envelopment.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The figures differ: Livy reports 45,500 infantry and 2,700 cavalry killed, about 4,500 captured and about 8,000 of Hannibal's men dead, while Polybius gives 70,000 Romans killed, 10,000 captured and some 5,700 Carthaginian losses (4,000 Celts, 1,500 Iberians and Libyans, 200 cavalry).",
+    "src": [
+     1,
+     5
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "In Livy, Maharbal promises that Hannibal will dine on the Capitol on the fifth day; when Hannibal asks for time, he delivers the famous rebuke, and Livy adds that the day's delay is believed to have saved Rome.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Plutarch tells the same story in his Life of Fabius but gives the rebuke to \"Barca\" rather than Maharbal, and admits it is \"not easy to say\" why Hannibal held back.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "The disagreement over the speaker is itself a reason for caution.",
+    "src": [
+     1,
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Klaus Zimmermann, in a 2019 article in De Rebus Antiquis, argues that the exchange lacks historicity and that Livy's verdict reflects Roman hindsight.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "He also argues that a march on Rome was not feasible: Cannae was some 400 km away, about two weeks for the main army, so surprise was impossible; Hannibal's strength was manoeuvre and cavalry, not siege warfare; and Rome was walled and could replace its losses.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "On his reading, Hannibal's aim was to break up Rome's alliances in Italy, not to destroy the city, and his later march on Rome in 211 BC was a diversion to relieve Capua.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Livy himself later reports that military experts judged Hannibal's wintering at Capua a worse error than not marching straight on Rome: the delay after Cannae could be seen as merely postponing victory.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Britannica records the rebuke as Livy's report and notes that Rome went back to avoiding pitched battle while Hannibal's strength was gradually worn down.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The line survives because it is quotable: a clean verdict on a decision that historians still debate.",
+    "src": [
+     1,
+     4
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "In Plutarch's version, who delivers the rebuke to Hannibal?",
+   "options": [
+    "\"Barca\", not Maharbal",
+    "Fabius Maximus",
+    "Hannibal's father",
+    "A Roman prisoner"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Which of these is one of Zimmermann's arguments against a march on Rome?",
+   "options": [
+    "Rome was about 400 km away, so surprise was impossible",
+    "Hannibal's cavalry had been destroyed in the battle",
+    "Rome's walls had fallen down and could not be held",
+    "The Romans had already offered to surrender to him"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does Livy say the day's delay did?",
+   "options": [
+    "It is believed to have saved the city and the empire",
+    "It let the Carthaginian cavalry reach Rome first",
+    "It gave the Romans time to sue Hannibal for peace",
+    "It cost Maharbal his command of the cavalry"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Livy, Ab urbe condita 22.51 (Latin; Weissenborn–Müller, Teubner), Perseus Digital Library canonical-latinLit (CC BY-SA 4.0)",
+   "url": "https://github.com/PerseusDL/canonical-latinLit/blob/master/data/phi0914/phi001/phi0914.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Battle of Cannae\" (Patrick Hunt)",
+   "url": "https://www.britannica.com:443/print/article/92664",
+   "kind": "modern"
+  },
+  {
+   "label": "Plutarch, Life of Fabius Maximus 17 (tr. B. Perrin), Lexundria",
+   "url": "https://lexundria.com/plut_fab/1.17.1/prr",
+   "kind": "ancient"
+  },
+  {
+   "label": "K. Zimmermann, \"Hannibal ante portas: ¿por qué desistió Aníbal de capturar Roma en el 216 a.C.?\", De Rebus Antiquis 8 (2019) 61–77 (Spanish; open access)",
+   "url": "https://erevistas.uca.edu.ar/index.php/DRA/en/article/view/2567",
+   "kind": "modern"
+  },
+  {
+   "label": "Polybius, Histories 3.117 (tr. E. S. Shuckburgh, 1889), Perseus Digital Library canonical-greekLit (CC BY-SA 4.0)",
+   "url": "https://github.com/PerseusDL/canonical-greekLit/blob/master/data/tlg0543/tlg001/tlg0543.tlg001.perseus-eng2.xml",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

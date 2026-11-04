@@ -1,0 +1,443 @@
+{
+ "id": "veg-3",
+ "order": 11,
+ "title": "If you want peace",
+ "saying": "quī dēsīderat pācem, praeparet bellum",
+ "author": "Vegetius",
+ "work": "Epitoma reī mīlitāris",
+ "citation": "Veg. Mil. 3 praef.",
+ "setting": "A late Roman military handbook, late 4th or 5th century AD",
+ "edition": {
+  "name": "Vegetius, Epitoma rei militaris, book 3, Latin text as presented by The Latin Library (thelatinlibrary.com), headed \"FLAVI VEGETI RENATI VIRI INLUSTRIS COMITIS EPITOMA REI MILITARIS LIBER III\"; the page does not name the printed edition it reproduces",
+  "url": "https://www.thelatinlibrary.com/vegetius3.html",
+  "section": "Book 3, preface (unnumbered on the page), last two sentences"
+ },
+ "source_text": "Igitur qui desiderat pacem, praeparet bellum; qui uictoriam cupit, milites inbuat diligenter; qui secundos optat euentus, dimicet arte, non casu. Nemo prouocare, nemo audet offendere quem intellegit superiorem esse, si pugnet.",
+ "excerpt_note": "The last two sentences of the preface to Book 3, which comes before section I on the page. The Latin was taken from The Latin Library page (thelatinlibrary.com/vegetius3.html), which names no edition; it has not been checked against Lang's Teubner text (1885) or any other printed edition. The text prints u for consonantal v (uictoriam, euentus, prouocare) and inbuat for imbuat; both are kept as printed.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "praeparet: long ae diphthong in prae-, short a in -parō; not machine-checked.",
+   "inbuat: short u (imbuō); not machine-checked.",
+   "dīligenter, dīmicet: long ī in the first syllable (dī-), the usual dictionary quantity; not machine-checked.",
+   "ēuentūs: long ē (ē- + veniō) and long ū of the 4th-declension acc. pl.; not machine-checked.",
+   "cāsū: long ā (cāsus); not machine-checked.",
+   "prōuocāre: long ō in prō-; not machine-checked.",
+   "superiōrem: long ō of the comparative stem; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Igitur",
+   "lemma": "igitur",
+   "parse": "conjunction / adverb",
+   "gloss": "therefore, so",
+   "app": [
+    "igitur-indecl"
+   ]
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. sg. m. (antecedent understood: \"he who\")",
+   "gloss": "(he) who"
+  },
+  {
+   "w": "dēsīderat",
+   "lemma": "dēsīderō, dēsīderāre",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "wants, longs for",
+   "app": [
+    "desidero-v1"
+   ]
+  },
+  {
+   "w": "pācem",
+   "p": ",",
+   "lemma": "pāx, pācis, f.",
+   "parse": "acc. sg.",
+   "gloss": "peace",
+   "app": [
+    "pax-n3"
+   ]
+  },
+  {
+   "w": "praeparet",
+   "lemma": "praeparō, praeparāre",
+   "parse": "3rd sg. pres. subj. act. (jussive)",
+   "gloss": "let him prepare, should get ready"
+  },
+  {
+   "w": "bellum",
+   "p": ";",
+   "lemma": "bellum, bellī, n.",
+   "parse": "acc. sg.",
+   "gloss": "war",
+   "app": [
+    "bellum-n2n"
+   ]
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. sg. m.",
+   "gloss": "(he) who"
+  },
+  {
+   "w": "uictōriam",
+   "lemma": "victōria, victōriae, f.",
+   "parse": "acc. sg. (this text prints u for consonantal v)",
+   "gloss": "victory",
+   "app": [
+    "victoria-n1"
+   ]
+  },
+  {
+   "w": "cupit",
+   "p": ",",
+   "lemma": "cupiō, cupere",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "desires",
+   "app": [
+    "cupio-v3io"
+   ]
+  },
+  {
+   "w": "mīlitēs",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "acc. pl.",
+   "gloss": "soldiers",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "inbuat",
+   "lemma": "imbuō, imbuere, imbuī, imbūtum (spelled inbuō in this text)",
+   "parse": "3rd sg. pres. subj. act. (jussive)",
+   "gloss": "should train, instruct"
+  },
+  {
+   "w": "dīligenter",
+   "p": ";",
+   "lemma": "dīligenter",
+   "parse": "adverb",
+   "gloss": "carefully, thoroughly"
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. sg. m.",
+   "gloss": "(he) who"
+  },
+  {
+   "w": "secundōs",
+   "lemma": "secundus, secunda, secundum",
+   "parse": "acc. pl. m. (with ēventūs)",
+   "gloss": "favourable, successful",
+   "app": [
+    "secundus-adj12"
+   ]
+  },
+  {
+   "w": "optat",
+   "lemma": "optō, optāre",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "wishes for",
+   "app": [
+    "opto-v1"
+   ]
+  },
+  {
+   "w": "ēuentūs",
+   "p": ",",
+   "lemma": "ēventus, ēventūs, m.",
+   "parse": "acc. pl. (printed with u for v)",
+   "gloss": "outcomes, results"
+  },
+  {
+   "w": "dīmicet",
+   "lemma": "dīmicō, dīmicāre",
+   "parse": "3rd sg. pres. subj. act. (jussive)",
+   "gloss": "should fight"
+  },
+  {
+   "w": "arte",
+   "p": ",",
+   "lemma": "ars, artis, f.",
+   "parse": "abl. sg. (manner)",
+   "gloss": "by skill",
+   "app": [
+    "ars-n3i"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "cāsū",
+   "p": ".",
+   "lemma": "cāsus, cāsūs, m.",
+   "parse": "abl. sg. (manner)",
+   "gloss": "by chance, by luck"
+  },
+  {
+   "w": "Nēmō",
+   "lemma": "nēmō, nēminis",
+   "parse": "nom. sg.",
+   "gloss": "no one"
+  },
+  {
+   "w": "prōuocāre",
+   "p": ",",
+   "lemma": "prōvocō, prōvocāre",
+   "parse": "pres. inf. act. (with audet; printed with u for v)",
+   "gloss": "to challenge"
+  },
+  {
+   "w": "nēmō",
+   "lemma": "nēmō, nēminis",
+   "parse": "nom. sg.",
+   "gloss": "no one"
+  },
+  {
+   "w": "audet",
+   "lemma": "audeō, audēre, ausus sum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "dares",
+   "app": [
+    "audeo-v2"
+   ]
+  },
+  {
+   "w": "offendere",
+   "lemma": "offendō, offendere, offendī, offēnsum",
+   "parse": "pres. inf. act.",
+   "gloss": "to attack, provoke"
+  },
+  {
+   "w": "quem",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. sg. m. (antecedent understood: \"the one whom\")",
+   "gloss": "(the one) whom"
+  },
+  {
+   "w": "intellegit",
+   "lemma": "intellegō, intellegere",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "understands, realizes",
+   "app": [
+    "intellego-v3"
+   ]
+  },
+  {
+   "w": "superiōrem",
+   "lemma": "superior, superius (comparative of superus)",
+   "parse": "acc. sg. m. (subject of esse is quem)",
+   "gloss": "stronger, the winner"
+  },
+  {
+   "w": "esse",
+   "p": ",",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "pres. inf. (indirect statement)",
+   "gloss": "to be",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "sī",
+   "lemma": "sī",
+   "parse": "conjunction",
+   "gloss": "if",
+   "app": [
+    "si-indecl"
+   ]
+  },
+  {
+   "w": "pugnet",
+   "p": ".",
+   "lemma": "pugnō, pugnāre",
+   "parse": "3rd sg. pres. subj. act. (condition inside indirect statement)",
+   "gloss": "he should fight",
+   "app": [
+    "pugno-v1"
+   ]
+  }
+ ],
+ "translation": "So whoever wants peace should get ready for war; whoever longs for victory should train his soldiers thoroughly; whoever hopes for good results should fight by skill, not by luck. No one dares to challenge, no one dares to attack, a man he knows would come out on top in a fight.",
+ "translation_note": "Three parallel commands, each \"quī ... (he) who ...\" with a jussive subjunctive (praeparet, inbuat, dīmicet), then the reason. In the last sentence the antecedent of quem is left out (\"[him] whom\"), and sī pugnet is a condition reported inside the indirect statement: \"would be the stronger, if he were to fight\".",
+ "essay": [
+  [
+   {
+    "t": "Flavius Vegetius Renatus wrote the Epitoma rei militaris, a short handbook urging Rome to revive the drilled infantry legion of earlier times.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Britannica calls him a reformer with little military experience of his own and dates the work to 384–389.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The date is disputed. Many scholars, among them the editor Carl Lang, place the work under Theodosius I, late in the fourth century; Gibbon and Otto Seeck (1876) preferred Valentinian III, in the fifth, and Walter Goffart argues for Valentinian III, building on a hint of Gibbon's.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Our sentences close the preface to Book 3.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Just before them he recalls that Hannibal, bound for Italy, hired a Spartan teacher of warfare.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The conclusion is a chain of three parallel commands followed by a reason: no one dares to provoke an opponent he knows would win.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The famous Latin form, si vis pacem, para bellum (\"if you want peace, prepare for war\"), is not what Vegetius wrote: his words are qui desiderat pacem, praeparet bellum.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "I could not trace the short form to any classical author or find when it first appeared; it looks like a later condensation of this sentence, and its origin should be treated as unknown.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Even Britannica lists \"If you want peace, prepare for war\" among the work's aphorisms: true of the sense, not the wording.",
+    "src": [
+     2,
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The idea is older than Vegetius. In his seventh Philippic, against Mark Antony, Cicero told the senate that if they wished to enjoy peace they must wage war (si pace frui volumus, bellum gerendum est).",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Cornelius Nepos has Epaminondas answer Meneclides, who was urging the Thebans to prefer peace, that peace is won by war (paritur pax bello).",
+    "src": [
+     5
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Vegetius had little effect on the late Roman army, Britannica says, but became hugely influential in the Middle Ages and was long called \"the military bible of Europe\"; George Washington owned and annotated a copy.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "A review of Marco Formisano's 2003 edition likewise notes the work's widespread medieval success and its reading by humanists.",
+    "src": [
+     6
+    ]
+   },
+   {
+    "t": "The irony: his most quoted sentence is usually quoted in words he did not use.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What did Vegetius actually write?",
+   "options": [
+    "Quī dēsīderat pācem, praeparet bellum",
+    "Sī vīs pācem, parā bellum, Rōmāne",
+    "Quī pācem optat, mīlitēs exerceat",
+    "Quī bellum timet, pācem nōn habet"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "According to the essay, which earlier Roman said something similar in a speech against Mark Antony?",
+   "options": [
+    "Cicero",
+    "Julius Caesar",
+    "Tacitus",
+    "Augustus"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why is the date of the work uncertain?",
+   "options": [
+    "Scholars split between Theodosius I and Valentinian III",
+    "The only manuscript breaks off before the preface",
+    "Vegetius dates it by a consul no one can identify",
+    "It survives only in a medieval Greek translation"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Vegetius, Epitoma rei militaris, book 3 (Latin), The Latin Library (edition not named on the page)",
+   "url": "https://www.thelatinlibrary.com/vegetius3.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Vegetius\" (Britannica Editors)",
+   "url": "https://www.britannica.com/biography/Vegetius",
+   "kind": "modern"
+  },
+  {
+   "label": "W. Goffart, \"The Date and Purpose of Vegetius' De re militari\", Traditio 33 (1977) 65–100 (Cambridge Core)",
+   "url": "https://core-prod.cambridgecore.org/core/journals/traditio/article/date-and-purpose-of-vegetius-de-re-militari/0360FD1597AA93B3FFF3BF0C097CB2FE",
+   "kind": "modern"
+  },
+  {
+   "label": "Cicero, Philippics 7.19 (Latin; ed. A. C. Clark, Oxford 1918), Perseus Digital Library canonical-latinLit (CC BY-SA 4.0)",
+   "url": "https://github.com/PerseusDL/canonical-latinLit/blob/master/data/phi0474/phi035/phi0474.phi035.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cornelius Nepos, Epaminondas 5.4 (Latin; ed. Halm and Fleckeisen, Teubner 1886), Perseus Digital Library canonical-latinLit (CC BY-SA 4.0)",
+   "url": "https://github.com/PerseusDL/canonical-latinLit/blob/master/data/phi0588/abo015/phi0588.abo015.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "E. Buis, review of M. Formisano (ed.), Vegezio: L'arte della guerra romana (Milan 2003), Bryn Mawr Classical Review 2005.04.06",
+   "url": "https://bmcr.brynmawr.edu/?p=24497",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}
