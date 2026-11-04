@@ -5,8 +5,10 @@
  */
 export type TableSpec =
   | { kind: 'noun'; headword: string; gloss: string }
-  | { kind: 'verbs'; headwords: [string, string]; glosses: [string, string] }
-  | { kind: 'sum' };
+  /** One column per verb; present shows infinitive and imperatives too. Default tense: present. */
+  | { kind: 'verbs'; headwords: string[]; glosses: string[]; tense?: 'pres' | 'fut' | 'impf' }
+  /** sum (default) or another irregular (possum), one tense, in a 3×2 person grid. */
+  | { kind: 'sum'; headword?: string; gloss?: string; tense?: 'pres' | 'fut' | 'impf' };
 
 export interface GrammarCard {
   section: number;
@@ -56,6 +58,56 @@ export const GRAMMAR_CARDS: readonly GrammarCard[] = [
       { table: { kind: 'sum' } },
       { p: 'After *sum*, a [[predicate-nominative|predicate nominative]] renames or describes the subject: *Bellum est malum.*' },
       { p: 'Adjectives now use all three genders: *bonus, bona, bonum*. On its own an adjective can stand for a noun, a [[substantive|substantive]]: *bonī*, good people.' },
+    ],
+  },
+  /* Sections 5–8 appear only when the content pack has words for their chapters. */
+  {
+    section: 5,
+    title: 'The [[future|future]] and [[imperfect|imperfect]]: 1st & 2nd conjugation',
+    blocks: [
+      { p: 'Two new [[tense|tenses]] build on the same [[stem|stem]] as the present. The future adds -bō, -bis, -bit, -bimus, -bitis, -bunt: *laudābō*, I shall praise.' },
+      { table: { kind: 'verbs', headwords: ['laudō, laudāre', 'moneō, monēre'], glosses: ['praise', 'warn'], tense: 'fut' } },
+      { p: 'The imperfect adds -bam, -bās, -bat, -bāmus, -bātis, -bant. It pictures action going on or repeated in the past: *monēbam*, I was warning, I used to warn.' },
+      { table: { kind: 'verbs', headwords: ['laudō, laudāre', 'moneō, monēre'], glosses: ['praise', 'warn'], tense: 'impf' } },
+      { p: 'Watch the vowel after the b: -bi- (and -bunt) in the future, -bā- in the imperfect. *Vidēbit* is future; *vidēbat* is imperfect.' },
+      { p: 'Adjectives in -er, like *līber, lībera, līberum* and *pulcher, pulchra, pulchrum*, decline like *bonus* once past the masculine nominative. The feminine shows whether the e stays: *lībera* keeps it, *pulchra* drops it.' },
+    ],
+  },
+  {
+    section: 6,
+    title: '*sum* and *possum*',
+    blocks: [
+      { p: '*Sum* uses the stem er- in the future and the imperfect. The future has no -b-: *erō*, *erit*, *erunt*. The imperfect has -a-: *eram*, *erat*, *erant*.' },
+      { table: { kind: 'sum', tense: 'fut' } },
+      { table: { kind: 'sum', tense: 'impf' } },
+      { p: '*Possum*, I am able, I can, is pot- + *sum*. Before s, pot- becomes pos-: *possum*, *possunt*, but *potest*, *poterat*, *poterit*. The infinitive is *posse*.' },
+      { table: { kind: 'sum', headword: 'possum, posse, potuī', gloss: 'be able, can', tense: 'pres' } },
+      { p: '*Possum* is completed by a [[complementary-infinitive|complementary infinitive]], as *dēbeō* is: *Vidēre possum*, I can see; *Errāre nōn dēbēs*, you ought not to err.' },
+    ],
+  },
+  {
+    section: 7,
+    title: 'Third [[declension|declension]]',
+    blocks: [
+      { p: 'Third-declension nouns have genitive singular -is. Their nominative singular takes many shapes, so the genitive is what shows the [[base|base]]: *rēx, rēgis* gives rēg-; *corpus, corporis* gives corpor-.' },
+      { table: { kind: 'noun', headword: 'rēx, rēgis, m.', gloss: 'king' } },
+      { p: 'This family has all three [[gender|genders]]. Masculine and feminine nouns share their endings; [[neuter|neuters]] keep the rule you know: nominative and accusative alike, -a in the plural.' },
+      { table: { kind: 'noun', headword: 'corpus, corporis, n.', gloss: 'body' } },
+      { p: 'Some endings look like other declensions: -ī is dative here, not genitive; -e is ablative; -ēs is nominative or accusative plural. In *hominī*, *homine*, *hominēs*, let the genitive tell you the family.' },
+      { p: 'An adjective of the 1st/2nd declension agrees in gender, number and case, not in ending: *rēx bonus*, *rēgis bonī*, *tempus malum*.' },
+    ],
+  },
+  {
+    section: 8,
+    title: 'Third [[conjugation|conjugation]]',
+    blocks: [
+      { p: 'Verbs with a short -ere infinitive belong to the 3rd conjugation: *agō, agere*. Drop -ere to find the base (ag-) and add the endings with a short i: *agis*, *agit*, *agimus*, *agitis*, but *agunt*.' },
+      { table: { kind: 'verbs', headwords: ['agō, agere', 'dūcō, dūcere'], glosses: ['drive', 'lead'] } },
+      { p: 'The singular command is the base + -e: *age!* A few verbs drop the -e: *dūc!*, and later dīc!, fac!, fer!' },
+      { p: 'The 3rd-conjugation future has no -b-: -am, -ēs, -et, -ēmus, -ētis, -ent. *Agam*, I shall drive; *aget*, she will drive; but *agit*, she drives.' },
+      { table: { kind: 'verbs', headwords: ['agō, agere', 'scrībō, scrībere'], glosses: ['drive', 'write'], tense: 'fut' } },
+      { p: 'The imperfect uses -ēbam: *agēbam*, *dūcēbant*. Mind the trap: *agēs* and *aget* look like the 2nd-conjugation present (*monēs*, *monet*), but here they are future.' },
+      { table: { kind: 'verbs', headwords: ['agō, agere', 'dūcō, dūcere'], glosses: ['drive', 'lead'], tense: 'impf' } },
     ],
   },
 ];

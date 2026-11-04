@@ -191,3 +191,26 @@ describe('labels for the new cells', () => {
     expect(optionLabeler(['pres.act.ind.1sg', 'fut.act.ind.1sg'])('pres.act.ind.1sg')).toBe('1st person singular present');
   });
 });
+
+describe('grammar cards for sections 5–8', () => {
+  it('every section has a card, and every card table names words the morphology can build', async () => {
+    const { GRAMMAR_CARDS, cardFor } = await import('../src/content/grammarCards.ts');
+    const { generate } = await import('../src/morph/generate.ts');
+    for (const s of SECTIONS) expect(cardFor(s.n), `section ${s.n}`).toBeDefined();
+    for (const c of GRAMMAR_CARDS) {
+      for (const b of c.blocks) {
+        if (!('table' in b)) continue;
+        const t = b.table;
+        const hws = t.kind === 'noun' ? [t.headword] : t.kind === 'verbs' ? t.headwords : [t.headword ?? 'sum, esse'];
+        for (const hw of hws) {
+          const l = L(hw, t.kind === 'noun' ? 'noun' : 'verb');
+          if (t.kind !== 'noun') {
+            const tense = t.tense ?? 'pres';
+            expect(generate(l)[`${tense}.act.ind.1sg`], `${hw} ${tense}`).toBeTruthy();
+          }
+        }
+        if (t.kind === 'verbs') expect(t.glosses.length).toBe(t.headwords.length);
+      }
+    }
+  });
+});

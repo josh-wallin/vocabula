@@ -161,7 +161,11 @@ function introNote(paradigm: string, pos: string): string {
     case 'n2m': return 'Genitive in -ī: 2nd declension.';
     case 'n2n': return 'Genitive in -ī and nominative in -um: a 2nd-declension neuter.';
     case 'adj12': return 'An adjective lists its masculine, feminine and neuter forms.';
-    case 'irr:sum': return 'An irregular verb: learn its forms by heart.';
+    case 'v3': return 'The infinitive ends in short -ere: 3rd conjugation.';
+    case 'v3io': return 'Infinitive in short -ere, but 1st person in -iō: 3rd conjugation -iō verb.';
+    case 'v4': return 'The infinitive ends in -īre: 4th conjugation.';
+    case 'n3': case 'n3n': case 'n3i': case 'n3in': return 'Genitive in -is: 3rd declension. Drop -is to find the base, and learn the gender with the word.';
+    case 'irr:sum': case 'irr:possum': return 'An irregular verb: learn its forms by heart.';
     default: return pos === 'prep' ? 'A preposition: it doesn’t change form.' : 'This word doesn’t change form.';
   }
 }

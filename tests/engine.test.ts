@@ -162,9 +162,11 @@ describe('sync code', () => {
 });
 
 describe('glossary', () => {
-  it('has 15–25 terms with unique ids and all fields', () => {
-    expect(GLOSSARY.length).toBeGreaterThanOrEqual(15);
-    expect(GLOSSARY.length).toBeLessThanOrEqual(25);
+  it('has 15–25 terms for sections 1–4 (a few more for 5–8) with unique ids and all fields', () => {
+    const early = GLOSSARY.filter((t) => t.section <= 4);
+    expect(early.length).toBeGreaterThanOrEqual(15);
+    expect(early.length).toBeLessThanOrEqual(25);
+    expect(GLOSSARY.length).toBeLessThanOrEqual(32);
     expect(new Set(GLOSSARY.map((t) => t.id)).size).toBe(GLOSSARY.length);
     for (const t of GLOSSARY) for (const k of ['name', 'latin', 'def', 'ex', 'exEn'] as const) expect(t[k].length, `${t.id}.${k}`).toBeGreaterThan(0);
   });

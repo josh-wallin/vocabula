@@ -4,7 +4,7 @@ import { termIfUnlocked, type GlossaryTerm } from '../content/glossary.ts';
 import { cardFor, segments, type TableSpec } from '../content/grammarCards.ts';
 import { lemmaFromHeadword } from '../morph/lemma.ts';
 import { generate } from '../morph/generate.ts';
-import { CASES, PERSONS } from '../morph/cells.ts';
+import { CASES, tenseCells } from '../morph/cells.ts';
 import type { CellId, PartOfSpeech } from '../morph/types.ts';
 
 export function TermSheet({ term, onClose }: { term: GlossaryTerm; onClose: () => void }) {
@@ -73,7 +73,7 @@ export function ParadigmTable({ spec, section, onTerm }: { spec: TableSpec; sect
   if (spec.kind === 'noun') {
     const l = lemmaOf(spec.headword, 'noun');
     const f = generate(l);
-    const base = (l.parts[1] ?? '').replace(/(ae|ī)$/, '');
+    const base = (l.parts[1] ?? '').replace(/(ae|ī|is)$/, '');
     return (
       <table class="ptable">
         <caption lang="la"><i>{spec.headword}</i> <span lang="en">{spec.gloss}</span></caption>
@@ -95,14 +95,17 @@ export function ParadigmTable({ spec, section, onTerm }: { spec: TableSpec; sect
     );
   }
   if (spec.kind === 'verbs') {
+    const tense = spec.tense ?? 'pres';
     const ls = spec.headwords.map((h) => lemmaOf(h, 'verb'));
     const fs = ls.map(generate);
     const stems = ls.map((l) => (l.parts[1] ?? '').slice(0, -3));
-    const rows: [string, CellId][] = PERSONS.map((p, i) => [['I', 'you (sg.)', 'he, she, it', 'we', 'you (pl.)', 'they'][i]!, `pres.act.ind.${p}` as CellId]);
-    rows.push(['infinitive', 'pres.act.inf'], ['command (sg.)', 'pres.act.imp.2sg'], ['command (pl.)', 'pres.act.imp.2pl']);
+    const who = ['I', 'you (sg.)', 'he, she, it', 'we', 'you (pl.)', 'they'];
+    const rows: [string, CellId][] = tenseCells(tense).map((c, i) => [who[i]!, c]);
+    if (tense === 'pres') rows.push(['infinitive', 'pres.act.inf'], ['command (sg.)', 'pres.act.imp.2sg'], ['command (pl.)', 'pres.act.imp.2pl']);
     return (
       <table class="ptable">
-        <thead><tr><th scope="col" /><th scope="col" lang="la"><i>{ls[0]!.parts[0]}</i>, {spec.glosses[0]}</th><th scope="col" lang="la"><i>{ls[1]!.parts[0]}</i>, {spec.glosses[1]}</th></tr></thead>
+        {tense !== 'pres' && <caption>{tense === 'fut' ? 'Future' : 'Imperfect'}</caption>}
+        <thead><tr><th scope="col" />{ls.map((l, i) => <th key={i} scope="col" lang="la"><i>{l.parts[0]}</i>, {spec.glosses[i]}</th>)}</tr></thead>
         <tbody lang="la">
           {rows.map(([lbl, cell]) => (
             <tr key={cell}>
@@ -114,18 +117,20 @@ export function ParadigmTable({ spec, section, onTerm }: { spec: TableSpec; sect
       </table>
     );
   }
-  const l = lemmaOf('sum, esse, fuī, futūrum', 'verb');
+  const l = lemmaOf(spec.headword ?? 'sum, esse, fuī, futūrum', 'verb');
   const f = generate(l);
+  const tense = spec.tense ?? 'pres';
+  const tname = tense === 'pres' ? '' : tense === 'fut' ? ' · future' : ' · imperfect';
   return (
     <table class="ptable">
-      <caption lang="la"><i>sum, esse</i> <span lang="en">to be</span></caption>
+      <caption lang="la"><i>{l.parts.slice(0, 2).join(', ')}</i> <span lang="en">{spec.gloss ? `to ${spec.gloss}` : 'to be'}{tname}</span></caption>
       <thead><tr><th scope="col" /><th scope="col">Singular</th><th scope="col">Plural</th></tr></thead>
       <tbody lang="la">
         {(['1', '2', '3'] as const).map((p) => (
           <tr key={p}>
             <th scope="row" lang="en">{p === '1' ? '1st' : p === '2' ? '2nd' : '3rd'} person</th>
-            <td>{f[`pres.act.ind.${p}sg` as CellId]}</td>
-            <td>{f[`pres.act.ind.${p}pl` as CellId]}</td>
+            <td>{f[`${tense}.act.ind.${p}sg` as CellId]}</td>
+            <td>{f[`${tense}.act.ind.${p}pl` as CellId]}</td>
           </tr>
         ))}
       </tbody>

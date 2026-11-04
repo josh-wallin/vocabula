@@ -1,5 +1,5 @@
 /**
- * Grammar glossary for sections 1–4. Original definitions; every Latin example
+ * Grammar glossary for sections 1–8. Original definitions; every Latin example
  * uses only vocabulary available by the term's section.
  * A term is shown (as a tappable dotted-underline word) only once its section is unlocked.
  */
@@ -140,6 +140,25 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'substantive', name: 'Substantive', latin: 'adiectīvum substantīvē positum', section: 4,
     def: 'An adjective used on its own as a noun. Its gender and number tell you what to supply: masculine for men or people, feminine for women, neuter for things.',
     ex: 'Stultī saepe errant.', exEn: 'Fools often make mistakes.',
+  },
+
+  /* ---- Section 5: future, imperfect ---- */
+  {
+    id: 'future', name: 'Future', latin: 'tempus futūrum', section: 5,
+    def: 'The tense of what will happen. In the 1st and 2nd conjugations it adds -bō, -bis, -bit, -bimus, -bitis, -bunt to the present stem.',
+    ex: 'Crās cēnābimus.', exEn: 'Tomorrow we shall dine.',
+  },
+  {
+    id: 'imperfect', name: 'Imperfect', latin: 'tempus imperfectum', section: 5,
+    def: 'A past tense for action that was going on, repeated or habitual: “was doing,” “used to do,” “kept doing.” Its sign is -ba-.',
+    ex: 'Puella saepe rosās dabat.', exEn: 'The girl often used to give roses.',
+  },
+
+  /* ---- Section 6: possum ---- */
+  {
+    id: 'complementary-infinitive', name: 'Complementary infinitive', latin: 'īnfīnītīvus complēmentī', section: 6,
+    def: 'An infinitive that completes the meaning of a verb such as possum or dēbeō. It has no subject of its own: the subject of the main verb does the action.',
+    ex: 'Patriam servāre possumus.', exEn: 'We can save our country.',
   },
 ];
 
