@@ -3,8 +3,8 @@
  * All fixtures are invented here (common Latin words; chapters and glosses made up), no FR text.
  */
 import { beforeEach, describe, expect, it } from 'vitest';
-import { FIX_DCC, FIX_DCC_58, FIX_WHEELOCK, FIX_WHEELOCK_58, fixPath } from './fixtures.ts';
-import { importFr, cleanFrHeadword, expandFrHeadword, type FrEntry, type FrSourceEntry } from '../src/data/fr.ts';
+import { FIX_DCC, FIX_DCC_58, FIX_DCC_910, FIX_WHEELOCK, FIX_WHEELOCK_58, FIX_WHEELOCK_910, fixPath } from './fixtures.ts';
+import { importFr, cleanFrHeadword, expandFrHeadword, FR_PLACEMENT, frSection, type FrEntry, type FrSourceEntry } from '../src/data/fr.ts';
 import { makePack, packHash, parsePack } from '../src/data/pack.ts';
 import { buildLexicon, type Lexicon } from '../src/engine/lexicon.ts';
 import { buildPath, FR_LESSON_SIZE, type Path, type PathNode } from '../src/engine/path.ts';
@@ -338,5 +338,114 @@ describe('FR: replay and sync are unaffected', () => {
   it('replay is order-independent with FR events', () => {
     const base = stateFingerprint(replay(events));
     for (let i = 0; i < 5; i++) expect(stateFingerprint(replay(shuffle(events, rng(i))))).toBe(base);
+  });
+});
+
+/** Invented entries for FR chapters VIII–XVI (common Latin words, made-up glosses). */
+const FR_LATER: FrSourceEntry[] = [
+  S({ headword: 'cicāda, -ae, f.', pos: 'noun', gender: 'f', chapter: 8 }),                                     // → after section 9
+  S({ headword: 'locus, -ī, m.', pos: 'noun', gender: 'm', chapter: 8, inWheelock: 9, wheelockHeadword: 'locus, locī, m.' }), // Wheelock 9 ≤ section 9
+  S({ headword: 'quī? quae? quod?', pos: 'adj', chapter: 8 }),
+  S({ headword: 'mūla, -ae, f.', pos: 'noun', gender: 'f', chapter: 9 }),                                       // → after section 10
+  S({ headword: 'capiō, -ere, cēpī, captum', pos: 'verb', chapter: 9, inWheelock: 10, wheelockHeadword: 'capiō, capere, cēpī, captum' }), // Wheelock 10 ≤ section 10
+  S({ headword: 'Iuppiter, Iovis, m.', pos: 'proper', properKind: 'deity', chapter: 9 }),
+  S({ headword: 'Rōmānī, -ōrum, m. pl.', pos: 'proper', properKind: 'people', chapter: 9 }),
+  S({ headword: 'volō, velle, voluī', pos: 'verb', chapter: 10, gloss: 'invented gloss: want' }),
+  S({ headword: 'volō, -āre, -āvī, -ātum', pos: 'verb', chapter: 10, gloss: 'invented gloss: fly' }),
+  S({ headword: 'vespa, -ae, f.', pos: 'noun', gender: 'f', chapter: 10 }),                                     // → after section 12
+  S({ headword: 'Quīntus', pos: 'proper', properKind: 'name', chapter: 11 }),
+  S({ headword: 'formīca, -ae, f.', pos: 'noun', gender: 'f', chapter: 11 }),
+  S({ headword: 'Cancer, -crī, m.', pos: 'proper', properKind: 'constellation', chapter: 13 }),
+  S({ headword: 'cancer, -crī, m.', pos: 'noun', gender: 'm', properKind: 'constellation', chapter: 13 }),      // a sign, whatever its pos
+  S({ headword: 'Taurus, -ī, m.', pos: 'noun', gender: 'm', chapter: 13, gloss: 'Taurus (zodiac sign)' }),
+  S({ headword: 'lucerna, -ae, f.', pos: 'noun', gender: 'f', chapter: 13 }),
+  S({ headword: 'Aenēās, -ae, m.', pos: 'proper', properKind: 'person', chapter: 14 }),
+  S({ headword: 'pila, -ae, f.', pos: 'noun', gender: 'f', chapter: 15 }),
+  S({ headword: 'stola, -ae, f.', pos: 'noun', gender: 'f', chapter: 16 }),                                     // no placement yet
+];
+const ALL_W = [...FIX_WHEELOCK, ...FIX_WHEELOCK_58, ...FIX_WHEELOCK_910];
+const importAll = () => importFr([...FR_SOURCE, ...FR_LATER], ALL_W);
+
+describe('FR placement table (owner\'s study plan)', () => {
+  it('maps FR chapters to the Wheelock section they follow', () => {
+    expect(FR_PLACEMENT).toEqual({ 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 9, 9: 10, 10: 12, 11: 13, 12: 15, 13: 16, 14: 17, 15: 18 });
+    expect(frSection(8)).toBe(9);
+    expect(frSection(9)).toBe(10);
+    expect(frSection(16)).toBeNull();
+    // Each chapter comes after the one before it.
+    const secs = Object.keys(FR_PLACEMENT).map(Number).sort((a, b) => a - b).map((c) => FR_PLACEMENT[c]!);
+    expect(secs).toEqual([...secs].sort((a, b) => a - b));
+  });
+
+  it('drops a word Wheelock teaches by the placement section, not just by the FR chapter number', () => {
+    const r = importAll();
+    const why = (hw: string) => r.excluded.find((x) => x.entry.headword === hw)?.reason;
+    expect(why('locus, -ī, m.')).toMatch(/Wheelock ch\. 9/);            // FR VIII, but after section 9
+    expect(why('capiō, -ere, cēpī, captum')).toMatch(/Wheelock ch\. 10/); // FR IX, after section 10
+    expect(why('stola, -ae, f.')).toMatch(/no placement/);
+  });
+
+  it('skips the zodiac signs (properKind constellation, or glossed as one) and every kind of proper name', () => {
+    const r = importAll();
+    const why = (hw: string) => r.excluded.find((x) => x.entry.headword === hw)?.reason;
+    for (const hw of ['Cancer, -crī, m.', 'cancer, -crī, m.', 'Taurus, -ī, m.']) expect(why(hw)).toMatch(/zodiac/);
+    for (const hw of ['Iuppiter, Iovis, m.', 'Rōmānī, -ōrum, m. pl.', 'Quīntus', 'Aenēās, -ae, m.']) expect(why(hw)).toMatch(/proper name/);
+    const ids = r.entries.map((e) => e.lemma.id);
+    expect(ids.some((id) => /^(cancer|taurus)-/.test(id))).toBe(false);
+    expect(ids).toContain('lucerna-n1');
+  });
+
+  it('the two verbs volō (velle "want", -āre "fly") get different ids and stay two words', () => {
+    const r = importAll();
+    const vol = r.entries.filter((e) => e.lemma.parts[0] === 'volō');
+    expect(vol).toHaveLength(2);
+    expect(new Set(vol.map((e) => e.lemma.id)).size).toBe(2);
+    expect(vol.map((e) => e.lemma.id)).toEqual(expect.arrayContaining(['volo-v1', 'volo-fr-verb']));
+    const lex = buildLexicon(ALL_W, [...FIX_DCC, ...FIX_DCC_58, ...FIX_DCC_910], r.entries);
+    expect(lex.byId.get('volo-v1')!.lemma.gloss).toMatch(/fly/);
+    expect(lex.byId.get('volo-fr-verb')!.lemma.gloss).toMatch(/want/);
+  });
+
+  it('reads "quī? quae? quod?" as quī, quae, quod (distinct from the pronoun)', () => {
+    const q = importAll().entries.find((e) => e.chapter === 8 && e.lemma.parts[0] === 'quī')!;
+    expect(q.lemma.headword).toBe('quī, quae, quod');
+    expect(q.lemma.id).toBe('qui-fr-adj');
+  });
+
+  describe('in a path with sections 1–10', () => {
+    const r = importAll();
+    const lex = buildLexicon(ALL_W, [...FIX_DCC, ...FIX_DCC_58, ...FIX_DCC_910], r.entries);
+    const path = buildPath(lex);
+    const frNodes = (p: Path, n: number) => p.sections.find((s) => s.spec.n === n)!.nodes.filter((x) => x.kind === 'fr');
+
+    it('FR VIII comes after section 9, FR IX after section 10', () => {
+      expect(path.sections.map((s) => s.spec.n)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+      expect(frNodes(path, 8)).toEqual([]); // nothing after section 8 any more
+      expect(frNodes(path, 9).map((n) => [n.id, n.title])).toEqual([['s9.fr.1', 'Familia Rōmāna · Cap. VIII']]);
+      expect(frNodes(path, 9)[0]!.newWords).toEqual(['cicada-n1', 'qui-fr-adj']);
+      expect(frNodes(path, 10).map((n) => [n.id, n.title])).toEqual([['s10.fr.1', 'Familia Rōmāna · Cap. IX']]);
+      expect(frNodes(path, 10)[0]!.newWords).toEqual(['mula-n1']);
+      const s10 = path.sections.find((s) => s.spec.n === 10)!.nodes;
+      expect(s10[s10.length - 1]!.kind).toBe('probatio');
+    });
+
+    it('FR X–XV wait while sections 12–18 don\'t exist', () => {
+      const later = r.entries.filter((e) => e.chapter >= 10).map((e) => e.lemma.id);
+      expect(later).toEqual(expect.arrayContaining(['volo-v1', 'volo-fr-verb', 'vespa-n1', 'formica-n1', 'lucerna-n1', 'pila-n1']));
+      for (const id of later) expect(path.nodes.some((n) => n.newWords.includes(id)), id).toBe(false);
+      expect(path.nodes.some((n) => /Cap\. (X|XI|XII|XIII|XIV|XV)\b/.test(n.title))).toBe(false);
+    });
+
+    it('FR I–VII nodes keep their ids, titles and words', () => {
+      const before = buildPath(buildLexicon(ALL_W, [...FIX_DCC, ...FIX_DCC_58, ...FIX_DCC_910], importFr(FR_SOURCE, ALL_W).entries));
+      const sig = (p: Path) => p.nodes.filter((n) => n.kind === 'fr' && n.section <= 7).map((n) => [n.id, n.title, n.newWords]);
+      expect(sig(path)).toEqual(sig(before));
+      expect(sig(path).map((x) => x[0])).toEqual(expect.arrayContaining(['s1.fr.1', 's3.fr.1', 's3.fr.2', 's6.fr.1']));
+      // Every node the shorter list had is still there, in the same order.
+      const ids = new Set(path.nodes.map((n) => n.id));
+      expect(before.nodes.every((n) => ids.has(n.id))).toBe(true);
+      const order = path.nodes.map((n) => n.id).filter((id) => before.index.has(id));
+      expect(order).toEqual(before.nodes.map((n) => n.id));
+    });
   });
 });

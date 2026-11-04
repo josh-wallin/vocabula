@@ -42,11 +42,23 @@ On first run the app offers **Sign in & download** (the pack from the sync serve
 
 ### Familia Rōmāna previews
 
-"Meaning-only until their grammar is unlocked." If `content/private/source/fr_ch1-7.json` (your own list from *Familia Rōmāna*, ch. 1–7) exists, `npm run build:pack` adds an optional `fr` array to the pack (`counts.fr` per FR chapter; pack id gains `+fr-cap1-7`). Packs without `fr` validate and build exactly the old path; `parsePack` (shared with the Worker) checks the field when present.
+"Meaning-only until their grammar is unlocked." If any `content/private/source/fr_ch*.json` exists (your own lists from *Familia Rōmāna*: `fr_ch1-7.json`, `fr_ch8-15.json`, read in chapter order), `npm run build:pack` adds an optional `fr` array to the pack (`counts.fr` per FR chapter; pack id gains `+fr-cap1-15`). Packs without `fr` validate and build exactly the old path; `parsePack` (shared with the Worker) checks the field when present.
 
-- **Import** (`src/data/fr.ts`, pure): proper names (characters and places) are dropped, and so is any word a Wheelock chapter at or before the FR chapter teaches. A word Wheelock teaches **later** stays, under the Wheelock lemma's id (via `wheelockHeadword`), so its FSRS cards are shared. Abbreviated headwords (`capitulum, -ī, n.`) are spelled out with the DCC expander; case notes (`cum + abl.`) and alternatives (`ā / ab` → `ā (or ab)`) are tidied. Pronouns, numerals and irregular verbs with no paradigm yet get a provisional id (`hic-fr-pron`) that can't collide with an indeclinable (`hic-indecl`). Only headword, forms and gloss travel: no FR notes.
+- **Placement** (`FR_PLACEMENT` in `src/data/frPlacement.ts`, the owner's study plan): each FR chapter follows one Wheelock section of its block.
+
+  | FR chapters | Wheelock sections | FR chapter → after section |
+  |---|---|---|
+  | I–IV | 1–4 | I→1, II→2, III→3, IV→4 |
+  | V–VII | 5–8 | V→5, VI→6, VII→7 |
+  | VIII–IX | 9–11 | VIII→9, IX→10 |
+  | X–XI | 12–14 | X→12, XI→13 |
+  | XII–XIII | 15–16 | XII→15, XIII→16 |
+  | XIV–XV | 17–18 | XIV→17, XV→18 |
+
+  Section N covers Wheelock chapter N. A chapter not in the table isn't imported. Don't change I–VII: their nodes' ids depend on it.
+- **Import** (`src/data/fr.ts`, pure): proper names (every `properKind`: characters, places, deities, peoples, names, persons) are dropped, and so are the zodiac signs (`properKind: 'constellation'`, skipped by choice), and any word a Wheelock chapter at or before the FR chapter's placement section teaches. A word Wheelock teaches **later** stays, under the Wheelock lemma's id (via `wheelockHeadword`), so its FSRS cards are shared. Abbreviated headwords (`capitulum, -ī, n.`) are spelled out with the DCC expander; case notes (`cum + abl.`) and alternatives (`ā / ab` → `ā (or ab)`) are tidied. Pronouns, numerals and irregular verbs with no paradigm yet get a provisional id (`hic-fr-pron`) that can't collide with an indeclinable (`hic-indecl`). Only headword, forms and gloss travel: no FR notes.
 - **Lexicon**: an FR entry joins the existing Word when it is the same word (id, else spelling + paradigm, else DCC rank with the same POS); Wheelock's or DCC's spelling and gloss win, as for *magnus*. Other entries become `origin: 'fr'` words.
-- **Path**: after section N (N = 1–7, only if the path has that section), before any Probātiō: "Familia Rōmāna · Cap. N" nodes (`sN.fr.K`, "· Pars II" when split), ≤6 words each, a Repetītiō after every 3. Words the main path (Verba or Plūra verba) teaches at or before section N are left out; those it teaches later, or never (e.g. 4th-conjugation DCC words), are previewed.
+- **Path**: after the chapter's placement section S (only if the path has that section: with sections 1–10, FR I–IX show and X–XV wait), before any Probātiō: "Familia Rōmāna · Cap. K" nodes (`sS.fr.1`, `sS.fr.2`, … numbered within the section, "· Pars II" when split), ≤6 words each, a Repetītiō after every 3. Words the main path (Verba or Plūra verba) teaches at or before section S are left out; those it teaches later, or never (e.g. 4th-conjugation DCC words), are previewed. Homographs stay apart by paradigm in the id (*volō, velle* `volo-fr-verb` vs. *volō, volāre* `volo-v1`).
 - **Exercises**: new-word card, Latin→English, and English→Latin recall after 2 correct meaning reviews (first citation form). FR-only words never get class or forms exercises. A previewed Wheelock/DCC word gets them only once the main path has taught it, or earlier if every feature its paradigm needs is already unlocked.
 - **UI**: Words tab tags preview words "FR"; About & credits says they come from your own copy.
 

@@ -13,6 +13,9 @@ import { lemmaId, parseHeadword } from '../morph/infer.ts';
 import { nfc } from '../morph/phonology.ts';
 import { expandHeadword } from './dcc.ts';
 import { matchKey } from '../engine/lexicon.ts';
+import { frSection } from './frPlacement.ts';
+
+export { FR_PLACEMENT, frSection } from './frPlacement.ts';
 
 /** One row of the FR source list (content/private/source/fr_ch*.json). */
 export interface FrSourceEntry {
@@ -25,7 +28,8 @@ export interface FrSourceEntry {
   inWheelock: number | null;
   inDcc: number | null;
   notes?: string;
-  properKind?: 'place' | 'character';
+  /** Set on proper names; all are left out. 'constellation' marks the zodiac signs (ch. 13). */
+  properKind?: 'place' | 'character' | 'deity' | 'people' | 'name' | 'constellation' | 'person';
   wheelockHeadword?: string;
   frIndex?: string;
 }
@@ -43,6 +47,9 @@ export interface FrEntry {
   /** DCC core-list rank, when the word is on that list. */
   dccRank?: number;
 }
+
+/** Zodiac signs (FR ch. 13 calendar margin): skipped by the owner's choice. */
+const isZodiac = (e: FrSourceEntry): boolean => e.properKind === 'constellation' || /\bzodiac sign\b/i.test(e.gloss);
 
 export interface FrImport {
   entries: FrEntry[];
@@ -89,10 +96,10 @@ export function expandFrHeadword(headword: string, pos: PartOfSpeech): string | 
 
 /**
  * Tidy an FR headword for inference: drop a case note ("cum + abl."), a plural note after ";"
- * ("mīlle; pl. mīlia …"), and turn "ā / ab" into the main form plus an alternative.
+ * ("mīlle; pl. mīlia …"), question marks ("quī? quae? quod?" → "quī, quae, quod"), and turn "ā / ab" into the main form plus an alternative.
  */
 export function cleanFrHeadword(headword: string): { main: string; alt?: string } {
-  let h = nfc(headword).split(';')[0]!.replace(/\s*\+\s*(abl|acc|gen|dat)\.(\s*\/\s*(abl|acc|gen|dat)\.)?/g, '').trim();
+  let h = nfc(headword).split(';')[0]!.replace(/[?!]\s+(?=\S)/g, ', ').replace(/[?!]/g, '').replace(/\s*\+\s*(abl|acc|gen|dat)\.(\s*\/\s*(abl|acc|gen|dat)\.)?/g, '').trim();
   const m = /^([^,\s/]+)\s*\/\s*([^,\s/]+)$/.exec(h);
   if (m) return { main: m[1]!, alt: m[2]! };
   h = h.replace(/\s+/g, ' ');
@@ -145,8 +152,10 @@ function frLemma(e: FrSourceEntry, pos: PartOfSpeech, wheelock: ReadonlyMap<stri
 
 /**
  * Select and convert FR entries.
- *  - proper names (characters and places) are left out;
- *  - words a Wheelock chapter at or before the FR chapter teaches are left out (the main path has them);
+ *  - proper names (every properKind) are left out, and so are the zodiac signs (constellations);
+ *  - chapters FR_PLACEMENT doesn't place are left out;
+ *  - words a Wheelock chapter at or before the FR chapter's placement section teaches are left out
+ *    (the main path has them by then);
  *  - a word Wheelock teaches in a LATER chapter is kept as a preview, under the Wheelock lemma's id.
  * DCC words are kept: whether Plūra verba already teaches one by that point depends on the app's
  * DCC list and path, so the path builder decides (frBySection in src/engine/path.ts).
@@ -159,13 +168,16 @@ export function importFr(source: readonly FrSourceEntry[], wheelock: readonly Le
   const seen = new Set<string>();
   source.forEach((e, order) => {
     const skip = (reason: string) => out.excluded.push({ entry: e, reason });
+    if (isZodiac(e)) return skip('zodiac sign (constellation)');
     if (e.pos === 'proper' || e.properKind) return skip(`proper name (${e.properKind ?? 'proper'})`);
     const pos = POS[e.pos];
     if (!pos) return skip(`unknown pos "${e.pos}"`);
-    if (e.inWheelock !== null && e.inWheelock <= e.chapter) return skip(`taught in Wheelock ch. ${e.inWheelock}`);
+    const section = frSection(e.chapter);
+    if (section === null) return skip(`no placement for FR chapter ${e.chapter}`);
+    if (e.inWheelock !== null && e.inWheelock <= section) return skip(`taught in Wheelock ch. ${e.inWheelock}`);
     const { lemma, wheelock: w, fallback } = frLemma(e, pos, wIndex);
     const wch = w ? Math.min(...w.sources.map((x) => x.chapter)) : null;
-    if (wch !== null && wch <= e.chapter) return skip(`taught in Wheelock ch. ${wch} (matched ${w!.id})`);
+    if (wch !== null && wch <= section) return skip(`taught in Wheelock ch. ${wch} (matched ${w!.id})`);
     if (seen.has(lemma.id)) return skip(`duplicate of ${lemma.id}`);
     seen.add(lemma.id);
     if (fallback) out.fallback.push({ entry: e, reason: fallback });

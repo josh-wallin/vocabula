@@ -12,6 +12,7 @@ import {
 } from './curriculum.ts';
 import type { ListeningLesson } from './listening.ts';
 import type { Lectio } from './lectio.ts';
+import { frSection } from '../data/frPlacement.ts';
 
 export type NodeKind = 'verba' | 'pattern' | 'repetitio' | 'formae' | 'dcc' | 'fr' | 'lectio' | 'auditio' | 'probatio';
 
@@ -106,9 +107,10 @@ export function dccBySection(lex: Lexicon, sections: readonly SectionSpec[] = ac
 }
 
 /**
- * Familia Rōmāna preview words for each section: FR chapter N previews come after section N
- * (only for sections the path has), minus words the main path teaches by then. A Wheelock or
- * DCC word taught in a later section stays in (same lemma id, so the cards are shared).
+ * Familia Rōmāna preview words for each section: FR chapter K previews come after section
+ * FR_PLACEMENT[K] (the owner's study plan, src/data/fr.ts; only for sections the path has), minus
+ * words the main path teaches by then. A Wheelock or DCC word taught in a later section stays in
+ * (same lemma id, so the cards are shared). Words are in FR chapter order, then list order.
  */
 export function frBySection(lex: Lexicon, sections: readonly SectionSpec[], dcc: ReadonlyMap<number, Word[]>): Map<number, Word[]> {
   const taughtIn = new Map<string, number>();
@@ -120,8 +122,8 @@ export function frBySection(lex: Lexicon, sections: readonly SectionSpec[], dcc:
   const out = new Map<number, Word[]>();
   for (const s of sections) {
     const ws = lex.words
-      .filter((w) => w.fr?.chapter === s.n && (taughtIn.get(w.lemma.id) ?? Infinity) > s.n)
-      .sort((a, b) => a.fr!.order - b.fr!.order);
+      .filter((w) => w.fr && frSection(w.fr.chapter) === s.n && (taughtIn.get(w.lemma.id) ?? Infinity) > s.n)
+      .sort((a, b) => a.fr!.chapter - b.fr!.chapter || a.fr!.order - b.fr!.order);
     if (ws.length) out.set(s.n, ws);
   }
   return out;
@@ -217,12 +219,16 @@ export function buildPath(lex: Lexicon, opts: PathOptions = {}): Path {
         newWords: [], unlocked: after, focus: [], drill: [], lectio: p.id,
       });
     });
-    // Familia Rōmāna previews (meaning only) close the section, before any Probātiō.
-    const frLessons = splitEven(fr.get(spec.n) ?? [], FR_LESSON_SIZE);
-    frLessons.forEach((ws, i) => {
+    // Familia Rōmāna previews (meaning only) close the section, before any Probātiō: one run of
+    // lessons per FR chapter placed here ("Cap. K", "· Pars" when split); ids sN.fr.1, 2, … in order.
+    const frWords = fr.get(spec.n) ?? [];
+    const frLessons = [...new Set(frWords.map((w) => w.fr!.chapter))].flatMap((cap) => {
+      const parts = splitEven(frWords.filter((w) => w.fr!.chapter === cap), FR_LESSON_SIZE);
+      return parts.map((ws, i) => ({ ws, title: `Familia Rōmāna · Cap. ${roman(cap)}${parts.length > 1 ? ` · Pars ${roman(i + 1)}` : ''}` }));
+    });
+    frLessons.forEach(({ ws, title }, i) => {
       nodes.push({
-        id: `${s}.fr.${i + 1}`, section: spec.n, kind: 'fr',
-        title: `Familia Rōmāna · Cap. ${roman(spec.n)}${frLessons.length > 1 ? ` · Pars ${roman(i + 1)}` : ''}`,
+        id: `${s}.fr.${i + 1}`, section: spec.n, kind: 'fr', title,
         newWords: ws.map((w) => w.lemma.id), unlocked: after, focus: [], drill: [],
       });
       if ((i + 1) % REVIEW_EVERY === 0 && frLessons.length - i - 1 >= 2) nodes.push(rep());
