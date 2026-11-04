@@ -8,7 +8,7 @@
  "citation": "Suet. Nero 49.1",
  "setting": "Phaon's villa outside Rome, AD 68",
  "edition": {
-  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "name": "Suetonius, De Vita Caesarum, vol. II (Claudius to Titus), Latin text of the Loeb Classical Library edition (J. C. Rolfe, vol. II, 1914), as presented on LacusCurtius (Bill Thayer), whose Latin pages say MCMXIII; public domain",
   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Nero*.html",
   "section": "Nero 49.1 (the whole section)"
  },
@@ -398,8 +398,9 @@
     ]
    },
    {
-    "t": "Dio has Nero hiding in reeds and a cave rather than in a house, so the two accounts differ in detail.",
+    "t": "The settings differ in detail: Dio has him hide in a reed-bed and then shelter in a cave, while in Suetonius he creeps through reeds to Phaon's villa, after refusing to hide in a sandpit because he would not go under the earth alive.",
     "src": [
+     1,
      2
     ],
     "doubt": true
@@ -460,7 +461,7 @@
   {
    "q": "Which detail differs between Suetonius and Cassius Dio?",
    "options": [
-    "Where Nero was hiding",
+    "Where Nero spent his last hours (a villa or a cave)",
     "The name of Epaphroditus",
     "That Nero called himself an artist",
     "That Nero died"
@@ -480,7 +481,7 @@
  ],
  "sources": [
   {
-   "label": "Suetonius, Nero 20–25 and 47–49 (Latin; Loeb 1913 text), LacusCurtius",
+   "label": "Suetonius, Nero 20–25 and 47–49 (Latin; Loeb text, Rolfe vol. II), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Nero*.html",
    "kind": "ancient"
   },

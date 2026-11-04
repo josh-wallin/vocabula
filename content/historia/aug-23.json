@@ -8,7 +8,7 @@
  "citation": "Suet. Aug. 23.2",
  "setting": "Rome, after the disaster in Germany, AD 9",
  "edition": {
-  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "name": "Suetonius, De Vita Caesarum, vol. I (Julius, Augustus), Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit it, in their own wording, to \"a Loeb Classical Library editi[on] MCMXIII\" (1913), public domain",
   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
   "section": "Divus Augustus 23.2 (second sentence)"
  },
@@ -212,8 +212,8 @@
    "gloss": "(as a day) of mourning"
   }
  ],
- "translation": "In fact, people say he was so shaken that for months on end he let his beard and hair grow, and now and then beat his head against the doors, shouting, \"Quintilius Varus, give back the legions!\", and that every year he kept the day of the disaster as a day of sorrow and mourning.",
- "translation_note": "The whole sentence depends on ferunt (\"they say\"): it is indirect statement, so Suetonius reports a story rather than vouching for it. Quīntilī is the vocative of Quīntilius (-ius nouns have vocative -ī).",
+ "translation": "In fact, people say he was so shaken that for months on end he let his beard and hair grow, and now and then beat his head against the doors, shouting, \"Quintilius Varus, give back the legions!\", and that every year he treated the anniversary of the defeat as a sad and gloomy day.",
+ "translation_note": "The whole sentence depends on ferunt (\"they say\"): it is indirect statement, so Suetonius reports a story rather than vouching for it. Quīntilī is the vocative of Quīntilius (-ius nouns have vocative -ī). The name is also spelled Quinctilius (as in Britannica); this edition prints Quintili.",
  "essay": [
   [
    {
@@ -223,10 +223,18 @@
     ]
    },
    {
-    "t": "The ambushes were organized by Arminius of the Cherusci, who had grown up in Rome as a hostage and had served the Romans before turning against Varus.",
+    "t": "The ambushes were organized by Arminius of the Cherusci.",
     "src": [
      3
     ]
+   },
+   {
+    "t": "The Roman historian Velleius Paterculus says Arminius was the son of a German prince, had been associated with the Romans on campaigns and had even reached equestrian rank; Britannica adds that he grew up in Rome as a noble hostage, a detail I could not trace to an ancient source.",
+    "src": [
+     4,
+     3
+    ],
+    "doubt": true
    },
    {
     "t": "Cassius Dio says the Germans drew Varus deep into the territory of the Cherusci and attacked his strung-out column in the forests during a storm, and that Varus and his senior officers killed themselves.",
@@ -264,18 +272,19 @@
     ]
    },
    {
-    "t": "Britannica's article, by contrast, quotes the line without any qualification, which shows how firmly the anecdote has settled into the story.",
+    "t": "Britannica's article credits the cry to Suetonius but drops his \"they say\", and has Augustus wailing it \"often\" where Suetonius says interdum, \"now and then\": a small example of how an anecdote hardens into fact.",
     "src": [
-     3
+     3,
+     1
     ],
     "doubt": true
    }
   ],
   [
    {
-    "t": "Where the battle took place is still discussed; Britannica describes the column crossing a pass between Kalkriese Hill and a great bog, without saying how certain that is.",
+    "t": "Archaeology has added evidence of its own: according to a review of Peter Wells's study of the battle, the site was not located until 1987, and more than 4,000 Roman objects had been recovered there by the end of 1999.",
     "src": [
-     3
+     5
     ],
     "doubt": true
    },
@@ -328,7 +337,7 @@
  ],
  "sources": [
   {
-   "label": "Suetonius, Divus Augustus 23 (Latin; Loeb 1913 text), LacusCurtius",
+   "label": "Suetonius, Divus Augustus 23 (Latin; Loeb text, Rolfe vol. I), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
    "kind": "ancient"
   },
@@ -340,6 +349,16 @@
   {
    "label": "Encyclopaedia Britannica, \"Battle of the Teutoburg Forest\" (Myles Hudson)",
    "url": "https://www.britannica.com/event/Battle-of-the-Teutoburg-Forest",
+   "kind": "modern"
+  },
+  {
+   "label": "Velleius Paterculus, Roman History 2.118 (Loeb 1924 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Velleius_Paterculus/2D*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Kirkus Reviews, review of P. S. Wells, The Battle That Stopped Rome (Norton, 2003) (used only for the date the site was found and the number of finds)",
+   "url": "https://www.kirkusreviews.com/book-reviews/peter-s-wells/the-battle-that-stopped-rome/print",
    "kind": "modern"
   }
  ],

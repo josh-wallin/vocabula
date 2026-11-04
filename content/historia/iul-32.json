@@ -8,7 +8,7 @@
  "citation": "Suet. Iul. 32",
  "setting": "The Rubicon, 49 BC",
  "edition": {
-  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "name": "Suetonius, De Vita Caesarum, vol. I (Julius, Augustus), Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit it, in their own wording, to \"a Loeb Classical Library editi[on] MCMXIII\" (1913), public domain",
   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
   "section": "Divus Iulius 32 (the last two sentences of the chapter)"
  },
@@ -182,8 +182,7 @@
    {
     "t": "Notice the word order: Suetonius writes iacta alea est, not the alea iacta est that is usually quoted today.",
     "src": [
-     1,
-     5
+     1
     ]
    },
    {
@@ -194,16 +193,22 @@
     ]
    },
    {
-    "t": "Appian also reports it as a familiar saying, and the Greek line probably comes from a lost comedy of Menander quoted by Athenaeus; this last point is reported here only at second hand.",
+    "t": "Appian also calls it a familiar phrase, in the form \"The die is cast: so let it be!\"",
     "src": [
      5
+    ]
+   },
+   {
+    "t": "The same Greek words occur in a comedy by Menander quoted by Athenaeus, where a character uses them of a marriage that has been decided; whether Caesar had Menander in mind is only a guess.",
+    "src": [
+     7
     ],
     "doubt": true
    }
   ],
   [
    {
-    "t": "So we cannot be sure whether Caesar spoke Latin or Greek, or whether he said anything at all: Suetonius was born in AD 69, more than a century later, and he used anecdotes without always testing them.",
+    "t": "So we cannot be sure whether Caesar spoke Latin or Greek, or whether he said anything at all: Suetonius was born about AD 69, more than a century later, and he used anecdotes without always testing them.",
     "src": [
      6
     ],
@@ -252,7 +257,7 @@
  ],
  "sources": [
   {
-   "label": "Suetonius, Divus Iulius 31–33 (Latin; Loeb 1913 text), LacusCurtius",
+   "label": "Suetonius, Divus Iulius 31–33 (Latin; Loeb text, Rolfe vol. I), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
    "kind": "ancient"
   },
@@ -272,14 +277,19 @@
    "kind": "modern"
   },
   {
-   "label": "Wikipedia, \"Alea iacta est\" (tertiary; used only for the Menander and Appian points, which it attributes to Athenaeus 13.8 and Appian, Civil Wars 2.35)",
-   "url": "https://en.wikipedia.org/wiki/Alea_iacta_est",
-   "kind": "modern"
+   "label": "Appian, Civil Wars 2.35 (Loeb 1913 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Appian/Civil_Wars/2*.html",
+   "kind": "ancient"
   },
   {
    "label": "Encyclopaedia Britannica, \"Suetonius\"",
    "url": "https://www.britannica.com/biography/Suetonius",
    "kind": "modern"
+  },
+  {
+   "label": "Athenaeus, Deipnosophists 13.8 (p. 559), quoting Menander (tr. C. D. Yonge, 1854), attalus.org",
+   "url": "https://www.attalus.org/old/athenaeus13a.html",
+   "kind": "ancient"
   }
  ],
  "verified": "2026-11-04"

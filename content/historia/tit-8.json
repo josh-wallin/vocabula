@@ -8,7 +8,7 @@
  "citation": "Suet. Tit. 8.1",
  "setting": "Rome, the reign of Titus",
  "edition": {
-  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "name": "Suetonius, De Vita Caesarum, vol. II (Claudius to Titus), Latin text of the Loeb Classical Library edition (J. C. Rolfe, vol. II, 1914), as presented on LacusCurtius (Bill Thayer), whose Latin pages say MCMXIII; public domain",
   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Titus*.html",
   "section": "Divus Titus 8.1 (the last clause of the section)"
  },
@@ -63,8 +63,8 @@
   {
    "w": "quod",
    "lemma": "quod",
-   "parse": "conjunction",
-   "gloss": "that, the fact that"
+   "parse": "conjunction (introducing what he remembered)",
+   "gloss": "that"
   },
   {
    "w": "nihil",
@@ -100,7 +100,7 @@
    "w": "praestitisset",
    "p": ",",
    "lemma": "praestō, praestāre, praestitī, praestitum",
-   "parse": "3rd sg. pluperf. subj. act. (reason as he saw it)",
+   "parse": "3rd sg. pluperf. subj. act. (what he remembered: virtual indirect speech)",
    "gloss": "he had done, provided",
    "app": [
     "praesto-v1"
@@ -184,8 +184,8 @@
    ]
   }
  ],
- "translation": "And once at dinner, remembering that he had done nothing for anyone the whole day, he made that memorable and rightly praised remark: \"Friends, I have lost a day.\"",
- "translation_note": "praestitisset is subjunctive because it gives Titus's own reason, as he thought of it. perdidī is a perfect: \"I have lost\" (the day is gone).",
+ "translation": "And once, too, at dinner, remembering that he had done nothing for anyone the whole day, he made that memorable and rightly praised remark: \"Friends, I have lost a day.\"",
+ "translation_note": "quod ... praestitisset gives the content of what Titus remembered, from his point of view, hence the subjunctive (virtual indirect speech); it is not a causal clause. etiam: \"too\". perdidī is a perfect: \"I have lost\" (the day is gone).",
  "essay": [
   [
    {
@@ -306,7 +306,7 @@
  ],
  "sources": [
   {
-   "label": "Suetonius, Divus Titus 1, 7–8 and 11 (Latin; Loeb 1913 text), LacusCurtius",
+   "label": "Suetonius, Divus Titus 1, 7–8 and 11 (Latin; Loeb text, Rolfe vol. II), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Titus*.html",
    "kind": "ancient"
   },

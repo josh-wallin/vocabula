@@ -1,5 +1,5 @@
 /**
- * Historia tab: famous sayings in real Latin (Suetonius), each with tap-to-gloss words,
+ * Historia tab: famous sayings in real Latin (Suetonius, the Historia Augusta), each with tap-to-gloss words,
  * an eSpeak reading, an original translation, a sourced essay and graded questions.
  * Reuses the Audītiō transcript / gloss styling (.transcript, .tok, .tgloss) and Speaker.
  */
@@ -30,7 +30,7 @@ export function HistoriaList({ app, onOpen }: { app: AppData; onOpen: (id: strin
   return (
     <main class="page" data-screen="historia">
       <h1 lang="la">Historia</h1>
-      <p>Famous sayings in the Latin of Suetonius, with the story around them and what we can and can’t know about them.</p>
+      <p>Famous sayings in real Latin (Suetonius, the Historia Augusta), with the story around them and what we can and can’t know about them.</p>
       <ul class="hist-list">
         {historiaEntries().map((e) => {
           const k = knownShare(e, known, heads);
@@ -38,7 +38,7 @@ export function HistoriaList({ app, onOpen }: { app: AppData; onOpen: (id: strin
             <li key={e.id}>
               <button type="button" class="hist-card" data-testid="historia-entry" data-id={e.id} onClick={() => onOpen(e.id)}>
                 <span class="hist-saying" lang="la">{e.saying}</span>
-                <span class="hist-title">{e.title}</span>
+                <span class="hist-title">{e.title}{e.verse && <span class="hist-tag">verse</span>}</span>
                 <span class="hist-cite">{e.author}, <i lang="la">{e.work}</i> · {e.citation}</span>
                 <span class="hist-meter" data-testid="known-meter" data-pct={k.pct}>
                   <span class="bar" aria-hidden="true"><span style={{ width: `${k.pct}%` }} /></span>
@@ -65,7 +65,7 @@ export function HistoriaEntryView({ app, id, onReview }: { app: AppData; id: str
     <main class="page hist" data-screen="historia-entry" data-id={e.id}>
       <span class="eyebrow">{e.author} · {e.citation}</span>
       <h1>{e.title}</h1>
-      <p class="hist-setting">{e.setting}</p>
+      <p class="hist-setting">{e.setting}{e.verse && <span class="hist-tag">verse</span>}</p>
 
       <section class="hist-latin">
         <div class="hist-latin-head">
@@ -133,13 +133,13 @@ function Passage({ entry, known, heads }: { entry: HistoriaEntry; known: Readonl
       <div class="transcript hist-text" lang="la" data-testid="passage">
         {entry.tokens.map((tok, i) => {
           const kn = tokenKnown(tok, known, heads);
-          const joined = (tok.p ?? '').endsWith('·');
+          const joined = (tok.p ?? '').endsWith('·') || tok.br;
           return (
             <Fragment key={i}>
               <span class="hist-w">{curlyPre(tok.pre)}
               <button type="button" class={`tok${kn ? ' known' : ''}${sel === i ? ' on' : ''}`} data-testid="tok" data-known={kn ? '1' : '0'}
                 aria-pressed={sel === i ? 'true' : 'false'} onClick={() => setSel(sel === i ? null : i)}>{tok.w}</button>
-              {curlyPost(tok.p)}</span>{joined ? '' : ' '}
+              {curlyPost(tok.p)}</span>{joined ? '' : ' '}{tok.br && <br />}
             </Fragment>
           );
         })}

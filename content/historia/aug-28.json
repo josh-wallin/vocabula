@@ -8,7 +8,7 @@
  "citation": "Suet. Aug. 28.3",
  "setting": "Rome under Augustus",
  "edition": {
-  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "name": "Suetonius, De Vita Caesarum, vol. I (Julius, Augustus), Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit it, in their own wording, to \"a Loeb Classical Library editi[on] MCMXIII\" (1913), public domain",
   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
   "section": "Divus Augustus 28.3 (first sentence)"
  },
@@ -184,7 +184,7 @@
   }
  ],
  "translation": "The city was not adorned as the greatness of the empire deserved, and it was exposed to floods and fires; he improved it so much that he could rightly boast that he was leaving in marble the city he had received in brick.",
- "translation_note": "The boast is in indirect statement (sē relinquere), so these are not Augustus's own words but Suetonius's report of them.",
+ "translation_note": "The boast is in indirect statement (sē relinquere), so these are not necessarily Augustus's exact words: Suetonius does not quote him directly.",
  "essay": [
   [
    {
@@ -244,7 +244,7 @@
     ]
    },
    {
-    "t": "In his own account of his achievements, Augustus says he rebuilt eighty-two temples in the city in his sixth consulship, and that he built the temple of Mars Ultor and the Augustan Forum on his own land.",
+    "t": "In his own account of his achievements, Augustus says he rebuilt eighty-two temples in the city in his sixth consulship (Res Gestae 20.4), and that he built the temple of Mars Ultor and the Augustan Forum on his own land (21.1).",
     "src": [
      3
     ]
@@ -273,7 +273,7 @@
   {
    "q": "How does Suetonius report the boast?",
    "options": [
-    "In indirect speech: he reports it, not Augustus's exact words",
+    "In indirect speech: not necessarily Augustus's exact words; he does not quote him directly",
     "As a quotation from an inscription",
     "As Augustus's last words",
     "He does not mention a boast"
@@ -303,7 +303,7 @@
  ],
  "sources": [
   {
-   "label": "Suetonius, Divus Augustus 28–29 (Latin; Loeb 1913 text), LacusCurtius",
+   "label": "Suetonius, Divus Augustus 28–29 (Latin; Loeb text, Rolfe vol. I), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
    "kind": "ancient"
   },
@@ -313,7 +313,7 @@
    "kind": "ancient"
   },
   {
-   "label": "Augustus, Res Gestae 19–21 (Loeb 1924 translation), LacusCurtius",
+   "label": "Augustus, Res Gestae 20.4 and 21.1 (Loeb 1924 translation), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
    "kind": "ancient"
   }

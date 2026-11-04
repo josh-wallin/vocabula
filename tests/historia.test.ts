@@ -37,20 +37,28 @@ const byId = new Map(entries.map((e) => [e.id, e]));
 const clone = (e: HistoriaEntry): HistoriaEntry => JSON.parse(JSON.stringify(e)) as HistoriaEntry;
 
 describe('historia: definitions', () => {
-  it('eight entries, one file each, named by id, in order', () => {
+  it('ten entries, one file each, named by id, in order', () => {
     const files = readdirSync(DIR).filter((f) => f.endsWith('.json')).sort();
-    expect(files.length).toBe(8);
+    expect(files.length).toBe(10);
     for (const f of files) expect(parseHistoriaEntry(JSON.parse(readFileSync(resolve(DIR, f), 'utf8'))).id).toBe(f.replace('.json', ''));
-    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8']);
-    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
+    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25']);
+    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    // Exactly one verse entry: Hadrian's lines to his soul.
+    expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25']);
   });
 
   it('citations: author, work, standard citation, a named edition with its URL among the sources', () => {
     for (const e of entries) {
-      expect(e.author).toBe('Suetonius');
-      expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
-      expect(e.edition.name).toMatch(/Loeb Classical Library, 1913/);
-      expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
+      if (e.author === 'Suetonius') {
+        expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
+        expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXIII/);
+        expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
+      } else {
+        expect(e.author).toBe('Historia Augusta');
+        expect(e.citation).toMatch(/^HA Hadr\. \d+\.\d+(–\d+)?$/);
+        expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXXI/);
+        expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Historia_Augusta\/Hadrian\/[12]\*\.html$/);
+      }
       expect(e.sources.some((s) => s.url === e.edition.url && s.kind === 'ancient')).toBe(true);
       expect(e.verified).toBe('2026-11-04');
     }
@@ -66,6 +74,7 @@ describe('historia: definitions', () => {
       expect(tokensSourceText(e.tokens)).toBe(e.source_text);
       // The displayed passage differs from the edition only by macrons and curly quotes.
       expect(stripMacrons(historiaLatin(e)).replace(/[“”]/g, '"')).toBe(e.source_text);
+      expect(e.source_text.includes('\n')).toBe(!!e.verse);
       expect(e.tokens.length).toBeGreaterThanOrEqual(10);
     }
   });
@@ -74,7 +83,7 @@ describe('historia: definitions', () => {
     for (const e of entries) {
       expect(e.macrons.editorial).toBe(true);
       expect(e.macrons.note).toMatch(/editorial/i);
-      const text = historiaLatin(e).toLowerCase().replace(/·/g, ' ').replace(/[^\p{L} ]/gu, '');
+      const text = historiaLatin(e).toLowerCase().replace(/[·\n]/g, ' ').replace(/[^\p{L} ]/gu, '');
       const saying = e.saying.toLowerCase().replace(/[^\p{L} ]/gu, '');
       // The saying's words occur in the passage in order (Suetonius may interrupt with inquit).
       const words = text.split(' ');
@@ -239,6 +248,18 @@ describe('historia: audio', () => {
       for (const t of e.tokens) expect(keys.has(audioKey(t.w)), `${e.id} ${t.w}`).toBe(true);
     }
     expect(audioKey('Iacta')).toBe(audioKey('iacta'));
+  });
+
+  it('verse: five lines kept as lines in the text, spoken as one passage', () => {
+    const h = byId.get('hadr-25')!;
+    expect(historiaLatin(h).split('\n')).toEqual([
+      'et moriēns quidem hōs versūs fēcisse dīcitur:', 'Animula vagula blandula', 'hospes comesque corporis,',
+      'quae nunc abībis in loca', 'pallidula rigida nūdula?', 'nec ut solēs dabis iocōs!',
+    ]);
+    expect(historiaSpeech(h)).not.toContain('\n');
+    const x = clone(byId.get('tit-8')!);
+    x.tokens[0]!.br = true;
+    expect(() => parseHistoriaEntry(x)).toThrow(/br/);
   });
 
   it('the audio manifest script reads content/historia', () => {

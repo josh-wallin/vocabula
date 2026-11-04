@@ -8,7 +8,7 @@
  "citation": "Suet. Vesp. 23.4",
  "setting": "Vespasian's last illness",
  "edition": {
-  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "name": "Suetonius, De Vita Caesarum, vol. II (Claudius to Titus), Latin text of the Loeb Classical Library edition (J. C. Rolfe, vol. II, 1914), as presented on LacusCurtius (Bill Thayer), whose Latin pages say MCMXIII; public domain",
   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Vespasian*.html",
   "section": "Divus Vespasianus 23.4 (the whole section)"
  },
@@ -417,7 +417,7 @@
  "essay": [
   [
    {
-    "t": "Suetonius presents Vespasian as a man of very ready wit, who joked a great deal, especially at dinner.",
+    "t": "Suetonius presents Vespasian as a man of very ready wit, who joked a great deal, at dinner and at other times.",
     "src": [
      1
     ]
@@ -457,9 +457,10 @@
     ]
    },
    {
-    "t": "Suetonius gives his age at death as sixty-nine years, one month and seven days, while Dio says sixty-nine years and eight months, so even the basic numbers in our sources disagree.",
+    "t": "Suetonius's Latin gives his age at death as sixty-nine years, seven months and seven days (the Loeb translation's \"one month\" is a slip, as Bill Thayer notes), while Dio says sixty-nine years and eight months: the sources differ slightly.",
     "src": [
      1,
+     4,
      2
     ],
     "doubt": true
@@ -473,7 +474,7 @@
     ]
    },
    {
-    "t": "Dio reports a similar remark, \"I am already becoming a god.\"",
+    "t": "Dio reports a similar remark, made \"when at last he was convinced that he was going to die\": \"I am already becoming a god.\"",
     "src": [
      2
     ]
@@ -536,9 +537,14 @@
  ],
  "sources": [
   {
-   "label": "Suetonius, Divus Vespasianus 22–24 (Latin; Loeb 1913 text), LacusCurtius",
+   "label": "Suetonius, Divus Vespasianus 22–24 (Latin; Loeb text, Rolfe vol. II), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Vespasian*.html",
    "kind": "ancient"
+  },
+  {
+   "label": "Suetonius, Divus Vespasianus 24 in English on LacusCurtius, with Bill Thayer's note [e] correcting the Loeb's \"one month\" to \"seven months\"",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Vespasian*.html",
+   "kind": "modern"
   },
   {
    "label": "Cassius Dio, Roman History 66.17 (Loeb translation), LacusCurtius",

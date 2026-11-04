@@ -1,5 +1,5 @@
 /**
- * Historia: short passages of real Latin (Suetonius) containing a famous saying, with
+ * Historia: short passages of real Latin (Suetonius, the Historia Augusta) containing a famous saying, with
  * word-by-word glosses, an original translation, a sourced essay and a few questions.
  * Definitions live in content/historia/*.json (public: the Latin is public domain; the
  * glosses, translations, essays and questions are original). Pure: no DOM, no fetch.
@@ -36,6 +36,8 @@ export interface HistoriaToken {
   app?: string[];
   /** Enclitic written onto the word (capillōque = capillō + -que). */
   enclitic?: 'que';
+  /** A verse line ends after this word (verse entries): a line break, not a space. */
+  br?: true;
   /** A homograph of a different app word (cum "when" vs cum "with"): never matched by headword. */
   nolink?: true;
 }
@@ -53,6 +55,8 @@ export interface HistoriaEntry {
   /** Standard citation, e.g. "Suet. Aug. 28.3". */
   citation: string;
   setting: string;
+  /** The passage is (mostly) verse: lines end at tokens with `br`. */
+  verse?: true;
   edition: { name: string; url: string; section: string };
   /** The edition's text, verbatim (ASCII quotation marks). */
   source_text: string;
@@ -79,8 +83,11 @@ export const historiaNode = (entry: string): string => `historia:${entry}`;
 
 /** The edition's text rebuilt from the tokens (macrons stripped): must equal `source_text`. */
 export function tokensSourceText(ts: readonly HistoriaToken[]): string {
-  return ts.map((t, i) => (t.pre ?? '') + stripMacrons(t.w) + (t.p ?? '') + (i < ts.length - 1 && !(t.p ?? '').endsWith('·') ? ' ' : '')).join('');
+  return ts.map((t, i) => (t.pre ?? '') + stripMacrons(t.w) + (t.p ?? '') + (i < ts.length - 1 ? sep(t) : '')).join('');
 }
+
+/** What follows a token: a line break (end of a verse line), nothing (after an inscription dot) or a space. */
+const sep = (t: Pick<HistoriaToken, 'p' | 'br'>): string => (t.br ? '\n' : (t.p ?? '').endsWith('·') ? '' : ' ');
 
 /** Typographic quotes for display: an opening " becomes “, a closing one ”. */
 export const curlyPre = (s = ''): string => s.replace(/"/g, '“');
@@ -88,7 +95,7 @@ export const curlyPost = (s = ''): string => s.replace(/"/g, '”');
 
 /** The macronized passage as displayed (curly quotes). */
 export function historiaLatin(e: Pick<HistoriaEntry, 'tokens'>): string {
-  return e.tokens.map((t, i) => curlyPre(t.pre) + t.w + curlyPost(t.p) + (i < e.tokens.length - 1 && !(t.p ?? '').endsWith('·') ? ' ' : '')).join('');
+  return e.tokens.map((t, i) => curlyPre(t.pre) + t.w + curlyPost(t.p) + (i < e.tokens.length - 1 ? sep(t) : '')).join('');
 }
 
 /**
@@ -193,6 +200,7 @@ export function parseHistoriaEntry(raw: unknown): HistoriaEntry {
     if (typeof o[k] !== 'string' || !o[k].trim()) bad(k);
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(o.verified ?? '')) bad('verified date');
+  if (o.verse !== undefined && o.verse !== true) bad('verse flag');
   if (!o.edition?.name || !/^https:\/\//.test(o.edition.url ?? '') || !o.edition.section) bad('edition (name, https url, section)');
   if (o.macrons?.editorial !== true || !o.macrons.note || !Array.isArray(o.macrons.uncertain)) bad('macrons note');
   if (!Array.isArray(o.tokens) || !o.tokens.length) bad('tokens');
@@ -202,6 +210,7 @@ export function parseHistoriaEntry(raw: unknown): HistoriaEntry {
     if (t.app !== undefined && (!Array.isArray(t.app) || !t.app.length || t.app.some((x) => typeof x !== 'string' || !x))) bad(`token "${t.w}" app ids`);
     if (t.enclitic !== undefined && (t.enclitic !== 'que' || !t.w.endsWith('que') || !t.lemma.includes('+ -que'))) bad(`token "${t.w}" enclitic`);
     if (t.nolink !== undefined && (t.nolink !== true || t.app)) bad(`token "${t.w}" nolink`);
+    if (t.br !== undefined && (t.br !== true || !o.verse)) bad(`token "${t.w}" br (only in verse entries)`);
   }
   const rebuilt = tokensSourceText(o.tokens);
   if (rebuilt !== o.source_text) bad(`tokens spell "${rebuilt}", not the edition's "${o.source_text}"`);

@@ -8,7 +8,7 @@
  "citation": "Suet. Iul. 37.2",
  "setting": "Rome, the Pontic triumph",
  "edition": {
-  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "name": "Suetonius, De Vita Caesarum, vol. I (Julius, Augustus), Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), whose Latin pages credit it, in their own wording, to \"a Loeb Classical Library editi[on] MCMXIII\" (1913), public domain",
   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
   "section": "Divus Iulius 37.2 (last sentence)"
  },
@@ -196,7 +196,7 @@
  "essay": [
   [
    {
-    "t": "In 47 BC Caesar fought King Pharnaces near Zela, a town in what is now northern Turkey (modern Zile).",
+    "t": "In 47 BC Caesar fought King Pharnaces near Zela, a town in Pontus; the battle is narrated in the Alexandrian War, chapters 72–77, and the year is given in the LacusCurtius editor's note.",
     "src": [
      3
     ]
@@ -205,6 +205,12 @@
     "t": "Suetonius says he won within five days of arriving and within four hours of coming into the enemy's sight.",
     "src": [
      1
+    ]
+   },
+   {
+    "t": "The Alexandrian War, transmitted with Caesar's works, also stresses how speedily the war was ended, but it does not use the three words.",
+    "src": [
+     3
     ]
    }
   ],
@@ -242,9 +248,9 @@
     ]
    },
    {
-    "t": "The name Amantius is odd, and the editor of a nineteenth-century English edition (Clough) suggested that the friend was Gaius Matius; this is a conjecture.",
+    "t": "A footnote in Clough's edition of Plutarch says Amantius \"does not seem to be a true Roman name\" and reports that it has been corrected to Gaius Matius, a friend of Caesar's; that correction is a conjecture.",
     "src": [
-     3
+     5
     ],
     "doubt": true
    }
@@ -259,7 +265,7 @@
     "doubt": true
    },
    {
-    "t": "Neither author was a witness, though: Suetonius was born in AD 69, more than a century after Zela, and he relied freely on anecdote.",
+    "t": "Neither author was a witness, though: Suetonius was born about AD 69, more than a century after Zela, and he relied freely on anecdote.",
     "src": [
      4
     ]
@@ -323,7 +329,7 @@
  ],
  "sources": [
   {
-   "label": "Suetonius, Divus Iulius 35.2 and 37 (Latin; Loeb 1913 text), LacusCurtius",
+   "label": "Suetonius, Divus Iulius 35.2 and 37 (Latin; Loeb text, Rolfe vol. I), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
    "kind": "ancient"
   },
@@ -333,13 +339,18 @@
    "kind": "ancient"
   },
   {
-   "label": "Wikipedia, \"Battle of Zela (47 BC)\" (tertiary; used only for the year, the site and the editorial note on Amantius)",
-   "url": "https://en.wikipedia.org/wiki/Battle_of_Zela_(47_BC)",
-   "kind": "modern"
+   "label": "Bellum Alexandrinum (The Alexandrian War) 65–78, with the LacusCurtius editor's notes (Loeb 1955 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Caesar/Alexandrian_War/E*.html",
+   "kind": "ancient"
   },
   {
    "label": "Encyclopaedia Britannica, \"Suetonius\"",
    "url": "https://www.britannica.com/biography/Suetonius",
+   "kind": "modern"
+  },
+  {
+   "label": "Plutarch's Lives, Clough edition, vol. 4 (1865 printing), p. 308, Caesar 50 with footnote on Amantius (Wikisource scan, mirror)",
+   "url": "https://kwx.liehendr.com/content/wikisource_en_all_maxi_2022-09/A/Page%3APlutarch's_Lives_(Clough%2C_v.4%2C_1865).djvu/316",
    "kind": "modern"
   }
  ],
