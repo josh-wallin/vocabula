@@ -37,9 +37,8 @@ describe.skipIf(!run)('public build has no private content', () => {
   });
 
   it.skipIf(!FR.length)('contains no Familia Rōmāna-only glosses', () => {
-    // The app's own public writing (listening lessons, Lectiō, Historia) can share a plain gloss
-    // ("three hundred"; Historia's "therefore, so", "closed, shut").
-    const publicText = [DCC, ...['chapters', 'listening', 'lectio', 'historia'].flatMap((d) => files(resolve(__dirname, `../content/${d}`))), ...files(resolve(__dirname, '../src'))]
+    // The app's own public writing (listening lessons, Lectiō) can share a plain gloss ("three hundred").
+    const publicText = [DCC, ...['chapters', 'listening', 'lectio'].flatMap((d) => files(resolve(__dirname, `../content/${d}`))), ...files(resolve(__dirname, '../src'))]
       .map((f) => readFileSync(f, 'utf8').toLowerCase()).join('\n');
     const entries = FR.flatMap((f) => JSON.parse(readFileSync(f, 'utf8')) as { gloss: string; pos: string; inWheelock: number | null }[]);
     const glosses = entries
