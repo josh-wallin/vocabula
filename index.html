@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#5e2550" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#5e2550" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16131a" />
+    <!-- Profile → Theme (src/ui/theme.ts), applied before first paint. -->
+    <script>try{var t=localStorage.getItem('vocabula.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
     <meta name="description" content="Drill Latin vocabulary and paradigms along Wheelock's Latin." />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icon-192.png" />

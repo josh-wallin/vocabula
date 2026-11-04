@@ -15,7 +15,7 @@
   font: inherit; color: inherit; background: none; border: 0; padding: 0 1px; margin: 0; border-radius: 4px; cursor: pointer;
   min-height: 32px;
 }
-.lsent .tok.on { background: var(--plum); color: #fff; }
+.lsent .tok.on { background: var(--plum-fill); color: var(--on-fill); }
 .lsent .speaker { vertical-align: middle; margin-left: 6px; }
 .lspeaker { font-family: var(--font-ui); font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--bronze-text); text-transform: uppercase; margin-right: 2px; }
 .lsent-tools { display: flex; gap: 12px; }

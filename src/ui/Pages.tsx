@@ -13,6 +13,7 @@ import { citation } from '../engine/lexicon.ts';
 import { parseCardId, State } from '../engine/srs.ts';
 import type { ContentPack } from '../data/pack.ts';
 import { FLAG_LABEL } from './Flag.tsx';
+import { getThemePref, setThemePref, type ThemePref } from './theme.ts';
 
 async function readFile(input: HTMLInputElement): Promise<string | null> {
   const f = input.files?.[0];
@@ -164,6 +165,25 @@ function SettingToggle({ app, setApp, k, label, sub, testid }: { app: AppData; s
   );
 }
 
+const THEMES: [ThemePref, string][] = [['system', 'System'], ['light', 'Light'], ['dark', 'Dark']];
+
+/** Profile → Theme: kept on this device (src/ui/theme.ts). */
+function ThemePicker() {
+  const [pref, setPref] = useState<ThemePref>(getThemePref);
+  return (
+    <fieldset class="seg" data-testid="theme-picker">
+      <legend>Theme</legend>
+      {THEMES.map(([v, label]) => (
+        <label key={v} class={pref === v ? 'on' : undefined}>
+          <input type="radio" name="theme" value={v} checked={pref === v} data-testid={`theme-${v}`}
+            onChange={() => { setThemePref(v); setPref(v); }} />
+          {label}
+        </label>
+      ))}
+    </fieldset>
+  );
+}
+
 function download(name: string, text: string) {
   const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
   const a = document.createElement('a');
@@ -202,6 +222,10 @@ export function ProfileScreen({ app, setApp, onAbout, sync, onSyncNow }: {
         <h2>Iter Latinum code for today</h2>
         <span class="code">{syncCodeToday(app)}</span>
       </div>
+
+      <h2>Appearance</h2>
+      <ThemePicker />
+      <p class="note">System follows your device’s light or dark setting. Saved on this device only.</p>
 
       <h2>Listening</h2>
       <SettingToggle app={app} setApp={setApp} k={SETTING_LISTENING} testid="setting-listening"

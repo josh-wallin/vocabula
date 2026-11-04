@@ -16,6 +16,10 @@ A phone-first, offline-capable PWA for drilling Latin vocabulary and paradigms a
 - **`scripts/import-wheelock.ts`**: CLI wrapper that writes `content/private/wheelock.json` and lists unclassified entries, low-confidence guesses and citation-form mismatches.
 - **Tests (Vitest)**: full textbook paradigms with macrons, inference on 25+ headwords plus refusals, `analyze`, and the Wheelock ch. 1–4 import check.
 
+## Themes
+
+Every color is a custom property on `:root` in `src/ui/styles.css` (no stylesheet or component hard-codes one; `tests/theme.test.ts` checks this and WCAG AA contrast for the text/background pairs of both themes). Dark values sit under `@media (prefers-color-scheme: dark)` guarded by `:root:not([data-theme="light"])`, and again under `:root[data-theme="dark"]` (the test keeps the two blocks identical). Accent tokens come in two kinds: `--plum`, `--ok`, `--bad`, `--bronze-text` for text and borders (light in dark mode), and `--plum-fill`, `--ok-fill`, `--bad-fill`, `--bronze-fill` for solid backgrounds that carry `--on-fill` text. **Profile → Theme** (System / Light / Dark, `src/ui/theme.ts`) is kept on the device in `localStorage` (`vocabula.theme`, not synced); Light/Dark set `data-theme` on `<html>`, an inline script in `index.html` applies it before first paint. The `theme-color` metas are per scheme (`#5e2550` light, `#16131a` dark) and follow an explicit choice.
+
 ## Milestone 3: path, lessons, scheduling
 
 - **Screens**: first-run pack import (file picker + paste fallback) → **Path** (one zigzag path, Sectiō I–IV, sequential unlock, completed nodes replayable, book button opens the section's grammar chapter) → **Lesson** (progress bar, × quits without completing the node) → **Lectiō perfecta** (puncta, first-try accuracy, streak, words coming back, Iter Latinum code). Tabs: Path, Practice (an ad-hoc Repetītiō), Words (words met so far), Profile (stats, backup export/import, content pack replace, About & credits with DCC attribution).
@@ -298,7 +302,7 @@ Everything under `content/private/` (the raw Wheelock and Familia Rōmāna lists
 
 ## Not yet built
 
-Sections beyond 4, 3rd–5th declensions, 3rd/4th conjugations, other tenses, personal pronouns, dark mode.
+Sections beyond 4, 3rd–5th declensions, 3rd/4th conjugations, other tenses, personal pronouns.
 
 ## DCC core vocabulary
 

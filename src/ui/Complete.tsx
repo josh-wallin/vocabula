@@ -20,11 +20,11 @@ export function Complete({ app, title, run, stats, onContinue }: {
   return (
     <div class="screen" data-screen="complete">
       <main class="complete">
-        <svg width="104" height="104" viewBox="0 0 104 104" fill="none" aria-hidden="true">
-          <circle cx="52" cy="52" r="46" fill="#f3e9f0" />
-          <path d="M52 82c-14-4-24-16-24-32M52 82c14-4 24-16 24-32" stroke="#9a6b23" stroke-width="3" stroke-linecap="round" />
-          <path d="M30 58c-5-1-8-5-8-9 5 0 8 3 9 7M33 46c-5-2-7-6-6-10 5 1 7 5 7 9M39 36c-4-3-5-8-3-11 4 2 5 6 4 10M74 58c5-1 8-5 8-9-5 0-8 3-9 7M71 46c5-2 7-6 6-10-5 1-7 5-7 9M65 36c4-3 5-8 3-11-4 2-5 6-4 10" stroke="#9a6b23" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M42 52l7 7 14-15" stroke="#5e2550" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        <svg class="laurel" width="104" height="104" viewBox="0 0 104 104" fill="none" aria-hidden="true">
+          <circle class="disc-bg" cx="52" cy="52" r="46" />
+          <path d="M52 82c-14-4-24-16-24-32M52 82c14-4 24-16 24-32" class="leaf" stroke-width="3" stroke-linecap="round" />
+          <path d="M30 58c-5-1-8-5-8-9 5 0 8 3 9 7M33 46c-5-2-7-6-6-10 5 1 7 5 7 9M39 36c-4-3-5-8-3-11 4 2 5 6 4 10M74 58c5-1 8-5 8-9-5 0-8 3-9 7M71 46c5-2 7-6 6-10-5 1-7 5-7 9M65 36c4-3 5-8 3-11-4 2-5 6-4 10" class="leaf" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M42 52l7 7 14-15" class="tick" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
           <h1 lang="la">Lectiō perfecta</h1>
