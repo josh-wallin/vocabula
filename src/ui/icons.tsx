@@ -29,6 +29,9 @@ export const IconStar = (p: P) => (
 export const IconCloudOff = (p: P) => (
   <S size={16} {...p}><path d="M7 18h10a4 4 0 0 0 .6-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z" /><path d="M4 4l16 16" /></S>
 );
+export const IconCloud = (p: P) => (
+  <S size={16} {...p}><path d="M7 18h10a4 4 0 0 0 .6-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z" /></S>
+);
 export const IconX = (p: P) => <S size={24} sw={2.4} {...p}><path d="M6 6l12 12M18 6L6 18" /></S>;
 export const IconBack = (p: P) => <S size={24} sw={2.4} {...p}><path d="M15 5l-7 7 7 7" /></S>;
 export const IconPath = (p: P) => <S sw={2.2} {...p}><path d="M6 20c0-4 12-4 12-8s-12-4-12-8" /></S>;

@@ -9,8 +9,17 @@ import { uuid } from '../engine/util.ts';
 
 interface VocabulaDB extends DBSchema {
   events: { key: string; value: VEvent; indexes: { outbox: number } };
-  content: { key: string; value: { key: string; pack: ContentPack; importedAt: number } };
+  content: { key: string; value: PackRecord };
   meta: { key: string; value: { key: string; value: string } };
+}
+
+export interface PackRecord {
+  key: string;
+  pack: ContentPack;
+  importedAt: number;
+  /** packHash(pack); absent on records stored before sync existed. */
+  hash?: string;
+  source?: 'file' | 'server';
 }
 
 export const DB_NAME = 'vocabula';
@@ -60,9 +69,44 @@ export async function outboxCount(): Promise<number> {
 }
 
 export async function getPack(): Promise<ContentPack | null> {
-  return (await (await db()).get('content', 'pack'))?.pack ?? null;
+  return (await getPackRecord())?.pack ?? null;
 }
 
-export async function savePack(pack: ContentPack): Promise<void> {
-  await (await db()).put('content', { key: 'pack', pack, importedAt: Date.now() });
+export async function getPackRecord(): Promise<PackRecord | null> {
+  return (await (await db()).get('content', 'pack')) ?? null;
+}
+
+export async function savePack(pack: ContentPack, hash?: string, source: PackRecord['source'] = 'file'): Promise<void> {
+  const rec: PackRecord = { key: 'pack', pack, importedAt: Date.now(), source };
+  if (hash) rec.hash = hash;
+  await (await db()).put('content', rec);
+}
+
+/* ---------------- sync bookkeeping ---------------- */
+
+export async function outboxEvents(): Promise<VEvent[]> {
+  return (await db()).getAllFromIndex('events', 'outbox', 1);
+}
+
+/** Clear the outbox flag on events the server has accepted. */
+export async function markSent(ids: readonly string[]): Promise<void> {
+  const tx = (await db()).transaction('events', 'readwrite');
+  for (const id of ids) {
+    const e = await tx.store.get(id);
+    if (e && e.outbox === 1) await tx.store.put({ ...e, outbox: 0 });
+  }
+  await tx.done;
+}
+
+/** Store events from the server (already validated); returns how many were new here. */
+export function putRemoteEvents(events: readonly VEvent[]): Promise<number> {
+  return putEvents(events.map((e) => ({ ...e, outbox: 0 as const })));
+}
+
+export async function getMeta(key: string): Promise<string | null> {
+  return (await (await db()).get('meta', key))?.value ?? null;
+}
+
+export async function setMeta(key: string, value: string): Promise<void> {
+  await (await db()).put('meta', { key, value });
 }

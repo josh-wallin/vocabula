@@ -1,6 +1,9 @@
 /** Import screen, Profile/Settings, Words, About/credits. */
-import { useState } from 'preact/hooks';
-import { importPack } from '../data/contentStore.ts';
+import { useEffect, useState } from 'preact/hooks';
+import { fetchPackFromServer, importPack, localPackHash, serverPackStatus, uploadPackToServer } from '../data/contentStore.ts';
+import { failureText, signInAgain } from '../sync/http.ts';
+import { syncLabel, type SyncStatus } from '../sync/sync.ts';
+import type { PackStatus } from '../sync/protocol.ts';
 import type { AppData } from '../app/controller.ts';
 import { exportBackupText, importBackupText, streakNow, syncCodeToday } from '../app/controller.ts';
 import { citation } from '../engine/lexicon.ts';
@@ -14,7 +17,7 @@ async function readFile(input: HTMLInputElement): Promise<string | null> {
 }
 
 /** Shared pack import UI: file picker + paste fallback. */
-export function PackImport({ onImported, replacing }: { onImported: (p: ContentPack) => void; replacing?: boolean }) {
+export function PackImport({ onImported, replacing, secondary }: { onImported: (p: ContentPack) => void; replacing?: boolean; secondary?: boolean }) {
   const [err, setErr] = useState<string | null>(null);
   const [ok, setOk] = useState<string | null>(null);
   const [paste, setPaste] = useState('');
@@ -29,7 +32,7 @@ export function PackImport({ onImported, replacing }: { onImported: (p: ContentP
   };
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <label class="btn filebtn" data-testid="pack-file-label">
+      <label class={`btn filebtn${secondary || replacing ? ' secondary' : ''}`} data-testid="pack-file-label">
         {replacing ? 'Replace content pack…' : 'Choose vocabula-pack.json'}
         <input type="file" accept=".json,application/json" data-testid="pack-file"
           onChange={async (e) => { const t = await readFile(e.target as HTMLInputElement); if (t !== null) await run(t); }} />
@@ -51,6 +54,36 @@ export function PackImport({ onImported, replacing }: { onImported: (p: ContentP
   );
 }
 
+/** First run: download the pack from the sync server (behind Cloudflare Access). */
+function ServerDownload({ onImported }: { onImported: () => void }) {
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+  const [needSignIn, setNeedSignIn] = useState(false);
+  const go = async () => {
+    setBusy(true); setMsg(null); setNeedSignIn(false);
+    const r = await fetchPackFromServer();
+    setBusy(false);
+    switch (r.kind) {
+      case 'updated': case 'unchanged': case 'kept-local': onImported(); return;
+      case 'auth': setNeedSignIn(true); setMsg('Your sign-in has expired.'); return;
+      case 'missing': setMsg('There’s no pack on the server yet. Import the file below on one device, then use Profile → “Upload this device’s pack to the cloud”.'); return;
+      case 'invalid': setMsg(`The server’s pack was rejected: ${r.message}`); return;
+      default: setMsg(failureText(r));
+    }
+  };
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <button type="button" class="btn" disabled={busy} onClick={() => void go()} data-testid="server-download">
+        {busy ? 'Downloading…' : 'Sign in & download'}
+      </button>
+      {needSignIn && (
+        <button type="button" class="btn secondary" onClick={signInAgain} data-testid="sign-in-again">Sign in again</button>
+      )}
+      {msg && <p class="err" role="alert" data-testid="server-download-msg">{msg}</p>}
+    </div>
+  );
+}
+
 export function ImportScreen({ onImported }: { onImported: () => void }) {
   return (
     <div class="screen" data-screen="import">
@@ -58,10 +91,59 @@ export function ImportScreen({ onImported }: { onImported: () => void }) {
       <main class="page">
         <h1 lang="la">Salvē!</h1>
         <p>Vocābula drills Latin vocabulary and forms along <i>Wheelock’s Latin</i>. The textbook’s word lists are copyrighted, so they aren’t part of this public site.</p>
-        <p>Import your private content pack once on this device. It is stored only here, and the app then works fully offline.</p>
-        <PackImport onImported={() => onImported()} />
+        <p>Download your private content pack from your account, or import the file. It is stored on this device, and the app then works fully offline.</p>
+        <ServerDownload onImported={onImported} />
+        <p class="note">No server copy yet, or no connection? Import the file instead:</p>
+        <PackImport secondary onImported={() => onImported()} />
         <p class="note">The pack is the <code>vocabula-pack.json</code> file built by <code>scripts/build-pack.ts</code>.</p>
       </main>
+    </div>
+  );
+}
+
+/** Profile → Cloud: sync status, server pack status, upload. */
+function CloudPanel({ app, sync, onSyncNow }: { app: AppData; sync: SyncStatus; onSyncNow: () => void }) {
+  const [server, setServer] = useState<PackStatus | 'auth' | 'unreachable' | null>(null);
+  const [localHash, setLocalHash] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const refresh = async () => {
+    setLocalHash(await localPackHash());
+    const r = await serverPackStatus();
+    setServer(r.kind === 'ok' ? r.data : r.kind === 'auth' ? 'auth' : 'unreachable');
+  };
+  useEffect(() => { void refresh(); }, [app.content.pack.builtAt]);
+  const upload = async () => {
+    setBusy(true); setMsg(null);
+    const r = await uploadPackToServer();
+    setBusy(false);
+    if (r.kind === 'ok') setMsg({ ok: true, text: `Uploaded ${r.data.lemmas} words (${r.data.id}).` });
+    else if (r.kind === 'no-pack') setMsg({ ok: false, text: 'No pack on this device.' });
+    else if (r.kind === 'auth') setServer('auth');
+    else setMsg({ ok: false, text: failureText(r) });
+    void refresh();
+  };
+  const auth = server === 'auth' || sync.state === 'auth';
+  return (
+    <div class="panel" data-testid="cloud-panel">
+      <h2>Cloud</h2>
+      <dl class="kv">
+        <dt>Sync</dt><dd data-testid="sync-status">{syncLabel(sync)}{sync.lastSync ? ` · last ${new Date(sync.lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : ''}</dd>
+        <dt>Server pack</dt>
+        <dd data-testid="server-pack">
+          {server === null ? 'Checking…'
+            : server === 'auth' ? 'Sign-in expired'
+            : server === 'unreachable' ? 'Can’t reach the server'
+            : !server.present ? 'None yet'
+            : `${server.id ?? 'pack'}, ${server.lemmas ?? '?'} words, updated ${server.updatedAt?.slice(0, 10) ?? '?'}${server.hash === localHash ? ' (same as this device)' : ' (differs from this device)'}`}
+        </dd>
+      </dl>
+      {auth && <button type="button" class="btn secondary" onClick={signInAgain} data-testid="sign-in-again">Sign in again</button>}
+      <button type="button" class="btn secondary" onClick={onSyncNow} disabled={sync.state === 'syncing'} data-testid="sync-now">Sync now</button>
+      <button type="button" class="btn secondary" onClick={() => void upload()} disabled={busy} data-testid="upload-pack">
+        {busy ? 'Uploading…' : 'Upload this device’s pack to the cloud'}
+      </button>
+      {msg && <p class={msg.ok ? 'okmsg' : 'err'} role="status" data-testid="upload-msg">{msg.text}</p>}
     </div>
   );
 }
@@ -73,8 +155,8 @@ function download(name: string, text: string) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-export function ProfileScreen({ app, setApp, onAbout, outbox }: {
-  app: AppData; setApp: (a: AppData) => void; onAbout: () => void; outbox: number;
+export function ProfileScreen({ app, setApp, onAbout, sync, onSyncNow }: {
+  app: AppData; setApp: (a: AppData) => void; onAbout: () => void; sync: SyncStatus; onSyncNow: () => void;
 }) {
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const st = streakNow(app);
@@ -98,12 +180,14 @@ export function ProfileScreen({ app, setApp, onAbout, outbox }: {
         <dt>Lessons finished</dt><dd>{app.state.lessons.length}</dd>
         <dt>Words practised</dt><dd>{learned}</dd>
         <dt>Cards in review</dt><dd>{cards.filter((c) => c.state === State.Review).length}</dd>
-        <dt>Events not yet synced</dt><dd>{outbox}</dd>
+        <dt>Events not yet synced</dt><dd data-testid="outbox-count">{sync.queued}</dd>
       </dl>
       <div class="panel">
         <h2>Iter Latinum code for today</h2>
         <span class="code">{syncCodeToday(app)}</span>
       </div>
+
+      <CloudPanel app={app} sync={sync} onSyncNow={onSyncNow} />
 
       <h2>Backup</h2>
       <p class="note">Your progress is a log of events stored on this device. Export it to keep a copy or move it to another device; importing merges, so nothing is duplicated.</p>

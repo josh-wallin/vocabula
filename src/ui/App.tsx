@@ -1,13 +1,15 @@
 /** App shell: routes between import, path, lesson, complete and tab pages. */
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import {
   frontier, lessonFor, loadApp, withEvents, practiceNode, recordNodeDone, recordReview, streakNow, PRACTICE_NODE, type AppData,
 } from '../app/controller.ts';
 import type { PathNode } from '../engine/path.ts';
 import type { Exercise } from '../engine/lesson.ts';
 import type { LessonStats } from '../engine/events.ts';
-import { chapterText } from '../data/contentStore.ts';
-import { outboxCount } from '../data/db.ts';
+import { chapterText, fetchPackFromServer } from '../data/contentStore.ts';
+import { Syncer, syncLabel, type SyncStatus } from '../sync/sync.ts';
+import { idbSyncStore } from '../sync/idbStore.ts';
+import { signInAgain } from '../sync/http.ts';
 import { uuid } from '../engine/util.ts';
 import { roman } from '../engine/curriculum.ts';
 import { PathScreen } from './PathScreen.tsx';
@@ -15,7 +17,7 @@ import { Lesson, type LessonResult } from './Lesson.tsx';
 import { Complete } from './Complete.tsx';
 import { Markdown } from './Markdown.tsx';
 import { AboutScreen, ImportScreen, ProfileScreen, WordsScreen } from './Pages.tsx';
-import { IconBack, IconCloudOff, IconFlame, IconPath, IconPractice, IconProfile, IconStar, IconWords } from './icons.tsx';
+import { IconBack, IconCloud, IconCloudOff, IconFlame, IconPath, IconPractice, IconProfile, IconStar, IconWords } from './icons.tsx';
 
 type Tab = 'path' | 'practice' | 'words' | 'profile';
 type View =
@@ -25,22 +27,47 @@ type View =
   | { v: 'chapter'; section: number }
   | { v: 'about' };
 
+/** One sync loop per page. */
+let syncer: Syncer | null = null;
+export function getSyncer(): Syncer {
+  syncer ??= new Syncer({ store: idbSyncStore });
+  return syncer;
+}
+
 export function App() {
   const [app, setApp] = useState<AppData | null | undefined>(undefined);
   const [tab, setTab] = useState<Tab>('path');
   const [view, setView] = useState<View>({ v: 'tab' });
-  const [online, setOnline] = useState(typeof navigator === 'undefined' ? true : navigator.onLine);
-  const [outbox, setOutbox] = useState(0);
+  const [sync, setSync] = useState<SyncStatus>({ state: 'idle', queued: 0 });
   const [err, setErr] = useState<string | null>(null);
+  const viewRef = useRef(view);
+  viewRef.current = view;
+  const pendingReload = useRef(false);
 
   const reload = () => loadApp().then(setApp).catch((e: Error) => setErr(e.message));
   useEffect(() => { void reload(); }, []);
+
+  const loaded = app !== undefined && app !== null;
+  // Start syncing once content is present. Remote events re-run replay (deferred during a lesson).
   useEffect(() => {
-    const on = () => setOnline(true), off = () => setOnline(false);
-    window.addEventListener('online', on); window.addEventListener('offline', off);
-    return () => { window.removeEventListener('online', on); window.removeEventListener('offline', off); };
-  }, []);
-  useEffect(() => { if (app) void outboxCount().then(setOutbox); }, [app?.events.length]);
+    if (!loaded) return;
+    const s = getSyncer();
+    const unsub = s.subscribe(setSync);
+    s.setOnPulled(() => {
+      if (viewRef.current.v === 'lesson') pendingReload.current = true;
+      else void reload();
+    });
+    const stop = s.start();
+    // Never block start on the network: check for a newer pack in the background.
+    void fetchPackFromServer().then((r) => { if (r.kind === 'updated') void reload(); });
+    return () => { unsub(); stop(); s.setOnPulled(undefined); };
+  }, [loaded]);
+  useEffect(() => { if (loaded) void getSyncer().refreshQueued(); }, [app?.events.length]);
+
+  const afterLesson = () => {
+    pendingReload.current = false;
+    void getSyncer().request();
+  };
 
   if (err) return <div class="screen"><main class="page"><h1>Vocābula</h1><p class="err" role="alert">{err}</p></main></div>;
   if (app === undefined) return <div class="splash"><span class="brand">Vocābula</span></div>;
@@ -57,13 +84,14 @@ export function App() {
         onReview={(card, grade) => {
           void recordReview(app, card, grade, view.node.id, view.run).then((e) => setApp((a) => (a ? withEvents(a, [e]) : a)));
         }}
-        onQuit={() => { setView({ v: 'tab' }); void reload(); }}
+        onQuit={() => { setView({ v: 'tab' }); void reload(); afterLesson(); }}
         onFinish={async (r: LessonResult) => {
           // Re-read the log so reviews recorded during the lesson are included before node_done.
           const fresh = (await loadApp())!;
           const next = await recordNodeDone(fresh, view.node.id, r.run, r.stats);
           setApp(next);
           setView({ v: 'complete', title: view.node.title, run: r.run, stats: r.stats });
+          afterLesson();
         }} />
     );
   }
@@ -94,7 +122,7 @@ export function App() {
         <div class="chips">
           <span class="chip streak" title="Day streak" aria-label={`Day streak ${st.count}`}><IconFlame />{st.count}</span>
           <span class="chip puncta" title="Puncta" aria-label={`Puncta ${app.state.puncta}`}><IconStar />{app.state.puncta}</span>
-          {!online && <span class="chip offline" title="Offline: everything still works; progress stays on this device"><IconCloudOff />Offline</span>}
+          <SyncChip status={sync} />
         </div>
       </header>
       <div class="scroll">
@@ -109,7 +137,10 @@ export function App() {
           </main>
         )}
         {tab === 'words' && <WordsScreen app={app} />}
-        {tab === 'profile' && <ProfileScreen app={app} setApp={setApp} outbox={outbox} onAbout={() => setView({ v: 'about' })} />}
+        {tab === 'profile' && (
+          <ProfileScreen app={app} setApp={setApp} sync={sync} onSyncNow={() => void getSyncer().request()}
+            onAbout={() => setView({ v: 'about' })} />
+        )}
       </div>
       <nav class="tabbar" aria-label="Main">
         {([['path', 'Path', IconPath], ['practice', 'Practice', IconPractice], ['words', 'Words', IconWords], ['profile', 'Profile', IconProfile]] as const).map(([id, label, Icon]) => (
@@ -118,6 +149,22 @@ export function App() {
       </nav>
     </div>
   );
+}
+
+function SyncChip({ status }: { status: SyncStatus }) {
+  const label = syncLabel(status);
+  const title = status.state === 'offline'
+    ? 'Offline: everything still works; progress is queued on this device'
+    : status.state === 'auth' ? 'Your sign-in expired. Tap to sign in again.' : status.message ?? label;
+  if (status.state === 'auth') {
+    return (
+      <button type="button" class="chip sync auth" data-testid="sync-chip" data-state={status.state} title={title} onClick={signInAgain}>
+        <IconCloudOff />{label}
+      </button>
+    );
+  }
+  const Icon = status.state === 'offline' || status.state === 'error' ? IconCloudOff : IconCloud;
+  return <span class={`chip sync ${status.state}`} data-testid="sync-chip" data-state={status.state} title={title} role="status"><Icon />{label}</span>;
 }
 
 export { PRACTICE_NODE };

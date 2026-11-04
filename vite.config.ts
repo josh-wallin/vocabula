@@ -32,7 +32,15 @@ export default defineConfig({
         // Precache the whole app shell so it opens offline.
         globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
         navigateFallback: 'index.html',
+        // The Worker API and Cloudflare Access endpoints (/cdn-cgi/access/authorized, /logout)
+        // must reach the network as real navigations, or the Access login round-trip breaks.
+        navigateFallbackDenylist: [/^\/api\//, /^\/cdn-cgi\//],
         runtimeCaching: [
+          {
+            // Never cache API or Access responses.
+            urlPattern: ({ url }) => url.pathname.startsWith('/api/') || url.pathname.startsWith('/cdn-cgi/'),
+            handler: 'NetworkOnly',
+          },
           {
             // Google Fonts: optional; app falls back to system fonts offline.
             urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,

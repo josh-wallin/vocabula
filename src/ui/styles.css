@@ -52,7 +52,7 @@ button:disabled { cursor: default; }
 .scroll { flex: 1 1 auto; overflow-y: auto; }
 .topbar { display: flex; align-items: center; justify-content: space-between; padding: 18px 16px 10px; gap: 8px; }
 .brand { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: 0.06em; color: var(--plum); }
-.chips { display: flex; align-items: center; gap: 6px; }
+.chips { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px; }
 .chip {
   display: inline-flex; align-items: center; gap: 4px; padding: 6px 10px; border-radius: 99px;
   background: var(--card); border: 1px solid var(--line); font-weight: 700; font-size: 14px;
@@ -60,6 +60,10 @@ button:disabled { cursor: default; }
 .chip.streak { color: var(--bronze-text); }
 .chip.puncta { color: var(--plum); }
 .chip.offline { color: var(--muted); font-weight: 600; font-size: 13px; }
+.chip.sync { color: var(--muted); font-weight: 600; font-size: 13px; white-space: nowrap; }
+.chip.sync.synced { color: var(--ok); }
+.chip.sync.error { color: var(--bad-ink); }
+button.chip.sync.auth { color: var(--bad-ink); border-color: var(--bad); background: var(--bad-bg); font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 32px; }
 
 .tabbar {
   position: sticky; bottom: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
