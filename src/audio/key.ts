@@ -28,7 +28,31 @@ export function audioKey(text: string): string {
 }
 
 export const audioUrl = (key: string): string => `${AUDIO_PATH}${key}`;
-export const isAudioKey = (s: string): boolean => new RegExp(`^(?:${EXTERNAL_AUDIO_PREFIX})?[0-9a-f]{${AUDIO_KEY_LEN}}$`).test(s);
+export const isAudioKey = (s: string): boolean => new RegExp(`^(?:${EXTERNAL_AUDIO_PREFIX}|${GEMINI_AUDIO_PREFIX})?[0-9a-f]{${AUDIO_KEY_LEN}}$`).test(s);
+
+/**
+ * Gemini clips (the bulk pipeline: vocabula-content scripts/audio-gemini.mts) are stored in the
+ * same D1 table under `gm-` + the first 24 hex digits of
+ * sha256(`${GEMINI_AUDIO_ENGINE}|la|${normalizeAudioText(text)}`), next to the eSpeak clip of the
+ * same text, which stays as the fallback. The engine id names model, voice, the voice-test variant
+ * (src/audio/gemini.ts) and the prompt version: changing any of them gives every clip a new key.
+ * The request itself (style prompt, input pre-processing) is src/audio/gemini.ts geminiBody().
+ */
+export const GEMINI_AUDIO_PREFIX = 'gm-';
+export const GEMINI_MODEL = 'gemini-3.8-flash-tts';
+export const GEMINI_VOICE = 'Charon';
+/** Bump when the instructions or pre-processing change (also keys the voice-test cache, worker/tts.ts). */
+export const GEMINI_PROMPT_VERSION = 'p1';
+/**
+ * Which voice-test variant the app's clips use ('plain' = the variant the owner rated 3.76/5;
+ * 'aspirated' = plain + the ph/th/ch respelling). Decide before the bulk run: switching later
+ * regenerates every clip.
+ */
+export const GEMINI_AUDIO_VARIANT: 'plain' | 'aspirated' = 'plain';
+export const GEMINI_AUDIO_ENGINE = `${GEMINI_MODEL}+${GEMINI_VOICE}+${GEMINI_AUDIO_VARIANT}+${GEMINI_PROMPT_VERSION}`;
+export const geminiAudioKeyInput = (text: string, engine: string = GEMINI_AUDIO_ENGINE): string => `${engine}|la|${normalizeAudioText(text)}`;
+export const geminiAudioKey = (text: string, engine: string = GEMINI_AUDIO_ENGINE): string =>
+  GEMINI_AUDIO_PREFIX + sha256Hex(geminiAudioKeyInput(text, engine)).slice(0, AUDIO_KEY_LEN);
 
 /**
  * Human recordings (Audītiō lessons, from Dickinson College Commentaries) are stored under
@@ -40,6 +64,8 @@ export const externalAudioKey = (url: string): string => EXTERNAL_AUDIO_PREFIX +
 
 /** Shared test vector (also asserted in vocabula-content). */
 export const TEST_VECTOR = { text: 'Amō', input: 'espeak-ng+p1|la|130|amō', key: 'fb92e07d84a2cd968a353adf' } as const;
+/** Gemini key test vector for a fixed engine id (also asserted in vocabula-content). */
+export const GEMINI_TEST_VECTOR = { text: 'Amō', engine: 'gemini-3.8-flash-tts+Charon+plain+p1', input: 'gemini-3.8-flash-tts+Charon+plain+p1|la|amō', key: 'gm-1d3b43ab0fcb022ca480b9e7' } as const;
 
 /* ---------------- SHA-256 (FIPS 180-4) over UTF-8 ---------------- */
 

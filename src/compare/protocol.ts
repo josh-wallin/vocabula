@@ -18,8 +18,11 @@ export const TTS_API = {
 } as const;
 
 export type TtsEngine = 'openai' | 'gemini';
-/** `pseudo`: text respelled by toPseudo() + instructions; `plain`: macronized Latin + instructions. */
-export type TtsVariant = 'pseudo' | 'plain';
+/**
+ * `pseudo`: text respelled by toPseudo() + instructions; `plain`: macronized Latin + instructions;
+ * `aspirated` (Gemini only): plain with ph/th/ch respelled pʰ/tʰ/kʰ (src/audio/gemini.ts).
+ */
+export type TtsVariant = 'pseudo' | 'plain' | 'aspirated';
 
 /** The columns on the compare page. eSpeak clips come from the other audio pipeline (/api/audio/:key). */
 export const COLUMNS = [
@@ -27,12 +30,16 @@ export const COLUMNS = [
   { id: 'openai:pseudo', engine: 'openai', variant: 'pseudo', label: 'OpenAI · respelled' },
   { id: 'openai:plain', engine: 'openai', variant: 'plain', label: 'OpenAI · plain' },
   { id: 'gemini:plain', engine: 'gemini', variant: 'plain', label: 'Gemini · plain' },
+  { id: 'gemini:aspirated', engine: 'gemini', variant: 'aspirated', label: 'Gemini · pʰ tʰ kʰ' },
 ] as const;
 export type ColumnId = (typeof COLUMNS)[number]['id'];
+export type Column = (typeof COLUMNS)[number];
+export const column = (id: ColumnId): Column => COLUMNS.find((c) => c.id === id)!;
 export const RATED_ENGINES = new Set<string>(COLUMNS.map((c) => c.engine));
 export const RATED_VARIANTS = new Set<string>(COLUMNS.map((c) => c.variant));
 
-export const PROBLEMS = ['c', 'v', 'ae', 'length', 'stress', 'other'] as const;
+/** `ph`: ph / th / ch read as English f / θ / ch (added with the spot-check). */
+export const PROBLEMS = ['c', 'v', 'ae', 'ph', 'length', 'stress', 'other'] as const;
 export type Problem = (typeof PROBLEMS)[number];
 
 export interface TtsRequest { engine: TtsEngine; variant: TtsVariant; text: string }
@@ -60,10 +67,14 @@ export const SECRET_HELP = 'Add the key in Cloudflare → Workers → vocabula �
 
 export interface ColumnSummary { id: string; label: string; rated: number; average: number | null; problems: [Problem, number][] }
 
-/** Average score and most-reported problems per column (problems sorted by count, then PROBLEMS order). */
-export function summarize(ratings: readonly TtsRating[]): ColumnSummary[] {
-  return COLUMNS.map((c) => {
-    const rs = ratings.filter((r) => r.engine === c.engine && r.variant === c.variant);
+/**
+ * Average score and most-reported problems per column (problems sorted by count, then PROBLEMS order).
+ * `items`: only ratings of these items (one section of the page); `columns`: which columns to report.
+ */
+export function summarize(ratings: readonly TtsRating[], opts: { items?: readonly string[]; columns?: readonly Column[] } = {}): ColumnSummary[] {
+  const only = opts.items ? new Set(opts.items) : null;
+  return (opts.columns ?? COLUMNS).map((c) => {
+    const rs = ratings.filter((r) => r.engine === c.engine && r.variant === c.variant && (!only || only.has(r.item)));
     const scored = rs.filter((r) => typeof r.score === 'number') as (TtsRating & { score: number })[];
     const counts = new Map<Problem, number>();
     for (const r of rs) for (const p of r.problems) counts.set(p, (counts.get(p) ?? 0) + 1);

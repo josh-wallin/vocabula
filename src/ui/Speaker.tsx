@@ -5,17 +5,17 @@ import { audioAvailable, audioMissing, playClip } from '../audio/player.ts';
 import { IconSpeaker } from './icons.tsx';
 
 export function Speaker({ audio, autoplay = false, big = false, label = 'Listen' }: { audio: AudioRef; autoplay?: boolean; big?: boolean; label?: string }) {
-  const [hidden, setHidden] = useState(() => !audioAvailable(audio.key));
+  const [hidden, setHidden] = useState(() => !audioAvailable(audio));
   const [playing, setPlaying] = useState(false);
   const play = async () => {
     setPlaying(true);
-    const ok = await playClip(audio.key);
+    const ok = await playClip(audio);
     setPlaying(false);
-    if (!ok && (audioMissing(audio.key) || !audioAvailable(audio.key))) setHidden(true);
+    if (!ok && (audioMissing(audio) || !audioAvailable(audio))) setHidden(true);
   };
   useEffect(() => {
-    setHidden(!audioAvailable(audio.key));
-    if (autoplay && audioAvailable(audio.key)) void play();
+    setHidden(!audioAvailable(audio));
+    if (autoplay && audioAvailable(audio)) void play();
   }, [audio.key]);
   if (hidden && !big) return null;
   return (

@@ -67,8 +67,8 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
   }, [exercises]);
   // Warm the audio cache: listening clips first, then the speakers' clips. Never blocks.
   useEffect(() => {
-    const listen = exercises.filter(isListening).map((e) => e.audio.key);
-    const other = exercises.flatMap((e) => { const a = exerciseAudio(e, app.lex); return [a.prompt?.key, a.answer?.key]; }).filter((k): k is string => !!k);
+    const listen = exercises.filter(isListening).map((e) => e.audio);
+    const other = exercises.flatMap((e) => { const a = exerciseAudio(e, app.lex); return [a.prompt, a.answer]; }).filter((a): a is AudioRef => !!a);
     void prefetchClips([...listen, ...other]);
     return () => stopAudio();
   }, [exercises]);
@@ -77,9 +77,9 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
     if (!ex || !isListening(ex) || outcome) return;
     const cur = ex;
     const swap = () => { if (session.current?.ex === cur) { session.swapCurrent(cur.fallback); setPicked([]); setTyped(''); setTick((t) => t + 1); } };
-    if (audioMissing(cur.audio.key)) { swap(); return; }
+    if (audioMissing(cur.audio)) { swap(); return; }
     let live = true;
-    loadClip(cur.audio.key).then(() => { if (live && autoplay) void playClip(cur.audio.key); }, () => { if (live) swap(); });
+    loadClip(cur.audio).then(() => { if (live && autoplay) void playClip(cur.audio); }, () => { if (live) swap(); });
     return () => { live = false; };
   }, [ex]);
   useEffect(() => { if (outcome) contRef.current?.focus(); }, [outcome]);

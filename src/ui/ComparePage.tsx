@@ -1,16 +1,19 @@
 /**
  * Voice test (#/compare, linked from Profile): the same Latin through eSpeak NG, OpenAI
- * (respelled and plain) and Gemini, side by side, with a 1–5 rating, "wrong sound" boxes
- * and a note per player. Nothing is generated until the owner taps Generate; clips are
- * cached on the server, so each costs once. Ratings go to the server (/api/tts/rating).
+ * (respelled and plain) and Gemini (plain, and with ph/th/ch respelled pʰ/tʰ/kʰ), side by side,
+ * with a 1–5 rating, "wrong sound" boxes and a note per player. A second section, the Gemini
+ * spot-check, plays texts the app really uses through the two Gemini variants only.
+ * Nothing is generated until the owner taps Generate; clips are cached on the server, so each
+ * costs once. Ratings go to the server (/api/tts/rating).
  */
 import { useEffect, useMemo, useState } from 'preact/hooks';
-import { COMPARE_ITEMS, type CompareItem } from '../compare/items.ts';
+import { COMPARE_GROUPS, type CompareGroup, type CompareItem } from '../compare/items.ts';
 import { toPseudo } from '../compare/pseudo.ts';
+import { aspirate } from '../audio/gemini.ts';
 import { espeakUrl } from '../compare/espeakUrl.ts';
 import {
-  COLUMNS, PROBLEMS, SECRET_HELP, TTS_API, summarize,
-  type Problem, type TtsClipInfo, type TtsRating, type TtsRatingRow, type TtsStatus,
+  PROBLEMS, SECRET_HELP, TTS_API, column, summarize,
+  type Column, type Problem, type TtsClipInfo, type TtsRating, type TtsRatingRow, type TtsStatus,
 } from '../compare/protocol.ts';
 import { apiFetch, failureText, signInAgain } from '../sync/http.ts';
 import { IconBack } from './icons.tsx';
@@ -18,11 +21,10 @@ import './compare.css';
 
 import { COMPARE_HASH } from './Compare.tsx';
 
-type Column = (typeof COLUMNS)[number];
 const clipId = (engine: string, variant: string, text: string) => `${engine}|${variant}|${text}`;
 const ratingId = (item: string, engine: string, variant: string) => `${item}|${engine}|${variant}`;
 
-const PROBLEM_LABEL: Record<Problem, string> = { c: 'c', v: 'v', ae: 'ae', length: 'length', stress: 'stress', other: 'other' };
+const PROBLEM_LABEL: Record<Problem, string> = { c: 'c', v: 'v', ae: 'ae', ph: 'ph/th/ch', length: 'length', stress: 'stress', other: 'other' };
 
 export function ComparePage({ onBack }: { onBack: () => void }) {
   const [status, setStatus] = useState<TtsStatus | null>(null);
@@ -47,7 +49,9 @@ export function ComparePage({ onBack }: { onBack: () => void }) {
     })();
   }, []);
 
-  const summary = useMemo(() => summarize([...ratings.values()]), [ratings]);
+  const all = useMemo(() => [...ratings.values()], [ratings]);
+  const onClip = (id: string, key: string) => setClips((m) => new Map(m).set(id, key));
+  const onRated = (r: TtsRating) => setRatings((m) => new Map(m).set(ratingId(r.item, r.engine, r.variant), r));
 
   return (
     <div class="screen" data-screen="compare">
@@ -61,7 +65,9 @@ export function ComparePage({ onBack }: { onBack: () => void }) {
           <p class="note">
             Which engine sounds most like restored classical Latin? Each line plays through eSpeak NG, OpenAI
             (text respelled: k, w, y, doubled long vowels, stressed syllable in CAPITALS), OpenAI (plain Latin with
-            instructions) and Gemini. Tap <b>Generate</b> to make a clip (once; it’s then cached), listen, and rate it.
+            instructions) and Gemini (plain, and with ph/th/ch sent as pʰ/tʰ/kʰ). Tap <b>Generate</b> to make a clip
+            (once; it’s then cached), listen, and rate it. The <b>Gemini spot-check</b> below plays texts
+            the app really uses, before Gemini replaces eSpeak.
           </p>
           {loadErr && (
             <div class="err" role="alert" data-testid="compare-error">
@@ -75,38 +81,59 @@ export function ComparePage({ onBack }: { onBack: () => void }) {
             </p>
           )}
 
-          <section class="panel" data-testid="compare-summary">
-            <h2>Summary</h2>
-            <table class="cmp-sum">
-              <thead><tr><th>Engine</th><th>Avg</th><th>Rated</th><th>Most reported</th></tr></thead>
-              <tbody>
-                {summary.map((c) => (
-                  <tr key={c.id} data-col={c.id}>
-                    <td>{c.label}</td>
-                    <td class="num">{c.average === null ? '—' : c.average.toFixed(2)}</td>
-                    <td class="num">{c.rated}/{COMPARE_ITEMS.length}</td>
-                    <td>{c.problems.length ? c.problems.slice(0, 3).map(([p, n]) => `${PROBLEM_LABEL[p]} ×${n}`).join(', ') : '—'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-
-          {COMPARE_ITEMS.map((it, i) => (
-            <ItemCard key={it.id} n={i + 1} item={it} clips={clips} ratings={ratings}
-              onClip={(id, key) => setClips((m) => new Map(m).set(id, key))}
-              onRated={(r) => setRatings((m) => new Map(m).set(ratingId(r.item, r.engine, r.variant), r))} />
-          ))}
+          {COMPARE_GROUPS.map((g) => <Group key={g.id} group={g} ratings={all} clips={clips} ratingMap={ratings} onClip={onClip} onRated={onRated} />)}
         </main>
       </div>
     </div>
   );
 }
 
-function ItemCard({ n, item, clips, ratings, onClip, onRated }: {
-  n: number; item: CompareItem; clips: Map<string, string>; ratings: Map<string, TtsRating>;
+const GROUP_NOTE: Record<CompareGroup['id'], string> = {
+  voice: '',
+  spot: 'Texts the app plays, exactly as it sends them: new-word cards (words and citations), Historia tap-to-hear words, ' +
+    'bank sentences, Lectiō and Historia lines, and the ph/th/ch words. Gemini only: plain (rated 3.76 above) and the ' +
+    'pʰ tʰ kʰ respelling. The app’s clips will use whichever reads these better.',
+};
+
+function Group({ group, ratings, ratingMap, clips, onClip, onRated }: {
+  group: CompareGroup; ratings: readonly TtsRating[]; ratingMap: Map<string, TtsRating>; clips: Map<string, string>;
   onClip: (id: string, key: string) => void; onRated: (r: TtsRating) => void;
 }) {
+  const cols = group.columns.map(column);
+  const summary = useMemo(() => summarize(ratings, { items: group.items.map((i) => i.id), columns: cols }), [ratings, group]);
+  return (
+    <div class="cmp-group" data-group={group.id}>
+      {group.id !== 'voice' && <h2 class="cmp-group-title">{group.title}</h2>}
+      {GROUP_NOTE[group.id] && <p class="note">{GROUP_NOTE[group.id]}</p>}
+      <section class="panel" data-testid={group.id === 'voice' ? 'compare-summary' : `compare-summary-${group.id}`}>
+        <h2>{group.id === 'voice' ? 'Summary' : `Summary · ${group.title}`}</h2>
+        <table class="cmp-sum">
+          <thead><tr><th>Engine</th><th>Avg</th><th>Rated</th><th>Most reported</th></tr></thead>
+          <tbody>
+            {summary.map((c) => (
+              <tr key={c.id} data-col={c.id}>
+                <td>{c.label}</td>
+                <td class="num">{c.average === null ? '—' : c.average.toFixed(2)}</td>
+                <td class="num">{c.rated}/{group.items.length}</td>
+                <td>{c.problems.length ? c.problems.slice(0, 3).map(([p, n]) => `${PROBLEM_LABEL[p]} ×${n}`).join(', ') : '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+      {group.items.map((it, i) => (
+        <ItemCard key={it.id} n={i + 1} item={it} cols={cols} pseudo={group.id === 'voice'} clips={clips} ratings={ratingMap}
+          onClip={onClip} onRated={onRated} />
+      ))}
+    </div>
+  );
+}
+
+function ItemCard({ n, item, cols, pseudo, clips, ratings, onClip, onRated }: {
+  n: number; item: CompareItem; cols: readonly Column[]; pseudo: boolean; clips: Map<string, string>; ratings: Map<string, TtsRating>;
+  onClip: (id: string, key: string) => void; onRated: (r: TtsRating) => void;
+}) {
+  const asp = cols.some((c) => c.variant === 'aspirated') ? aspirate(item.la) : item.la;
   return (
     <section class="panel cmp-item" data-item={item.id}>
       <div class="cmp-head">
@@ -114,9 +141,10 @@ function ItemCard({ n, item, clips, ratings, onClip, onRated }: {
         <p class="cmp-la" lang="la">{item.la}</p>
       </div>
       <p class="small">{item.listen}</p>
-      <p class="small cmp-pseudo">Respelled: <span>{toPseudo(item.la)}</span></p>
+      {pseudo && <p class="small cmp-pseudo">Respelled: <span>{toPseudo(item.la)}</span></p>}
+      {asp !== item.la && <p class="small cmp-pseudo" data-testid="aspirated-input">Sent as (pʰ tʰ kʰ): <span>{asp}</span></p>}
       <div class="cmp-grid">
-        {COLUMNS.map((c) => (
+        {cols.map((c) => (
           <Player key={c.id} item={item} col={c} clipKey={clips.get(clipId(c.engine, c.variant, item.la))}
             rating={ratings.get(ratingId(item.id, c.engine, c.variant))} onClip={onClip} onRated={onRated} />
         ))}

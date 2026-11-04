@@ -21,7 +21,7 @@ import { buildLexicon } from '../src/engine/lexicon.ts';
 import { buildPath } from '../src/engine/path.ts';
 import { parseListeningLesson } from '../src/engine/listening.ts';
 import { lectioText, parseLectioFile } from '../src/engine/lectio.ts';
-import { audioKey } from '../src/audio/key.ts';
+import { audioKey, geminiAudioKey } from '../src/audio/key.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PACK = resolve(ROOT, 'content/private/vocabula-pack.json');
@@ -68,6 +68,17 @@ async function main() {
     await context.route(/\/api\/audio\/[0-9a-f]+$/, (r) => {
       asked.add(r.request().url().split('/').pop()!);
       return r.fulfill({ status: 200, contentType: 'audio/mpeg', body: silentWav() });
+    });
+    // Gemini: the server's index lists a clip for the first sentence only; it must be played instead
+    // of that sentence's eSpeak clip, and no other Gemini clip may be asked for.
+    const gem0 = geminiAudioKey(lectioText(p.sentences[0]!));
+    await context.route('**/api/audio-index', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ prefix: 'gm-', keys: [gem0.slice(3)] }) }));
+    await context.route(/\/api\/audio\/gm-[0-9a-f]+$/, (r) => {
+      const k = r.request().url().split('/').pop()!;
+      asked.add(k);
+      return k === gem0
+        ? r.fulfill({ status: 200, contentType: 'audio/mpeg', body: silentWav() })
+        : r.fulfill({ status: 404, contentType: 'application/json', body: '{"error":"no audio"}' });
     });
     const page = await context.newPage();
     const errors: string[] = [];
@@ -132,8 +143,11 @@ async function main() {
     await page.getByTestId('complete-continue').click();
     await page.locator(`[data-node="${node.id}"][data-status="done"]`).waitFor();
     log(`${node.id} done: ${p.sentences.length} sentences, ${p.questions.length} questions`);
-    const keys = p.sentences.map((s) => audioKey(lectioText(s)));
+    const keys = p.sentences.map((s, i) => (i === 0 ? gem0 : audioKey(lectioText(s))));
     assert(keys.every((k) => asked.has(k)), `every sentence clip requested (${keys.filter((k) => asked.has(k)).length}/${keys.length})`);
+    assert(!asked.has(audioKey(lectioText(p.sentences[0]!))), 'Gemini clip played instead of eSpeak where the index lists one');
+    assert([...asked].filter((k) => k.startsWith('gm-')).every((k) => k === gem0), `no Gemini request for unlisted clips: ${[...asked].filter((k) => k.startsWith('gm-'))}`);
+    log('Gemini clip preferred where listed, eSpeak elsewhere, no failed Gemini requests');
 
     // Reread from Words → Lectiōnēs.
     await page.getByRole('button', { name: 'Words', exact: true }).click();

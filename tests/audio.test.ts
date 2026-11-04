@@ -6,9 +6,12 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { AUDIO_ENGINE, audioKey, normalizeAudioText, sha256Hex, TEST_VECTOR } from '../src/audio/key.ts';
+import {
+  AUDIO_ENGINE, audioKey, GEMINI_AUDIO_ENGINE, GEMINI_AUDIO_VARIANT, GEMINI_MODEL, GEMINI_PROMPT_VERSION, GEMINI_TEST_VECTOR, GEMINI_VOICE,
+  geminiAudioKey, isAudioKey, normalizeAudioText, sha256Hex, TEST_VECTOR,
+} from '../src/audio/key.ts';
 import { consonantalI, espeakInput, euHiatus } from '../src/audio/speech.ts';
-import { audioItems, citationText, introAudio, sentenceAudio, wordAudio, wordText } from '../src/audio/items.ts';
+import { audioItems, citationText, introAudio, sentenceAudio, wordAudio, wordText, type AudioRef } from '../src/audio/items.ts';
 import { exerciseAudio } from '../src/audio/exercise.ts';
 import { COMPARE_ITEMS } from '../src/compare/items.ts';
 import { audioUrl } from '../src/audio/key.ts';
@@ -40,6 +43,18 @@ describe('audio keys', () => {
     expect(sha256Hex('')).toBe('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855');
     expect(sha256Hex('abc')).toBe('ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
     expect(sha256Hex('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')).toBe('248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1');
+  });
+  it('Gemini keys: gm- + 24 hex of engine|la|text; shared test vector; same normalization as eSpeak', () => {
+    expect(GEMINI_TEST_VECTOR.input).toBe(`${GEMINI_TEST_VECTOR.engine}|la|amō`);
+    expect(geminiAudioKey(GEMINI_TEST_VECTOR.text, GEMINI_TEST_VECTOR.engine)).toBe(GEMINI_TEST_VECTOR.key);
+    expect('gm-' + sha256Hex(GEMINI_TEST_VECTOR.input).slice(0, 24)).toBe(GEMINI_TEST_VECTOR.key);
+    expect(GEMINI_AUDIO_ENGINE).toBe(`${GEMINI_MODEL}+${GEMINI_VOICE}+${GEMINI_AUDIO_VARIANT}+${GEMINI_PROMPT_VERSION}`);
+    expect(geminiAudioKey('  Amō ')).toBe(geminiAudioKey('amō'));
+    expect(geminiAudioKey('amō')).toMatch(/^gm-[0-9a-f]{24}$/);
+    expect(geminiAudioKey('amō')).not.toBe(geminiAudioKey('amō', 'gemini-3.8-flash-tts+Charon+aspirated+p1'));
+    expect(isAudioKey(geminiAudioKey('amō'))).toBe(true);
+    expect(isAudioKey(audioKey('amō'))).toBe(true);
+    expect(isAudioKey('xx-' + audioKey('amō'))).toBe(false);
   });
   it('normalizes case, spacing and Unicode form; punctuation counts', () => {
     expect(normalizeAudioText('  Puella   rosam amat. ')).toBe('puella rosam amat.');
@@ -108,6 +123,13 @@ describe('audio manifest', () => {
     expect(sentenceAudio(BANK[0]!).text).toBe(normalizeAudioText(latinText(BANK[0]!)));
     expect(items.find((i) => i.text === 'iam')?.speak ?? 'jam').toBe('jam');
   });
+  it('refs carry the Gemini key of the same text; items keep the text as written for Gemini (`say`)', () => {
+    expect(sentenceAudio(BANK[0]!)).toEqual({ key: audioKey(latinText(BANK[0]!)), text: normalizeAudioText(latinText(BANK[0]!)), gemini: geminiAudioKey(latinText(BANK[0]!)) });
+    const s = items.find((i) => i.key === sentenceAudio(BANK[0]!).key)!;
+    expect(s.say).toBe(latinText(BANK[0]!)); // capital and full stop kept
+    expect(s.text).toBe(normalizeAudioText(s.say));
+    for (const i of items) expect(normalizeAudioText(i.say)).toBe(i.text);
+  });
   it('includes the voice-test items (eSpeak column of #/compare)', () => {
     const ks = new Set(audioItems({ words: [] }, []).map((i) => i.key));
     for (const it of COMPARE_ITEMS) expect(ks.has(audioKey(it.la)), it.id).toBe(true);
@@ -172,17 +194,48 @@ describe('worker: GET /api/audio/:key', () => {
     expect((await call('/api/audio/')).status).toBe(404);
     expect((await call(`/api/audio/${KEY}`, ok, { method: 'POST', body: 'x' })).status).toBe(405);
   });
+  it('serves Gemini clips (gm- keys) like any other', async () => {
+    const G = geminiAudioKey('amō');
+    await db.prepare('INSERT INTO audio (key, mime, bytes, text, engine, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6)')
+      .bind(G, 'audio/mpeg', BYTES, 'amō', GEMINI_AUDIO_ENGINE, '2026-11-04T00:00:00Z').run();
+    const r = await call(`/api/audio/${G}`);
+    expect(r.status).toBe(200);
+    expect(new Uint8Array(await r.arrayBuffer())).toEqual(BYTES);
+    expect((await call(`/api/audio/gm-${'0'.repeat(24)}`)).status).toBe(404);
+  });
+  it('GET /api/audio-index lists only the Gemini keys (without prefix), with an ETag; 403 without identity', async () => {
+    const empty = await call('/api/audio-index');
+    expect(empty.status).toBe(200);
+    expect(await empty.json()).toEqual({ prefix: 'gm-', keys: [] });
+    const G1 = geminiAudioKey('amō'), G2 = geminiAudioKey('rosa');
+    for (const k of [G1, G2, 'dcc-' + '1'.repeat(24), 'tmp-' + G1]) {
+      await db.prepare('INSERT INTO audio (key, mime, bytes, text, engine, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6)')
+        .bind(k, 'audio/mpeg', BYTES, 'x', 'e', '2026-11-04T00:00:00Z').run();
+    }
+    const r = await call('/api/audio-index');
+    expect(r.headers.get('cache-control')).toBe('private, no-cache');
+    const j = (await r.json()) as { prefix: string; keys: string[] };
+    expect(j.keys.sort()).toEqual([G1, G2].map((k) => k.slice(3)).sort());
+    const etag = r.headers.get('etag')!;
+    expect(etag).toMatch(/^"[0-9a-f]{24}"$/);
+    expect(etag).not.toBe(empty.headers.get('etag'));
+    expect((await call('/api/audio-index', ok, { headers: { 'if-none-match': etag } })).status).toBe(304);
+    expect((await call('/api/audio-index', {})).status).toBe(403);
+    expect((await call('/api/audio-index', ok, { method: 'POST', body: 'x' })).status).toBe(405);
+  });
 });
 
 describe('service worker', () => {
   const rule = (path: string) => runtimeCaching.find((r) => typeof r.urlPattern === 'function'
     ? (r.urlPattern as (o: { url: URL }) => boolean)({ url: new URL(`https://v.example${path}`) })
     : (r.urlPattern as RegExp).test(`https://v.example${path}`));
-  it('caches /api/audio/* first (cache "audio", ~5000 entries); the rest of /api stays network-only', () => {
+  it('caches /api/audio/* first (cache "audio", ~10000 entries: eSpeak + Gemini); the rest of /api stays network-only', () => {
     const a = rule('/api/audio/0123456789abcdef01234567')!;
     expect(a.handler).toBe('CacheFirst');
+    expect(rule(`/api/audio/${geminiAudioKey('amō')}`)).toBe(a);
+    expect(rule('/api/audio-index')!.handler).toBe('NetworkOnly');
     expect(a.options?.cacheName).toBe('audio');
-    expect(a.options?.expiration?.maxEntries).toBe(5000);
+    expect(a.options?.expiration?.maxEntries).toBe(10000);
     expect(a.options?.cacheableResponse).toEqual({ statuses: [200], headers: { 'content-type': 'audio/mpeg' } });
     expect(rule('/api/events')!.handler).toBe('NetworkOnly');
     expect(rule('/api/pack')!.handler).toBe('NetworkOnly');
@@ -205,7 +258,7 @@ function eventsUpTo(upTo: string, grade: 'good' | 'again' = 'good'): VEvent[] {
   return events;
 }
 const all = { available: () => true };
-function lesson(id: string, o: { listening?: { available: (k: string) => boolean }; events?: VEvent[]; seed?: string } = {}): Exercise[] {
+function lesson(id: string, o: { listening?: { available: (a: AudioRef) => boolean }; events?: VEvent[]; seed?: string } = {}): Exercise[] {
   const n = node(id);
   return buildLesson(n, {
     lex, path, state: replay(o.events ?? eventsUpTo(id)), now: new Date(T0 + 86400000 * 5), unlocked: new Set(n.unlocked),
@@ -239,7 +292,7 @@ describe('listening in lessons', () => {
   it('no listening for words never answered right, or whose clip is unavailable', () => {
     expect(listening(lesson(rep2, { listening: all, events: eventsUpTo(rep2, 'again') })).filter((e) => e.type !== 'sentence')).toEqual([]);
     const casa = wordAudio(W('casa')).key;
-    const some = lesson(rep2, { listening: { available: (k) => k !== casa } });
+    const some = lesson(rep2, { listening: { available: (a) => a.key !== casa } });
     expect(listening(some).some((e) => 'lemma' in e && e.lemma === W('casa').id)).toBe(false);
   });
   it('dictation once the word has a hear → meaning review', () => {
@@ -290,7 +343,7 @@ describe('listening exercises: grading, cards and fallback', () => {
   it('dictation accepts a missing macron (with a reminder)', () => {
     const lemma = W('lūna');
     const ev = [...eventsUpTo(rep2), { id: 'x', device: 'd', ts: T0 + 86400000 * 5 - 60_000, kind: 'review', card: listenCard(lemma.id, 'listen'), grade: 'good' } as VEvent];
-    const all2 = buildLesson(node(rep2), { lex, path, state: replay(ev), now: new Date(T0 + 86400000 * 5), unlocked: new Set(node(rep2).unlocked), seed: 'seed', listening: { available: (k) => k === wordAudio(lemma).key } });
+    const all2 = buildLesson(node(rep2), { lex, path, state: replay(ev), now: new Date(T0 + 86400000 * 5), unlocked: new Set(node(rep2).unlocked), seed: 'seed', listening: { available: (a) => a.key === wordAudio(lemma).key } });
     const d = all2.find((e) => isListening(e) && e.kind === 'dictate')!;
     expect(d).toBeTruthy();
     const o = new Session([d]).answer('luna');
@@ -301,7 +354,7 @@ describe('listening exercises: grading, cards and fallback', () => {
   it('sentence dictation needs the heard order; hear → English accepts any accepted translation', () => {
     const s = BANK[0]!;
     const mk = (kind: 'dictate' | 'listen'): SentenceExercise => {
-      const e = listening(lesson(rep2, { listening: { available: (k) => k === sentenceAudio(s).key }, seed: kind })).find((x) => x.type === 'sentence') as SentenceExercise;
+      const e = listening(lesson(rep2, { listening: { available: (a) => a.key === sentenceAudio(s).key }, seed: kind })).find((x) => x.type === 'sentence') as SentenceExercise;
       return e;
     };
     const heard = mk('listen');
@@ -311,7 +364,7 @@ describe('listening exercises: grading, cards and fallback', () => {
     expect(checkSentence(heard, words('the star shines')).ok).toBe(true);
     // Dictation built directly (needs a prior listen review in a lesson).
     const ev = [...eventsUpTo(rep2), { id: 'y', device: 'd', ts: T0 + 86400000 * 5 - 60_000, kind: 'review', card: 'sent:a-01:listen', grade: 'good' } as VEvent];
-    const d = buildLesson(node(rep2), { lex, path, state: replay(ev), now: new Date(T0 + 86400000 * 5), unlocked: new Set(node(rep2).unlocked), seed: 'seed', sentences: BANK, listening: { available: (k) => k === sentenceAudio(s).key } })
+    const d = buildLesson(node(rep2), { lex, path, state: replay(ev), now: new Date(T0 + 86400000 * 5), unlocked: new Set(node(rep2).unlocked), seed: 'seed', sentences: BANK, listening: { available: (a) => a.key === sentenceAudio(s).key } })
       .find((x) => isListening(x) && x.type === 'sentence') as SentenceExercise;
     expect(d.kind).toBe('dictate');
     const ids = (t: string) => t.split(' ').map((w) => d.options.find((o) => o.text === w)!.id);

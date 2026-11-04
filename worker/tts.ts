@@ -8,7 +8,7 @@
  * OPENAI_API_KEY, GEMINI_API_KEY. A missing key is a 503 naming it; cached clips are
  * still served.
  *
- * Upstream request shapes (checked 2026-11-04):
+ * Upstream request shapes (checked 2026-11-04; the Gemini body is src/audio/gemini.ts, shared with the bulk clip pipeline):
  *  - OpenAI  POST https://api.openai.com/v1/audio/speech
  *    {model, voice, input, instructions, response_format: 'mp3'}
  *    https://developers.openai.com/api/reference/resources/audio/subresources/speech/methods/create
@@ -20,7 +20,10 @@
  */
 import { identifyDetailed, json, type ApiCtx, type ApiEnv } from './api.ts';
 import type { D1Like } from './d1.ts';
-import { toPseudo } from '../src/compare/pseudo.ts';
+import { GEMINI_MODEL, GEMINI_PROMPT_VERSION, GEMINI_VOICE } from '../src/audio/key.ts';
+import {
+  CLASSICAL_RULES, GEMINI_STYLE, geminiAudioPart, geminiBody, geminiInput, geminiUrl, isRiff, pcmRate, pcmToWav, type GeminiResponse,
+} from '../src/audio/gemini.ts';
 import {
   MAX_TTS_TEXT, PROBLEMS, RATED_ENGINES, RATED_VARIANTS, SECRET_HELP, TTS_API,
   type Problem, type TtsClipInfo, type TtsEngine, type TtsRating, type TtsRatingRow, type TtsStatus, type TtsVariant,
@@ -37,21 +40,14 @@ export interface TtsEnv extends ApiEnv, TtsSecrets {
 export const OPENAI_URL = 'https://api.openai.com/v1/audio/speech';
 export const OPENAI_MODEL = 'gpt-4o-mini-tts';
 export const OPENAI_VOICE = 'cedar';
-export const GEMINI_MODEL = 'gemini-3.8-flash-tts';
-export const GEMINI_VOICE = 'Charon';
-export const geminiUrl = (model = GEMINI_MODEL) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-/** Bump when the instructions or pre-processing change, so clips regenerate. */
-export const PROMPT_VERSION = 'p1';
+export { GEMINI_MODEL, GEMINI_VOICE, geminiUrl, GEMINI_STYLE, CLASSICAL_RULES, geminiBody, pcmToWav };
+/** Bump when the instructions or pre-processing change, so clips regenerate (shared with the app's Gemini clip keys). */
+export const PROMPT_VERSION = GEMINI_PROMPT_VERSION;
 
-const CLASSICAL_RULES =
-  'Use the restored classical pronunciation of the late Republic (W. Sidney Allen, Vox Latina), not Church or English Latin: ' +
-  'c and g always hard (k, g), even before e and i; v is English w; consonantal i is English y; qu is kw; ' +
-  'ae as in "eye", oe as in "oil", au as in "cow"; ph, th, ch are aspirated p, t, k, not f or th; h is a light breath; ' +
-  'r is tapped; s is always voiceless. Vowels are pure, as in Italian, with no English reduction. ' +
-  'Long vowels (written with a macron) last about twice as long as short ones, with the same quality. ' +
-  'Double consonants are held. Stress the second-to-last syllable when it is long, otherwise the third-to-last.';
+/** OpenAI has no `aspirated` variant (the ph/th/ch respelling is a Gemini-only experiment). */
+type OpenAiVariant = Exclude<TtsVariant, 'aspirated'>;
 
-export const OPENAI_INSTRUCTIONS: Record<TtsVariant, string> = {
+export const OPENAI_INSTRUCTIONS: Record<OpenAiVariant, string> = {
   plain:
     'You are a Latin teacher reading classical Latin aloud. ' + CLASSICAL_RULES +
     ' Speak slowly and clearly, articulating each syllable.',
@@ -64,28 +60,13 @@ export const OPENAI_INSTRUCTIONS: Record<TtsVariant, string> = {
     'Pronounce it slowly, articulating each syllable and stressing the marked ones. Pure Italian vowels, rolled r, voiceless s.',
 };
 
-export const GEMINI_STYLE: Record<TtsVariant, string> = {
-  plain:
-    'Read this as Latin (language: la), slowly and clearly, like a Latin teacher modelling pronunciation. ' + CLASSICAL_RULES,
-  pseudo:
-    'Read this as Latin respelled for pronunciation (language: la), slowly and clearly, like a Latin teacher. ' +
-    'Doubled vowels are long with Italian quality; the CAPITAL syllable with a grave accent is stressed; w and y as in English.',
-};
-
 /** The text actually sent to the engine. */
-export const engineInput = (variant: TtsVariant, text: string): string => (variant === 'pseudo' ? toPseudo(text) : text);
+export const engineInput = (variant: TtsVariant, text: string): string => geminiInput(variant, text);
 
-export function openaiBody(variant: TtsVariant, text: string) {
+export function openaiBody(variant: OpenAiVariant, text: string) {
   return {
     model: OPENAI_MODEL, voice: OPENAI_VOICE, input: engineInput(variant, text),
     instructions: OPENAI_INSTRUCTIONS[variant], response_format: 'mp3',
-  };
-}
-
-export function geminiBody(variant: TtsVariant, text: string) {
-  return {
-    contents: [{ role: 'user', parts: [{ text: engineInput(variant, text), speech_metadata: { style: GEMINI_STYLE[variant] } }] }],
-    generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { voice: GEMINI_VOICE } } },
   };
 }
 
@@ -155,21 +136,6 @@ function b64decode(s: string): Bytes {
   return out;
 }
 
-const isRiff = (b: Uint8Array) => b.length >= 12 && b[0] === 0x52 && b[1] === 0x49 && b[2] === 0x46 && b[3] === 0x46;
-
-/** Wrap raw 16-bit little-endian mono PCM in a WAV header. */
-export function pcmToWav(pcm: Uint8Array, rate = 24000, channels = 1): Bytes {
-  const out = new Uint8Array(44 + pcm.length);
-  const dv = new DataView(out.buffer);
-  const str = (o: number, s: string) => { for (let i = 0; i < s.length; i++) out[o + i] = s.charCodeAt(i); };
-  str(0, 'RIFF'); dv.setUint32(4, 36 + pcm.length, true); str(8, 'WAVE');
-  str(12, 'fmt '); dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, channels, true);
-  dv.setUint32(24, rate, true); dv.setUint32(28, rate * channels * 2, true); dv.setUint16(32, channels * 2, true); dv.setUint16(34, 16, true);
-  str(36, 'data'); dv.setUint32(40, pcm.length, true);
-  out.set(pcm, 44);
-  return out;
-}
-
 async function upstreamError(r: Response, who: string): Promise<TtsError> {
   let msg = '';
   try { const j = (await r.json()) as { error?: { message?: string } | string }; msg = typeof j.error === 'string' ? j.error : j.error?.message ?? ''; } catch { /* not JSON */ }
@@ -179,6 +145,7 @@ async function upstreamError(r: Response, who: string): Promise<TtsError> {
 async function generate(env: TtsEnv, engine: TtsEngine, variant: TtsVariant, text: string): Promise<{ bytes: Bytes; mime: string }> {
   const f = env.FETCH ?? ((u: string, i: RequestInit) => fetch(u, i));
   if (engine === 'openai') {
+    if (variant === 'aspirated') throw new TtsError(400, 'variant aspirated is Gemini-only');
     const key = env.OPENAI_API_KEY;
     if (!key) throw new TtsError(503, 'OPENAI_API_KEY not set', { help: SECRET_HELP });
     const r = await f(OPENAI_URL, {
@@ -197,13 +164,11 @@ async function generate(env: TtsEnv, engine: TtsEngine, variant: TtsVariant, tex
     body: JSON.stringify(geminiBody(variant, text)),
   });
   if (!r.ok) throw await upstreamError(r, 'Gemini');
-  const j = (await r.json()) as { candidates?: { content?: { parts?: { inlineData?: { data?: string; mimeType?: string } }[] } }[] };
-  const part = j.candidates?.[0]?.content?.parts?.find((p) => p.inlineData?.data)?.inlineData;
-  if (!part?.data) throw new TtsError(502, 'Gemini returned no audio');
+  const part = geminiAudioPart((await r.json()) as GeminiResponse);
+  if (!part) throw new TtsError(502, 'Gemini returned no audio');
   const raw = b64decode(part.data);
   if (isRiff(raw)) return { bytes: raw, mime: 'audio/wav' };
-  const rate = Number(/rate=(\d+)/.exec(part.mimeType ?? '')?.[1] ?? 24000);
-  return { bytes: pcmToWav(raw, rate), mime: 'audio/wav' };
+  return { bytes: pcmToWav(raw, pcmRate(part.mimeType)), mime: 'audio/wav' };
 }
 
 function audioResponse(bytes: Bytes, mime: string, key: string, cache: 'hit' | 'miss' | 'skip'): Response {
@@ -232,7 +197,8 @@ async function postTts(req: Request, env: TtsEnv): Promise<Response> {
   const b = (await readJson(req)) as Partial<Record<string, unknown>> | null;
   const engine = b?.['engine'], variant = b?.['variant'], text = b?.['text'];
   if (engine !== 'openai' && engine !== 'gemini') throw new TtsError(400, 'engine must be openai or gemini');
-  if (variant !== 'pseudo' && variant !== 'plain') throw new TtsError(400, 'variant must be pseudo or plain');
+  if (variant !== 'pseudo' && variant !== 'plain' && variant !== 'aspirated') throw new TtsError(400, 'variant must be pseudo, plain or aspirated');
+  if (engine === 'openai' && variant === 'aspirated') throw new TtsError(400, 'variant aspirated is Gemini-only');
   if (typeof text !== 'string' || !text.trim() || text.length > MAX_TTS_TEXT) throw new TtsError(400, `text must be 1–${MAX_TTS_TEXT} characters`);
   const clean = text.normalize('NFC').trim();
   const key = await ttsKey(engine, variant, clean);

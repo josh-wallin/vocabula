@@ -16,7 +16,7 @@ import { extname, join, resolve } from 'node:path';
 import { chromium } from 'playwright-core';
 import { assertPortFree, COMPARE_PORT, listen, stopServers } from './serve.ts';
 import { handleTts, type TtsEnv } from '../worker/tts.ts';
-import { COMPARE_ITEMS } from '../src/compare/items.ts';
+import { COMPARE_ITEMS, SPOT_ITEMS } from '../src/compare/items.ts';
 import { FakeD1 } from '../tests/d1fake.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -77,7 +77,12 @@ async function main() {
 
     await page.goto(ORIGIN + '/#/compare');
     await page.locator('[data-screen="compare"]').waitFor();
-    assert(await page.locator('.cmp-item').count() === COMPARE_ITEMS.length, 'every item shown');
+    assert(await page.locator('.cmp-item').count() === COMPARE_ITEMS.length + SPOT_ITEMS.length, 'every item shown');
+    assert(await page.locator('[data-group="spot"] .cmp-item').count() === SPOT_ITEMS.length, 'spot-check section');
+    assert(await page.locator('[data-group="spot"] .cmp-player').count() === SPOT_ITEMS.length * 2, 'spot-check: two Gemini columns only');
+    assert(await page.locator('[data-group="spot"] [data-col="espeak"], [data-group="spot"] [data-col^="openai"]').count() === 0, 'spot-check: no eSpeak/OpenAI');
+    const ph = page.locator('[data-item="spot-ph-theatrum"]');
+    assert(((await ph.getByTestId('aspirated-input').textContent()) ?? '').includes('tʰeātrum'), 'aspirated input shown');
     await page.getByTestId('compare-keys').waitFor();
     assert((await page.getByTestId('compare-keys').textContent())?.includes('GEMINI_API_KEY'), 'missing Gemini key named');
     const noHScroll = await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth);
@@ -109,6 +114,27 @@ async function main() {
     assert(txt?.includes('4.00') && txt.includes('length ×1'), `summary updated: ${txt}`);
     assert(upstream === 1, 'reload served from cache');
     log('rating saved to server, summary updated, cache used after reload');
+
+    // Spot-check: rate a Gemini · pʰ tʰ kʰ player; its summary (and not the voice test's) counts it.
+    const sp = page.locator('[data-item="spot-ph-theatrum"] [data-col="gemini:aspirated"]');
+    await sp.getByRole('radio', { name: '5' }).click();
+    await sp.getByLabel('ph/th/ch').check();
+    await sp.getByText('Saved').waitFor();
+    const spotRow = page.locator('[data-testid="compare-summary-spot"] tr[data-col="gemini:aspirated"]');
+    const spotTxt = await spotRow.textContent();
+    assert(spotTxt?.includes('5.00') && spotTxt.includes(`1/${SPOT_ITEMS.length}`) && spotTxt.includes('ph/th/ch ×1'), `spot summary: ${spotTxt}`);
+    const voiceRow = await page.locator('[data-testid="compare-summary"] tr[data-col="gemini:aspirated"]').textContent();
+    assert(voiceRow?.includes('—') && voiceRow.includes(`0/${COMPARE_ITEMS.length}`), `voice summary unaffected: ${voiceRow}`);
+    await sp.getByTestId('generate').click();
+    await sp.getByRole('alert').waitFor();
+    assert((await sp.getByRole('alert').textContent())?.includes('GEMINI_API_KEY not set'), 'spot generate reaches the Worker');
+    if (process.env.E2E_SHOTS) {
+      await page.locator('.cmp-group-title').scrollIntoViewIfNeeded();
+      await page.screenshot({ path: `${process.env.E2E_SHOTS}/compare-spot.png` });
+      await sp.scrollIntoViewIfNeeded();
+      await page.screenshot({ path: `${process.env.E2E_SHOTS}/compare-spot-player.png` });
+    }
+    log('spot-check section: Gemini-only columns, rating saved, own summary');
 
     // Back leaves the hidden page (no pack here, so the app shows its import screen).
     await page.getByRole('button', { name: 'Back' }).click();

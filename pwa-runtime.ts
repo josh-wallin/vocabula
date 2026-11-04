@@ -12,7 +12,8 @@ export const runtimeCaching: RuntimeCaching[] = [
     handler: 'CacheFirst',
     options: {
       cacheName: 'audio',
-      expiration: { maxEntries: 5000 },
+      // eSpeak + Gemini clips of the same texts can both be cached (the player prefers Gemini).
+      expiration: { maxEntries: 10000 },
       cacheableResponse: { statuses: [200], headers: { 'content-type': 'audio/mpeg' } },
     },
   },

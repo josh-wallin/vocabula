@@ -13,15 +13,27 @@
 import type { Lemma } from '../morph/types.ts';
 import { citation, type Lexicon } from '../engine/lexicon.ts';
 import { latinText, tokenText, type Sentence } from '../engine/sentences.ts';
-import { audioKey, normalizeAudioText } from './key.ts';
+import { audioKey, geminiAudioKey, normalizeAudioText } from './key.ts';
 import { espeakInput } from './speech.ts';
 import { COMPARE_ITEMS } from '../compare/items.ts';
 
 export type AudioKind = 'word' | 'citation' | 'sentence' | 'form' | 'extra';
-export interface AudioItem { key: string; text: string; kind: AudioKind; speak: string }
-export interface AudioRef { key: string; text: string }
+/**
+ * `text`: normalized (the key's input); `speak`: what eSpeak is given; `say`: the text as first
+ * written (case kept, spaces collapsed), what Gemini is given (scripts/audio-gemini.mts).
+ */
+export interface AudioItem { key: string; text: string; kind: AudioKind; speak: string; say: string }
+/**
+ * A clip the app can play: `key` is the eSpeak clip (always the fallback); `gemini`, when set,
+ * the Gemini clip of the same text, preferred by player.ts when it exists (PREFER_GEMINI).
+ * Refs made by hand (Audītiō recordings) have only `key`.
+ */
+export interface AudioRef { key: string; text: string; gemini?: string }
 
-const ref = (text: string): AudioRef => ({ key: audioKey(text), text: normalizeAudioText(text) });
+const ref = (text: string): AudioRef => ({ key: audioKey(text), text: normalizeAudioText(text), gemini: geminiAudioKey(text) });
+
+/** As written, for Gemini: NFC, single spaces, trimmed (case and punctuation kept). */
+export const sayText = (text: string): string => text.normalize('NFC').replace(/\s+/g, ' ').trim();
 
 /** First citation form, as spoken (enclitic hyphen dropped). */
 export function wordText(l: Lemma): string {
@@ -49,7 +61,7 @@ export function audioItems(lex: Pick<Lexicon, 'words'>, sentences: readonly Sent
   const add = (text: string, kind: AudioKind) => {
     const r = ref(text);
     if (!r.text || out.has(r.key)) return;
-    out.set(r.key, { key: r.key, text: r.text, kind, speak: espeakInput(r.text) });
+    out.set(r.key, { key: r.key, text: r.text, kind, speak: espeakInput(r.text), say: sayText(text) });
   };
   for (const w of lex.words) add(wordText(w.lemma), 'word');
   for (const w of lex.words) { const c = citationText(w.lemma); if (c) add(c, 'citation'); }

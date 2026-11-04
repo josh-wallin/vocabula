@@ -7,6 +7,7 @@ import { buildPath, currentNodeIndex, type Path, type PathNode } from '../engine
 import { replay, streak, type DerivedState, type FlagBody, type LessonStats, type NodeDoneBody, type VEvent } from '../engine/events.ts';
 import { loadBundled, type Bundled } from '../content/bundled.ts';
 import { buildLesson, type Exercise } from '../engine/lesson.ts';
+import type { AudioRef } from '../audio/items.ts';
 import type { FeatureId } from '../engine/curriculum.ts';
 import type { Grade } from '../engine/srs.ts';
 import { encodeSyncCode, type DaySummary } from '../engine/syncCode.ts';
@@ -69,7 +70,7 @@ export const settingOn = (app: AppData, key: string): boolean => app.state.setti
 
 export interface LessonOpts {
   /** Whether a clip is likely playable now; listening exercises only when given and the setting is on. */
-  audioAvailable?: (key: string) => boolean;
+  audioAvailable?: (clip: AudioRef) => boolean;
 }
 
 export function lessonFor(app: AppData, node: PathNode, now = new Date(), opts: LessonOpts = {}): Exercise[] {

@@ -2,11 +2,15 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
 import type { ApiCtx } from '../worker/api.ts';
+import { createHash } from 'node:crypto';
 import {
-  GEMINI_MODEL, GEMINI_VOICE, OPENAI_INSTRUCTIONS, OPENAI_MODEL, OPENAI_URL, OPENAI_VOICE, TTS_SCHEMA,
-  geminiUrl, handleTts, isTtsPath, pcmToWav, ttsKey, type TtsEnv,
+  CLASSICAL_RULES, GEMINI_MODEL, GEMINI_STYLE, GEMINI_VOICE, OPENAI_INSTRUCTIONS, OPENAI_MODEL, OPENAI_URL, OPENAI_VOICE, TTS_SCHEMA,
+  geminiBody, geminiUrl, handleTts, isTtsPath, pcmToWav, ttsKey, type TtsEnv,
 } from '../worker/tts.ts';
+import { aspirate, geminiInput } from '../src/audio/gemini.ts';
 import { toPseudo } from '../src/compare/pseudo.ts';
+import { COMPARE_ITEMS, SPOT_ITEMS } from '../src/compare/items.ts';
+import { MAX_TTS_TEXT } from '../src/compare/protocol.ts';
 import { FakeD1 } from './d1fake.ts';
 
 const AUD = 'test-aud';
@@ -172,6 +176,53 @@ describe('tts: Gemini', () => {
     reply = () => Response.json({ candidates: [] });
     expect((await gen('gemini', 'plain')).status).toBe(502);
   });
+  it('plain is unchanged by the refactor: same style text, same cache keys (the owner’s rated clips stay cached)', async () => {
+    expect(GEMINI_STYLE.plain).toBe('Read this as Latin (language: la), slowly and clearly, like a Latin teacher modelling pronunciation. ' + CLASSICAL_RULES);
+    const old = createHash('sha256').update('gemini|plain|gemini-3.8-flash-tts|Charon|p1|philosophia, theātrum').digest('hex').slice(0, 32);
+    expect(await ttsKey('gemini', 'plain', 'philosophia, theātrum')).toBe(old);
+    expect(await ttsKey('gemini', 'aspirated', 'philosophia, theātrum')).not.toBe(old);
+  });
+  it('aspirated variant: ph/th/ch sent as pʰ/tʰ/kʰ, style = plain + a note on ʰ; cached apart from plain', async () => {
+    const r = await gen('gemini', 'aspirated', 'philosophia, theātrum');
+    expect(r.status).toBe(200);
+    expect(calls[0]!.body).toEqual({
+      contents: [{ role: 'user', parts: [{ text: 'pʰilosopʰia, tʰeātrum', speech_metadata: { style: GEMINI_STYLE.aspirated } }] }],
+      generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { voice: 'Charon' } } },
+    });
+    expect(GEMINI_STYLE.aspirated.startsWith(GEMINI_STYLE.plain)).toBe(true);
+    expect(GEMINI_STYLE.aspirated).toMatch(/pʰ is a p with a puff of breath.*never f/);
+    expect(r.headers.get('x-tts-key')).toBe(await ttsKey('gemini', 'aspirated', 'philosophia, theātrum'));
+    await gen('gemini', 'plain', 'philosophia, theātrum');
+    expect(calls).toHaveLength(2);
+    expect(calls[1]!.body.contents[0].parts[0].text).toBe('philosophia, theātrum');
+  });
+  it('aspirated is Gemini-only', async () => {
+    const r = await gen('openai', 'aspirated');
+    expect(r.status).toBe(400);
+    expect(await r.json()).toEqual({ error: 'variant aspirated is Gemini-only' });
+    expect(calls).toHaveLength(0);
+  });
+  it('aspirate(): ph th ch only, case kept, post-h compounds left alone', () => {
+    expect(aspirate('Sine philosophiā errās.')).toBe('Sine pʰilosopʰiā errās.');
+    expect(aspirate('pulcher, pulchra, pulchrum')).toBe('pulkʰer, pulkʰra, pulkʰrum');
+    expect(aspirate('Chrīstus Theātrum Philippus scholā triumphō')).toBe('Kʰrīstus Tʰeātrum Pʰilippus skʰolā triumpʰō');
+    expect(aspirate('posthāc hodiē mihi nihil')).toBe('posthāc hodiē mihi nihil');
+    expect(aspirate('Graecia caelum')).toBe('Graecia caelum');
+    expect(geminiInput('plain', 'theātrum')).toBe('theātrum');
+    expect(geminiInput('pseudo', 'centum')).toBe(toPseudo('centum'));
+  });
+  it('every voice-test and spot-check item generates through both Gemini variants (request body = geminiBody)', async () => {
+    for (const it of [...COMPARE_ITEMS, ...SPOT_ITEMS]) {
+      expect(it.la.length, it.id).toBeLessThanOrEqual(MAX_TTS_TEXT);
+      for (const v of ['plain', 'aspirated'] as const) {
+        calls = [];
+        const r = await gen('gemini', v, it.la);
+        expect(r.status, `${it.id} ${v}`).toBe(200);
+        expect(calls[0]!.body, `${it.id} ${v}`).toEqual(geminiBody(v, it.la));
+        expect(calls[0]!.body.contents[0].parts[0].text).toBe(geminiInput(v, it.la));
+      }
+    }
+  });
 });
 
 describe('tts: ratings', () => {
@@ -184,6 +235,12 @@ describe('tts: ratings', () => {
     expect(ratings).toHaveLength(2);
     expect(ratings.find((r) => r['engine'] === 'openai')).toMatchObject({ item: 'c-hard', variant: 'pseudo', score: 5, problems: [], note: '' });
     expect(ratings.find((r) => r['engine'] === 'espeak')).toMatchObject({ score: 2, problems: ['c'], note: 'ō short', updated_at: expect.any(String) });
+  });
+  it('accepts the new column (gemini · aspirated) and the ph problem; spot-check item ids', async () => {
+    const r = { item: 'spot-ph-theatrum', engine: 'gemini', variant: 'aspirated', score: 5, problems: ['ph'], note: '' };
+    expect((await call('POST', '/api/tts/rating', r)).status).toBe(200);
+    const { ratings } = (await (await call('GET', '/api/tts/ratings')).json()) as { ratings: Record<string, unknown>[] };
+    expect(ratings).toEqual([expect.objectContaining({ item: 'spot-ph-theatrum', variant: 'aspirated', score: 5, problems: ['ph'] })]);
   });
   it('score may be null; bad ratings are 422', async () => {
     expect((await call('POST', '/api/tts/rating', { item: 's1', engine: 'gemini', variant: 'plain', score: null, problems: ['stress'], note: '' })).status).toBe(200);

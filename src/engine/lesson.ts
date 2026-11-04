@@ -76,10 +76,10 @@ export interface BuildCtx {
   /** Sentence bank for sentence exercises (none when absent). */
   sentences?: readonly Sentence[];
   /**
-   * Listening exercises (none when absent): `available(key)` says whether a clip is likely
+   * Listening exercises (none when absent): `available(clip)` says whether a clip is likely
    * playable now (online, or cached on this device, and not known to be missing).
    */
-  listening?: { available: (key: string) => boolean };
+  listening?: { available: (clip: AudioRef) => boolean };
   /** Audītiō lesson definitions (content/listening), for `auditio` nodes. */
   auditio?: readonly ListeningLesson[];
   /** Lectiō passages (content/lectio), for `lectio` nodes. */
@@ -329,7 +329,7 @@ class Factory {
     for (const id of [...this.known].sort()) {
       const w = this.ctx.lex.byId.get(id);
       if (!w || exclude.has(id) || (st.meaningGood.get(id) ?? 0) < MIN_MEANING_FOR_LISTEN) continue;
-      if (!L.available(wordAudio(w.lemma).key)) continue;
+      if (!L.available(wordAudio(w.lemma))) continue;
       const listen = st.cards.get(listenCard(id, 'listen'));
       for (const kind of ['listen', 'dictate'] as const) {
         const card = st.cards.get(listenCard(id, kind));
@@ -363,7 +363,7 @@ class Factory {
     const st = this.ctx.state;
     const cands: { s: Sentence; kind: SentListenType; tier: number; r: number; tie: number }[] = [];
     for (const s of bank) {
-      if (!sentenceEligible(s, sctx) || !L.available(sentenceAudio(s).key)) continue;
+      if (!sentenceEligible(s, sctx) || !L.available(sentenceAudio(s))) continue;
       const listen = st.cards.get(sentenceCard(s.id, 'listen'));
       for (const kind of ['listen', 'dictate'] as const) {
         const card = st.cards.get(sentenceCard(s.id, kind));
