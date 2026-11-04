@@ -87,6 +87,12 @@ describe('DCC import', () => {
 const real = 'content/source/dcc-core-latin.json';
 describe.skipIf(!existsSync(real))('full DCC list', () => {
   const r = importDcc(JSON.parse(readFileSync(real, 'utf8')));
+  it('gives every lemma a unique id (homographs ōs "mouth" / os "bone" both kept)', () => {
+    const ids = r.lemmas.map((l) => l.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(r.lemmas.find((l) => l.id === 'os-n3n')?.gloss).toMatch(/mouth/);
+    expect(r.lemmas.find((l) => l.id === 'os-ossis-n3n')?.gloss).toMatch(/bone/);
+  });
   it('imports the implemented categories with only known exceptions', () => {
     expect(r.lemmas.length).toBeGreaterThanOrEqual(670);
     const by = (p: string) => r.lemmas.filter((l) => l.paradigm === p).length;

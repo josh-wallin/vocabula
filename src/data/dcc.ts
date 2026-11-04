@@ -178,6 +178,7 @@ export interface DccImport {
 
 export function importDcc(entries: DccEntry[]): DccImport {
   const out: DccImport = { lemmas: [], skipped: [], problems: [] };
+  const ids = new Set<string>();
   for (const e of entries) {
     const sup = SUPPORTED[e.pos];
     if (!sup) { out.skipped.push({ entry: e, reason: `paradigm not implemented yet (${e.pos})` }); continue; }
@@ -205,6 +206,13 @@ export function importDcc(entries: DccEntry[]): DccImport {
         continue;
       }
       lemma.dcc = { rank: e.rank, semanticGroup: e.semantic_group, headword: e.headword };
+      // Homographs such as ōs, ōris "mouth" and os, ossis "bone" share a stripped first form and
+      // paradigm; give the later one its genitive too ("os-ossis-n3n") so neither is lost.
+      if (ids.has(lemma.id)) {
+        const gen = (lemma.parts[1] ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]+/g, '');
+        lemma.id = lemma.id.replace(/^([a-z]+)-/, `$1-${gen || 'b'}-`);
+      }
+      ids.add(lemma.id);
       out.lemmas.push(lemma);
     }
   }
