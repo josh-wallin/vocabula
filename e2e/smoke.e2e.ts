@@ -5,7 +5,8 @@
  *
  * Serves dist/ with `vite preview`, imports the private content pack, completes
  * the first Verba lesson by answering through the DOM, checks that the node stays
- * completed after a reload, and that a reload works offline (service worker).
+ * completed after a reload, and that a reload works offline (service worker); then plays
+ * through to the first Repetītiō (answering its sentence exercises) and flags an exercise.
  * Skips (exit 0) when content/private/vocabula-pack.json is absent.
  * Chrome: $CHROME_PATH, else /usr/bin/google-chrome.
  */
@@ -17,7 +18,7 @@ import { playLesson } from './play.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PACK = resolve(ROOT, 'content/private/vocabula-pack.json');
-const PORT = 4179;
+const PORT = Number(process.env.E2E_PORT ?? 4179);
 const URL = `http://localhost:${PORT}/`;
 
 function log(s: string) { console.log(`[e2e] ${s}`); }
@@ -34,7 +35,10 @@ async function waitForServer(): Promise<void> {
 async function main() {
   if (!existsSync(PACK)) { log('SKIP: private pack not found (run scripts/build-pack.ts)'); return; }
   if (!existsSync(resolve(ROOT, 'dist/index.html'))) throw new Error('dist/ missing: run npm run build first');
-  const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { cwd: ROOT, stdio: 'ignore' });
+  // Refuse to test someone else's server (e.g. a preview left running from another checkout).
+  if (await fetch(URL).then(() => true, () => false)) throw new Error(`port ${PORT} is already serving something: stop it or set E2E_PORT`);
+  // Own process group, so the vite child dies with it (killing npx alone leaves vite running).
+  const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { cwd: ROOT, stdio: 'ignore', detached: true });
   const chromePath = process.env.CHROME_PATH ?? '/usr/bin/google-chrome';
   const browser = await chromium.launch({ executablePath: chromePath, headless: true, args: ['--no-sandbox'] });
   try {
@@ -103,11 +107,34 @@ async function main() {
     log(`finished Coniugātiō I offline in ${second.steps} steps`);
     await page.getByTestId('complete-continue').click();
     assert(await page.locator('[data-node="s1.pattern"][data-status="done"]').count() === 1, 's1.pattern done offline');
+
+    // Verba II, then the first Repetītiō: it mixes in sentence exercises. Flag one exercise on the way.
+    await page.locator('button.disc[data-status="current"]').click();
+    await page.locator('main.lesson-body').waitFor();
+    await page.getByTestId('flag').click();
+    await page.locator('[data-testid="flag-sheet"] button[data-reason="bad-english"]').click();
+    await page.locator('#flag-note').fill('e2e flag');
+    await page.getByTestId('flag-send').click();
+    await page.locator('[data-testid="flag-sheet"]').waitFor({ state: 'detached' });
+    assert((await page.getByTestId('flag').getAttribute('aria-label')) === 'Flagged', 'flag button shows flagged');
+    await playLesson(page);
+    await page.getByTestId('complete-continue').click();
+    assert(await page.locator('[data-node="s1.rep.1"][data-status="current"]').count() === 1, 's1.rep.1 is current');
+    await page.locator('button.disc[data-status="current"]').click();
+    const rep = await playLesson(page);
+    assert(rep.sentences >= 2, `Repetītiō had ${rep.sentences} sentence exercises`);
+    log(`Repetītiō: ${rep.sentences} sentence exercises answered`);
+    await page.getByTestId('complete-continue').click();
+    await page.getByRole('button', { name: 'Profile' }).click();
+    const flags = page.getByTestId('flag-list');
+    await flags.waitFor();
+    assert(((await flags.textContent()) ?? '').includes('e2e flag'), 'flag listed in Profile');
+    log('flag recorded and listed in Profile');
     assert(errors.length === 0, `no page errors: ${errors.join('; ')}`);
     log('PASS');
   } finally {
     await browser.close();
-    server.kill();
+    try { process.kill(-server.pid!, 'SIGTERM'); } catch { server.kill(); }
   }
 }
 

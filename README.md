@@ -24,7 +24,7 @@ A phone-first, offline-capable PWA for drilling Latin vocabulary and paradigms a
 - **Exercises** (`src/engine/lesson.ts`): new-word card; Latin→English multiple choice (same-POS distractors, known words first, no overlapping glosses); English→Latin typed (only after 2 correct meaning reviews); gender / conjugation tap; parse (select all that fit when `analyze()` gives several cells); produce ("Give the genitive plural of …"). Lessons 10–12 exercises, Repetītiō 13, Probātiō 20. Typed answers: NFC, trimmed, case-insensitive; macrons optional (a macron-only difference is correct, with the spelling shown).
 - **Session** (`src/engine/session.ts`): only first attempts are graded; a miss returns 3 exercises later, ungraded (up to 2 retries).
 - **Scheduling** (`src/engine/srs.ts`): ts-fsrs 5.4.2 (fuzz off, for deterministic replay). Cards: `{lemma}:meaning`, `{lemma}:recall`, `{lemma}:class`, `{lemma}:forms:{featureId}`. First attempt right → `Rating.Good`, wrong → `Rating.Again`. Repetītiō takes due cards by lowest retrievability, reserves room for recent misses, then fills with new card kinds and weakest cards.
-- **Events** (`src/engine/events.ts`, `src/data/db.ts`): IndexedDB (idb) append-only log `{id, device, ts, kind: 'review'|'node_done'|'setting', card?, grade?, body?, outbox}`. Every derived value (FSRS cards, progress, streak, puncta) is a replay sorted by `(ts, id)`, so the same events in any order give the same state. `outbox: 1` marks events not yet accepted by the sync server.
+- **Events** (`src/engine/events.ts`, `src/data/db.ts`): IndexedDB (idb) append-only log `{id, device, ts, kind: 'review'|'node_done'|'setting'|'flag', card?, grade?, body?, outbox}`. Every derived value (FSRS cards, progress, streak, puncta) is a replay sorted by `(ts, id)`, so the same events in any order give the same state. `outbox: 1` marks events not yet accepted by the sync server.
 - **Puncta**: +10 per finished lesson, +2 per first-try-correct review.
 - **Streak**: local calendar days with ≥1 finished lesson; today not yet practised doesn't break it; up to 2 missed days per Monday-based week are bridged by freezes (they keep the streak but don't add to it).
 - **Backup**: Profile → Export writes `{format:'vocabula-events', version:1, events}`; Import merges by event id (idempotent).
@@ -118,6 +118,65 @@ Every device keeps the same append-only log of events with globally unique ids. 
 
 Local full stack: `npm run build && npm run dev:worker` (`wrangler dev` serves `dist/` plus the API with local D1; the `access.dev` block in `wrangler.jsonc` simulates the Access identity).
 
+## Sentence exercises
+
+Original Latin sentences (written for this app, never copied from Wheelock), public and bundled: `content/sentences/sNN.json`, one file per section (s01–s08 so far, 16–20 sentences each). `src/content/sentenceBank.ts` globs the folder, so a new section is a new file.
+
+### Schema
+
+```jsonc
+{
+  "id": "s03-08",                 // sNN-MM: section, position in the file
+  "section": 3,                   // first section the sentence may appear in
+  "tokens": [
+    { "form": "fīlius", "lemma": "filius-n2m", "cell": "nom.sg", "role": "subj" },
+    { "form": "agricolae", "lemma": "agricola-n1", "cell": "gen.sg" },
+    { "form": "in", "lemma": "in-indecl", "cell": "citation", "phrase": 1 },
+    { "form": "agrō", "lemma": "ager-n2m", "cell": "abl.sg" },
+    { "form": "est", "lemma": "sum-irr-sum", "cell": "pres.act.ind.3sg", "role": "verb" }
+  ],
+  "en": ["The farmer's son is in the field.", "The son of the farmer is in the field."],
+  "punct": ".",                   // optional: "." (default), "?" or "!"
+  "order": ["free", 0, 1, ["first", 2, 3], 4]   // optional, see below
+}
+```
+
+- `form` is exactly what the morph engine generates for `lemma` + `cell` (macrons; capitals only for names and *Ō*). Lemma ids are the lexicon's (`lemmaId`). Indeclinables use cell `citation`.
+- `role`: `subj`, `obj`, `iobj`, `verb`, `pred` (predicate nominative), `voc`. Every finite verb (and imperative) is `verb`; implied subjects simply have no `subj` token.
+- `attach: "que" | "ne"`: the enclitic is written onto this word (*puellae* + `que` → *puellaeque*).
+- `phrase: n`: this word heads a unit with the next n tokens (a preposition and its object phrase; *Ō* + a vocative).
+- `comma: true`: a comma follows the word in the printed sentence.
+- `en`: accepted translations. `{a|b}` = alternatives, `[x]` = optional words. The **first** entry, with the first alternative and every optional word, is what the learner sees (and the English tiles); every expansion of every entry is accepted.
+
+### Word order (English → Latin tiles)
+
+Latin word order is free, within units. `order` is a tree: a token index, or `[kind, ...children]` with kind `free` (any order), `fixed` (as written), `first` (first child first, rest free) or `coord` (`[A, conj, B]` or `[B, conj, A]`). Without `order`, it is derived: everything free, except a `phrase` unit (head first, its words in any order), *nōn* + the next word or unit (fixed), a `-que` word right after the word before it, and a `-ne` word first. Sentences with a clause word (*et, sed, sī, dum, igitur, tamen, ubi, quandō, quārē*) or two finite verbs must give `order` (a test checks). An answer is right when its tiles, in order, are one of the tree's orders (`latinOrders`, ≤ 7 words, so they are simply enumerated). The written order must itself be allowed (a test checks).
+
+### English answers (Latin → English tiles)
+
+`normalizeEnglish`: case, punctuation, curly quotes and spacing are ignored; common contractions are expanded (*don't* = *do not*, *can't* = *cannot* = *can not*, *won't*, *I'm*, *you're*, …). **Articles**: Latin has none, so *a*, *an* and *the* are interchangeable (*a rose* = *the rose*), but whether an article is there still counts (*the girl loves roses* ≠ *girl loves roses*); where English can go either way, the bank lists both (`[the]`). Distractor tiles never occur in any accepted answer; they come from other sentences' English (sections reached), then from known words' glosses, then a few common words.
+
+### Eligibility
+
+A sentence appears only when its section is reached, every lemma (and enclitic) is known to the learner (`path.knownAt` + seen), and every token's ending feature is unlocked (`featureOfCell` / `hasFeature`). `tests/sentence-bank.test.ts` checks the bank against the private Wheelock list (skipped without it): each lemma is a Wheelock word first taught at or before the sentence's section (DCC-only words are impossible: they aren't on the list), `generate(lemma)[cell] === form`, the cell's feature is unlocked by `featuresAt(section, true)`, each sentence is eligible at the end of its section on the real path with ≥ 3 exercise types, and each uses something its section introduces. Shape checks (ids, 2–7 words, roles vs cases, subject–verb agreement, order trees, English markup) always run. `content/private/coverage/sentences_s01-s08.txt` lists every sentence as `Latin = English` for an independent back-translation check.
+
+### Exercise types (`src/engine/sentences.ts`, UI `src/ui/SentenceView.tsx`)
+
+| Card | Exercise |
+|---|---|
+| `sent:<id>:cloze` | One word blanked; pick from 4 distinct forms of its lemma, from unlocked cells only, nearest cells first (same number / tense). The other "you" (2nd sg. ↔ 2nd pl.) is never a distractor, since the English can't tell them apart. English shown as a hint. |
+| `sent:<id>:en` | Build the English from tiles: the shown translation's words + 2–3 distractors. Any accepted translation passes. |
+| `sent:<id>:subj` / `:obj` | Tap the subject (or direct object) word(s); "No written subject" when the verb's ending carries it. Only single-verb sentences; `obj` only when there is a written object. Several subjects → select all. |
+| `sent:<id>:la` | Build the Latin from tiles: the sentence's forms + 1–2 wrong forms of the same lemmas (unlocked cells, never one of the sentence's forms). Any allowed word order passes; feedback shows the written order. |
+
+### Lessons and scheduling
+
+Repetītiō (13) has 2–4 sentence exercises (2 with 1–2 eligible sentences, 3 with 3–7, 4 with 8+), Fōrmae 2–3 (sentences using the section's new endings first, and the cloze blanks such a word when it can), Probātiō 6 of its 20; Verba, pattern, Plūra verba and FR lessons have none. Lesson lengths are unchanged: sentences replace word exercises. Each sentence exercise is an FSRS card graded by the ordinary `review` event (`card: "sent:s03-08:la"`), so the Worker needs nothing new; `parseCardId` ignores these ids, so they never touch word cards, "seen" words or "Words practised". Choice: due cards first (lowest retrievability), then never-practised ones (current section first), then the rest; one exercise per sentence, types spread out. Sentence choice uses its own seeded RNG stream, so lessons without eligible sentences are exactly as before.
+
+### Flags
+
+Every exercise screen (words and sentences, intro and grammar cards too) has a flag button: reason (*wrong answer* / *bad Latin* / *bad English* / *other*) + optional note. It records a `flag` event, body `{ref, reason, note?, shown?, node?}`: `ref` is the card id (`amo-v1:meaning`, `sent:s02-01:la`) or `lemma:<id>` / `grammar:<section>`; `shown` is what the screen showed (prompt, cue, options; ≤ 500 chars). The shared `parseEvent` validates it (reason from the list, ref ≤ 256, note ≤ 1000), so the Worker, sync and backups accept it like any event. `replay` collects `state.flags`; Profile → Flags lists them, newest first. An older client that pulls a `flag` event skips it (sync drops records its validator rejects).
+
 ## Run
 
 ```sh
@@ -133,7 +192,7 @@ npm run dev:worker   # wrangler dev: dist/ + /api with local D1 and simulated Ac
 
 `e2e/sync.e2e.ts` serves `dist/` together with the real Worker handlers (over the node:sqlite D1 fake used by the unit tests) and drives two browser contexts through upload, download, cross-device progress, an expired session and re-login, and an offline lesson synced on reconnect.
 
-The e2e test (`e2e/smoke.e2e.ts`, playwright-core + system Chrome, `CHROME_PATH` to override) serves `dist/`, imports the private pack, plays the first Verba lesson through the DOM (missing one answer on purpose), checks the node stays done after reload, then goes offline, reloads, and plays the next lesson.
+The e2e test (`e2e/smoke.e2e.ts`, playwright-core + system Chrome, `CHROME_PATH` to override) serves `dist/`, imports the private pack, plays the first Verba lesson through the DOM (missing one answer on purpose), checks the node stays done after reload, then goes offline, reloads, and plays the next lesson; then Verba II (flagging its first screen) and the first Repetītiō, answering its sentence exercises, and checks the flag is listed in Profile. It refuses to run if its port (4179, or `E2E_PORT`) is already serving something, and runs `vite preview` in its own process group so it is stopped afterwards.
 
 Import the Wheelock lists (you supply the private source file):
 
@@ -154,14 +213,15 @@ src/
   data/       content types, loaders, Wheelock import (pure)
   ui/         Preact screens and styles
   engine/     curriculum, path, lessons, session, FSRS, events/replay, backup, sync code (pure)
-  content/    glossary and grammar cards (original writing)
+  content/    glossary, grammar cards, sentence bank loader (original writing)
   sync/       client sync: fetch wrapper, sync loop, wire protocol (shared with the Worker)
   app/        controller: content + event log → derived state
   main.tsx    app entry
 worker/       Cloudflare Worker: /api handlers, D1 schema, its own tsconfig and generated types
 migrations/   D1 schema SQL (reference; the Worker creates tables itself)
 content/      data files
-  private/    copyrighted textbook data: gitignored, NEVER committed
+  sentences/  sentence bank, one JSON file per section (original Latin, public)
+  private/    copyrighted textbook data: gitignored, NEVER committed (a symlink to it is ignored too)
 scripts/      CLI tools (import-wheelock.ts, import-dcc.ts, build-pack.ts)
 e2e/          headless browser smoke test
 tests/        Vitest specs
@@ -174,7 +234,7 @@ Everything under `content/private/` (the raw Wheelock and Familia Rōmāna lists
 
 ## Not yet built
 
-Sections beyond 4, 3rd–5th declensions, 3rd/4th conjugations, other tenses, pronouns, sentence exercises, dark mode.
+Sections beyond 4, 3rd–5th declensions, 3rd/4th conjugations, other tenses, pronouns, sentences for sections 9–10, dark mode.
 
 ## DCC core vocabulary
 
