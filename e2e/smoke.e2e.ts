@@ -9,7 +9,7 @@
  * Skips (exit 0) when content/private/vocabula-pack.json is absent.
  * Chrome: $CHROME_PATH, else /usr/bin/google-chrome.
  */
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright-core';
@@ -52,6 +52,13 @@ async function main() {
     await page.getByTestId('pack-file').setInputFiles(PACK);
     await page.locator('[data-screen="path"]').waitFor();
     log('pack imported, path shown');
+    if ((JSON.parse(readFileSync(PACK, 'utf8')) as { fr?: unknown[] }).fr?.length) {
+      // Familia Rōmāna previews close section 1 (locked for now).
+      const fr = page.locator('[data-node="s1.fr.1"]');
+      assert(await fr.count() === 1 && (await fr.getAttribute('data-status')) === 'locked', 's1.fr.1 shown, locked');
+      assert(((await fr.getAttribute('aria-label')) ?? '').startsWith('Familia Rōmāna · Cap. I'), 'FR node label');
+      log('Familia Rōmāna preview node shown');
+    }
 
     const first = page.locator('button.disc[data-status="current"]');
     assert((await first.getAttribute('data-node')) === 's1.verba.1', 'first node is s1.verba.1');

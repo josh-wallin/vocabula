@@ -40,6 +40,16 @@ npm run build:pack                     # → content/private/vocabula-pack.json 
 
 On first run the app offers **Sign in & download** (the pack from the sync server, below) and, as fallbacks, this file or its pasted text. Either way it checks `format`, `schema` and the per-chapter counts (`parsePack`, the same validator the Worker uses) and stores the pack in IndexedDB with its SHA-256 hash. Profile can replace it. `src/data/contentStore.ts` is the only module that loads content.
 
+### Familia Rōmāna previews
+
+"Meaning-only until their grammar is unlocked." If `content/private/source/fr_ch1-7.json` (your own list from *Familia Rōmāna*, ch. 1–7) exists, `npm run build:pack` adds an optional `fr` array to the pack (`counts.fr` per FR chapter; pack id gains `+fr-cap1-7`). Packs without `fr` validate and build exactly the old path; `parsePack` (shared with the Worker) checks the field when present.
+
+- **Import** (`src/data/fr.ts`, pure): proper names (characters and places) are dropped, and so is any word a Wheelock chapter at or before the FR chapter teaches. A word Wheelock teaches **later** stays, under the Wheelock lemma's id (via `wheelockHeadword`), so its FSRS cards are shared. Abbreviated headwords (`capitulum, -ī, n.`) are spelled out with the DCC expander; case notes (`cum + abl.`) and alternatives (`ā / ab` → `ā (or ab)`) are tidied. Pronouns, numerals and irregular verbs with no paradigm yet get a provisional id (`hic-fr-pron`) that can't collide with an indeclinable (`hic-indecl`). Only headword, forms and gloss travel: no FR notes.
+- **Lexicon**: an FR entry joins the existing Word when it is the same word (id, else spelling + paradigm, else DCC rank with the same POS); Wheelock's or DCC's spelling and gloss win, as for *magnus*. Other entries become `origin: 'fr'` words.
+- **Path**: after section N (N = 1–7, only if the path has that section), before any Probātiō: "Familia Rōmāna · Cap. N" nodes (`sN.fr.K`, "· Pars II" when split), ≤6 words each, a Repetītiō after every 3. Words the main path (Verba or Plūra verba) teaches at or before section N are left out; those it teaches later, or never (e.g. 4th-conjugation DCC words), are previewed.
+- **Exercises**: new-word card, Latin→English, and English→Latin recall after 2 correct meaning reviews (first citation form). FR-only words never get class or forms exercises. A previewed Wheelock/DCC word gets them only once the main path has taught it, or earlier if every feature its paradigm needs is already unlocked.
+- **UI**: Words tab tags preview words "FR"; About & credits says they come from your own copy.
+
 ### Iter Latinum sync code
 
 The complete screen (and Profile) shows a code covering **all of today's practice**:
@@ -160,7 +170,7 @@ public/       icons and static assets
 
 ## Rule: `content/private/` is never committed
 
-Everything under `content/private/` (the raw Wheelock lists, the generated `wheelock.json` and `vocabula-pack.json`) is copyrighted textbook material. It is listed in `.gitignore` and must never be committed, pushed or bundled into a public build. Before committing, check with `git status --ignored`. `tests/no-private-in-dist.test.ts` fails if any Wheelock-only gloss appears in `dist/`. Do not force-add (`git add -f`) anything under it.
+Everything under `content/private/` (the raw Wheelock and Familia Rōmāna lists, the generated `wheelock.json` and `vocabula-pack.json`) is copyrighted textbook material. It is listed in `.gitignore` and must never be committed, pushed or bundled into a public build. Before committing, check with `git status --ignored`. `tests/no-private-in-dist.test.ts` fails if any Wheelock-only or FR-only gloss appears in `dist/`. Do not force-add (`git add -f`) anything under it.
 
 ## Not yet built
 

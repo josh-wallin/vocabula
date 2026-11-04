@@ -5,6 +5,7 @@ import type { PathNode } from '../engine/path.ts';
 import { isGraded, type ChoiceExercise, type Exercise, type TypedExercise } from '../engine/lesson.ts';
 import { Session, type Outcome } from '../engine/session.ts';
 import { citation, classNote } from '../engine/lexicon.ts';
+import { roman } from '../engine/curriculum.ts';
 import type { GlossaryTerm } from '../content/glossary.ts';
 import { GrammarCardView, TermSheet } from './Glossary.tsx';
 import { IconX } from './icons.tsx';
@@ -135,7 +136,9 @@ function IntroCard({ app, lemmaId }: { app: AppData; lemmaId: string }) {
   if (!w) return null;
   const l = w.lemma;
   const [first, ...rest] = citation(l).split(', ');
-  const src = w.origin === 'wheelock' ? `Wheelock ch. ${w.chapter}` : `DCC core list #${l.dcc?.rank ?? '?'}`;
+  const main = w.origin === 'wheelock' ? `Wheelock ch. ${w.chapter}` : w.origin === 'dcc' ? `DCC core list #${l.dcc?.rank ?? '?'}` : '';
+  const fr = w.fr ? `Familia Rōmāna cap. ${roman(w.fr.chapter)}` : '';
+  const src = [main, fr].filter(Boolean).join(' · ');
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }} data-lemma={lemmaId}>
       <span class="eyebrow">New word</span>
@@ -148,7 +151,9 @@ function IntroCard({ app, lemmaId }: { app: AppData; lemmaId: string }) {
         <span class="gloss">{l.gloss}</span>
         <span class="meta">{classNote(l)} · {src}</span>
       </div>
-      <p class="note">{introNote(l.paradigm, l.pos)}{l.notes && w.origin === 'wheelock' ? ` ${l.notes}.`.replace('..', '.') : ''}</p>
+      <p class="note">{w.origin === 'fr'
+        ? 'A preview from Familia Rōmāna: learn what it means now. Its forms come once the grammar is on the path.'
+        : `${introNote(l.paradigm, l.pos)}${l.notes && w.origin === 'wheelock' ? ` ${l.notes}.`.replace('..', '.') : ''}`}</p>
     </div>
   );
 }

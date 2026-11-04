@@ -209,8 +209,10 @@ export function ProfileScreen({ app, setApp, onAbout, sync, onSyncNow }: {
 }
 
 export function WordsScreen({ app }: { app: AppData }) {
-  const seen = app.path.nodes.filter((n) => app.state.done.has(n.id)).flatMap((n) => n.newWords);
-  const ids = [...new Set(seen)];
+  const doneNodes = app.path.nodes.filter((n) => app.state.done.has(n.id));
+  const ids = [...new Set(doneNodes.flatMap((n) => n.newWords))];
+  // Words met as Familia Rōmāna previews (meaning only), tagged "FR".
+  const previewed = new Set(doneNodes.filter((n) => n.kind === 'fr').flatMap((n) => n.newWords));
   return (
     <main class="page" data-screen="words">
       <h1 lang="la">Verba</h1>
@@ -221,7 +223,8 @@ export function WordsScreen({ app }: { app: AppData }) {
             if (!w) return null;
             return (
               <li key={id}>
-                <span class="w" lang="la">{citation(w.lemma)}{w.lemma.gender ? `, ${w.lemma.gender}.` : ''}</span>
+                <span class="w" lang="la">{citation(w.lemma)}{w.lemma.gender ? `, ${w.lemma.gender}.` : ''}
+                  {previewed.has(id) && <span class="frtag" title="Familia Rōmāna preview" lang="en">FR</span>}</span>
                 <span class="g">{w.lemma.gloss}</span>
               </li>
             );
@@ -243,6 +246,10 @@ export function AboutScreen() {
         compiled by a team at Dickinson College led by Christopher Francese, with frequency data from LASLA:{' '}
         <a href="https://dcc.dickinson.edu/latin-core-list1">dcc.dickinson.edu</a>. Licensed under{' '}
         <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>; this app’s adapted copy of that list is shared under the same license.
+      </p>
+      <p>
+        <span lang="la">Familia Rōmāna</span> preview words (Hans H. Ørberg, <i>Lingua Latina per se illustrata</i>) come from your own copy,
+        through the same private content pack: only each word’s headword and gloss, never the book’s text, and never part of this site.
       </p>
       <p>Grammar chapters, grammar cards and glossary are original writing for this app.</p>
       <p>Scheduling uses the FSRS algorithm via <a href="https://github.com/open-spaced-repetition/ts-fsrs">ts-fsrs</a> (MIT).</p>

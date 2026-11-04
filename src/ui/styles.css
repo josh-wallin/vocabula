@@ -272,6 +272,7 @@ textarea.paste:focus { outline: none; border-color: var(--plum); }
 .wordlist li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 2px; border-bottom: 1px solid var(--line-soft); }
 .wordlist .w { font-family: var(--font-text); font-size: 19px; }
 .wordlist .g { color: var(--muted); font-size: 14px; text-align: right; }
+.wordlist .frtag { margin-left: 8px; padding: 1px 7px; border-radius: 99px; background: var(--plum-tint); color: var(--plum); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: .04em; vertical-align: 2px; }
 .splash { min-height: 100dvh; display: flex; align-items: center; justify-content: center; }
 .splash .brand { font-size: 32px; }
 
