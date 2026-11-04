@@ -4,7 +4,8 @@
  */
 import { buildLexicon, type Lexicon } from '../engine/lexicon.ts';
 import { buildPath, currentNodeIndex, type Path, type PathNode } from '../engine/path.ts';
-import { replay, streak, type DerivedState, type LessonStats, type NodeDoneBody, type VEvent } from '../engine/events.ts';
+import { replay, streak, type DerivedState, type FlagBody, type LessonStats, type NodeDoneBody, type VEvent } from '../engine/events.ts';
+import { sentenceBank } from '../content/sentenceBank.ts';
 import { buildLesson, type Exercise } from '../engine/lesson.ts';
 import type { FeatureId } from '../engine/curriculum.ts';
 import type { Grade } from '../engine/srs.ts';
@@ -67,7 +68,7 @@ export function lessonFor(app: AppData, node: PathNode, now = new Date()): Exerc
     ? { ...app.path, knownAt: () => app.path.knownAt(prev?.id ?? '') }
     : app.path;
   return buildLesson(node, {
-    lex: app.lex, path: pathForKnown, state: app.state, now, unlocked, seed: `${node.id}:${now.getTime()}`,
+    lex: app.lex, path: pathForKnown, state: app.state, now, unlocked, seed: `${node.id}:${now.getTime()}`, sentences: sentenceBank(),
   });
 }
 
@@ -87,6 +88,13 @@ export async function recordNodeDone(app: AppData, node: string, run: string, st
   const e = ev(app, 'node_done', { body });
   await putEvents([e]);
   return withEvents(app, [e]);
+}
+
+/** Persist a flag on an exercise (synced like any event; listed in Profile). */
+export async function recordFlag(app: AppData, body: FlagBody): Promise<VEvent> {
+  const e = ev(app, 'flag', { body });
+  await putEvents([e]);
+  return e;
 }
 
 export function streakNow(app: AppData, now = new Date()) {

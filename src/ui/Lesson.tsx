@@ -2,14 +2,16 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { AppData } from '../app/controller.ts';
 import type { PathNode } from '../engine/path.ts';
-import { isGraded, type ChoiceExercise, type Exercise, type TypedExercise } from '../engine/lesson.ts';
+import { isGraded, isScored, type ChoiceExercise, type Exercise, type TypedExercise } from '../engine/lesson.ts';
 import { Session, type Outcome } from '../engine/session.ts';
 import { citation, classNote } from '../engine/lexicon.ts';
 import { roman } from '../engine/curriculum.ts';
 import type { GlossaryTerm } from '../content/glossary.ts';
 import { GrammarCardView, TermSheet } from './Glossary.tsx';
-import { IconX } from './icons.tsx';
-import type { LessonStats } from '../engine/events.ts';
+import { IconFlag, IconX } from './icons.tsx';
+import type { FlagBody, LessonStats } from '../engine/events.ts';
+import { SentenceView } from './SentenceView.tsx';
+import { FlagSheet } from './Flag.tsx';
 import type { Grade } from '../engine/srs.ts';
 
 export interface LessonResult { run: string; stats: LessonStats }
@@ -22,17 +24,21 @@ interface Props {
   onReview: (card: string, grade: Grade) => void;
   onFinish: (r: LessonResult) => void;
   onQuit: () => void;
+  /** Record a flag on the current exercise. */
+  onFlag?: (b: FlagBody) => void;
 }
 
 const MACRONS = ['ā', 'ē', 'ī', 'ō', 'ū'];
 
-export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit }: Props) {
+export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, onFlag }: Props) {
   const session = useMemo(() => new Session(exercises), [exercises]);
   const [, setTick] = useState(0);
   const [picked, setPicked] = useState<string[]>([]);
   const [typed, setTyped] = useState('');
   const [outcome, setOutcome] = useState<Outcome | null>(null);
   const [term, setTerm] = useState<GlossaryTerm | null>(null);
+  const [flagOpen, setFlagOpen] = useState(false);
+  const [flagged, setFlagged] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const contRef = useRef<HTMLButtonElement>(null);
   const item = session.current;
@@ -54,13 +60,13 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit }
 
   const next = () => {
     session.advance();
-    setPicked([]); setTyped(''); setOutcome(null); setTick((t) => t + 1);
+    setPicked([]); setTyped(''); setOutcome(null); setFlagOpen(false); setTick((t) => t + 1);
     if (session.done) finish();
   };
 
   const check = () => {
-    if (!ex || !isGraded(ex) || outcome) return;
-    const o = session.answer(ex.type === 'choice' ? picked : typed);
+    if (!ex || !isScored(ex) || outcome) return;
+    const o = session.answer(ex.type === 'typed' ? typed : picked);
     if (o.grade && o.card) onReview(o.card, o.grade);
     setOutcome(o);
   };
@@ -68,7 +74,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit }
   if (!ex) return null;
   const pct = Math.round(session.progress * 100);
   const canCheck = ex.type === 'intro' || ex.type === 'grammar' ||
-    (ex.type === 'choice' && picked.length > 0) || (ex.type === 'typed' && typed.trim().length > 0);
+    ((ex.type === 'choice' || ex.type === 'sentence') && picked.length > 0) || (ex.type === 'typed' && typed.trim().length > 0);
 
   const onKey = (e: KeyboardEvent) => {
     if (e.key === 'Enter' && !outcome && canCheck && ex.type === 'typed') { e.preventDefault(); check(); }
@@ -82,6 +88,11 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit }
           <div style={{ width: `${pct}%` }} />
         </div>
         <span class="lesson-tag" lang="la">{node.title}</span>
+        {onFlag && (
+          <button type="button" class={`iconbtn flagbtn${flagged === ex.id ? ' on' : ''}`} data-testid="flag"
+            aria-label={flagged === ex.id ? 'Flagged' : 'Flag this exercise'} title={flagged === ex.id ? 'Flagged' : 'Flag this exercise'}
+            onClick={() => setFlagOpen(true)}><IconFlag /></button>
+        )}
       </header>
 
       <main class="lesson-body" data-exercise={ex.type} data-kind={ex.kind} onKeyDown={onKey}>
@@ -97,6 +108,9 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit }
         )}
         {ex.type === 'typed' && (
           <TypedView ex={ex} typed={typed} setTyped={setTyped} locked={!!outcome} inputRef={inputRef} />
+        )}
+        {ex.type === 'sentence' && (
+          <SentenceView ex={ex} picked={picked} outcome={outcome} setPicked={(p) => { if (!outcome) setPicked(p); }} />
         )}
       </main>
 
@@ -119,11 +133,20 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit }
         </footer>
       )}
       {term && <TermSheet term={term} onClose={() => setTerm(null)} />}
+      {flagOpen && onFlag && (
+        <FlagSheet ex={ex} node={node.id} onClose={() => setFlagOpen(false)}
+          onSend={(b) => { onFlag(b); setFlagged(ex.id); setFlagOpen(false); }} />
+      )}
     </div>
   );
 }
 
 function feedbackBody(ex: Exercise, o: Outcome, retry: number): string {
+  if (ex.type === 'sentence') {
+    const again = !o.ok && retry < 2 ? ' It will come back before this lesson ends.' : '';
+    const exp = /[.!?]$/.test(o.expected) ? o.expected : `${o.expected}.`;
+    return (o.ok ? ex.note : `Correct answer: ${exp} ${ex.note}${again}`).replace(/\s+/g, ' ').trim();
+  }
   if (!isGraded(ex)) return '';
   if (o.ok && o.macronMiss) return `Spelled with macrons: ${o.expected}. ${ex.note}`;
   if (o.ok) return ex.note;

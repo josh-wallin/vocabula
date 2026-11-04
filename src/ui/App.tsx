@@ -1,7 +1,7 @@
 /** App shell: routes between import, path, lesson, complete and tab pages. */
 import { useEffect, useRef, useState } from 'preact/hooks';
 import {
-  frontier, lessonFor, loadApp, withEvents, practiceNode, recordNodeDone, recordReview, streakNow, PRACTICE_NODE, type AppData,
+  frontier, lessonFor, loadApp, withEvents, practiceNode, recordFlag, recordNodeDone, recordReview, streakNow, PRACTICE_NODE, type AppData,
 } from '../app/controller.ts';
 import type { PathNode } from '../engine/path.ts';
 import type { Exercise } from '../engine/lesson.ts';
@@ -84,6 +84,7 @@ export function App() {
         onReview={(card, grade) => {
           void recordReview(app, card, grade, view.node.id, view.run).then((e) => setApp((a) => (a ? withEvents(a, [e]) : a)));
         }}
+        onFlag={(b) => { void recordFlag(app, b).then((e) => setApp((a) => (a ? withEvents(a, [e]) : a))); }}
         onQuit={() => { setView({ v: 'tab' }); void reload(); afterLesson(); }}
         onFinish={async (r: LessonResult) => {
           // Re-read the log so reviews recorded during the lesson are included before node_done.

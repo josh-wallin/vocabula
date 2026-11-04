@@ -9,6 +9,7 @@ import { exportBackupText, importBackupText, streakNow, syncCodeToday } from '..
 import { citation } from '../engine/lexicon.ts';
 import { parseCardId, State } from '../engine/srs.ts';
 import type { ContentPack } from '../data/pack.ts';
+import { FLAG_LABEL } from './Flag.tsx';
 
 async function readFile(input: HTMLInputElement): Promise<string | null> {
   const f = input.files?.[0];
@@ -161,7 +162,7 @@ export function ProfileScreen({ app, setApp, onAbout, sync, onSyncNow }: {
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const st = streakNow(app);
   const cards = [...app.state.cards.values()];
-  const learned = new Set([...app.state.cards.keys()].map((k) => parseCardId(k)?.lemma)).size;
+  const learned = new Set([...app.state.cards.keys()].map((k) => parseCardId(k)?.lemma).filter(Boolean)).size;
   const doImport = async (e: Event) => {
     const t = await readFile(e.target as HTMLInputElement);
     if (t === null) return;
@@ -199,12 +200,38 @@ export function ProfileScreen({ app, setApp, onAbout, sync, onSyncNow }: {
       </label>
       {msg && <p class={msg.ok ? 'okmsg' : 'err'} role="status">{msg.text}</p>}
 
+      <FlagsPanel app={app} />
+
       <h2>Content pack</h2>
       <p class="note">Installed: {app.content.pack.id}, {app.content.pack.counts.lemmas} words, built {app.content.pack.builtAt.slice(0, 10)}.</p>
       <PackImport replacing onImported={() => location.reload()} />
 
       <button type="button" class="btn secondary" onClick={onAbout}>About & credits</button>
     </main>
+  );
+}
+
+/** Flagged exercises (synced events), newest first. */
+function FlagsPanel({ app }: { app: AppData }) {
+  const flags = [...app.state.flags].reverse();
+  return (
+    <>
+      <h2>Flags</h2>
+      {flags.length === 0
+        ? <p class="note">Nothing flagged. Use the flag button in a lesson to report a wrong answer, bad Latin or bad English.</p>
+        : (
+          <ul class="flaglist" data-testid="flag-list">
+            {flags.map((f) => (
+              <li key={f.id}>
+                <span class="fr">{FLAG_LABEL[f.reason] ?? f.reason} · {new Date(f.ts).toISOString().slice(0, 10)}</span>
+                <span class="fref">{f.ref}</span>
+                {f.shown && <span class="fshown">{f.shown}</span>}
+                {f.note && <span class="fnote">“{f.note}”</span>}
+              </li>
+            ))}
+          </ul>
+        )}
+    </>
   );
 }
 

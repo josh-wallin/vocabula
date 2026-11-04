@@ -9,8 +9,9 @@
 import type { Card } from 'ts-fsrs';
 import { review, type Grade, parseCardId } from './srs.ts';
 import { dayNum, dayStr, localDay } from './util.ts';
+import type { FlagReason } from './eventShape.ts';
 
-export type EventKind = 'review' | 'node_done' | 'setting';
+export type EventKind = 'review' | 'node_done' | 'setting' | 'flag';
 
 export interface LessonStats {
   exercises: number;
@@ -23,6 +24,13 @@ export interface LessonStats {
 export interface ReviewBody { node?: string; run?: string }
 export interface NodeDoneBody { node: string; run: string; stats: LessonStats }
 export interface SettingBody { key: string; value: unknown }
+/** Why an exercise was flagged (Lesson → flag button). */
+export type { FlagReason } from './eventShape.ts';
+/**
+ * A flagged exercise. `ref`: the exercise's card id (amo-v1:meaning, sent:s02-01:la), or lemma:<id> /
+ * grammar:<section> for cards that aren't graded. `shown`: what the screen showed (prompt + cue), optional.
+ */
+export interface FlagBody { ref: string; reason: FlagReason; note?: string; shown?: string; node?: string }
 
 export interface VEvent {
   id: string;
@@ -31,7 +39,7 @@ export interface VEvent {
   kind: EventKind;
   card?: string;
   grade?: Grade;
-  body?: ReviewBody | NodeDoneBody | SettingBody;
+  body?: ReviewBody | NodeDoneBody | SettingBody | FlagBody;
   /** 1 = not yet uploaded to the (future) sync server. Not part of derived state. */
   outbox?: 0 | 1;
 }
@@ -56,6 +64,8 @@ export interface DerivedState {
   days: Set<string>;
   settings: Record<string, unknown>;
   reviewCount: number;
+  /** Flagged exercises, oldest first. */
+  flags: (FlagBody & { id: string; ts: number })[];
 }
 
 export const compareEvents = (a: VEvent, b: VEvent): number =>
@@ -71,7 +81,7 @@ export function canonical(events: readonly VEvent[]): VEvent[] {
 export function replay(events: readonly VEvent[]): DerivedState {
   const s: DerivedState = {
     cards: new Map(), last: new Map(), meaningGood: new Map(), seen: new Set(), done: new Set(),
-    lessons: [], puncta: 0, days: new Set(), settings: {}, reviewCount: 0,
+    lessons: [], puncta: 0, days: new Set(), settings: {}, reviewCount: 0, flags: [],
   };
   for (const e of canonical(events)) {
     switch (e.kind) {
@@ -101,6 +111,11 @@ export function replay(events: readonly VEvent[]): DerivedState {
       case 'setting': {
         const b = e.body as SettingBody | undefined;
         if (b?.key) s.settings[b.key] = b.value;
+        break;
+      }
+      case 'flag': {
+        const b = e.body as FlagBody | undefined;
+        if (b?.ref && b.reason) s.flags.push({ ...b, id: e.id, ts: e.ts });
         break;
       }
     }
@@ -143,6 +158,6 @@ export function stateFingerprint(s: DerivedState): string {
   return JSON.stringify({
     cards: sortObj(s.cards), last: sortObj(s.last), mg: sortObj(s.meaningGood),
     seen: [...s.seen].sort(), done: [...s.done].sort(), lessons: s.lessons, puncta: s.puncta,
-    days: [...s.days].sort(), settings: s.settings, reviews: s.reviewCount,
+    days: [...s.days].sort(), settings: s.settings, reviews: s.reviewCount, flags: s.flags,
   });
 }
