@@ -5,20 +5,20 @@
     {"tokens":[{"form":"Mārce","lemma":"proper","cell":"voc.sg","proper":true,"gloss":"Marcus (a Roman man's name)","comma":true},{"form":"saepe","lemma":"saepe-indecl","cell":"citation"},{"form":"errās","lemma":"erro-v1","cell":"pres.act.ind.2sg"}],"en":"Marcus, you often make mistakes!","punct":"!","speaker":"Tullia"},
     {"tokens":[{"form":"errō","lemma":"erro-v1","cell":"pres.act.ind.1sg","comma":true},{"form":"sī","lemma":"si-indecl","cell":"citation"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"cōgitō","lemma":"cogito-v1","cell":"pres.act.ind.1sg"}],"en":"I make mistakes if I do not think.","speaker":"Mārcus"},
     {"tokens":[{"form":"saepe","lemma":"saepe-indecl","cell":"citation"},{"form":"cōgitāre","lemma":"cogito-v1","cell":"pres.act.inf"},{"form":"dēbēs","lemma":"debeo-v2","cell":"pres.act.ind.2sg"}],"en":"You ought to think often.","speaker":"Tullia"},
-    {"tokens":[{"form":"saepe","lemma":"saepe-indecl","cell":"citation"},{"form":"cōgitō","lemma":"cogito-v1","cell":"pres.act.ind.1sg","comma":true},{"form":"nihil","lemma":"nihil-indecl","cell":"citation"},{"form":"videō","lemma":"video-v2","cell":"pres.act.ind.1sg"}],"en":"I often think, and I see nothing!","punct":"!","speaker":"Mārcus"},
+    {"tokens":[{"form":"saepe","lemma":"saepe-indecl","cell":"citation"},{"form":"cōgitō","lemma":"cogito-v1","cell":"pres.act.ind.1sg","comma":true},{"form":"nihil","lemma":"nihil-indecl","cell":"citation"},{"form":"videō","lemma":"video-v2","cell":"pres.act.ind.1sg"}],"en":"I often think, but I see nothing!","punct":"!","speaker":"Mārcus"},
     {"tokens":[{"form":"sī","lemma":"si-indecl","cell":"citation"},{"form":"nihil","lemma":"nihil-indecl","cell":"citation"},{"form":"vidēs","lemma":"video-v2","cell":"pres.act.ind.2sg","comma":true},{"form":"monēre","lemma":"moneo-v2","cell":"pres.act.inf"},{"form":"dēbeō","lemma":"debeo-v2","cell":"pres.act.ind.1sg"}],"en":"If you see nothing, I ought to advise you.","speaker":"Tullia"},
     {"tokens":[{"form":"sī","lemma":"si-indecl","cell":"citation"},{"form":"monēs","lemma":"moneo-v2","cell":"pres.act.ind.2sg","comma":true},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"errō","lemma":"erro-v1","cell":"pres.act.ind.1sg"}],"en":"If you advise me, I do not make mistakes.","speaker":"Mārcus"},
     {"tokens":[{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"errās","lemma":"erro-v1","cell":"pres.act.ind.2sg","comma":true},{"form":"Mārce","lemma":"proper","cell":"voc.sg","proper":true,"gloss":"Marcus (a Roman man's name)"}],"en":"You are not making mistakes, Marcus!","punct":"!","speaker":"Tullia"},
-    {"tokens":[{"form":"cōgitās","lemma":"cogito-v1","cell":"pres.act.ind.2sg","comma":true},{"form":"Mārce","lemma":"proper","cell":"voc.sg","proper":true,"gloss":"Marcus (a Roman man's name)","comma":true},{"form":"laudāre","lemma":"laudo-v1","cell":"pres.act.inf"},{"form":"dēbeō","lemma":"debeo-v2","cell":"pres.act.ind.1sg"}],"en":"You are thinking, Marcus; I ought to praise you.","speaker":"Tullia"}
+    {"tokens":[{"form":"sī","lemma":"si-indecl","cell":"citation"},{"form":"cōgitās","lemma":"cogito-v1","cell":"pres.act.ind.2sg","comma":true},{"form":"Mārce","lemma":"proper","cell":"voc.sg","proper":true,"gloss":"Marcus (a Roman man's name)","comma":true},{"form":"laudāre","lemma":"laudo-v1","cell":"pres.act.inf"},{"form":"dēbeō","lemma":"debeo-v2","cell":"pres.act.ind.1sg"}],"en":"If you think, Marcus, I ought to praise you.","speaker":"Tullia"}
    ],
    "questions":[
     {"q":"What does Tullia say Marcus often does?","options":["He makes mistakes","He praises her","He calls his friends","He gives gifts"],"answer":0},
     {"q":"When, by his own account, does Marcus make mistakes?","options":["When he does not think","When he is frightened","When Tullia calls him","When he is not well"],"answer":0},
     {"q":"What does Tullia think she ought to do if Marcus sees nothing?","options":["Advise him","Frighten him","Call him","Give him nothing"],"answer":0},
-    {"q":"How does the passage end?","options":["Tullia says she ought to praise Marcus","Marcus wanders off","Tullia warns Marcus again","Marcus says goodbye"],"answer":0}
+    {"q":"How does the passage end?","options":["Tullia says she ought to praise Marcus if he thinks","Marcus wanders off","Tullia warns Marcus again","Marcus says goodbye"],"answer":0}
    ],
    "notes":[
-    {"s":0,"t":0,"note":"Mārce: the form used to address Marcus (the vocative)."},
+    {"s":0,"t":0,"note":"Mārce: vocative, \"O Marcus\": the form used to address him."},
     {"s":4,"t":3,"note":"monēre dēbeō: \"I ought to advise\". dēbeō takes an infinitive."}
    ]
   }
