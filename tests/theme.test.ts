@@ -67,6 +67,9 @@ describe('theme tokens', () => {
     expect(light.get('color-scheme')).toBe('light');
     expect(darkMedia.get('color-scheme')).toBe('dark');
   });
+  it("Latin text turns off EB Garamond's u → v localization", () => {
+    expect(css).toContain(":lang(la) { font-feature-settings: 'locl' 0; }");
+  });
   it('the dark block sits inside prefers-color-scheme: dark', () => {
     expect(css).toMatch(/@media \(prefers-color-scheme: dark\) \{\s*:root:not\(\[data-theme='light'\]\) \{/);
   });

@@ -139,6 +139,9 @@ button:disabled { cursor: default; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 /* Latin running text uses Garamond; UI labels in Latin (node titles, tags) keep their own fonts. */
 .la, i[lang='la'], .pills, .wordlist .w { font-family: var(--font-text); }
+/* EB Garamond's Latin localization (OpenType locl, LAT) draws u as v (amāmus → amāmvs);
+   Wheelock spells with u, so Latin text keeps the default glyphs. */
+:lang(la) { font-feature-settings: 'locl' 0; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- app frame ---------- */
