@@ -37,12 +37,12 @@ const byId = new Map(entries.map((e) => [e.id, e]));
 const clone = (e: HistoriaEntry): HistoriaEntry => JSON.parse(JSON.stringify(e)) as HistoriaEntry;
 
 describe('historia: definitions', () => {
-  it('ten entries, one file each, named by id, in order', () => {
+  it('sixteen entries, one file each, named by id, in order', () => {
     const files = readdirSync(DIR).filter((f) => f.endsWith('.json')).sort();
-    expect(files.length).toBe(10);
+    expect(files.length).toBe(16);
     for (const f of files) expect(parseHistoriaEntry(JSON.parse(readFileSync(resolve(DIR, f), 'utf8'))).id).toBe(f.replace('.json', ''));
-    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25']);
-    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25', 'veg-3', 'agr-30', 'liv-2251', 'liv-548', 'bg-425', 'hadr-11']);
+    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     // Exactly one verse entry: Hadrian's lines to his soul.
     expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25']);
   });
@@ -53,11 +53,19 @@ describe('historia: definitions', () => {
         expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
         expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXIII/);
         expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
-      } else {
-        expect(e.author).toBe('Historia Augusta');
+      } else if (e.author === 'Historia Augusta') {
         expect(e.citation).toMatch(/^HA Hadr\. \d+\.\d+(–\d+)?$/);
         expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXXI/);
         expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Historia_Augusta\/Hadrian\/[12]\*\.html$/);
+      } else {
+        // Other authors: a standard citation and a named edition (or an honest note that the page names none).
+        const cite: Record<string, RegExp> = {
+          Vegetius: /^Veg\. Mil\. \d+ praef\.$/, Tacitus: /^Tac\. Agr\. \d+\.\d+(–\d+)?$/,
+          Livy: /^Liv\. \d+\.\d+\.\d+(–\d+)?$/, Caesar: /^Caes\. BGall\. \d+\.\d+\.\d+(–\d+)?$/,
+        };
+        expect(cite[e.author], `${e.id}: author ${e.author}`).toBeDefined();
+        expect(e.citation).toMatch(cite[e.author]!);
+        expect(e.edition.name).toMatch(/ed\. |does not name/);
       }
       expect(e.sources.some((s) => s.url === e.edition.url && s.kind === 'ancient')).toBe(true);
       expect(e.verified).toBe('2026-11-04');
@@ -278,7 +286,7 @@ describe.skipIf(!present)('historia: app ids are the app\'s words (private data)
   const lex = pack ? buildLexicon(pack.lemmas, dccLemmas(), pack.fr ?? []) : null;
   const head = (lemma: string) => lemma.split(/,| \(| \+ /)[0]!.trim();
   /** Same spelling, different word: these tokens are deliberately not linked. */
-  const HOMOGRAPHS = new Set(['cum', 'adeō']);
+  const HOMOGRAPHS = new Set(['cum', 'adeō', 'Gallus']); // Gallus "a Gaul" vs FR gallus "rooster"
 
   it('every app id is a lexicon word whose first citation form is the token\'s headword, macrons included', () => {
     for (const e of entries) for (const t of e.tokens) for (const id of t.app ?? []) {

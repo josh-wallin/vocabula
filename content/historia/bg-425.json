@@ -1,0 +1,682 @@
+{
+ "id": "bg-425",
+ "order": 15,
+ "title": "The eagle-bearer of the Tenth",
+ "saying": "Dēsilīte, mīlitēs, nisi vultis aquilam hostibus prōdere",
+ "author": "Caesar",
+ "work": "Dē bellō Gallicō",
+ "citation": "Caes. BGall. 4.25.3–5",
+ "setting": "The coast of Britain, late summer 55 BC",
+ "edition": {
+  "name": "Caesar, Selections from the Gallic War, ed. Christopher Francese, Dickinson College Commentaries (Carlisle, Pennsylvania, 2011, revised and enlarged 2018), as credited on the page, which names no separate critical edition; DCC content is licensed CC BY-SA (\"Dickinson College Commentaries by Dickinson College is licensed under a Creative Commons Attribution-ShareAlike License\")",
+  "url": "https://dcc.dickinson.edu/caesar/book-4/chapter-4-25",
+  "section": "Bellum Gallicum 4.25.3–5 (the page has paragraphs, not section numbers; sections as in T. Rice Holmes's Oxford text)"
+ },
+ "source_text": "Atque nostris militibus cunctantibus, maxime propter altitudinem maris, qui decimae legionis aquilam ferebat, contestatus deos, ut ea res legioni feliciter eveniret, \"Desilite\", inquit, \"milites, nisi vultis aquilam hostibus prodere; ego certe meum rei publicae atque imperatori officium praestitero.\" Hoc cum voce magna dixisset, se ex navi proiecit atque in hostes aquilam ferre coepit. Tum nostri cohortati inter se, ne tantum dedecus admitteretur, universi ex navi desiluerunt.",
+ "excerpt_note": "Sections 3–5 of chapter 25 (the third and fourth paragraphs on the page, without the last sentence, which is section 6). The DCC prints macrons and single quotation marks, with a space inside each opening mark; here the text is given without macrons, with ASCII double quotation marks and without those spaces.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial, not part of any manuscript. The DCC text is macronized; here vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and otherwise the DCC text. Where the DCC marks long vowels before -gn- or -x- (māgnā, māximē) that the app lexicon does not, the app's spelling is used.",
+  "uncertain": [
+   "magnā, maximē: the DCC text prints māgnā and māximē; the app lexicon has magnus, so magnā follows it, and maximē is printed the same way.",
+   "contestātus, cohortātī: long ā of the participle; as in the DCC, not machine-checked.",
+   "dēsiluērunt, Dēsilīte: long ē in dē-, as in the DCC; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Atque",
+   "lemma": "atque (or ac)",
+   "parse": "conjunction",
+   "gloss": "and then"
+  },
+  {
+   "w": "nostrīs",
+   "lemma": "noster, nostra, nostrum",
+   "parse": "abl. pl. m. (ablative absolute)",
+   "gloss": "our",
+   "app": [
+    "noster-adj12"
+   ]
+  },
+  {
+   "w": "mīlitibus",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "abl. pl. (ablative absolute)",
+   "gloss": "soldiers",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "cunctantibus",
+   "p": ",",
+   "lemma": "cunctor, cunctārī",
+   "parse": "pres. participle (deponent), abl. pl. (ablative absolute)",
+   "gloss": "hesitating"
+  },
+  {
+   "w": "maximē",
+   "lemma": "maximē (superlative of magnopere)",
+   "parse": "adverb",
+   "gloss": "chiefly, most of all"
+  },
+  {
+   "w": "propter",
+   "lemma": "propter (+ acc.)",
+   "parse": "preposition",
+   "gloss": "because of",
+   "app": [
+    "propter-indecl"
+   ]
+  },
+  {
+   "w": "altitūdinem",
+   "lemma": "altitūdō, altitūdinis, f.",
+   "parse": "acc. sg.",
+   "gloss": "the depth"
+  },
+  {
+   "w": "maris",
+   "p": ",",
+   "lemma": "mare, maris, n.",
+   "parse": "gen. sg.",
+   "gloss": "of the sea",
+   "app": [
+    "mare-n3in"
+   ]
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. sg. m. (antecedent understood: \"the man who\")",
+   "gloss": "(the man) who"
+  },
+  {
+   "w": "decimae",
+   "lemma": "decimus, decima, decimum",
+   "parse": "gen. sg. f.",
+   "gloss": "of the tenth"
+  },
+  {
+   "w": "legiōnis",
+   "lemma": "legiō, legiōnis, f.",
+   "parse": "gen. sg.",
+   "gloss": "legion",
+   "app": [
+    "legio-n3"
+   ]
+  },
+  {
+   "w": "aquilam",
+   "lemma": "aquila, aquilae, f.",
+   "parse": "acc. sg.",
+   "gloss": "the eagle (the legion's standard)"
+  },
+  {
+   "w": "ferēbat",
+   "p": ",",
+   "lemma": "ferō, ferre, tulī, lātum",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "was carrying"
+  },
+  {
+   "w": "contestātus",
+   "lemma": "contestor, contestārī, contestātus sum",
+   "parse": "perf. participle (deponent), nom. sg. m.",
+   "gloss": "having called to witness"
+  },
+  {
+   "w": "deōs",
+   "p": ",",
+   "lemma": "deus, deī, m.",
+   "parse": "acc. pl.",
+   "gloss": "the gods",
+   "app": [
+    "deus-n2m"
+   ]
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (purpose: a prayer)",
+   "gloss": "that"
+  },
+  {
+   "w": "ea",
+   "lemma": "is, ea, id",
+   "parse": "nom. sg. f.",
+   "gloss": "this"
+  },
+  {
+   "w": "rēs",
+   "lemma": "rēs, reī, f.",
+   "parse": "nom. sg.",
+   "gloss": "action, deed"
+  },
+  {
+   "w": "legiōnī",
+   "lemma": "legiō, legiōnis, f.",
+   "parse": "dat. sg.",
+   "gloss": "for the legion",
+   "app": [
+    "legio-n3"
+   ]
+  },
+  {
+   "w": "fēlīciter",
+   "lemma": "fēlīciter",
+   "parse": "adverb",
+   "gloss": "well, with good fortune"
+  },
+  {
+   "w": "ēvenīret",
+   "p": ",",
+   "lemma": "ēveniō, ēvenīre, ēvēnī, ēventum",
+   "parse": "3rd sg. impf. subj. act.",
+   "gloss": "might turn out"
+  },
+  {
+   "w": "Dēsilīte",
+   "pre": "\"",
+   "p": "\",",
+   "lemma": "dēsiliō, dēsilīre, dēsiluī, dēsultum",
+   "parse": "2nd pl. pres. imperative act.",
+   "gloss": "jump down!"
+  },
+  {
+   "w": "inquit",
+   "p": ",",
+   "lemma": "inquam (defective verb)",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "he said"
+  },
+  {
+   "w": "mīlitēs",
+   "pre": "\"",
+   "p": ",",
+   "lemma": "mīles, mīlitis, m.",
+   "parse": "voc. pl.",
+   "gloss": "soldiers",
+   "app": [
+    "miles-n3"
+   ]
+  },
+  {
+   "w": "nisi",
+   "lemma": "nisi",
+   "parse": "conjunction",
+   "gloss": "unless"
+  },
+  {
+   "w": "vultis",
+   "lemma": "volō, velle, voluī",
+   "parse": "2nd pl. pres. ind.",
+   "gloss": "you want"
+  },
+  {
+   "w": "aquilam",
+   "lemma": "aquila, aquilae, f.",
+   "parse": "acc. sg.",
+   "gloss": "the eagle"
+  },
+  {
+   "w": "hostibus",
+   "lemma": "hostis, hostis, m./f.",
+   "parse": "dat. pl.",
+   "gloss": "to the enemy",
+   "app": [
+    "hostis-n3i"
+   ]
+  },
+  {
+   "w": "prōdere",
+   "p": ";",
+   "lemma": "prōdō, prōdere, prōdidī, prōditum",
+   "parse": "pres. inf. act.",
+   "gloss": "to betray, hand over",
+   "app": [
+    "prodo-v3"
+   ]
+  },
+  {
+   "w": "ego",
+   "lemma": "ego, meī",
+   "parse": "nom. sg.",
+   "gloss": "I"
+  },
+  {
+   "w": "certē",
+   "lemma": "certē",
+   "parse": "adverb",
+   "gloss": "at any rate"
+  },
+  {
+   "w": "meum",
+   "lemma": "meus, mea, meum",
+   "parse": "acc. sg. n.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "reī",
+   "lemma": "rēs, reī, f.",
+   "parse": "dat. sg. (rēs pūblica: the state)",
+   "gloss": "to the state"
+  },
+  {
+   "w": "pūblicae",
+   "lemma": "pūblicus, pūblica, pūblicum",
+   "parse": "dat. sg. f.",
+   "gloss": "public",
+   "app": [
+    "publicus-adj12"
+   ]
+  },
+  {
+   "w": "atque",
+   "lemma": "atque (or ac)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "imperātōrī",
+   "lemma": "imperātor, imperātōris, m.",
+   "parse": "dat. sg.",
+   "gloss": "to the commander",
+   "app": [
+    "imperator-n3"
+   ]
+  },
+  {
+   "w": "officium",
+   "lemma": "officium, officiī, n.",
+   "parse": "acc. sg.",
+   "gloss": "duty",
+   "app": [
+    "officium-n2n"
+   ]
+  },
+  {
+   "w": "praestiterō",
+   "p": ".\"",
+   "lemma": "praestō, praestāre, praestitī, praestitum",
+   "parse": "1st sg. fut. perf. ind. act.",
+   "gloss": "I shall have done, will have performed",
+   "app": [
+    "praesto-v1"
+   ]
+  },
+  {
+   "w": "Hoc",
+   "lemma": "hic, haec, hoc",
+   "parse": "acc. sg. n.",
+   "gloss": "this",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "cum",
+   "lemma": "cum",
+   "parse": "conjunction (with subjunctive)",
+   "gloss": "when",
+   "nolink": true
+  },
+  {
+   "w": "vōce",
+   "lemma": "vōx, vōcis, f.",
+   "parse": "abl. sg. (manner)",
+   "gloss": "in a voice",
+   "app": [
+    "vox-n3"
+   ]
+  },
+  {
+   "w": "magnā",
+   "lemma": "magnus, magna, magnum",
+   "parse": "abl. sg. f.",
+   "gloss": "loud",
+   "app": [
+    "magnus-adj12"
+   ]
+  },
+  {
+   "w": "dīxisset",
+   "p": ",",
+   "lemma": "dīcō, dīcere, dīxī, dictum",
+   "parse": "3rd sg. pluperf. subj. act. (cum clause)",
+   "gloss": "he had said",
+   "app": [
+    "dico-v3"
+   ]
+  },
+  {
+   "w": "sē",
+   "lemma": "sē (suī, sibi), reflexive pronoun",
+   "parse": "acc.",
+   "gloss": "himself"
+  },
+  {
+   "w": "ex",
+   "lemma": "ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from",
+   "app": [
+    "ex-indecl"
+   ]
+  },
+  {
+   "w": "nāvī",
+   "lemma": "nāvis, nāvis, f.",
+   "parse": "abl. sg.",
+   "gloss": "the ship",
+   "app": [
+    "navis-n3i"
+   ]
+  },
+  {
+   "w": "prōiēcit",
+   "lemma": "prōiciō, prōicere, prōiēcī, prōiectum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "threw, flung"
+  },
+  {
+   "w": "atque",
+   "lemma": "atque (or ac)",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "against, toward",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "hostēs",
+   "lemma": "hostis, hostis, m./f.",
+   "parse": "acc. pl.",
+   "gloss": "the enemy",
+   "app": [
+    "hostis-n3i"
+   ]
+  },
+  {
+   "w": "aquilam",
+   "lemma": "aquila, aquilae, f.",
+   "parse": "acc. sg.",
+   "gloss": "the eagle"
+  },
+  {
+   "w": "ferre",
+   "lemma": "ferō, ferre, tulī, lātum",
+   "parse": "pres. inf. act.",
+   "gloss": "to carry"
+  },
+  {
+   "w": "coepit",
+   "p": ".",
+   "lemma": "coepī, coepisse (defective verb)",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "began"
+  },
+  {
+   "w": "Tum",
+   "lemma": "tum",
+   "parse": "adverb",
+   "gloss": "then",
+   "app": [
+    "tum-indecl"
+   ]
+  },
+  {
+   "w": "nostrī",
+   "lemma": "noster, nostra, nostrum",
+   "parse": "nom. pl. m., used as a noun",
+   "gloss": "our men",
+   "app": [
+    "noster-adj12"
+   ]
+  },
+  {
+   "w": "cohortātī",
+   "lemma": "cohortor, cohortārī, cohortātus sum",
+   "parse": "perf. participle (deponent), nom. pl. m.",
+   "gloss": "having urged"
+  },
+  {
+   "w": "inter",
+   "lemma": "inter (+ acc.)",
+   "parse": "preposition (inter sē: one another)",
+   "gloss": "among"
+  },
+  {
+   "w": "sē",
+   "p": ",",
+   "lemma": "sē (suī, sibi), reflexive pronoun",
+   "parse": "acc.",
+   "gloss": "themselves"
+  },
+  {
+   "w": "nē",
+   "lemma": "nē",
+   "parse": "conjunction (negative purpose)",
+   "gloss": "so that ... not"
+  },
+  {
+   "w": "tantum",
+   "lemma": "tantus, tanta, tantum",
+   "parse": "nom. sg. n.",
+   "gloss": "so great",
+   "app": [
+    "tantus-adj12"
+   ]
+  },
+  {
+   "w": "dēdecus",
+   "lemma": "dēdecus, dēdecoris, n.",
+   "parse": "nom. sg.",
+   "gloss": "disgrace"
+  },
+  {
+   "w": "admitterētur",
+   "p": ",",
+   "lemma": "admittō, admittere, admīsī, admissum",
+   "parse": "3rd sg. impf. subj. pass.",
+   "gloss": "should be allowed, committed"
+  },
+  {
+   "w": "ūniversī",
+   "lemma": "ūniversus, ūniversa, ūniversum",
+   "parse": "nom. pl. m.",
+   "gloss": "all together"
+  },
+  {
+   "w": "ex",
+   "lemma": "ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from",
+   "app": [
+    "ex-indecl"
+   ]
+  },
+  {
+   "w": "nāvī",
+   "lemma": "nāvis, nāvis, f.",
+   "parse": "abl. sg.",
+   "gloss": "the ship",
+   "app": [
+    "navis-n3i"
+   ]
+  },
+  {
+   "w": "dēsiluērunt",
+   "p": ".",
+   "lemma": "dēsiliō, dēsilīre, dēsiluī, dēsultum",
+   "parse": "3rd pl. perf. ind. act.",
+   "gloss": "jumped down"
+  }
+ ],
+ "translation": "And as our soldiers hung back, chiefly because the water was deep, the man who carried the eagle of the Tenth Legion called on the gods to let his act turn out well for the legion and cried, \"Jump down, soldiers, unless you want to hand the eagle over to the enemy. I at any rate will have done my duty to the state and to my commander.\" When he had said this in a loud voice, he flung himself from the ship and began to carry the eagle toward the enemy. Then our men urged one another not to allow so great a disgrace, and all of them leapt down from the ship.",
+ "translation_note": "quī ... ferēbat has no expressed antecedent: \"(the man) who carried\". praestiterō is a future perfect: \"I shall have done my duty\", whatever you do. nē ... admitterētur is a negative purpose clause. T. Rice Holmes's Oxford text (1914) reads X legionis aquilam gerebat and obtestatus where the DCC has decimae legionis aquilam ferebat and contestatus; the meaning is the same.",
+ "essay": [
+  [
+   {
+    "t": "Late in the summer of 55 BC Caesar crossed from Gaul to Britain, saying that the Britons had sent help to his enemies in almost all his Gallic wars.",
+    "src": [
+     2,
+     3
+    ]
+   },
+   {
+    "t": "He brought two legions in about eighty transports, with eighteen more ships assigned to the cavalry.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The landing went badly: the big ships could ride only in deep water, so soldiers weighed down with armour, on unfamiliar ground, had to jump into the waves and fight at once, while the Britons threw weapons from dry land or the shallows.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Here Caesar brings on the eagle-bearer of the Tenth, who prays, makes a short speech and leaps; shame does the rest.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Caesar does not name him, and reports words he can hardly have heard exactly over the noise of a landing.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Even the wording varies: the DCC text has decimae ... ferebat and contestatus, while Holmes's Oxford edition prints X legionis aquilam gerebat and obtestatus.",
+    "src": [
+     1,
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The rest of the expedition was no triumph: the cavalry transports were scattered by a storm and never arrived, so the beaten Britons could not be pursued, which Caesar says was all that his usual good fortune lacked.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "With the equinox near and his ships damaged, he doubled his demand for hostages and sailed back to Gaul.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Yet when his dispatches reached Rome the senate decreed a thanksgiving of twenty days.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Britannica calls the expeditions of 55 and 54 BC brief raids that Western tradition has overestimated.",
+    "src": [
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Caesar writes of himself in the third person (\"Quod ubi Caesar animadvertit...\" opens this chapter).",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Britannica describes his commentaries as terse reports that look impersonal and objective, but in which every fact is selected so that readers see events in the light Caesar chooses.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Ancient readers already disagreed: Suetonius quotes Cicero praising their plain, unadorned style, and reports that Asinius Pollio thought them written with too little care and regard for truth.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "The eagle-bearer's leap fits that pattern: a vivid scene that turns a near-disaster into a story of Roman courage.",
+    "src": [
+     1,
+     3
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "Why did the soldiers hesitate to leave the ships?",
+   "options": [
+    "Chiefly because of the depth of the water",
+    "Because Caesar had forbidden it",
+    "Because the Britons had surrendered",
+    "Because the eagle had been lost"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What did the senate decree after Caesar's dispatches arrived?",
+   "options": [
+    "A thanksgiving of twenty days",
+    "A triumph through Rome",
+    "His recall from Gaul",
+    "Nothing at all"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What did Asinius Pollio think of Caesar's commentaries, according to Suetonius?",
+   "options": [
+    "That they were written with too little care and regard for truth",
+    "That they were the finest history ever written",
+    "That Cicero had written them",
+    "That they were in Greek"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Caesar, Bellum Gallicum 4.25 (Latin, ed. C. Francese, with notes), Dickinson College Commentaries (CC BY-SA)",
+   "url": "https://dcc.dickinson.edu/caesar/book-4/chapter-4-25",
+   "kind": "ancient"
+  },
+  {
+   "label": "Caesar, Bellum Gallicum 4.20–38 (Latin; ed. T. Rice Holmes, Oxford 1914), Perseus Digital Library canonical-latinLit (CC BY-SA 4.0)",
+   "url": "https://github.com/PerseusDL/canonical-latinLit/blob/master/data/phi0448/phi001/phi0448.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Julius Caesar\"",
+   "url": "https://www.britannica.com/biography/Julius-Caesar-Roman-ruler",
+   "kind": "modern"
+  },
+  {
+   "label": "Suetonius, Divus Iulius 56 (Latin; Loeb text, Rolfe vol. I), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}
