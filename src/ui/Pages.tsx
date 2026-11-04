@@ -206,6 +206,7 @@ export function ProfileScreen({ app, setApp, onAbout, sync, onSyncNow }: {
       <p class="note">Installed: {app.content.pack.id}, {app.content.pack.counts.lemmas} words, built {app.content.pack.builtAt.slice(0, 10)}.</p>
       <PackImport replacing onImported={() => location.reload()} />
 
+      <a class="btn secondary" href="#/compare" data-testid="voice-test">Voice test</a>
       <button type="button" class="btn secondary" onClick={onAbout}>About & credits</button>
     </main>
   );

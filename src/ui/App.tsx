@@ -17,6 +17,7 @@ import { Lesson, type LessonResult } from './Lesson.tsx';
 import { Complete } from './Complete.tsx';
 import { Markdown } from './Markdown.tsx';
 import { AboutScreen, ImportScreen, ProfileScreen, WordsScreen } from './Pages.tsx';
+import { COMPARE_HASH, ComparePage } from './Compare.tsx';
 import { IconBack, IconCloud, IconCloudOff, IconFlame, IconPath, IconPractice, IconProfile, IconStar, IconWords } from './icons.tsx';
 
 type Tab = 'path' | 'practice' | 'words' | 'profile';
@@ -43,6 +44,9 @@ export function App() {
   const viewRef = useRef(view);
   viewRef.current = view;
   const pendingReload = useRef(false);
+  // Voice test (#/compare): a hidden page, reached from Profile.
+  const [hash, setHash] = useState(() => location.hash);
+  useEffect(() => { const f = () => setHash(location.hash); addEventListener('hashchange', f); return () => removeEventListener('hashchange', f); }, []);
 
   const reload = () => loadApp().then(setApp).catch((e: Error) => setErr(e.message));
   useEffect(() => { void reload(); }, []);
@@ -69,6 +73,7 @@ export function App() {
     void getSyncer().request();
   };
 
+  if (hash === COMPARE_HASH) return <ComparePage onBack={() => { history.replaceState(null, '', location.pathname + location.search); setHash(''); }} />;
   if (err) return <div class="screen"><main class="page"><h1>Vocābula</h1><p class="err" role="alert">{err}</p></main></div>;
   if (app === undefined) return <div class="splash"><span class="brand">Vocābula</span></div>;
   if (app === null) return <ImportScreen onImported={() => void reload()} />;
