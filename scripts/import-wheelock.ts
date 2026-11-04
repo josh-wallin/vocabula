@@ -3,17 +3,24 @@
  *
  *   npx tsx scripts/import-wheelock.ts [input.json] [output.json]
  *
- * Defaults: content/private/source/vocab_ch1-4.json → content/private/wheelock.json
+ * Defaults: every content/private/source/vocab_ch*.json (ch1-4, ch5-8, ...) → content/private/wheelock.json
+ * An explicit input may be one file or a comma-separated list of files.
  * content/private/ is gitignored: this is copyrighted textbook data. Never commit it.
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
 import { importWheelock, type WheelockEntry } from '../src/data/wheelock.ts';
 
-const input = resolve(process.argv[2] ?? 'content/private/source/vocab_ch1-4.json');
+const SOURCE_DIR = 'content/private/source';
+const chStart = (f: string) => Number(/vocab_ch(\d+)/.exec(f)?.[1] ?? 0);
+const inputs = process.argv[2]
+  ? process.argv[2].split(',').map((f) => resolve(f))
+  : readdirSync(SOURCE_DIR).filter((f) => /^vocab_ch\d+-\d+\.json$/.test(f))
+      .sort((a, b) => chStart(a) - chStart(b)).map((f) => resolve(join(SOURCE_DIR, f)));
+const input = inputs.join(', ');
 const output = resolve(process.argv[3] ?? 'content/private/wheelock.json');
 
-const entries = JSON.parse(readFileSync(input, 'utf8')) as WheelockEntry[];
+const entries = inputs.flatMap((f) => JSON.parse(readFileSync(f, 'utf8')) as WheelockEntry[]);
 const r = importWheelock(entries);
 
 mkdirSync(dirname(output), { recursive: true });
