@@ -1,0 +1,286 @@
+{
+ "id": "iul-32",
+ "order": 1,
+ "title": "The die is cast",
+ "saying": "Iacta ālea est",
+ "author": "Suetonius",
+ "work": "Dīvus Iūlius",
+ "citation": "Suet. Iul. 32",
+ "setting": "The Rubicon, 49 BC",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
+  "section": "Divus Iulius 32 (the last two sentences of the chapter)"
+ },
+ "source_text": "Tunc Caesar: \"Eatur,\" inquit, \"quo deorum ostenta et inimicorum iniquitas vocat. Iacta alea est,\" inquit.",
+ "excerpt_note": "The last two sentences of chapter 32 (the chapter has one section).",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "ālea: long ā as in the standard dictionaries (Lewis & Short ālea); not in the app lexicon, so not machine-checked.",
+   "iacta: short a (iactum), matching the app lexicon (DCC iaciō, iacere, iēcī, iactum)."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Tunc",
+   "lemma": "tunc",
+   "parse": "adverb",
+   "gloss": "then"
+  },
+  {
+   "w": "Caesar",
+   "p": ":",
+   "lemma": "Caesar, Caesaris, m.",
+   "parse": "nom. sg.",
+   "gloss": "Caesar"
+  },
+  {
+   "w": "Eātur",
+   "pre": "\"",
+   "p": ",\"",
+   "lemma": "eō, īre, iī, itum",
+   "parse": "3rd sg. pres. subj. pass., impersonal (jussive)",
+   "gloss": "let us go (lit. let there be going)"
+  },
+  {
+   "w": "inquit",
+   "p": ",",
+   "lemma": "inquam (defective verb)",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "he says, said"
+  },
+  {
+   "w": "quō",
+   "pre": "\"",
+   "lemma": "quō",
+   "parse": "relative adverb",
+   "gloss": "(to the place) where"
+  },
+  {
+   "w": "deōrum",
+   "lemma": "deus, deī, m.",
+   "parse": "gen. pl.",
+   "gloss": "of the gods",
+   "app": [
+    "deus-n2m"
+   ]
+  },
+  {
+   "w": "ostenta",
+   "lemma": "ostentum, ostentī, n.",
+   "parse": "nom. pl.",
+   "gloss": "portents, signs"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "inimīcōrum",
+   "lemma": "inimīcus, inimīca, inimīcum",
+   "parse": "gen. pl. m., used as a noun",
+   "gloss": "of (our) enemies",
+   "app": [
+    "inimicus-adj12"
+   ]
+  },
+  {
+   "w": "inīquitās",
+   "lemma": "inīquitās, inīquitātis, f.",
+   "parse": "nom. sg.",
+   "gloss": "injustice, unfairness"
+  },
+  {
+   "w": "vocat",
+   "p": ".",
+   "lemma": "vocō, vocāre, vocāvī, vocātum",
+   "parse": "3rd sg. pres. ind. act. (agrees with the nearer subject)",
+   "gloss": "calls, summons",
+   "app": [
+    "voco-v1"
+   ]
+  },
+  {
+   "w": "Iacta",
+   "lemma": "iaciō, iacere, iēcī, iactum",
+   "parse": "perf. pass. participle, nom. sg. f. (with est: perfect passive)",
+   "gloss": "thrown, cast",
+   "app": [
+    "iacio-v3io"
+   ]
+  },
+  {
+   "w": "ālea",
+   "lemma": "ālea, āleae, f.",
+   "parse": "nom. sg.",
+   "gloss": "the die; a game of dice, a gamble"
+  },
+  {
+   "w": "est",
+   "p": ",\"",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind. (iacta est: has been cast)",
+   "gloss": "is",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "inquit",
+   "p": ".",
+   "lemma": "inquam (defective verb)",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "he says, said"
+  }
+ ],
+ "translation": "Then Caesar said, \"Let us go where the signs of the gods and the injustice of our enemies are calling. The die has been cast,\" he said.",
+ "translation_note": "Eātur is an impersonal passive (\"let there be going\"); \"let us go\" is the natural English. Iacta est is a perfect passive: the throw has already happened.",
+ "essay": [
+  [
+   {
+    "t": "The Rubicon was a small stream that marked the boundary between the province of Cisalpine Gaul and Italy; when Caesar led his army across it in 49 BC, he began a civil war.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Which modern river it was is not settled: the Rubicone is the official identification, but other rivers have been proposed.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Suetonius describes Caesar halting at the river and telling those around him that they could still turn back, but that once they crossed the little bridge, everything would have to be settled by arms.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Then, he says, a man of unusual size and beauty appeared, playing a reed pipe, seized a trumpet from one of the trumpeters who had gathered, and crossed to the far bank sounding the call to battle.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Only after this omen does Caesar speak the words of our passage, so in Suetonius the decision is framed as an answer to the gods as much as to his enemies.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Notice the word order: Suetonius writes iacta alea est, not the alea iacta est that is usually quoted today.",
+    "src": [
+     1,
+     5
+    ]
+   },
+   {
+    "t": "Plutarch, writing in Greek, calls \"let the die be cast\" the phrase with which people usually launch into desperate ventures, and in his Life of Pompey he says Caesar called it out in Greek.",
+    "src": [
+     2,
+     3
+    ]
+   },
+   {
+    "t": "Appian also reports it as a familiar saying, and the Greek line probably comes from a lost comedy of Menander quoted by Athenaeus; this last point is reported here only at second hand.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "So we cannot be sure whether Caesar spoke Latin or Greek, or whether he said anything at all: Suetonius was born in AD 69, more than a century later, and he used anecdotes without always testing them.",
+    "src": [
+     6
+    ],
+    "doubt": true
+   },
+   {
+    "t": "What the sources agree on is the meaning: a throw of the dice cannot be taken back, and the phrase still names a decision with no return.",
+    "src": [
+     1,
+     2
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "In Suetonius, what happens just before Caesar says \"Iacta alea est\"?",
+   "options": [
+    "A figure seizes a trumpet and crosses the river sounding the call to battle",
+    "Pompey sends envoys to negotiate",
+    "Caesar's soldiers refuse to cross",
+    "A storm floods the river"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "According to Plutarch's Life of Pompey, in which language did Caesar call out the phrase?",
+   "options": [
+    "Greek",
+    "Latin",
+    "Gaulish",
+    "Plutarch does not say"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Which form of the saying does Suetonius actually write?",
+   "options": [
+    "iacta alea est",
+    "alea iacta est",
+    "alea iacta esto",
+    "iacta est alea"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Divus Iulius 31–33 (Latin; Loeb 1913 text), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Julius*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Plutarch, Life of Caesar 32 (tr. B. Perrin, Loeb), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Caesar*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Plutarch, Life of Pompey 60 (tr. B. Perrin, Loeb 1917), Perseids",
+   "url": "https://cts.perseids.org/read/greekLit/tlg0007/tlg045/perseus-eng2/60.1-60.4",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Rubicon\"",
+   "url": "https://www.britannica.com/place/Rubicon",
+   "kind": "modern"
+  },
+  {
+   "label": "Wikipedia, \"Alea iacta est\" (tertiary; used only for the Menander and Appian points, which it attributes to Athenaeus 13.8 and Appian, Civil Wars 2.35)",
+   "url": "https://en.wikipedia.org/wiki/Alea_iacta_est",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Suetonius\"",
+   "url": "https://www.britannica.com/biography/Suetonius",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

@@ -1,0 +1,322 @@
+{
+ "id": "aug-28",
+ "order": 4,
+ "title": "Brick to marble",
+ "saying": "marmoream sē relinquere, quam laterīciam accēpisset",
+ "author": "Suetonius",
+ "work": "Dīvus Augustus",
+ "citation": "Suet. Aug. 28.3",
+ "setting": "Rome under Augustus",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
+  "section": "Divus Augustus 28.3 (first sentence)"
+ },
+ "source_text": "Urbem neque pro maiestate imperii ornatam et inundationibus incendiisque obnoxiam excoluit adeo, ut iure sit gloriatus marmoream se relinquere, quam latericiam accepisset.",
+ "excerpt_note": "The first sentence of section 28.3.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "maiestāte: the first syllable is written without a macron (maiestās), the convention of the app's textbook for a vowel before consonantal i; some dictionaries print māiestās. The syllable is heavy either way.",
+   "laterīciam: long ī, from the material suffix -īcius (as in caementīcius). I could not fetch a dictionary entry for latericius to confirm it; treat it as uncertain.",
+   "imperiī: written with -iī; Suetonius's period may well have pronounced and written -ī."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Urbem",
+   "lemma": "urbs, urbis, f.",
+   "parse": "acc. sg.",
+   "gloss": "the city (Rome)",
+   "app": [
+    "urbs-n3i"
+   ]
+  },
+  {
+   "w": "neque",
+   "lemma": "neque",
+   "parse": "conjunction",
+   "gloss": "and not, neither"
+  },
+  {
+   "w": "prō",
+   "lemma": "prō (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in keeping with, as befitted"
+  },
+  {
+   "w": "maiestāte",
+   "lemma": "maiestās, maiestātis, f.",
+   "parse": "abl. sg.",
+   "gloss": "greatness, majesty"
+  },
+  {
+   "w": "imperiī",
+   "lemma": "imperium, imperiī, n.",
+   "parse": "gen. sg.",
+   "gloss": "of the empire",
+   "app": [
+    "imperium-n2n"
+   ]
+  },
+  {
+   "w": "ōrnātam",
+   "lemma": "ōrnō, ōrnāre, ōrnāvī, ōrnātum",
+   "parse": "perf. pass. participle, acc. sg. f. (agrees with urbem)",
+   "gloss": "adorned"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "inundātiōnibus",
+   "lemma": "inundātiō, inundātiōnis, f.",
+   "parse": "dat. pl. (with obnoxiam)",
+   "gloss": "to floods"
+  },
+  {
+   "w": "incendiīsque",
+   "lemma": "incendium, incendiī, n. + -que",
+   "parse": "dat. pl. + enclitic -que",
+   "gloss": "and to fires",
+   "enclitic": "que"
+  },
+  {
+   "w": "obnoxiam",
+   "lemma": "obnoxius, obnoxia, obnoxium",
+   "parse": "acc. sg. f.",
+   "gloss": "exposed, liable (+ dat.)"
+  },
+  {
+   "w": "excoluit",
+   "lemma": "excolō, excolere, excoluī, excultum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he improved, embellished"
+  },
+  {
+   "w": "adeō",
+   "p": ",",
+   "lemma": "adeō",
+   "parse": "adverb",
+   "gloss": "so much, to such a degree",
+   "nolink": true
+  },
+  {
+   "w": "ut",
+   "lemma": "ut",
+   "parse": "conjunction (result clause)",
+   "gloss": "that"
+  },
+  {
+   "w": "iūre",
+   "lemma": "iūs, iūris, n.",
+   "parse": "abl. sg., used as an adverb",
+   "gloss": "rightly, with justice",
+   "app": [
+    "ius-n3n"
+   ]
+  },
+  {
+   "w": "sit",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. subj. (with glōriātus: perfect subjunctive)",
+   "gloss": "(has)",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "glōriātus",
+   "lemma": "glōrior, glōriārī, glōriātus sum",
+   "parse": "perf. participle, nom. sg. m. (sit glōriātus: he boasted)",
+   "gloss": "boasted"
+  },
+  {
+   "w": "marmoream",
+   "lemma": "marmoreus, marmorea, marmoreum",
+   "parse": "acc. sg. f. (urbem is understood)",
+   "gloss": "(a city) of marble"
+  },
+  {
+   "w": "sē",
+   "lemma": "sē (reflexive pronoun)",
+   "parse": "acc. sg. (subject of the infinitive)",
+   "gloss": "that he himself"
+  },
+  {
+   "w": "relinquere",
+   "p": ",",
+   "lemma": "relinquō, relinquere, relīquī, relictum",
+   "parse": "pres. inf. act.",
+   "gloss": "was leaving behind",
+   "app": [
+    "relinquo-v3"
+   ]
+  },
+  {
+   "w": "quam",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. sg. f.",
+   "gloss": "which"
+  },
+  {
+   "w": "laterīciam",
+   "lemma": "laterīcius, laterīcia, laterīcium",
+   "parse": "acc. sg. f. (predicate: \"as a city of brick\")",
+   "gloss": "of brick"
+  },
+  {
+   "w": "accēpisset",
+   "p": ".",
+   "lemma": "accipiō, accipere, accēpī, acceptum",
+   "parse": "3rd sg. pluperf. subj. act. (subordinate clause in indirect statement)",
+   "gloss": "he had received",
+   "app": [
+    "accipio-v3io"
+   ]
+  }
+ ],
+ "translation": "The city was not adorned as the greatness of the empire deserved, and it was exposed to floods and fires; he improved it so much that he could rightly boast that he was leaving in marble the city he had received in brick.",
+ "translation_note": "The boast is in indirect statement (sē relinquere), so these are not Augustus's own words but Suetonius's report of them.",
+ "essay": [
+  [
+   {
+    "t": "Suetonius sets the scene in two clauses: Rome was not adorned as an imperial capital should be, and it was exposed to floods and fires.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Augustus, he says, improved it so much that he could rightly boast of leaving a city of marble where he had found one of brick.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The boast is reported in indirect speech, so the passage does not claim to give Augustus's exact words.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Cassius Dio does give them directly, in a different form: during his last illness Augustus told his associates, \"I found Rome of clay; I leave it to you of marble.\"",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Dio then adds that Augustus did not mean the look of the buildings but the strength of the empire.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "So the two historians agree on a saying but disagree on its wording, its occasion and even its meaning, and we cannot decide between them from these texts alone.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The buildings themselves are well attested.",
+    "src": [
+     1,
+     3
+    ]
+   },
+   {
+    "t": "Suetonius goes on to list them, beginning with the Forum with the temple of Mars Ultor, the temple of Apollo on the Palatine and the temple of Jupiter the Thunderer on the Capitol.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "In his own account of his achievements, Augustus says he rebuilt eighty-two temples in the city in his sixth consulship, and that he built the temple of Mars Ultor and the Augustan Forum on his own land.",
+    "src": [
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "That last source is Augustus speaking about himself, so it tells us what he wanted remembered, not an independent assessment.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Read together, the passages show a ruler who presented rebuilding the city as part of rebuilding the state, which may be the point Dio was reaching for.",
+    "src": [
+     1,
+     2,
+     3
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "How does Suetonius report the boast?",
+   "options": [
+    "In indirect speech: he reports it, not Augustus's exact words",
+    "As a quotation from an inscription",
+    "As Augustus's last words",
+    "He does not mention a boast"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does Cassius Dio say Augustus meant by the remark?",
+   "options": [
+    "The strength of the empire, not the buildings",
+    "Only the temples he had restored",
+    "The marble quarries he had opened",
+    "His own tomb"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "In the Res Gestae, how many temples does Augustus say he rebuilt in his sixth consulship?",
+   "options": [
+    "Eighty-two",
+    "Twelve",
+    "Three",
+    "Two hundred"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Divus Augustus 28–29 (Latin; Loeb 1913 text), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Augustus*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cassius Dio, Roman History 56.30 (Loeb 1924 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/56*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Augustus, Res Gestae 19–21 (Loeb 1924 translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

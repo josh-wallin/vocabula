@@ -1,0 +1,325 @@
+{
+ "id": "tit-8",
+ "order": 8,
+ "title": "I have lost a day",
+ "saying": "Amīcī, diem perdidī.",
+ "author": "Suetonius",
+ "work": "Dīvus Titus",
+ "citation": "Suet. Tit. 8.1",
+ "setting": "Rome, the reign of Titus",
+ "edition": {
+  "name": "Suetonius, De Vita Caesarum, Latin text of the Loeb Classical Library edition (J. C. Rolfe), as presented on LacusCurtius (Bill Thayer), which credits it as \"Loeb Classical Library, 1913\" and public domain",
+  "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Titus*.html",
+  "section": "Divus Titus 8.1 (the last clause of the section)"
+ },
+ "source_text": "atque etiam recordatus quondam super cenam, quod nihil cuiquam toto die praestitisset, memorabilem illam meritoque laudatam vocem edidit: \"Amici, diem perdidi.\"",
+ "excerpt_note": "The final clause of section 8.1; it follows a semicolon in the edition, so it begins in lower case.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "meritō: the adverb has a long final ō; the app lexicon has no entry for it, so this is not machine-checked.",
+   "cēnam: long ē, as in the app lexicon's verb cēnō."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "atque",
+   "lemma": "atque",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "etiam",
+   "lemma": "etiam",
+   "parse": "adverb",
+   "gloss": "also, even"
+  },
+  {
+   "w": "recordātus",
+   "lemma": "recordor, recordārī, recordātus sum",
+   "parse": "perf. participle, nom. sg. m.",
+   "gloss": "having remembered"
+  },
+  {
+   "w": "quondam",
+   "lemma": "quondam",
+   "parse": "adverb",
+   "gloss": "once, on one occasion"
+  },
+  {
+   "w": "super",
+   "lemma": "super (+ acc.)",
+   "parse": "preposition",
+   "gloss": "at, during (super cēnam: at dinner)"
+  },
+  {
+   "w": "cēnam",
+   "p": ",",
+   "lemma": "cēna, cēnae, f.",
+   "parse": "acc. sg.",
+   "gloss": "dinner"
+  },
+  {
+   "w": "quod",
+   "lemma": "quod",
+   "parse": "conjunction",
+   "gloss": "that, the fact that"
+  },
+  {
+   "w": "nihil",
+   "lemma": "nihil",
+   "parse": "indeclinable noun",
+   "gloss": "nothing",
+   "app": [
+    "nihil-indecl"
+   ]
+  },
+  {
+   "w": "cuiquam",
+   "lemma": "quisquam, quicquam",
+   "parse": "dat. sg. m.",
+   "gloss": "for anyone"
+  },
+  {
+   "w": "tōtō",
+   "lemma": "tōtus, tōta, tōtum",
+   "parse": "abl. sg. m.",
+   "gloss": "whole",
+   "app": [
+    "totus-adj-ius"
+   ]
+  },
+  {
+   "w": "diē",
+   "lemma": "diēs, diēī, m.",
+   "parse": "abl. sg. (time within which)",
+   "gloss": "day"
+  },
+  {
+   "w": "praestitisset",
+   "p": ",",
+   "lemma": "praestō, praestāre, praestitī, praestitum",
+   "parse": "3rd sg. pluperf. subj. act. (reason as he saw it)",
+   "gloss": "he had done, provided",
+   "app": [
+    "praesto-v1"
+   ]
+  },
+  {
+   "w": "memorābilem",
+   "lemma": "memorābilis, memorābile",
+   "parse": "acc. sg. f.",
+   "gloss": "memorable"
+  },
+  {
+   "w": "illam",
+   "lemma": "ille, illa, illud",
+   "parse": "acc. sg. f.",
+   "gloss": "that (famous)",
+   "app": [
+    "ille-pron-ille"
+   ]
+  },
+  {
+   "w": "meritōque",
+   "lemma": "meritō + -que",
+   "parse": "adverb + enclitic -que",
+   "gloss": "and deservedly",
+   "enclitic": "que"
+  },
+  {
+   "w": "laudātam",
+   "lemma": "laudō, laudāre, laudāvī, laudātum",
+   "parse": "perf. pass. participle, acc. sg. f.",
+   "gloss": "praised",
+   "app": [
+    "laudo-v1"
+   ]
+  },
+  {
+   "w": "vōcem",
+   "lemma": "vōx, vōcis, f.",
+   "parse": "acc. sg.",
+   "gloss": "remark, saying",
+   "app": [
+    "vox-n3"
+   ]
+  },
+  {
+   "w": "ēdidit",
+   "p": ":",
+   "lemma": "ēdō, ēdere, ēdidī, ēditum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "he uttered",
+   "app": [
+    "edo-v3"
+   ]
+  },
+  {
+   "w": "Amīcī",
+   "pre": "\"",
+   "p": ",",
+   "lemma": "amīcus, amīcī, m.",
+   "parse": "voc. pl.",
+   "gloss": "friends",
+   "app": [
+    "amicus-n2m"
+   ]
+  },
+  {
+   "w": "diem",
+   "lemma": "diēs, diēī, m.",
+   "parse": "acc. sg.",
+   "gloss": "a day"
+  },
+  {
+   "w": "perdidī",
+   "p": ".\"",
+   "lemma": "perdō, perdere, perdidī, perditum",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I have lost, I have wasted",
+   "app": [
+    "perdo-v3"
+   ]
+  }
+ ],
+ "translation": "And once at dinner, remembering that he had done nothing for anyone the whole day, he made that memorable and rightly praised remark: \"Friends, I have lost a day.\"",
+ "translation_note": "praestitisset is subjunctive because it gives Titus's own reason, as he thought of it. perdidī is a perfect: \"I have lost\" (the day is gone).",
+ "essay": [
+  [
+   {
+    "t": "Suetonius opens his Life of Titus by calling him \"the love and delight of the human race\".",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Yet he also reports that before Titus became emperor, people suspected him of cruelty, luxury and greed, and openly said he would be another Nero.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The Life is built on that reversal.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Our passage closes a section about his generosity as emperor: Suetonius says Titus confirmed his predecessors' grants in a single edict instead of making people petition again, and never let anyone leave without hope.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "When his household warned him that he promised more than he could deliver, he answered that no one ought to go away sad from a conversation with the emperor.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Then comes the remark at dinner: having done nothing for anyone that day, he said he had lost it.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The story was repeated.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The historian Eutropius, in his short summary of Roman history, gives it as \"Amici, hodie diem perdidi\", adding hodie, \"today\", and he too calls Titus the love and delight of the human race.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "I did not find the anecdote in the surviving text of Cassius Dio on Titus, which I checked in translation; that absence does not make it false, but it means our evidence rests on Suetonius and his followers.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Dio offers a useful caution: Titus's good record, he suggests, may also have been due to the fact that he lived only a very short time after his accession.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Suetonius gives the length of the reign as two years, two months and twenty days, and says Titus died in his forty-second year.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "A reputation for generosity built over twenty-six months is easier to keep than one tested over decades, so the saying tells us at least as much about how Titus was remembered as about how he governed.",
+    "src": [
+     1,
+     3
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What made Titus say he had lost a day?",
+   "options": [
+    "He had done nothing for anyone that day",
+    "He had missed a battle",
+    "He had been ill all day",
+    "He had forgotten a festival"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does Eutropius's version add?",
+   "options": [
+    "hodie, \"today\"",
+    "The name of the friend",
+    "A Greek translation",
+    "The date of the dinner"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What caution does Cassius Dio offer about Titus's reputation?",
+   "options": [
+    "It may owe something to his very short reign",
+    "It was invented by Eutropius",
+    "He was actually crueller than Nero",
+    "It was based on forged letters"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Suetonius, Divus Titus 1, 7–8 and 11 (Latin; Loeb 1913 text), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Titus*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Eutropius, Breviarium 7.21, ed. Kristin Masters, Dickinson College Commentaries",
+   "url": "https://dcc.dickinson.edu/eutropius/7-21",
+   "kind": "ancient"
+  },
+  {
+   "label": "Cassius Dio, Roman History 66.18 and 66.26 (Loeb translation), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/66*.html",
+   "kind": "ancient"
+  }
+ ],
+ "verified": "2026-11-04"
+}

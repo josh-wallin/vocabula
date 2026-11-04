@@ -1,0 +1,48 @@
+/* Historia tab (src/ui/Historia.tsx). Builds on the Audītiō transcript / gloss styles in styles.css. */
+
+/* One column per tab, however many tabs there are. */
+.tabbar { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+
+.hist-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.hist-card {
+  width: 100%; text-align: left; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; box-shadow: 0 3px 0 var(--line);
+}
+.hist-card:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--line); }
+.hist-saying { font-family: var(--font-text); font-size: 21px; font-weight: 600; color: var(--plum); overflow-wrap: anywhere; }
+.hist-title { font-weight: 600; font-size: 15px; }
+.hist-cite { font-size: 13px; color: var(--muted); }
+.hist-meter { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.hist-meter .bar { flex: 1 1 auto; height: 6px; border-radius: 99px; background: var(--line-soft); overflow: hidden; }
+.hist-meter .bar span { display: block; height: 100%; background: var(--ok); border-radius: 99px; }
+
+.hist { gap: 18px; }
+.hist h1 { font-family: var(--font-display); }
+.hist-setting { color: var(--muted); font-size: 15px; }
+.hist section { display: flex; flex-direction: column; gap: 10px; }
+.hist-latin-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.hist-text { color: var(--ink); }
+.hist-text .tok.known { text-decoration: underline solid var(--ok); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.hist-text .tok.on { text-decoration-color: #fff; }
+.tgloss .tg-p { flex-basis: 100%; font-size: 14px; color: var(--muted); }
+.hist-en { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--card); border-radius: 12px; border: 1.5px solid var(--line); }
+.hist-en p:first-child { font-size: 17px; line-height: 1.5; }
+
+.hist-essay p { font-size: 16px; line-height: 1.6; }
+.hist-essay .claim.doubt { background: var(--plum-tint); border-radius: 3px; }
+.hist-essay .ref { font-size: 12px; vertical-align: super; color: var(--plum); text-decoration: none; margin-left: 1px; }
+.doubt-mark { display: inline-block; font-size: 11px; font-weight: 700; color: var(--bronze-text); border: 1px solid var(--bronze-ring); border-radius: 99px; padding: 0 5px; margin-left: 2px; vertical-align: super; line-height: 1.3; }
+
+.hist-q { display: flex; flex-direction: column; gap: 8px; }
+.hist-q-text { font-weight: 600; }
+.hist-verdict { margin: 0; font-weight: 600; font-size: 15px; }
+.hist-verdict.ok { color: var(--ok-ink); }
+.hist-verdict.bad { color: var(--bad-ink); }
+
+.hist-sources ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.45; }
+.hist-sources a { color: var(--plum); overflow-wrap: anywhere; }
+.hist-sources li:target { background: var(--plum-tint); border-radius: 4px; }
+.hist-macrons { font-size: 14px; color: var(--muted); }
+.hist-macrons ul { margin: 6px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+/* Keep quotation marks and punctuation on the same line as their word. */
+.hist-text .hist-w { white-space: nowrap; }
