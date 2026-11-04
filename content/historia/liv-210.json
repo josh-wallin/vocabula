@@ -330,7 +330,7 @@
    "gloss": "of belief, credibility"
   }
  ],
- "translation": "Then Cocles said, \"Father Tiber, I solemnly beseech you: receive these arms and this soldier in a kindly stream.\" So, armed just as he was, he leapt down into the Tiber and, with many missiles falling on him, swam across unharmed to his own side, having dared a deed that would win more fame than belief among later generations.",
+ "translation": "Then Cocles said, \"Father Tiber, I solemnly pray you: receive these arms and this soldier with a kindly stream.\" So, armed just as he was, he leapt down into the Tiber and, with many missiles falling on him, swam across unharmed to his own side, having dared a deed that would win more fame than belief among later generations.",
  "translation_note": "accipiās depends on precor without ut (\"I pray [that] you receive\"). multīs ... superincidentibus tēlīs is an ablative absolute. In rem ausus plus fāmae habitūram ad posterōs quam fideī, Livy steps outside the story: habitūram (future participle) agrees with rem, and fāmae and fideī are both partitive genitives with plūs.",
  "essay": [
   [
@@ -417,30 +417,30 @@
   {
    "q": "How does the story end in Polybius?",
    "options": [
-    "Horatius leaps into the river in armour and gives up his life",
-    "Horatius swims to safety and is given land",
-    "Horatius is captured by Porsenna",
-    "Horatius is elected consul"
+    "He leaps into the river in armour and gives up his life",
+    "He swims back to safety and is rewarded with land",
+    "He is captured by Porsenna and sent back to Rome",
+    "He is elected consul for holding the bridge alone"
    ],
    "answer": 0
   },
   {
    "q": "What does Livy say about the deed's credibility?",
    "options": [
-    "It would have more fame than belief among later generations",
-    "He had seen an inscription recording it",
-    "Polybius confirmed every detail",
-    "It was witnessed by the whole Etruscan army and is certain"
+    "It would win more fame than belief with later generations",
+    "He had seen an inscription recording it himself",
+    "Polybius had confirmed every detail of the story",
+    "The whole Etruscan army saw it, so it is certain"
    ],
    "answer": 0
   },
   {
    "q": "According to Livy, how did the state reward Horatius?",
    "options": [
-    "A statue in the comitium and as much land as he could plough round in a day",
-    "A triumph and the consulship",
-    "A gold crown and a house on the Palatine",
-    "It gave him nothing"
+    "A statue and as much land as he could plough round in a day",
+    "A triumph and the consulship for the following year",
+    "A gold crown and a house of his own on the Palatine",
+    "Nothing, since the state was too poor to reward him"
    ],
    "answer": 0
   }

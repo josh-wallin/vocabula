@@ -212,7 +212,7 @@
    "gloss": "(as a day) of mourning"
   }
  ],
- "translation": "In fact, people say he was so shaken that for months on end he let his beard and hair grow, and now and then beat his head against the doors, shouting, \"Quintilius Varus, give back the legions!\", and that every year he treated the anniversary of the defeat as a sad and gloomy day.",
+ "translation": "In fact, people say he was so shaken that for months on end he let his beard and hair grow, and now and then beat his head against the doors, shouting, \"Quintilius Varus, give back the legions!\", and that every year he kept the anniversary of the defeat as a day of sorrow and mourning.",
  "translation_note": "The whole sentence depends on ferunt (\"they say\"): it is indirect statement, so Suetonius reports a story rather than vouching for it. Quīntilī is the vocative of Quīntilius (-ius nouns have vocative -ī). The name is also spelled Quinctilius (as in Britannica); this edition prints Quintili.",
  "essay": [
   [
@@ -307,10 +307,10 @@
   {
    "q": "How does Suetonius introduce the story of the cry?",
    "options": [
-    "With ferunt, \"they say\", so it is reported as hearsay",
-    "As something he saw himself",
-    "As a quotation from Augustus's own memoirs",
-    "As an inscription on a monument"
+    "With ferunt, \"they say\": as hearsay",
+    "As something he had seen himself",
+    "As a quote from Augustus's own memoirs",
+    "As the text of an inscription in Rome"
    ],
    "answer": 0
   },
@@ -318,9 +318,9 @@
    "q": "Which detail does Cassius Dio give that Suetonius's passage does not?",
    "options": [
     "That Varus and his senior officers killed themselves",
-    "That Augustus shouted at Varus",
-    "That Augustus let his beard grow",
-    "That the day was mourned every year"
+    "That Augustus shouted Varus's name at the doors",
+    "That Augustus let his beard and hair grow for months",
+    "That the day of the defeat was mourned every year"
    ],
    "answer": 0
   },
@@ -328,9 +328,9 @@
    "q": "According to Britannica, what did Tiberius do afterwards?",
    "options": [
     "He chose not to occupy the land east of the Rhine",
-    "He conquered all of Germany",
-    "He moved the capital to the Rhine",
-    "He disbanded the army in Germany"
+    "He moved the imperial capital to the Rhine frontier",
+    "He disbanded the legions stationed in Germany",
+    "He conquered Germany and made it a province"
    ],
    "answer": 0
   }

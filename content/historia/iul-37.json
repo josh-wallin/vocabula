@@ -281,7 +281,7 @@
   ],
   [
    {
-    "t": "For a learner, the three verbs are a neat lesson: vēnī, vīdī and vīcī are perfect tenses of veniō, videō and vincō, each \"I did it, and it is done\".",
+    "t": "For a learner, the three verbs are a neat lesson: vēnī, vīdī and vīcī are perfect tenses of veniō, videō and vincō, three completed actions in a row.",
     "src": [
      1
     ]
@@ -299,10 +299,10 @@
   {
    "q": "According to Suetonius, what was unusual about the placard?",
    "options": [
-    "It described the speed of the victory rather than the events of the war",
-    "It was written in Greek",
-    "It named Pompey",
-    "It was carried by Caesar himself"
+    "It boasted of the war's speed, not its events",
+    "It was written in Greek instead of Latin",
+    "It mocked Pompey by naming him openly",
+    "It was carried by Caesar himself in the procession"
    ],
    "answer": 0
   },
@@ -310,9 +310,9 @@
    "q": "Where does Plutarch say the three words appeared?",
    "options": [
     "In a letter to a friend at Rome",
-    "On a coin",
-    "In a speech to the Senate",
-    "On Caesar's tomb"
+    "On a coin struck after the war",
+    "In a speech to the senate in Rome",
+    "On the base of Caesar's statue"
    ],
    "answer": 0
   },

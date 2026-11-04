@@ -682,7 +682,7 @@
    "gloss": "they explain"
   }
  ],
- "translation": "Lucius Quinctius was farming a field of four iugera across the Tiber, opposite the very spot where the dockyards are now; it is called the Quinctian Meadows. There, whether he was digging a ditch and leaning on his spade or ploughing (at any rate, and this much is agreed, he was busy with work on the land), he exchanged greetings with the envoys and was asked by them to put on his toga and hear the senate's instructions, with a prayer that it might turn out well for him and for the state. Surprised, and asking again and again, \"Is everything all right?\", he told his wife Racilia to bring his toga out of the cottage quickly. As soon as he had wiped off the dust and sweat and came forward dressed in it, the envoys congratulated him, hailed him as dictator, summoned him to the city and explained the alarming state of the army.",
+ "translation": "Lucius Quinctius was farming a field of four iugera across the Tiber, opposite the very spot where the dockyards are now; it is called the Quinctian Meadows. There, whether he was digging a ditch and leaning on his spade or ploughing (at any rate, and this much is agreed, he was busy with work on the land), he exchanged greetings with the envoys and was asked by them to put on his toga and hear the senate's instructions, with a prayer that it might turn out well for him and for the state. Surprised, and asking again and again, \"Is everything all right?\", he told his wife Racilia to bring his toga out of the cottage quickly. As soon as he had wiped off the dust and sweat and come out wearing it, the envoys congratulated him and hailed him as dictator; they summoned him to the city and explained the panic in the army.",
  "translation_note": "The long middle sentence hangs on rogātus, \"he was asked\", with a parenthesis (seu ... intentus) and an ablative absolute (salūte datā ... redditāque) before it. quod bene verteret ipsī reīque pūblicae is a formula of good omen, \"and may it turn out well for him and the state\". satin salvē? (satisne salvē [sunt omnia]?) is everyday Latin for \"is all well?\"; it also appears in Lucretia's story (1.58.7). quā ... vēlātus: \"covered with which\", that is, with the toga.",
  "essay": [
   [
@@ -699,7 +699,7 @@
     ]
    },
    {
-    "t": "Since the other consul, Nautius, seemed too little help, it was decided to name a dictator, and Lucius Quinctius Cincinnatus was chosen by general consent.",
+    "t": "The other consul, Nautius, was summoned, but since he seemed to offer too little protection, it was decided to name a dictator, and Lucius Quinctius Cincinnatus was chosen by general consent.",
     "src": [
      1
     ]
@@ -786,10 +786,10 @@
   {
    "q": "Why is the city of Cincinnati so named?",
    "options": [
-    "Governor Arthur St. Clair renamed it in honour of the Society of the Cincinnati",
-    "Cincinnatus's descendants founded it",
-    "It was named after a river",
-    "Washington was born there"
+    "Arthur St. Clair named it after the Society of the Cincinnati",
+    "Descendants of Cincinnatus settled there and founded it",
+    "It was named after a river that flows through the town",
+    "George Washington was born there and gave it the name"
    ],
    "answer": 0
   }

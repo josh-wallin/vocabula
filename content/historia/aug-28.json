@@ -127,7 +127,7 @@
    "w": "sit",
    "lemma": "sum, esse, fuī, futūrum",
    "parse": "3rd sg. pres. subj. (with glōriātus: perfect subjunctive)",
-   "gloss": "(has)",
+   "gloss": "has (with glōriātus: has boasted)",
    "app": [
     "sum-irr-sum"
    ]
@@ -273,10 +273,10 @@
   {
    "q": "How does Suetonius report the boast?",
    "options": [
-    "In indirect speech: not necessarily Augustus's exact words; he does not quote him directly",
-    "As a quotation from an inscription",
-    "As Augustus's last words",
-    "He does not mention a boast"
+    "In indirect speech, not as his exact words",
+    "As a direct quotation from an inscription",
+    "As Augustus's last words on his deathbed",
+    "He does not mention the boast at all"
    ],
    "answer": 0
   },
@@ -284,9 +284,9 @@
    "q": "What does Cassius Dio say Augustus meant by the remark?",
    "options": [
     "The strength of the empire, not the buildings",
-    "Only the temples he had restored",
-    "The marble quarries he had opened",
-    "His own tomb"
+    "Only the temples he had restored in Rome",
+    "The new marble quarries he had opened",
+    "The marble tomb he was building for himself"
    ],
    "answer": 0
   },

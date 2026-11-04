@@ -140,8 +140,8 @@
    "gloss": "he says, said"
   }
  ],
- "translation": "Then Caesar said, \"Let us go where the signs of the gods and the injustice of our enemies are calling. The die has been cast,\" he said.",
- "translation_note": "Eātur is an impersonal passive (\"let there be going\"); \"let us go\" is the natural English. Iacta est is a perfect passive: the throw has already happened.",
+ "translation": "Then Caesar said, \"Let us go where the signs of the gods and the injustice of our enemies are calling. The die is cast,\" he said.",
+ "translation_note": "Eātur is an impersonal passive (\"let there be going\"); \"let us go\" is the natural English. Iacta est is a perfect passive (literally \"has been cast\"): the throw has already happened.",
  "essay": [
   [
    {
@@ -227,10 +227,10 @@
   {
    "q": "In Suetonius, what happens just before Caesar says \"Iacta alea est\"?",
    "options": [
-    "A figure seizes a trumpet and crosses the river sounding the call to battle",
-    "Pompey sends envoys to negotiate",
-    "Caesar's soldiers refuse to cross",
-    "A storm floods the river"
+    "A piper grabs a trumpet and crosses, sounding the attack",
+    "Pompey's envoys arrive and ask him to negotiate",
+    "Caesar's soldiers refuse to cross the frontier river",
+    "A sudden storm floods the river and wrecks the bridge"
    ],
    "answer": 0
   },

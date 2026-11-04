@@ -184,7 +184,7 @@
    ]
   }
  ],
- "translation": "You, Roman, remember to rule the nations with your power (these will be your arts), and to set the custom of peace, to spare those who submit, and to war down the proud.",
+ "translation": "Remember, Roman, to rule the nations with your power (these will be your arts): to impose the ways of peace, to spare the conquered and to war down the proud.",
  "translation_note": "All four infinitives (regere, impōnere, parcere, dēbellāre) depend on mementō, \"remember to\". With Greenough's pācisque the phrase is \"to impose the custom of peace\"; with the reading pācīque it is \"to impose custom upon peace\". subiectīs is dative because parcō takes the dative.",
  "essay": [
   [
@@ -258,14 +258,14 @@
     ]
    },
    {
-    "t": "Readers who hear irony note that the epic ends with Aeneas not sparing a man who has submitted, and Michael Putnam, by David West's account, cites parcere subiectis often.",
+    "t": "Readers who hear irony note that the epic ends with Aeneas refusing to spare a man who has submitted; Michael Putnam, as David West reports, often cites parcere subiectīs.",
     "src": [
      4
     ],
     "doubt": true
    },
    {
-    "t": "West, reviewing Putnam and Richard Tarrant's commentary on Book 12 (which treats the line as a precept) in 2013, answers that Anchises pairs sparing with warring down the proud, so the line is no pacifist rule, and that clemency was part of the Augustan settlement.",
+    "t": "In a 2013 review of Putnam's book and of Richard Tarrant's commentary on Book 12 (which treats the line as a precept), West answers that Anchises pairs sparing with warring down the proud, so the line is no pacifist rule, and that clemency was part of the Augustan settlement.",
     "src": [
      4
     ]
@@ -284,10 +284,10 @@
   {
    "q": "Which arts does Anchises assign to the Roman?",
    "options": [
-    "Ruling, peace, sparing the submissive, warring down the proud",
-    "Casting bronze and carving lifelike faces in marble",
-    "Pleading cases well and charting the rising stars",
-    "Writing poetry and making music for the gods"
+    "To rule nations, spare the submissive, war down the proud",
+    "To cast bronze and carve lifelike faces in marble",
+    "To plead cases well and chart the movements of stars",
+    "To write poetry and make music in honour of the gods"
    ],
    "answer": 0
   },
