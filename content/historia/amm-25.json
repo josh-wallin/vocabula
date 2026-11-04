@@ -1,0 +1,238 @@
+{
+ "id": "amm-25",
+ "order": 16,
+ "title": "Among the heroic natures",
+ "saying": "Vir profectō hērōicīs connumerandus ingeniīs",
+ "author": "Ammianus Marcellinus",
+ "work": "Rēs Gestae",
+ "citation": "Amm. Marc. 25.4.1",
+ "setting": "Mesopotamia, June 363: Ammianus' obituary of Julian",
+ "edition": {
+  "name": "Ammianus Marcellinus, Res Gestae, Latin text of the Loeb Classical Library edition by John C. Rolfe (Cambridge, MA: Harvard University Press; London: Heinemann; dated 1935-1940 in the Perseus header; book 25 is in vol. II, books 20-26), which LacusCurtius describes as \"Clark's with a few further emendations\" (C. U. Clark, Berlin, 1910-1915); the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, stoa0023.stoa001.perseus-lat2), whose header credits \"John C. Rolfe\", \"Harvard University Press\", \"1935-1940\". Copyright: LacusCurtius presents Rolfe's Loeb Ammianus on single-asterisk (public-domain) pages; I could not verify renewal status independently, and could not reach a clearly public-domain text (Clark, Gardthausen, Eyssenhardt) to check the sentence against",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/stoa0023/stoa001/stoa0023.stoa001.perseus-lat2.xml",
+  "section": "Res Gestae 25.4.1, first sentence"
+ },
+ "source_text": "Vir profecto heroicis connumerandus ingeniis, claritudine rerum et coalita maiestate conspicuus.",
+ "excerpt_note": "The first sentence of 25.4, the opening of Ammianus' character sketch of Julian; the next sentence lists the four cardinal virtues. LacusCurtius has the same sentence on its book 25 page but does not name the edition of its Latin there.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "hērōicīs: from Greek hērōikos; long ē and ō, short i; not machine-checked.",
+   "maiestāte: the first syllable is long by position (mai-, consonantal i); some dictionaries mark māiestās; left unmarked here.",
+   "coalitā: short a and i (coalitus), long final ā of the ablative; not machine-checked.",
+   "clāritūdine: long ā and ū, as in clārus; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Vir",
+   "lemma": "vir, virī, m.",
+   "parse": "nom. sg.",
+   "gloss": "a man",
+   "app": [
+    "vir-n2m"
+   ]
+  },
+  {
+   "w": "profectō",
+   "lemma": "profectō",
+   "parse": "adverb",
+   "gloss": "truly, assuredly"
+  },
+  {
+   "w": "hērōicīs",
+   "lemma": "hērōicus, hērōica, hērōicum",
+   "parse": "dat. (or abl.) pl. n. (with ingeniīs)",
+   "gloss": "heroic"
+  },
+  {
+   "w": "connumerandus",
+   "lemma": "connumerō, connumerāre",
+   "parse": "gerundive, nom. sg. m. (supply est)",
+   "gloss": "to be counted (among)"
+  },
+  {
+   "w": "ingeniīs",
+   "p": ",",
+   "lemma": "ingenium, ingeniī, n.",
+   "parse": "dat. (or abl.) pl.",
+   "gloss": "natures, characters",
+   "app": [
+    "ingenium-n2n"
+   ]
+  },
+  {
+   "w": "clāritūdine",
+   "lemma": "clāritūdō, clāritūdinis, f.",
+   "parse": "abl. sg. (cause)",
+   "gloss": "for the renown, the glory"
+  },
+  {
+   "w": "rērum",
+   "lemma": "rēs, reī, f.",
+   "parse": "gen. pl.",
+   "gloss": "of (his) deeds"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "coalitā",
+   "lemma": "coalēscō, coalēscere, coaluī, coalitum",
+   "parse": "perf. pass. participle, abl. sg. f.",
+   "gloss": "grown together, ingrained"
+  },
+  {
+   "w": "maiestāte",
+   "lemma": "maiestās, maiestātis, f.",
+   "parse": "abl. sg.",
+   "gloss": "dignity, majesty"
+  },
+  {
+   "w": "cōnspicuus",
+   "p": ".",
+   "lemma": "cōnspicuus, cōnspicua, cōnspicuum",
+   "parse": "nom. sg. m.",
+   "gloss": "conspicuous, outstanding"
+  }
+ ],
+ "translation": "Truly a man to be ranked among heroic characters, he stood out for the renown of his deeds and for a majesty that had grown into his nature.",
+ "translation_note": "The sentence has no main verb: supply est, \"he is (to be counted)\", with connumerandus, a gerundive. coalita maiestas is a dignity that has grown together with him, so ingrained rather than put on.",
+ "essay": [
+  [
+   {
+    "t": "Ammianus was born around 330, probably at Antioch (the traditional view, which Britannica follows), into a noble Greek family and served in the army under the general Ursicinus, and later on Julian's Persian campaign.",
+    "src": [
+     2
+    ],
+    "doubt": true
+   },
+   {
+    "t": "At the end of his history he calls himself \"once a soldier and a Greek\", and says he wrote from the reign of Nerva to the death of Valens.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Only the last eighteen of his thirty-one books survive, covering 353 to 378; the work began where the Histories of Tacitus end.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Britannica calls him the last major Roman historian; that a Greek from Antioch chose to write in Latin is part of his interest, though why he did so he does not say in these passages.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Julian, born in 331 or 332, publicly announced his conversion to paganism in 361 and so was called the Apostate; he died on 26 or 27 June 363 during the Persian war.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "In Ammianus' account the wounded emperor spent his last hours debating the sublimity of souls with the philosophers Maximus and Priscus, asked for cold water, and died in the middle of the night, in his thirty-second year.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The scene recalls the death of Socrates; that echo is my reading, not a claim Ammianus makes.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The obituary opens with this sentence and then grades Julian on the four cardinal virtues, temperance, prudence, justice and fortitude, and four external ones, military skill, authority, good fortune and generosity.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Yet Ammianus is not simply a fan: in the same sketch he calls harsh Julian's law barring Christian teachers of rhetoric and grammar unless they turned to the gods, and earlier he says it should be buried in eternal silence.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Britannica notes that, though both were pagans, Ammianus criticized Julian's religious policies while admiring him as a man, soldier and leader, and that many readers see Julian as the hero of the work.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "How much of the portrait is admiration and how much is judgment remains a matter of reading.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "How does Ammianus describe himself at the end of his history?",
+   "options": [
+    "Once a soldier and a Greek",
+    "A senator and a Roman",
+    "A bishop of Antioch",
+    "A freedman of Julian"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Which of Julian's measures does Ammianus criticize?",
+   "options": [
+    "His law barring Christian teachers",
+    "His campaign against the Persians",
+    "His lowering of the provincial taxes",
+    "His devotion to the philosophers"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "How much of Ammianus' history survives?",
+   "options": [
+    "The last 18 of 31 books, for 353 to 378",
+    "All 31 books, from Nerva to Valens",
+    "Only the obituary of Julian in book 25",
+    "The first 18 books, from Nerva on"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Ammianus Marcellinus, Res Gestae 22.10.7, 25.3.23, 25.4.1 and 25.4.20, 31.16.9 (Latin; Loeb text, J. C. Rolfe, 1935-1940), Perseus Digital Library TEI text",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/stoa0023/stoa001/stoa0023.stoa001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Ammianus Marcellinus\"",
+   "url": "https://www.britannica.com/biography/Ammianus-Marcellinus",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Julian\" (Roman emperor)",
+   "url": "https://www.britannica.com/biography/Julian-Roman-emperor",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

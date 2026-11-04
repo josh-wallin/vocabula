@@ -1,0 +1,439 @@
+{
+ "id": "conf-812",
+ "order": 15,
+ "title": "Pick it up and read",
+ "saying": "tolle lege, tolle lege",
+ "author": "Augustine",
+ "work": "Cōnfessiōnēs",
+ "citation": "Aug. Conf. 8.12.29",
+ "setting": "A garden in Milan, late summer AD 386",
+ "edition": {
+  "name": "Augustine, Confessiones, edited by Pius Knöll, Corpus scriptorum ecclesiasticorum Latinorum (CSEL) 33 (Prague, Vienna, Leipzig: F. Tempsky / G. Freytag, 1896), public domain; the Open Greek and Latin / University of Leipzig TEI text (csel-dev, stoa0040.stoa001.opp-lat1, CC BY-SA 4.0), whose header credits \"Pius Knöll\", \"F. Tempsky\", \"1896\"",
+  "url": "https://raw.githubusercontent.com/OpenGreekAndLatin/csel-dev/master/data/stoa0040/stoa001/stoa0040.stoa001.opp-lat1.xml",
+  "section": "Confessiones 8.12.29, the first two sentences (CSEL 33, p. 194)"
+ },
+ "source_text": "Dicebam haec et flebam amarissima contritione cordis mei. et ecce audio uocem de diuina domo cum cantu dicentis et crebro repetentis quasi pueri an puellae, nescio: \"tolle lege, tolle lege\".",
+ "excerpt_note": "The first two sentences of 8.12.29. Knöll writes u for consonantal v (uocem = vocem, diuina = divina) and prints divina from one manuscript (the Sessorianus), where the other manuscripts and earlier editions read vicina (F has vicino); the gloss shows both. The digital text marks its first tolle as an OCR error (\"toIIe\"); the printed edition reads tolle, as given here.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "uōcem, dīuīnā: macrons follow vōx and dīvīnus; the u is the edition's spelling of consonantal v.",
+   "crēbrō: long ē and ō (adverb from crēber); not machine-checked.",
+   "contrītiōne: long ī (from contrītus, conterō); not machine-checked.",
+   "amārissimā: long ā in the second syllable, as in amārus; not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Dīcēbam",
+   "lemma": "dīcō, dīcere, dīxī, dictum",
+   "parse": "1st sg. impf. ind. act.",
+   "gloss": "I was saying",
+   "app": [
+    "dico-v3"
+   ]
+  },
+  {
+   "w": "haec",
+   "lemma": "hic, haec, hoc",
+   "parse": "acc. pl. n.",
+   "gloss": "these things",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "flēbam",
+   "lemma": "fleō, flēre, flēvī, flētum",
+   "parse": "1st sg. impf. ind. act.",
+   "gloss": "I was weeping",
+   "app": [
+    "fleo-v2"
+   ]
+  },
+  {
+   "w": "amārissimā",
+   "lemma": "amārus, amāra, amārum",
+   "parse": "superlative, abl. sg. f.",
+   "gloss": "most bitter"
+  },
+  {
+   "w": "contrītiōne",
+   "lemma": "contrītiō, contrītiōnis, f.",
+   "parse": "abl. sg.",
+   "gloss": "crushing, contrition"
+  },
+  {
+   "w": "cordis",
+   "lemma": "cor, cordis, n.",
+   "parse": "gen. sg.",
+   "gloss": "of (my) heart",
+   "app": [
+    "cor-n3n"
+   ]
+  },
+  {
+   "w": "meī",
+   "p": ".",
+   "lemma": "meus, mea, meum",
+   "parse": "gen. sg. n. (with cordis)",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "ecce",
+   "lemma": "ecce",
+   "parse": "interjection",
+   "gloss": "look, suddenly"
+  },
+  {
+   "w": "audiō",
+   "lemma": "audiō, audīre, audīvī, audītum",
+   "parse": "1st sg. pres. ind. act. (vivid present)",
+   "gloss": "I hear",
+   "app": [
+    "audio-v4"
+   ]
+  },
+  {
+   "w": "uōcem",
+   "lemma": "vōx, vōcis, f. (printed uocem: the edition writes u for consonantal v)",
+   "parse": "acc. sg.",
+   "gloss": "a voice",
+   "app": [
+    "vox-n3"
+   ]
+  },
+  {
+   "w": "dē",
+   "lemma": "dē (+ abl.)",
+   "parse": "preposition",
+   "gloss": "from",
+   "app": [
+    "de-indecl"
+   ]
+  },
+  {
+   "w": "dīuīnā",
+   "lemma": "dīvīnus, dīvīna, dīvīnum (printed diuina)",
+   "parse": "abl. sg. f.",
+   "gloss": "divine (most manuscripts: vīcīnā, \"neighbouring\")"
+  },
+  {
+   "w": "domō",
+   "lemma": "domus, domūs, f.",
+   "parse": "abl. sg.",
+   "gloss": "house"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum (+ abl.)",
+   "parse": "preposition",
+   "gloss": "with",
+   "app": [
+    "cum-indecl"
+   ]
+  },
+  {
+   "w": "cantū",
+   "lemma": "cantus, cantūs, m.",
+   "parse": "abl. sg.",
+   "gloss": "singing, a chant"
+  },
+  {
+   "w": "dīcentis",
+   "lemma": "dīcō, dīcere, dīxī, dictum",
+   "parse": "pres. participle, gen. sg. (used as a noun)",
+   "gloss": "of someone saying",
+   "app": [
+    "dico-v3"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "crēbrō",
+   "lemma": "crēbrō",
+   "parse": "adverb",
+   "gloss": "often, again and again"
+  },
+  {
+   "w": "repetentis",
+   "lemma": "repetō, repetere",
+   "parse": "pres. participle, gen. sg.",
+   "gloss": "repeating",
+   "app": [
+    "repeto-v3"
+   ]
+  },
+  {
+   "w": "quasi",
+   "lemma": "quasi",
+   "parse": "adverb",
+   "gloss": "as if, like"
+  },
+  {
+   "w": "puerī",
+   "lemma": "puer, puerī, m.",
+   "parse": "gen. sg.",
+   "gloss": "of a boy",
+   "app": [
+    "puer-n2m"
+   ]
+  },
+  {
+   "w": "an",
+   "lemma": "an",
+   "parse": "conjunction (in a double question)",
+   "gloss": "or"
+  },
+  {
+   "w": "puellae",
+   "p": ",",
+   "lemma": "puella, puellae, f.",
+   "parse": "gen. sg.",
+   "gloss": "of a girl",
+   "app": [
+    "puella-n1"
+   ]
+  },
+  {
+   "w": "nesciō",
+   "p": ":",
+   "lemma": "nesciō, nescīre",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I do not know",
+   "app": [
+    "nescio-v4"
+   ]
+  },
+  {
+   "w": "tolle",
+   "pre": "\"",
+   "lemma": "tollō, tollere, sustulī, sublātum",
+   "parse": "2nd sg. pres. imperative act.",
+   "gloss": "pick up, take up",
+   "app": [
+    "tollo-v3"
+   ]
+  },
+  {
+   "w": "lege",
+   "p": ",",
+   "lemma": "legō, legere, lēgī, lēctum",
+   "parse": "2nd sg. pres. imperative act.",
+   "gloss": "read",
+   "app": [
+    "lego-v3"
+   ]
+  },
+  {
+   "w": "tolle",
+   "lemma": "tollō, tollere, sustulī, sublātum",
+   "parse": "2nd sg. pres. imperative act.",
+   "gloss": "pick up, take up",
+   "app": [
+    "tollo-v3"
+   ]
+  },
+  {
+   "w": "lege",
+   "p": "\".",
+   "lemma": "legō, legere, lēgī, lēctum",
+   "parse": "2nd sg. pres. imperative act.",
+   "gloss": "read",
+   "app": [
+    "lego-v3"
+   ]
+  }
+ ],
+ "translation": "I was saying these things and weeping in the bitterest crushing of my heart. And suddenly I hear, from the divine house, a voice of someone chanting and repeating again and again, like a boy or a girl, I do not know which: \"Pick it up, read; pick it up, read.\"",
+ "translation_note": "Most manuscripts read de vicina domo, \"from the house next door\"; Knöll's divina gives \"from the divine house\". tolle lege has no object: \"pick up, read\" (Augustine took it as \"pick up the book and read\"). The present audio after past tenses is a vivid present.",
+ "essay": [
+  [
+   {
+    "t": "In the late summer of 386 Augustine, then imperial professor of rhetoric at Milan, sat in a garden there in deep crisis.",
+    "src": [
+     2,
+     5
+    ]
+   },
+   {
+    "t": "He wrote the Confessions later, about 400.",
+    "src": [
+     5
+    ]
+   },
+   {
+    "t": "In Book 8 he describes the garden of the house where he was lodging, which he and his friend Alypius could use because the owner did not live there.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Under a fig tree he threw himself down and wept, asking how long, tomorrow and tomorrow, why not now.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Then he heard a voice chanting and repeating tolle lege, as of a boy or a girl, he could not tell which.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "He tried to remember whether children used such words in some game and could not, so he took it as a divine command to open the book and read the first passage he found, recalling that Antony had taken a Gospel reading he happened upon as addressed to himself.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "He opened the book of the apostle Paul and read Romans 13:13-14: not in revelling and drunkenness, not in lust and wantonness, not in strife and envy, but put on the Lord Jesus Christ ...",
+    "src": [
+     1,
+     2
+    ]
+   },
+   {
+    "t": "At once, he writes, all the darkness of doubt fled.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "He was baptized by Ambrose in Milan at Easter 387.",
+    "src": [
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Was there a child at all?",
+    "src": [
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Pierre Courcelle argued that the scene is a literary construction, reading even the neighbouring house as the heavenly one, so that the voice is no real child's; Karl Gross, writing in 1954, summarized and rejected this, defending the account as historical testimony.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "As early support Courcelle cited a reading found only in the Codex Sessorianus, de divina domo, \"from the divine house\", where the other manuscripts have de vicina domo, \"from the house next door\".",
+    "src": [
+     1,
+     4
+    ]
+   },
+   {
+    "t": "Knöll's edition, used here, prints divina; Gross reports that Theiler called the reading nonsensical and that Courcelle later relied on it less.",
+    "src": [
+     1,
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Augustine himself flags the uncertainty: he could not tell whether the voice was a boy's or a girl's, and he could recall no game that used the words.",
+    "src": [
+     1
+    ]
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What did Augustine read when he opened the book?",
+   "options": [
+    "Paul's Letter to the Romans (13:13-14)",
+    "The opening chapter of Genesis",
+    "A passage from Vergil's Aeneid",
+    "A letter written to him by Ambrose"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Which reading, found only in the Codex Sessorianus, did Courcelle first cite?",
+   "options": [
+    "de divina domo, \"from the divine house\"",
+    "de vicina domo, \"from the house next door\"",
+    "de summa domo, \"from the top of the house\"",
+    "de caelesti domo, \"from the heavenly house\""
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why did Augustine first hesitate over the words?",
+   "options": [
+    "He tried to recall a children's game that used them",
+    "He did not understand the Latin of the words",
+    "Alypius told him to ignore the voice entirely",
+    "He thought the words were spoken in Greek"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Augustine, Confessiones 8 (Latin; ed. P. Knöll, CSEL 33, 1896), Open Greek and Latin TEI text (University of Leipzig)",
+   "url": "https://raw.githubusercontent.com/OpenGreekAndLatin/csel-dev/master/data/stoa0040/stoa001/stoa0040.stoa001.opp-lat1.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Christian History Institute, \"386 Augustine Converts to Christianity\" (Christian History magazine, issue 28, 1990)",
+   "url": "https://christianhistoryinstitute.org/magazine/article/augustine-converts",
+   "kind": "modern"
+  },
+  {
+   "label": "Benedict XVI, General Audience of 27 February 2008 (on Saint Augustine), vatican.va",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080227.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Karl Gross, \"Zur neuesten Deutung der Gartenszene in den Bekenntnissen des hl. Augustin\", Münchener Theologische Zeitschrift (1954, Heft 4), 289-295",
+   "url": "https://mthz.ub.lmu.de/MThZ/article/download/1954H4S289-295/343",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Saint Augustine\"",
+   "url": "https://www.britannica.com/biography/Saint-Augustine",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

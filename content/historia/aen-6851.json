@@ -1,0 +1,338 @@
+{
+ "id": "aen-6851",
+ "order": 14,
+ "title": "Spare the conquered, war down the proud",
+ "saying": "parcere subiectīs et dēbellāre superbōs",
+ "author": "Vergil",
+ "work": "Aenēis",
+ "citation": "Verg. Aen. 6.851–853",
+ "setting": "The underworld: Anchises shows Aeneas the Romans to come",
+ "verse": true,
+ "edition": {
+  "name": "The Bucolics, Aeneid, and Georgics of Virgil, edited by J. B. Greenough (Boston: Ginn and Company, 1881), public domain; the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, phi0690.phi003.perseus-lat2), whose header credits \"J. B. Greenough\", \"Ginn and Company\", \"1881\"",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0690/phi003/phi0690.phi003.perseus-lat2.xml",
+  "section": "Aeneid 6.851-853 (the culmination of Anchises' pageant of Roman heroes; he goes on to the Marcelli, 6.854-886)"
+ },
+ "source_text": "tu regere imperio populos, Romane, memento;\nhae tibi erunt artes; pacisque imponere morem,\nparcere subiectis, et debellare superbos.",
+ "excerpt_note": "Three lines as printed by Greenough, who reads pacisque (\"and of peace\") and punctuates with semicolons; the Latin Library text reads pacique (\"and on peace\") and sets hae tibi erunt artes in parentheses. The sense is nearly the same.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "subiectīs: the first syllable is long by position (sub-iectīs, consonantal i); the vowel u is short.",
+   "mementō: long final ō (future imperative); not machine-checked.",
+   "dēbellāre: long ē (dē-); not machine-checked.",
+   "hae tibi erunt: hae is long (a diphthong) and is followed by a consonant; it is tibi that elides before erunt, so the line scans hae tib(i) erunt artes pacisqu(e) imponere morem."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "tū",
+   "lemma": "tū, tuī",
+   "parse": "nom. sg.",
+   "gloss": "you"
+  },
+  {
+   "w": "regere",
+   "lemma": "regō, regere, rēxī, rēctum",
+   "parse": "pres. inf. act. (with mementō)",
+   "gloss": "to rule",
+   "app": [
+    "rego-v3"
+   ]
+  },
+  {
+   "w": "imperiō",
+   "lemma": "imperium, imperiī, n.",
+   "parse": "abl. sg. (means)",
+   "gloss": "with (your) power, by command",
+   "app": [
+    "imperium-n2n"
+   ]
+  },
+  {
+   "w": "populōs",
+   "p": ",",
+   "lemma": "populus, populī, m.",
+   "parse": "acc. pl.",
+   "gloss": "the peoples, nations",
+   "app": [
+    "populus-n2m"
+   ]
+  },
+  {
+   "w": "Rōmāne",
+   "p": ",",
+   "lemma": "Rōmānus, Rōmāna, Rōmānum",
+   "parse": "voc. sg. m. (used as a noun)",
+   "gloss": "Roman",
+   "app": [
+    "romanus-adj12"
+   ]
+  },
+  {
+   "w": "mementō",
+   "p": ";",
+   "br": true,
+   "lemma": "meminī, meminisse",
+   "parse": "2nd sg. fut. imperative",
+   "gloss": "remember"
+  },
+  {
+   "w": "hae",
+   "lemma": "hic, haec, hoc",
+   "parse": "nom. pl. f.",
+   "gloss": "these",
+   "app": [
+    "hic-pron-hic"
+   ]
+  },
+  {
+   "w": "tibi",
+   "lemma": "tū, tuī",
+   "parse": "dat. sg. (possession)",
+   "gloss": "for you, your"
+  },
+  {
+   "w": "erunt",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. fut. ind.",
+   "gloss": "will be",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "artēs",
+   "p": ";",
+   "lemma": "ars, artis, f.",
+   "parse": "nom. pl.",
+   "gloss": "arts, skills",
+   "app": [
+    "ars-n3i"
+   ]
+  },
+  {
+   "w": "pācisque",
+   "lemma": "pāx, pācis, f. + -que",
+   "parse": "gen. sg. + enclitic -que",
+   "gloss": "and of peace",
+   "app": [
+    "pax-n3"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "impōnere",
+   "lemma": "impōnō, impōnere",
+   "parse": "pres. inf. act. (with mementō)",
+   "gloss": "to impose, to set",
+   "app": [
+    "impono-v3"
+   ]
+  },
+  {
+   "w": "mōrem",
+   "p": ",",
+   "br": true,
+   "lemma": "mōs, mōris, m.",
+   "parse": "acc. sg.",
+   "gloss": "the custom, the way",
+   "app": [
+    "mos-n3"
+   ]
+  },
+  {
+   "w": "parcere",
+   "lemma": "parcō, parcere, pepercī, parsum",
+   "parse": "pres. inf. act. (with mementō; takes the dative)",
+   "gloss": "to spare",
+   "app": [
+    "parco-v3"
+   ]
+  },
+  {
+   "w": "subiectīs",
+   "p": ",",
+   "lemma": "subiciō, subicere, subiēcī, subiectum",
+   "parse": "perf. pass. participle, dat. pl. m. (used as a noun, with parcere)",
+   "gloss": "the subjected, those who submit"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "dēbellāre",
+   "lemma": "dēbellō, dēbellāre",
+   "parse": "pres. inf. act. (with mementō)",
+   "gloss": "to war down, to subdue completely"
+  },
+  {
+   "w": "superbōs",
+   "p": ".",
+   "lemma": "superbus, superba, superbum",
+   "parse": "acc. pl. m. (used as a noun)",
+   "gloss": "the proud",
+   "app": [
+    "superbus-adj12"
+   ]
+  }
+ ],
+ "translation": "You, Roman, remember to rule the nations with your power (these will be your arts), and to set the custom of peace, to spare those who submit, and to war down the proud.",
+ "translation_note": "All four infinitives (regere, impōnere, parcere, dēbellāre) depend on mementō, \"remember to\". With Greenough's pācisque the phrase is \"to impose the custom of peace\"; with the reading pācīque it is \"to impose custom upon peace\". subiectīs is dative because parcō takes the dative.",
+ "essay": [
+  [
+   {
+    "t": "In Book 6 Aeneas visits the underworld, where his dead father Anchises shows him the souls of future Romans waiting to be born.",
+    "src": [
+     1,
+     2
+    ]
+   },
+   {
+    "t": "Among them is Augustus Caesar, \"son of a god\", who will found a golden age again in Latium.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Vergil was writing under Augustus, who was sole ruler of the Roman world, and the poem lacked its final revision when Vergil died in 19 BC.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Anchises' speech climaxes with a contrast: others will cast bronze and carve marble more finely, plead cases better and chart the stars; the Roman's arts are to rule the nations, set the custom of peace, spare the submissive and war down the proud.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Britannica quotes these lines as the poem's statement of Rome's mission.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "How far Vergil means it is an old and unsettled argument.",
+    "src": [
+     3,
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "The title of Adam Parry's 1963 essay, \"The Two Voices of Virgil's Aeneid\", supplied a common label for it, and R. D. Williams' 1967 survey cites it while contrasting critics who stress Aeneas' virtues with those who stress his failings.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Britannica puts the general point mildly: the poem's greatness lies in Vergil's awareness of the private as well as the public aspects of life.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The test case is the last scene.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Turnus, beaten and a suppliant, says he has deserved it and does not plead for himself, but asks Aeneas to pity his father Daunus and give him, or his body, back to his people; Aeneas hesitates, then sees on him the belt of young Pallas, whom Turnus had killed, and kills him in fury.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Readers who hear irony note that the epic ends with Aeneas not sparing a man who has submitted, and Michael Putnam, by David West's account, cites parcere subiectis often.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "West, reviewing Putnam and Richard Tarrant's commentary on Book 12 (which treats the line as a precept) in 2013, answers that Anchises pairs sparing with warring down the proud, so the line is no pacifist rule, and that clemency was part of the Augustan settlement.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "Both readings rest on the same three lines, and in my view neither has won.",
+    "src": [
+     1,
+     4
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "Which arts does Anchises assign to the Roman?",
+   "options": [
+    "Ruling, peace, sparing the submissive, warring down the proud",
+    "Casting bronze and carving lifelike faces in marble",
+    "Pleading cases well and charting the rising stars",
+    "Writing poetry and making music for the gods"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why do some readers find the ending in tension with these lines?",
+   "options": [
+    "Aeneas kills Turnus, who has yielded and asked for pity",
+    "Aeneas spares Turnus, although Turnus is proud",
+    "Anchises takes back his words in the last book",
+    "Turnus kills Aeneas, who had earlier spared him"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What is David West's answer to the ironic reading?",
+   "options": [
+    "Sparing is paired with warring down the proud",
+    "Vergil did not write these three lines",
+    "The ending is a later addition to the poem",
+    "Turnus never submitted or asked for mercy"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Vergil, Aeneid 6 and 12 (Latin; ed. J. B. Greenough, 1881), Perseus Digital Library TEI text",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0690/phi003/phi0690.phi003.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Virgil\"",
+   "url": "https://www.britannica.com/biography/Virgil",
+   "kind": "modern"
+  },
+  {
+   "label": "R. D. Williams, \"The Aeneid\", New Surveys in the Classics 1 (1967), 23-44, Cambridge University Press (abstract and notes; cites A. Parry, Arion 2.4, 1963)",
+   "url": "https://cambridge.org/core/journals/new-surveys-in-the-classics/article/aeneid1/7B39FF5AEC4E1CDC301375017C10DA0C",
+   "kind": "modern"
+  },
+  {
+   "label": "David West, review of R. Tarrant, Virgil: Aeneid Book XII (2012) and M. Putnam, The Humanness of Heroes (2011), CJ-Online 2013.07.01 (Classical Association of the Middle West and South)",
+   "url": "https://cj.camws.org/files/reviews/2013/2013.07.01%20West%20on%20Tarrant%20and%20Putnam.pdf",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}
