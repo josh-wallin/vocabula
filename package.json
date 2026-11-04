@@ -1,0 +1,28 @@
+{
+  "name": "vocabula",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Vocābula: phone-first offline PWA for drilling Latin vocabulary and paradigms along Wheelock's Latin",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit -p . && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p .",
+    "import:wheelock": "tsx scripts/import-wheelock.ts"
+  },
+  "dependencies": {
+    "preact": "^11.1.1"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.1.0"
+  }
+}
