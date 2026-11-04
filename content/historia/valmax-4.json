@@ -8,7 +8,7 @@
  "citation": "Val. Max. 4.4.pr.; 8.3.3",
  "setting": "Rome, 2nd century BC (Cornelia) and 42 BC (Hortensia)",
  "edition": {
-  "name": "Valerius Maximus, Factorum et dictorum memorabilium libri novem, Latin text of the Teubner edition by Karl Friedrich Kempf (Leipzig 1888), as encoded by the Perseus Digital Library (TEI file phi1038.phi001.perseus-lat1), whose header credits \"Karl Friedrich Kempf\", Teubner, Leipzig, 1888; public domain",
+  "name": "Valerius Maximus, Factorum et dictorum memorabilium libri novem, Latin text of the Teubner edition by Karl Friedrich Kempf (Leipzig 1888), as encoded by the Perseus Digital Library (TEI file phi1038.phi001.perseus-lat1), whose header credits \"Karl Friedrich Kempf\", Teubner, Leipzig, 1888; public domain text; Perseus Digital Library, CC BY-SA 4.0 (licence stated in the repository README)",
   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1038/phi001/phi1038.phi001.perseus-lat1.xml",
   "section": "4.4 praefatio (the Cornelia anecdote, from \"Cornelia\" to \"mea\") and 8.3.3 (first sentence)"
  },
@@ -508,7 +508,7 @@
   {
    "w": "ut",
    "lemma": "ut",
-   "parse": "conjunction (+ subj.: purpose / result after a verb of obtaining)",
+   "parse": "conjunction (substantive ut-clause, indirect command, after impetrō)",
    "gloss": "that"
   },
   {
@@ -562,11 +562,11 @@
   }
  ],
  "translation": "When a lady from Campania, staying with Cornelia, the mother of the Gracchi, was showing off her jewellery, the finest of the day, Cornelia kept her talking until her children came home from school, and then said: \"These are my jewels.\" … When the order of married women had been loaded with a heavy tax by the triumvirs and no man dared to take on their defence, Hortensia, the daughter of Quintus Hortensius, pleaded the women's case before the triumvirs firmly and with success: by reviving her father's eloquence she won the remission of most of the money demanded of them.",
- "translation_note": "Valerius' Latin has ornamenta sunt mea (\"are my ornaments\"); the popular form \"haec ornamenta mea sunt\" and similar versions reorder it. trāxit eam sermōne means she drew the guest on in conversation. repraesentātā patris fācundiā is an ablative absolute: \"with her father's eloquence brought back\". Valerius files Cornelia under poverty: her wealth is her children.",
+ "translation_note": "Valerius' Latin has ornamenta sunt mea (\"are my ornaments\"); it is often quoted in shorter forms such as \"Haec ornamenta mea\" (so the title of the English Wikipedia article, a tertiary source). trāxit eam sermōne means she drew the guest on in conversation. repraesentātā patris fācundiā is an ablative absolute: \"with her father's eloquence brought back\". Valerius files Cornelia under poverty: her wealth is her children.",
  "essay": [
   [
    {
-    "t": "Valerius Maximus says in his preface that he gathered memorable deeds and sayings from distinguished authors to spare readers looking for examples a long search; the Cornelia story opens his chapter on poverty, and he says he found it in a collection by Pomponius Rufus.",
+    "t": "Valerius Maximus says he gathered memorable deeds and sayings from distinguished authors to spare readers seeking examples a long search; the Cornelia story opens his chapter on poverty, and he says he found it in a collection by Pomponius Rufus.",
     "src": [
      1
     ]
@@ -585,7 +585,7 @@
     ]
    },
    {
-    "t": "Quintilian says the Gracchi owed much of their eloquence to their mother and that her letters were still read in his day.",
+    "t": "Quintilian says the Gracchi owed much of their eloquence to their mother, whose letters still showed the cultivation of her style.",
     "src": [
      3
     ]
@@ -625,9 +625,10 @@
   ],
   [
    {
-    "t": "The speech was given in 42 BC, according to an EBSCO reference article.",
+    "t": "An EBSCO reference article dates the speech to 42 BC; in Appian the levy follows directly on the proscriptions, so it belongs to the winter of 43/42 BC; the month is uncertain (my inference).",
     "src": [
-     5
+     5,
+     2
     ],
     "doubt": true
    },
@@ -653,18 +654,18 @@
    "q": "Why does Valerius put the Cornelia story in his chapter on poverty?",
    "options": [
     "Her children, not jewellery, were her treasure",
-    "Cornelia had lost her fortune in the civil wars",
-    "The Campanian lady was poor",
-    "The triumvirs had taxed her jewellery"
+    "She had lost her fortune in the civil wars",
+    "The Campanian guest was really very poor",
+    "The triumvirs had taxed all her jewellery"
    ],
    "answer": 0
   },
   {
    "q": "According to Appian, what happened the day after Hortensia's speech?",
    "options": [
-    "The number of women taxed was cut from 1,400 to 400",
-    "The tax on women was doubled",
-    "Hortensia was exiled",
+    "The number of women taxed fell from 1,400 to 400",
+    "The tax on the women was doubled at once",
+    "Hortensia was sent into exile from Rome",
     "Fulvia paid the tax for all the women"
    ],
    "answer": 0
@@ -672,10 +673,10 @@
   {
    "q": "Why should Appian's text of the speech be read with caution?",
    "options": [
-    "It is a Greek version written much later and may be a rhetorical composition",
-    "It was written by Hortensia's enemies",
+    "It is a later Greek version, perhaps a rhetorical piece",
+    "It was written down by Hortensia's enemies",
     "It survives only on a damaged inscription",
-    "It contradicts Quintilian, who says the speech was lost"
+    "Quintilian says the real speech was lost"
    ],
    "answer": 0
   }

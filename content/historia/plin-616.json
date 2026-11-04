@@ -8,7 +8,7 @@
  "citation": "Plin. Ep. 6.16.5–6",
  "setting": "Misenum, on the Bay of Naples, AD 79",
  "edition": {
-  "name": "Pliny the Younger, Epistulae, Latin text of the Perseus Digital Library (Tufts University), TEI file phi1318.phi001.perseus-lat1 in the PerseusDL canonical-latinLit repository (\"Letters\", released 2004-08-24); the file's own header names no source edition (its imprint fields are empty), so the editor and year cannot be stated. Checked word for word against The Latin Library's text (thelatinlibrary.com/pliny.ep6.html), which also names no editor",
+  "name": "Pliny the Younger, Epistulae, Latin text of the Perseus Digital Library (Tufts University), TEI file phi1318.phi001.perseus-lat1 in the PerseusDL canonical-latinLit repository (\"Letters\", released 2004-08-24); the file's own header names no source edition (its imprint fields are empty), so the editor and year cannot be stated. Checked word for word against The Latin Library's text (thelatinlibrary.com/pliny.ep6.html), which also names no editor. A comparison with Kukula's Teubner text (Leipzig 1908; Perseus catalog phi1318.phi001.opp-lat5) was not possible: the Perseus repository has no TEI file for it (only perseus-lat1 is listed for this work) and the scans on archive.org could not be reached. Perseus Digital Library, CC BY-SA 4.0 (licence stated in the repository README)",
   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1318/phi001/phi1318.phi001.perseus-lat1.xml",
   "section": "Epistulae 6.16.5 (second sentence) and 6.16.6 (the whole section)"
  },
@@ -202,8 +202,8 @@
    "w": "expresserit",
    "p": ".",
    "lemma": "exprimō, exprimere, expressī, expressum",
-   "parse": "3rd sg. perf. subj. act. (potential: 'would have expressed')",
-   "gloss": "would have reproduced"
+   "parse": "3rd sg. perf. subj. act. (potential subjunctive with present sense, A&G §447.1)",
+   "gloss": "would express, could represent"
   },
   {
    "w": "Nam",
@@ -472,8 +472,8 @@
    ]
   }
  ],
- "translation": "A cloud was rising (to people watching from a distance it was unclear from which mountain; afterwards it was learned to have been Vesuvius) whose likeness and shape no other tree would have captured better than a pine. For it was carried up high as if on a very long trunk and then spread out into a kind of branches, I suppose because a fresh blast had lifted it and then, as the blast died down, it was left without support, or was even beaten down by its own weight, and thinned out sideways; at times it was white, at times dirty and blotched, depending on whether it had carried up earth or ash.",
- "translation_note": "Pliny writes as an observer at Misenum, across the bay: the parenthesis (incertum ... cōgnitum est) admits that at the time no one knew which mountain it was. expresserit is a potential subjunctive (\"would have expressed\"). crēdō marks the explanation of the shape as Pliny's own guess. -ve on cineremve means \"or\" (terram cineremve: \"earth or ash\").",
+ "translation": "A cloud was rising (to people watching from a distance it was unclear from which mountain; afterwards it was learned to have been Vesuvius) whose likeness and shape no other tree would represent better than a pine. For it was carried up high as if on a very long trunk and then spread out into a kind of branches, I suppose because a fresh blast had lifted it and then, as the blast died down, it was left without support, or was even beaten down by its own weight, and thinned out sideways; at times it was white, at times dirty and blotched, depending on whether it had carried up earth or ash.",
+ "translation_note": "Pliny writes as an observer at Misenum, across the bay: the parenthesis (incertum ... cōgnitum est) admits that at the time no one knew which mountain it was. expresserit is a potential subjunctive: the perfect tense here has present sense (\"would express\", \"could represent\"; Allen and Greenough §447.1). crēdō marks the explanation of the shape as Pliny's own guess. -ve on cineremve means \"or\" (terram cineremve: \"earth or ash\").",
  "essay": [
   [
    {
@@ -489,7 +489,7 @@
     ]
    },
    {
-    "t": "Only the first four books and part of the fifth survive, reaching AD 70, so whatever Tacitus made of the letter is lost (Wikipedia, a tertiary source).",
+    "t": "The surviving text breaks off in mid-sentence at 5.26, in a speech by the rebel Civilis, so whatever Tacitus made of the letter is lost.",
     "src": [
      6
     ],
@@ -519,7 +519,7 @@
   ],
   [
    {
-    "t": "The pine-tree image entered science: the US Geological Survey calls large explosive eruptions that build enormous columns of tephra and gas \"Plinian\", after Pliny the Younger's careful description of Vesuvius.",
+    "t": "The pine-tree image entered science: the US Geological Survey calls large explosive eruptions that build enormous columns of tephra and gas \"Plinian\", after Pliny the Younger's description of Vesuvius.",
     "src": [
      2
     ]
@@ -534,7 +534,7 @@
   ],
   [
    {
-    "t": "In 2018 excavators in Regio V found a charcoal note dated the sixteenth day before the Kalends of November (17 October), with no year; the site's team called it highly probable that it was written a week before an October eruption.",
+    "t": "In 2018 excavators in Regio V found a charcoal note dated the sixteenth day before the Kalends of November (17 October), with no year; the site's team called it highly probable that it dated to October AD 79, which would point to an autumn eruption.",
     "src": [
      4
     ],
@@ -560,12 +560,11 @@
     "doubt": true
    },
    {
-    "t": "My summary: August rests on one textual tradition that could be mistaken, October on suggestive but imprecise finds.",
+    "t": "The manuscripts support only 24 August; the case for autumn rests on finds that the park's own team now judges not decisive.",
     "src": [
      3,
      4
-    ],
-    "doubt": true
+    ]
    }
   ]
  ],
@@ -573,30 +572,30 @@
   {
    "q": "Why did Pliny write this letter?",
    "options": [
-    "Tacitus asked for an account of his uncle's death for his history",
-    "He was reporting to the emperor as fleet commander",
-    "He wanted to publish a scientific treatise on volcanoes",
-    "His mother asked him to record the date"
+    "Tacitus asked him for an account of his uncle's death",
+    "The emperor asked him for a report on the fleet",
+    "He wanted to write a treatise on volcanoes himself",
+    "His mother asked him to record the day it began"
    ],
    "answer": 0
   },
   {
    "q": "What does the word crēdō signal in the description of the cloud's shape?",
    "options": [
-    "That the explanation is Pliny's own guess",
-    "That an eyewitness told him so",
+    "That the explanation is his own guess",
+    "That an eyewitness had told him so",
     "That he read it in his uncle's notes",
-    "That it was common knowledge at Misenum"
+    "That everyone at Misenum agreed on it"
    ],
    "answer": 0
   },
   {
    "q": "What did the 2023 experiment at Pompeii show about the charcoal note found in 2018?",
    "options": [
-    "Charcoal writing can stay legible for ten months, so the note could date from October 78",
-    "The note must have been written in the week before the eruption",
-    "The note was a modern forgery",
-    "Charcoal fades within days, so the eruption must have been in October"
+    "Charcoal writing stayed legible for ten months",
+    "Charcoal writing faded within a few days",
+    "The 2018 note turned out to be modern",
+    "The note named the year of the eruption"
    ],
    "answer": 0
   }
@@ -628,9 +627,9 @@
    "kind": "modern"
   },
   {
-   "label": "Wikipedia, \"Histories (Tacitus)\" (tertiary; used only for how much of the work survives)",
-   "url": "https://en.wikipedia.org/wiki/Histories_(Tacitus)",
-   "kind": "modern"
+   "label": "Tacitus, Historiae (Latin; C. D. Fisher, Oxford 1911, Perseus Digital Library TEI): the text ends in mid-sentence at 5.26",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1351/phi004/phi1351.phi004.perseus-lat2.xml",
+   "kind": "ancient"
   }
  ],
  "verified": "2026-11-04"

@@ -380,7 +380,7 @@
   }
  ],
  "translation": "I was pleased to hear from people who come from your house that you live on easy terms with your slaves. That suits a man of your good sense and education. \"They're slaves.\" No: they are people. \"They're slaves.\" No: they share our roof. \"They're slaves.\" No: they are friends of humble rank. \"They're slaves.\" No: they are our fellow slaves, once you consider that Fortune has exactly as much power over the one as over the other.",
- "translation_note": "The quoted \"Servī sunt\" is the voice of an imagined objector; each Immō (\"no, rather\") corrects him. contubernālis is literally a soldier who shares your tent; the word was also used of household companions. tantundem in utrōsque licēre fortūnae: \"that Fortune is allowed just as much against both\", i.e. a free man can become a slave.",
+ "translation_note": "The quoted \"Servī sunt\" is the voice of an imagined objector; each Immō (\"no, rather\") corrects him. contubernālis is literally a soldier who shares your tent; the word was also used of household companions. tantundem in utrōsque licēre fortūnae: \"that Fortune is allowed just as much against both\", i.e. a free man can become a slave. cōgitāveris is taken here as future perfect indicative; it could also be perfect subjunctive (\"if you should reflect\").",
  "essay": [
   [
    {
@@ -396,7 +396,7 @@
     ]
    },
    {
-    "t": "His rule is to live with an inferior as you would want a superior to live with you; fortune, he notes, has made men of distinguished birth into shepherds.",
+    "t": "His rule is to live with an inferior as you would want a superior to live with you.",
     "src": [
      1
     ]
@@ -406,8 +406,7 @@
    {
     "t": "The letter does not call for freeing slaves.",
     "src": [
-     1,
-     4
+     1
     ],
     "doubt": true
    },
@@ -439,11 +438,18 @@
   ],
   [
    {
-    "t": "Seneca owned slaves himself and was among the richest men in Rome.",
+    "t": "Seneca owned slaves himself and was enormously rich.",
     "src": [
      1,
      2,
-     3
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "In a speech Tacitus gives him, Seneca tells Nero that the emperor has surrounded him with countless money, gardens and estates, and offers to hand them back.",
+    "src": [
+     5
     ],
     "doubt": true
    },
@@ -455,14 +461,14 @@
     "doubt": true
    },
    {
-    "t": "Cassius Dio repeats the figure, says Seneca criticized the rich while acquiring it, and credits him with five hundred matching citrus-wood tables with ivory legs.",
+    "t": "Cassius Dio, also hostile, repeats the figure, says Seneca criticized the rich while acquiring it, and credits him with five hundred citrus-wood tables.",
     "src": [
      3
     ],
     "doubt": true
    },
    {
-    "t": "In letter 12 he jokes about a decrepit doorkeeper at his villa, who turns out to be Felicio, his bailiff's son and once his childhood pet; I read this as a glimpse of the household behind the philosophy.",
+    "t": "In letter 12 he jokes about a decrepit doorkeeper at his villa, who turns out to be Felicio, his bailiff's son and once his pet; I read this as a glimpse of the household behind the philosophy.",
     "src": [
      1
     ],
@@ -474,8 +480,7 @@
     "t": "My view: the letter is a memorable early statement that slaves are human beings, written by a man whose wealth rested on the system it describes; it is not an argument against slavery.",
     "src": [
      1,
-     2,
-     4
+     2
     ],
     "doubt": true
    }
@@ -485,30 +490,30 @@
   {
    "q": "What does Seneca answer to the objection \"They are slaves\"?",
    "options": [
-    "That they are human beings, housemates, humble friends and fellow slaves",
-    "That slavery should be abolished at once",
-    "That slaves are naturally inferior",
-    "That only educated slaves deserve kindness"
+    "Human beings, housemates, humble friends, fellow slaves",
+    "Property that a wise man should not own at all",
+    "Inferiors by nature who must be kept in fear",
+    "Servants who deserve kindness only if educated"
    ],
    "answer": 0
   },
   {
-   "q": "What does Seneca say he is NOT doing in this letter?",
+   "q": "What charge does Seneca imagine and answer?",
    "options": [
-    "Summoning slaves to freedom and pulling masters down",
-    "Advising Lucilius to dine with some of his slaves",
-    "Criticizing cruel masters",
-    "Saying that fortune can make a free man a slave"
+    "That he is summoning slaves to freedom",
+    "That he is too harsh with his own slaves",
+    "That he dines alone, never with friends",
+    "That he values birth above character"
    ],
    "answer": 0
   },
   {
    "q": "Why does the essay call Suillius's charge against Seneca \"hostile\"?",
    "options": [
-    "It was made by an accuser attacking him, so it may be exaggerated",
-    "Seneca himself admitted it in this letter",
+    "It came from an accuser, so it may be exaggerated",
+    "Seneca himself admitted it in this very letter",
     "It comes from an inscription on his villa",
-    "It was invented by modern historians"
+    "It was invented by modern historians of Rome"
    ],
    "answer": 0
   }
@@ -527,6 +532,11 @@
   {
    "label": "Cassius Dio, Roman History 61.10 (Loeb translation), LacusCurtius",
    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/61*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Annals 14.53-54 (Latin; C. D. Fisher, Oxford 1906, Perseus Digital Library TEI)",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1351/phi005/phi1351.phi005.perseus-lat2.xml",
    "kind": "ancient"
   },
   {

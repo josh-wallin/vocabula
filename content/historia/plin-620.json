@@ -8,7 +8,7 @@
  "citation": "Plin. Ep. 6.20.14–15",
  "setting": "The road out of Misenum, AD 79",
  "edition": {
-  "name": "Pliny the Younger, Epistulae, Latin text of the Perseus Digital Library (Tufts University), TEI file phi1318.phi001.perseus-lat1 in the PerseusDL canonical-latinLit repository (\"Letters\", released 2004-08-24); the file's own header names no source edition (its imprint fields are empty), so the editor and year cannot be stated. Checked word for word against The Latin Library's text (thelatinlibrary.com/pliny.ep6.html), which also names no editor",
+  "name": "Pliny the Younger, Epistulae, Latin text of the Perseus Digital Library (Tufts University), TEI file phi1318.phi001.perseus-lat1 in the PerseusDL canonical-latinLit repository (\"Letters\", released 2004-08-24); the file's own header names no source edition (its imprint fields are empty), so the editor and year cannot be stated. Checked word for word against The Latin Library's text (thelatinlibrary.com/pliny.ep6.html), which also names no editor. A comparison with Kukula's Teubner text (Leipzig 1908; Perseus catalog phi1318.phi001.opp-lat5) was not possible: the Perseus repository has no TEI file for it (only perseus-lat1 is listed for this work) and the scans on archive.org could not be reached. Perseus Digital Library, CC BY-SA 4.0 (licence stated in the repository README)",
   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1318/phi001/phi1318.phi001.perseus-lat1.xml",
   "section": "Epistulae 6.20.14 (the whole section) and 6.20.15 (first sentence)"
  },
@@ -18,10 +18,10 @@
   "editorial": true,
   "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
   "uncertain": [
-   "cōnsīderāmus: the reading itself is uncertain in meaning (see the translation note); quantities as in cōnsīderō.",
+   "cōnsīderāmus: long ī, from the perfect stem cōnsīd- (Lewis & Short give the perfect as cōnsēdī, also cōnsīdī); not machine-checked.",
    "exstīnctō: long ī before nct (hidden quantity), as in most modern dictionaries; not machine-checked.",
    "quirītātūs, ululātūs, illūnis, nūbila, nōscitābant: the usual dictionary quantities; not machine-checked.",
-   "īnfantum: long ī before nf, the usual dictionary quantity; not machine-checked."
+   "īnfantum: long ī before nf, the usual dictionary quantity; not machine-checked. The genitive plural is usually īnfantium; Lewis & Short cite infantum from this letter (their reference reads \"Plin. Ep. 9, 20, 14\", evidently for 6.20.14). Not checked against a critical edition."
   ]
  },
  "tokens": [
@@ -34,9 +34,9 @@
   {
    "w": "cōnsīderāmus",
    "p": ",",
-   "lemma": "cōnsīderō, cōnsīderāre",
-   "parse": "1st pl. pres. ind. act. (vivid present); see the note",
-   "gloss": "we were taking stock (or: we had sat down)"
+   "lemma": "cōnsīdō, cōnsīdere, cōnsēdī (also cōnsīdī), cōnsessum",
+   "parse": "1st pl. pluperf. ind. act. (from the perfect cōnsīdī)",
+   "gloss": "we had sat down"
   },
   {
    "w": "et",
@@ -527,8 +527,8 @@
    "gloss": "were interpreting (it as)"
   }
  ],
- "translation": "We had barely stopped to take stock when night came on: not a night with no moon or with clouds, but like the dark of a shut room when the lamp has been put out. You could have heard women wailing, babies crying, men shouting. People were calling for their parents, their children, their husbands or wives, and trying to tell them apart by their voices. Some grieved over what was happening to them, others over what was happening to their families; there were people who, out of fear of death, prayed to die. Many lifted their hands to the gods; more concluded that there were no gods anywhere any more, and that this was the everlasting, final night of the world.",
- "translation_note": "Vix cōnsīderāmus is uncertain: as printed it is the present of cōnsīderō (\"we were scarcely taking stock\"), but many translators render \"we had scarcely sat down\", as if from cōnsīdō, and this was not checked against a critical apparatus. Audīrēs is a potential subjunctive (\"you would have heard\"). tollere is a historical infinitive, used like a past tense. The last clause is indirect statement: deōs (esse) nusquam, \"that the gods were nowhere\".",
+ "translation": "We had barely sat down when night came on: not a night with no moon or with clouds, but like the dark of a shut room when the lamp has been put out. You could have heard women wailing, babies crying, men shouting. People were calling for their parents, their children, their husbands or wives, and trying to tell them apart by their voices. Some grieved over what was happening to them, others over what was happening to their families; there were people who, out of fear of death, prayed to die. Many lifted their hands to the gods; more concluded that there were no gods anywhere any more, and that this was the everlasting, final night of the world.",
+ "translation_note": "Vix cōnsīderāmus looks like the present of cōnsīderō (\"consider\"), but Lewis & Short file this very passage (Plin. Ep. 6, 20, 14) under cōnsīdō, \"sit down\", whose perfect is cōnsēdī or cōnsīdī: so it is the pluperfect, \"we had (barely) sat down\" (Lewis & Short, Perseus TEI, https://raw.githubusercontent.com/PerseusDL/lexica/master/CTS_XML_TEI/perseus/pdllex/lat/ls/lat.ls.perseus-eng1.xml). Audīrēs is a potential subjunctive (\"you would have heard\"). tollere is a historical infinitive, used like a past tense. The last clause is indirect statement: deōs (esse) nusquam, \"that the gods were nowhere\".",
  "essay": [
   [
    {
@@ -580,7 +580,7 @@
     ]
    },
    {
-    "t": "He admits he would have been tempted to boast that he never groaned, but for his belief that he and the whole world were dying together, which he calls a wretched but great comfort.",
+    "t": "He says he could boast that no groan escaped him, were it not that he believed he and the whole world were dying together, which he calls a wretched but great comfort.",
     "src": [
      1
     ],
@@ -595,7 +595,7 @@
   ],
   [
    {
-    "t": "He ends by saying that these details are not worthy of history and that Tacitus need not use them.",
+    "t": "He ends by telling Tacitus that he will read these things, not at all worthy of history, without intending to write them up.",
     "src": [
      1
     ]
@@ -613,9 +613,9 @@
   {
    "q": "What did many people in the crowd conclude, according to Pliny?",
    "options": [
-    "That there were no gods any more and this was the world's last night",
+    "That there were no gods and this was the last night",
     "That the gods would soon end the darkness",
-    "That the emperor had sent ships to save them",
+    "That the emperor's ships would rescue them",
     "That the cloud came from a fire in Misenum"
    ],
    "answer": 0
@@ -624,8 +624,8 @@
    "q": "What does the darkness remind Pliny of?",
    "options": [
     "A shut room when the lamp is put out",
-    "A night with no moon",
-    "A cloudy night at sea",
+    "A night with no moon and no stars",
+    "A cloudy night out at sea",
     "The smoke of a burning city"
    ],
    "answer": 0
@@ -633,9 +633,9 @@
   {
    "q": "How does Pliny frame the whole letter at its start?",
    "options": [
-    "With Aeneas' words before he tells of the fall of Troy",
-    "With a quotation from his uncle's Natural History",
-    "With a prayer to Vulcan",
+    "With Aeneas' words before the fall of Troy",
+    "With a line from his uncle's Natural History",
+    "With a prayer to the god Vulcan",
     "With the date and hour of the eruption"
    ],
    "answer": 0

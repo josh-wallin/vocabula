@@ -9,7 +9,7 @@
  "setting": "Pompeii, before AD 79",
  "verse": true,
  "edition": {
-  "name": "Three Pompeian wall texts, each as printed by its online edition: CIL IV 1904 (scratched, Basilica VIII.1.1) as edited by the Ancient Graffiti Project, AGP-EDR158840 (editor Rebecca Benefiel, principal contributor Kyle Helms; licensed CC BY-NC-SA 4.0); CIL IV 7928 (painted, IX.13.1-3) and CIL IV 807 (painted, VII.1.44) as transcribed on Pompeii in Pictures, which gives the 7928 reading from the Clauss/Slaby epigraphic database and prints 807 in capitals",
+  "name": "Three Pompeian wall texts, each as printed by its online edition. CIL IV 1904 (scratched, Basilica VIII.1.1): AGP-EDR158840, The Ancient Graffiti Project, https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR158840 [accessed: 04 Nov 2026] (editor Rebecca Benefiel, principal contributor Kyle Helms), licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); changes made: macrons added; line division moved (the couplet is broken after ruinis). CIL IV 7928 (painted, IX.13.1-3) and CIL IV 807 (painted, VII.1.44): via Pompeii in Pictures, which gives the 7928 reading from the Clauss/Slaby epigraphic database (EDCS) and its location from Varone and Stefani, Titulorum Pictorum Pompeianorum (2009), pp. 460-1, and prints 807 in capitals, citing Dobbins and Foss (2008) and Mau (1907); neither was checked against EDCS, which could not be reached",
   "url": "https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR158840",
   "section": "CIL IV 1904 (complete), CIL IV 7928 (complete), CIL IV 807 (the legible part)"
  },
@@ -245,7 +245,7 @@
   }
  ],
  "translation": "I'm amazed, wall, that you haven't collapsed in ruins, when you hold up the boring scribbles of so many writers. | Gnaeus Helvius Sabinus for aedile, an upright man: his neighbours request it. | To let here: lodging, a dining room with three couches, and amenities.",
- "translation_note": "The vertical bars separate the three inscriptions. In the couplet, quī ... sustineās is a relative clause with a causal sense (\"since you bear\"). The electoral notice is in the accusative because a verb such as \"elect\" is understood: the common formula is o(rō) v(ōs) f(aciātis), \"I beg you to elect\". v(irum) p(robum), \"a good man\", is a stock phrase of these notices. HOSPITIVM may be a heading (\"Lodging\") rather than the subject of locātur; the readings differ.",
+ "translation_note": "The vertical bars separate the three inscriptions. In the couplet, quī ... sustineās is a relative clause with a causal sense (\"since you bear\"). In the electoral notice the names are accusative as objects of rog(ant), \"the neighbours ask for ...\"; other notices use the formula o(rō) v(ōs) f(aciātis), \"I beg you to elect\". v(irum) p(robum), \"an upright man\", is a stock phrase of these notices.",
  "essay": [
   [
    {
@@ -291,7 +291,7 @@
     ]
    },
    {
-    "t": "Professional writers painted them in red or black on walls along the main streets, naming a candidate, an office and often the supporters, who could be individuals or groups such as fruit sellers.",
+    "t": "Often professional sign-painters (scriptores) painted them in red or black on walls along the main streets, naming a candidate, an office and often the supporters, who could be individuals or groups such as fruit sellers.",
     "src": [
      5
     ]
@@ -347,10 +347,10 @@
   {
    "q": "What does (:paries) after PARIENS mean in the edition?",
    "options": [
-    "The editors' standard spelling for what the writer misspelled",
+    "The editors' spelling for the writer's misspelling",
     "A second word scratched by another hand",
     "A Greek gloss added in antiquity",
-    "That the rest of the line is lost"
+    "A sign that the rest of the line is lost"
    ],
    "answer": 0
   },
@@ -359,7 +359,7 @@
    "options": [
     "His neighbours",
     "The fruit sellers",
-    "The emperor",
+    "The town council",
     "His freedmen"
    ],
    "answer": 0
@@ -367,8 +367,8 @@
   {
    "q": "What do the letters in parentheses, such as aed(ilem), show?",
    "options": [
-    "The editors' expansions of abbreviations the painter used",
-    "Letters the painter added later",
+    "Editors' expansions of the painter's abbreviations",
+    "Letters the painter added at a later date",
     "Letters that were erased in antiquity",
     "Corrections made by a second painter"
    ],
@@ -377,7 +377,7 @@
  ],
  "sources": [
   {
-   "label": "Ancient Graffiti Project, AGP-EDR158840: CIL IV 1904, Basilica (VIII.1.1), Pompeii (ed. Rebecca Benefiel)",
+   "label": "AGP-EDR158840, The Ancient Graffiti Project [accessed: 04 Nov 2026]: CIL IV 1904, Basilica (VIII.1.1), Pompeii (ed. Rebecca Benefiel; CC BY-NC-SA 4.0)",
    "url": "https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR158840",
    "kind": "ancient"
   },
