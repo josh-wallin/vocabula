@@ -41,7 +41,7 @@ describe('worker: access', () => {
     for (const ctx of [undefined, {}, ctxFor(undefined), ctxFor('mallory@example.com'), ctxFor(EMAIL, 'other-aud')]) {
       const r = await call('GET', '/api/me', { ctx });
       expect(r.status).toBe(403);
-      expect(await r.json()).toEqual({ error: 'forbidden' });
+      expect(await r.json()).toMatchObject({ error: 'forbidden' });
     }
     // getIdentity throwing is also a 403, not a 500.
     const r = await call('GET', '/api/events', { ctx: { access: { aud: AUD, getIdentity: async () => { throw new Error('boom'); } } } });

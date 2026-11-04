@@ -47,8 +47,14 @@ export async function apiFetch<T>(path: string, init: RequestInit = {}, fetchFn:
   if (res.type === 'opaqueredirect' || res.status === 0) return { kind: 'auth' };
   if (res.status === 304) return { kind: 'not-modified' };
   if (res.status >= 300 && res.status < 400) return { kind: 'auth' };
-  if (res.status === 401 || res.status === 403) return { kind: 'auth' };
   const json = isJsonType(res.headers.get('content-type'));
+  if (res.status === 403 && json) {
+    // Our own Worker refused a signed-in request (it names a reason): not an expired session.
+    let reason: string | undefined;
+    try { reason = ((await res.clone().json()) as { reason?: string }).reason; } catch { /* none */ }
+    if (reason && reason !== 'no_access_context') return { kind: 'error', status: 403, message: `The server refused this sign-in (${reason}).` };
+  }
+  if (res.status === 401 || res.status === 403) return { kind: 'auth' };
   if (res.ok) {
     if (!json) return { kind: 'auth' };
     try {

@@ -44,16 +44,27 @@ export function allowedEmails(env: ApiEnv): Set<string> {
   return new Set((env.ALLOWED_EMAILS ?? '').split(',').map((s) => s.trim().toLowerCase()).filter(Boolean));
 }
 
+export type IdentifyResult = { email: string } | { reason: string };
+
+/** Why a request was or wasn't accepted. Never throws. */
+export async function identifyDetailed(env: ApiEnv, ctx: ApiCtx | undefined): Promise<IdentifyResult> {
+  const access = ctx?.access;
+  if (!access || typeof access.getIdentity !== 'function') return { reason: 'no_access_context' };
+  // Access having matched this request is the real gate; the AUD check only guards against
+  // a different Access app. Reject a mismatching AUD, but don't reject one that isn't exposed.
+  if (!env.ACCESS_AUD) return { reason: 'aud_not_configured' };
+  if (access.aud !== undefined && access.aud !== env.ACCESS_AUD) return { reason: 'aud_mismatch' };
+  let email: unknown;
+  try { email = (await access.getIdentity())?.email; } catch { return { reason: 'identity_error' }; }
+  if (typeof email !== 'string' || !email) return { reason: 'no_email' };
+  const e = email.trim().toLowerCase();
+  return allowedEmails(env).has(e) ? { email: e } : { reason: 'email_not_allowed' };
+}
+
 /** The signed-in, allowed email, or null. Never throws. */
 export async function identify(env: ApiEnv, ctx: ApiCtx | undefined): Promise<string | null> {
-  const access = ctx?.access;
-  if (!access || typeof access.getIdentity !== 'function') return null;
-  if (!env.ACCESS_AUD || access.aud !== env.ACCESS_AUD) return null;
-  let email: unknown;
-  try { email = (await access.getIdentity())?.email; } catch { return null; }
-  if (typeof email !== 'string') return null;
-  const e = email.trim().toLowerCase();
-  return allowedEmails(env).has(e) ? e : null;
+  const r = await identifyDetailed(env, ctx);
+  return 'email' in r ? r.email : null;
 }
 
 async function readBody(req: Request, max: number): Promise<string> {
@@ -176,8 +187,12 @@ export function safeNext(v: string | null): string {
 
 export async function handleApi(req: Request, env: ApiEnv, ctx?: ApiCtx): Promise<Response> {
   try {
-    const email = await identify(env, ctx);
-    if (!email) return fail(403, 'forbidden');
+    const who = await identifyDetailed(env, ctx);
+    if (!('email' in who)) {
+      console.log(JSON.stringify({ msg: 'api_forbidden', reason: who.reason, hasAccess: !!ctx?.access, audType: typeof ctx?.access?.aud }));
+      return json({ error: 'forbidden', reason: who.reason }, 403);
+    }
+    const email = who.email;
     const url = new URL(req.url);
     const path = url.pathname.replace(/\/+$/, '') || '/';
     const m = req.method.toUpperCase();
