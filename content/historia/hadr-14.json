@@ -164,7 +164,7 @@
    "w": "dēvōtum",
    "lemma": "dēvoveō, dēvovēre, dēvōvī, dēvōtum",
    "parse": "perf. pass. participle, acc. sg. m. ([esse] understood)",
-   "gloss": "(had been) devoted, offered (to death)"
+   "gloss": "(had been) offered up, devoted (as a sacrifice)"
   },
   {
    "w": "prō",
@@ -382,7 +382,7 @@
    "gloss": "is said, is rumoured"
   }
  ],
- "translation": "He lost his Antinous while sailing along the Nile, and wept for him like a woman. About him the reports vary: some claim that he had offered himself to death for Hadrian, others claim what both his beauty and Hadrian's excessive sensuality suggest. The Greeks, at Hadrian's wish, did indeed make him a god, claiming that oracles were given through him, oracles that Hadrian himself is rumoured to have composed.",
+ "translation": "He lost his Antinous while sailing along the Nile, and wept for him like a woman. About him the reports vary, some claiming that he had been offered up as a sacrifice for Hadrian, others claiming what both his beauty and Hadrian's excessive sensuality suggest. The Greeks, at Hadrian's wish, did indeed make him a god, claiming that oracles were given through him, oracles that Hadrian himself is rumoured to have composed.",
  "translation_note": "The second sentence is compressed: aliīs (adserentibus) quod ... ostentat, \"others (claiming) what ... suggests\"; the writer leaves the sexual implication unspoken. Hadriānus ... composuisse iactātur is a personal passive: \"Hadrian is said to have composed\".",
  "essay": [
   [
@@ -415,7 +415,7 @@
     "doubt": true
    },
    {
-    "t": "It then reports two explanations: some said Antinous had offered his life for Hadrian, others pointed to what his beauty and Hadrian's excessive sensuality suggested.",
+    "t": "It then reports two explanations: some said Antinous had been offered up as a sacrifice for Hadrian, others pointed to what his beauty and Hadrian's excessive sensuality suggested.",
     "src": [
      1
     ]
@@ -430,7 +430,7 @@
   ],
   [
    {
-    "t": "Cassius Dio gives the same alternatives more sharply.",
+    "t": "Cassius Dio gives related, blunter alternatives.",
     "src": [
      2
     ]
@@ -442,16 +442,15 @@
     ]
    },
    {
-    "t": "Neither account can be checked: Dio's book survives only in an abridgement, and the Historia Augusta was written by a single author near the end of the fourth century, under six false names, and its checkable claims have often proved unfounded.",
+    "t": "Neither account can be checked: Dio's book survives only in an abridgement, and the Historia Augusta was written by a single author, probably near the end of the fourth century, under six false names, and its checkable claims have often proved unfounded.",
     "src": [
      2,
      3
     ]
    },
    {
-    "t": "An accident remains as possible as any of the darker stories.",
+    "t": "Hadrian's own version, an accident, cannot be ruled out.",
     "src": [
-     1,
      2
     ],
     "doubt": true
@@ -478,7 +477,7 @@
     ]
    },
    {
-    "t": "The city was Antinoopolis, and a statue of Antinous as the Egyptian god Osiris, found in 1740 at Hadrian's Villa near Tivoli, is now in the Vatican Museums; the museum says his cult spread rapidly between 133 and 138.",
+    "t": "The city was Antinoopolis, and a statue of Antinous as the Egyptian god Osiris, found in 1740 at Hadrian's Villa near Tivoli, is now in the Vatican Museums; the museum says his cult spread rapidly, especially between 133 and 138.",
     "src": [
      4
     ]

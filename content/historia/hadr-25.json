@@ -103,8 +103,8 @@
   },
   {
    "w": "hospes",
-   "lemma": "hospes, hospitis, m.",
-   "parse": "voc. (or nom.) sg., in apposition to animula",
+   "lemma": "hospes, hospitis, m. or f.",
+   "parse": "voc. (or nom.) sg., in apposition to animula (hospes is used of either gender, here of the feminine animula)",
    "gloss": "guest",
    "app": [
     "hospes-n3"
@@ -133,9 +133,9 @@
   },
   {
    "w": "quae",
-   "lemma": "quī, quae, quod",
-   "parse": "relative pronoun, nom. sg. f.",
-   "gloss": "you who, which"
+   "lemma": "quī, quae, quod (interrogative adjective)",
+   "parse": "acc. pl. n., with loca (quae ... in loca = in quae loca)",
+   "gloss": "what, which (places)"
   },
   {
    "w": "nunc",
@@ -229,8 +229,8 @@
    "gloss": "jokes"
   }
  ],
- "translation": "And as he was dying he is said to have composed these verses: \"Little soul, little wanderer, little charmer, guest and companion of the body, to what places will you go off now, pale little thing, stiff, bare little thing? And you will not make jokes as you used to!\"",
- "translation_note": "The diminutives (-ula) are affectionate and hard to render; \"little\" is a stand-in. pallidula rigida nūdula can describe the soul (nominative feminine) or the places (accusative neuter plural, with loca); I take them with the soul, but both readings are grammatical.",
+ "translation": "And as he was dying he is said to have composed these verses: \"Little soul, little wanderer, little charmer, guest and companion of the body, into what places will you go off now, pale little thing, stiff, bare little thing? And you will not make jokes as you used to!\"",
+ "translation_note": "The diminutives (-ula) are affectionate and hard to render; \"little\" is a stand-in. pallidula rigida nūdula can describe the soul (nominative feminine) or the places (accusative neuter plural, with loca); I take them with the soul, but both readings are grammatical; this is my reading of the grammar, not a sourced claim. quae ... in loca is taken as an interrogative (\"into what places\"); a minority reading takes quae as a relative (\"you who will now go\").",
  "essay": [
   [
    {
@@ -274,7 +274,7 @@
     ]
    },
    {
-    "t": "Three adjectives, pale, stiff and bare, can describe either the soul or the places it goes to, and the Latin does not decide; this ambiguity is my reading of the grammar, not a sourced claim.",
+    "t": "Three adjectives, pale, stiff and bare, can be taken with the soul or with the places it goes to (see the translation note).",
     "src": [
      1
     ],
@@ -326,9 +326,10 @@
     ]
    },
    {
-    "t": "Marguerite Yourcenar's novel Mémoires d'Hadrien, published in 1951, takes the first line, Animula vagula blandula, as the title of its first part.",
+    "t": "Marguerite Yourcenar's novel Mémoires d'Hadrien, published by Plon in 1951, takes the first line, Animula vagula blandula, as the title of its first part.",
     "src": [
-     4
+     4,
+     5
     ]
    },
    {
@@ -392,6 +393,11 @@
   {
    "label": "Schoolmouv (French educational site), \"Mémoires d'Hadrien, Marguerite Yourcenar\" (secondary; used for the 1951 date and the title of the first part)",
    "url": "https://www.schoolmouv.fr/cours/memoires-d-hadrien-marguerite-yourcenar/",
+   "kind": "modern"
+  },
+  {
+   "label": "Wikipedia, \"Memoirs of Hadrian\" (tertiary; Librairie Plon, 1951; first chapter \"Animula Vagula Blandula\")",
+   "url": "https://en.wikipedia.org/wiki/Memoirs_of_Hadrian",
    "kind": "modern"
   }
  ],
