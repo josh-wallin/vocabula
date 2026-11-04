@@ -1,0 +1,393 @@
+{
+ "id": "cat-5",
+ "order": 12,
+ "title": "Let us live and love",
+ "saying": "Vīvāmus, mea Lesbia, atque amēmus",
+ "author": "Catullus",
+ "work": "Carmina",
+ "citation": "Catull. 5.1–6",
+ "setting": "Rome, mid-first century BC",
+ "verse": true,
+ "edition": {
+  "name": "Catullus, edited by Elmer Truesdell Merrill (Boston: Ginn and Company, 1893), public domain; the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, phi0472.phi001.perseus-lat2), whose header credits \"Elmer Truesdell Merrill\", \"Ginn and Company\", \"1893\"",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0472/phi001/phi0472.phi001.perseus-lat2.xml",
+  "section": "Carmen 5, lines 1-6 (of 13)"
+ },
+ "source_text": "Vivamus, mea Lesbia, atque amemus,\nrumoresque senum severiorum\nomnes unius aestimemus assis.\nsoles occidere et redire possunt:\nnobis, cum semel occidit brevis lux,\nnox est perpetua una dormienda.",
+ "excerpt_note": "The first six of the poem's thirteen lines, as printed; the poem goes on to the kisses (line 7, da mi basia mille).",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "ūnīus: the app spells the genitive with long ī, the normal prose quantity; in this line Catullus scans it short (ūnĭus), as the meter requires.",
+   "occidere, occidit: short i (occidō, \"fall, set\", from ob + cadō), not occīdō, \"kill\" (ob + caedō); not machine-checked.",
+   "sevēriōrum: long ē in the second syllable, as in sevērus; not machine-checked.",
+   "rūmōrēs: long ū and ō, as in rūmor, rūmōris; not machine-checked.",
+   "amēmus, aestimēmus, atque: in recitation final syllables elide before vowels (mea Lesbia atque amemus); the macrons show each word's own quantities."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Vīvāmus",
+   "p": ",",
+   "lemma": "vīvō, vīvere, vīxī, vīctum",
+   "parse": "1st pl. pres. subj. act. (hortatory)",
+   "gloss": "let us live",
+   "app": [
+    "vivo-v3"
+   ]
+  },
+  {
+   "w": "mea",
+   "lemma": "meus, mea, meum",
+   "parse": "voc. sg. f.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "Lesbia",
+   "p": ",",
+   "lemma": "Lesbia, Lesbiae, f.",
+   "parse": "voc. sg.",
+   "gloss": "Lesbia"
+  },
+  {
+   "w": "atque",
+   "lemma": "atque",
+   "parse": "conjunction",
+   "gloss": "and"
+  },
+  {
+   "w": "amēmus",
+   "p": ",",
+   "br": true,
+   "lemma": "amō, amāre, amāvī, amātum",
+   "parse": "1st pl. pres. subj. act. (hortatory)",
+   "gloss": "let us love",
+   "app": [
+    "amo-v1"
+   ]
+  },
+  {
+   "w": "rūmōrēsque",
+   "lemma": "rūmor, rūmōris, m. + -que",
+   "parse": "acc. pl. + enclitic -que",
+   "gloss": "and the gossip, the mutterings",
+   "enclitic": "que"
+  },
+  {
+   "w": "senum",
+   "lemma": "senex, senis, m.",
+   "parse": "gen. pl.",
+   "gloss": "of old men",
+   "app": [
+    "senex-n3"
+   ]
+  },
+  {
+   "w": "sevēriōrum",
+   "br": true,
+   "lemma": "sevērus, sevēra, sevērum",
+   "parse": "comparative, gen. pl. m.",
+   "gloss": "rather strict, too strict"
+  },
+  {
+   "w": "omnēs",
+   "lemma": "omnis, omne",
+   "parse": "acc. pl. m. (with rūmōrēs)",
+   "gloss": "all"
+  },
+  {
+   "w": "ūnīus",
+   "lemma": "ūnus, ūna, ūnum",
+   "parse": "gen. sg. (genitive of value, with assis)",
+   "gloss": "at one, at a single",
+   "app": [
+    "unus-adj-ius"
+   ]
+  },
+  {
+   "w": "aestimēmus",
+   "lemma": "aestimō, aestimāre",
+   "parse": "1st pl. pres. subj. act. (hortatory)",
+   "gloss": "let us value"
+  },
+  {
+   "w": "assis",
+   "p": ".",
+   "br": true,
+   "lemma": "as, assis, m.",
+   "parse": "gen. sg. (genitive of value)",
+   "gloss": "as (a small coin): at one penny"
+  },
+  {
+   "w": "sōlēs",
+   "lemma": "sōl, sōlis, m.",
+   "parse": "nom. pl.",
+   "gloss": "suns",
+   "app": [
+    "sol-n3"
+   ]
+  },
+  {
+   "w": "occidere",
+   "lemma": "occidō, occidere, occidī, occāsum",
+   "parse": "pres. inf. act.",
+   "gloss": "to set, to go down (not occīdō, \"kill\")",
+   "nolink": true
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "redīre",
+   "lemma": "redeō, redīre, rediī, reditum",
+   "parse": "pres. inf.",
+   "gloss": "to come back"
+  },
+  {
+   "w": "possunt",
+   "p": ":",
+   "br": true,
+   "lemma": "possum, posse, potuī",
+   "parse": "3rd pl. pres. ind.",
+   "gloss": "can, are able",
+   "app": [
+    "possum-irr-possum"
+   ]
+  },
+  {
+   "w": "nōbīs",
+   "p": ",",
+   "lemma": "nōs, nostrum/nostrī",
+   "parse": "dat. pl. (dative of agent with dormienda)",
+   "gloss": "for us, by us"
+  },
+  {
+   "w": "cum",
+   "lemma": "cum",
+   "parse": "conjunction (+ indicative: when)",
+   "gloss": "when, once",
+   "nolink": true
+  },
+  {
+   "w": "semel",
+   "lemma": "semel",
+   "parse": "adverb",
+   "gloss": "once"
+  },
+  {
+   "w": "occidit",
+   "lemma": "occidō, occidere, occidī, occāsum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "has set",
+   "nolink": true
+  },
+  {
+   "w": "brevis",
+   "lemma": "brevis, breve",
+   "parse": "nom. sg. f.",
+   "gloss": "brief, short"
+  },
+  {
+   "w": "lūx",
+   "p": ",",
+   "br": true,
+   "lemma": "lūx, lūcis, f.",
+   "parse": "nom. sg.",
+   "gloss": "light, daylight",
+   "app": [
+    "lux-n3"
+   ]
+  },
+  {
+   "w": "nox",
+   "lemma": "nox, noctis, f.",
+   "parse": "nom. sg.",
+   "gloss": "night",
+   "app": [
+    "nox-n3i"
+   ]
+  },
+  {
+   "w": "est",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "is",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "perpetua",
+   "lemma": "perpetuus, perpetua, perpetuum",
+   "parse": "nom. sg. f.",
+   "gloss": "unending, everlasting",
+   "app": [
+    "perpetuus-adj12"
+   ]
+  },
+  {
+   "w": "ūna",
+   "lemma": "ūnus, ūna, ūnum",
+   "parse": "nom. sg. f.",
+   "gloss": "one, a single",
+   "app": [
+    "unus-adj-ius"
+   ]
+  },
+  {
+   "w": "dormienda",
+   "p": ".",
+   "lemma": "dormiō, dormīre",
+   "parse": "gerundive, nom. sg. f. (with est: passive periphrastic, \"must be slept\")",
+   "gloss": "to be slept (through)",
+   "app": [
+    "dormio-v4"
+   ]
+  }
+ ],
+ "translation": "Let us live, my Lesbia, and let us love, and let us value all the mutterings of rather too strict old men at a single penny. Suns can set and come back again; for us, once our brief light has set, there is one never-ending night that must be slept.",
+ "translation_note": "The as was a small coin; \"a single penny\" gives the idea of ūnīus assis, a genitive of value. nōbīs is a dative of agent with the gerundive dormienda: literally \"one everlasting night must be slept by us\". The two senses of occidere, the sun setting and a life ending, are the point of lines 4-6.",
+ "essay": [
+  [
+   {
+    "t": "Poem 5 begins as an invitation: let us live and love, and value the gossip of censorious old men at a single as, that is, at next to nothing.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Merrill's edition labels its meter Phalaecean, the eleven-syllable line it assigns to about forty of the poems; that count is mine, from the edition's meter labels.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Lines 4 to 6 give the reason for hurry: suns can set and return, but for us, once our brief light has set, there is one everlasting night to be slept.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The contrast is between many suns that come back and a single night that does not, and the same verb, occidere, serves for a sunset and for a death; this is my reading, not a sourced claim.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "If the accepted dates of about 84 to 54 BC are right, Catullus himself died at about thirty.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The poem then turns to arithmetic: give me a thousand kisses, then a hundred, then another thousand, until the lovers throw the total into confusion, so that they themselves will not know it and no ill-wisher can know it either.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The last lines say a malicious person could invidere, begrudge or cast an evil eye, if he knew how many kisses there were; reading invidere as the evil eye is a common interpretation, and mine here, rather than something the text states.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Lesbia is generally taken as a pseudonym.",
+    "src": [
+     2,
+     3
+    ]
+   },
+   {
+    "t": "Apuleius, in the second century AD, says that Catullus used the name Lesbia for Clodia.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "Britannica treats that identification with caution, noting that it also rests on uncertain inferences from the poems themselves and that it is not certain which Clodia is meant.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "What is not in doubt is the poem itself, whose opening line is one of the most quoted in Latin; that it is much quoted is my own judgment rather than a measured fact.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What do the old men's rumors deserve, according to the speaker?",
+   "options": [
+    "To be valued at a single small coin, next to nothing",
+    "To be taken seriously",
+    "To be reported to the authorities",
+    "To be answered with a poem"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What contrast do lines 4-6 draw?",
+   "options": [
+    "Suns set and return, but our brief light, once set, leaves one endless night",
+    "Day is for work and night for love",
+    "The young are wise and the old foolish",
+    "Rome is great but Verona is small"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Why should the lovers confuse the count of their kisses?",
+   "options": [
+    "So that neither they nor an ill-wisher can know the total",
+    "Because Catullus could not count",
+    "To win a bet",
+    "To fill out the meter"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Catullus, Carmina 5 (Latin; ed. E. T. Merrill, 1893), Perseus Digital Library TEI text",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0472/phi001/phi0472.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Apuleius, Apologia 10 (Latin; ed. R. Helm, Teubner 1912), Perseus Digital Library TEI text",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1212/phi001/phi1212.phi001.perseus-lat1.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Catullus\"",
+   "url": "https://www.britannica.com/biography/Catullus",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

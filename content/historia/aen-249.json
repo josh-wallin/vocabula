@@ -1,0 +1,304 @@
+{
+ "id": "aen-249",
+ "order": 13,
+ "title": "Beware of Greeks bearing gifts",
+ "saying": "timeō Danaōs et dōna ferentīs",
+ "author": "Vergil",
+ "work": "Aenēis",
+ "citation": "Verg. Aen. 2.48–49",
+ "setting": "Troy, before the city falls: Laocoön warns the Trojans",
+ "verse": true,
+ "edition": {
+  "name": "The Bucolics, Aeneid, and Georgics of Virgil, edited by J. B. Greenough (Boston: Ginn and Company, 1881), public domain; the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, phi0690.phi003.perseus-lat2), whose header credits \"J. B. Greenough\", \"Ginn and Company\", \"1881\"",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0690/phi003/phi0690.phi003.perseus-lat2.xml",
+  "section": "Aeneid 2.48-49 (the last two lines of Laocoön's speech, 2.42-49)"
+ },
+ "source_text": "aut aliquis latet error; equo ne credite, Teucri.\nQuicquid id est, timeo Danaos et dona ferentis.",
+ "excerpt_note": "Two lines, as printed by Greenough (who capitalizes Quicquid and spells ferentis). Laocoön's speech begins at 2.42; the Perseus file marks it as quoted speech but prints no quotation marks.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "ferentīs: accusative plural in -īs (long ī), the spelling Greenough prints; other editions print ferentēs with the same quantity in -ēs.",
+   "Danaōs: Danaī has a short first a (Dănăī); the macron marks only the long ending; not machine-checked.",
+   "Teucrī: the first syllable is long (diphthong eu); only the ending carries a macron.",
+   "crēdite: short i (third conjugation); not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "aut",
+   "lemma": "aut",
+   "parse": "conjunction",
+   "gloss": "or (else)"
+  },
+  {
+   "w": "aliquis",
+   "lemma": "aliquis, aliqua, aliquid",
+   "parse": "nom. sg. m. (used as an adjective with error)",
+   "gloss": "some"
+  },
+  {
+   "w": "latet",
+   "lemma": "lateō, latēre, latuī",
+   "parse": "3rd sg. pres. ind. act.",
+   "gloss": "lies hidden, lurks",
+   "app": [
+    "lateo-v2"
+   ]
+  },
+  {
+   "w": "error",
+   "p": ";",
+   "lemma": "error, errōris, m.",
+   "parse": "nom. sg.",
+   "gloss": "trick, deception (lit. a going astray)",
+   "app": [
+    "error-n3"
+   ]
+  },
+  {
+   "w": "equō",
+   "lemma": "equus, equī, m.",
+   "parse": "dat. sg. (with crēdite)",
+   "gloss": "the horse",
+   "app": [
+    "equus-n2m"
+   ]
+  },
+  {
+   "w": "nē",
+   "lemma": "nē",
+   "parse": "adverb (nē + imperative: a poetic prohibition)",
+   "gloss": "do not"
+  },
+  {
+   "w": "crēdite",
+   "p": ",",
+   "lemma": "crēdō, crēdere, crēdidī, crēditum",
+   "parse": "2nd pl. pres. imperative act.",
+   "gloss": "trust",
+   "app": [
+    "credo-v3"
+   ]
+  },
+  {
+   "w": "Teucrī",
+   "p": ".",
+   "br": true,
+   "lemma": "Teucrī, Teucrōrum, m. pl.",
+   "parse": "voc. pl.",
+   "gloss": "Trojans (descendants of Teucer)"
+  },
+  {
+   "w": "Quicquid",
+   "lemma": "quisquis, quidquid (also spelled quicquid)",
+   "parse": "nom. sg. n.",
+   "gloss": "whatever"
+  },
+  {
+   "w": "id",
+   "lemma": "is, ea, id",
+   "parse": "nom. sg. n.",
+   "gloss": "it"
+  },
+  {
+   "w": "est",
+   "p": ",",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "is",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "timeō",
+   "lemma": "timeō, timēre",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I fear",
+   "app": [
+    "timeo-v2"
+   ]
+  },
+  {
+   "w": "Danaōs",
+   "lemma": "Danaī, Danaōrum, m. pl.",
+   "parse": "acc. pl.",
+   "gloss": "the Danaans, the Greeks"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "adverb here, not a conjunction",
+   "gloss": "even",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "dōna",
+   "lemma": "dōnum, dōnī, n.",
+   "parse": "acc. pl.",
+   "gloss": "gifts",
+   "app": [
+    "donum-n2n"
+   ]
+  },
+  {
+   "w": "ferentīs",
+   "p": ".",
+   "lemma": "ferō, ferre, tulī, lātum",
+   "parse": "pres. participle, acc. pl. m. (-īs, an older spelling of -ēs)",
+   "gloss": "bearing, bringing"
+  }
+ ],
+ "translation": "Or some other trick is lurking: do not trust the horse, Trojans. Whatever it is, I fear the Greeks even when they come bearing gifts.",
+ "translation_note": "et here means \"even\", not \"and\": the Greeks are to be feared even as givers of gifts. Danaī (\"Danaans\") is one of Vergil's names for the Greeks. ferentīs is the accusative plural of the present participle; Greenough's -īs is an older spelling of -ēs, and other editions print ferentēs.",
+ "essay": [
+  [
+   {
+    "t": "Book 2 of the Aeneid is Aeneas' own story, told at the request of the queen of Carthage: the last night of Troy.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "The Greeks have built a horse as big as a mountain, hidden armed men inside, and pretended to sail home, while really waiting off the island of Tenedos.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Laocoön runs down from the citadel with a crowd and warns the Trojans: either Greeks are hidden in the wood, or the horse is an engine against the walls, or some other trick is lurking; whatever it is, he fears the Greeks even when they bring gifts.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Then he hurls a spear into the horse's side, and the hollow belly groans.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Aeneas adds that if the Trojans' minds had not been blind, Troy would still be standing.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Instead the Greek Sinon arrives with a false story, and two serpents come over the sea from Tenedos and kill Laocoön and his two sons at the altar.",
+    "src": [
+     1,
+     2
+    ]
+   },
+   {
+    "t": "The Trojans take this as punishment for striking the sacred wood, and they breach their own walls to bring the horse in.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Versions differ: Vergil makes Laocoön a priest of Neptune chosen by lot, while Britannica describes him as a priest of Apollo and notes other explanations of his punishment.",
+    "src": [
+     1,
+     2
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The story is also famous in marble: the Laocoön group in the Vatican was found on the Esquiline Hill in 1506 and identified with a work Pliny the Elder ascribed to sculptors of Rhodes; the museum dates it to around 40 to 30 BC, but the date is debated.",
+    "src": [
+     2,
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The English proverb \"Beware of Greeks bearing gifts\" is a loose version: Laocoön says only that he fears them, and et means \"even\".",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Editions differ in small ways, too: Greenough prints Quicquid and ferentis, and the Dickinson College Commentaries print Quidquid and ferentēs.",
+    "src": [
+     1,
+     4
+    ]
+   },
+   {
+    "t": "For a reader working toward the whole Aeneid, line 49 is an inviting start: it is short, it is famous, and words like timeō, dōna, id and est are already in this app.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What does et mean in timeō Danaōs et dōna ferentīs?",
+   "options": [
+    "even",
+    "and",
+    "but",
+    "therefore"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does Laocoön do right after his warning?",
+   "options": [
+    "He hurls a spear into the horse's side",
+    "He opens the horse",
+    "He flees the city",
+    "He sacrifices the horse to Neptune"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "How do Vergil and Britannica differ about Laocoön?",
+   "options": [
+    "Vergil makes him a priest of Neptune; Britannica calls him a priest of Apollo",
+    "Vergil says he survived",
+    "Britannica says he built the horse",
+    "They do not differ at all"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Vergil, Aeneid 2 (Latin; ed. J. B. Greenough, 1881), Perseus Digital Library TEI text",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0690/phi003/phi0690.phi003.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Laocoön\" (Greek mythology)",
+   "url": "https://www.britannica.com/topic/Laocoon-Greek-mythology",
+   "kind": "modern"
+  },
+  {
+   "label": "Vatican Museums, \"Laocoön\" (Museo Pio-Clementino, Octagonal Court)",
+   "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/museo-pio-clementino/Cortile-Ottagono/laocoonte.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Dickinson College Commentaries, Vergil: Aeneid Selections (C. Francese and M. Reedy, 2016), Aeneid 2.40-56 (macronized Latin text)",
+   "url": "https://dcc.dickinson.edu/vergil-aeneid/vergil-aeneid-ii-40-56",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

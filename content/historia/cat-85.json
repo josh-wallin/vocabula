@@ -1,0 +1,290 @@
+{
+ "id": "cat-85",
+ "order": 11,
+ "title": "I hate and I love",
+ "saying": "Ōdī et amō",
+ "author": "Catullus",
+ "work": "Carmina",
+ "citation": "Catull. 85",
+ "setting": "Rome, mid-first century BC",
+ "verse": true,
+ "edition": {
+  "name": "Catullus, edited by Elmer Truesdell Merrill (Boston: Ginn and Company, 1893), public domain; the Perseus Digital Library TEI text (PerseusDL canonical-latinLit, phi0472.phi001.perseus-lat2), whose header credits \"Elmer Truesdell Merrill\", \"Ginn and Company\", \"1893\"",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0472/phi001/phi0472.phi001.perseus-lat2.xml",
+  "section": "Carmen 85 (the whole poem: one elegiac couplet)"
+ },
+ "source_text": "Odi et amo. quare id faciam fortasse requiris\nnescio, sed fieri sentio et excrucior.",
+ "excerpt_note": "Poem 85 complete, two lines as printed. Merrill prints a full stop after amo, a lower-case quare, and no question mark after requiris; other editions punctuate differently.",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "nesciō: the app spells it with long ō; in this line Catullus scans the final o short (nesciŏ), as poets often do with this verb.",
+   "fierī: the i of fīō is long in most forms but short before -er-; fierī with short i is the usual dictionary form; not machine-checked.",
+   "requīris: long ī (requīrō, from re- + quaerō); not machine-checked.",
+   "sentiō et: the final ō is elided before et when the line is read aloud; the macron shows the word's own quantity."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "Ōdī",
+   "lemma": "ōdī, ōdisse",
+   "parse": "1st sg. perf. ind. (perfect in form, present in meaning)",
+   "gloss": "I hate"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "amō",
+   "p": ".",
+   "lemma": "amō, amāre, amāvī, amātum",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I love",
+   "app": [
+    "amo-v1"
+   ]
+  },
+  {
+   "w": "quārē",
+   "lemma": "quārē",
+   "parse": "interrogative adverb (introducing an indirect question)",
+   "gloss": "why",
+   "app": [
+    "quare-indecl"
+   ]
+  },
+  {
+   "w": "id",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. n.",
+   "gloss": "it, this"
+  },
+  {
+   "w": "faciam",
+   "lemma": "faciō, facere, fēcī, factum",
+   "parse": "1st sg. pres. subj. act. (indirect question)",
+   "gloss": "I do",
+   "app": [
+    "facio-v3io"
+   ]
+  },
+  {
+   "w": "fortasse",
+   "lemma": "fortasse",
+   "parse": "adverb",
+   "gloss": "perhaps"
+  },
+  {
+   "w": "requīris",
+   "br": true,
+   "lemma": "requīrō, requīrere, requīsīvī, requīsītum",
+   "parse": "2nd sg. pres. ind. act.",
+   "gloss": "you ask"
+  },
+  {
+   "w": "nesciō",
+   "p": ",",
+   "lemma": "nesciō, nescīre",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I do not know",
+   "app": [
+    "nescio-v4"
+   ]
+  },
+  {
+   "w": "sed",
+   "lemma": "sed",
+   "parse": "conjunction",
+   "gloss": "but",
+   "app": [
+    "sed-indecl"
+   ]
+  },
+  {
+   "w": "fierī",
+   "lemma": "fīō, fierī, factus sum",
+   "parse": "pres. inf. (serves as the passive of faciō)",
+   "gloss": "to happen, to be done"
+  },
+  {
+   "w": "sentiō",
+   "lemma": "sentiō, sentīre, sēnsī, sēnsum",
+   "parse": "1st sg. pres. ind. act.",
+   "gloss": "I feel, I perceive",
+   "app": [
+    "sentio-v4"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "excrucior",
+   "p": ".",
+   "lemma": "excruciō, excruciāre",
+   "parse": "1st sg. pres. ind. pass.",
+   "gloss": "I am tormented, I am tortured"
+  }
+ ],
+ "translation": "I hate and I love. Why do I do that, you may perhaps ask. I do not know, but I feel it happening, and I am in torment.",
+ "translation_note": "quare id faciam is an indirect question depending on requiris, hence the subjunctive. fieri (\"to happen, to be done\") answers faciam: the speaker cannot say what he is doing, only that it is being done. excrucior is literally \"I am tortured\" (ex- + cruciō, the verb of crux).",
+ "essay": [
+  [
+   {
+    "t": "Catullus was born at Verona, and his life is usually dated to about 84 to 54 BC; both dates are approximate.",
+    "src": [
+     3
+    ]
+   },
+   {
+    "t": "Poem 85 is complete in two lines: the speaker hates and loves, imagines being asked why, and answers that he does not know, only that he feels it happening and is in torment.",
+    "src": [
+     1
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Merrill's edition labels the poem elegiac, the meter it gives to about fifty of the poems; that count is mine, from the edition's meter labels.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "An elegiac couplet, or distich, pairs a dactylic hexameter with a dactylic pentameter.",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "These two lines hold eight verbs and not one noun, and the last verb, excrucior, is passive, so the speaker ends as the one acted upon; this is my reading of the grammar, not a sourced claim.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The poem names no one.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Readers usually connect it with the poems addressed to Lesbia, such as poem 5, but nothing in these two lines requires that link.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "In the second century AD, Apuleius, defending his own love poems in his Apologia, listed poets who had disguised real names, and said that Catullus wrote Lesbia for Clodia, just as Ticidas wrote Perilla for Metella and Tibullus wrote Delia for Plania.",
+    "src": [
+     2,
+     3
+    ]
+   },
+   {
+    "t": "Britannica is cautious: the identification also rests on \"some uncertain inferences from the Lesbia poems\", and if this Clodia was a patrician she was most probably the one who married Metellus Celer.",
+    "src": [
+     3
+    ],
+    "doubt": true
+   },
+   {
+    "t": "So the identification is old and plausible, but it comes from a writer about two centuries after Catullus, and which Clodia is meant remains uncertain.",
+    "src": [
+     2,
+     3
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "The poem does not need the biography to work: it raises a question and refuses to answer it inside a single couplet.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "It also makes a good first poem in Latin, since most of its words are short and several of them, such as et, amō, sed and sentiō, are already among the words this app teaches.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What answer does the speaker give to \"why do you do it?\"",
+   "options": [
+    "He does not know; he only feels it happening",
+    "Lesbia has betrayed him",
+    "The gods have willed it",
+    "He refuses to say because of gossip"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What is our evidence that \"Lesbia\" stood for a woman named Clodia?",
+   "options": [
+    "A statement by Apuleius, writing about two centuries later",
+    "An inscription found at Verona",
+    "Catullus names her in poem 85",
+    "Cicero quotes the poem"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does an elegiac couplet consist of?",
+   "options": [
+    "A dactylic hexameter followed by a dactylic pentameter",
+    "Two eleven-syllable lines",
+    "Two iambic trimeters",
+    "A single line of prose"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Catullus, Carmina 85 (Latin; ed. E. T. Merrill, 1893), Perseus Digital Library TEI text",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0472/phi001/phi0472.phi001.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Apuleius, Apologia 10 (Latin; ed. R. Helm, Teubner 1912), Perseus Digital Library TEI text",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1212/phi001/phi1212.phi001.perseus-lat1.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Catullus\"",
+   "url": "https://www.britannica.com/biography/Catullus",
+   "kind": "modern"
+  },
+  {
+   "label": "Representative Poetry Online (University of Toronto Libraries), glossary: \"distich\"",
+   "url": "https://rpo.library.utoronto.ca/glossary/distich",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

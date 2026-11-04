@@ -37,14 +37,14 @@ const byId = new Map(entries.map((e) => [e.id, e]));
 const clone = (e: HistoriaEntry): HistoriaEntry => JSON.parse(JSON.stringify(e)) as HistoriaEntry;
 
 describe('historia: definitions', () => {
-  it('ten entries, one file each, named by id, in order', () => {
+  it('sixteen entries, one file each, named by id, in order', () => {
     const files = readdirSync(DIR).filter((f) => f.endsWith('.json')).sort();
-    expect(files.length).toBe(10);
+    expect(files.length).toBe(16);
     for (const f of files) expect(parseHistoriaEntry(JSON.parse(readFileSync(resolve(DIR, f), 'utf8'))).id).toBe(f.replace('.json', ''));
-    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25']);
-    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    // Exactly one verse entry: Hadrian's lines to his soul.
-    expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25']);
+    expect(entries.map((e) => e.id)).toEqual(['iul-32', 'iul-37', 'aug-23', 'aug-28', 'claud-21', 'nero-49', 'vesp-23', 'tit-8', 'hadr-14', 'hadr-25', 'cat-85', 'cat-5', 'aen-249', 'aen-6851', 'conf-812', 'amm-25']);
+    expect(entries.map((e) => e.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+    // Verse entries: Hadrian's lines to his soul, Catullus, Vergil.
+    expect(entries.filter((e) => e.verse).map((e) => e.id)).toEqual(['hadr-25', 'cat-85', 'cat-5', 'aen-249', 'aen-6851']);
   });
 
   it('citations: author, work, standard citation, a named edition with its URL among the sources', () => {
@@ -53,6 +53,22 @@ describe('historia: definitions', () => {
         expect(e.citation).toMatch(/^Suet\. (Iul\.|Aug\.|Claud\.|Nero|Vesp\.|Tit\.) \d+(\.\d+)?$/);
         expect(e.edition.name).toMatch(/Loeb Classical Library.*MCMXIII/);
         expect(e.edition.url).toMatch(/^https:\/\/penelope\.uchicago\.edu\/Thayer\/L\/Roman\/Texts\/Suetonius\/12Caesars\/[A-Za-z]+\*\.html$/);
+      } else if (e.author === 'Catullus') {
+        expect(e.citation).toMatch(/^Catull\. \d+(\.\d+–\d+)?$/);
+        expect(e.edition.name).toMatch(/Merrill.*1893/);
+        expect(e.edition.url).toBe('https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0472/phi001/phi0472.phi001.perseus-lat2.xml');
+      } else if (e.author === 'Vergil') {
+        expect(e.citation).toMatch(/^Verg\. Aen\. \d+\.\d+–\d+$/);
+        expect(e.edition.name).toMatch(/Greenough.*1881/);
+        expect(e.edition.url).toBe('https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0690/phi003/phi0690.phi003.perseus-lat2.xml');
+      } else if (e.author === 'Augustine') {
+        expect(e.citation).toMatch(/^Aug\. Conf\. \d+\.\d+\.\d+$/);
+        expect(e.edition.name).toMatch(/Knöll.*1896/);
+        expect(e.edition.url).toMatch(/^https:\/\/raw\.githubusercontent\.com\/OpenGreekAndLatin\/csel-dev\//);
+      } else if (e.author === 'Ammianus Marcellinus') {
+        expect(e.citation).toMatch(/^Amm\. Marc\. \d+\.\d+\.\d+$/);
+        expect(e.edition.name).toMatch(/Loeb Classical Library.*Rolfe/);
+        expect(e.edition.url).toMatch(/^https:\/\/raw\.githubusercontent\.com\/PerseusDL\/canonical-latinLit\/master\/data\/stoa0023\//);
       } else {
         expect(e.author).toBe('Historia Augusta');
         expect(e.citation).toMatch(/^HA Hadr\. \d+\.\d+(–\d+)?$/);
@@ -278,7 +294,7 @@ describe.skipIf(!present)('historia: app ids are the app\'s words (private data)
   const lex = pack ? buildLexicon(pack.lemmas, dccLemmas(), pack.fr ?? []) : null;
   const head = (lemma: string) => lemma.split(/,| \(| \+ /)[0]!.trim();
   /** Same spelling, different word: these tokens are deliberately not linked. */
-  const HOMOGRAPHS = new Set(['cum', 'adeō']);
+  const HOMOGRAPHS = new Set(['cum', 'adeō', 'occidō']);
 
   it('every app id is a lexicon word whose first citation form is the token\'s headword, macrons included', () => {
     for (const e of entries) for (const t of e.tokens) for (const id of t.app ?? []) {
