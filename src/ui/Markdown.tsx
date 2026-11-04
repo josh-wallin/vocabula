@@ -1,9 +1,7 @@
-/** Renders a grammar chapter (our own markdown in content/chapters) as HTML. */
-import { useMemo } from 'preact/hooks';
-import { marked } from 'marked';
+/**
+ * Grammar chapter reader, split out with marked and the chapter markdown (src/ui/MarkdownView.tsx).
+ * <Markdown section={n} /> shows section n's chapter (or that it isn't written yet).
+ */
+import { lazy } from './lazy.tsx';
 
-export function Markdown({ src }: { src: string }) {
-  // Source is our own bundled writing (no user input), so rendering marked's HTML is safe.
-  const html = useMemo(() => marked.parse(src, { async: false, gfm: true }) as string, [src]);
-  return <article class="chapter" lang="en" dangerouslySetInnerHTML={{ __html: html }} />;
-}
+export const Markdown = lazy(() => import('./MarkdownView.tsx').then((m) => m.ChapterView));

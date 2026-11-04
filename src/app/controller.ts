@@ -5,9 +5,7 @@
 import { buildLexicon, type Lexicon } from '../engine/lexicon.ts';
 import { buildPath, currentNodeIndex, type Path, type PathNode } from '../engine/path.ts';
 import { replay, streak, type DerivedState, type FlagBody, type LessonStats, type NodeDoneBody, type VEvent } from '../engine/events.ts';
-import { sentenceBank } from '../content/sentenceBank.ts';
-import { listeningLessons } from '../content/listening.ts';
-import { lectioPassages } from '../content/lectio.ts';
+import { loadBundled, type Bundled } from '../content/bundled.ts';
 import { buildLesson, type Exercise } from '../engine/lesson.ts';
 import type { FeatureId } from '../engine/curriculum.ts';
 import type { Grade } from '../engine/srs.ts';
@@ -22,6 +20,8 @@ export const PRACTICE_NODE = 'practice';
 
 export interface AppData {
   content: Content;
+  /** Public bundled content: sentence bank, Audītiō lessons, Lectiō passages. */
+  bundled: Bundled;
   lex: Lexicon;
   path: Path;
   events: VEvent[];
@@ -32,10 +32,11 @@ export interface AppData {
 export async function loadApp(): Promise<AppData | null> {
   const content = await loadContent();
   if (!content) return null;
+  const bundled = await loadBundled();
   const lex = buildLexicon(content.wheelock, content.dcc, content.fr);
-  const path = buildPath(lex, { listening: listeningLessons(), lectio: lectioPassages() });
+  const path = buildPath(lex, { listening: bundled.listening, lectio: bundled.lectio });
   const [events, device] = await Promise.all([allEvents(), deviceId()]);
-  return { content, lex, path, events, state: replay(events), device };
+  return { content, bundled, lex, path, events, state: replay(events), device };
 }
 
 export function withEvents(app: AppData, added: readonly VEvent[]): AppData {
@@ -80,9 +81,9 @@ export function lessonFor(app: AppData, node: PathNode, now = new Date(), opts: 
     ? { ...app.path, knownAt: () => app.path.knownAt(prev?.id ?? '') }
     : app.path;
   return buildLesson(node, {
-    lex: app.lex, path: pathForKnown, state: app.state, now, unlocked, seed: `${node.id}:${now.getTime()}`, sentences: sentenceBank(),
-    auditio: listeningLessons(),
-    lectio: lectioPassages(),
+    lex: app.lex, path: pathForKnown, state: app.state, now, unlocked, seed: `${node.id}:${now.getTime()}`, sentences: app.bundled.sentences,
+    auditio: app.bundled.listening,
+    lectio: app.bundled.lectio,
     ...(opts.audioAvailable && settingOn(app, SETTING_LISTENING) ? { listening: { available: opts.audioAvailable } } : {}),
   });
 }

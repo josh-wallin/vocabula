@@ -30,7 +30,7 @@ import { audioItems, EXTRA_AUDIO_TEXTS, formAudio } from '../src/audio/items.ts'
 import { lectioTexts, listeningWordTexts, readSentenceBank } from '../scripts/audio-manifest.ts';
 import { parseLemmaList } from '../src/data/loader.ts';
 import { parsePack } from '../src/data/pack.ts';
-import { dccLemmas } from '../src/data/contentStore.ts';
+import { dccLemmas } from '../src/content/dccList.ts';
 import type { Lemma } from '../src/morph/types.ts';
 import { fixLexicon } from './fixtures.ts';
 

@@ -28,7 +28,7 @@ import { AUDIO_CACHE_CONTROL } from '../worker/audio.ts';
 import { FakeD1 } from './d1fake.ts';
 import { runtimeCaching } from '../pwa-runtime.ts';
 import { parsePack } from '../src/data/pack.ts';
-import { dccLemmas } from '../src/data/contentStore.ts';
+import { dccLemmas } from '../src/content/dccList.ts';
 
 describe('audio keys', () => {
   it('shared test vector (asserted in vocabula-content too)', () => {

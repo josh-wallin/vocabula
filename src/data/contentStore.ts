@@ -1,22 +1,19 @@
 /**
  * The one place the app gets its content from.
  *
- * Public, bundled: the DCC core list (CC BY-SA) and the grammar chapters.
+ * Public, bundled: the DCC core list (CC BY-SA, src/content/dccList.ts, its own chunk); the
+ * grammar chapters are src/content/chapters.ts, loaded with the chapter reader.
  * Private: the Wheelock-derived content pack, kept in IndexedDB. It arrives
  * either from the sync server (GET /api/pack, behind Cloudflare Access) or from
  * a file the user imports; Profile can upload the device's pack to the server.
  * Progress lives in the event log, so replacing the pack never touches it.
  */
 import type { Lemma } from '../morph/types.ts';
-import dccRaw from '../../content/dcc.json';
-import { parseLemmaList } from './loader.ts';
 import { packHash, packText, parsePack, type ContentPack } from './pack.ts';
 import type { FrEntry } from './fr.ts';
 import { getPack, getPackRecord, savePack } from './db.ts';
 import { apiFetch, type ApiFailure, type FetchFn } from '../sync/http.ts';
 import { API, type PackStatus, type PutPackResponse } from '../sync/protocol.ts';
-
-const chapterFiles = import.meta.glob('../../content/chapters/ch*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 
 export interface Content {
   pack: ContentPack;
@@ -26,22 +23,12 @@ export interface Content {
   fr: FrEntry[];
 }
 
-let dccCache: Lemma[] | null = null;
-export function dccLemmas(): Lemma[] {
-  dccCache ??= parseLemmaList(dccRaw);
-  return dccCache;
-}
-
-/** Grammar chapter markdown for a section (1-based), or null. */
-export function chapterText(section: number): string | null {
-  const key = Object.keys(chapterFiles).find((k) => k.endsWith(`ch${String(section).padStart(2, '0')}.md`));
-  return key ? chapterFiles[key]! : null;
-}
-
 /** Load content if a pack has been imported on this device; null means "show the import screen". */
 export async function loadContent(): Promise<Content | null> {
   const pack = await getPack();
   if (!pack) return null;
+  // The DCC list is a separate chunk (src/content/dccList.ts), precached like the rest.
+  const { dccLemmas } = await import('../content/dccList.ts');
   return { pack, wheelock: pack.lemmas, dcc: dccLemmas(), fr: pack.fr ?? [] };
 }
 

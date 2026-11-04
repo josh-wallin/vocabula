@@ -6,7 +6,7 @@ import {
 import type { PathNode } from '../engine/path.ts';
 import type { Exercise } from '../engine/lesson.ts';
 import type { LessonStats } from '../engine/events.ts';
-import { chapterText, fetchPackFromServer } from '../data/contentStore.ts';
+import { fetchPackFromServer } from '../data/contentStore.ts';
 import { Syncer, syncLabel, type SyncStatus } from '../sync/sync.ts';
 import { idbSyncStore } from '../sync/idbStore.ts';
 import { signInAgain } from '../sync/http.ts';
@@ -20,7 +20,6 @@ import { Markdown } from './Markdown.tsx';
 import { AboutScreen, ImportScreen, ProfileScreen, WordsScreen } from './Pages.tsx';
 import { COMPARE_HASH, ComparePage } from './Compare.tsx';
 import { LectioReader } from './Lectio.tsx';
-import { lectioPassages } from '../content/lectio.ts';
 import { HistoriaEntryView, HistoriaList, IconScroll } from './Historia.tsx';
 import { historiaNode } from '../engine/historia.ts';
 import { IconBack, IconCloud, IconCloudOff, IconFlame, IconPath, IconPractice, IconProfile, IconStar, IconWords } from './icons.tsx';
@@ -112,7 +111,7 @@ export function App() {
     return <Complete app={app} title={view.title} run={view.run} stats={view.stats} onContinue={() => { setTab('path'); setView({ v: 'tab' }); }} />;
   }
   if (view.v === 'lectio') {
-    const p = lectioPassages().find((x) => x.id === view.id);
+    const p = app.bundled.lectio.find((x) => x.id === view.id);
     if (p) return <LectioReader app={app} p={p} onBack={() => setView({ v: 'tab' })} />;
   }
   if (view.v === 'historia') {
@@ -132,7 +131,6 @@ export function App() {
     );
   }
   if (view.v === 'chapter' || view.v === 'about') {
-    const src = view.v === 'chapter' ? chapterText(view.section) : null;
     return (
       <div class="screen" data-screen={view.v}>
         <header class="lesson-head">
@@ -140,7 +138,7 @@ export function App() {
           <span class="lesson-tag" lang="la">{view.v === 'chapter' ? `Sectiō ${roman(view.section)}` : 'About'}</span>
         </header>
         <div class="scroll">
-          {view.v === 'about' ? <AboutScreen /> : src ? <Markdown src={src} /> : <p class="page">This chapter isn’t written yet.</p>}
+          {view.v === 'about' ? <AboutScreen /> : <Markdown section={view.section} />}
         </div>
       </div>
     );

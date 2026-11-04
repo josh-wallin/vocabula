@@ -33,7 +33,8 @@ Every color is a custom property on `:root` in `src/ui/styles.css` (no styleshee
 - **Streak**: local calendar days with ≥1 finished lesson; today not yet practised doesn't break it; up to 2 missed days per Monday-based week are bridged by freezes (they keep the streak but don't add to it).
 - **Backup**: Profile → Export writes `{format:'vocabula-events', version:1, events}`; Import merges by event id (idempotent).
 - **Glossary** (`src/content/glossary.ts`): 24 terms, each tied to the section that unlocks it; grammar cards (`src/content/grammarCards.ts`) render terms as dotted-underline buttons that open a bottom sheet, only once the term's section is reached.
-- **Offline**: all JS/CSS/HTML (including the DCC list and grammar chapters, which are bundled) is precached by the service worker; content and progress live in IndexedDB.
+- **Offline**: all JS/CSS/HTML and fonts are precached by the service worker; content and progress live in IndexedDB.
+- **Code splitting**: the main chunk (~160 KB) holds the app shell, path, lesson engine and morphology. Loaded on demand with dynamic `import()`, each its own precached chunk (so offline is unaffected; `e2e/smoke.e2e.ts` checks the precache manifest lists every asset): the DCC list (`src/content/dccList.ts`, in `loadContent`), the sentence bank, Audītiō lessons and Lectiō passages (`src/content/bundled.ts`, in `loadApp`, on `AppData.bundled`), the chapter reader with *marked* and the chapter markdown (`src/ui/MarkdownView.tsx`), grammar cards and glossary (`src/ui/Glossary.tsx`), the Audītiō and Lectiō screens, and the voice test page. `src/ui/lazy.tsx` is the small `lazy()` helper (no preact/compat); a lesson preloads the chunks its exercises need. Node scripts and tests import the content loaders directly.
 
 ### The private content pack
 

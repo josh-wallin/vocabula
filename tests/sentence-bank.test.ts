@@ -14,7 +14,7 @@ import type { Lemma } from '../src/morph/types.ts';
 import { featureOfCell, featuresAt, hasFeature } from '../src/engine/curriculum.ts';
 import { buildLexicon } from '../src/engine/lexicon.ts';
 import { buildPath } from '../src/engine/path.ts';
-import { dccLemmas } from '../src/data/contentStore.ts';
+import { dccLemmas } from '../src/content/dccList.ts';
 import { sentenceBank } from '../src/content/sentenceBank.ts';
 import {
   acceptedEnglish, canBuild, englishWords, latinText, orderError, parseSentences, sentenceEligible, SENT_TYPES, type Sentence,

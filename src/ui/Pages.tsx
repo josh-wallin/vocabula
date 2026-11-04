@@ -1,8 +1,8 @@
 /** Import screen, Profile/Settings, Words, About/credits. */
 import { useEffect, useState } from 'preact/hooks';
 import { LectioList } from './Lectio.tsx';
-import { lectioPassages } from '../content/lectio.ts';
-import { listeningLessons } from '../content/listening.ts';
+import { loadBundled } from '../content/bundled.ts';
+import type { ListeningLesson } from '../engine/listening.ts';
 import { fetchPackFromServer, importPack, localPackHash, serverPackStatus, uploadPackToServer } from '../data/contentStore.ts';
 import { failureText, signInAgain } from '../sync/http.ts';
 import { syncLabel, type SyncStatus } from '../sync/sync.ts';
@@ -305,15 +305,20 @@ export function WordsScreen({ app, onLectio }: { app: AppData; onLectio?: (id: s
           })}
         </ul>
       )}
-      {onLectio && <LectioList app={app} passages={lectioPassages()} onOpen={onLectio} />}
+      {onLectio && <LectioList app={app} passages={app.bundled.lectio} onOpen={onLectio} />}
     </main>
   );
 }
 
 /** One line per recording the Audītiō lessons use (same recording once). */
-const AUDIO_CREDITS = [...new Map(listeningLessons().map((l) => [l.audio.key, { key: l.audio.key, title: l.audio.title, reader: l.audio.reader, url: l.audio.record_url }])).values()];
+const audioCredits = (ls: readonly ListeningLesson[]) =>
+  [...new Map(ls.map((l) => [l.audio.key, { key: l.audio.key, title: l.audio.title, reader: l.audio.reader, url: l.audio.record_url }])).values()];
 
 export function AboutScreen() {
+  // The lessons are bundled content (already loaded by the time the app shows).
+  const [listening, setListening] = useState<readonly ListeningLesson[]>([]);
+  useEffect(() => { let live = true; void loadBundled().then((b) => { if (live) setListening(b.listening); }); return () => { live = false; }; }, []);
+  const AUDIO_CREDITS = audioCredits(listening);
   return (
     <main class="page" data-screen="about">
       <h1>About</h1>

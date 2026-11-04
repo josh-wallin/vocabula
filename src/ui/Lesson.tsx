@@ -7,7 +7,6 @@ import { Session, type Outcome } from '../engine/session.ts';
 import { citation, classNote } from '../engine/lexicon.ts';
 import { roman } from '../engine/curriculum.ts';
 import type { GlossaryTerm } from '../content/glossary.ts';
-import { GrammarCardView, TermSheet } from './Glossary.tsx';
 import { IconFlag, IconX } from './icons.tsx';
 import type { FlagBody, LessonStats } from '../engine/events.ts';
 import { SentenceView } from './SentenceView.tsx';
@@ -17,8 +16,13 @@ import { exerciseAudio } from '../audio/exercise.ts';
 import { introAudio, type AudioRef } from '../audio/items.ts';
 import { audioMissing, loadClip, playClip, prefetchClips, stopAudio, unlockAudio } from '../audio/player.ts';
 import { ListenCue, Speaker } from './Speaker.tsx';
-import { AuditView } from './Auditio.tsx';
 import { LectioView } from './Lectio.tsx';
+import { lazy } from './lazy.tsx';
+
+// Split out of the main chunk (precached, so offline too); preloaded when a lesson needs them.
+const GrammarCardView = lazy(() => import('./Glossary.tsx').then((m) => m.GrammarCardView));
+const TermSheet = lazy(() => import('./Glossary.tsx').then((m) => m.TermSheet));
+const AuditView = lazy(() => import('./Auditio.tsx').then((m) => m.AuditView));
 
 export interface LessonResult { run: string; stats: LessonStats }
 
@@ -56,6 +60,11 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
   const ex = item?.ex;
 
   useEffect(() => { if (ex?.type === 'typed') inputRef.current?.focus(); }, [ex]);
+  useEffect(() => {
+    if (exercises.some((e) => e.type === 'grammar')) { void GrammarCardView.preload(); void TermSheet.preload(); }
+    if (exercises.some((e) => e.type === 'audit')) void AuditView.preload();
+    if (exercises.some((e) => e.type === 'lectio')) void LectioView.preload();
+  }, [exercises]);
   // Warm the audio cache: listening clips first, then the speakers' clips. Never blocks.
   useEffect(() => {
     const listen = exercises.filter(isListening).map((e) => e.audio.key);

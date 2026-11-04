@@ -10,7 +10,7 @@
  * Skips (exit 0) when content/private/vocabula-pack.json is absent.
  * Chrome: $CHROME_PATH, else /usr/bin/google-chrome.
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { chromium } from 'playwright-core';
 import { assertPortFree, PREVIEW_PORT, startPreview, stopServers, waitForHttp } from './serve.ts';
@@ -38,6 +38,12 @@ const waitForServer = () => waitForHttp(URL);
 async function main() {
   if (!existsSync(PACK)) { log('SKIP: private pack not found (run scripts/build-pack.ts)'); return; }
   if (!existsSync(resolve(ROOT, 'dist/index.html'))) throw new Error('dist/ missing: run npm run build first');
+  // Code-split chunks, their CSS and the fonts must all be precached, or lazy screens break offline.
+  const sw = readFileSync(resolve(ROOT, 'dist/sw.js'), 'utf8');
+  const assets = readdirSync(resolve(ROOT, 'dist/assets')).filter((f) => /\.(js|css|woff2)$/.test(f));
+  const missing = assets.filter((f) => !sw.includes(`assets/${f}`));
+  assert(missing.length === 0, `precache manifest lists every asset (missing: ${missing.join(', ')})`);
+  log(`precache lists all ${assets.length} JS/CSS/font assets`);
   await assertPortFree(PORT, 'E2E_PORT');
   startPreview(ROOT, PORT);
   const chromePath = process.env.CHROME_PATH ?? '/usr/bin/google-chrome';
