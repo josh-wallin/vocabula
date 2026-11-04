@@ -27,7 +27,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
   },
   {
     id: 'tense', name: 'Tense', latin: 'tempus', section: 1,
-    def: 'When the action happens. Latin has six tenses; so far you have the present, which covers English “I see,” “I am seeing” and “I do see.”',
+    def: 'When the action happens. Latin has six tenses. The present covers English “I see,” “I am seeing” and “I do see.”',
     ex: 'Vident.', exEn: 'They see / they are seeing / they do see.',
   },
   {
@@ -48,7 +48,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: 'infinitive', name: 'Infinitive', latin: 'īnfīnītīvus', section: 1,
     def: 'The “to” form of a verb. It names the action without saying who does it, so it has no person or number. It is the second form a dictionary lists.',
-    ex: 'Nōn dēbēs errāre.', exEn: 'You shouldn’t make a mistake.',
+    ex: 'Nōn dēbēs errāre.', exEn: 'You shouldn’t make mistakes.',
   },
   {
     id: 'imperative', name: 'Imperative', latin: 'imperātīvus', section: 1,
@@ -146,7 +146,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: 'future', name: 'Future', latin: 'tempus futūrum', section: 5,
     def: 'The tense of what will happen. In the 1st and 2nd conjugations it adds -bō, -bis, -bit, -bimus, -bitis, -bunt to the present stem.',
-    ex: 'Crās cēnābimus.', exEn: 'Tomorrow we shall dine.',
+    ex: 'Crās cēnābimus.', exEn: 'Tomorrow we will dine.',
   },
   {
     id: 'imperfect', name: 'Imperfect', latin: 'tempus imperfectum', section: 5,
