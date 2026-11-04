@@ -1,0 +1,737 @@
+{
+ "id": "ann-15",
+ "order": 13,
+ "title": "Nero blames the Christians",
+ "saying": "quōs per flāgitia invīsōs vulgus Chrīstiānōs appellābat",
+ "author": "Tacitus",
+ "work": "Annālēs",
+ "citation": "Tac. Ann. 15.44.2–3",
+ "setting": "Rome after the fire of AD 64",
+ "edition": {
+  "name": "Tacitus, Annalium ab excessu divi Augusti libri, ed. Charles Dennis Fisher (Oxford: Clarendon Press, 1906; Oxford Classical Texts), public domain; as encoded by the Perseus Digital Library (TEI file phi1351.phi005.perseus-lat2, whose header names \"Charles Dennis Fisher\" as editor, \"Clarendon Press\", \"1906\")",
+  "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1351/phi005/phi1351.phi005.perseus-lat2.xml",
+  "section": "Annals 15.44, from \"sed non ope humana\" to \"celebranturque\" (sections 2–3 in the usual numbering)"
+ },
+ "source_text": "sed non ope humana, non largitionibus principis aut deum placamentis decedebat infamia quin iussum incendium crederetur. ergo abolendo rumori Nero subdidit reos et quaesitissimis poenis adfecit quos per flagitia invisos vulgus Christianos appellabat. auctor nominis eius Christus Tiberio imperitante per procuratorem Pontium Pilatum supplicio adfectus erat; repressaque in praesens exitiabilis superstitio rursum erumpebat, non modo per Iudaeam, originem eius mali, sed per urbem etiam quo cuncta undique atrocia aut pudenda confluunt celebranturque.",
+ "excerpt_note": "Three sentences from the middle of chapter 15.44. Fisher's text, as encoded, has chapter but no section numbers; \"15.44.2–3\" follows the usual modern division and was not checked against a numbered edition. Sentences begin in lower case as in the file. Fisher prints Christianos; the oldest manuscript seems to have had Chrestianos (see the essay).",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise.",
+  "uncertain": [
+   "Chrīstus, Chrīstiānōs: long ī, following the Dickinson College Commentaries' macronized Pliny; the Greek Christos has a long iota. Not machine-checked.",
+   "flāgitia: long ā, the usual dictionary quantity; not machine-checked.",
+   "plācāmentīs, largītiōnibus, dēcēdēbat, īnfāmia, rūmōrī, quaesītissimīs, prōcūrātōrem, Pīlātum, exitiābilis, Iūdaeam, atrōcia, cōnfluunt: standard dictionary quantities; not machine-checked.",
+   "cūncta: long ū before nct, following the app lexicon (DCC cūnctus).",
+   "adfēcit, adfectus: the edition's spelling of afficiō (ad- not assimilated); the macron in adfēcit follows fēcī."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "sed",
+   "lemma": "sed",
+   "parse": "conjunction",
+   "gloss": "but",
+   "app": [
+    "sed-indecl"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "ope",
+   "lemma": "ops, opis, f.",
+   "parse": "abl. sg. (means)",
+   "gloss": "by effort, help",
+   "app": [
+    "ops-n3"
+   ]
+  },
+  {
+   "w": "hūmānā",
+   "p": ",",
+   "lemma": "hūmānus, hūmāna, hūmānum",
+   "parse": "abl. sg. f.",
+   "gloss": "human",
+   "app": [
+    "humanus-adj12"
+   ]
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "largītiōnibus",
+   "lemma": "largītiō, largītiōnis, f.",
+   "parse": "abl. pl.",
+   "gloss": "by handouts"
+  },
+  {
+   "w": "prīncipis",
+   "lemma": "prīnceps, prīncipis, m.",
+   "parse": "gen. sg.",
+   "gloss": "of the emperor"
+  },
+  {
+   "w": "aut",
+   "lemma": "aut",
+   "parse": "conjunction",
+   "gloss": "or"
+  },
+  {
+   "w": "deum",
+   "lemma": "deus, deī, m.",
+   "parse": "gen. pl. (deum = deōrum)",
+   "gloss": "of the gods",
+   "app": [
+    "deus-n2m"
+   ]
+  },
+  {
+   "w": "plācāmentīs",
+   "lemma": "plācāmentum, plācāmentī, n.",
+   "parse": "abl. pl.",
+   "gloss": "by rites of appeasement"
+  },
+  {
+   "w": "dēcēdēbat",
+   "lemma": "dēcēdō, dēcēdere, dēcessī, dēcessum",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "went away, faded"
+  },
+  {
+   "w": "īnfāmia",
+   "lemma": "īnfāmia, īnfāmiae, f.",
+   "parse": "nom. sg.",
+   "gloss": "the scandal, ugly rumour"
+  },
+  {
+   "w": "quīn",
+   "lemma": "quīn",
+   "parse": "conjunction (+ subj., after a negative)",
+   "gloss": "(so) that ... not, but that"
+  },
+  {
+   "w": "iussum",
+   "lemma": "iubeō, iubēre, iussī, iussum",
+   "parse": "perf. pass. participle, nom. sg. n. (iussum [esse])",
+   "gloss": "(to have been) ordered",
+   "app": [
+    "iubeo-v2"
+   ]
+  },
+  {
+   "w": "incendium",
+   "lemma": "incendium, incendiī, n.",
+   "parse": "nom. sg.",
+   "gloss": "the fire"
+  },
+  {
+   "w": "crēderētur",
+   "p": ".",
+   "lemma": "crēdō, crēdere, crēdidī, crēditum",
+   "parse": "3rd sg. impf. subj. pass. (the fire was believed to have been ordered)",
+   "gloss": "was believed",
+   "app": [
+    "credo-v3"
+   ]
+  },
+  {
+   "w": "ergō",
+   "lemma": "ergō",
+   "parse": "adverb",
+   "gloss": "so, therefore"
+  },
+  {
+   "w": "abolendō",
+   "lemma": "aboleō, abolēre, abolēvī, abolitum",
+   "parse": "gerundive, dat. sg. m. (purpose, with rūmōrī)",
+   "gloss": "for wiping out"
+  },
+  {
+   "w": "rūmōrī",
+   "lemma": "rūmor, rūmōris, m.",
+   "parse": "dat. sg.",
+   "gloss": "the rumour"
+  },
+  {
+   "w": "Nerō",
+   "lemma": "Nerō, Nerōnis, m.",
+   "parse": "nom. sg.",
+   "gloss": "Nero"
+  },
+  {
+   "w": "subdidit",
+   "lemma": "subdō, subdere, subdidī, subditum",
+   "parse": "3rd sg. perf. ind. act.",
+   "gloss": "put forward (as substitutes)"
+  },
+  {
+   "w": "reōs",
+   "lemma": "reus, reī, m.",
+   "parse": "acc. pl.",
+   "gloss": "culprits, accused",
+   "app": [
+    "reus-n2m"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "quaesītissimīs",
+   "lemma": "quaesītus, quaesīta, quaesītum (from quaerō)",
+   "parse": "superlative, abl. pl. f.",
+   "gloss": "most elaborate"
+  },
+  {
+   "w": "poenīs",
+   "lemma": "poena, poenae, f.",
+   "parse": "abl. pl.",
+   "gloss": "punishments",
+   "app": [
+    "poena-n1"
+   ]
+  },
+  {
+   "w": "adfēcit",
+   "lemma": "afficiō, afficere (here spelled adf-)",
+   "parse": "3rd sg. perf. ind. act. (+ abl.: to afflict with)",
+   "gloss": "inflicted (on), afflicted",
+   "app": [
+    "afficio-v3io"
+   ]
+  },
+  {
+   "w": "quōs",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. pl. m.",
+   "gloss": "(those) whom"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "because of"
+  },
+  {
+   "w": "flāgitia",
+   "lemma": "flāgitium, flāgitiī, n.",
+   "parse": "acc. pl.",
+   "gloss": "outrages, shameful acts"
+  },
+  {
+   "w": "invīsōs",
+   "lemma": "invīsus, invīsa, invīsum",
+   "parse": "acc. pl. m.",
+   "gloss": "hated"
+  },
+  {
+   "w": "vulgus",
+   "lemma": "vulgus, vulgī, n.",
+   "parse": "nom. sg.",
+   "gloss": "the common people",
+   "app": [
+    "vulgus-n2m"
+   ]
+  },
+  {
+   "w": "Chrīstiānōs",
+   "lemma": "Chrīstiānus, Chrīstiānī, m.",
+   "parse": "acc. pl. (predicate)",
+   "gloss": "Christians"
+  },
+  {
+   "w": "appellābat",
+   "p": ".",
+   "lemma": "appellō, appellāre",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "used to call",
+   "app": [
+    "appello-v1"
+   ]
+  },
+  {
+   "w": "auctor",
+   "lemma": "auctor, auctōris, m.",
+   "parse": "nom. sg.",
+   "gloss": "founder, originator",
+   "app": [
+    "auctor-n3"
+   ]
+  },
+  {
+   "w": "nōminis",
+   "lemma": "nōmen, nōminis, n.",
+   "parse": "gen. sg.",
+   "gloss": "of the name",
+   "app": [
+    "nomen-n3n"
+   ]
+  },
+  {
+   "w": "eius",
+   "lemma": "is, ea, id",
+   "parse": "gen. sg. n.",
+   "gloss": "that, this"
+  },
+  {
+   "w": "Chrīstus",
+   "lemma": "Chrīstus, Chrīstī, m.",
+   "parse": "nom. sg.",
+   "gloss": "Christus, Christ"
+  },
+  {
+   "w": "Tiberiō",
+   "lemma": "Tiberius, Tiberiī, m.",
+   "parse": "abl. sg. (ablative absolute with imperitante)",
+   "gloss": "Tiberius"
+  },
+  {
+   "w": "imperitante",
+   "lemma": "imperitō, imperitāre",
+   "parse": "pres. participle, abl. sg. (ablative absolute)",
+   "gloss": "ruling (as emperor)"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "at the hands of"
+  },
+  {
+   "w": "prōcūrātōrem",
+   "lemma": "prōcūrātor, prōcūrātōris, m.",
+   "parse": "acc. sg.",
+   "gloss": "procurator (governor)"
+  },
+  {
+   "w": "Pontium",
+   "lemma": "Pontius, Pontiī, m.",
+   "parse": "acc. sg.",
+   "gloss": "Pontius"
+  },
+  {
+   "w": "Pīlātum",
+   "lemma": "Pīlātus, Pīlātī, m.",
+   "parse": "acc. sg.",
+   "gloss": "Pilate"
+  },
+  {
+   "w": "suppliciō",
+   "lemma": "supplicium, suppliciī, n.",
+   "parse": "abl. sg. (suppliciō afficere: to execute)",
+   "gloss": "with execution",
+   "app": [
+    "supplicium-n2n"
+   ]
+  },
+  {
+   "w": "adfectus",
+   "lemma": "afficiō, afficere (here spelled adf-)",
+   "parse": "perf. pass. participle, nom. sg. m. (with erat: pluperfect passive)",
+   "gloss": "(had been) visited (with)",
+   "app": [
+    "afficio-v3io"
+   ]
+  },
+  {
+   "w": "erat",
+   "p": ";",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. impf. ind.",
+   "gloss": "had been",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "repressaque",
+   "lemma": "reprimō, reprimere, repressī, repressum + -que",
+   "parse": "perf. pass. participle, nom. sg. f. + enclitic -que",
+   "gloss": "and (though) suppressed",
+   "enclitic": "que"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition (in praesēns: for the moment)",
+   "gloss": "for",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "praesēns",
+   "lemma": "praesēns, praesentis",
+   "parse": "acc. sg. n., used as a noun",
+   "gloss": "the present"
+  },
+  {
+   "w": "exitiābilis",
+   "lemma": "exitiābilis, exitiābile",
+   "parse": "nom. sg. f.",
+   "gloss": "deadly"
+  },
+  {
+   "w": "superstitiō",
+   "lemma": "superstitiō, superstitiōnis, f.",
+   "parse": "nom. sg.",
+   "gloss": "superstition"
+  },
+  {
+   "w": "rūrsum",
+   "lemma": "rūrsum",
+   "parse": "adverb",
+   "gloss": "again"
+  },
+  {
+   "w": "ērumpēbat",
+   "p": ",",
+   "lemma": "ērumpō, ērumpere, ērūpī, ēruptum",
+   "parse": "3rd sg. impf. ind. act.",
+   "gloss": "was breaking out"
+  },
+  {
+   "w": "nōn",
+   "lemma": "nōn",
+   "parse": "adverb",
+   "gloss": "not",
+   "app": [
+    "non-indecl"
+   ]
+  },
+  {
+   "w": "modo",
+   "lemma": "modo",
+   "parse": "adverb (nōn modo ... sed etiam: not only ... but also)",
+   "gloss": "only"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "throughout"
+  },
+  {
+   "w": "Iūdaeam",
+   "p": ",",
+   "lemma": "Iūdaea, Iūdaeae, f.",
+   "parse": "acc. sg.",
+   "gloss": "Judaea"
+  },
+  {
+   "w": "orīginem",
+   "lemma": "orīgō, orīginis, f.",
+   "parse": "acc. sg. (in apposition to Iūdaeam)",
+   "gloss": "the source"
+  },
+  {
+   "w": "eius",
+   "lemma": "is, ea, id",
+   "parse": "gen. sg. n.",
+   "gloss": "of this"
+  },
+  {
+   "w": "malī",
+   "p": ",",
+   "lemma": "malus, mala, malum",
+   "parse": "gen. sg. n., used as a noun",
+   "gloss": "evil",
+   "app": [
+    "malus-adj12"
+   ]
+  },
+  {
+   "w": "sed",
+   "lemma": "sed",
+   "parse": "conjunction",
+   "gloss": "but",
+   "app": [
+    "sed-indecl"
+   ]
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "throughout"
+  },
+  {
+   "w": "urbem",
+   "lemma": "urbs, urbis, f.",
+   "parse": "acc. sg.",
+   "gloss": "the City (Rome)",
+   "app": [
+    "urbs-n3i"
+   ]
+  },
+  {
+   "w": "etiam",
+   "lemma": "etiam",
+   "parse": "adverb",
+   "gloss": "also"
+  },
+  {
+   "w": "quō",
+   "lemma": "quō",
+   "parse": "relative adverb",
+   "gloss": "where (to which place)"
+  },
+  {
+   "w": "cūncta",
+   "lemma": "cūnctus, cūncta, cūnctum",
+   "parse": "nom. pl. n.",
+   "gloss": "all things",
+   "app": [
+    "cunctus-adj12"
+   ]
+  },
+  {
+   "w": "undique",
+   "lemma": "undique",
+   "parse": "adverb",
+   "gloss": "from everywhere"
+  },
+  {
+   "w": "atrōcia",
+   "lemma": "atrōx, atrōcis",
+   "parse": "nom. pl. n.",
+   "gloss": "horrible"
+  },
+  {
+   "w": "aut",
+   "lemma": "aut",
+   "parse": "conjunction",
+   "gloss": "or"
+  },
+  {
+   "w": "pudenda",
+   "lemma": "pudendus, pudenda, pudendum",
+   "parse": "nom. pl. n.",
+   "gloss": "shameful"
+  },
+  {
+   "w": "cōnfluunt",
+   "lemma": "cōnfluō, cōnfluere, cōnflūxī",
+   "parse": "3rd pl. pres. ind. act.",
+   "gloss": "flow together"
+  },
+  {
+   "w": "celebranturque",
+   "p": ".",
+   "lemma": "celebrō, celebrāre + -que",
+   "parse": "3rd pl. pres. ind. pass. + enclitic -que",
+   "gloss": "and become popular",
+   "app": [
+    "celebro-v1"
+   ],
+   "enclitic": "que"
+  }
+ ],
+ "translation": "Yet neither human efforts nor the emperor's gifts nor offerings to placate the gods could rid him of the scandal: people went on believing that the fire had been set on orders. So, to kill the rumour, Nero put forward culprits and inflicted the most elaborate punishments on people hated for their outrages, whom the common people called Christians. The founder of the name, Christus, had been executed in the reign of Tiberius by the procurator Pontius Pilate; the deadly superstition, suppressed for a while, was breaking out again, not only in Judaea, where the evil began, but even in the City, where everything horrible or shameful flows in from every side and finds a following.",
+ "translation_note": "Quīn after a negative (\"nothing removed the scandal\") introduces what the scandal was: \"that the fire was believed to have been ordered\". Deum is the short genitive plural of deus (= deōrum). The sentence about Christus is in the pluperfect (adfectus erat): it explains the name, as background. Celebrantur here means \"are thronged, made popular\", not \"celebrated\" in a religious sense.",
+ "essay": [
+  [
+   {
+    "t": "In AD 64 a great fire swept through Rome.",
+    "src": [
+     4,
+     1
+    ]
+   },
+   {
+    "t": "Tacitus notes that some people recorded its start as 19 July, the day on which the Senones had once burned the captured city.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "In this passage he says that neither human effort, nor the emperor's handouts, nor rites to appease the gods removed the belief that the fire had been ordered, so Nero produced culprits.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Suetonius states outright that Nero set the fire, and lists the punishment of Christians, \"a kind of men of a new and harmful superstition\", among Nero's measures without linking it to the fire.",
+    "src": [
+     2
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Tacitus was born around AD 56, so he was a boy at the time; he later governed the province of Asia, probably in 112–113.",
+    "src": [
+     3,
+     7
+    ]
+   },
+   {
+    "t": "He names no sources; Lawrence Mykytiuk suggests he may have learned about Christians as governor of Asia, where he probably supervised trials of accused Christians.",
+    "src": [
+     4
+    ],
+    "doubt": true
+   },
+   {
+    "t": "In my reading, it is evidence for an upper-class Roman view of Christians, and for what Rome knew of Christus's execution.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   },
+   {
+    "t": "It calls Pilate procurator, but the inscription found at Caesarea in 1961 calls him prefect, as usually restored: [PRAEF]ECTUS IUDA[EA]E.",
+    "src": [
+     1,
+     5,
+     8
+    ]
+   }
+  ],
+  [
+   {
+    "t": "Mykytiuk argues the passage is authentic, partly from its \"true Tacitean\" Latin; the classicist Peter Gainsford agrees, though he doubts it is independent evidence for the historical Jesus.",
+    "src": [
+     4,
+     6
+    ]
+   },
+   {
+    "t": "Richard Carrier argues the opposite: that the sentence about Christus is a Christian interpolation of the fourth century or later.",
+    "src": [
+     9
+    ]
+   },
+   {
+    "t": "I call authenticity the majority view on the strength of these sources, not a survey of the scholarship.",
+    "src": [
+     4,
+     6,
+     9
+    ],
+    "doubt": true
+   },
+   {
+    "t": "Fisher prints Christianos, but Gainsford argues from the oldest manuscript of this book (Florence, Laurentian Library, Plut. 68.2) that the scribe first wrote Chrestianos and someone scraped the e into an i, while Christus in the next line is original.",
+    "src": [
+     1,
+     6
+    ]
+   },
+   {
+    "t": "If so, Tacitus may have reported the crowd's form of the name, \"Chrestians\", beside the founder's correct name.",
+    "src": [
+     6
+    ],
+    "doubt": true
+   },
+   {
+    "t": "How far per flagitia invisos is Tacitus's own judgement is debated; he later calls the victims guilty, yet says they were convicted less of arson than of hatred of the human race.",
+    "src": [
+     1
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "What title does Tacitus give Pontius Pilate, and what does the inscription from Caesarea show?",
+   "options": [
+    "Procurator; the inscription calls him prefect",
+    "Prefect; the inscription calls him procurator",
+    "Consul; the inscription calls him a king",
+    "Legate; the inscription calls him tribune"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "In the oldest manuscript of this book, what seems to have happened to the word for \"Christians\"?",
+   "options": [
+    "An original e was scraped into an i",
+    "The word was squeezed into the margin",
+    "Christus was altered to read Chrestus",
+    "The whole sentence was added later"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "How does Suetonius's account of the fire differ from Tacitus's?",
+   "options": [
+    "Suetonius says plainly that Nero set it",
+    "Suetonius blames the Christians for it",
+    "Suetonius calls it a pure accident",
+    "Suetonius never mentions the fire"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Tacitus, Annals 15.41 and 15.44 (Latin; Fisher, Oxford 1906), Perseus Digital Library TEI file",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1351/phi005/phi1351.phi005.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Suetonius, Nero 16 and 38 (Latin; Loeb text, Rolfe), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Suetonius/12Caesars/Nero*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Tacitus\"",
+   "url": "https://www.britannica.com/biography/Tacitus-Roman-historian",
+   "kind": "modern"
+  },
+  {
+   "label": "L. Mykytiuk, \"Did Jesus Exist? Searching for Evidence Beyond the Bible\", Biblical Archaeology Review 41.1 (2015) (PDF copy hosted at TCU)",
+   "url": "https://personal.tcu.edu/blucas/BAR/Special%20Collections/Did%20Jesus%20Exist/Did%20Jesus%20Exist_%20Searching%20for%20Evidence%20Beyond%20the%20Bible%20-%20The%20BAS%20Library.pdf",
+   "kind": "modern"
+  },
+  {
+   "label": "Encyclopaedia Britannica, \"Pontius Pilate\"",
+   "url": "https://www.britannica.com/biography/Pontius-Pilate",
+   "kind": "modern"
+  },
+  {
+   "label": "P. Gainsford, \"Chrest or Christ\", Kiwi Hellenist (blog of a classicist), 30 March 2023",
+   "url": "https://kiwihellenist.blogspot.com/2023/03/chrest-or-christ.html",
+   "kind": "modern"
+  },
+  {
+   "label": "Judaism and Rome project, \"Tacitus, Annals\" (introduction: proconsulship of Asia, probably 112–113)",
+   "url": "https://heurist.huma-num.fr/heurist/judaism_and_rome/view/1085",
+   "kind": "modern"
+  },
+  {
+   "label": "Madain Project, \"Pilate Stone\" (restored text; found 1961, Israel Museum)",
+   "url": "https://madainproject.com/pilate_stone",
+   "kind": "modern"
+  },
+  {
+   "label": "R. Carrier, \"The Prospect of a Christian Interpolation in Tacitus, Annals 15.44\", Vigiliae Christianae 68 (2014) 264–283 (library record with abstract)",
+   "url": "https://lib.ir/fa/book/90445172/The-Prospect-of-a-Christian-Interpolation-in-Tacit",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}

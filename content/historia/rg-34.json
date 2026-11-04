@@ -1,0 +1,879 @@
+{
+ "id": "rg-34",
+ "order": 12,
+ "title": "First in rank, not in power",
+ "saying": "praestitī omnibus dīgnitāte, potestātis autem nihilō amplius habuī",
+ "author": "Augustus",
+ "work": "Rēs Gestae Dīvī Augustī",
+ "citation": "RG 34",
+ "setting": "Rome, written about AD 14; the copy at Ancyra (Ankara)",
+ "edition": {
+  "name": "Res Gestae Divi Augusti, Latin text of the Loeb Classical Library edition (F. W. Shipley, 1924), as presented on LacusCurtius (Bill Thayer), whose page reproduces the text \"as published in the Loeb Classical Library,\" 1924, and states that \"The text is in the public domain.\"",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html",
+  "section": "Res Gestae 34 (the whole chapter: 34.1–3)"
+ },
+ "source_text": "In consulatu sexto et septimo, bella ubi civilia exstinxeram per consensum universorum potitus rerum omnium, rem publicam ex mea potestate in senatus populique Romani arbitrium transtuli. Quo pro merito meo senatus consulto Augustus appellatus sum et laureis postes aedium mearum vestiti publice coronaque civica super ianuam meam fixa est clupeusque aureus in curia Iulia positus, quem mihi senatum populumque Romanum dare virtutis clementiae iustitiae pietatis caussa testatum est per eius clupei inscriptionem. Post id tempus praestiti omnibus dignitate, potestatis autem nihilo amplius habui quam qui fuerunt mihi quoque in magistratu conlegae.",
+ "excerpt_note": "Chapter 34 complete. Schema limit: the edition prints the inscription's apices (accent marks), e.g. \"Ín consulátú\", \"senátus\", \"transtulí\", \"fíxa\", \"cúriá Iúliá\". Vocābula's tracing check strips all accents, so this text gives the letters without them, and the displayed macrons are the app's own. As read from the page, apices stand on: Ín, consulátú, consénsum, úniversórum, meá, potestáte, senátus, transtulí, Quó, meó, appellátus, laureís, postés, meárum, civíca, iánuam, fíxa, cúriá, Iúliá, clúpei (not checked against an image of the page). Line numbers, section marks and page numbers are left out. Note that this 1924 text reads dignitate and potitus where most modern editions read auctoritate and potens (see the essay).",
+ "macrons": {
+  "editorial": true,
+  "note": "Macrons are editorial: added by Vocābula, not printed in the edition. Vowel quantities follow the app lexicon (Wheelock / DCC spellings) where the word is in it, and standard dictionary quantities otherwise. The stone's own apices (listed in the excerpt note) mostly agree with these macrons; three (on In, the second i of civica, and the u of clupei) sit on vowels that are short in the dictionaries.",
+  "uncertain": [
+   "dīgnitāte: long ī before gn, following the app lexicon (DCC dīgnitās).",
+   "cīvica, cīvīlia: long ī in cīv-, and in the suffix of cīvīlis; standard dictionary quantities, not machine-checked.",
+   "clupeus: short u (also spelled clipeus); the stone has an apex on this u (clúpei), which is unexpected.",
+   "cōnsulātū, ūniversōrum, potītus, exstīnxeram, trānstulī, fīxa, cūriā, Iūliā, iūstitiae, clēmentiae, īnscrīptiōnem, conlēgae: standard dictionary quantities; not machine-checked.",
+   "caussā: old spelling of causā, kept from the edition.",
+   "quōque: taken as the ablative of quisque (quō + -que, long ō) with magistrātū, \"in each office\"; it can also be read as the adverb quoque, \"also\". Not machine-checked."
+  ]
+ },
+ "tokens": [
+  {
+   "w": "In",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "cōnsulātū",
+   "lemma": "cōnsulātus, cōnsulātūs, m.",
+   "parse": "abl. sg.",
+   "gloss": "consulship"
+  },
+  {
+   "w": "sextō",
+   "lemma": "sextus, sexta, sextum",
+   "parse": "abl. sg. m.",
+   "gloss": "sixth"
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "septimō",
+   "p": ",",
+   "lemma": "septimus, septima, septimum",
+   "parse": "abl. sg. m.",
+   "gloss": "seventh"
+  },
+  {
+   "w": "bella",
+   "lemma": "bellum, bellī, n.",
+   "parse": "acc. pl.",
+   "gloss": "wars",
+   "app": [
+    "bellum-n2n"
+   ]
+  },
+  {
+   "w": "ubi",
+   "lemma": "ubi",
+   "parse": "conjunction (+ pluperf.: when, after)",
+   "gloss": "after",
+   "app": [
+    "ubi-indecl"
+   ]
+  },
+  {
+   "w": "cīvīlia",
+   "lemma": "cīvīlis, cīvīle",
+   "parse": "acc. pl. n.",
+   "gloss": "civil"
+  },
+  {
+   "w": "exstīnxeram",
+   "lemma": "exstinguō, exstinguere, exstīnxī, exstīnctum",
+   "parse": "1st sg. pluperf. ind. act.",
+   "gloss": "I had put out, ended"
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "through, by"
+  },
+  {
+   "w": "cōnsēnsum",
+   "lemma": "cōnsēnsus, cōnsēnsūs, m.",
+   "parse": "acc. sg.",
+   "gloss": "consent, agreement"
+  },
+  {
+   "w": "ūniversōrum",
+   "lemma": "ūniversus, ūniversa, ūniversum",
+   "parse": "gen. pl. m.",
+   "gloss": "of all (together)"
+  },
+  {
+   "w": "potītus",
+   "lemma": "potior, potīrī, potītus sum (+ gen.)",
+   "parse": "perf. participle, deponent, nom. sg. m.",
+   "gloss": "having gained control"
+  },
+  {
+   "w": "rērum",
+   "lemma": "rēs, reī, f.",
+   "parse": "gen. pl.",
+   "gloss": "of affairs"
+  },
+  {
+   "w": "omnium",
+   "p": ",",
+   "lemma": "omnis, omne",
+   "parse": "gen. pl. f.",
+   "gloss": "all"
+  },
+  {
+   "w": "rem",
+   "lemma": "rēs, reī, f.",
+   "parse": "acc. sg. (with pūblicam: the state)",
+   "gloss": "thing, affair"
+  },
+  {
+   "w": "pūblicam",
+   "lemma": "pūblicus, pūblica, pūblicum",
+   "parse": "acc. sg. f. (rēs pūblica: the state, the republic)",
+   "gloss": "public",
+   "app": [
+    "publicus-adj12"
+   ]
+  },
+  {
+   "w": "ex",
+   "lemma": "ex (+ abl.)",
+   "parse": "preposition",
+   "gloss": "out of, from",
+   "app": [
+    "ex-indecl"
+   ]
+  },
+  {
+   "w": "meā",
+   "lemma": "meus, mea, meum",
+   "parse": "abl. sg. f.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "potestāte",
+   "lemma": "potestās, potestātis, f.",
+   "parse": "abl. sg.",
+   "gloss": "power",
+   "app": [
+    "potestas-n3"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ acc.)",
+   "parse": "preposition",
+   "gloss": "into",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "senātūs",
+   "lemma": "senātus, senātūs, m.",
+   "parse": "gen. sg.",
+   "gloss": "of the senate"
+  },
+  {
+   "w": "populīque",
+   "lemma": "populus, populī, m. + -que",
+   "parse": "gen. sg. + enclitic -que",
+   "gloss": "and of the people",
+   "app": [
+    "populus-n2m"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "Rōmānī",
+   "lemma": "Rōmānus, Rōmāna, Rōmānum",
+   "parse": "gen. sg. m.",
+   "gloss": "Roman",
+   "app": [
+    "romanus-adj12"
+   ]
+  },
+  {
+   "w": "arbitrium",
+   "lemma": "arbitrium, arbitriī, n.",
+   "parse": "acc. sg.",
+   "gloss": "control, judgement"
+  },
+  {
+   "w": "trānstulī",
+   "p": ".",
+   "lemma": "trānsferō, trānsferre, trānstulī, trānslātum",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I transferred"
+  },
+  {
+   "w": "Quō",
+   "lemma": "quī, quae, quod",
+   "parse": "relative adjective, abl. sg. n. (connecting: for this)",
+   "gloss": "this, which"
+  },
+  {
+   "w": "prō",
+   "lemma": "prō (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in return for"
+  },
+  {
+   "w": "meritō",
+   "lemma": "meritum, meritī, n.",
+   "parse": "abl. sg.",
+   "gloss": "service, merit"
+  },
+  {
+   "w": "meō",
+   "lemma": "meus, mea, meum",
+   "parse": "abl. sg. n.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "senātūs",
+   "lemma": "senātus, senātūs, m.",
+   "parse": "gen. sg. (senātūs cōnsultum: decree of the senate)",
+   "gloss": "of the senate"
+  },
+  {
+   "w": "cōnsultō",
+   "lemma": "cōnsultum, cōnsultī, n.",
+   "parse": "abl. sg. (means)",
+   "gloss": "by decree"
+  },
+  {
+   "w": "Augustus",
+   "lemma": "Augustus, Augustī, m.",
+   "parse": "nom. sg. (predicate)",
+   "gloss": "Augustus"
+  },
+  {
+   "w": "appellātus",
+   "lemma": "appellō, appellāre",
+   "parse": "perf. pass. participle, nom. sg. m. (with sum: perfect passive)",
+   "gloss": "named",
+   "app": [
+    "appello-v1"
+   ]
+  },
+  {
+   "w": "sum",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "1st sg. pres. ind. (appellātus sum: I was named)",
+   "gloss": "I am",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "et",
+   "lemma": "et",
+   "parse": "conjunction",
+   "gloss": "and",
+   "app": [
+    "et-indecl"
+   ]
+  },
+  {
+   "w": "laureīs",
+   "lemma": "laureus, laurea, laureum",
+   "parse": "abl. pl. f. (laureae: laurels)",
+   "gloss": "with laurels"
+  },
+  {
+   "w": "postēs",
+   "lemma": "postis, postis, m.",
+   "parse": "nom. pl.",
+   "gloss": "doorposts"
+  },
+  {
+   "w": "aedium",
+   "lemma": "aedēs, aedis, f.",
+   "parse": "gen. pl. (plural: a house)",
+   "gloss": "of the house",
+   "app": [
+    "aedes-n3i"
+   ]
+  },
+  {
+   "w": "meārum",
+   "lemma": "meus, mea, meum",
+   "parse": "gen. pl. f.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "vestītī",
+   "lemma": "vestiō, vestīre",
+   "parse": "perf. pass. participle, nom. pl. m. (vestītī [sunt])",
+   "gloss": "were clothed, decked"
+  },
+  {
+   "w": "pūblicē",
+   "lemma": "pūblicē",
+   "parse": "adverb",
+   "gloss": "officially, at public expense"
+  },
+  {
+   "w": "corōnaque",
+   "lemma": "corōna, corōnae, f. + -que",
+   "parse": "nom. sg. + enclitic -que",
+   "gloss": "and a crown",
+   "enclitic": "que"
+  },
+  {
+   "w": "cīvica",
+   "lemma": "cīvicus, cīvica, cīvicum",
+   "parse": "nom. sg. f. (corōna cīvica: the civic crown, of oak leaves)",
+   "gloss": "civic"
+  },
+  {
+   "w": "super",
+   "lemma": "super (+ acc.)",
+   "parse": "preposition",
+   "gloss": "above"
+  },
+  {
+   "w": "iānuam",
+   "lemma": "iānua, iānuae, f.",
+   "parse": "acc. sg.",
+   "gloss": "door"
+  },
+  {
+   "w": "meam",
+   "lemma": "meus, mea, meum",
+   "parse": "acc. sg. f.",
+   "gloss": "my",
+   "app": [
+    "meus-adj12"
+   ]
+  },
+  {
+   "w": "fīxa",
+   "lemma": "fīgō, fīgere, fīxī, fīxum",
+   "parse": "perf. pass. participle, nom. sg. f. (with est: perfect passive)",
+   "gloss": "fixed"
+  },
+  {
+   "w": "est",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "was (fīxa est: was fixed)",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "clupeusque",
+   "lemma": "clupeus (clipeus), clupeī, m. + -que",
+   "parse": "nom. sg. + enclitic -que",
+   "gloss": "and a shield",
+   "enclitic": "que"
+  },
+  {
+   "w": "aureus",
+   "lemma": "aureus, aurea, aureum",
+   "parse": "nom. sg. m.",
+   "gloss": "golden",
+   "app": [
+    "aureus-adj12"
+   ]
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "cūriā",
+   "lemma": "cūria, cūriae, f.",
+   "parse": "abl. sg.",
+   "gloss": "senate house"
+  },
+  {
+   "w": "Iūliā",
+   "lemma": "Iūlius, Iūlia, Iūlium",
+   "parse": "abl. sg. f. (Cūria Iūlia, the senate house built by Julius Caesar)",
+   "gloss": "Julian"
+  },
+  {
+   "w": "positus",
+   "p": ",",
+   "lemma": "pōnō, pōnere, posuī, positum",
+   "parse": "perf. pass. participle, nom. sg. m. (positus [est])",
+   "gloss": "was placed",
+   "app": [
+    "pono-v3"
+   ]
+  },
+  {
+   "w": "quem",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, acc. sg. m. (antecedent clupeus)",
+   "gloss": "which"
+  },
+  {
+   "w": "mihi",
+   "lemma": "ego, meī",
+   "parse": "dat. sg.",
+   "gloss": "to me"
+  },
+  {
+   "w": "senātum",
+   "lemma": "senātus, senātūs, m.",
+   "parse": "acc. sg. (subject of dare)",
+   "gloss": "the senate"
+  },
+  {
+   "w": "populumque",
+   "lemma": "populus, populī, m. + -que",
+   "parse": "acc. sg. + enclitic -que",
+   "gloss": "and the people",
+   "app": [
+    "populus-n2m"
+   ],
+   "enclitic": "que"
+  },
+  {
+   "w": "Rōmānum",
+   "lemma": "Rōmānus, Rōmāna, Rōmānum",
+   "parse": "acc. sg. m.",
+   "gloss": "Roman",
+   "app": [
+    "romanus-adj12"
+   ]
+  },
+  {
+   "w": "dare",
+   "lemma": "dō, dare, dedī, datum",
+   "parse": "pres. inf. act. (indirect statement after testātum est)",
+   "gloss": "gave (lit. to give)",
+   "app": [
+    "do-v1"
+   ]
+  },
+  {
+   "w": "virtūtis",
+   "lemma": "virtūs, virtūtis, f.",
+   "parse": "gen. sg. (with caussā)",
+   "gloss": "of courage, excellence",
+   "app": [
+    "virtus-n3"
+   ]
+  },
+  {
+   "w": "clēmentiae",
+   "lemma": "clēmentia, clēmentiae, f.",
+   "parse": "gen. sg.",
+   "gloss": "of clemency, mercy"
+  },
+  {
+   "w": "iūstitiae",
+   "lemma": "iūstitia, iūstitiae, f.",
+   "parse": "gen. sg.",
+   "gloss": "of justice"
+  },
+  {
+   "w": "pietātis",
+   "lemma": "pietās, pietātis, f.",
+   "parse": "gen. sg.",
+   "gloss": "of devotion (to gods, country and family)",
+   "app": [
+    "pietas-n3"
+   ]
+  },
+  {
+   "w": "caussā",
+   "lemma": "causa, causae, f. (old spelling caussa)",
+   "parse": "abl. sg. used as a preposition after a genitive",
+   "gloss": "for the sake of, on account of",
+   "app": [
+    "causa-n1"
+   ]
+  },
+  {
+   "w": "testātum",
+   "lemma": "testor, testārī, testātus sum",
+   "parse": "perf. participle, nom. sg. n. (impersonal: testātum est, it has been attested)",
+   "gloss": "attested"
+  },
+  {
+   "w": "est",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd sg. pres. ind.",
+   "gloss": "is (testātum est: is attested)",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "per",
+   "lemma": "per (+ acc.)",
+   "parse": "preposition",
+   "gloss": "through, by"
+  },
+  {
+   "w": "eius",
+   "lemma": "is, ea, id",
+   "parse": "gen. sg. m.",
+   "gloss": "of that, its"
+  },
+  {
+   "w": "clupeī",
+   "lemma": "clupeus (clipeus), clupeī, m.",
+   "parse": "gen. sg.",
+   "gloss": "shield's"
+  },
+  {
+   "w": "īnscrīptiōnem",
+   "p": ".",
+   "lemma": "īnscrīptiō, īnscrīptiōnis, f.",
+   "parse": "acc. sg.",
+   "gloss": "inscription"
+  },
+  {
+   "w": "Post",
+   "lemma": "post (+ acc.)",
+   "parse": "preposition",
+   "gloss": "after",
+   "app": [
+    "post-indecl"
+   ]
+  },
+  {
+   "w": "id",
+   "lemma": "is, ea, id",
+   "parse": "acc. sg. n.",
+   "gloss": "that"
+  },
+  {
+   "w": "tempus",
+   "lemma": "tempus, temporis, n.",
+   "parse": "acc. sg.",
+   "gloss": "time",
+   "app": [
+    "tempus-n3n"
+   ]
+  },
+  {
+   "w": "praestitī",
+   "lemma": "praestō, praestāre (+ dat.)",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I surpassed",
+   "app": [
+    "praesto-v1"
+   ]
+  },
+  {
+   "w": "omnibus",
+   "lemma": "omnis, omne",
+   "parse": "dat. pl. m.",
+   "gloss": "everyone"
+  },
+  {
+   "w": "dīgnitāte",
+   "p": ",",
+   "lemma": "dīgnitās, dīgnitātis, f.",
+   "parse": "abl. sg. (respect)",
+   "gloss": "in rank, standing",
+   "app": [
+    "dignitas-n3"
+   ]
+  },
+  {
+   "w": "potestātis",
+   "lemma": "potestās, potestātis, f.",
+   "parse": "gen. sg. (partitive with nihilō amplius)",
+   "gloss": "(of) power",
+   "app": [
+    "potestas-n3"
+   ]
+  },
+  {
+   "w": "autem",
+   "lemma": "autem",
+   "parse": "conjunction (second word)",
+   "gloss": "but, however"
+  },
+  {
+   "w": "nihilō",
+   "lemma": "nihilum, nihilī, n.",
+   "parse": "abl. sg. (degree of difference)",
+   "gloss": "by nothing"
+  },
+  {
+   "w": "amplius",
+   "lemma": "amplius (comparative adverb of amplē)",
+   "parse": "adverb, here used as a noun (+ gen.)",
+   "gloss": "more"
+  },
+  {
+   "w": "habuī",
+   "lemma": "habeō, habēre, habuī, habitum",
+   "parse": "1st sg. perf. ind. act.",
+   "gloss": "I had",
+   "app": [
+    "habeo-v2"
+   ]
+  },
+  {
+   "w": "quam",
+   "lemma": "quam",
+   "parse": "conjunction (after a comparative)",
+   "gloss": "than"
+  },
+  {
+   "w": "quī",
+   "lemma": "quī, quae, quod",
+   "parse": "relative pronoun, nom. pl. m.",
+   "gloss": "(those) who"
+  },
+  {
+   "w": "fuērunt",
+   "lemma": "sum, esse, fuī, futūrum",
+   "parse": "3rd pl. perf. ind.",
+   "gloss": "were",
+   "app": [
+    "sum-irr-sum"
+   ]
+  },
+  {
+   "w": "mihi",
+   "lemma": "ego, meī",
+   "parse": "dat. sg. (dative of possession, with conlēgae)",
+   "gloss": "my (lit. to me)"
+  },
+  {
+   "w": "quōque",
+   "lemma": "quisque, quaeque, quidque",
+   "parse": "abl. sg. m. (with magistrātū: in each office)",
+   "gloss": "each"
+  },
+  {
+   "w": "in",
+   "lemma": "in (+ abl.)",
+   "parse": "preposition",
+   "gloss": "in",
+   "app": [
+    "in-indecl"
+   ]
+  },
+  {
+   "w": "magistrātū",
+   "lemma": "magistrātus, magistrātūs, m.",
+   "parse": "abl. sg.",
+   "gloss": "each office, magistracy"
+  },
+  {
+   "w": "conlēgae",
+   "p": ".",
+   "lemma": "collēga (also spelled conlēga), collēgae, m.",
+   "parse": "nom. pl.",
+   "gloss": "colleagues"
+  }
+ ],
+ "translation": "In my sixth and seventh consulships, after I had ended the civil wars, and when by universal consent I had gained control of all affairs, I transferred the state out of my own power into the control of the senate and the Roman people. For this service I was named Augustus by decree of the senate; the doorposts of my house were publicly decked with laurels, a civic crown was fixed above my door, and a golden shield was placed in the Julian senate house, whose inscription records that the senate and the Roman people gave it to me for my courage, clemency, justice and devotion. From that time on I surpassed everyone in rank, but I had no more power than the men who were my colleagues in each office.",
+ "translation_note": "Rem pūblicam is literally \"the public thing\": the state or commonwealth, not \"republic\" in the modern sense. Potītus rērum omnium uses potior with the genitive. Nihilō amplius is \"more by nothing\": \"no more\". In quōque ... magistrātū, quōque is the ablative of quisque, \"in each office\"; read as the adverb quoque the clause means \"who were also my colleagues in office\". Mihi ... conlēgae is a dative of possession, \"who were colleagues to me\". Where this 1924 text has dīgnitāte (\"in rank\"), modern editions read auctōritāte (\"in influence, authority\"); see the essay.",
+ "essay": [
+  [
+   {
+    "t": "Augustus left at his death a record of his deeds which, Suetonius says, he wanted inscribed on bronze tablets set up in front of his Mausoleum.",
+    "src": [
+     2
+    ]
+   },
+   {
+    "t": "The bronzes are lost. The fullest copy, the Monumentum Ancyranum, is inscribed in Latin and Greek on the temple of Roma and Augustus at Ancyra (Ankara); other copies come from Antioch and Apollonia in Pisidia.",
+    "src": [
+     3,
+     1
+    ]
+   },
+   {
+    "t": "A Greek fragment from Sardis, identified by Peter Thonemann in 2012, is the first copy found outside the province of Galatia.",
+    "src": [
+     10
+    ]
+   },
+   {
+    "t": "Internal references point to about AD 14: chapter 35 says he was in his seventy-sixth year when writing.",
+    "src": [
+     3
+    ]
+   }
+  ],
+  [
+   {
+    "t": "The text shown here is the 1924 Loeb edition, which prints dignitate, \"in rank\", in the famous last sentence.",
+    "src": [
+     1
+    ]
+   },
+   {
+    "t": "Modern texts read auctoritate, \"in influence\": Cooley's 2009 edition, as reproduced by the Judaism and Rome project, has auctoritate omnibus praestiti, while the Greek version has axiomati, \"rank\".",
+    "src": [
+     4
+    ]
+   },
+   {
+    "t": "The Latin word came from the copy at Antioch, published by Ramsay and Premerstein as Monumentum Antiochenum in 1927; I have checked that book's catalogue record, not its pages.",
+    "src": [
+     5
+    ],
+    "doubt": true
+   },
+   {
+    "t": "An abstract for a Marburg lecture scheduled for 1 February 2027 says Ramsay's excavations yielded over 220 new fragments and that Premerstein's chapter 34 differed from Mommsen's at one significant point.",
+    "src": [
+     6
+    ]
+   },
+   {
+    "t": "Separately, the project reads potens, not potitus, in 34.1, citing a newer Antioch fragment; the Loeb text still has potitus. I have not verified that fragment's publication.",
+    "src": [
+     4,
+     1
+    ],
+    "doubt": true
+   }
+  ],
+  [
+   {
+    "t": "Cassius Dio records the same honours but judges that from then on there was, strictly speaking, a monarchy: the old offices survived, but everything followed the ruler's wishes.",
+    "src": [
+     7
+    ]
+   },
+   {
+    "t": "Tacitus is harsher: Augustus gradually drew the functions of the senate, the magistrates and the laws into his own hands, unopposed, since the boldest had died in battle or in the proscriptions.",
+    "src": [
+     8
+    ]
+   },
+   {
+    "t": "Gregory Rowe argues that the auctoritas claim alludes to one event, probably Octavian becoming princeps senatus in 28 BC, and notes that no other source repeats the idea.",
+    "src": [
+     9
+    ],
+    "doubt": true
+   },
+   {
+    "t": "My reading: both can be true. No single office of his outranked a colleague's, yet his combined powers made him master of Rome.",
+    "src": [
+     7,
+     8
+    ],
+    "doubt": true
+   }
+  ]
+ ],
+ "questions": [
+  {
+   "q": "Which word does this 1924 Loeb text print where modern editions read auctoritate?",
+   "options": [
+    "dignitate",
+    "potestate",
+    "virtute",
+    "clementia"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "Where, according to Suetonius, did Augustus want this record inscribed?",
+   "options": [
+    "On bronze tablets in front of his Mausoleum",
+    "On marble walls inside the senate house",
+    "On the gold shield in the Curia Iulia",
+    "On the temple of Roma and Augustus"
+   ],
+   "answer": 0
+  },
+  {
+   "q": "What does Cassius Dio conclude about the government after these honours?",
+   "options": [
+    "That strictly speaking it was a monarchy",
+    "That the old republic was truly restored",
+    "That the senate now governed on its own",
+    "That the army controlled every election"
+   ],
+   "answer": 0
+  }
+ ],
+ "sources": [
+  {
+   "label": "Res Gestae Divi Augusti 32–35 (Latin, Greek and English; Loeb, F. W. Shipley, 1924), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Suetonius, Divus Augustus 101.4 (Latin; Ihm, Teubner 1908), Perseus Digital Library TEI file",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1348/abo012/phi1348.abo012.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "Livius.org, \"Augustus, Res Gestae\" (introduction)",
+   "url": "https://www.livius.org/sources/content/augustus-res-gestae",
+   "kind": "modern"
+  },
+  {
+   "label": "Judaism and Rome project, \"Res Gestae Divi Augusti, chapter 34\" (text and commentary after A. E. Cooley, Cambridge 2009)",
+   "url": "https://heurist.huma-num.fr/heurist/judaism_and_rome/view/201",
+   "kind": "modern"
+  },
+  {
+   "label": "W. M. Ramsay and A. von Premerstein, Monumentum Antiochenum (Klio Beiheft 19, Leipzig 1927), catalogue record, Zenon (DAI)",
+   "url": "https://zenon.dainst.org/Record/000145717/Description",
+   "kind": "modern"
+  },
+  {
+   "label": "Philipps-Universität Marburg, abstract of a lecture scheduled for 1 February 2027, \"Exponierte Marburger Epigraphik: Anton Ritter von Premerstein und das Monumentum Ancyranum\" (K. Ruffing)",
+   "url": "https://www.uni-marburg.de/de/mcaw/ringvorlesung/exponiert-abstracts/exponierte-marburger-epigraphik-anton-ritter-von-premerstein-und-das-monumentum-ancyranum",
+   "kind": "modern"
+  },
+  {
+   "label": "Cassius Dio, Roman History 53.16–17 (Loeb translation, 1917), LacusCurtius",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/53*.html",
+   "kind": "ancient"
+  },
+  {
+   "label": "Tacitus, Annals 1.2 (Latin; Fisher, Oxford 1906), Perseus Digital Library TEI file",
+   "url": "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi1351/phi005/phi1351.phi005.perseus-lat2.xml",
+   "kind": "ancient"
+  },
+  {
+   "label": "G. Rowe, \"Reconsidering the Auctoritas of Augustus\", Journal of Roman Studies 103 (2013) 1–15 (abstract)",
+   "url": "https://www.cambridge.org/core/journals/journal-of-roman-studies/article/reconsidering-the-auctoritas-of-augustus/326ABA5F1A73DBFE84781C7BC5BF2FBC",
+   "kind": "modern"
+  },
+  {
+   "label": "P. Thonemann, \"A Copy of Augustus' Res Gestae at Sardis\", Historia 61.3 (2012) 282–288 (record and abstract, Oxford Research Archive)",
+   "url": "https://ora.ox.ac.uk/objects/uuid:fbaef241-de17-42b2-a260-bb0fb39dff40",
+   "kind": "modern"
+  }
+ ],
+ "verified": "2026-11-04"
+}
