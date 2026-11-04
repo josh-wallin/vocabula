@@ -12,6 +12,7 @@ import type { DerivedState } from './events.ts';
 import { cardId, isDue, parseCardId, retrievability } from './srs.ts';
 import { cellPrompt, genderName, optionLabeler } from './labels.ts';
 import { hashSeed, pick, rng, shuffle, type Rng } from './util.ts';
+import { buildSentenceExercise, chooseSentences, sentenceEligible, type Sentence, type SentenceExercise } from './sentences.ts';
 
 export interface Option { id: string; text: string; la?: boolean }
 
@@ -27,12 +28,16 @@ export type Exercise =
       id: string; type: 'typed'; kind: 'recall' | 'produce';
       lemma: string; card: string; prompt: string; cue: string; cueLa: boolean; hint: string;
       accepted: string[]; note: string;
-    };
+    }
+  | SentenceExercise;
 
 export type ChoiceExercise = Extract<Exercise, { type: 'choice' }>;
 export type TypedExercise = Extract<Exercise, { type: 'typed' }>;
 export type GradedExercise = ChoiceExercise | TypedExercise;
 export const isGraded = (e: Exercise): e is GradedExercise => e.type === 'choice' || e.type === 'typed';
+export const isSentence = (e: Exercise): e is SentenceExercise => e.type === 'sentence';
+/** Exercises that are answered and graded (word exercises and sentence exercises). */
+export const isScored = (e: Exercise): e is GradedExercise | SentenceExercise => isGraded(e) || isSentence(e);
 
 export const LESSON_SIZE = 12;
 export const REVIEW_SIZE = 13;
@@ -49,7 +54,14 @@ export interface BuildCtx {
   seed: string;
   /** Path index the lesson stands at (its node; for ad-hoc practice, the last finished node). */
   at?: number;
+  /** Sentence bank for sentence exercises (none when absent). */
+  sentences?: readonly Sentence[];
 }
+
+/** Sentence exercises per lesson kind (when enough sentences are eligible). */
+export const SENTENCES_PER_REVIEW = { min: 2, max: 4 } as const;
+export const SENTENCES_PER_FORMAE = { min: 2, max: 3 } as const;
+export const SENTENCES_PER_PROBATIO = 6;
 
 /**
  * Familia Rōmāna previews are meaning only. No class or forms exercises for:
@@ -212,6 +224,31 @@ class Factory {
     }
   }
 
+  /**
+   * Up to `want` sentence exercises for a node: only sentences whose section is reached, whose words
+   * are known and whose endings are unlocked. Uses its own RNG stream so word exercises are unaffected.
+   */
+  sentenceExercises(node: PathNode, want: number, focus?: readonly FeatureId[]): SentenceExercise[] {
+    const bank = this.ctx.sentences ?? [];
+    if (!bank.length || want <= 0) return [];
+    const r = rng(hashSeed(`${this.ctx.seed}:sentences`));
+    const sctx = { lex: this.ctx.lex, known: this.known, unlocked: this.ctx.unlocked, section: node.section };
+    const pool = bank.filter((s) => sentenceEligible(s, sctx));
+    const picks = chooseSentences({ ...sctx, bank: pool, state: this.ctx.state, now: this.ctx.now, count: want, rng: r, ...(focus ? { focus } : {}) });
+    const out: SentenceExercise[] = [];
+    for (const p of picks) {
+      const e = buildSentenceExercise(p.s, p.type, { ...sctx, rng: r, nextId: () => this.nextId(), pool, ...(focus ? { focus } : {}) });
+      if (e) out.push(e);
+    }
+    return out;
+  }
+
+  /** How many sentences are eligible for a node (to size its sentence share). */
+  eligibleSentenceCount(node: PathNode): number {
+    const sctx = { lex: this.ctx.lex, known: this.known, unlocked: this.ctx.unlocked, section: node.section };
+    return (this.ctx.sentences ?? []).filter((s) => sentenceEligible(s, sctx)).length;
+  }
+
   /** Same-POS distractor lemmas: already-seen words first, never an overlapping gloss. */
   distractors(l: Lemma, n: number): Lemma[] {
     const all = this.ctx.lex.words.map((w) => w.lemma).filter((x) => x.id !== l.id && !glossOverlap(x.gloss, l.gloss));
@@ -300,10 +337,30 @@ export function buildLesson(node: PathNode, base: BuildCtx): Exercise[] {
     case 'verba': case 'dcc': return newWordsLesson(node, f, ctx);
     case 'fr': return newWordsLesson(node, f, ctx, true);
     case 'pattern': return [f.grammar(node.section), ...formsLesson(node, f, ctx, LESSON_SIZE - 1, true)];
-    case 'formae': return formsLesson(node, f, ctx, LESSON_SIZE - 1, false);
-    case 'repetitio': return reviewLesson(f, ctx, known, REVIEW_SIZE);
-    case 'probatio': return probatio(f, ctx, PROBATIO_SIZE);
+    case 'formae': {
+      const n = f.eligibleSentenceCount(node);
+      const want = n === 0 ? 0 : n >= 6 ? SENTENCES_PER_FORMAE.max : SENTENCES_PER_FORMAE.min;
+      return withSentences(f.sentenceExercises(node, want, node.focus), (k) => formsLesson(node, f, ctx, LESSON_SIZE - 1 - k, false));
+    }
+    case 'repetitio': {
+      const n = f.eligibleSentenceCount(node);
+      const want = n === 0 ? 0 : n >= 8 ? SENTENCES_PER_REVIEW.max : n >= 3 ? 3 : SENTENCES_PER_REVIEW.min;
+      return withSentences(f.sentenceExercises(node, want), (k) => reviewLesson(f, ctx, known, REVIEW_SIZE - k));
+    }
+    case 'probatio': {
+      const want = f.eligibleSentenceCount(node) ? SENTENCES_PER_PROBATIO : 0;
+      return withSentences(f.sentenceExercises(node, want), (k) => probatio(f, ctx, PROBATIO_SIZE - k));
+    }
   }
+}
+
+/** Build the word part with room left for the sentences, then spread the sentences evenly through it. */
+function withSentences(sent: SentenceExercise[], words: (k: number) => Exercise[]): Exercise[] {
+  const out = words(sent.length);
+  if (!sent.length) return out;
+  const total = out.length + sent.length;
+  sent.forEach((e, i) => out.splice(Math.min(out.length, Math.round(((i + 1) * total) / (sent.length + 1)) - 1), 0, e));
+  return out;
 }
 
 /** New words: intro + meaning for each; `meaningOnly` (FR previews) skips the class questions. */
@@ -372,7 +429,7 @@ function formsLesson(node: PathNode, f: Factory, ctx: BuildCtx, size: number, re
     const e = f.forms(w.id, feat, preferParse);
     i++;
     if (!e) continue;
-    if (e.type !== 'grammar' && e.type !== 'intro' && out.some((o) => isGraded(o) && o.cue === e.cue && o.prompt === e.prompt)) continue;
+    if (isGraded(e) && out.some((o) => isGraded(o) && o.cue === e.cue && o.prompt === e.prompt)) continue;
     out.push(e);
   }
   return out;

@@ -8,7 +8,8 @@
  *    (again on a retry miss, at most MAX_RETRIES times).
  */
 import { compareAnswer, type Comparison } from './util.ts';
-import { isGraded, type ChoiceExercise, type Exercise, type GradedExercise, type TypedExercise } from './lesson.ts';
+import { isScored, type ChoiceExercise, type Exercise, type GradedExercise, type TypedExercise } from './lesson.ts';
+import { checkSentence } from './sentences.ts';
 import type { Grade } from './srs.ts';
 
 export const REQUEUE_GAP = 3;
@@ -45,9 +46,11 @@ export class Session {
   /** Check an answer for the current exercise and record the outcome. */
   answer(response: string[] | string): Outcome {
     const item = this.current;
-    if (!item || !isGraded(item.ex)) throw new Error('no graded exercise at this position');
+    if (!item || !isScored(item.ex)) throw new Error('no graded exercise at this position');
     const ex = item.ex;
-    const res = ex.type === 'choice' ? checkChoice(ex, response as string[]) : checkTyped(ex, response as string);
+    const res = ex.type === 'choice' ? checkChoice(ex, response as string[])
+      : ex.type === 'sentence' ? checkSentence(ex, typeof response === 'string' ? [response] : response)
+      : checkTyped(ex, response as string);
     const out: Outcome = { ok: res.ok, macronMiss: res.macronMiss, expected: res.expected };
     if (item.retry === 0) {
       const grade: Grade = res.ok ? 'good' : 'again';
