@@ -149,8 +149,8 @@ class Factory {
   /** English → Latin typed. Only for words with enough correct meaning reviews. */
   recall(id: string): Exercise {
     const l = this.lemma(id);
-    const accepted = recallAnswers(l);
-    const hint = [classNote(l), l.gender ? `${genderName(l.gender)}` : '', nominativeHint(l)].filter(Boolean).join(' · ');
+    const hint = recallHint(l);
+    const accepted = recallAccepted(l, this.ctx.lex);
     return {
       id: this.nextId(), type: 'typed', kind: 'recall', lemma: id, card: cardId(id, 'recall'),
       prompt: 'Type the Latin for', cue: l.gloss, cueLa: false, hint, accepted,
@@ -424,12 +424,56 @@ export function hasClassQuestion(l: Lemma, u: ReadonlySet<FeatureId>): boolean {
   return false;
 }
 
-/** Accepted spellings for English→Latin recall: the first citation form (+ "or X" variants). */
+/**
+ * Accepted spellings for English→Latin recall. The prompt asks for "the Latin word", and the
+ * hint names the form (nominative, masculine nominative, “I” form), so a bare inflected form
+ * such as the infinitive alone is not accepted. Accepted:
+ * - the first citation form (listed first: it is the answer shown after a miss);
+ * - variants printed in the headword: "iuvō (or adiuvō)", "ā (or ab)", "ex or ē";
+ * - the citation written out: any run of the principal parts from the first ("amō, amāre",
+ *   "amō, amāre, amāvī, amātum"; "rosa, rosae"; "magnus, magna, magnum"), optionally with the
+ *   gender ("rosa, rosae, f."), or the headword exactly as printed;
+ * - an enclitic without its hyphen ("que" for -que); a usage note dropped ("cum" for "cum + indic.").
+ * Matching is case- and macron-insensitive (compareAnswer), so spacing after commas doesn't matter.
+ */
 export function recallAnswers(l: Lemma): string[] {
-  const out = [l.parts[0] ?? l.headword];
-  const m = l.headword.match(/\(or ([^)]+)\)/);
-  if (m) out.push(m[1]!.trim());
+  const out: string[] = [];
+  const add = (s: string | undefined) => {
+    const t = (s ?? '').replace(/\s*\+.*$/, '').trim();
+    if (t && !out.includes(t)) out.push(t);
+  };
+  const parts = l.parts.map((p) => p.replace(/\s*\+.*$/, '').trim()).filter(Boolean);
+  // "ex or ē": each variant on its own, the first one first.
+  const [first = l.headword, ...alts] = (parts[0] ?? l.headword).split(/\s+or\s+/);
+  add(first);
+  for (const v of alts) add(v);
+  for (const m of l.headword.matchAll(/\(or ([^)]+)\)/g)) for (const v of m[1]!.split(/\s*(?:,|\bor\b)\s*/)) add(v);
+  for (let k = 2; k <= parts.length; k++) {
+    const c = parts.slice(0, k).join(', ');
+    add(c);
+    if (l.gender) add(`${c}, ${l.gender}.`);
+  }
+  if (!/\bor\b/.test(l.headword)) add(l.headword);
+  if (first.startsWith('-')) add(first.slice(1));
   return out;
+}
+
+/**
+ * Every answer a recall exercise accepts: the word's own (recallAnswers), then those of any other
+ * word whose prompt reads exactly the same (same gloss and same hint: ex / ē and nimis / nimium,
+ * which Wheelock prints as one entry; verbum / vocābulum), since the question as shown can't tell
+ * them apart. Words that differ in class, gender or form (amīcus / amīca, timor / metus) don't count.
+ */
+export function recallAccepted(l: Lemma, lex: Pick<Lexicon, 'words'>): string[] {
+  const gloss = glossKey(l.gloss);
+  const hint = recallHint(l);
+  const twins = lex.words.filter((w) => w.lemma.id !== l.id && glossKey(w.lemma.gloss) === gloss && recallHint(w.lemma) === hint);
+  return [...new Set([...recallAnswers(l), ...twins.flatMap((w) => recallAnswers(w.lemma))])];
+}
+
+/** The hint under a recall cue: class, gender and which form to give. */
+export function recallHint(l: Lemma): string {
+  return [classNote(l), l.gender ? `${genderName(l.gender)}` : '', nominativeHint(l)].filter(Boolean).join(' · ');
 }
 
 function nominativeHint(l: Lemma): string {

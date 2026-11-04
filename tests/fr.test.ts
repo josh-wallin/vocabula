@@ -280,7 +280,7 @@ describe('FR lessons: meaning only', () => {
     let found = false;
     for (const seed of ['a', 'b', 'c', 'd', 'e', 'f']) {
       for (const e of build(n, state, new Set(n.unlocked), seed)) {
-        if (e.type === 'typed' && e.kind === 'recall' && e.lemma === 'capra-n1') { expect(e.accepted).toEqual(['capra']); found = true; }
+        if (e.type === 'typed' && e.kind === 'recall' && e.lemma === 'capra-n1') { expect(e.accepted[0]).toBe('capra'); expect(e.accepted).toContain('capra, caprae'); found = true; }
         if (e.type === 'typed' && e.kind === 'recall' && e.lemma === 'a-indecl') expect(e.accepted).toEqual(['ā', 'ab']);
       }
     }

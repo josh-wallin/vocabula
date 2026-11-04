@@ -29,9 +29,9 @@ export const pick = <T>(xs: readonly T[], r: Rng): T | undefined => xs[Math.floo
 
 /* ---------------- answer comparison ---------------- */
 
-/** NFC, trim, collapse spaces, lowercase, drop trailing ! . ? */
+/** NFC, trim, collapse spaces, one space after each comma, lowercase, drop trailing ! . ? , ; */
 export function normalizeAnswer(s: string): string {
-  return s.normalize('NFC').trim().replace(/\s+/g, ' ').replace(/[!.?]+$/, '').trim().toLowerCase();
+  return s.normalize('NFC').trim().replace(/\s+/g, ' ').replace(/\s*,\s*/g, ', ').replace(/[!.?,;\s]+$/, '').trim().toLowerCase();
 }
 
 export interface Comparison {
