@@ -1,0 +1,27 @@
+[
+  {"id":"l06-1","section":6,"title":"Tyrannus et deī","titleEn":"The tyrant and the gods",
+   "context":"A wicked tyrant rules a country, and a few good men have had enough.",
+   "sentences":[
+    {"tokens":[{"form":"tyrannus","lemma":"tyrannus-n2m","cell":"nom.sg"},{"form":"malus","lemma":"malus-adj12","cell":"nom.sg.m"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"patriā","lemma":"patria-n1","cell":"abl.sg"},{"form":"nostrā","lemma":"noster-adj12","cell":"abl.sg.f"},{"form":"erat","lemma":"sum-irr-sum","cell":"impf.act.ind.3sg"}],"en":"There was a wicked tyrant in our fatherland."},
+    {"tokens":[{"form":"populum","lemma":"populus-n2m","cell":"acc.sg"},{"form":"terrēbat","lemma":"terreo-v2","cell":"impf.act.ind.3sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"pecūniam","lemma":"pecunia-n1","cell":"acc.sg"},{"form":"virōrum","lemma":"vir-n2m","cell":"gen.pl"},{"form":"habēbat","lemma":"habeo-v2","cell":"impf.act.ind.3sg"}],"en":"He terrified the people and had the men's money."},
+    {"tokens":[{"form":"ibi","lemma":"ibi-indecl","cell":"citation"},{"form":"erant","lemma":"sum-irr-sum","cell":"impf.act.ind.3pl"},{"form":"paucī","lemma":"pauci-adj12","cell":"nom.pl.m"},{"form":"virī","lemma":"vir-n2m","cell":"nom.pl"},{"form":"bonī","lemma":"bonus-adj12","cell":"nom.pl.m"}],"en":"There were a few good men there."},
+    {"tokens":[{"form":"Ō","lemma":"o-indecl","cell":"citation"},{"form":"dī","lemma":"deus-n2m","cell":"voc.pl","comma":true},{"form":"vitia","lemma":"vitium-n2n","cell":"acc.pl"},{"form":"tyrannī","lemma":"tyrannus-n2m","cell":"gen.sg"},{"form":"tolerāre","lemma":"tolero-v1","cell":"pres.act.inf"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"possumus","lemma":"possum-irr-possum","cell":"pres.act.ind.1pl"}],"en":"O gods, we cannot endure the tyrant's vices!","punct":"!","speaker":"Virī"},
+    {"tokens":[{"form":"virī","lemma":"vir-n2m","cell":"nom.pl"},{"form":"bonī","lemma":"bonus-adj12","cell":"nom.pl.m"},{"form":"īnsidiās","lemma":"insidiae-n1","cell":"acc.pl"},{"form":"cōgitābant","lemma":"cogito-v1","cell":"impf.act.ind.3pl"}],"en":"The good men were planning an ambush."},
+    {"tokens":[{"form":"dī","lemma":"deus-n2m","cell":"nom.pl"},{"form":"deae","lemma":"dea-n1","cell":"nom.pl","attach":"que"},{"form":"patriam","lemma":"patria-n1","cell":"acc.sg"},{"form":"iuvābant","lemma":"iuvo-v1","cell":"impf.act.ind.3pl"}],"en":"The gods and goddesses were helping the fatherland."},
+    {"tokens":[{"form":"tyrannus","lemma":"tyrannus-n2m","cell":"nom.sg"},{"form":"īnsidiās","lemma":"insidiae-n1","cell":"acc.pl"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"vidēbat","lemma":"video-v2","cell":"impf.act.ind.3sg"}],"en":"The tyrant did not see the ambush."},
+    {"tokens":[{"form":"tum","lemma":"tum-indecl","cell":"citation"},{"form":"virī","lemma":"vir-n2m","cell":"nom.pl"},{"form":"tyrannum","lemma":"tyrannus-n2m","cell":"acc.sg"},{"form":"superant","lemma":"supero-v1","cell":"pres.act.ind.3pl"}],"en":"Then the men overcome the tyrant."},
+    {"tokens":[{"form":"nunc","lemma":"nunc-indecl","cell":"citation"},{"form":"patria","lemma":"patria-n1","cell":"nom.sg"},{"form":"nostra","lemma":"noster-adj12","cell":"nom.sg.f"},{"form":"lībera","lemma":"liber-adj12","cell":"nom.sg.f"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"salva","lemma":"salvus-adj12","cell":"nom.sg.f"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"Now our fatherland is free and safe."},
+    {"tokens":[{"form":"nunc","lemma":"nunc-indecl","cell":"citation"},{"form":"ōtium","lemma":"otium-n2n","cell":"acc.sg"},{"form":"perpetuum","lemma":"perpetuus-adj12","cell":"acc.sg.n"},{"form":"habēre","lemma":"habeo-v2","cell":"pres.act.inf"},{"form":"poterimus","lemma":"possum-irr-possum","cell":"fut.act.ind.1pl"}],"en":"Now we will be able to have lasting peace!","punct":"!"}
+   ],
+   "questions":[
+    {"q":"What was the tyrant like?","options":["Wicked","Wise","Greek","Generous"],"answer":0},
+    {"q":"What could the good men not endure?","options":["The tyrant's vices","The gods","Their friends' books","The peace"],"answer":0},
+    {"q":"What did the tyrant not see?","options":["The ambush","The gods","His money","The gate"],"answer":0},
+    {"q":"What is the fatherland like now?","options":["Free and safe","Full of danger","Under a new tyrant","Greek"],"answer":0}
+   ],
+   "notes":[
+    {"s":5,"t":1,"note":"deaeque: deae + -que, \"and the goddesses\"."},
+    {"s":7,"t":3,"note":"superant: the present tense tells a past event vividly (the \"historical present\")."}
+   ]
+  }
+]

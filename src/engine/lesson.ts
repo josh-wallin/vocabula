@@ -18,6 +18,7 @@ import {
 } from './sentences.ts';
 import { sentenceAudio, wordAudio, wordText, type AudioRef } from '../audio/items.ts';
 import { buildAuditio, type AuditScreen, type ListeningLesson } from './listening.ts';
+import { buildLectio, type Lectio, type LectioScreen } from './lectio.ts';
 
 export interface Option { id: string; text: string; la?: boolean }
 
@@ -28,8 +29,9 @@ export type Exercise =
       /**
        * listen: hear the word, choose its meaning (the cue is shown only after answering).
        * audit-word / audit-q: Audītiō pre-teach quiz / comprehension question (lemma: vocab id / '').
+       * lectio-q: Lectiō comprehension question (lemma '').
        */
-      id: string; type: 'choice'; kind: 'meaning' | 'gender' | 'conj' | 'parse' | 'listen' | 'audit-word' | 'audit-q';
+      id: string; type: 'choice'; kind: 'meaning' | 'gender' | 'conj' | 'parse' | 'listen' | 'audit-word' | 'audit-q' | 'lectio-q';
       lemma: string; card: string; prompt: string; cue: string; cueLa: boolean;
       options: Option[]; answer: string[]; multi: boolean; note: string;
       audio?: AudioRef; fallback?: Exercise;
@@ -42,7 +44,8 @@ export type Exercise =
       audio?: AudioRef; fallback?: Exercise;
     }
   | SentenceExercise
-  | AuditScreen;
+  | AuditScreen
+  | LectioScreen;
 
 export type ChoiceExercise = Extract<Exercise, { type: 'choice' }>;
 export type TypedExercise = Extract<Exercise, { type: 'typed' }>;
@@ -79,6 +82,8 @@ export interface BuildCtx {
   listening?: { available: (key: string) => boolean };
   /** Audītiō lesson definitions (content/listening), for `auditio` nodes. */
   auditio?: readonly ListeningLesson[];
+  /** Lectiō passages (content/lectio), for `lectio` nodes. */
+  lectio?: readonly Lectio[];
 }
 
 /** Listening cards: {lemma}:listen (hear → meaning), {lemma}:dictate (hear → type it). */
@@ -492,6 +497,11 @@ export function buildLesson(node: PathNode, base: BuildCtx): Exercise[] {
       const l = ctx.auditio?.find((x) => x.id === node.listening);
       if (!l) throw new Error(`no listening lesson ${node.listening ?? '?'} for ${node.id}`);
       return buildAuditio(l, ctx.seed);
+    }
+    case 'lectio': {
+      const p = ctx.lectio?.find((x) => x.id === node.lectio);
+      if (!p) throw new Error(`no Lectiō passage ${node.lectio ?? '?'} for ${node.id}`);
+      return buildLectio(p, ctx.seed);
     }
   }
 }

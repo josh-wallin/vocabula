@@ -19,6 +19,8 @@ import { Complete } from './Complete.tsx';
 import { Markdown } from './Markdown.tsx';
 import { AboutScreen, ImportScreen, ProfileScreen, WordsScreen } from './Pages.tsx';
 import { COMPARE_HASH, ComparePage } from './Compare.tsx';
+import { LectioReader } from './Lectio.tsx';
+import { lectioPassages } from '../content/lectio.ts';
 import { IconBack, IconCloud, IconCloudOff, IconFlame, IconPath, IconPractice, IconProfile, IconStar, IconWords } from './icons.tsx';
 
 type Tab = 'path' | 'practice' | 'words' | 'profile';
@@ -27,7 +29,8 @@ type View =
   | { v: 'lesson'; node: PathNode; exercises: Exercise[]; run: string }
   | { v: 'complete'; title: string; run: string; stats: LessonStats }
   | { v: 'chapter'; section: number }
-  | { v: 'about' };
+  | { v: 'about' }
+  | { v: 'lectio'; id: string };
 
 /** One sync loop per page. */
 let syncer: Syncer | null = null;
@@ -105,6 +108,10 @@ export function App() {
   if (view.v === 'complete') {
     return <Complete app={app} title={view.title} run={view.run} stats={view.stats} onContinue={() => { setTab('path'); setView({ v: 'tab' }); }} />;
   }
+  if (view.v === 'lectio') {
+    const p = lectioPassages().find((x) => x.id === view.id);
+    if (p) return <LectioReader app={app} p={p} onBack={() => setView({ v: 'tab' })} />;
+  }
   if (view.v === 'chapter' || view.v === 'about') {
     const src = view.v === 'chapter' ? chapterText(view.section) : null;
     return (
@@ -143,7 +150,7 @@ export function App() {
               : <button type="button" class="btn" onClick={() => start(practiceNode(app))} data-testid="practice-start">Start review</button>}
           </main>
         )}
-        {tab === 'words' && <WordsScreen app={app} />}
+        {tab === 'words' && <WordsScreen app={app} onLectio={(id) => setView({ v: 'lectio', id })} />}
         {tab === 'profile' && (
           <ProfileScreen app={app} setApp={setApp} sync={sync} onSyncNow={() => void getSyncer().request()}
             onAbout={() => setView({ v: 'about' })} />

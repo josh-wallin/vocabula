@@ -1,0 +1,28 @@
+/* Lectiō: reading passages (src/ui/Lectio.tsx). Uses the tokens and the gloss panel of styles.css. */
+.lectio { display: flex; flex-direction: column; gap: 14px; }
+.lectio-title { font-family: var(--font-text); font-size: 26px; }
+.lectio-title-en { margin: -8px 0 0; color: var(--muted); font-size: 15px; font-style: italic; }
+.lectio-text {
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.lsent { display: flex; flex-direction: column; gap: 2px; padding: 4px 0; border-bottom: 1px solid var(--line-soft); }
+.lsent:last-child { border-bottom: 0; }
+.lsent-la { font-family: var(--font-text); font-size: 19px; line-height: 1.55; color: var(--ink); overflow-wrap: anywhere; }
+.lsent.past .lsent-la { color: var(--muted); font-size: 17px; }
+.lsent.current .lsent-la { font-size: 22px; }
+.lsent .tok {
+  font: inherit; color: inherit; background: none; border: 0; padding: 0 1px; margin: 0; border-radius: 4px; cursor: pointer;
+  min-height: 32px;
+}
+.lsent .tok.on { background: var(--plum); color: #fff; }
+.lsent .speaker { vertical-align: middle; margin-left: 6px; }
+.lspeaker { font-family: var(--font-ui); font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--bronze-text); text-transform: uppercase; margin-right: 2px; }
+.lsent-tools { display: flex; gap: 12px; }
+.linkbtn { background: none; border: 0; padding: 4px 0; min-height: 32px; color: var(--plum); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.lsent-en { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.tgloss .tg-p { flex-basis: 100%; font-size: 14px; color: var(--muted); }
+.tgloss .tg-n { flex-basis: 100%; font-size: 14px; color: var(--ink); }
+.lectio-list { display: flex; flex-direction: column; gap: 8px; }
+.lectio-open { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; width: 100%; background: none; border: 0; padding: 4px 0; min-height: 44px; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.wordlist li:has(> .lectio-open) { padding: 4px 2px; }

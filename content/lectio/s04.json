@@ -1,0 +1,49 @@
+[
+  {"id":"l04-1","section":4,"title":"Magister et puerī","titleEn":"The teacher and the boys",
+   "context":"A teacher has a class of boys who would rather do nothing.",
+   "sentences":[
+    {"tokens":[{"form":"magister","lemma":"magister-n2m","cell":"nom.sg"},{"form":"bonus","lemma":"bonus-adj12","cell":"nom.sg.m"},{"form":"multōs","lemma":"multus-adj12","cell":"acc.pl.m"},{"form":"puerōs","lemma":"puer-n2m","cell":"acc.pl"},{"form":"habet","lemma":"habeo-v2","cell":"pres.act.ind.3sg"}],"en":"A good teacher has many boys."},
+    {"tokens":[{"form":"puerī","lemma":"puer-n2m","cell":"nom.pl"},{"form":"parvī","lemma":"parvus-adj12","cell":"nom.pl.m"},{"form":"saepe","lemma":"saepe-indecl","cell":"citation"},{"form":"stultī","lemma":"stultus-adj12","cell":"nom.pl.m"},{"form":"sunt","lemma":"sum-irr-sum","cell":"pres.act.ind.3pl"}],"en":"Small boys are often foolish."},
+    {"tokens":[{"form":"hodiē","lemma":"hodie-indecl","cell":"citation"},{"form":"puerī","lemma":"puer-n2m","cell":"nom.pl"},{"form":"ōtium","lemma":"otium-n2n","cell":"acc.sg"},{"form":"amant","lemma":"amo-v1","cell":"pres.act.ind.3pl","comma":true},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"officium","lemma":"officium-n2n","cell":"acc.sg"}],"en":"Today the boys love leisure, not duty."},
+    {"tokens":[{"form":"Ō","lemma":"o-indecl","cell":"citation"},{"form":"puerī","lemma":"puer-n2m","cell":"voc.pl","comma":true},{"form":"sine","lemma":"sine-indecl","cell":"citation"},{"form":"officiō","lemma":"officium-n2n","cell":"abl.sg"},{"form":"vīta","lemma":"vita-n1","cell":"nom.sg"},{"form":"stulta","lemma":"stultus-adj12","cell":"nom.sg.f"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"O boys, without duty life is foolish.","speaker":"Magister"},
+    {"tokens":[{"form":"magister","lemma":"magister-n2m","cell":"nom.sg"},{"form":"puerōs","lemma":"puer-n2m","cell":"acc.pl"},{"form":"vocat","lemma":"voco-v1","cell":"pres.act.ind.3sg"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"cōnsilium","lemma":"consilium-n2n","cell":"acc.sg"},{"form":"dat","lemma":"do-v1","cell":"pres.act.ind.3sg"}],"en":"The teacher calls the boys and gives advice."},
+    {"tokens":[{"form":"sī","lemma":"si-indecl","cell":"citation"},{"form":"cūram","lemma":"cura-n1","cell":"acc.sg"},{"form":"habētis","lemma":"habeo-v2","cell":"pres.act.ind.2pl","comma":true},{"form":"dōnum","lemma":"donum-n2n","cell":"acc.sg"},{"form":"parvum","lemma":"parvus-adj12","cell":"acc.sg.n"},{"form":"dō","lemma":"do-v1","cell":"pres.act.ind.1sg"}],"en":"If you pay attention, I give you a small gift.","speaker":"Magister"},
+    {"tokens":[{"form":"dōna","lemma":"donum-n2n","cell":"acc.pl"},{"form":"amāmus","lemma":"amo-v1","cell":"pres.act.ind.1pl","comma":true},{"form":"cūram","lemma":"cura-n1","cell":"acc.sg"},{"form":"habēmus","lemma":"habeo-v2","cell":"pres.act.ind.1pl"}],"en":"We love gifts; we are paying attention!","punct":"!","speaker":"Puerī"},
+    {"tokens":[{"form":"puerī","lemma":"puer-n2m","cell":"nom.pl"},{"form":"sine","lemma":"sine-indecl","cell":"citation"},{"form":"morā","lemma":"mora-n1","cell":"abl.sg"},{"form":"magistrum","lemma":"magister-n2m","cell":"acc.sg"},{"form":"iuvant","lemma":"iuvo-v1","cell":"pres.act.ind.3pl"}],"en":"The boys help the teacher without delay."},
+    {"tokens":[{"form":"dōnum","lemma":"donum-n2n","cell":"nom.sg"},{"form":"magistrī","lemma":"magister-n2m","cell":"gen.sg"},{"form":"parvum","lemma":"parvus-adj12","cell":"nom.sg.n"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg","comma":true},{"form":"sed","lemma":"sed-indecl","cell":"citation"},{"form":"cōnsilium","lemma":"consilium-n2n","cell":"nom.sg"},{"form":"magnum","lemma":"magnus-adj12","cell":"nom.sg.n"}],"en":"The teacher's gift is small, but his advice is great."}
+   ],
+   "questions":[
+    {"q":"What do the boys love today, at first?","options":["Leisure, not duty","Their teacher's books","War","Their duty"],"answer":0},
+    {"q":"What does the teacher say about life without duty?","options":["It is foolish","It is a gift","It is safe","It is good"],"answer":0},
+    {"q":"What does the teacher offer if the boys pay attention?","options":["A small gift","A day of leisure","A large field","Money"],"answer":0},
+    {"q":"What does the last sentence say?","options":["The gift is small, but the advice is great","The boys are still foolish","The teacher is greedy","The gift is great"],"answer":0}
+   ],
+   "notes":[
+    {"s":5,"t":1,"note":"cūram habētis: \"you have care\", that is, you pay attention."},
+    {"s":8,"t":6,"note":"cōnsilium magnum: understand est, \"(is) great\"."}
+   ]
+  },
+  {"id":"l04-2","section":4,"title":"Bellum et ōtium","titleEn":"War and peace",
+   "context":"Two friends, Marcus and Quintus, talk about the war in their country.",
+   "sentences":[
+    {"tokens":[{"form":"bellum","lemma":"bellum-n2n","cell":"nom.sg"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"patriā","lemma":"patria-n1","cell":"abl.sg"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"There is war in the fatherland."},
+    {"tokens":[{"form":"perīcula","lemma":"periculum-n2n","cell":"nom.pl"},{"form":"multa","lemma":"multus-adj12","cell":"nom.pl.n"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"magna","lemma":"magnus-adj12","cell":"nom.pl.n"},{"form":"sunt","lemma":"sum-irr-sum","cell":"pres.act.ind.3pl"}],"en":"The dangers are many and great."},
+    {"tokens":[{"form":"Mārcus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Marcus (a Roman man's name)"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"Quīntus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Quintus (a Roman man's name)"},{"form":"amīcī","lemma":"amicus-n2m","cell":"nom.pl"},{"form":"sunt","lemma":"sum-irr-sum","cell":"pres.act.ind.3pl"}],"en":"Marcus and Quintus are friends."},
+    {"tokens":[{"form":"bellum","lemma":"bellum-n2n","cell":"nom.sg","comma":true},{"form":"Quīnte","lemma":"proper","cell":"voc.sg","proper":true,"gloss":"Quintus (a Roman man's name)","comma":true},{"form":"puerōs","lemma":"puer-n2m","cell":"acc.pl"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"fēminās","lemma":"femina-n1","cell":"acc.pl"},{"form":"terret","lemma":"terreo-v2","cell":"pres.act.ind.3sg"}],"en":"War, Quintus, frightens boys and women.","speaker":"Mārcus"},
+    {"tokens":[{"form":"vērum","lemma":"verus-adj12","cell":"nom.sg.n"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg","comma":true},{"form":"sed","lemma":"sed-indecl","cell":"citation"},{"form":"patriam","lemma":"patria-n1","cell":"acc.sg"},{"form":"iuvāre","lemma":"iuvo-v1","cell":"pres.act.inf"},{"form":"dēbēmus","lemma":"debeo-v2","cell":"pres.act.ind.1pl"}],"en":"That is true, but we ought to help the fatherland.","speaker":"Quīntus"},
+    {"tokens":[{"form":"sine","lemma":"sine-indecl","cell":"citation"},{"form":"ōtiō","lemma":"otium-n2n","cell":"abl.sg"},{"form":"vīta","lemma":"vita-n1","cell":"nom.sg"},{"form":"bona","lemma":"bonus-adj12","cell":"nom.sg.f"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"Without peace, life is not good.","speaker":"Mārcus"},
+    {"tokens":[{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"perīculō","lemma":"periculum-n2n","cell":"abl.sg"},{"form":"ōtium","lemma":"otium-n2n","cell":"acc.sg"},{"form":"nōn","lemma":"non-indecl","cell":"citation"},{"form":"habēmus","lemma":"habeo-v2","cell":"pres.act.ind.1pl"}],"en":"In danger we have no peace.","speaker":"Quīntus"},
+    {"tokens":[{"form":"amīcī","lemma":"amicus-n2m","cell":"nom.pl"},{"form":"patriam","lemma":"patria-n1","cell":"acc.sg"},{"form":"iuvant","lemma":"iuvo-v1","cell":"pres.act.ind.3pl"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"ōtium","lemma":"otium-n2n","cell":"acc.sg"},{"form":"servant","lemma":"servo-v1","cell":"pres.act.ind.3pl"}],"en":"The friends help the fatherland and preserve the peace."}
+   ],
+   "questions":[
+    {"q":"What is in the fatherland?","options":["War","A disease","A great feast","A new king"],"answer":0},
+    {"q":"What does Marcus say war does?","options":["It frightens boys and women","It gives glory","It helps the fatherland","It brings money"],"answer":0},
+    {"q":"What does Quintus say they ought to do?","options":["Help the fatherland","Flee","Stay at home","Praise war"],"answer":0},
+    {"q":"What do the friends do at the end?","options":["Help the fatherland and preserve the peace","Quarrel","Go home","Praise war"],"answer":0}
+   ],
+   "notes":[
+    {"s":4,"t":0,"note":"Vērum est: \"it is true\"; the neuter adjective means \"a true thing\"."},
+    {"s":5,"t":1,"note":"ōtium: leisure, and also peace (no war)."}
+   ]
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {"id":"l09-1","section":9,"title":"Morbus et remedium","titleEn":"The disease and the remedy",
+   "context":"Two brothers, Titus and Gaius, face a disease that strikes their city.",
+   "sentences":[
+    {"tokens":[{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"illā","lemma":"ille-pron-ille","cell":"abl.sg.f"},{"form":"cīvitāte","lemma":"civitas-n3","cell":"abl.sg"},{"form":"erant","lemma":"sum-irr-sum","cell":"impf.act.ind.3pl"},{"form":"frātrēs","lemma":"frater-n3","cell":"nom.pl","comma":true},{"form":"Titus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Titus (a Roman man's name)"},{"form":"et","lemma":"et-indecl","cell":"citation"},{"form":"Gāius","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Gaius (a Roman man's name)"}],"en":"In that state there were brothers, Titus and Gaius."},
+    {"tokens":[{"form":"alter","lemma":"alter-adj-ius","cell":"nom.sg.m"},{"form":"studium","lemma":"studium-n2n","cell":"acc.sg"},{"form":"litterārum","lemma":"littera-n1","cell":"gen.pl"},{"form":"amābat","lemma":"amo-v1","cell":"impf.act.ind.3sg","comma":true},{"form":"alter","lemma":"alter-adj-ius","cell":"nom.sg.m"},{"form":"pecūniam","lemma":"pecunia-n1","cell":"acc.sg"}],"en":"One loved the study of literature, the other money."},
+    {"tokens":[{"form":"tum","lemma":"tum-indecl","cell":"citation"},{"form":"magnus","lemma":"magnus-adj12","cell":"nom.sg.m"},{"form":"morbus","lemma":"morbus-n2m","cell":"nom.sg"},{"form":"tōtam","lemma":"totus-adj-ius","cell":"acc.sg.f"},{"form":"cīvitātem","lemma":"civitas-n3","cell":"acc.sg"},{"form":"terrēbat","lemma":"terreo-v2","cell":"impf.act.ind.3sg"}],"en":"Then a great disease was terrifying the whole state."},
+    {"tokens":[{"form":"pecūnia","lemma":"pecunia-n1","cell":"nom.sg"},{"form":"mea","lemma":"meus-adj12","cell":"nom.sg.f"},{"form":"hunc","lemma":"hic-pron-hic","cell":"acc.sg.m"},{"form":"morbum","lemma":"morbus-n2m","cell":"acc.sg"},{"form":"vincet","lemma":"vinco-v3","cell":"fut.act.ind.3sg"}],"en":"My money will conquer this disease!","punct":"!","speaker":"Gāius"},
+    {"tokens":[{"form":"nūllum","lemma":"nullus-adj-ius","cell":"nom.sg.n"},{"form":"remedium","lemma":"remedium-n2n","cell":"nom.sg"},{"form":"in","lemma":"in-indecl","cell":"citation"},{"form":"pecūniā","lemma":"pecunia-n1","cell":"abl.sg"},{"form":"est","lemma":"sum-irr-sum","cell":"pres.act.ind.3sg"}],"en":"There is no remedy in money.","speaker":"Titus"},
+    {"tokens":[{"form":"Titus","lemma":"proper","cell":"nom.sg","proper":true,"gloss":"Titus (a Roman man's name)"},{"form":"remedium","lemma":"remedium-n2n","cell":"acc.sg"},{"form":"ex","lemma":"ex-indecl","cell":"citation"},{"form":"librīs","lemma":"liber-n2m","cell":"abl.pl"},{"form":"Graecīs","lemma":"graecus-adj12","cell":"abl.pl.m"},{"form":"discēbat","lemma":"disco-v3","cell":"impf.act.ind.3sg"}],"en":"Titus was learning a remedy from Greek books."},
+    {"tokens":[{"form":"hōc","lemma":"hic-pron-hic","cell":"abl.sg.n"},{"form":"remediō","lemma":"remedium-n2n","cell":"abl.sg"},{"form":"multōs","lemma":"multus-adj12","cell":"acc.pl.m"},{"form":"hominēs","lemma":"homo-n3","cell":"acc.pl"},{"form":"servābat","lemma":"servo-v1","cell":"impf.act.ind.3sg"}],"en":"With this remedy he saved many people."},
+    {"tokens":[{"form":"pecūnia","lemma":"pecunia-n1","cell":"nom.sg"},{"form":"illīus","lemma":"ille-pron-ille","cell":"gen.sg.m"},{"form":"nūllum","lemma":"nullus-adj-ius","cell":"acc.sg.m"},{"form":"hominem","lemma":"homo-n3","cell":"acc.sg"},{"form":"servābat","lemma":"servo-v1","cell":"impf.act.ind.3sg"}],"en":"That man's money saved no one."},
+    {"tokens":[{"form":"nunc","lemma":"nunc-indecl","cell":"citation"},{"form":"tōta","lemma":"totus-adj-ius","cell":"nom.sg.f"},{"form":"cīvitās","lemma":"civitas-n3","cell":"nom.sg"},{"form":"nōmen","lemma":"nomen-n3n","cell":"acc.sg"},{"form":"Titī","lemma":"proper","cell":"gen.sg","proper":true,"gloss":"Titus (a Roman man's name)"},{"form":"laudat","lemma":"laudo-v1","cell":"pres.act.ind.3sg"}],"en":"Now the whole state praises the name of Titus."}
+   ],
+   "questions":[
+    {"q":"Which brother loved money?","options":["Gaius","Titus","Both","Neither"],"answer":0},
+    {"q":"What terrified the whole state?","options":["A great disease","A tyrant","A war","An ambush"],"answer":0},
+    {"q":"Where did Titus learn a remedy?","options":["From Greek books","From his brother","From the gods","From the king"],"answer":0},
+    {"q":"Whose name does the state praise now?","options":["Titus's","Gaius's","The king's","Cicero's"],"answer":0}
+   ],
+   "notes":[
+    {"s":1,"t":0,"note":"Alter … alter: \"the one … the other\"."},
+    {"s":6,"t":0,"note":"Hōc remediō: ablative, \"with this remedy\"."},
+    {"s":7,"t":1,"note":"illīus: \"of that man\", that is, of Gaius."}
+   ]
+  }
+]

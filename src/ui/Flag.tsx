@@ -4,6 +4,7 @@ import type { Exercise } from '../engine/lesson.ts';
 import type { FlagBody, FlagReason } from '../engine/events.ts';
 import { FLAG_REASONS, MAX_FLAG_NOTE_LEN, MAX_FLAG_SHOWN_LEN } from '../engine/eventShape.ts';
 import { latinText } from '../engine/sentences.ts';
+import { lectioText } from '../engine/lectio.ts';
 
 export const FLAG_LABEL: Record<FlagReason, string> = {
   'wrong-answer': 'The expected answer is wrong',
@@ -18,6 +19,7 @@ export function flagRef(ex: Exercise): string {
     case 'intro': return `lemma:${ex.lemma}`;
     case 'grammar': return `grammar:${ex.section}`;
     case 'audit': return `audit:${ex.lesson.id}:${ex.kind}${ex.vocab ? `:${ex.vocab.id}` : ''}`;
+    case 'lectio': return `lectio:${ex.passage.id}:${ex.kind === 'read' ? `s${ex.index + 1}` : 'context'}`;
     default: return ex.card;
   }
 }
@@ -29,6 +31,7 @@ export function flagShown(ex: Exercise): string {
     case 'intro': s = `New word ${ex.lemma}`; break;
     case 'grammar': s = `Grammar card ${ex.section}`; break;
     case 'audit': s = ex.vocab ? `New word ${ex.vocab.headword}: ${ex.vocab.gloss}` : `Audītiō ${ex.kind} ${ex.lesson.ref}`; break;
+    case 'lectio': s = ex.kind === 'read' ? `Lectiō ${ex.passage.id} sentence ${ex.index + 1}: ${lectioText(ex.passage.sentences[ex.index]!)} = ${ex.passage.sentences[ex.index]!.en}` : `Lectiō ${ex.passage.id}: ${ex.passage.title}`; break;
     case 'sentence': s = `${ex.prompt}: ${latinText(ex.s)} = ${ex.en} [${ex.options.map((o) => o.text).join(' / ')}]`; break;
     case 'choice': s = `${ex.prompt} ${ex.cue} [${ex.options.map((o) => o.text).join(' / ')}]`; break;
     case 'typed': s = `${ex.prompt} ${ex.cue} (${ex.accepted.join(' / ')})`; break;
