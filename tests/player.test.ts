@@ -13,6 +13,8 @@ let requests: string[];
 let have: Set<string>;
 let index: string[] | null;
 let offline: boolean;
+let blocked: string[];
+let versions: Record<string, number>;
 
 const ref = (text: string) => ({ key: audioKey(text), text, gemini: geminiAudioKey(text) });
 const MP3 = () => new Response(new Uint8Array([0x49, 0x44, 0x33]), { status: 200, headers: { 'content-type': 'audio/mpeg' } });
@@ -23,14 +25,16 @@ beforeEach(async () => {
   have = new Set();
   index = null;
   offline = false;
+  blocked = [];
+  versions = {};
   vi.stubGlobal('navigator', { get onLine() { return !offline; } });
   vi.stubGlobal('fetch', async (u: string) => {
     if (offline) throw new TypeError('Failed to fetch');
     requests.push(u);
     if (u === '/api/audio-index') {
-      return index ? Response.json({ prefix: 'gm-', keys: index.map((k) => k.slice(3)) }) : Response.json({ error: 'not found' }, { status: 404 });
+      return index ? Response.json({ prefix: 'gm-', keys: index.map((k) => k.slice(3)), blocked: blocked.map((k) => k.slice(3)), versions }) : Response.json({ error: 'not found' }, { status: 404 });
     }
-    const key = u.replace('/api/audio/', '');
+    const key = u.replace('/api/audio/', '').replace(/\?v=\d+$/, '');
     return have.has(key) ? MP3() : Response.json({ error: 'no audio' }, { status: 404 });
   });
   vi.stubGlobal('URL', Object.assign(URL, { createObjectURL: () => `blob:${Math.random()}`, revokeObjectURL: () => undefined }));
@@ -104,6 +108,38 @@ describe('player: Gemini preferred, eSpeak fallback', () => {
     expect(P.audioAvailable(a)).toBe(true);
     await expect(P.loadClip(a)).resolves.toMatch(/^blob:/);
     expect(P.audioAvailable(b)).toBe(false); // never fetched: hidden, as before
+  });
+
+  it('a reported clip reverted to eSpeak (blocked) plays eSpeak, even after the Gemini take was played here', async () => {
+    const a = ref('amīcī');
+    index = [a.gemini];
+    have.add(a.gemini).add(a.key);
+    await P.initAudioCache();
+    await P.playClip(a); // no Audio in Node: false, but nothing breaks
+    await P.loadClip(a);
+    expect(P.clipKey(a)).toBe(a.gemini);
+    index = [];
+    blocked = [a.gemini];
+    await P.initAudioIndex();
+    expect(P.clipKey(a)).toBe(a.key);
+    requests = [];
+    await P.loadClip(a);
+    expect(requests).toEqual([`/api/audio/${a.key}`]);
+  });
+
+  it('a regenerated clip is fetched as a new take (?v=n), not the cached old one', async () => {
+    const a = ref('pulcher');
+    index = [a.gemini];
+    have.add(a.gemini);
+    await P.initAudioCache();
+    await P.loadClip(a);
+    versions = { [a.gemini.slice(3)]: 1 };
+    await P.initAudioIndex();
+    requests = [];
+    await P.loadClip(a);
+    expect(requests).toEqual([`/api/audio/${a.gemini}?v=1`]);
+    await P.loadClip(a);
+    expect(requests).toHaveLength(1);
   });
 
   it('bare keys (Audītiō recordings) are unchanged', async () => {

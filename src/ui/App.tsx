@@ -12,6 +12,7 @@ import { idbSyncStore } from '../sync/idbStore.ts';
 import { signInAgain } from '../sync/http.ts';
 import { uuid } from '../engine/util.ts';
 import { audioAvailable, initAudioCache } from '../audio/player.ts';
+import { setAudioReporter } from './AudioReport.tsx';
 import { roman } from '../engine/curriculum.ts';
 import { PathScreen } from './PathScreen.tsx';
 import { Lesson, type LessonResult } from './Lesson.tsx';
@@ -56,6 +57,13 @@ export function App() {
 
   const reload = () => loadApp().then(setApp).catch((e: Error) => setErr(e.message));
   useEffect(() => { void reload(); void initAudioCache(); }, []);
+  // "Bad audio" reports from any speaker (long-press): a flag event, synced like the others.
+  useEffect(() => {
+    if (!app) { setAudioReporter(null); return; }
+    const cur = app;
+    setAudioReporter((b) => { void recordFlag(cur, b).then((e) => setApp((x) => (x ? withEvents(x, [e]) : x))); });
+    return () => setAudioReporter(null);
+  }, [app]);
 
   const loaded = app !== undefined && app !== null;
   // Start syncing once content is present. Remote events re-run replay (deferred during a lesson).

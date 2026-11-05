@@ -17,9 +17,12 @@
  *    theātrum", read with English f and θ: a familiar spelling pulls the model to the English
  *    word. If the model ignores the ʰ, it still says p / t / k, never f / θ.
  *  - pseudo: the respelling of src/compare/pseudo.ts (k, w, doubled long vowels, CAPITAL stress).
+ * The app's clips use plain or aspirated per text (key.ts geminiVariantFor, mode 'hybrid'): the spot-check
+ * found aspirated fixes ph/th/ch (plain scored 1 on all five) but its ʰ note made plain c sound like
+ * English "ch" elsewhere (amīcī, pācem), so aspirated is used only where the text has ph/th/ch.
  */
 import { toPseudo } from '../compare/pseudo.ts';
-import { GEMINI_MODEL, GEMINI_VOICE } from './key.ts';
+import { ASPIRATE_PAIR, GEMINI_MODEL, GEMINI_VOICE, NOT_ASPIRATE_WORD, geminiVariantFor } from './key.ts';
 
 export type GeminiVariant = 'plain' | 'aspirated' | 'pseudo';
 export const GEMINI_VARIANTS: readonly GeminiVariant[] = ['plain', 'aspirated', 'pseudo'];
@@ -48,13 +51,11 @@ export const GEMINI_STYLE: Record<GeminiVariant, string> = {
     'Doubled vowels are long with Italian quality; the CAPITAL syllable with a grave accent is stressed; w and y as in English.',
 };
 
-/** Words where t + h is a prefix boundary (post-hāc), not the Greek aspirate. */
-const NOT_ASPIRATE = /^posth/i;
 const ASPIRATE_CAP: Record<string, string> = { p: 'p', P: 'P', t: 't', T: 'T', c: 'k', C: 'K' };
 
 /** ph → pʰ, th → tʰ, ch → kʰ (case kept: Ph → Pʰ, Ch → Kʰ). Everything else unchanged. */
 export function aspirate(text: string): string {
-  return text.normalize('NFC').replace(/\p{L}+/gu, (w) => (NOT_ASPIRATE.test(w) ? w : w.replace(/([pPtTcC])[hH]/g, (_, c: string) => `${ASPIRATE_CAP[c]}ʰ`)));
+  return text.normalize('NFC').replace(/\p{L}+/gu, (w) => (NOT_ASPIRATE_WORD.test(w) || !ASPIRATE_PAIR.test(w) ? w : w.replace(/([pPtTcC])[hH]/g, (_, c: string) => `${ASPIRATE_CAP[c]}ʰ`)));
 }
 
 /** The text actually sent to Gemini for a variant. */
@@ -63,6 +64,9 @@ export function geminiInput(variant: GeminiVariant, text: string): string {
   if (variant === 'aspirated') return aspirate(text);
   return text;
 }
+
+/** The app's clip request for a text: the variant geminiVariantFor() picks (hybrid: aspirated only for ph/th/ch). */
+export const geminiClipBody = (text: string) => geminiBody(geminiVariantFor(text), text);
 
 export function geminiBody(variant: GeminiVariant, text: string, voice: string = GEMINI_VOICE) {
   return {

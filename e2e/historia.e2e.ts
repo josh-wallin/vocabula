@@ -138,9 +138,24 @@ async function main() {
       const speaker = page.locator(`[data-testid="speaker"][data-audio="${passageKey}"]`);
       assert(await speaker.count() === 1, 'passage speaker shown while the clip may be playable');
       await speaker.click();
+      let reported = 0;
       if (withClip) {
         await page.waitForTimeout(500);
         assert(await speaker.count() === 1, 'speaker stays when the clip plays');
+        // Long-press the speaker: "Report bad audio" (a flag event), and the press doesn't also play.
+        const before = passageRequests;
+        await speaker.hover();
+        await page.mouse.down();
+        await page.waitForTimeout(800);
+        await page.mouse.up();
+        const sheet = page.getByTestId('audio-report-sheet');
+        await sheet.waitFor();
+        assert(((await sheet.textContent()) ?? '').includes(historiaSpeech(titus).slice(0, 20)), 'report sheet names the clip text');
+        await page.locator('#audio-report-note').fill('e2e: c like ch');
+        await page.getByTestId('audio-report-send').click();
+        await sheet.waitFor({ state: 'detached' });
+        assert(passageRequests === before, 'long-press did not replay the clip');
+        reported = 1;
       } else {
         await speaker.waitFor({ state: 'detached', timeout: 5000 });
       }
@@ -164,8 +179,12 @@ async function main() {
       await page.locator('main[data-screen="historia"]').waitFor();
       await page.getByRole('button', { name: 'Profile' }).click();
       await page.getByTestId('outbox-count').waitFor();
-      const outboxAfter = await stableOutbox(page, outboxBefore + titus.questions.length);
-      assert(outboxAfter === outboxBefore + titus.questions.length, `review events queued: ${outboxBefore} → ${outboxAfter}`);
+      const outboxAfter = await stableOutbox(page, outboxBefore + titus.questions.length + reported);
+      assert(outboxAfter === outboxBefore + titus.questions.length + reported, `review (+ report) events queued: ${outboxBefore} → ${outboxAfter}`);
+      if (reported) {
+        const fl = (await page.getByTestId('flag-list').textContent()) ?? '';
+        assert(fl.includes('Bad audio') && fl.includes(`audio:${passageKey}`) && fl.includes('e2e: c like ch'), `bad-audio flag listed in Profile: ${fl.slice(0, 200)}`);
+      }
       // The reviews are in the log with historia card ids.
       const cardsInDb = await page.evaluate((DBN) => new Promise<string[]>((res, rej) => {
         const req = indexedDB.open(DBN);

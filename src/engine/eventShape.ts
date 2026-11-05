@@ -5,9 +5,12 @@
  */
 import type { EventKind, FlagBody, VEvent } from './events.ts';
 
-/** Why an exercise was flagged (Lesson → flag button). */
-export type FlagReason = 'wrong-answer' | 'bad-latin' | 'bad-english' | 'other';
-export const FLAG_REASONS: readonly FlagReason[] = ['wrong-answer', 'bad-latin', 'bad-english', 'other'];
+/**
+ * Why an exercise was flagged (Lesson → flag button). `bad-audio`: a pronunciation clip sounds wrong
+ * (long-press a speaker, or the flag sheet); ref `audio:<the key that played>`, shown = the clip's text.
+ */
+export type FlagReason = 'wrong-answer' | 'bad-latin' | 'bad-english' | 'other' | 'bad-audio';
+export const FLAG_REASONS: readonly FlagReason[] = ['wrong-answer', 'bad-latin', 'bad-english', 'other', 'bad-audio'];
 
 export const EVENT_KINDS: ReadonlySet<EventKind> = new Set<EventKind>(['review', 'node_done', 'setting', 'flag']);
 export const MAX_EVENT_ID_LEN = 128;

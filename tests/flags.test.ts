@@ -12,6 +12,8 @@ import { handleApi, type ApiEnv } from '../worker/api.ts';
 import { FakeD1 } from './d1fake.ts';
 import { flagRef, flagShown } from '../src/ui/Flag.tsx';
 import type { Exercise } from '../src/engine/lesson.ts';
+import { audioFlagBody, engineName, reportAudio, setAudioReporter } from '../src/ui/AudioReport.tsx';
+import { geminiAudioKey } from '../src/audio/key.ts';
 
 const T = Date.parse('2026-11-04T09:00:00Z');
 const flag = (id: string, body: Partial<FlagBody> | unknown, ts = T): VEvent =>
@@ -120,5 +122,26 @@ describe('flag events: server and sync', () => {
     expect(b.flags[0]).toMatchObject({ ref: 'sent:s02-01:la', reason: 'bad-latin', note: 'word order?' });
     expect(b.cards.has('sent:s02-01:la')).toBe(true);
     expect(stateFingerprint(a)).toBe(stateFingerprint(b));
+  });
+});
+
+describe('bad-audio flags', () => {
+  it('a speaker report: ref audio:<key that played>, the clip text, an optional note; valid on the wire', () => {
+    const k = geminiAudioKey('Vērī amīcī semper iuvant.');
+    const b = audioFlagBody({ text: 'vērī amīcī semper iuvant.' }, k, '  c like ch  ');
+    expect(b).toEqual({ ref: `audio:${k}`, reason: 'bad-audio', shown: 'vērī amīcī semper iuvant.', note: 'c like ch' });
+    expect(parseEvent(flag('fa', b), 0).body).toEqual(b);
+    expect(audioFlagBody({ text: 'x'.repeat(900) }, k).shown).toHaveLength(500);
+    expect(engineName(k)).toBe('Gemini');
+    expect(engineName('0123456789abcdef01234567')).toBe('eSpeak');
+    expect(replay([flag('fa', b)]).flags[0]).toMatchObject({ reason: 'bad-audio', ref: `audio:${k}` });
+  });
+  it('reports go to the registered reporter only', () => {
+    const got: FlagBody[] = [];
+    expect(reportAudio(audioFlagBody({ text: 'a' }, 'k'))).toBe(false);
+    setAudioReporter((b) => got.push(b));
+    expect(reportAudio(audioFlagBody({ text: 'a' }, 'k'))).toBe(true);
+    setAudioReporter(null);
+    expect(got).toHaveLength(1);
   });
 });

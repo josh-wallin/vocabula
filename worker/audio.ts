@@ -15,7 +15,11 @@ import { GEMINI_AUDIO_PREFIX } from '../src/audio/key.ts';
 
 export const AUDIO_ROUTE = '/api/audio/';
 export const AUDIO_INDEX_ROUTE = '/api/audio-index';
-export interface AudioIndex { prefix: string; keys: string[] }
+/**
+ * `keys`: Gemini clips to play (hex after the prefix), minus `blocked` (reported and reverted to eSpeak);
+ * `versions`: regenerated clips' take numbers (the client fetches /api/audio/<key>?v=<n>).
+ */
+export interface AudioIndex { prefix: string; keys: string[]; blocked: string[]; versions: Record<string, number> }
 export const AUDIO_CACHE_CONTROL = 'private, max-age=31536000, immutable';
 /** eSpeak clips: hex; human recordings (Audītiō): dcc-<hex>; Gemini clips: gm-<hex> (src/audio/key.ts). */
 const KEY = /^(?:dcc-|gm-)?[0-9a-f]{16,64}$/;
@@ -45,8 +49,20 @@ async function handleIndex(req: Request, db: D1Like): Promise<Response> {
   await ensureSchema(db);
   // A range on the primary key: only the gm- rows are read ('.' sorts right after '-').
   const lo = GEMINI_AUDIO_PREFIX, hi = GEMINI_AUDIO_PREFIX.slice(0, -1) + String.fromCharCode(GEMINI_AUDIO_PREFIX.charCodeAt(GEMINI_AUDIO_PREFIX.length - 1) + 1);
-  const { results } = await db.prepare('SELECT key FROM audio WHERE key >= ?1 AND key < ?2 ORDER BY key').bind(lo, hi).all<{ key: string }>();
-  const body: AudioIndex = { prefix: GEMINI_AUDIO_PREFIX, keys: results.map((r) => r.key.slice(GEMINI_AUDIO_PREFIX.length)) };
+  const [clips, flags] = (await db.batch([
+    db.prepare('SELECT key FROM audio WHERE key >= ?1 AND key < ?2 ORDER BY key').bind(lo, hi),
+    db.prepare('SELECT key, state, version FROM audio_flags WHERE key >= ?1 AND key < ?2').bind(lo, hi),
+  ])) as unknown as [{ results: { key: string }[] }, { results: { key: string; state: string; version: number }[] }];
+  const hex = (k: string) => k.slice(GEMINI_AUDIO_PREFIX.length);
+  const blocked = new Set(flags.results.filter((f) => f.state === 'blocked').map((f) => f.key));
+  const versions: Record<string, number> = {};
+  for (const f of flags.results) if (f.state === 'redone' && Number(f.version) > 0) versions[hex(f.key)] = Number(f.version);
+  const body: AudioIndex = {
+    prefix: GEMINI_AUDIO_PREFIX,
+    keys: clips.results.filter((r) => !blocked.has(r.key)).map((r) => hex(r.key)),
+    blocked: [...blocked].sort().map(hex),
+    versions,
+  };
   const text = JSON.stringify(body);
   const etag = await etagOf(text);
   const headers = { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'private, no-cache', etag };

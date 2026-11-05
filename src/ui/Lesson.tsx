@@ -14,7 +14,7 @@ import { FlagSheet } from './Flag.tsx';
 import type { Grade } from '../engine/srs.ts';
 import { exerciseAudio } from '../audio/exercise.ts';
 import { introAudio, type AudioRef } from '../audio/items.ts';
-import { audioMissing, loadClip, playClip, prefetchClips, stopAudio, unlockAudio } from '../audio/player.ts';
+import { audioMissing, lastPlayed, loadClip, playClip, prefetchClips, stopAudio, unlockAudio } from '../audio/player.ts';
 import { ListenCue, Speaker } from './Speaker.tsx';
 import { LectioView } from './Lectio.tsx';
 import { lazy } from './lazy.tsx';
@@ -60,6 +60,13 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
   const ex = item?.ex;
 
   useEffect(() => { if (ex?.type === 'typed') inputRef.current?.focus(); }, [ex]);
+  /** When this screen appeared: the flag sheet offers "Bad audio" only for a clip played since. */
+  const exStart = useRef(Date.now());
+  useEffect(() => { exStart.current = Date.now(); }, [ex]);
+  const screenAudio = (): { text: string; key: string } | null => {
+    const l = lastPlayed();
+    return l && l.at >= exStart.current && typeof l.clip !== 'string' && l.clip.text ? { text: l.clip.text, key: l.key } : null;
+  };
   useEffect(() => {
     if (exercises.some((e) => e.type === 'grammar')) { void GrammarCardView.preload(); void TermSheet.preload(); }
     if (exercises.some((e) => e.type === 'audit')) void AuditView.preload();
@@ -177,7 +184,7 @@ export function Lesson({ app, node, exercises, run, onReview, onFinish, onQuit, 
       )}
       {term && <TermSheet term={term} onClose={() => setTerm(null)} />}
       {flagOpen && onFlag && (
-        <FlagSheet ex={ex} node={node.id} onClose={() => setFlagOpen(false)}
+        <FlagSheet ex={ex} node={node.id} audio={screenAudio()} onClose={() => setFlagOpen(false)}
           onSend={(b) => { onFlag(b); setFlagged(ex.id); setFlagOpen(false); }} />
       )}
     </div>

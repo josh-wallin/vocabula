@@ -1,7 +1,7 @@
 /**
  * Schema, created lazily: the deploy pipeline runs no migrations, so the first
  * API request in each isolate runs CREATE TABLE IF NOT EXISTS (memoized).
- * migrations/0001_init.sql + 0002_audio.sql hold the same SQL for reference / manual use.
+ * migrations/0001_init.sql + 0002_audio.sql + 0004_audio_flags.sql hold the same SQL for reference / manual use.
  */
 import type { D1Like } from './d1.ts';
 
@@ -31,6 +31,14 @@ export const SCHEMA: readonly string[] = [
   text TEXT,
   engine TEXT,
   created_at TEXT
+)`,
+  // Reported Gemini clips: blocked (play eSpeak) or redone (new take, version bumped). See migrations/0004.
+  `CREATE TABLE IF NOT EXISTS audio_flags (
+  key TEXT PRIMARY KEY,
+  state TEXT NOT NULL,
+  version INTEGER NOT NULL DEFAULT 0,
+  handled_ts INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL
 )`,
 ];
 

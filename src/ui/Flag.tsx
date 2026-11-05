@@ -5,13 +5,17 @@ import type { FlagBody, FlagReason } from '../engine/events.ts';
 import { FLAG_REASONS, MAX_FLAG_NOTE_LEN, MAX_FLAG_SHOWN_LEN } from '../engine/eventShape.ts';
 import { latinText } from '../engine/sentences.ts';
 import { lectioText } from '../engine/lectio.ts';
+import { audioFlagBody, engineName } from './AudioReport.tsx';
 
 export const FLAG_LABEL: Record<FlagReason, string> = {
   'wrong-answer': 'The expected answer is wrong',
   'bad-latin': 'Bad Latin',
   'bad-english': 'Bad English',
   other: 'Something else',
+  'bad-audio': 'Bad audio',
 };
+/** The reasons offered for an exercise (bad audio is its own option, for the clip that just played). */
+const EXERCISE_REASONS = FLAG_REASONS.filter((r) => r !== 'bad-audio');
 
 /** What a flag points at: the exercise's card, or the word / grammar card shown. */
 export function flagRef(ex: Exercise): string {
@@ -39,13 +43,16 @@ export function flagShown(ex: Exercise): string {
   return s.slice(0, MAX_FLAG_SHOWN_LEN);
 }
 
-export function FlagSheet({ ex, node, onSend, onClose }: {
+export function FlagSheet({ ex, node, onSend, onClose, audio }: {
   ex: Exercise; node: string; onSend: (b: FlagBody) => void; onClose: () => void;
+  /** The clip that played on this screen, if any: offered as "Bad audio". */
+  audio?: { text: string; key: string } | null;
 }) {
   const [reason, setReason] = useState<FlagReason | null>(null);
   const [note, setNote] = useState('');
   const send = () => {
     if (!reason) return;
+    if (reason === 'bad-audio' && audio) { onSend(audioFlagBody(audio, audio.key, note, node)); return; }
     const body: FlagBody = { ref: flagRef(ex), reason, shown: flagShown(ex), node };
     const n = note.trim().slice(0, MAX_FLAG_NOTE_LEN);
     if (n) body.note = n;
@@ -58,10 +65,14 @@ export function FlagSheet({ ex, node, onSend, onClose }: {
         <span class="grip" />
         <span class="t">Flag this exercise</span>
         <div class="options" role="radiogroup" aria-label="Reason">
-          {FLAG_REASONS.map((r) => (
+          {EXERCISE_REASONS.map((r) => (
             <button key={r} type="button" class="opt" aria-pressed={reason === r ? 'true' : 'false'} data-reason={r}
               onClick={() => setReason(r)}>{FLAG_LABEL[r]}</button>
           ))}
+          {audio && (
+            <button type="button" class="opt" aria-pressed={reason === 'bad-audio' ? 'true' : 'false'} data-reason="bad-audio"
+              onClick={() => setReason('bad-audio')}>Bad audio: <span lang="la">{audio.text}</span> ({engineName(audio.key)})</button>
+          )}
         </div>
         <label class="field-label" for="flag-note">Note (optional)</label>
         <textarea id="flag-note" class="paste flag-note" maxLength={MAX_FLAG_NOTE_LEN} value={note}

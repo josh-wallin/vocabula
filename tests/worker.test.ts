@@ -188,7 +188,7 @@ describe('worker: events', () => {
 
 describe('schema', () => {
   it('migrations/*.sql, in order, match worker/schema.ts', () => {
-    const sql = ['0001_init.sql', '0002_audio.sql'].map((f) => readFileSync(resolve(__dirname, '../migrations', f), 'utf8')).join('\n');
+    const sql = ['0001_init.sql', '0002_audio.sql', '0004_audio_flags.sql'].map((f) => readFileSync(resolve(__dirname, '../migrations', f), 'utf8')).join('\n');
     const stmts = sql.replace(/^--.*$/gm, '').split(';').map((s) => s.trim()).filter(Boolean);
     expect(stmts).toEqual(SCHEMA.map((s) => s.trim()));
   });

@@ -494,3 +494,8 @@ textarea.paste:focus { outline: none; border-color: var(--plum); }
 .attribution { margin: 0; font-size: 12px; line-height: 1.45; color: var(--muted); }
 .attribution a { color: inherit; }
 .credits-list { margin: 0 0 12px; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+
+/* Speakers: long-press reports bad audio, so no iOS callout or text selection on press. */
+.speaker { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+.audio-report-text { margin: 0; font-size: 18px; }
+.audio-report-text [lang="la"] { font-family: var(--font-text); }

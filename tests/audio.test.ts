@@ -7,13 +7,14 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
 import {
-  AUDIO_ENGINE, audioKey, GEMINI_AUDIO_ENGINE, GEMINI_AUDIO_VARIANT, GEMINI_MODEL, GEMINI_PROMPT_VERSION, GEMINI_TEST_VECTOR, GEMINI_VOICE,
-  geminiAudioKey, isAudioKey, normalizeAudioText, sha256Hex, TEST_VECTOR,
+  AUDIO_ENGINE, audioKey, GEMINI_AUDIO_MODE, GEMINI_HYBRID_VECTORS, GEMINI_MODEL, GEMINI_PROMPT_VERSION, GEMINI_TEST_VECTOR, GEMINI_VOICE,
+  geminiAudioEngine, geminiAudioKey, geminiVariantFor, hasAspirate, isAudioKey, normalizeAudioText, sha256Hex, TEST_VECTOR,
 } from '../src/audio/key.ts';
 import { consonantalI, espeakInput, euHiatus } from '../src/audio/speech.ts';
 import { audioItems, citationText, introAudio, sentenceAudio, wordAudio, wordText, type AudioRef } from '../src/audio/items.ts';
 import { exerciseAudio } from '../src/audio/exercise.ts';
-import { COMPARE_ITEMS } from '../src/compare/items.ts';
+import { COMPARE_ITEMS, SPOT_ITEMS } from '../src/compare/items.ts';
+import { aspirate } from '../src/audio/gemini.ts';
 import { audioUrl } from '../src/audio/key.ts';
 const espeakUrlSync = (t: string) => audioUrl(audioKey(t));
 import { fixLexicon } from './fixtures.ts';
@@ -48,13 +49,29 @@ describe('audio keys', () => {
     expect(GEMINI_TEST_VECTOR.input).toBe(`${GEMINI_TEST_VECTOR.engine}|la|amō`);
     expect(geminiAudioKey(GEMINI_TEST_VECTOR.text, GEMINI_TEST_VECTOR.engine)).toBe(GEMINI_TEST_VECTOR.key);
     expect('gm-' + sha256Hex(GEMINI_TEST_VECTOR.input).slice(0, 24)).toBe(GEMINI_TEST_VECTOR.key);
-    expect(GEMINI_AUDIO_ENGINE).toBe(`${GEMINI_MODEL}+${GEMINI_VOICE}+${GEMINI_AUDIO_VARIANT}+${GEMINI_PROMPT_VERSION}`);
+    expect(geminiAudioEngine('amō')).toBe(`${GEMINI_MODEL}+${GEMINI_VOICE}+plain+${GEMINI_PROMPT_VERSION}`);
     expect(geminiAudioKey('  Amō ')).toBe(geminiAudioKey('amō'));
     expect(geminiAudioKey('amō')).toMatch(/^gm-[0-9a-f]{24}$/);
     expect(geminiAudioKey('amō')).not.toBe(geminiAudioKey('amō', 'gemini-3.8-flash-tts+Charon+aspirated+p1'));
     expect(isAudioKey(geminiAudioKey('amō'))).toBe(true);
     expect(isAudioKey(audioKey('amō'))).toBe(true);
     expect(isAudioKey('xx-' + audioKey('amō'))).toBe(false);
+  });
+  it('hybrid: aspirated (pʰ tʰ kʰ) only for texts with ph/th/ch; the variant is in the key; shared vectors', () => {
+    expect(GEMINI_AUDIO_MODE).toBe('hybrid');
+    for (const v of GEMINI_HYBRID_VECTORS) {
+      expect(geminiVariantFor(v.text), v.text).toBe(v.variant);
+      expect(geminiAudioKey(v.text), v.text).toBe(v.key);
+      expect('gm-' + sha256Hex(`${GEMINI_MODEL}+${GEMINI_VOICE}+${v.variant}+${GEMINI_PROMPT_VERSION}|la|${normalizeAudioText(v.text)}`).slice(0, 24)).toBe(v.key);
+    }
+    for (const t of ['pulcher, pulchra, pulchrum', 'theātrum', 'Chrīstus', 'scholā', 'triumphō']) expect(geminiVariantFor(t), t).toBe('aspirated');
+    for (const t of ['Vērī amīcī semper iuvant.', 'Cīvitās pācem nōn habēbat.', 'iactābit', 'subiectīs', 'posthāc', 'hodiē mihi']) expect(geminiVariantFor(t), t).toBe('plain');
+    expect(geminiVariantFor('theātrum', 'plain')).toBe('plain');
+    expect(geminiVariantFor('amō', 'aspirated')).toBe('aspirated');
+  });
+  it('hasAspirate is exactly "aspirate() changes the text" (the request and the key agree)', () => {
+    const texts = [...COMPARE_ITEMS, ...SPOT_ITEMS].map((i) => i.la).concat(['posthāc philosophia', 'Posthabeō', 'PHILOSOPHIA', 'rhētor', 'ch', 'h']);
+    for (const t of texts) expect(hasAspirate(t), t).toBe(aspirate(t) !== t);
   });
   it('normalizes case, spacing and Unicode form; punctuation counts', () => {
     expect(normalizeAudioText('  Puella   rosam amat. ')).toBe('puella rosam amat.');
@@ -197,7 +214,7 @@ describe('worker: GET /api/audio/:key', () => {
   it('serves Gemini clips (gm- keys) like any other', async () => {
     const G = geminiAudioKey('amō');
     await db.prepare('INSERT INTO audio (key, mime, bytes, text, engine, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6)')
-      .bind(G, 'audio/mpeg', BYTES, 'amō', GEMINI_AUDIO_ENGINE, '2026-11-04T00:00:00Z').run();
+      .bind(G, 'audio/mpeg', BYTES, 'amō', geminiAudioEngine('amō'), '2026-11-04T00:00:00Z').run();
     const r = await call(`/api/audio/${G}`);
     expect(r.status).toBe(200);
     expect(new Uint8Array(await r.arrayBuffer())).toEqual(BYTES);
@@ -206,7 +223,7 @@ describe('worker: GET /api/audio/:key', () => {
   it('GET /api/audio-index lists only the Gemini keys (without prefix), with an ETag; 403 without identity', async () => {
     const empty = await call('/api/audio-index');
     expect(empty.status).toBe(200);
-    expect(await empty.json()).toEqual({ prefix: 'gm-', keys: [] });
+    expect(await empty.json()).toEqual({ prefix: 'gm-', keys: [], blocked: [], versions: {} });
     const G1 = geminiAudioKey('amō'), G2 = geminiAudioKey('rosa');
     for (const k of [G1, G2, 'dcc-' + '1'.repeat(24), 'tmp-' + G1]) {
       await db.prepare('INSERT INTO audio (key, mime, bytes, text, engine, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6)')
@@ -221,6 +238,12 @@ describe('worker: GET /api/audio/:key', () => {
     expect(etag).not.toBe(empty.headers.get('etag'));
     expect((await call('/api/audio-index', ok, { headers: { 'if-none-match': etag } })).status).toBe(304);
     expect((await call('/api/audio-index', {})).status).toBe(403);
+    // Reported clips: blocked ones leave `keys` (eSpeak plays), redone ones carry their take number.
+    await db.prepare("INSERT INTO audio_flags (key, state, version, handled_ts, updated_at) VALUES (?1, 'blocked', 0, 5, 'x'), (?2, 'redone', 2, 6, 'x')").bind(G1, G2).run();
+    const f = (await (await call('/api/audio-index')).json()) as { keys: string[]; blocked: string[]; versions: Record<string, number> };
+    expect(f.keys).toEqual([G2.slice(3)]);
+    expect(f.blocked).toEqual([G1.slice(3)]);
+    expect(f.versions).toEqual({ [G2.slice(3)]: 2 });
     expect((await call('/api/audio-index', ok, { method: 'POST', body: 'x' })).status).toBe(405);
   });
 });
