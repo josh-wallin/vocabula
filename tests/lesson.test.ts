@@ -27,6 +27,17 @@ function stateAfter(upTo: string, extra: VEvent[] = []) {
   return replay([...events, ...extra]);
 }
 
+/** Like stateAfter, but no meaning answers (nodes done, nothing reviewed). */
+function stateEventsWithoutMeaning(upTo: string): VEvent[] {
+  const events: VEvent[] = [];
+  let ts = T0;
+  for (const n of path.nodes) {
+    if (n.id === upTo) break;
+    events.push({ id: `n-${n.id}`, device: 'd', ts: ts++, kind: 'node_done', body: { node: n.id, run: n.id, stats: { exercises: 0, graded: 0, firstTryCorrect: 0, newWords: n.newWords, reviews: 0 } } });
+  }
+  return events;
+}
+
 function build(n: PathNode, state = stateAfter(n.id), now = new Date(T0 + 86400000 * 5), seed = 'seed') {
   return buildLesson(n, { lex, path, state, now, unlocked: new Set(n.unlocked), seed });
 }
@@ -138,14 +149,24 @@ describe('lesson builder', () => {
     expect(ids.length).toBe(13);
   });
 
-  it('English→Latin recall only after 2 correct meaning reviews', () => {
+  it('English→Latin recall after 1 correct meaning answer, about a third of a Repetītiō', () => {
     const n = node('s1.rep.1');
-    const once = stateAfter(n.id);
-    const ex1 = build(n, once);
-    expect(ex1.some((e) => e.kind === 'recall')).toBe(false);
-    const more: VEvent[] = path.knownAt(n.id).map((w, i) => ({ id: `m2-${i}`, device: 'd', ts: T0 + 100000 + i, kind: 'review', card: `${w}:meaning`, grade: 'good' }));
-    const ex2 = build(n, stateAfter(n.id, more));
-    expect(ex2.some((e) => e.kind === 'recall')).toBe(true);
+    const none = replay(stateEventsWithoutMeaning(n.id));
+    expect(build(n, none).some((e) => e.kind === 'recall')).toBe(false);
+    const ex = build(n, stateAfter(n.id));
+    const words = ex.filter(isGraded);
+    const recall = words.filter((e) => e.kind === 'recall').length;
+    expect(recall).toBeGreaterThanOrEqual(Math.floor(words.length / 4));
+    expect(recall).toBeLessThanOrEqual(Math.ceil(words.length / 2));
+  });
+
+  it('new-word lessons type the Latin for up to 2 earlier words, never this lesson’s', () => {
+    const n = path.nodes.filter((x) => x.kind === 'verba')[1]!;
+    const ex = build(n);
+    const rec = ex.filter((e) => e.kind === 'recall');
+    expect(rec.length).toBeGreaterThan(0);
+    expect(rec.length).toBeLessThanOrEqual(2);
+    for (const e of rec) expect(n.newWords).not.toContain(isGraded(e) ? e.lemma : '');
   });
 
   it('is deterministic for a given seed', () => {

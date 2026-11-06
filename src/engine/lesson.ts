@@ -61,7 +61,12 @@ export const isListening = (e: Exercise): e is (GradedExercise | SentenceExercis
 export const LESSON_SIZE = 12;
 export const REVIEW_SIZE = 13;
 export const PROBATIO_SIZE = 20;
-export const MIN_MEANING_FOR_RECALL = 2;
+/** English → Latin typing unlocks after this many correct meaning answers (the first quiz in the word's own lesson counts). */
+export const MIN_MEANING_FOR_RECALL = 1;
+/** New-word lessons: at most this many English → Latin exercises on words from earlier lessons. */
+export const RECALL_PER_NEW_WORDS_LESSON = 2;
+/** Repetītiō: about this share of the word exercises are English → Latin typing (when enough words qualify). */
+export const RECALL_SHARE_OF_REVIEW = 1 / 3;
 
 export interface BuildCtx {
   lex: Lexicon;
@@ -589,14 +594,22 @@ function newWordsLesson(node: PathNode, f: Factory, ctx: BuildCtx, meaningOnly =
     if (i > 0) out.push(f.meaning(ws[i - 1]!));
   });
   if (ws.length) out.push(f.meaning(ws[ws.length - 1]!));
-  // Fill to LESSON_SIZE: class questions on the new words, then due reviews.
+  // Fill to LESSON_SIZE: English → Latin on earlier words, class questions on the new words, then due reviews.
+  const recalled = new Set<string>();
+  for (const card of recallCandidates(ctx, f.known)) {
+    if (recalled.size >= RECALL_PER_NEW_WORDS_LESSON || out.length >= fillTo) break;
+    const id = parseCardId(card)!.lemma;
+    if (ws.includes(id) || listen.some((e) => 'lemma' in e && e.lemma === id)) continue;
+    out.push(f.recall(id));
+    recalled.add(id);
+  }
   for (const w of meaningOnly ? [] : ws) {
     if (out.length >= fillTo) break;
     const k = f.klass(w);
     if (k) out.push(k);
   }
   if (out.length < fillTo) {
-    const exclude = new Set([...ws, ...listen.map((e) => ('lemma' in e ? e.lemma : ''))]);
+    const exclude = new Set([...ws, ...recalled, ...listen.map((e) => ('lemma' in e ? e.lemma : ''))]);
     for (const card of dueCards(ctx, f.known)) {
       if (out.length >= fillTo) break;
       const p = parseCardId(card);
@@ -651,6 +664,22 @@ function formsLesson(node: PathNode, f: Factory, ctx: BuildCtx, size: number, re
   return out;
 }
 
+/**
+ * English → Latin cards to practise, best first: due recall cards (lowest retrievability first), then
+ * new recall cards for known words with enough correct meaning answers (least recently learned first,
+ * i.e. in path order, so older words get typed before newer ones).
+ */
+export function recallCandidates(ctx: BuildCtx, known: ReadonlySet<string>): string[] {
+  const due = dueCards(ctx, known).filter((id) => parseCardId(id)?.kind === 'recall');
+  const fresh: string[] = [];
+  for (const w of ctx.lex.words) {
+    const id = w.lemma.id;
+    if (!known.has(id) || ctx.state.cards.has(cardId(id, 'recall'))) continue;
+    if ((ctx.state.meaningGood.get(id) ?? 0) >= MIN_MEANING_FOR_RECALL) fresh.push(cardId(id, 'recall'));
+  }
+  return [...due, ...fresh];
+}
+
 /** Due card ids among known words, lowest retrievability first. */
 export function dueCards(ctx: BuildCtx, known: ReadonlySet<string>): string[] {
   const due: { id: string; r: number }[] = [];
@@ -672,7 +701,7 @@ export function recentMisses(ctx: BuildCtx, known: ReadonlySet<string>): string[
 }
 
 /** Card ids for a Repetītiō: due by lowest retrievability, topped up with recent misses, then new card kinds. */
-export function reviewCardIds(ctx: BuildCtx, known: ReadonlySet<string>, size: number): string[] {
+export function reviewCardIds(ctx: BuildCtx, known: ReadonlySet<string>, size: number, lessonSize = size): string[] {
   const chosen: string[] = [];
   const lemmaCount = new Map<string, number>();
   const add = (id: string): boolean => {
@@ -687,14 +716,18 @@ export function reviewCardIds(ctx: BuildCtx, known: ReadonlySet<string>, size: n
   const due = dueCards(ctx, known);
   const misses = recentMisses(ctx, known);
   const reserve = Math.min(4, misses.length);
+  // English → Latin typing: about a third of the review, due recall cards first, then new ones.
+  const recall = recallCandidates(ctx, known);
+  // lessonSize: how many exercises the caller will actually use (it asks for a few spare ids).
+  const recallWant = Math.min(recall.length, Math.round(lessonSize * RECALL_SHARE_OF_REVIEW));
+  // Recall first: callers build exercises from the front of this list and may stop early.
+  for (const id of recall) { if (chosen.length >= recallWant) break; add(id); }
   for (const id of due) { if (chosen.length >= size - reserve) break; add(id); }
   for (const id of misses) add(id);
   for (const id of due) add(id);
-  // New card kinds for known words: recall (after 2 good meaning reviews), class, forms.
+  // New card kinds for known words: recall (after a correct meaning answer), class, forms.
   const knownSorted = shuffle([...known].filter((id) => ctx.lex.byId.has(id)).sort(), rng(hashSeed(ctx.seed + ':pool')));
-  for (const id of knownSorted) {
-    if ((ctx.state.meaningGood.get(id) ?? 0) >= MIN_MEANING_FOR_RECALL && !ctx.state.cards.has(cardId(id, 'recall'))) add(cardId(id, 'recall'));
-  }
+  for (const id of recall) add(id);
   // Not-yet-due cards with the lowest retrievability.
   const rest = [...ctx.state.cards.entries()]
     .filter(([id]) => !chosen.includes(id) && known.has(parseCardId(id)?.lemma ?? ''))
@@ -714,7 +747,7 @@ export function reviewCardIds(ctx: BuildCtx, known: ReadonlySet<string>, size: n
 }
 
 function reviewLesson(f: Factory, ctx: BuildCtx, known: ReadonlySet<string>, size: number, exclude?: ReadonlySet<string>): Exercise[] {
-  const ids = reviewCardIds(ctx, known, size + 6 + (exclude?.size ? 2 * exclude.size : 0));
+  const ids = reviewCardIds(ctx, known, size + 6 + (exclude?.size ? 2 * exclude.size : 0), size);
   const out: Exercise[] = [];
   for (const id of ids) {
     if (out.length >= size) break;
@@ -732,7 +765,7 @@ function probatio(f: Factory, ctx: BuildCtx, size: number): Exercise[] {
   const out: Exercise[] = [];
   for (const sec of sections) {
     const words = shuffle(sec.nodes.flatMap((n) => n.newWords).filter((id) => f.known.has(id)), f.r);
-    const kinds = ['meaning', 'forms', 'class', 'recall', 'forms', 'meaning'] as const;
+    const kinds = ['meaning', 'recall', 'forms', 'class', 'recall', 'forms'] as const;
     let k = 0;
     for (let wi = 0; wi < words.length && out.filter((e) => isGraded(e) && sectionOf(ctx, e.lemma) === sec.spec.n).length < per; wi++) {
       const id = words[wi]!;
@@ -740,12 +773,13 @@ function probatio(f: Factory, ctx: BuildCtx, size: number): Exercise[] {
       let e: Exercise | null = null;
       if (kind === 'meaning') e = f.meaning(id);
       else if (kind === 'recall') e = (ctx.state.meaningGood.get(id) ?? 0) >= MIN_MEANING_FOR_RECALL ? f.recall(id) : f.meaning(id);
-      else if (kind === 'class') e = f.klass(id);
+      // No class question for this word (or no forms below): don't waste it, ask its meaning instead.
+      else if (kind === 'class') e = f.klass(id) ?? f.meaning(id);
       else {
         const l = f.lemma(id);
         const feats = [...new Set(f.cells(l).map((c) => featureOfCell(l, c)).filter((x): x is FeatureId => x !== null))];
         const ft = pick(feats, f.r);
-        e = ft ? f.forms(id, ft, k % 2 === 0) : null;
+        e = (ft ? f.forms(id, ft, k % 2 === 0) : null) ?? f.meaning(id);
       }
       if (e) { out.push(e); k++; }
     }
