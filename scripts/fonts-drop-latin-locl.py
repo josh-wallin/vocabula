@@ -14,6 +14,9 @@ for w in ('400', '600'):
         s = rec.Script
         s.LangSysRecord = [l for l in s.LangSysRecord if l.LangSysTag != 'LAT ']
         s.LangSysCount = len(s.LangSysRecord)
+    # woff2 first; a plain TTF as the second CSS source in case a browser refuses the re-encoded woff2.
     t.flavor = 'woff2'
     t.save(f'src/ui/fonts/eb-garamond-latin-{w}-normal-nolat.woff2')
+    t.flavor = None
+    t.save(f'src/ui/fonts/eb-garamond-latin-{w}-normal-nolat.ttf')
     print('wrote', w)
