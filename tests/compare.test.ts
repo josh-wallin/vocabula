@@ -148,9 +148,11 @@ describe('Gemini spot-check items', () => {
     expect(SPOT_ITEMS.filter((i) => /ph|th|ch/.test(i.la)).length).toBeGreaterThanOrEqual(4);
   });
   it('sections: the voice test keeps every column; the spot-check is Gemini only', () => {
-    expect(COMPARE_GROUPS.map((g) => g.id)).toEqual(['voice', 'spot']);
+    expect(COMPARE_GROUPS.map((g) => g.id)).toEqual(['voice', 'spot', 'neural']);
     expect(COMPARE_GROUPS[0]!.items).toBe(COMPARE_ITEMS);
-    expect(COMPARE_GROUPS[0]!.columns).toEqual(COLUMNS.map((c) => c.id));
+    expect(COMPARE_GROUPS[0]!.columns).toEqual(COLUMNS.filter((c) => !('pregen' in c)).map((c) => c.id));
+    expect(COMPARE_GROUPS[2]!.items).toBe(SPOT_ITEMS);
+    expect(COMPARE_GROUPS[2]!.columns).toEqual(['espeak', 'piper:it', 'piper:es', 'kokoro:it']);
     expect(COMPARE_GROUPS[1]!.columns).toEqual(['gemini:plain', 'gemini:aspirated']);
   });
 });

@@ -12,7 +12,7 @@ import { toPseudo } from '../compare/pseudo.ts';
 import { aspirate } from '../audio/gemini.ts';
 import { espeakUrl } from '../compare/espeakUrl.ts';
 import {
-  PROBLEMS, SECRET_HELP, TTS_API, column, summarize,
+  PROBLEMS, SECRET_HELP, TTS_API, column, isPregen, summarize,
   type Column, type Problem, type TtsClipInfo, type TtsRating, type TtsRatingRow, type TtsStatus,
 } from '../compare/protocol.ts';
 import { apiFetch, failureText, signInAgain } from '../sync/http.ts';
@@ -93,6 +93,9 @@ const GROUP_NOTE: Record<CompareGroup['id'], string> = {
   spot: 'Texts the app plays, exactly as it sends them: new-word cards (words and citations), Historia tap-to-hear words, ' +
     'bank sentences, Lectiō and Historia lines, and the ph/th/ch words. Gemini only: plain (rated 3.76 above) and the ' +
     'pʰ tʰ kʰ respelling. The app’s clips will use whichever reads these better.',
+  neural: 'The same texts, with eSpeak NG deciding every sound (the same phonetic transcription as its own clips) and a ' +
+    'neural voice speaking it: Piper with an Italian and a Spanish voice, and Kokoro with an Italian voice. None was trained ' +
+    'on Latin, so listen for vowel length, ph/th/ch and stress as well as how natural the voice is.',
 };
 
 function Group({ group, ratings, ratingMap, clips, onClip, onRated }: {
@@ -218,7 +221,7 @@ function Player({ item, col, clipKey, rating, onClip, onRated }: {
     <div class="cmp-player" data-col={col.id}>
       <div class="cmp-player-head">
         <span class="cmp-label">{col.label}</span>
-        {col.engine !== 'espeak' && !url && (
+        {col.engine !== 'espeak' && !isPregen(col) && !url && (
           <button type="button" class="btn small" disabled={busy} onClick={() => void generate()} data-testid="generate">
             {busy ? 'Generating…' : 'Generate'}
           </button>
@@ -226,7 +229,7 @@ function Player({ item, col, clipKey, rating, onClip, onRated }: {
       </div>
       {url
         ? <audio controls preload="none" src={url} onError={() => { if (col.engine === 'espeak') setErr('No eSpeak clip for this text yet.'); }} />
-        : col.engine !== 'espeak' && <p class="small">Not generated yet.</p>}
+        : col.engine !== 'espeak' && <p class="small">{isPregen(col) ? 'Not made yet (made by a workflow, not here).' : 'Not generated yet.'}</p>}
       {err && <p class="small cmp-err" role="alert">{err}</p>}
       <div class="cmp-score" role="radiogroup" aria-label={`Rating for ${col.label}`}>
         {[1, 2, 3, 4, 5].map((s) => (

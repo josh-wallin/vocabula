@@ -103,7 +103,7 @@ export const SPOT_ITEMS: readonly CompareItem[] = [
 ];
 
 export interface CompareGroup {
-  id: 'voice' | 'spot';
+  id: 'voice' | 'spot' | 'neural';
   title: string;
   items: readonly CompareItem[];
   columns: readonly ColumnId[];
@@ -112,4 +112,5 @@ export interface CompareGroup {
 export const COMPARE_GROUPS: readonly CompareGroup[] = [
   { id: 'voice', title: 'Voice test', items: COMPARE_ITEMS, columns: ['espeak', 'openai:pseudo', 'openai:plain', 'gemini:plain', 'gemini:aspirated'] },
   { id: 'spot', title: 'Gemini spot-check', items: SPOT_ITEMS, columns: ['gemini:plain', 'gemini:aspirated'] },
+  { id: 'neural', title: 'eSpeak’s sounds, natural voices', items: SPOT_ITEMS, columns: ['espeak', 'piper:it', 'piper:es', 'kokoro:it'] },
 ];

@@ -31,10 +31,17 @@ export const COLUMNS = [
   { id: 'openai:plain', engine: 'openai', variant: 'plain', label: 'OpenAI · plain' },
   { id: 'gemini:plain', engine: 'gemini', variant: 'plain', label: 'Gemini · plain' },
   { id: 'gemini:aspirated', engine: 'gemini', variant: 'aspirated', label: 'Gemini · pʰ tʰ kʰ' },
+  // Neural voices reading eSpeak NG's Latin phonemes (vocabula-content: audio-neural.yml). Made
+  // ahead of time by that workflow and stored in tts_cache; the page never generates them.
+  { id: 'piper:it', engine: 'piper', variant: 'it_IT-paola-medium', label: 'Piper · Italian voice', pregen: true },
+  { id: 'piper:es', engine: 'piper', variant: 'es_ES-davefx-medium', label: 'Piper · Spanish voice', pregen: true },
+  { id: 'kokoro:it', engine: 'kokoro', variant: 'im_nicola', label: 'Kokoro · Italian voice', pregen: true },
 ] as const;
 export type ColumnId = (typeof COLUMNS)[number]['id'];
 export type Column = (typeof COLUMNS)[number];
 export const column = (id: ColumnId): Column => COLUMNS.find((c) => c.id === id)!;
+/** Clips made by a workflow, not on demand: no Generate button. */
+export const isPregen = (c: Column): boolean => 'pregen' in c && c.pregen === true;
 export const RATED_ENGINES = new Set<string>(COLUMNS.map((c) => c.engine));
 export const RATED_VARIANTS = new Set<string>(COLUMNS.map((c) => c.variant));
 

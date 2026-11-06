@@ -77,7 +77,10 @@ async function main() {
 
     await page.goto(ORIGIN + '/#/compare');
     await page.locator('[data-screen="compare"]').waitFor();
-    assert(await page.locator('.cmp-item').count() === COMPARE_ITEMS.length + SPOT_ITEMS.length, 'every item shown');
+    assert(await page.locator('.cmp-item').count() === COMPARE_ITEMS.length + 2 * SPOT_ITEMS.length, 'every item shown');
+    // Neural section: eSpeak + three workflow-made voices, and no Generate button on those.
+    assert(await page.locator('[data-group="neural"] .cmp-player').count() === SPOT_ITEMS.length * 4, 'neural section: four columns');
+    assert(await page.locator('[data-group="neural"] [data-testid="generate"]').count() === 0, 'neural section: nothing to generate');
     assert(await page.locator('[data-group="spot"] .cmp-item').count() === SPOT_ITEMS.length, 'spot-check section');
     assert(await page.locator('[data-group="spot"] .cmp-player').count() === SPOT_ITEMS.length * 2, 'spot-check: two Gemini columns only');
     assert(await page.locator('[data-group="spot"] [data-col="espeak"], [data-group="spot"] [data-col^="openai"]').count() === 0, 'spot-check: no eSpeak/OpenAI');
