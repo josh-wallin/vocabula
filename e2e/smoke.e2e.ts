@@ -67,6 +67,15 @@ async function main() {
     await page.getByTestId('pack-file').setInputFiles(PACK);
     await page.locator('[data-screen="path"]').waitFor();
     log('pack imported, path shown');
+    // EB Garamond's Latin locl would draw u as v under lang="la" ("mvltvs"); the app ships copies without it.
+    // A string, not a function: tsx would wrap a named arrow in __name(), which the page doesn't have.
+    const [uw, vw] = await page.evaluate<[number, number]>(`(async () => {
+      const spans = ['uuuuuuuu', 'vvvvvvvv'].map((t) => { const s = document.createElement('span'); s.className = 'la'; s.lang = 'la'; s.style.font = '600 40px "EB Garamond"'; s.textContent = t; document.body.append(s); return s; });
+      await document.fonts.load('600 40px "EB Garamond"', 'uv'); await document.fonts.ready; await new Promise((r) => setTimeout(r, 300));
+      const r = spans.map((s) => s.getBoundingClientRect().width); spans.forEach((s) => s.remove()); return r;
+    })()`);
+    assert(Math.abs(uw - vw) > 1, `Latin u is drawn as u, not v (widths ${uw.toFixed(1)} / ${vw.toFixed(1)})`);
+    log('Latin u and v drawn differently');
     if ((JSON.parse(readFileSync(PACK, 'utf8')) as { fr?: unknown[] }).fr?.length) {
       // Familia Rōmāna previews close section 1 (locked for now).
       const fr = page.locator('[data-node="s1.fr.1"]');
